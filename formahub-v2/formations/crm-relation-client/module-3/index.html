@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Excellence Relationnelle & Résolution de Litiges — Formahub</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="../../../index.html" class="brand">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      <span>Formahub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../../../index.html">Catalogue</a>
+      <a href="../../../ressources-externes.html">Ressources externes</a>
+      <button class="theme-toggle" type="button" aria-label="Changer de thème">🌓 Thème</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <nav style="margin-bottom: 20px; font-size: 0.9rem;">
+      <a href="../../../index.html" style="color: var(--accent); text-decoration: none;">Formations</a> &gt; 
+      <span style="color: var(--text-muted);">CRM & Relation Client (Salesforce)</span> &gt; 
+      <strong>Excellence Relationnelle & Résolution de Litiges</strong>
+    </nav>
+
+    <div class="hero-banner">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
+        <div>
+          <span class="badge badge-progress" style="margin-bottom: 8px;">CRM & Relation Client (Salesforce)</span>
+          <h1>Excellence Relationnelle & Résolution de Litiges</h1>
+          <p>Adopter la posture adéquate face aux litiges complexes, mesurer la satisfaction (CSAT, NPS, FCR) et traiter les causes racines.</p>
+        </div>
+        <span class="badge badge-neutral" data-module-badge="formation-crm-module-3">Non commencé</span>
+      </div>
+    </div>
+
+    <section class="card" style="margin-bottom: 24px;">
+      <h3 style="margin-top: 0;">🎯 Objectifs pédagogiques</h3>
+      <ul>
+        <li>Désamorcer l'agressivité avec empathie et professionnalisme</li><li>Calculer et interpréter les indicateurs CSAT, NPS et FCR</li><li>Catégoriser les causes d'insatisfaction pour agir en amont</li>
+      </ul>
+    </section>
+
+    
+    <section class="card" style="margin-bottom: 24px;">
+      <h3>1. Posture et communication face à l'insatisfaction</h3>
+      <p style="margin: 0; line-height: 1.7;">Écouter sans couper la parole, reformuler calmement le problème, s'excuser sincèrement du préjudice subi et proposer une solution d'arbitrage claire et rapide.</p>
+    </section>
+    
+    <section class="card" style="margin-bottom: 24px;">
+      <h3>2. Les métriques de la satisfaction client</h3>
+      <p style="margin: 0; line-height: 1.7;">Le FCR mesure la résolution au premier contact, le CSAT évalue la satisfaction immédiate sur l'interaction, et le NPS mesure la propension à recommander la marque à long terme.</p>
+    </section>
+    
+    <section class="card" style="margin-bottom: 24px;">
+      <h3>3. De la gestion de crise à l'amélioration de l'offre</h3>
+      <p style="margin: 0; line-height: 1.7;">Consigner rigoureusement les motifs de litige dans le CRM permet d'identifier les partenaires défaillants ou les failles contractuelles pour éviter leur réitération.</p>
+    </section>
+    
+
+    <section class="card" style="margin-bottom: 24px; border-left: 4px solid var(--accent);">
+      <h3 style="margin-top: 0;">🛠️ Exercice pratique d'application</h3>
+      <p style="margin: 0; line-height: 1.7;">Rédigez un modèle de réponse par email pour un client mécontent suite à un retard de prestation, combinant empathie, solution concrète et geste commercial.</p>
+    </section>
+
+    <!-- Zone dynamique Quiz Formahub -->
+    <section class="quiz-section" id="quiz-container">
+      <!-- Rendu dynamique via quiz-engine.js -->
+    </section>
+
+    <div style="margin-top: 32px; display: flex; justify-content: space-between; align-items: center;">
+      <a href="../../../index.html" class="btn btn-secondary">← Retour au catalogue</a>
+      <a href="../../../ressources-externes.html" class="btn btn-secondary">Voir les formations externes liées →</a>
+    </div>
+  </main>
+
+  <script src="../../../assets/js/progress.js"></script>
+  <script src="../../../assets/js/quiz-engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadQuiz('quiz.json', 'quiz-container', 'formation-crm-module-3');
+    });
+  </script>
+</body>
+</html>

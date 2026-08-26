@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Création de Contenu à Impact & Copywriting — Formahub</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="../../../index.html" class="brand">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      <span>Formahub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../../../index.html">Catalogue</a>
+      <a href="../../../ressources-externes.html">Ressources externes</a>
+      <button class="theme-toggle" type="button" aria-label="Changer de thème">🌓 Thème</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <nav style="margin-bottom: 20px; font-size: 0.9rem;">
+      <a href="../../../index.html" style="color: var(--accent); text-decoration: none;">Formations</a> &gt; 
+      <span style="color: var(--text-muted);">Content Marketing & Stratégie</span> &gt; 
+      <strong>Création de Contenu à Impact & Copywriting</strong>
+    </nav>
+
+    <div class="hero-banner">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
+        <div>
+          <span class="badge badge-progress" style="margin-bottom: 8px;">Content Marketing & Stratégie</span>
+          <h1>Création de Contenu à Impact & Copywriting</h1>
+          <p>Appliquer les formules persuasives (AIDA, PAS), captiver par le storytelling et rédiger des appels à l'action irrésistibles.</p>
+        </div>
+        <span class="badge badge-neutral" data-module-badge="formation-content-module-3">Non commencé</span>
+      </div>
+    </div>
+
+    <section class="card" style="margin-bottom: 24px;">
+      <h3 style="margin-top: 0;">🎯 Objectifs pédagogiques</h3>
+      <ul>
+        <li>Structurer un texte selon les formules de copywriting reconnues</li><li>Intégrer le storytelling pour humaniser son offre</li><li>Rédiger des CTA explicites et orientés bénéfices</li>
+      </ul>
+    </section>
+
+    
+    <section class="card" style="margin-bottom: 24px;">
+      <h3>1. Les structures copywriting (AIDA & PAS)</h3>
+      <p style="margin: 0; line-height: 1.7;">La formule AIDA (Attention, Intérêt, Désir, Action) et la formule PAS (Problème, Agitation, Solution) fournissent une trame psychologique éprouvée pour retenir l'attention et inciter à l'action.</p>
+    </section>
+    
+    <section class="card" style="margin-bottom: 24px;">
+      <h3>2. Le pouvoir du Storytelling en e-commerce</h3>
+      <p style="margin: 0; line-height: 1.7;">Raconter l'histoire d'un artisan ou le défi relevé par un client crée une résonance émotionnelle bien plus mémorable qu'une simple énumération de fonctionnalités.</p>
+    </section>
+    
+    <section class="card" style="margin-bottom: 24px;">
+      <h3>3. Optimiser l'Appel à l'Action (CTA)</h3>
+      <p style="margin: 0; line-height: 1.7;">Un CTA efficace utilise un verbe d'action à la première personne ou à l'impératif direct ('Obtenir mon audit') et explicite immédiatement la valeur obtenue.</p>
+    </section>
+    
+
+    <section class="card" style="margin-bottom: 24px; border-left: 4px solid var(--accent);">
+      <h3 style="margin-top: 0;">🛠️ Exercice pratique d'application</h3>
+      <p style="margin: 0; line-height: 1.7;">Réécrivez une fiche produit fade en utilisant la structure Problème - Agitation - Solution en moins de 150 mots.</p>
+    </section>
+
+    <!-- Zone dynamique Quiz Formahub -->
+    <section class="quiz-section" id="quiz-container">
+      <!-- Rendu dynamique via quiz-engine.js -->
+    </section>
+
+    <div style="margin-top: 32px; display: flex; justify-content: space-between; align-items: center;">
+      <a href="../../../index.html" class="btn btn-secondary">← Retour au catalogue</a>
+      <a href="../../../ressources-externes.html" class="btn btn-secondary">Voir les formations externes liées →</a>
+    </div>
+  </main>
+
+  <script src="../../../assets/js/progress.js"></script>
+  <script src="../../../assets/js/quiz-engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadQuiz('quiz.json', 'quiz-container', 'formation-content-module-3');
+    });
+  </script>
+</body>
+</html>

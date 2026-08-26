@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planification Structurée & Méthode SMART — Formahub</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="../../../index.html" class="brand">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      <span>Formahub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../../../index.html">Catalogue</a>
+      <a href="../../../ressources-externes.html">Ressources externes</a>
+      <button class="theme-toggle" type="button" aria-label="Changer de thème">🌓 Thème</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <nav style="margin-bottom: 20px; font-size: 0.9rem;">
+      <a href="../../../index.html" style="color: var(--accent); text-decoration: none;">Formations</a> &gt; 
+      <span style="color: var(--text-muted);">Gestion de projet, les fondamentaux</span> &gt; 
+      <strong>Planification Structurée & Méthode SMART</strong>
+    </nav>
+
+    <div class="hero-banner">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
+        <div>
+          <span class="badge badge-progress" style="margin-bottom: 8px;">Gestion de projet, les fondamentaux</span>
+          <h1>Planification Structurée & Méthode SMART</h1>
+          <p>Définir des objectifs mesurables, découper le travail avec le WBS et identifier le chemin critique du planning.</p>
+        </div>
+        <span class="badge badge-neutral" data-module-badge="formation-projet-module-2">Non commencé</span>
+      </div>
+    </div>
+
+    <section class="card" style="margin-bottom: 24px;">
+      <h3 style="margin-top: 0;">🎯 Objectifs pédagogiques</h3>
+      <ul>
+        <li>Formuler des objectifs respectant la grille SMART</li><li>Construire une arborescence des tâches (WBS)</li><li>Identifier le chemin critique et placer des jalons clés</li>
+      </ul>
+    </section>
+
+    
+    <section class="card" style="margin-bottom: 24px;">
+      <h3>1. La rigueur des objectifs SMART</h3>
+      <p style="margin: 0; line-height: 1.7;">Un objectif doit être Spécifique, Mesurable, Atteignable, Réaliste et Temporellement défini pour servir de repère d'évaluation indiscutable.</p>
+    </section>
+    
+    <section class="card" style="margin-bottom: 24px;">
+      <h3>2. Le découpage WBS (Work Breakdown Structure)</h3>
+      <p style="margin: 0; line-height: 1.7;">Décomposer le projet en sous-ensembles et tâches élémentaires permet d'estimer avec précision les charges de travail et les dépendances.</p>
+    </section>
+    
+    <section class="card" style="margin-bottom: 24px;">
+      <h3>3. Chemin critique et jalons stratégiques</h3>
+      <p style="margin: 0; line-height: 1.7;">Le chemin critique représente la suite de tâches sans marge déterminant la durée incompressible du projet. Tout retard sur ce chemin décale la livraison finale.</p>
+    </section>
+    
+
+    <section class="card" style="margin-bottom: 24px; border-left: 4px solid var(--accent);">
+      <h3 style="margin-top: 0;">🛠️ Exercice pratique d'application</h3>
+      <p style="margin: 0; line-height: 1.7;">Décomposez le projet de création d'une formation interne de 3 modules en 10 tâches élémentaires reliées par des dépendances.</p>
+    </section>
+
+    <!-- Zone dynamique Quiz Formahub -->
+    <section class="quiz-section" id="quiz-container">
+      <!-- Rendu dynamique via quiz-engine.js -->
+    </section>
+
+    <div style="margin-top: 32px; display: flex; justify-content: space-between; align-items: center;">
+      <a href="../../../index.html" class="btn btn-secondary">← Retour au catalogue</a>
+      <a href="../../../ressources-externes.html" class="btn btn-secondary">Voir les formations externes liées →</a>
+    </div>
+  </main>
+
+  <script src="../../../assets/js/progress.js"></script>
+  <script src="../../../assets/js/quiz-engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadQuiz('quiz.json', 'quiz-container', 'formation-projet-module-2');
+    });
+  </script>
+</body>
+</html>

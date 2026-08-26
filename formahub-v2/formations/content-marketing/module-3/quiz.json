@@ -1,0 +1,87 @@
+{
+  "module_id": "formation-content-module-3",
+  "version": "2.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Que signifient les initiales de la structure persuasive AIDA ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Attention, Intérêt, Désir, Action"
+        },
+        {
+          "key": "b",
+          "text": "Analyse, Indexation, Données, Automatisation"
+        },
+        {
+          "key": "c",
+          "text": "Audit, Intégration, Déploiement, Archivage"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "La formule AIDA capte l'Attention dès l'accroche, suscite l'Intérêt par les bénéfices concrets, crée le Désir par l'émotion et guide vers l'Action d'achat."
+    },
+    {
+      "id": "q2",
+      "question": "Comment le storytelling valorise-t-il une offre de services ou d'artisanat local en e-commerce ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "En racontant l'authenticité de l'artisan, son savoir-faire et l'expérience vécue pour sortir de la simple comparaison par le prix."
+        },
+        {
+          "key": "b",
+          "text": "En inventant des légendes fantastiques sans aucun rapport avec l'établissement."
+        },
+        {
+          "key": "c",
+          "text": "En cachant le nom réel de l'établissement partenaire."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Le récit d'expérience et l'ancrage humain confèrent une valeur perçue supérieure et transforment une transaction marchande en découverte mémorable."
+    },
+    {
+      "id": "q3",
+      "question": "Quelle est la règle d'or lors de la rédaction d'un appel à l'action (Call-To-Action - CTA) ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Formuler un verbe d'action explicite précisant le bénéfice immédiat attendu par l'utilisateur (ex: 'Réserver mon soin')."
+        },
+        {
+          "key": "b",
+          "text": "Utiliser un texte générique et vague comme 'En savoir plus' sans contraste visuel."
+        },
+        {
+          "key": "c",
+          "text": "Placer 10 boutons différents aux couleurs opposées au même endroit."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Un CTA clair, centré sur l'utilisateur et contrasté réduit la friction cognitive et augmente significativement le taux de clics convertis."
+    },
+    {
+      "id": "q4",
+      "question": "En rédaction web, qu'implique le principe de la 'pyramide inversée' ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Délivrer l'information essentielle et la réponse principale dès les premières lignes avant de détailler les éléments secondaires."
+        },
+        {
+          "key": "b",
+          "text": "Écrire les paragraphes de plus en plus longs au fil du texte."
+        },
+        {
+          "key": "c",
+          "text": "Placer la conclusion au milieu de l'article."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Sur le web, les lecteurs scannent le contenu : placer l'essentiel au début permet de capter l'intérêt immédiat avant de développer les détails."
+    }
+  ]
+}

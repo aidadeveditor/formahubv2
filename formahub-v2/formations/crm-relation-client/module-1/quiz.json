@@ -1,0 +1,87 @@
+{
+  "module_id": "formation-crm-module-1",
+  "version": "2.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quelle est la différence fondamentale entre une 'Piste' (Lead) et un 'Compte' (Account) dans un CRM comme Salesforce ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le Lead est un contact commercial brut non qualifié ; le Compte représente l'entreprise cliente structurellement validée."
+        },
+        {
+          "key": "b",
+          "text": "Le Lead est une facture impayée et le Compte est un relevé bancaire."
+        },
+        {
+          "key": "c",
+          "text": "Ce sont deux dénominations strictement identiques sans distinction d'objet."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "La conversion d'une Piste qualifiée engendre la création pérenne du Compte (l'organisation), du Contact (la personne physique) et de l'Opportunité commerciale."
+    },
+    {
+      "id": "q2",
+      "question": "Pourquoi la qualité et la propreté de la donnée client (Data Quality) sont-elles un enjeu stratégique dans le CRM ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Pour éviter les doublons, garantir la pertinence des historiques de communication et fiabiliser les rapports de vente."
+        },
+        {
+          "key": "b",
+          "text": "Pour remplir artificiellement les disques durs des serveurs de l'entreprise."
+        },
+        {
+          "key": "c",
+          "text": "Parce que le CRM refuse d'afficher les pages contenant des fautes d'orthographe."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Des données erronées ou morcelées détériorent l'expérience client, génèrent des frictions entre équipes et faussent les décisions stratégiques."
+    },
+    {
+      "id": "q3",
+      "question": "Quel objet Salesforce permet de modéliser une négociation commerciale en cours avec ses montants et sa date de clôture ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "L'Opportunité (Opportunity)"
+        },
+        {
+          "key": "b",
+          "text": "La Requête de support (Case)"
+        },
+        {
+          "key": "c",
+          "text": "Le Tableau de bord utilisateur (Dashboard)"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "L'objet Opportunité trace le cycle de vente étape par étape (prospection, négociation, closing gagné/perdu) et calcule le pipeline prévisionnel."
+    },
+    {
+      "id": "q4",
+      "question": "Quelle est l'utilité première de consigner l'historique de chaque interaction dans la fiche client du CRM ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Permettre à n'importe quel membre de l'équipe de reprendre le dossier en toute transparence avec un contexte complet."
+        },
+        {
+          "key": "b",
+          "text": "Surveiller les horaires d'arrivée et de départ des collaborateurs."
+        },
+        {
+          "key": "c",
+          "text": "Empêcher le client de contacter d'autres prestataires."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "L'historique partagé élimine les silos d'information et assure une continuité parfaite de service quel que soit l'interlocuteur interne."
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "module_id": "formation-crm-module-2",
+  "version": "2.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Qu'est-ce qu'un accord de niveau de service (Service Level Agreement - SLA) dans un outil de support comme Service Cloud ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Un engagement opérationnel mesurant les délais maximaux autorisés de première réponse et de résolution d'une requête (Case)."
+        },
+        {
+          "key": "b",
+          "text": "Un contrat de maintenance pour le nettoyage des bureaux de l'entreprise."
+        },
+        {
+          "key": "c",
+          "text": "Un filtre masquant les tickets des clients mécontents."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Le SLA encadre la réactivité du service client, priorise les dossiers urgents et déclenche des alertes en cas de risque de dépassement."
+    },
+    {
+      "id": "q2",
+      "question": "À quoi sert une 'File d'attente' (Queue) dans la gestion des requêtes Salesforce ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "À centraliser et distribuer équitablement les tickets entrants non assignés à un groupe de gestionnaires compétents selon la typologie."
+        },
+        {
+          "key": "b",
+          "text": "À bloquer temporairement les emails pendant les week-ends."
+        },
+        {
+          "key": "c",
+          "text": "À classer les dossiers par ordre alphabétique du prénom des clients."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Les files d'attente permettent un routage automatique par compétence (ex: Support Marchands, Facturation, Litiges) garantissant un traitement rapide."
+    },
+    {
+      "id": "q3",
+      "question": "Que déclenche une règle d'escalade automatique (Escalation Rule) lorsqu'un ticket approche de son échéance SLA ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "La réattribution prioritaire du ticket ou l'envoi d'une notification d'alerte au responsable pour débloquer la situation."
+        },
+        {
+          "key": "b",
+          "text": "La fermeture automatique du dossier sans apporter de réponse au client."
+        },
+        {
+          "key": "c",
+          "text": "La déconnexion forcée de l'ensemble des téléphones du service."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "L'escalade prévient les ruptures de service en alertant la hiérarchie avant que le délai contractuel ne soit définitivement enfreint."
+    },
+    {
+      "id": "q4",
+      "question": "Qu'apporte l'utilisation de vues de liste filtrées (List Views) personnalisées pour un agent de support ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Visualiser instantanément ses dossiers en cours triés par priorité, niveau d'urgence et date d'échéance SLA."
+        },
+        {
+          "key": "b",
+          "text": "Changer la police de caractères de l'interface globale."
+        },
+        {
+          "key": "c",
+          "text": "Imprimer tous les tickets sous forme de classeur papier."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Les vues personnalisées évitent aux agents de chercher manuellement leurs priorités et concentrent leur action sur les requêtes critiques."
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "module_id": "formation-management-module-3",
+  "version": "2.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quel est l'objectif premier d'une démarche d'audit qualité au sein d'une équipe opérationnelle ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Identifier les points de friction dans les processus et monter en compétences collectivement, sans démarche de sanction individuelle."
+        },
+        {
+          "key": "b",
+          "text": "Établir un classement public des mauvais collaborateurs pour leur appliquer des retenues sur salaire."
+        },
+        {
+          "key": "c",
+          "text": "Supprimer les outils digitaux pour repasser à l'écriture sur papier."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "L'audit bienveillant mesure la conformité des flux de travail pour corriger les failles du système plutôt que de stigmatiser les exécutants."
+    },
+    {
+      "id": "q2",
+      "question": "À quoi sert la technique des '5 Pourquoi' issue des méthodes d'amélioration continue (Lean) ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "À remonter à la cause racine fondamentale d'un dysfonctionnement en interrogeant la chaîne causale successive."
+        },
+        {
+          "key": "b",
+          "text": "À poser 5 questions différentes à 5 personnes au hasard dans les couloirs."
+        },
+        {
+          "key": "c",
+          "text": "À justifier systématiquement les erreurs auprès de la direction."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "S'arrêter au premier symptôme ne résout rien : creuser la cause profonde permet de mettre en place une parade systémique définitive."
+    },
+    {
+      "id": "q3",
+      "question": "Qu'est-ce qu'une grille d'audit qualité efficace et partagée ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Un document synthétique aux critères objectifs, mesurables et connus de tous les collaborateurs avant l'évaluation."
+        },
+        {
+          "key": "b",
+          "text": "Une liste secrète de critères subjectifs modifiés après chaque audit."
+        },
+        {
+          "key": "c",
+          "text": "Un formulaire de 200 pages rempli uniquement une fois tous les 10 ans."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "La transparence des critères garantit la légitimité de l'évaluation et permet à chacun de s'auto-évaluer au quotidien."
+    },
+    {
+      "id": "q4",
+      "question": "Dans le cycle d'amélioration continue Roue de Deming (PDCA), que signifie la séquence d'actions ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Plan (Planifier) → Do (Réaliser) → Check (Contrôler/Évaluer) → Act (Ajuster/Standardiser)"
+        },
+        {
+          "key": "b",
+          "text": "Print (Imprimer) → Delete (Supprimer) → Copy (Copier) → Archive (Archiver)"
+        },
+        {
+          "key": "c",
+          "text": "Pause (S'arrêter) → Discuss (Discuter) → Cancel (Annuler) → Agree (Accepter)"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Le cycle PDCA est le moteur universel de l'amélioration continue : on prépare, on teste, on mesure les résultats, puis on pérennise les ajustements."
+    }
+  ]
+}

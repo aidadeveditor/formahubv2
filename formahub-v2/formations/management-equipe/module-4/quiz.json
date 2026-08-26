@@ -1,0 +1,87 @@
+{
+  "module_id": "formation-management-module-4",
+  "version": "2.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quels sont les éléments indispensables pour garantir l'efficacité d'une réunion d'équipe ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Un ordre du jour partagé à l'avance, un objectif clair, un timing strict et un relevé de décisions désignant un porteur et une échéance par action."
+        },
+        {
+          "key": "b",
+          "text": "Inviter toute l'entreprise sans ordre du jour pour laisser libre cours aux discussions informelles."
+        },
+        {
+          "key": "c",
+          "text": "Prolonger systématiquement la réunion d'une heure au-delà de l'horaire prévu."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Sans ordre du jour et sans relevé de décisions engageant (qui fait quoi pour quand), la réunion génère de la fatigue sans impact opérationnel."
+    },
+    {
+      "id": "q2",
+      "question": "Quelle est la première action à entreprendre face à un conflit interpersonnel naissant dans une équipe ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Recevoir rapidement les personnes concernées en entretien individuel pour écouter leurs ressentis et clarifier les faits avant médiation."
+        },
+        {
+          "key": "b",
+          "text": "Ignorer la situation en espérant qu'elle se règle d'elle-même avec le temps."
+        },
+        {
+          "key": "c",
+          "text": "Prendre parti pour la personne la plus ancienne dans l'entreprise devant tout le monde."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Traiter le problème au plus tôt en tête-à-tête évite la cristallisation des postures et permet de comprendre les besoins sous-jacents."
+    },
+    {
+      "id": "q3",
+      "question": "Sur quel principe clé repose la Communication Non-Violente (CNV) dans les échanges professionnels délicats ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Exprimer ses observations factuelles, nommer ses besoins professionnels et formuler une demande concrète et négociable sans accuser l'autre."
+        },
+        {
+          "key": "b",
+          "text": "Se taire en permanence pour éviter toute forme de désaccord."
+        },
+        {
+          "key": "c",
+          "text": "Menacer de sanctions administratives dès la première minute de conversation."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "La CNV (Observation, Sentiment, Besoin, Demande) crée les conditions d'un dialogue authentique en désactivant les mécanismes de défense d'autrui."
+    },
+    {
+      "id": "q4",
+      "question": "Quel est le format et le rôle idéal d'un point d'équipe quotidien (Daily Stand-up) ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "10 à 15 minutes debout, où chacun partage ce qu'il a fait, ce qu'il va faire aujourd'hui et les blocages éventuels nécessitant de l'aide."
+        },
+        {
+          "key": "b",
+          "text": "Une présentation PowerPoint magistrale de 2 heures animée par le manager."
+        },
+        {
+          "key": "c",
+          "text": "Un débat contradictoire sur les choix stratégiques à long terme de l'entreprise."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Le point synchronise les efforts, fluidifie l'entraide et permet de débloquer rapidement les collaborateurs sans alourdir la journée."
+    }
+  ]
+}

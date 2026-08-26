@@ -1,0 +1,87 @@
+{
+  "module_id": "formation-management-module-1",
+  "version": "2.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quelle est la transformation de posture essentielle lors du passage d'expert technique à manager d'équipe ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Passer du 'faire soi-même' au 'faire faire', en créant les conditions permettant aux collaborateurs de réussir et de monter en autonomie."
+        },
+        {
+          "key": "b",
+          "text": "Conserver toutes les tâches complexes pour soi et ne déléguer que les corvées sans explication."
+        },
+        {
+          "key": "c",
+          "text": "Cesser toute communication avec les membres de son ancien service."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Le rôle du manager n'est plus d'être le meilleur exécutant, mais de développer les compétences, de donner du sens et de lever les obstacles pour son équipe."
+    },
+    {
+      "id": "q2",
+      "question": "Sur quel principe repose le modèle du 'management situationnel' (Hersey & Blanchard) ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Adapter son niveau d'encadrement et de soutien selon le degré de compétence et de motivation du collaborateur face à une tâche précise."
+        },
+        {
+          "key": "b",
+          "text": "Appliquer le même style autoritaire rigide avec tous les collaborateurs en toute circonstance."
+        },
+        {
+          "key": "c",
+          "text": "Tirer au sort les décisions managériales lors des réunions d'équipe."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Un même collaborateur peut nécessiter un style directif sur une mission nouvelle, et un style purement délégatif sur une tâche qu'il maîtrise parfaitement."
+    },
+    {
+      "id": "q3",
+      "question": "Dans quelle situation le style de management 'Directif' est-il particulièrement justifié et efficace ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "En situation d'urgence critique, face à des règles de sécurité strictes ou lors de la prise de poste d'un profil débutant."
+        },
+        {
+          "key": "b",
+          "text": "Lors d'une session de brainstorming créatif avec des experts seniors chevronnés."
+        },
+        {
+          "key": "c",
+          "text": "Pour organiser le choix de la destination du séminaire d'entreprise."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Le style directif apporte un cadre clair, précis et rassurant lorsque la situation exige une exécution immédiate sans équivoque."
+    },
+    {
+      "id": "q4",
+      "question": "Quelle attitude favorise l'instauration d'un climat de confiance et de sécurité psychologique dans une équipe ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Faire preuve d'écoute active, accepter le droit à l'erreur apprenante et être cohérent entre ses paroles et ses actes."
+        },
+        {
+          "key": "b",
+          "text": "Sanctionner publiquement la moindre maladresse pour donner l'exemple."
+        },
+        {
+          "key": "c",
+          "text": "Refuser de communiquer les objectifs stratégiques fixés par la direction."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "La sécurité psychologique encourage les collaborateurs à s'exprimer, à innover et à remonter précocement les difficultés sans crainte de représailles."
+    }
+  ]
+}
