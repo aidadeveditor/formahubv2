@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction aux LLM & Principes Fondamentaux — Formahub</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="../../../index.html" class="brand">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      <span>Formahub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../../../index.html">Catalogue</a>
+      <a href="../../../ressources-externes.html">Ressources externes</a>
+      <button class="theme-toggle" type="button" aria-label="Changer de thème">🌓 Thème</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <nav style="margin-bottom: 20px; font-size: 0.9rem;">
+      <a href="../../../index.html" style="color: var(--accent); text-decoration: none;">Formations</a> &gt; 
+      <span style="color: var(--text-muted);">IA Générative appliquée au contenu</span> &gt; 
+      <strong>Introduction aux LLM & Principes Fondamentaux</strong>
+    </nav>
+
+    <div class="hero-banner">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
+        <div>
+          <span class="badge badge-progress" style="margin-bottom: 8px;">IA Générative appliquée au contenu</span>
+          <h1>Introduction aux LLM & Principes Fondamentaux</h1>
+          <p>Comprendre le fonctionnement probabiliste des réseaux de neurones génératifs, leurs limites intrinsèques et la prévention des hallucinations.</p>
+        </div>
+        <span class="badge badge-neutral" data-module-badge="formation-ia-module-1">Non commencé</span>
+      </div>
+    </div>
+
+    <section class="card" style="margin-bottom: 24px;">
+      <h3 style="margin-top: 0;">🎯 Objectifs pédagogiques</h3>
+      <ul>
+        <li>Expliquer le mécanisme de prédiction probabiliste de tokens</li><li>Identifier les risques d'hallucinations et d'erreurs factuelles</li><li>Cerner les tâches éditoriales à haute valeur ajoutée avec l'IA</li>
+      </ul>
+    </section>
+
+    
+    <section class="card" style="margin-bottom: 24px;">
+      <h3>1. Qu'est-ce qu'un grand modèle de langage (LLM) ?</h3>
+      <p style="margin: 0; line-height: 1.7;">Un LLM est un modèle d'apprentissage profond entraîné sur de vastes corpus textuels. Il génère des réponses en prédisant de manière probabiliste le token (mot ou fragment) suivant le plus pertinent compte tenu du contexte.</p>
+    </section>
+    
+    <section class="card" style="margin-bottom: 24px;">
+      <h3>2. La nature des hallucinations</h3>
+      <p style="margin: 0; line-height: 1.7;">Les LLM ne disposent pas d'une base de vérité absolue : ils cherchent la plausibilité statistique. Lorsque l'information manque, ils peuvent affirmer des erreurs avec assurance, exigeant un contrôle humain systématique.</p>
+    </section>
+    
+    <section class="card" style="margin-bottom: 24px;">
+      <h3>3. Domaines d'excellence et cas d'usage</h3>
+      <p style="margin: 0; line-height: 1.7;">L'IA est particulièrement puissante pour la reformulation, la synthèse, le changement de ton, la traduction et le brainstorming d'idées nouvelles.</p>
+    </section>
+    
+
+    <section class="card" style="margin-bottom: 24px; border-left: 4px solid var(--accent);">
+      <h3 style="margin-top: 0;">🛠️ Exercice pratique d'application</h3>
+      <p style="margin: 0; line-height: 1.7;">Testez une question technique pointue sur un LLM et vérifiez chaque fait énoncé en recherchant les sources officielles.</p>
+    </section>
+
+    <!-- Zone dynamique Quiz Formahub -->
+    <section class="quiz-section" id="quiz-container">
+      <!-- Rendu dynamique via quiz-engine.js -->
+    </section>
+
+    <div style="margin-top: 32px; display: flex; justify-content: space-between; align-items: center;">
+      <a href="../../../index.html" class="btn btn-secondary">← Retour au catalogue</a>
+      <a href="../../../ressources-externes.html" class="btn btn-secondary">Voir les formations externes liées →</a>
+    </div>
+  </main>
+
+  <script src="../../../assets/js/progress.js"></script>
+  <script src="../../../assets/js/quiz-engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadQuiz('quiz.json', 'quiz-container', 'formation-ia-module-1');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clôture de Projet, Recette & Capitalisation (RXP) — Formahub</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="../../../index.html" class="brand">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      <span>Formahub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../../../index.html">Catalogue</a>
+      <a href="../../../ressources-externes.html">Ressources externes</a>
+      <button class="theme-toggle" type="button" aria-label="Changer de thème">🌓 Thème</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <nav style="margin-bottom: 20px; font-size: 0.9rem;">
+      <a href="../../../index.html" style="color: var(--accent); text-decoration: none;">Formations</a> &gt; 
+      <span style="color: var(--text-muted);">Gestion de projet, les fondamentaux</span> &gt; 
+      <strong>Clôture de Projet, Recette & Capitalisation (RXP)</strong>
+    </nav>
+
+    <div class="hero-banner">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
+        <div>
+          <span class="badge badge-progress" style="margin-bottom: 8px;">Gestion de projet, les fondamentaux</span>
+          <h1>Clôture de Projet, Recette & Capitalisation (RXP)</h1>
+          <p>Conduire la recette formelle, organiser le retour d'expérience d'équipe et pérenniser les acquis organisationnels.</p>
+        </div>
+        <span class="badge badge-neutral" data-module-badge="formation-projet-module-4">Non commencé</span>
+      </div>
+    </div>
+
+    <section class="card" style="margin-bottom: 24px;">
+      <h3 style="margin-top: 0;">🎯 Objectifs pédagogiques</h3>
+      <ul>
+        <li>Valider la recette finale selon les critères d'acceptation</li><li>Animer une session de retour d'expérience (Post-Mortem)</li><li>Constituer une base documentaire réutilisable</li>
+      </ul>
+    </section>
+
+    
+    <section class="card" style="margin-bottom: 24px;">
+      <h3>1. La recette formelle et le transfert de propriété</h3>
+      <p style="margin: 0; line-height: 1.7;">La recette valide contractuellement la conformité du travail délivré avec le cahier des charges et organise la passation vers les équipes opérationnelles.</p>
+    </section>
+    
+    <section class="card" style="margin-bottom: 24px;">
+      <h3>2. Conduire un retour d'expérience (RXP) constructif</h3>
+      <p style="margin: 0; line-height: 1.7;">Réunissez l'équipe pour identifier en toute bienveillance ce qui a fonctionné, les dysfonctionnements rencontrés et les enseignements à retenir.</p>
+    </section>
+    
+    <section class="card" style="margin-bottom: 24px;">
+      <h3>3. Capitalisation des modèles et connaissances</h3>
+      <p style="margin: 0; line-height: 1.7;">Enregistrer les gabarits, grilles d'audit et processus affinés fait gagner un temps précieux lors des initiatives suivantes.</p>
+    </section>
+    
+
+    <section class="card" style="margin-bottom: 24px; border-left: 4px solid var(--accent);">
+      <h3 style="margin-top: 0;">🛠️ Exercice pratique d'application</h3>
+      <p style="margin: 0; line-height: 1.7;">Rédigez le compte-rendu type d'un atelier RXP en 3 rubriques : Réussites, Difficultés rencontrées, Bonnes pratiques à adopter.</p>
+    </section>
+
+    <!-- Zone dynamique Quiz Formahub -->
+    <section class="quiz-section" id="quiz-container">
+      <!-- Rendu dynamique via quiz-engine.js -->
+    </section>
+
+    <div style="margin-top: 32px; display: flex; justify-content: space-between; align-items: center;">
+      <a href="../../../index.html" class="btn btn-secondary">← Retour au catalogue</a>
+      <a href="../../../ressources-externes.html" class="btn btn-secondary">Voir les formations externes liées →</a>
+    </div>
+  </main>
+
+  <script src="../../../assets/js/progress.js"></script>
+  <script src="../../../assets/js/quiz-engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadQuiz('quiz.json', 'quiz-container', 'formation-projet-module-4');
+    });
+  </script>
+</body>
+</html>

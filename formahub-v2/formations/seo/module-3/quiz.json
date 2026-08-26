@@ -1,0 +1,87 @@
+{
+  "module_id": "formation-seo-module-3",
+  "version": "2.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quelle est la bonne pratique relative à la balise &lt;h1&gt; sur une page web ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Conserver un seul &lt;h1&gt; unique par page décrivant précisément le sujet central."
+        },
+        {
+          "key": "b",
+          "text": "Insérer 5 à 10 &lt;h1&gt; pour forcer l'indexation de tous les mots-clés."
+        },
+        {
+          "key": "c",
+          "text": "Laisser la balise &lt;h1&gt; vide pour privilégier les images."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "La hiérarchie sémantique exige un titre principal &lt;h1&gt; unique clarifiant le thème de la page, suivi de sous-sections logiquement ordonnées en &lt;h2&gt; puis &lt;h3&gt;."
+    },
+    {
+      "id": "q2",
+      "question": "Quel est l'impact premier d'une balise meta description optimisée ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Elle augmente le taux de clic (CTR) dans les résultats de recherche en rendant l'accroche attractive."
+        },
+        {
+          "key": "b",
+          "text": "Elle garantit mathématiquement la première place algorithmique."
+        },
+        {
+          "key": "c",
+          "text": "Elle remplace le contenu texte de la page pour les moteurs de recherche."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Bien que la meta description ne soit pas un facteur direct de ranking algorithmique, elle constitue la vitrine de votre page dans la SERP et influence directement le choix de l'internaute."
+    },
+    {
+      "id": "q3",
+      "question": "Pourquoi l'attribut alt (texte alternatif) d'une image est-il indispensable ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Il assure l'accessibilité pour les malvoyants et permet aux moteurs de comprendre le contenu visuel."
+        },
+        {
+          "key": "b",
+          "text": "Il permet de compresser automatiquement le poids de l'image en kilo-octets."
+        },
+        {
+          "key": "c",
+          "text": "Il masque l'image si la connexion internet est trop lente."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "L'attribut alt remplit une fonction clé d'accessibilité numérique (lecteurs d'écran) et fournit un contexte sémantique précieux pour le référencement d'images."
+    },
+    {
+      "id": "q4",
+      "question": "Quelle est la caractéristique d'un maillage interne efficace ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Des ancres de liens textuelles contextualisées reliant logiquement des contenus thématiquement proches."
+        },
+        {
+          "key": "b",
+          "text": "L'utilisation exclusive du texte d'ancre 'Cliquez ici' sur tous les liens."
+        },
+        {
+          "key": "c",
+          "text": "L'insertion de centaines de liens aléatoires en bas de page."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Des ancres de liens descriptives et pertinentes aident les robots et les internautes à naviguer dans le cocon sémantique et à transférer le flux de popularité interne."
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recherche de mots-clés stratégiques & Intentions — Formahub</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="../../../index.html" class="brand">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      <span>Formahub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../../../index.html">Catalogue</a>
+      <a href="../../../ressources-externes.html">Ressources externes</a>
+      <button class="theme-toggle" type="button" aria-label="Changer de thème">🌓 Thème</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <nav style="margin-bottom: 20px; font-size: 0.9rem;">
+      <a href="../../../index.html" style="color: var(--accent); text-decoration: none;">Formations</a> &gt; 
+      <span style="color: var(--text-muted);">SEO Fondamentaux</span> &gt; 
+      <strong>Recherche de mots-clés stratégiques & Intentions</strong>
+    </nav>
+
+    <div class="hero-banner">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
+        <div>
+          <span class="badge badge-progress" style="margin-bottom: 8px;">SEO Fondamentaux</span>
+          <h1>Recherche de mots-clés stratégiques & Intentions</h1>
+          <p>Maîtriser la recherche sémantique, classifier les intentions de recherche et cartographier les mots-clés pour éviter la cannibalisation.</p>
+        </div>
+        <span class="badge badge-neutral" data-module-badge="formation-seo-module-2">Non commencé</span>
+      </div>
+    </div>
+
+    <section class="card" style="margin-bottom: 24px;">
+      <h3 style="margin-top: 0;">🎯 Objectifs pédagogiques</h3>
+      <ul>
+        <li>Catégoriser les 4 grandes intentions de recherche</li><li>Exploiter la longue traîne pour maximiser les conversions</li><li>Construire une matrice de mapping mots-clés / URLs</li>
+      </ul>
+    </section>
+
+    
+    <section class="card" style="margin-bottom: 24px;">
+      <h3>1. Typologie des intentions de recherche</h3>
+      <p style="margin: 0; line-height: 1.7;">On distingue l'intention informationnelle (ex: 'comment fonctionne un spa'), commerciale d'investigation (ex: 'meilleur spa paris avis'), transactionnelle (ex: 'réserver massage duo lyon') et navigationnelle (ex: 'groupon connexion'). Aligner le type de page sur l'intention exacte est la clé du ranking.</p>
+    </section>
+    
+    <section class="card" style="margin-bottom: 24px;">
+      <h3>2. Le potentiel de la longue traîne</h3>
+      <p style="margin: 0; line-height: 1.7;">Les requêtes courtes et génériques sont ultra-concurrentielles et souvent trop vagues. La longue traîne (requêtes de 3 à 5 mots très spécifiques) cumule la majorité des recherches web et enregistre les meilleurs taux de conversion du e-commerce.</p>
+    </section>
+    
+    <section class="card" style="margin-bottom: 24px;">
+      <h3>3. Matrice de mapping et prévention de la cannibalisation</h3>
+      <p style="margin: 0; line-height: 1.7;">Attribuez à chaque page du site une requête principale cible unique. Deux pages ciblant exactement le même terme se cannibalisent et affaiblissent la visibilité globale.</p>
+    </section>
+    
+
+    <section class="card" style="margin-bottom: 24px; border-left: 4px solid var(--accent);">
+      <h3 style="margin-top: 0;">🛠️ Exercice pratique d'application</h3>
+      <p style="margin: 0; line-height: 1.7;">Créez une matrice de 5 requêtes pour un institut de beauté fictif en classant chaque mot-clé par type d'intention et URL dédiée.</p>
+    </section>
+
+    <!-- Zone dynamique Quiz Formahub -->
+    <section class="quiz-section" id="quiz-container">
+      <!-- Rendu dynamique via quiz-engine.js -->
+    </section>
+
+    <div style="margin-top: 32px; display: flex; justify-content: space-between; align-items: center;">
+      <a href="../../../index.html" class="btn btn-secondary">← Retour au catalogue</a>
+      <a href="../../../ressources-externes.html" class="btn btn-secondary">Voir les formations externes liées →</a>
+    </div>
+  </main>
+
+  <script src="../../../assets/js/progress.js"></script>
+  <script src="../../../assets/js/quiz-engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadQuiz('quiz.json', 'quiz-container', 'formation-seo-module-2');
+    });
+  </script>
+</body>
+</html>

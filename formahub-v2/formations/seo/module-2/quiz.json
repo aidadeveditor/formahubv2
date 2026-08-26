@@ -1,0 +1,87 @@
+{
+  "module_id": "formation-seo-module-2",
+  "version": "2.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quelle intention caractérise la requête 'meilleur restaurant gastronomique Nantes avis' ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Intention navigationnelle"
+        },
+        {
+          "key": "b",
+          "text": "Intention d'investigation commerciale"
+        },
+        {
+          "key": "c",
+          "text": "Intention purement informationnelle"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "L'internaute compare des prestations, consulte des avis et pèse ses options avant achat, ce qui correspond typiquement à la phase d'investigation commerciale."
+    },
+    {
+      "id": "q2",
+      "question": "Quel est le principal avantage stratégique des requêtes dites de 'longue traîne' ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Elles sont très spécifiques, moins concurrentielles et affichent un taux de conversion bien plus élevé."
+        },
+        {
+          "key": "b",
+          "text": "Elles cumulent des millions de recherches mensuelles sur un seul mot générique."
+        },
+        {
+          "key": "c",
+          "text": "Elles permettent d'ignorer la rédaction de contenu qualitatif."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Bien que le volume individuel soit modéré, le cumul des requêtes de longue traîne représente l'essentiel du trafic qualifié et convertit bien mieux car le besoin est précis."
+    },
+    {
+      "id": "q3",
+      "question": "Qu'appelle-t-on la 'cannibalisation sémantique' en SEO ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "La concurrence néfaste entre plusieurs pages d'un même site ciblant la même intention et le même mot-clé principal."
+        },
+        {
+          "key": "b",
+          "text": "Le blocage complet de l'indexation par un fichier robots.txt mal configuré."
+        },
+        {
+          "key": "c",
+          "text": "L'utilisation de synonymes dans un paragraphe descriptif."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Avoir plusieurs pages internes ciblant exactement la même requête divise les signaux d'autorité et perturbe le moteur sur l'URL de référence à positionner."
+    },
+    {
+      "id": "q4",
+      "question": "En quoi consiste une matrice de mapping mots-clés / pages ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "À attribuer formellement à chaque URL du site une intention de recherche et un groupe lexical principal unique."
+        },
+        {
+          "key": "b",
+          "text": "À supprimer les balises H2 de toutes les pages d'accueil."
+        },
+        {
+          "key": "c",
+          "text": "À acheter tous les noms de domaine similaires sur le web."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Le mapping sémantique organise l'architecture du site en s'assurant que chaque page possède une cible éditoriale distincte et qu'aucun mot-clé prioritaire n'est orphelin."
+    }
+  ]
+}

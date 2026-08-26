@@ -1,0 +1,87 @@
+{
+  "module_id": "formation-projet-module-3",
+  "version": "2.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Comment calcule-t-on la criticité globale d'un risque opérationnel ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Criticité = Probabilité d'apparition × Gravité de l'impact sur le projet"
+        },
+        {
+          "key": "b",
+          "text": "Criticité = Nombre de personnes affectées ÷ Budget total du projet"
+        },
+        {
+          "key": "c",
+          "text": "Criticité = Durée de la réunion hebdomadaire en minutes"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "La matrice des risques croise la fréquence potentielle d'un aléa avec l'ampleur de ses conséquences, priorisant les actions de mitigation préventives."
+    },
+    {
+      "id": "q2",
+      "question": "Quelle est la meilleure approche face à un risque critique identifié en phase de planification ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Mettre en place un plan d'action préventif pour réduire sa probabilité et prévoir une solution de repli (plan B) pour en limiter l'impact."
+        },
+        {
+          "key": "b",
+          "text": "Ignorer le risque pour ne pas inquiéter les parties prenantes."
+        },
+        {
+          "key": "c",
+          "text": "Annuler immédiatement l'ensemble des activités de l'entreprise."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "La gestion proactive des risques permet de sécuriser le projet en anticipant des solutions concrètes avant que l'événement ne se produise."
+    },
+    {
+      "id": "q3",
+      "question": "Quels sont les trois indicateurs essentiels d'un tableau de bord de suivi de projet ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "L'avancement physique (% de réalisation), le respect des jalons calendaires et la consommation du budget alloué."
+        },
+        {
+          "key": "b",
+          "text": "Le nombre de mails reçus, la météo locale et le nombre de cafés bus."
+        },
+        {
+          "key": "c",
+          "text": "La couleur des stylos utilisés par les membres de l'équipe."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Ces trois indicateurs permettent au chef de projet et aux sponsors de visualiser l'état de santé du projet et d'arbitrer les priorités à temps."
+    },
+    {
+      "id": "q4",
+      "question": "Que doit faire un chef de projet lorsqu'un retard imprévu survient sur une tâche critique ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Analyser l'impact sur le chemin critique, alerter les parties prenantes et proposer des scénarios d'arbitrage (ajustement de charge, renfort ou décalage)."
+        },
+        {
+          "key": "b",
+          "text": "Masquer le retard dans les comptes-rendus jusqu'au jour de la livraison finale."
+        },
+        {
+          "key": "c",
+          "text": "Accuser publiquement le collaborateur en charge de la tâche."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "La transparence et la réactivité permettent d'engager des mesures correctives concertées avant que le retard ne devienne irréversible."
+    }
+  ]
+}

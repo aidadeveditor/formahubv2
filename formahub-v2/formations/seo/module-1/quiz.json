@@ -1,0 +1,87 @@
+{
+  "module_id": "formation-seo-module-1",
+  "version": "2.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Dans quel ordre chronologique un moteur de recherche traite-t-il une nouvelle page web ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Indexation → Exploration (Crawl) → Classement (Ranking)"
+        },
+        {
+          "key": "b",
+          "text": "Exploration (Crawl) → Indexation → Classement (Ranking)"
+        },
+        {
+          "key": "c",
+          "text": "Classement (Ranking) → Exploration (Crawl) → Indexation"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Les robots parcourent d'abord le web via les hyperliens (crawl), analysent et stockent le contenu pertinent dans leur index (indexation), puis appliquent leurs algorithmes de classement lors d'une requête utilisateur."
+    },
+    {
+      "id": "q2",
+      "question": "Quels sont les trois piliers fondamentaux et indissociables d'une stratégie SEO pérenne ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Technique, Sémantique (Contenu) et Notoriété (Popularité/Backlinks)"
+        },
+        {
+          "key": "b",
+          "text": "Budget publicitaire, Enchères par clic et Présence sur les réseaux sociaux"
+        },
+        {
+          "key": "c",
+          "text": "Nombre de pages, Fréquence de publication et Densité brute de mots-clés"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Une visibilité organique durable exige un socle technique sain (crawlable/rapide), des contenus répondant parfaitement aux intentions de recherche, et une autorité démontrée par des liens externes de confiance."
+    },
+    {
+      "id": "q3",
+      "question": "Quelle est la différence structurelle majeure entre le référencement naturel (SEO) et payant (SEA) ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le SEO capitalise sur des optimisations durables tandis que le SEA s'arrête instantanément dès l'épuisement du budget."
+        },
+        {
+          "key": "b",
+          "text": "Le SEA garantit une première place permanente sans aucune concurrence."
+        },
+        {
+          "key": "c",
+          "text": "Le SEO est réservé aux sites éditoriaux et le SEA aux plateformes e-commerce."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Le SEA repose sur l'achat d'espace aux enchères avec un impact immédiat mais éphémère, alors que le SEO constitue un investissement d'actif digital générant du trafic qualifié dans la durée."
+    },
+    {
+      "id": "q4",
+      "question": "Pourquoi l'accessibilité mobile et la rapidité d'affichage sont-elles devenues cruciales pour l'indexation ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Parce que les moteurs explorent prioritairement le web avec leur robot pour smartphone (index Mobile-First)."
+        },
+        {
+          "key": "b",
+          "text": "Parce que les ordinateurs de bureau ne peuvent plus afficher les pages web récentes."
+        },
+        {
+          "key": "c",
+          "text": "Parce que les balises HTML ne fonctionnent que sur terminaux mobiles."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Avec l'indexation Mobile-First, Google évalue et classe les sites web en se basant quasi exclusivement sur leur version mobile et sur les signaux de performance utilisateur (Core Web Vitals)."
+    }
+  ]
+}

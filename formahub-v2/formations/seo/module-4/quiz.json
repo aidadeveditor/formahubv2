@@ -1,0 +1,87 @@
+{
+  "module_id": "formation-seo-module-4",
+  "version": "2.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "À quoi sert principalement la directive 'noindex' dans une balise meta robots ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "À ordonner expressément aux moteurs de ne pas inclure la page dans leurs résultats de recherche."
+        },
+        {
+          "key": "b",
+          "text": "À accélérer le téléchargement des polices de caractères."
+        },
+        {
+          "key": "c",
+          "text": "À bloquer l'accès des utilisateurs ne disposant pas d'un mot de passe."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "La directive noindex permet d'exclure les pages à faible valeur ajoutée (paniers, mentions légales, filtres multiples) de l'index des moteurs."
+    },
+    {
+      "id": "q2",
+      "question": "Quelle est la différence entre le fichier robots.txt et le fichier sitemap.xml ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le robots.txt guide et restreint l'exploration des robots ; le sitemap.xml liste les URL importantes à indexer."
+        },
+        {
+          "key": "b",
+          "text": "Le robots.txt sert au design CSS ; le sitemap.xml sert à coder les scripts JavaScript."
+        },
+        {
+          "key": "c",
+          "text": "Ce sont deux fichiers strictement identiques sans distinction technique."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Le robots.txt gère le budget de crawl en interdisant des répertoires aux robots, tandis que le sitemap.xml fournit une cartographie facilitant la découverte des pages."
+    },
+    {
+      "id": "q3",
+      "question": "Qu'est-ce qui caractérise un backlink (lien entrant) de haute valeur en netlinking ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Il provient d'un site d'autorité dans la même thématique, inséré naturellement dans un contenu contextuel."
+        },
+        {
+          "key": "b",
+          "text": "Il provient d'une ferme de liens générique ayant des milliers de liens non modérés."
+        },
+        {
+          "key": "c",
+          "text": "Il est placé en texte blanc invisible sur fond blanc."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "La pertinence thématique, la confiance du domaine émetteur et le positionnement naturel du lien dans le texte sont les critères déterminants pour transmettre du PageRank."
+    },
+    {
+      "id": "q4",
+      "question": "À quoi sert la balise 'canonical' (rel=canonical) ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "À indiquer aux moteurs l'URL de référence principale lorsqu'un contenu existe sous plusieurs URL similaires."
+        },
+        {
+          "key": "b",
+          "text": "À forcer la traduction automatique du site dans toutes les langues."
+        },
+        {
+          "key": "c",
+          "text": "À redémarrer le serveur web en cas de panne."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "La balise canonique résout les problèmes de contenu dupliqué (duplicate content) générés par exemple par des paramètres d'URL, des filtres ou des versions multirégionales."
+    }
+  ]
+}

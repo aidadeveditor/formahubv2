@@ -1,0 +1,87 @@
+{
+  "module_id": "formation-projet-module-1",
+  "version": "2.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quelles sont les trois contraintes interdépendantes du 'triangle d'or' de gestion de projet ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Coût (Budget), Délai (Temps) et Qualité (Périmètre / Scope)"
+        },
+        {
+          "key": "b",
+          "text": "Marketing, Comptabilité et Ressources Humaines"
+        },
+        {
+          "key": "c",
+          "text": "Matériel, Logiciel et Réseau informatique"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Toute modification de l'un des sommets (ex: réduire les délais) impacte inévitablement les deux autres (augmenter les coûts ou restreindre le périmètre)."
+    },
+    {
+      "id": "q2",
+      "question": "Quelle est la différence fondamentale entre les rôles de 'Sponsor' (Commanditaire) et de 'Chef de projet' ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le sponsor porte la vision stratégique et valide les budgets ; le chef de projet orchestre l'exécution opérationnelle au quotidien."
+        },
+        {
+          "key": "b",
+          "text": "Le sponsor s'occupe du codage informatique et le chef de projet de la pause déjeuner."
+        },
+        {
+          "key": "c",
+          "text": "Ce sont deux dénominations pour la même fonction sans distinction hiérarchique."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Le sponsor arbitre les priorités stratégiques et sécurise les ressources, tandis que le chef de projet coordonne l'équipe pour respecter les engagements."
+    },
+    {
+      "id": "q3",
+      "question": "Quel est l'objectif de la phase d'initialisation et de cadrage d'un projet ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Formaliser les objectifs, délimiter le périmètre, identifier les parties prenantes et valider la faisabilité globale."
+        },
+        {
+          "key": "b",
+          "text": "Rédiger immédiatement les contrats de vente définitifs."
+        },
+        {
+          "key": "c",
+          "text": "Archiver tous les documents du projet précédent."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Un cadrage rigoureux évite le glissement de périmètre (scope creep) et aligne l'ensemble des acteurs sur les résultats attendus avant d'engager les dépenses."
+    },
+    {
+      "id": "q4",
+      "question": "Qu'est-ce qu'une 'partie prenante' (stakeholder) dans un projet ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Toute personne ou entité dont les intérêts peuvent être positivement ou négativement affectés par l'exécution ou le résultat du projet."
+        },
+        {
+          "key": "b",
+          "text": "Uniquement l'actionnaire principal de l'entreprise."
+        },
+        {
+          "key": "c",
+          "text": "Le fournisseur d'électricité des locaux professionnels."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Identifier et cartographier les parties prenantes (clients, équipes, partenaires, direction) permet d'adapter la communication et de limiter les résistances."
+    }
+  ]
+}

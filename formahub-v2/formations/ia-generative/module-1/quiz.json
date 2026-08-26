@@ -1,0 +1,87 @@
+{
+  "module_id": "formation-ia-module-1",
+  "version": "2.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Sur quel principe algorithmique fondamental fonctionne un grand modèle de langage (LLM) ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Sur le calcul probabiliste de la suite de tokens (mots/fragments) la plus vraisemblable compte tenu du contexte fourni."
+        },
+        {
+          "key": "b",
+          "text": "Sur une conscience artificielle autonome capable de raisonner et de vérifier ses propres sources en temps réel."
+        },
+        {
+          "key": "c",
+          "text": "Sur une recherche mot-à-mot dans un dictionnaire figé préalablement enregistré."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Un LLM est un réseau de neurones prédictif : il ne 'comprend' pas au sens humain mais estime statistiquement les tokens les plus cohérents dans l'espace contextuel."
+    },
+    {
+      "id": "q2",
+      "question": "Qu'est-ce qu'une 'hallucination' dans le contexte de l'IA générative ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Une affirmation factuellement fausse ou inventée générée par le modèle avec un ton d'assurance trompeur."
+        },
+        {
+          "key": "b",
+          "text": "Une panne matérielle au niveau de la carte graphique du serveur."
+        },
+        {
+          "key": "c",
+          "text": "La suppression involontaire de fichiers texte dans le système d'exploitation."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Les hallucinations surviennent lorsque le modèle comble des manques d'informations en générant des éléments plausibles mais inexacts, exigeant une vérification humaine rigoureuse."
+    },
+    {
+      "id": "q3",
+      "question": "Pour quelle tâche rédactionnelle un LLM apporte-t-il la plus forte valeur ajoutée sans risque majeur ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "La synthèse de documents longs, la reformulation stylistique et le brainstorming d'angles éditoriaux."
+        },
+        {
+          "key": "b",
+          "text": "La certification de conformité fiscale sans relecture d'un expert-comptable."
+        },
+        {
+          "key": "c",
+          "text": "L'invention de témoignages clients fictifs pour un site e-commerce."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Les LLM excellent dans la manipulation et la restructuration du langage existant ; la validation des données chiffrées et factuelles reste l'apanage de l'humain."
+    },
+    {
+      "id": "q4",
+      "question": "Qu'appelle-t-on la 'fenêtre de contexte' (context window) d'un LLM ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "La quantité maximale de texte (tokens) que le modèle peut prendre en compte simultanément dans un échange."
+        },
+        {
+          "key": "b",
+          "text": "La taille de la fenêtre du navigateur web affichant l'interface."
+        },
+        {
+          "key": "c",
+          "text": "La durée de validité du mot de passe de l'utilisateur."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "La fenêtre de contexte détermine la quantité de mémoire active que le modèle peut analyser en une seule fois pour générer sa réponse."
+    }
+  ]
+}

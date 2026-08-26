@@ -1,0 +1,87 @@
+{
+  "module_id": "formation-projet-module-2",
+  "version": "2.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quel énoncé d'objectif respecte scrupuleusement l'ensemble des critères de la méthode SMART ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "'Rédiger et publier 25 guides d'achat e-commerce d'ici le 15 novembre avec une note de conformité qualité minimale de 95%.'"
+        },
+        {
+          "key": "b",
+          "text": "'Faire le maximum pour améliorer les articles du site web dès que possible.'"
+        },
+        {
+          "key": "c",
+          "text": "'Augmenter considérablement le chiffre d'affaires mondial dans le futur.'"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Cet objectif est Spécifique (guides), Mesurable (25 et 95%), Atteignable, Réaliste et Temporellement défini (15 novembre)."
+    },
+    {
+      "id": "q2",
+      "question": "En quoi consiste la méthode de décomposition WBS (Work Breakdown Structure) ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "À découper hiérarchiquement l'ensemble du projet en livrables et paquets de travail élémentaires assignables à un responsable."
+        },
+        {
+          "key": "b",
+          "text": "À supprimer les étapes intermédiaires pour livrer directement le produit final."
+        },
+        {
+          "key": "c",
+          "text": "À diviser le budget du projet de façon totalement aléatoire."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "L'arborescence WBS permet d'estimer avec précision les charges, d'éviter les oublis de tâches et de clarifier les responsabilités individuelles."
+    },
+    {
+      "id": "q3",
+      "question": "Qu'appelle-t-on le 'chemin critique' dans un planning de projet ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "La séquence de tâches dépendantes qui détermine la durée totale minimale du projet et sur lesquelles tout retard retarde la date de fin globale."
+        },
+        {
+          "key": "b",
+          "text": "Le couloir d'évacuation en cas d'urgence dans les locaux de l'entreprise."
+        },
+        {
+          "key": "c",
+          "text": "La liste des tâches facultatives pouvant être ignorées sans conséquence."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Les tâches situées sur le chemin critique n'ont aucune marge libre : elles doivent faire l'objet d'un suivi opérationnel prioritaire."
+    },
+    {
+      "id": "q4",
+      "question": "Quelle est la définition d'un 'Jalon' (Milestone) dans un planning ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Un événement marquant marquant la fin d'une étape clé ou la livraison d'un résultat majeur, ayant une durée de zéro jour."
+        },
+        {
+          "key": "b",
+          "text": "Une tâche qui dure plusieurs mois consécutifs."
+        },
+        {
+          "key": "c",
+          "text": "Le montant des honoraires versés aux sous-traitants."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Les jalons ponctuent l'avancement du projet (ex: validation de la maquette, lancement du pilote) et permettent de mesurer les engagements calendaires."
+    }
+  ]
+}
