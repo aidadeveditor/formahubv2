@@ -1,0 +1,27 @@
+{
+  "module_id": "formation-cm-module-3",
+  "version": "1.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quel rôle l'entreprise doit-elle occuper dans le storytelling de marque ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le guide qui fournit la méthode et le plan au client héros"
+        },
+        {
+          "key": "b",
+          "text": "Le héros invincible"
+        },
+        {
+          "key": "c",
+          "text": "Le juge arbitre"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "L'entreprise est le mentor facilitateur qui permet au client de réussir sa transformation."
+    }
+  ]
+}

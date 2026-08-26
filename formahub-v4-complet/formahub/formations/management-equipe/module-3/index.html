@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formahub — Management d'équipe, les bases : Organisation Hybride, Asynchrone & Prévention de la Surcharge</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="../../../index.html" class="brand">
+      <div class="brand-icon">F</div>
+      <span>Formahub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../../../index.html" class="nav-link">Mes formations</a>
+      <a href="../../../ressources-externes.html" class="nav-link">Ressources externes</a>
+      <button class="theme-toggle" type="button">🌙 Mode Sombre</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="../../../index.html">Accueil</a> &gt; 
+        <span>Management d'équipe, les bases</span> &gt; 
+        <strong>Module 3</strong>
+      </div>
+      <h1>Module 3 : Organisation Hybride, Asynchrone & Prévention de la Surcharge</h1>
+    </div>
+
+    <article class="module-content">
+      <div class="objectives-box">
+        <h3>🎯 Objectifs pédagogiques</h3>
+        <ul>
+          <li>Piloter par les résultats (Outcome-based)</li><li>Favoriser l'asynchrone pour protéger le Deep Work</li><li>Détecter les signaux faibles d'hyperconnexion</li>
+        </ul>
+      </div>
+
+      <h2>1. Du présentéisme aux résultats</h2><p>Évaluer sur la qualité des livrables et la valeur produite plutôt que sur les heures de présence devant l'écran.</p><h2>2. Communication asynchrone</h2><p>Réduire les interruptions et autoriser des délais de réponse raisonnables pour permettre la concentration profonde.</p><h2>3. Prévention du surmenage</h2><p>Surveiller les connexions nocturnes et le repli sur soi en télétravail pour préserver l'équilibre de vie.</p>
+
+      <div class="exercise-box">
+        <h3>🛠️ Exercice pratique</h3>
+        <p>Rédigez la charte d'équipe pour encadrer les réunions et instaurer l'asynchrone par défaut.</p>
+      </div>
+    </article>
+
+    <section class="quiz-section">
+      <h2>🧠 Quiz d'auto-évaluation</h2>
+      <p style="color:var(--text-muted);margin-bottom:20px;">Sélectionnez la bonne réponse pour valider vos acquis. Le feedback immédiat vous expliquera les concepts clés.</p>
+      <div id="quiz-container">
+        <!-- Quiz chargé dynamiquement par quiz-engine.js -->
+      </div>
+      <div style="margin-top: 24px; text-align: center;">
+        <button id="btn-mark-complete" data-module-id="formation-management-equipe-module-3" class="btn btn-primary">
+          Marquer le module comme terminé ✓
+        </button>
+      </div>
+    </section>
+
+    <nav class="module-nav">
+      <a href="../module-2/index.html" class="btn btn-outline">← Module 2</a>
+      <a href="../module-4/index.html" class="btn btn-primary">Module 4 →</a>
+    </nav>
+  </main>
+
+  <script src="../../../assets/js/progress.js"></script>
+  <script src="../../../assets/js/quiz-engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadQuiz('quiz.json', 'quiz-container');
+    });
+  </script>
+</body>
+</html>

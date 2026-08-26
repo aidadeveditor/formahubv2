@@ -1,0 +1,27 @@
+{
+  "module_id": "formation-crm-module-2",
+  "version": "1.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Que représente la catégorie de prévision 'Commit' ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Les affaires pour lesquelles le commercial prend l'engagement ferme d'une signature sur la période"
+        },
+        {
+          "key": "b",
+          "text": "Des pistes non contactées"
+        },
+        {
+          "key": "c",
+          "text": "Des contrats perdus"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Commit est le plancher de chiffre d'affaires hautement sécurisé sur lequel le management s'appuie."
+    }
+  ]
+}

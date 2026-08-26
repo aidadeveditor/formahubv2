@@ -1,0 +1,27 @@
+{
+  "module_id": "formation-crm-module-3",
+  "version": "1.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quel objet standard centralise le support et les réclamations dans Service Cloud ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "L'objet Requête (Case)"
+        },
+        {
+          "key": "b",
+          "text": "L'objet Campagne"
+        },
+        {
+          "key": "c",
+          "text": "L'objet Piste"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "L'objet Case centralise l'ensemble des échanges nécessaires à la résolution d'un problème client."
+    }
+  ]
+}

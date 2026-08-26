@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formahub — Content Marketing & Stratégie Éditoriale : Stratégie Éditoriale, Personas & Calendrier</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="../../../index.html" class="brand">
+      <div class="brand-icon">F</div>
+      <span>Formahub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../../../index.html" class="nav-link">Mes formations</a>
+      <a href="../../../ressources-externes.html" class="nav-link">Ressources externes</a>
+      <button class="theme-toggle" type="button">🌙 Mode Sombre</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="../../../index.html">Accueil</a> &gt; 
+        <span>Content Marketing & Stratégie Éditoriale</span> &gt; 
+        <strong>Module 2</strong>
+      </div>
+      <h1>Module 2 : Stratégie Éditoriale, Personas & Calendrier</h1>
+    </div>
+
+    <article class="module-content">
+      <div class="objectives-box">
+        <h3>🎯 Objectifs pédagogiques</h3>
+        <ul>
+          <li>Bâtir un Buyer Persona axé sur les points de douleur</li><li>Rédiger une charte éditoriale cohérente</li><li>Articuler contenus Evergreen et Marronniers</li>
+        </ul>
+      </div>
+
+      <h2>1. Modélisation du Buyer Persona</h2><p>Se concentrer sur les objectifs opérationnels, les points de friction profonds et les déclencheurs de décision réels.</p><h2>2. La Charte Éditoriale</h2><p>Fixer la voix de marque, le ton, le niveau de familiarité et le lexique interdit pour préserver l'homogénéité.</p><h2>3. Calendrier et Contenus Evergreen</h2><p>Équilibrer les contenus intemporels à fort rendement dans la durée et les opportunités d'actualité du secteur.</p>
+
+      <div class="exercise-box">
+        <h3>🛠️ Exercice pratique</h3>
+        <p>Rédigez la fiche persona d'un responsable marketing et proposez 4 thématiques combinant Evergreen et Marronniers.</p>
+      </div>
+    </article>
+
+    <section class="quiz-section">
+      <h2>🧠 Quiz d'auto-évaluation</h2>
+      <p style="color:var(--text-muted);margin-bottom:20px;">Sélectionnez la bonne réponse pour valider vos acquis. Le feedback immédiat vous expliquera les concepts clés.</p>
+      <div id="quiz-container">
+        <!-- Quiz chargé dynamiquement par quiz-engine.js -->
+      </div>
+      <div style="margin-top: 24px; text-align: center;">
+        <button id="btn-mark-complete" data-module-id="formation-content-marketing-module-2" class="btn btn-primary">
+          Marquer le module comme terminé ✓
+        </button>
+      </div>
+    </section>
+
+    <nav class="module-nav">
+      <a href="../module-1/index.html" class="btn btn-outline">← Module 1</a>
+      <a href="../module-3/index.html" class="btn btn-primary">Module 3 →</a>
+    </nav>
+  </main>
+
+  <script src="../../../assets/js/progress.js"></script>
+  <script src="../../../assets/js/quiz-engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadQuiz('quiz.json', 'quiz-container');
+    });
+  </script>
+</body>
+</html>

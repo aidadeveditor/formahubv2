@@ -1,0 +1,27 @@
+{
+  "module_id": "formation-mgt-module-4",
+  "version": "1.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quels sont les 3 leviers de la motivation intrinsèque selon Daniel Pink ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Autonomie, Maîtrise, Raison d'être (Sens)"
+        },
+        {
+          "key": "b",
+          "text": "Salaire, Horaires, Parking"
+        },
+        {
+          "key": "c",
+          "text": "Surveillance, Contrôle, Sanction"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Ces trois dimensions psychologiques fondamentales nourrissent l'implication durable."
+    }
+  ]
+}

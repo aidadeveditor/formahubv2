@@ -1,0 +1,27 @@
+{
+  "module_id": "formation-ia-module-1",
+  "version": "1.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quel est le principe d'un Grand Modèle de Langage (LLM) ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Prédire statistiquement le token suivant le plus probable compte tenu du contexte"
+        },
+        {
+          "key": "b",
+          "text": "Consulter un dictionnaire immuable"
+        },
+        {
+          "key": "c",
+          "text": "Raisonner avec une conscience humaine"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Les LLMs sont des moteurs probabilistes de complétion textuelle hautement entraînés."
+    }
+  ]
+}

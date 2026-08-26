@@ -1,0 +1,27 @@
+{
+  "module_id": "formation-gp-module-1",
+  "version": "1.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Combien de personnes doivent avoir le rôle 'Accountable' (A) sur une tâche dans une matrice RACI ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Exactement une seule personne décisionnaire"
+        },
+        {
+          "key": "b",
+          "text": "Toute l'équipe"
+        },
+        {
+          "key": "c",
+          "text": "Aucune"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "L'unicité de l'Accountable garantit la clarté de l'arbitrage et la prise de responsabilité."
+    }
+  ]
+}

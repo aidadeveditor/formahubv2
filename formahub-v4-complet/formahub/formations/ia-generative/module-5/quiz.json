@@ -1,0 +1,27 @@
+{
+  "module_id": "formation-ia-module-5",
+  "version": "1.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Qui porte la responsabilité légale d'un texte publié avec l'aide de l'IA ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "L'entreprise émettrice et le professionnel humain qui a validé et diffusé le contenu"
+        },
+        {
+          "key": "b",
+          "text": "L'ordinateur"
+        },
+        {
+          "key": "c",
+          "text": "Le fournisseur internet"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "La responsabilité juridique et éditoriale revient toujours à l'humain diffuseur."
+    }
+  ]
+}

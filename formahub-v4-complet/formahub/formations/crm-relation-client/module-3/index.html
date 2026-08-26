@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formahub — CRM et relation client (Salesforce) : Automatisation, Tableaux de Bord & Optimisation de la Relation Client</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="../../../index.html" class="brand">
+      <div class="brand-icon">F</div>
+      <span>Formahub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../../../index.html" class="nav-link">Mes formations</a>
+      <a href="../../../ressources-externes.html" class="nav-link">Ressources externes</a>
+      <button class="theme-toggle" type="button">🌙 Mode Sombre</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="../../../index.html">Accueil</a> &gt; 
+        <span>CRM et relation client (Salesforce)</span> &gt; 
+        <strong>Module 3</strong>
+      </div>
+      <h1>Module 3 : Automatisation, Tableaux de Bord & Optimisation de la Relation Client</h1>
+    </div>
+
+    <article class="module-content">
+      <div class="objectives-box">
+        <h3>🎯 Objectifs pédagogiques</h3>
+        <ul>
+          <li>Concevoir des flux d'automatisation no-code (Flows)</li><li>Bâtir des rapports et tableaux de bord de pilotage</li><li>Piloter Service Cloud et les SLAs</li><li>Optimiser le Speed to Lead</li>
+        </ul>
+      </div>
+
+      <h2>1. Salesforce Flow</h2><p>Automatiser le routage des pistes entrantes, les rappels d'inactivité et les notifications d'étapes.</p><h2>2. Rapports & Dashboards</h2><p>Les rapports filtrent et calculent la donnée brute, le tableau de bord affiche les indicateurs graphiques en temps réel.</p><h2>3. Service Cloud, Requêtes (Cases) & SLAs</h2><p>Gestion des tickets de réclamation avec horodatage, engagements de service et escalade automatique.</p>
+
+      <div class="exercise-box">
+        <h3>🛠️ Exercice pratique</h3>
+        <p>Schématisez un flux de réattribution automatique pour toute demande web sans réponse sous 2 heures.</p>
+      </div>
+    </article>
+
+    <section class="quiz-section">
+      <h2>🧠 Quiz d'auto-évaluation</h2>
+      <p style="color:var(--text-muted);margin-bottom:20px;">Sélectionnez la bonne réponse pour valider vos acquis. Le feedback immédiat vous expliquera les concepts clés.</p>
+      <div id="quiz-container">
+        <!-- Quiz chargé dynamiquement par quiz-engine.js -->
+      </div>
+      <div style="margin-top: 24px; text-align: center;">
+        <button id="btn-mark-complete" data-module-id="formation-crm-relation-client-module-3" class="btn btn-primary">
+          Marquer le module comme terminé ✓
+        </button>
+      </div>
+    </section>
+
+    <nav class="module-nav">
+      <a href="../module-2/index.html" class="btn btn-outline">← Module 2</a>
+      <a href="../../../index.html" class="btn btn-primary">Terminer la formation ✓</a>
+    </nav>
+  </main>
+
+  <script src="../../../assets/js/progress.js"></script>
+  <script src="../../../assets/js/quiz-engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadQuiz('quiz.json', 'quiz-container');
+    });
+  </script>
+</body>
+</html>

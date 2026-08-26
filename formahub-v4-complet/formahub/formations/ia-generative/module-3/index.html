@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formahub — IA Générative appliquée au contenu : Techniques avancées : Few-Shot & Chain-of-Thought</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="../../../index.html" class="brand">
+      <div class="brand-icon">F</div>
+      <span>Formahub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../../../index.html" class="nav-link">Mes formations</a>
+      <a href="../../../ressources-externes.html" class="nav-link">Ressources externes</a>
+      <button class="theme-toggle" type="button">🌙 Mode Sombre</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="../../../index.html">Accueil</a> &gt; 
+        <span>IA Générative appliquée au contenu</span> &gt; 
+        <strong>Module 3</strong>
+      </div>
+      <h1>Module 3 : Techniques avancées : Few-Shot & Chain-of-Thought</h1>
+    </div>
+
+    <article class="module-content">
+      <div class="objectives-box">
+        <h3>🎯 Objectifs pédagogiques</h3>
+        <ul>
+          <li>Déployer le Few-Shot Prompting avec exemples</li><li>Utiliser le Chain-of-Thought pour les raisonnements</li><li>Extraire des schémas JSON structurés</li>
+        </ul>
+      </div>
+
+      <h2>1. Zero-Shot vs Few-Shot</h2><p>Fournir 2 à 4 exemples d'entrée/sortie explicites pour formater précisément le ton et la structure attendus.</p><h2>2. Chain-of-Thought</h2><p>Forcer le modèle à verbaliser ses étapes d'analyse intermédiaires avant de conclure, réduisant les erreurs de logique.</p><h2>3. Sorties JSON strictes</h2><p>Standardiser la donnée pour son interopérabilité directe dans des applications logicielles.</p>
+
+      <div class="exercise-box">
+        <h3>🛠️ Exercice pratique</h3>
+        <p>Concevez un prompt Few-Shot incluant 2 exemples pour classifier des retours clients au format JSON.</p>
+      </div>
+    </article>
+
+    <section class="quiz-section">
+      <h2>🧠 Quiz d'auto-évaluation</h2>
+      <p style="color:var(--text-muted);margin-bottom:20px;">Sélectionnez la bonne réponse pour valider vos acquis. Le feedback immédiat vous expliquera les concepts clés.</p>
+      <div id="quiz-container">
+        <!-- Quiz chargé dynamiquement par quiz-engine.js -->
+      </div>
+      <div style="margin-top: 24px; text-align: center;">
+        <button id="btn-mark-complete" data-module-id="formation-ia-generative-module-3" class="btn btn-primary">
+          Marquer le module comme terminé ✓
+        </button>
+      </div>
+    </section>
+
+    <nav class="module-nav">
+      <a href="../module-2/index.html" class="btn btn-outline">← Module 2</a>
+      <a href="../module-4/index.html" class="btn btn-primary">Module 4 →</a>
+    </nav>
+  </main>
+
+  <script src="../../../assets/js/progress.js"></script>
+  <script src="../../../assets/js/quiz-engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadQuiz('quiz.json', 'quiz-container');
+    });
+  </script>
+</body>
+</html>
