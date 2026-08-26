@@ -1,0 +1,47 @@
+{
+  "module_id": "formation-seo-module-2",
+  "version": "1.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quelle est l'intention de la requête 'logiciel compta vs excel comparatif' ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Navigationnelle"
+        },
+        {
+          "key": "b",
+          "text": "Commerciale d'investigation"
+        },
+        {
+          "key": "c",
+          "text": "Transactionnelle"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "L'utilisateur compare plusieurs options techniques pour préparer son choix d'investissement."
+    },
+    {
+      "id": "q2",
+      "question": "Qu'est-ce que la cannibalisation sémantique ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Deux pages d'un même site en compétition sur la même intention de recherche"
+        },
+        {
+          "key": "b",
+          "text": "Un problème d'hébergement serveur"
+        },
+        {
+          "key": "c",
+          "text": "Une attaque pirate de mots-clés"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "La cannibalisation divise les signaux d'autorité et désoriente les moteurs sur la page prioritaire."
+    }
+  ]
+}
