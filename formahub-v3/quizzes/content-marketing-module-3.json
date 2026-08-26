@@ -1,0 +1,87 @@
+{
+  "module_id": "formation-cm-module-3",
+  "version": "3.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Dans le framework PAS (Problème - Agitation - Solution), à quoi sert l'Agitation ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Faire une remise commerciale immédiate."
+        },
+        {
+          "key": "b",
+          "text": "Faire ressentir les conséquences concrètes et le coût de l'inaction pour créer l'urgence du changement."
+        },
+        {
+          "key": "c",
+          "text": "Afficher les logos des clients."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "L'agitation amplifie la prise de conscience du problème avant d'introduire le remède."
+    },
+    {
+      "id": "q2",
+      "question": "Quel est le principe de la pyramide inversée en rédaction web ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Placer la conclusion au milieu du texte."
+        },
+        {
+          "key": "b",
+          "text": "Délivrer l'information essentielle et la réponse clé dès l'en-tête, puis détailler par ordre d'importance décroissante."
+        },
+        {
+          "key": "c",
+          "text": "Écrire des phrases de plus en plus longues."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Ce format répond directement au besoin des internautes qui scannent la page avant de lire en détail."
+    },
+    {
+      "id": "q3",
+      "question": "En Storytelling de marque, quel rôle l'entreprise doit-elle impérativement occuper ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le héros omnipotent qui sauve tout le monde."
+        },
+        {
+          "key": "b",
+          "text": "Le guide bienveillant qui fournit le plan et les outils au client (le vrai héros de l'histoire)."
+        },
+        {
+          "key": "c",
+          "text": "L'adversaire redoutable."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "La méthodologie StoryBrand démontre que le client doit être le héros de sa propre aventure."
+    },
+    {
+      "id": "q4",
+      "question": "Quel est le critère d'un Call to Action (CTA) performant ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Utiliser un texte flou comme 'Cliquez ici'."
+        },
+        {
+          "key": "b",
+          "text": "Formuler une action concrète et expliciter immédiatement le bénéfice obtenu par l'utilisateur."
+        },
+        {
+          "key": "c",
+          "text": "Le cacher en bas de page."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "La clarté de l'action et la mise en avant du gain immédiat maximisent le passage à l'acte."
+    }
+  ]
+}

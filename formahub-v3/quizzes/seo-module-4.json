@@ -1,0 +1,87 @@
+{
+  "module_id": "formation-seo-module-4",
+  "version": "3.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Comment désindexer une page tout en conservant la transmission du jus de liens ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "robots.txt Disallow"
+        },
+        {
+          "key": "b",
+          "text": "Balise meta robots noindex, follow"
+        },
+        {
+          "key": "c",
+          "text": "Supprimer le serveur"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "L'instruction 'noindex, follow' retire la page de l'index tout en laissant les robots suivre les liens internes."
+    },
+    {
+      "id": "q2",
+      "question": "Quelle est l'utilité principale de la balise rel='canonical' ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Indiquer au moteur l'URL de référence faisant autorité en cas de contenus identiques ou dupliqués."
+        },
+        {
+          "key": "b",
+          "text": "Accélérer le débit réseau."
+        },
+        {
+          "key": "c",
+          "text": "Traduire automatiquement la page."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "La canonisation centralise les signaux de positionnement sur l'URL principale."
+    },
+    {
+      "id": "q3",
+      "question": "Que mesure le signal Core Web Vitals nommé INP (Interaction to Next Paint) ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le nombre de pages vues."
+        },
+        {
+          "key": "b",
+          "text": "La réactivité globale de la page lors des interactions utilisateur (clics, frappes)."
+        },
+        {
+          "key": "c",
+          "text": "La taille du logo."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "L'INP évalue la fluidité et le temps de réponse de l'interface aux actions de l'internaute."
+    },
+    {
+      "id": "q4",
+      "question": "Quel attribut rel doit qualifier un lien commercial ou sponsorisé ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "rel='sponsored'"
+        },
+        {
+          "key": "b",
+          "text": "rel='ugc'"
+        },
+        {
+          "key": "c",
+          "text": "rel='help'"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Les consignes Google imposent l'attribut 'sponsored' pour les liens payants ou partenariats rémunérés."
+    }
+  ]
+}

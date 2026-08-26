@@ -1,0 +1,87 @@
+{
+  "module_id": "formation-mgt-module-3",
+  "version": "3.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quelle est l'alternative saine au présentéisme dans un contexte de travail hybride ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Installer un logiciel espion de suivi de la souris."
+        },
+        {
+          "key": "b",
+          "text": "Le management par la confiance et les résultats concrets (Outcome-based management)."
+        },
+        {
+          "key": "c",
+          "text": "Imposer la caméra allumée 8 heures d'affilée."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "La performance s'évalue à la qualité des livrables et à l'atteinte des objectifs, non au temps passé devant un écran."
+    },
+    {
+      "id": "q2",
+      "question": "Quel est le bénéfice de la communication asynchrone par défaut ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Préserver des blocs de concentration ininterrompue (Deep Work) et respecter les rythmes de travail."
+        },
+        {
+          "key": "b",
+          "text": "Ne plus jamais échanger avec ses collègues."
+        },
+        {
+          "key": "c",
+          "text": "Éviter de documenter les processus."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "L'asynchrone protège contre l'interruption constante et favorise une réflexion de fond plus structurée."
+    },
+    {
+      "id": "q3",
+      "question": "Quel signal d'alerte révèle un risque d'hyperconnexion et de surmenage à distance ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Prendre une heure de pause déjeuner complète."
+        },
+        {
+          "key": "b",
+          "text": "L'envoi récurrent d'emails et messages tard le soir, le week-end ou pendant les congés payés."
+        },
+        {
+          "key": "c",
+          "text": "Refuser une réunion non prioritaire."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Ce comportement traduit une porosité vie pro/perso nocive qui exige un recadrage protecteur du manager."
+    },
+    {
+      "id": "q4",
+      "question": "Quel est le bon usage des réunions en visioconférence ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Les réserver aux temps d'échange relationnel, de co-création complexe et d'arbitrage décisionnel."
+        },
+        {
+          "key": "b",
+          "text": "Remplacer chaque email par un appel visio."
+        },
+        {
+          "key": "c",
+          "text": "Lire silencieusement des diapositives textuelles."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Le temps synchrone doit être sanctuarisé pour les interactions humaines à très forte valeur ajoutée collective."
+    }
+  ]
+}

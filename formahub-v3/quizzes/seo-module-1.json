@@ -1,0 +1,87 @@
+{
+  "module_id": "formation-seo-module-1",
+  "version": "3.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quelle est la différence fondamentale entre le crawl et l'indexation ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le crawl est payant, l'indexation est gratuite."
+        },
+        {
+          "key": "b",
+          "text": "Le crawl est la découverte et le téléchargement du contenu par le robot, l'indexation est son analyse et son enregistrement dans la base de données du moteur."
+        },
+        {
+          "key": "c",
+          "text": "Le crawl concerne uniquement les applications mobiles."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Le robot d'exploration (crawler) parcourt le web pour découvrir les pages, tandis que le moteur analyse et classe ensuite les contenus dans son index."
+    },
+    {
+      "id": "q2",
+      "question": "Quel est l'avantage stratégique majeur du SEO par rapport au SEA ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le SEO garantit des résultats instantanés en 24 heures."
+        },
+        {
+          "key": "b",
+          "text": "Le SEO constitue un actif d'entreprise pérenne dont le trafic persiste sans coût marginal direct au clic."
+        },
+        {
+          "key": "c",
+          "text": "Le SEO ne requiert aucun travail éditorial."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Le référencement naturel capitalise sur la durée, à la différence des campagnes payantes qui s'arrêtent dès coupure du budget."
+    },
+    {
+      "id": "q3",
+      "question": "Que se passe-t-il si un site bloque les robots d'exploration dans son robots.txt ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Les pages apparaissent en première position."
+        },
+        {
+          "key": "b",
+          "text": "Les robots ne peuvent pas explorer le contenu, empêchant son indexation normale."
+        },
+        {
+          "key": "c",
+          "text": "Le site est automatiquement traduit en anglais."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "L'accessibilité technique est le prérequis absolu à toute visibilité organique."
+    },
+    {
+      "id": "q4",
+      "question": "Dans les consignes E-E-A-T, que représente le premier 'E' (Experience) ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "L'âge du nom de domaine."
+        },
+        {
+          "key": "b",
+          "text": "Le vécu pratique direct et concret de l'auteur sur le sujet abordé."
+        },
+        {
+          "key": "c",
+          "text": "La vitesse de chargement du serveur."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Google valorise les retours d'expérience concrets et attestés par rapport aux synthèses théoriques anonymes."
+    }
+  ]
+}

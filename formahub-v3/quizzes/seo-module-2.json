@@ -1,0 +1,87 @@
+{
+  "module_id": "formation-seo-module-2",
+  "version": "3.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quelle est l'intention de la requête 'meilleur crm b2b comparatif' ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Informationnelle pure."
+        },
+        {
+          "key": "b",
+          "text": "Commerciale d'investigation (évaluation avant achat)."
+        },
+        {
+          "key": "c",
+          "text": "Navigationnelle."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "L'utilisateur compare des options d'achat avant de prendre sa décision définitive."
+    },
+    {
+      "id": "q2",
+      "question": "Quel est le bénéfice principal des mots-clés de longue traîne ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Des millions de recherches mensuelles."
+        },
+        {
+          "key": "b",
+          "text": "Une concurrence plus faible et un taux de conversion nettement supérieur."
+        },
+        {
+          "key": "c",
+          "text": "Aucun contenu requis."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Les requêtes précises expriment un besoin mature et qualifié."
+    },
+    {
+      "id": "q3",
+      "question": "Qu'est-ce que la cannibalisation SEO ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Un piratage du serveur web."
+        },
+        {
+          "key": "b",
+          "text": "Plusieurs pages d'un même site se positionnent en concurrence sur la même intention de recherche, divisant leur autorité."
+        },
+        {
+          "key": "c",
+          "text": "Un format d'image obsolète."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "La cannibalisation affaiblit le signal envoyé au moteur sur la page de référence."
+    },
+    {
+      "id": "q4",
+      "question": "Quelle est la règle d'or du mapping sémantique ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "1 URL dédiée = 1 intention de recherche principale et 1 mot-clé cible."
+        },
+        {
+          "key": "b",
+          "text": "Mettre tous les mots-clés sur la page d'accueil."
+        },
+        {
+          "key": "c",
+          "text": "Créer 50 pages identiques."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "La clarté sémantique évite les chevauchements et optimise la pertinence."
+    }
+  ]
+}

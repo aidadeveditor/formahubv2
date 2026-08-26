@@ -1,0 +1,87 @@
+{
+  "module_id": "formation-ia-module-4",
+  "version": "3.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Comment utiliser efficacement l'IA pour renouveler ses angles éditoriaux ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Lui demander de résumer les 3 premiers résultats Google."
+        },
+        {
+          "key": "b",
+          "text": "Lui faire explorer des thèses à contre-pied, des analogies sectorielles et des perspectives d'experts controversées."
+        },
+        {
+          "key": "c",
+          "text": "Générer 50 fois le même titre."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "L'IA excelle dans la fertilisation croisée d'idées et l'exploration de points de vue non conventionnels."
+    },
+    {
+      "id": "q2",
+      "question": "Dans quel cas un prompt de relecture critique apporte-t-il le plus de valeur ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Pour traquer les longueurs, le jargon hermétique, les ruptures de ton et évaluer le score de lisibilité."
+        },
+        {
+          "key": "b",
+          "text": "Pour remplacer l'auteur sans relire."
+        },
+        {
+          "key": "c",
+          "text": "Pour insérer des citations inventées."
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "L'IA agit comme un relecteur éditorial impitoyable pour simplifier et fluidifier le texte."
+    },
+    {
+      "id": "q3",
+      "question": "Que risque-t-on en demandant à un LLM d'insérer des chiffres clés sans fournir les sources ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le modèle refuse de générer du texte."
+        },
+        {
+          "key": "b",
+          "text": "Le modèle risque d'inventer des pourcentages et statistiques très plausibles mais totalement fictifs."
+        },
+        {
+          "key": "c",
+          "text": "Le fichier texte se corrompt."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Toute donnée chiffrée issue d'un LLM sans source primaire doit faire l'objet d'un fact-checking rigoureux."
+    },
+    {
+      "id": "q4",
+      "question": "Comment concevoir un prompt de vulgarisation de contenu technique complexe ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Demander d'utiliser un langage académique avec du latin."
+        },
+        {
+          "key": "b",
+          "text": "Imposer l'utilisation de métaphores du quotidien et calibrer le niveau de compréhension pour un public non initié."
+        },
+        {
+          "key": "c",
+          "text": "Traduire le texte en langage informatique."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "L'analogie concrète est le levier le plus puissant pour rendre accessible une notion abstraite."
+    }
+  ]
+}

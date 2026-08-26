@@ -1,0 +1,87 @@
+{
+  "module_id": "formation-mgt-module-2",
+  "version": "3.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quelle est la finalité première du rituel de l'entretien 1-on-1 ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Faire une liste de contrôle de pointage des tâches de la journée."
+        },
+        {
+          "key": "b",
+          "text": "Offrir un espace dédié au collaborateur pour écouter son ressenti, lever ses blocages et accompagner son développement."
+        },
+        {
+          "key": "c",
+          "text": "Signer les demandes de congés payés."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Le 1-on-1 est le rendez-vous régulier du collaborateur, distinct du reporting opérationnel de projet."
+    },
+    {
+      "id": "q2",
+      "question": "Dans la méthode DESC, que doit impérativement contenir l'étape 'D' (Décrire les faits) ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Des jugements de valeur et des procès d'intention."
+        },
+        {
+          "key": "b",
+          "text": "Des faits précis, observables, datés et incontestables sans interprétation subjective."
+        },
+        {
+          "key": "c",
+          "text": "Une sanction financière."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "L'ancrage sur des faits neutres et concrets désamorce immédiatement la posture défensive de l'interlocuteur."
+    },
+    {
+      "id": "q3",
+      "question": "Pourquoi doit-on bannir les adverbes 'toujours' et 'jamais' lors d'un feedback de recadrage ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Parce qu'ils sont interdits par le dictionnaire."
+        },
+        {
+          "key": "b",
+          "text": "Parce que ce sont des généralisations abusives qui décrédibilisent le propos et braquent l'interlocuteur."
+        },
+        {
+          "key": "c",
+          "text": "Parce qu'ils rallongent inutilement la conversation."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Les généralisations amènent le collaborateur à chercher un contre-exemple plutôt qu'à écouter le fond du message."
+    },
+    {
+      "id": "q4",
+      "question": "Comment formuler un feedback positif hautement motivant et formateur ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Dire simplement 'Bravo c'est bien' en passant dans le couloir."
+        },
+        {
+          "key": "b",
+          "text": "Préciser l'action spécifique accomplie, expliciter l'impact positif mesurable et remercier sincèrement."
+        },
+        {
+          "key": "c",
+          "text": "Verser une prime sans aucune explication verbale."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Un feedback positif contextualisé et explicite ancre durablement les comportements vertueux."
+    }
+  ]
+}

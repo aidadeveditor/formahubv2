@@ -1,0 +1,87 @@
+{
+  "module_id": "formation-ia-module-2",
+  "version": "3.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Pourquoi attribuer un 'Rôle / Persona' précis dans un prompt ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Pour faire des blagues."
+        },
+        {
+          "key": "b",
+          "text": "Pour orienter le registre de langue, le vocabulaire technique et le niveau d'analyse du modèle."
+        },
+        {
+          "key": "c",
+          "text": "Pour réduire le coût de l'abonnement."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "L'incarnation d'un persona affine considérablement l'angle et la pertinence métier de la réponse."
+    },
+    {
+      "id": "q2",
+      "question": "Quel est l'intérêt d'intégrer des 'contraintes négatives' dans un prompt ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Empêcher le modèle de répondre."
+        },
+        {
+          "key": "b",
+          "text": "Éliminer les clichés, les superlatifs creux et les préambules inutiles dès la génération."
+        },
+        {
+          "key": "c",
+          "text": "Augmenter le nombre d'erreurs."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Les contraintes négatives assainissent le texte en interdisant expressément les tics de langage des IA."
+    },
+    {
+      "id": "q3",
+      "question": "Quelle formulation de contrainte de longueur est la plus efficace ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Fais un texte pas trop long."
+        },
+        {
+          "key": "b",
+          "text": "Rédige une réponse d'environ une page."
+        },
+        {
+          "key": "c",
+          "text": "Rédige exactement 3 paragraphes de 40 à 50 mots chacun."
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Des consignes métriques explicites et mesurables limitent les dérives de volume."
+    },
+    {
+      "id": "q4",
+      "question": "Que comprend le pilier 'Contexte Métier' d'un prompt ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le mot de passe de l'utilisateur."
+        },
+        {
+          "key": "b",
+          "text": "Les informations sur l'entreprise, la cible visée, les enjeux et l'environnement de diffusion."
+        },
+        {
+          "key": "c",
+          "text": "La météo du jour."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Le contexte fournit au modèle le cadre indispensable pour ancrer sa réponse dans la réalité de l'entreprise."
+    }
+  ]
+}

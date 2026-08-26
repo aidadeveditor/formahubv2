@@ -1,0 +1,87 @@
+{
+  "module_id": "formation-mgt-module-4",
+  "version": "3.0",
+  "last_verified": "2026-08-26",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Dans le modèle de Thomas-Kilmann, quelle posture managériale vise une résolution de fond gagnant-gagnant ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "L'évitement systématique."
+        },
+        {
+          "key": "b",
+          "text": "La collaboration : confronter les besoins réels pour co-créer une solution nouvelle et partagée."
+        },
+        {
+          "key": "c",
+          "text": "La compétition agressive."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "La collaboration traite les causes profondes sans sacrifier les intérêts mutuels des parties prenantes."
+    },
+    {
+      "id": "q2",
+      "question": "Quelle est la première démarche indispensable lors d'une médiation managériale de conflit ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Organiser un vote à main levée en public."
+        },
+        {
+          "key": "b",
+          "text": "Recevoir chaque collaborateur séparément en entretien individuel pour écouter sa version des faits et son ressenti émotionnel."
+        },
+        {
+          "key": "c",
+          "text": "Prononcer des sanctions disciplinaires immédiates."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "L'entretien individuel préalable offre un espace neutre et sécurisé pour décharger l'affect avant la confrontation conjointe."
+    },
+    {
+      "id": "q3",
+      "question": "Quels sont les 3 piliers de la motivation intrinsèque théorisés par Daniel Pink ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le salaire de base, les tickets restaurant et le parking."
+        },
+        {
+          "key": "b",
+          "text": "L'Autonomie dans l'action, la Maîtrise de ses compétences et la Raison d'être (le sens) de la mission."
+        },
+        {
+          "key": "c",
+          "text": "La surveillance, le contrôle et les punitions."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Ces trois moteurs psychologiques profonds nourrissent durablement l'épanouissement et l'engagement professionnel."
+    },
+    {
+      "id": "q4",
+      "question": "Quel est le rôle du manager lors de la séance conjointe de médiation ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Agir comme un juge suprême qui désigne un vainqueur et un perdant."
+        },
+        {
+          "key": "b",
+          "text": "Faciliter le dialogue de manière neutre, faire respecter le cadre d'écoute et accompagner les parties vers un accord formalisé."
+        },
+        {
+          "key": "c",
+          "text": "Rester muet sans intervenir."
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Le manager n'est pas juge mais garant des conditions propices à la reconstruction du lien professionnel."
+    }
+  ]
+}
