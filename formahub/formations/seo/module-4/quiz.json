@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-seo-module-4",
+  "version": "2.0",
+  "last_verified": "2026-09-01",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quelle directive permet de retirer une page de l'index sans bloquer ses liens internes ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "<code>Disallow: /</code> dans le fichier robots.txt"
+        },
+        {
+          "key": "b",
+          "text": "<code>&lt;meta name=\"robots\" content=\"noindex, follow\"&gt;</code>, avec exploration autorisée"
+        },
+        {
+          "key": "c",
+          "text": "<code>&lt;meta name=\"robots\" content=\"index, nofollow\"&gt;</code>"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Le noindex retire l'URL de l'index, le follow préserve la circulation de l'autorité. L'exploration doit rester ouverte, sinon le robot ne lira jamais la directive."
+    },
+    {
+      "id": "q2",
+      "question": "Vous supprimez définitivement 800 fiches produits, dont 40 reçoivent des backlinks. Que faire de ces 40 pages ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Une redirection 301 vers la catégorie parente ou le produit remplaçant"
+        },
+        {
+          "key": "b",
+          "text": "Un simple 404, Google finira par les oublier"
+        },
+        {
+          "key": "c",
+          "text": "Un blocage robots.txt pour ne plus les faire explorer"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "La 301 récupère l'autorité accumulée par ces backlinks. Un 404 ou un noindex la laisserait simplement s'éteindre."
+    },
+    {
+      "id": "q3",
+      "question": "Sur quelles données faut-il piloter les Core Web Vitals ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Sur le score Lighthouse obtenu depuis son poste de travail"
+        },
+        {
+          "key": "b",
+          "text": "Sur les données de terrain, issues des utilisateurs réels de Chrome sur 28 jours"
+        },
+        {
+          "key": "c",
+          "text": "Sur le temps de réponse du serveur uniquement"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Le laboratoire sert à identifier les causes ; c'est le terrain qui constitue le signal. Un score de 95 en fibre ne dit rien d'un visiteur en 4G."
+    },
+    {
+      "id": "q4",
+      "question": "Quelle est la toute première étape d'un plan de migration ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Exporter l'inventaire complet des URLs indexées et leur valeur, avant tout développement"
+        },
+        {
+          "key": "b",
+          "text": "Mettre en place les redirections juste après la mise en ligne"
+        },
+        {
+          "key": "c",
+          "text": "Soumettre le nouveau sitemap dès la bascule"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Cet inventaire n'est plus reconstituable proprement après la bascule : il faut alors le reconstruire à partir de sources incomplètes."
+    },
+    {
+      "id": "q5",
+      "question": "Pourquoi ne faut-il pas rediriger en masse les anciennes URLs vers la page d'accueil ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Parce que Google interdit les redirections vers l'accueil"
+        },
+        {
+          "key": "b",
+          "text": "Parce que cela crée systématiquement des boucles de redirection"
+        },
+        {
+          "key": "c",
+          "text": "Parce que Google traite une redirection vers un contenu sans rapport comme un soft 404 : aucune autorité n'est transférée"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Une redirection ne transmet de valeur que si la destination répond à la même intention que l'origine. Et l'utilisateur qui cherchait une fiche précise repart aussitôt."
+    },
+    {
+      "id": "q6",
+      "question": "Un prestataire propose 100 liens pour 10 000 € sur un site de 8 mois qui en compte 6. Quel est le principal signal d'alerte ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le prix, trop élevé pour ce volume"
+        },
+        {
+          "key": "b",
+          "text": "Une progression totalement anormale, sur une niche qui ne compte pas 100 sites thématiquement pertinents"
+        },
+        {
+          "key": "c",
+          "text": "Le fait que les liens soient en dofollow"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Les liens viendront donc de sites hors sujet — la pertinence thématique étant le critère de valeur numéro un, ces liens vaudront peu et exposeront le domaine."
+    }
+  ]
+}

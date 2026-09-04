@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-excel-analyse-donnees-module-3",
+  "version": "2.0",
+  "last_verified": "2026-09-04",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Un TCD affiche 11 990 comme grand total au lieu du chiffre d'affaires attendu. Que vous dit-il ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Que la plage source est trop grande et inclut des lignes vides"
+        },
+        {
+          "key": "b",
+          "text": "Qu'il compte au lieu de sommer, donc que la colonne contient au moins une valeur non numérique"
+        },
+        {
+          "key": "c",
+          "text": "Que le TCD n'a pas été actualisé depuis le dernier ajout de données"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Excel bascule en comptage dès qu'une cellule texte est présente. Ne corrigez pas seulement l'affichage : allez traiter le typage à la source."
+    },
+    {
+      "id": "q2",
+      "question": "Pourquoi ne faut-il jamais créer un champ calculé multipliant deux champs entre eux ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Parce qu'un champ calculé opère sur les totaux agrégés : il multiplierait la somme des prix par la somme des quantités"
+        },
+        {
+          "key": "b",
+          "text": "Parce que les champs calculés ralentissent excessivement l'actualisation"
+        },
+        {
+          "key": "c",
+          "text": "Parce qu'Excel limite les champs calculés à une seule opération"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Agréger puis diviser est correct, agréger puis multiplier ne l'est presque jamais. Le produit se calcule en colonne de la table source."
+    },
+    {
+      "id": "q3",
+      "question": "Quel piège comporte le regroupement automatique d'une colonne de dates par mois ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Il convertit les dates en texte et casse les tris"
+        },
+        {
+          "key": "b",
+          "text": "Sans cocher Années, il agrège tous les mois de janvier de toutes les années ensemble"
+        },
+        {
+          "key": "c",
+          "text": "Il exclut automatiquement les mois sans aucune donnée"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Invisible sur une seule année, le problème double silencieusement tous les chiffres le jour où l'on ajoute l'année précédente."
+    },
+    {
+      "id": "q4",
+      "question": "Quelle opération de Power Query transforme un tableau à douze colonnes mensuelles en tableau analysable ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Fusionner les requêtes"
+        },
+        {
+          "key": "b",
+          "text": "Ajouter les requêtes"
+        },
+        {
+          "key": "c",
+          "text": "Dépivoter les colonnes"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Sélectionner les douze colonnes de mois puis Transformer > Dépivoter donne la structure longue en un clic. Probablement l'opération la plus utile de Power Query."
+    },
+    {
+      "id": "q5",
+      "question": "Après avoir consolidé douze fichiers régionaux, quel contrôle faut-il poser en priorité ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Un regroupement par fichier source affichant nombre de lignes, somme et montant moyen"
+        },
+        {
+          "key": "b",
+          "text": "Une vérification que le nombre total de lignes est un multiple de douze"
+        },
+        {
+          "key": "c",
+          "text": "Un tri par date pour vérifier l'ordre chronologique"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "C'est ce contrôle qui révèle qu'une région a exporté le mauvais mois, ou que ses montants sont en TTC quand les autres sont en HT."
+    },
+    {
+      "id": "q6",
+      "question": "Où doit vivre une règle métier, comme un seuil de remise ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Dans une colonne conditionnelle de la requête Power Query, pour qu'elle soit automatisée"
+        },
+        {
+          "key": "b",
+          "text": "Dans une colonne de formule visible dans la feuille, ou dans une table de paramètres"
+        },
+        {
+          "key": "c",
+          "text": "Dans un champ calculé du tableau croisé dynamique"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Power Query pour la forme des données, les formules pour les règles métier : ce sont elles qui seront discutées en réunion, elles doivent rester visibles."
+    }
+  ]
+}

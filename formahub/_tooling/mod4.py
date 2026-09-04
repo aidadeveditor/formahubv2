@@ -1,0 +1,370 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Formahub — source du module 4 de la formation « Analytics et mesure de la performance ».
+
+Regenerer la page et le quiz :
+    python3 mod4.py                       # ecrit dans ../formations/
+    FH_OUT=/tmp/essai python3 mod4.py     # ecrit ailleurs
+
+Valider ensuite les quatre modules :
+    FH_OUT=../formations FH_CSS=../assets/css/style.css python3 validate.py analytics-mesure 4
+"""
+import sys, json, os
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+from fh_builder import build, set_out
+
+OUT = os.environ.get("FH_OUT", os.path.join(HERE, "..", "formations"))
+set_out(OUT)
+
+M = {}
+FORM = "Analytics &amp; mesure de la performance"
+
+M["analytics-mesure/module-4"] = {
+ "formation": FORM,
+ "titre": "Restituer et décider : tableaux de bord, reporting et culture de la mesure",
+ "num": 4, "total": 4, "duree": "60 min", "niveau": "Intermédiaire",
+ "module_id": "formation-analytics-mesure-module-4",
+ "situation": [
+   "Lundi 7 septembre, comité de direction. Vous présentez le diagnostic du module précédent : la baisse de conversion venait d'un champ de formulaire défectueux sur un navigateur mobile, la correction est déployée, le taux est revenu à son niveau. Le travail est solide et la démonstration tient en trois chiffres.",
+   "La réunion ne s'y arrête pas. Elle s'attarde douze minutes sur une diapositive secondaire où le trafic d'un canal a baissé de 4 %, quelqu'un conteste un chiffre au motif que « le CRM ne dit pas la même chose », et l'on passe au point suivant sans qu'aucune décision ait été prise — pas même celle de suivre désormais la conversion par appareil, qui était la recommandation.",
+   "Le problème n'est ni l'analyse ni l'audience. Il est dans la restitution : trop de chiffres présentés à parité, aucune hiérarchie, aucune décision formulée, et une réunion dont l'ordre du jour n'a pas été conçu pour décider. Une analyse juste qui ne change rien coûte exactement autant qu'une analyse fausse.",
+   "Ce module traite ce dernier segment de la chaîne — celui où la plupart des dispositifs de mesure échouent. Tableaux de bord par audience, représentations qui ne trompent pas, commentaires qui appellent une décision, revues qui en produisent, et ce qui fait qu'un dispositif est encore vivant dans deux ans. L'étude de cas rejouera la réunion du 7 septembre.",
+ ],
+ "objectifs": [
+   "Concevoir trois tableaux de bord distincts selon l'audience et la fréquence de lecture",
+   "Choisir la représentation adaptée à la nature de la comparaison, et repérer celles qui trompent",
+   "Rédiger un commentaire d'analyse en quatre temps, jusqu'au coût de l'inaction",
+   "Conduire une revue de performance qui produit des décisions datées et attribuées",
+   "Organiser la survie du dispositif : propriétaire, documentation, revue semestrielle",
+   "Poser les limites d'usage d'un tableau de bord, notamment sur les indicateurs individuels",
+ ],
+ "sections": [
+  {"titre": "Un tableau de bord par audience",
+   "paras": [
+     "Un tableau de bord conçu pour tout le monde n'est lu par personne. Les trois audiences d'une entreprise ne prennent pas les mêmes décisions, à la même fréquence, ni sur le même horizon, et il est plus rapide de construire trois tableaux courts qu'un seul qui tente de les satisfaire tous.",
+     "Le tableau <strong>opérationnel</strong> se lit chaque semaine, parfois chaque jour. Il porte des indicateurs avancés et des anomalies, il est massivement segmenté — par appareil, par source, par page — et chacun de ses blocs doit être cliquable vers la liste des éléments concernés. C'est ce détail qui sépare un tableau de bord d'une affiche : un chiffre sans accès à ce qu'il y a derrière ne permet aucune action.",
+     "Le tableau de <strong>pilotage</strong> se lit chaque mois. Il sert à arbitrer des moyens sur quelques mois : où porter l'effort éditorial, quel canal renforcer, quel chantier lancer. Il mélange indicateurs avancés et de résultat, et affiche systématiquement une comparaison — mois précédent et même mois de l'année précédente, les deux, pour la raison vue au module 3.",
+     "Le tableau de <strong>direction</strong> se lit chaque mois ou chaque trimestre. Il tient en six blocs, majoritairement des indicateurs de résultat, avec un ou deux indicateurs avancés dont le rôle est d'alerter sur ce qui arrive. Sa qualité ne se juge pas à sa complétude mais à sa capacité à provoquer un arbitrage : s'il n'a déclenché aucune décision en six mois, il doit être refait ou supprimé.",
+     "Une règle traverse les trois : <strong>six blocs au maximum</strong>, l'indicateur qui déclenche le plus d'actions en haut à gauche, et une comparaison sur chaque chiffre. Au-delà de six, l'œil ne hiérarchise plus et le tableau redevient un document de consultation.",
+   ],
+   "blocks": [
+     {"type": "html", "html": """
+<div class="table-responsive">
+<table>
+  <thead>
+    <tr><th>Niveau</th><th>Fréquence</th><th>Nature des indicateurs</th><th>Ce qu'il déclenche</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Opérationnel</td><td>Quotidien ou hebdomadaire</td><td>Avancés, anomalies, fortement segmentés, cliquables</td><td>Une action nommée dans la semaine</td></tr>
+    <tr><td>Pilotage</td><td>Mensuel</td><td>Avancés et résultats, avec double comparaison</td><td>Un arbitrage d'effort sur quelques mois</td></tr>
+    <tr><td>Direction</td><td>Mensuel ou trimestriel</td><td>Résultats, plus un ou deux avancés d'alerte</td><td>Un arbitrage de moyens ou de budget</td></tr>
+  </tbody>
+</table>
+</div>
+"""},
+     {"type": "method", "titre": "construire un tableau de bord en six étapes",
+      "steps": [
+        "<strong>Nommez l'audience et la fréquence</strong> avant tout contenu : « le responsable acquisition, chaque lundi » ou « le comité de direction, une fois par mois ». Sans cela, vous construirez le tableau de personne.",
+        "<strong>Écrivez les trois à six décisions</strong> que cette audience prend réellement, puis n'affichez que les indicateurs qui les déclenchent. C'est le test du module 1 appliqué à la mise en page.",
+        "<strong>Placez en haut à gauche l'indicateur qui déclenche le plus d'actions</strong>, rarement le chiffre d'affaires. La position dit ce qui compte, plus sûrement qu'un titre.",
+        "<strong>Rendez chaque bloc cliquable</strong> vers la liste des pages, campagnes ou enregistrements concernés, au moins sur le tableau opérationnel.",
+        "<strong>Affichez une comparaison sur chaque chiffre</strong> — période précédente, année précédente ou objectif — et le numérateur à côté de chaque taux.",
+        "<strong>Observez un mois, puis retirez ce que personne n'a regardé.</strong> Un tableau de bord se construit par soustraction bien plus que par ajout.",
+      ]},
+     {"type": "pitfall", "titre": "le tableau unique qui satisfait tout le monde",
+      "paras": [
+        "La demande revient à chaque fois : « faisons un seul tableau, avec des filtres, chacun regardera ce qui l'intéresse ». Le résultat est prévisible — vingt blocs, aucune hiérarchie, et une lecture qui exige de savoir déjà ce qu'on cherche. Les opérationnels n'y trouvent pas leur granularité, la direction s'y perd, et chacun finit par se reconstituer un tableur personnel.",
+        "Trois tableaux de six blocs coûtent moins cher à construire et à maintenir qu'un tableau de vingt, parce que chacun se justifie par des décisions nommées. Argument à employer face à la demande : « un tableau pour trois audiences oblige chacune à ignorer les deux tiers de ce qu'elle voit ; c'est précisément ce qui fait qu'on cesse de le regarder ».",
+      ]},
+   ]},
+
+  {"titre": "Choisir la représentation juste",
+   "paras": [
+     "Le choix d'un graphique n'est pas une question esthétique : une représentation inadaptée fait lire une relation qui n'existe pas, ou dissimule celle qui existe. Quatre règles couvrent la quasi-totalité des besoins d'un tableau de bord.",
+     "<strong>Le temps se lit en courbe</strong>, jamais en barres verticales : la courbe suggère la continuité, la barre suggère des catégories indépendantes et rend la tendance difficile à percevoir. <strong>Les catégories se comparent en barres horizontales</strong>, triées par valeur — c'est la représentation la plus lisible pour classer des canaux, des pages ou des campagnes, et elle supporte des libellés longs sans les incliner.",
+     "<strong>Les parts d'un tout se lisent mal en secteurs</strong> : l'œil compare mal des angles, et au-delà de trois ou quatre parts, un camembert devient une devinette. Des barres empilées ou, mieux, un simple tableau de pourcentages sont presque toujours supérieurs. <strong>Un tableau vaut mieux qu'un graphique quand les valeurs exactes comptent</strong>, ce qui est le cas pour un rapprochement, une répartition budgétaire, ou tout chiffre qui sera cité ensuite.",
+     "Deux exigences se rajoutent à ces choix, quel que soit le graphique retenu. Afficher la <strong>référence</strong> — période précédente ou objectif — car un chiffre isolé n'est pas interprétable ; et afficher le <strong>volume</strong> à côté de tout taux, pour la raison développée au module 1. Un graphique qui respecte ces deux exigences est plus utile qu'un graphique élégant qui les ignore.",
+   ],
+   "blocks": [
+     {"type": "pitfall", "titre": "l'axe tronqué et les huit séries",
+      "paras": [
+        "Un axe vertical qui ne part pas de zéro sur un graphique en <strong>barres</strong> est trompeur, et la tromperie est forte : la longueur des barres est ce que l'œil compare, et la tronquer transforme un écart de 2 % en une différence visuelle du simple au double. Sur une <strong>courbe</strong>, en revanche, l'axe tronqué est légitime — c'est la variation qui est lue, pas la surface — à condition que la graduation soit visible et que l'échelle ne change pas d'un rapport à l'autre.",
+        "L'autre défaut courant est l'accumulation : huit séries sur un même graphique produisent un enchevêtrement où l'on ne suit plus rien, et où chacun voit ce qu'il cherchait. Trois séries au maximum ; au-delà, mettez en évidence celle dont on parle et grisez les autres en arrière-plan.",
+        "Le contrôle final à faire sur tout graphique tient en une question : <strong>quelqu'un qui le regarde trois secondes sans légende en tire-t-il la bonne conclusion ?</strong> Si la réponse dépend d'une explication orale, le graphique est à refaire — car il circulera sans vous.",
+      ]},
+     {"type": "exemple", "titre": "le même constat, trois représentations",
+      "paras": [
+        "Constat à faire passer : la conversion mobile s'est effondrée en avril alors que l'ordinateur est stable.",
+        "<em>Version qui échoue :</em> un graphique en barres empilées de toutes les sources par mois, avec le taux global en courbe superposée sur un second axe. Tout y est, rien ne s'y voit, et l'effondrement mobile est invisible puisqu'il n'apparaît sur aucun des deux découpages retenus.",
+        "<em>Version qui fonctionne :</em> une seule courbe à deux séries — taux de conversion mobile et ordinateur, sur douze mois, échelle commune, un repère vertical daté au 8 avril marquant le déploiement. Le décrochage d'une série et la stabilité de l'autre se lisent en une seconde, et le repère daté fournit l'hypothèse sans qu'un mot soit prononcé.",
+        "<em>Version qui complète :</em> à côté, un tableau de quatre lignes donnant les taux et les volumes avant et après, pour ceux qui citeront les chiffres. Graphique pour la démonstration, tableau pour les valeurs exactes — les deux ont un rôle, et ce n'est pas le même.",
+      ]},
+   ]},
+
+  {"titre": "Écrire un commentaire d'analyse",
+   "paras": [
+     "Un tableau de bord ne parle pas de lui-même, et l'immense majorité des commentaires de reporting sont descriptifs : ils répètent en phrases ce que le graphique montre déjà. « Le trafic organique est en baisse de 6 % ce mois-ci » n'apporte rien à qui vient de lire le chiffre. Un commentaire utile tient en quatre temps.",
+     "<strong>Le constat</strong>, chiffré et borné : ce qui a bougé, de combien, sur quel segment, sur quelle période. <strong>La cause probable</strong>, assortie de son degré de certitude — et c'est le point qui distingue un analyste d'un commentateur. Écrivez explicitement « établi », « probable » ou « hypothèse à vérifier ». Une cause présentée comme certaine alors qu'elle est plausible détruit la confiance dès le premier démenti, et c'est un capital qui ne se reconstitue pas.",
+     "<strong>La décision proposée</strong>, avec son coût et son délai : qui fait quoi, en combien de temps. Un commentaire qui s'arrête au diagnostic laisse à la réunion le soin d'inventer la suite, ce qu'elle fait mal et lentement. <strong>Le coût de l'inaction</strong>, enfin, chiffré quand c'est possible : « ne rien faire coûte environ 40 demandes par mois ». C'est de très loin l'élément le plus efficace, parce qu'il transforme un choix entre agir et attendre en un choix entre deux dépenses.",
+     "Deux règles de volume encadrent l'exercice. Ne commentez que ce qui a bougé — un indicateur stable ne mérite pas une ligne, et le commenter dilue les deux constats qui comptent. Et limitez-vous à trois constats par restitution : au-delà, la hiérarchie disparaît et la réunion choisira elle-même son sujet, généralement le plus anecdotique.",
+   ],
+   "blocks": [
+     {"type": "exemple", "titre": "un commentaire raté, puis le même en quatre temps",
+      "paras": [
+        "<em>Version descriptive :</em> « Le taux de conversion est en baisse ce mois-ci, à 2,6 % contre 3,1 % en mars. Le trafic est stable. Nous continuons à surveiller la situation. » Trois phrases, aucune information nouvelle, aucune décision possible. La formule « nous continuons à surveiller » est le signe le plus fiable d'un commentaire qui ne sert à rien.",
+        "<em>Version en quatre temps :</em> « <strong>Constat</strong> — la conversion mobile est passée de 68 % à 39 % sur la dernière marche du formulaire depuis le 8 avril ; l'ordinateur est stable. <strong>Cause</strong> — établi : un champ ajouté le 8 avril s'affiche hors écran sur un navigateur mobile et bloque l'envoi. <strong>Décision</strong> — correctif déployé cette semaine, une journée de développement, et suivi désormais de la conversion par appareil dans le tableau opérationnel. <strong>Coût de l'inaction</strong> — environ 40 demandes commerciales par mois, soit 80 depuis avril. »",
+        "La seconde version est plus courte à lire, elle contient une décision, et elle ne laisse aucune place au débat sur l'opportunité d'agir. C'est le chiffre du dernier temps qui fait tout le travail.",
+      ]},
+     {"type": "method", "titre": "rédiger une restitution en cinq étapes",
+      "steps": [
+        "<strong>Choisissez trois constats au maximum</strong>, ceux qui appellent une décision. Écartez les autres, y compris intéressants : ce que vous n'écartez pas, la réunion l'écartera à votre place, et pas dans le bon ordre.",
+        "<strong>Écrivez chaque constat en quatre temps</strong> — constat, cause et son degré de certitude, décision, coût de l'inaction — en cinq à huit lignes.",
+        "<strong>Envoyez le document avant la réunion</strong>, au moins vingt-quatre heures à l'avance, et dites explicitement qu'il sera considéré comme lu.",
+        "<strong>Ouvrez la séance par la décision attendue</strong>, pas par le contexte. « Je vous demande d'arbitrer trois choses » cadre la réunion en une phrase.",
+        "<strong>Repartez avec une décision, un responsable et une date pour chaque point</strong>, ou avec la mention explicite qu'il n'y a pas eu de décision. Un point sans suite écrite est un point qui reviendra à l'identique le mois suivant.",
+      ]},
+     {"type": "pitfall", "titre": "présenter une hypothèse comme un fait",
+      "paras": [
+        "La tentation est constante : une cause probable présentée avec assurance rend la restitution plus convaincante, et l'auditoire préfère une explication nette à une explication nuancée. Le coût arrive plus tard, quand un élément contredit l'explication — et il suffit d'une fois pour que l'ensemble de vos analyses devienne discutable.",
+        "La parade tient en un mot ajouté devant chaque cause : établi, probable, ou hypothèse à vérifier. Loin d'affaiblir la restitution, cette gradation la renforce, parce qu'elle rend crédibles les causes que vous présentez comme établies. Et lorsque vous annoncez une hypothèse, indiquez ce qui permettrait de la confirmer : vous transformez une incertitude en programme de travail.",
+      ]},
+   ]},
+
+  {"titre": "La revue de performance : produire des décisions",
+   "paras": [
+     "Une revue de performance est une réunion dont l'objet est de décider, pas de s'informer. La distinction paraît formelle et elle change tout : une réunion d'information peut se conclure sans rien produire, une revue de décision ne le peut pas. Le rythme suit les trois tableaux de bord — hebdomadaire pour l'opérationnel, mensuel pour le pilotage, trimestriel pour la direction — et chaque niveau a son ordre du jour.",
+     "La revue <strong>hebdomadaire</strong> dure trente minutes et ne traite que des anomalies : les blocs du tableau opérationnel qui sortent de leur plage habituelle, avec la liste des éléments concernés ouverte à l'écran. Elle ne commente aucun chiffre normal. Sa sortie est une liste d'actions nommées, avec un responsable et une échéance courte.",
+     "La revue <strong>mensuelle</strong> traite les trois constats de la restitution, dans l'ordre où ils ont été écrits, et arbitre l'effort du mois suivant. La revue <strong>trimestrielle</strong> ne regarde ni les anomalies ni les actions : elle arbitre des moyens, sur la base des indicateurs de résultat et de leur tendance, et elle est le seul moment où l'on peut décider de supprimer ou de créer un poste de dépense.",
+     "Trois choses tuent une revue, et elles sont identifiables à l'avance. La <strong>lecture des chiffres en séance</strong> d'abord : elle consomme la moitié du temps et occupe la place de la décision — les chiffres s'envoient avant, et la séance commence en les supposant lus. Le <strong>débat sur la fiabilité des données</strong> ensuite, qui revient à chaque fois qu'un rapprochement n'a pas été fait ; le module 2 traite ce point, et un tableau d'écart stable et expliqué le clôt définitivement. L'<strong>absence de suite écrite</strong> enfin : sans relevé de décisions daté et attribué, la revue suivante rejouera la même discussion, et c'est ainsi qu'un rituel utile devient une obligation subie.",
+   ],
+   "blocks": [
+     {"type": "method", "titre": "un ordre du jour de revue mensuelle, en soixante minutes",
+      "paras": ["Document envoyé la veille, considéré comme lu. La séance ne sert qu'à décider."],
+      "steps": [
+        "<strong>Cinq minutes — les décisions du mois précédent.</strong> Prises, faites, avec quel effet. Commencer par là installe l'idée que les décisions de cette réunion sont suivies, ce qui change la façon dont on les prend.",
+        "<strong>Quinze minutes — le premier constat</strong>, celui qui a le coût d'inaction le plus élevé. Une décision, un responsable, une date.",
+        "<strong>Quinze minutes — le deuxième constat</strong>, selon le même format.",
+        "<strong>Dix minutes — le troisième constat</strong>, ou son report explicite si le temps manque. Un report annoncé vaut mieux qu'un traitement expédié.",
+        "<strong>Dix minutes — les questions ouvertes et les demandes d'indicateurs</strong>, auxquelles on applique le test de la décision du module 1, en séance et à voix haute. C'est le meilleur moment pour écarter une demande, parce que l'auditoire participe au raisonnement.",
+        "<strong>Cinq minutes — le relevé de décisions</strong>, lu à voix haute avant de se quitter. Trois lignes suffisent, et elles évitent la réunion de rattrapage.",
+      ]},
+     {"type": "pitfall", "titre": "la réunion qui commence par la lecture du rapport",
+      "paras": [
+        "C'est le format par défaut et le plus coûteux. Vingt-cinq minutes de lecture commentée, dix minutes de questions de compréhension, et il reste un quart d'heure pour décider trois choses. La réunion produit alors soit rien, soit une décision prise dans la précipitation.",
+        "Le changement de format se heurte à une objection prévisible : « personne ne lit les documents envoyés avant ». C'est vrai la première fois. Cela cesse d'être vrai dès que la séance commence effectivement sans rappel du contenu — l'apprentissage est rapide, et il ne coûte qu'une réunion inconfortable. Le prévenir explicitement lors de l'envoi précédent suffit généralement à l'amortir.",
+      ]},
+   ]},
+
+  {"titre": "Faire vivre la mesure dans la durée",
+   "paras": [
+     "Un dispositif de mesure se dégrade seul. Les événements cessent de fonctionner à la première refonte, les indicateurs perdent leur définition quand leur auteur change de poste, les tableaux de bord accumulent des blocs que plus personne ne lit. Trois choses seulement font la différence entre un dispositif vivant à deux ans et un dispositif abandonné, et aucune n'est technique.",
+     "<strong>Un propriétaire nommé, avec du temps identifié.</strong> Pas un comité : une personne, avec une demi-journée par semaine reconnue dans sa charge. Sans propriétaire, un dispositif dérive en dix-huit mois quels que soient les moyens investis au départ — c'est la constante la plus régulière du domaine.",
+     "<strong>Trois documents tenus à jour</strong>, et trois seulement. Le <em>dictionnaire des indicateurs</em>, qui donne pour chacun sa définition complète, son propriétaire et sa date ; c'est lui qui fait autorité quand deux chiffres divergent. Le <em>journal des modifications</em> du module 1, qui date tout changement de collecte. Le <em>tableau des liens marqués</em> du module 2. Ces trois documents tiennent en quelques pages et rendent le dispositif transmissible, ce qui est leur véritable fonction.",
+     "<strong>Une revue semestrielle qui retire.</strong> Deux fois par an, on passe le dispositif en revue avec une seule question par élément : si je le supprime aujourd'hui, qui s'en apercevrait et en combien de temps ? Appliquée aux blocs de tableau de bord, aux événements et aux rapports automatiques, elle conduit à en retirer environ un tiers. Un dispositif qui ne fait que grossir a cessé d'être piloté.",
+     "Le signe de maturité, enfin, n'est ni le nombre d'indicateurs ni la beauté des tableaux : c'est qu'une décision visible ait été prise publiquement sur la foi d'un chiffre du dispositif. Une seule décision de ce type fait davantage pour l'adoption que six mois de formation — et à l'inverse, si les décisions importantes se prennent sur un tableur parallèle, chacun comprend que la mesure est un exercice administratif, et elle le devient.",
+   ],
+   "blocks": [
+     {"type": "method", "titre": "conduire la revue semestrielle en cinq étapes",
+      "steps": [
+        "<strong>Listez les blocs de tableau de bord et leur fréquence de consultation réelle</strong>, quand l'outil la fournit. Un bloc consulté deux fois en six mois est un bloc mort.",
+        "<strong>Listez les événements et vérifiez qu'ils se déclenchent encore</strong>, en volume comme en propriétés. Une refonte en casse toujours quelques-uns, silencieusement.",
+        "<strong>Reprenez le dictionnaire des indicateurs</strong> et supprimez ceux dont la décision associée n'est plus prise par personne. C'est l'étape que l'on saute et celle qui produit le plus d'allègement.",
+        "<strong>Vérifiez les rapports automatiques envoyés par courriel</strong> : demandez à leurs destinataires quand ils les ont ouverts pour la dernière fois, et arrêtez-les à une date annoncée plutôt que de les laisser s'éteindre d'eux-mêmes.",
+        "<strong>Notez ce que vous avez retiré et pourquoi.</strong> C'est ce document qui permettra, dans un an, de répondre à « pourquoi n'a-t-on plus cet indicateur ? » sans reconstituer l'histoire.",
+      ]},
+     {"type": "pitfall", "titre": "le tableau de bord qui devient un instrument de surveillance",
+      "paras": [
+        "Un tableau affichant des indicateurs d'activité individuels, projeté en réunion, produit exactement ce qu'il mesure : chacun optimise le chiffre affiché plutôt que le travail. C'est la loi de Goodhart, et son coût principal n'est pas la vexation — c'est la dégradation silencieuse de la qualité des données, qui rend ensuite tout le dispositif inutilisable.",
+        "La conduite à tenir est simple et il faut l'énoncer avant qu'on ne vous le demande. Les indicateurs d'activité restent au niveau de l'équipe pour le pilotage ; au niveau individuel, ils relèvent de l'entretien d'accompagnement et du cadre défini avec les ressources humaines, jamais d'une projection collective. Décrivez ce que les chiffres montrent, sans en tirer de jugement sur les personnes.",
+        "Un suivi individualisé des salariés soulève par ailleurs des obligations qui dépassent la compétence de l'analyste : information des personnes, consultation des représentants du personnel, proportionnalité, durée de conservation. Devant une demande de cette nature, la bonne réponse n'est pas de la traiter techniquement mais de la renvoyer aux ressources humaines et au responsable de la protection des données avant toute mise en oeuvre. Refuser de construire seul un tel tableau n'est pas de la résistance : c'est la seule position tenable.",
+      ]},
+   ]},
+ ],
+
+ "etude_cas": {
+   "titre": "Rejouer la réunion du 7 septembre",
+   "html": """
+<p>Même analyse, même auditoire, même durée. Seule la restitution change. Voici ce qui aurait été fait autrement, et ce que cela produit.</p>
+<p><strong>Ce qui a échoué la première fois.</strong> Onze diapositives présentées à parité, dont neuf décrivaient des chiffres stables. Aucune décision formulée dans le document. Un chiffre issu de l'analytics cité sans avoir été rapproché du CRM, ce qui a suffi à ouvrir un débat sur la fiabilité. Et un ordre du jour dans lequel le point le plus important arrivait en quatrième position, quand l'attention est déjà consommée.</p>
+<p><strong>Étape 1 — réduire à trois constats.</strong> Un seul constat mérite en réalité une décision : la conversion mobile et sa correction. On y ajoute deux points d'arbitrage réels — l'écart persistant entre mobile et ordinateur hors incident, et la demande de suivi par appareil. Les huit autres diapositives sont retirées du document et versées en annexe, ce qui suffit à les retirer de la conversation.</p>
+<p><strong>Étape 2 — écrire chaque constat en quatre temps.</strong> Pour le premier : constat chiffré et segmenté ; cause établie, avec la date de déploiement ; décision — correctif fait, plus suivi par appareil dans le tableau opérationnel ; coût de l'inaction — 40 demandes par mois, 80 déjà perdues. Sept lignes.</p>
+<p><strong>Étape 3 — désamorcer le débat sur la fiabilité avant qu'il ne s'ouvre.</strong> Le document porte une ligne de périmètre : « chiffres analytics, couverture d'environ 72 % stable depuis janvier ; l'écart avec le CRM est de 35 %, expliqué et suivi mensuellement ». Cette phrase, écrite une fois, retire à quiconque la possibilité d'utiliser l'écart comme objection — et surtout, elle montre que la question a déjà été traitée.</p>
+<p><strong>Étape 4 — refaire les deux graphiques.</strong> Le graphique en barres empilées de toutes les sources est remplacé par une courbe à deux séries, mobile et ordinateur, avec un repère vertical daté au 8 avril. Le second graphique, à deux axes verticaux, est supprimé au profit d'un tableau de quatre lignes. Aucune information n'est perdue ; la démonstration devient lisible en trois secondes.</p>
+<p><strong>Étape 5 — envoyer la veille et changer l'ouverture.</strong> Document envoyé vingt-quatre heures avant, annoncé comme considéré lu. La séance s'ouvre non par le contexte mais par la phrase : « je vous demande d'arbitrer trois choses ; la première coûte 40 demandes par mois tant qu'elle n'est pas tranchée ».</p>
+<p><strong>Ce que produit la réunion rejouée.</strong> Le premier point est traité en huit minutes et se conclut par une décision datée. Le deuxième — l'écart structurel entre mobile et ordinateur — donne lieu à l'ouverture d'un chantier avec un responsable et une échéance à six semaines, alors qu'il n'avait même pas été abordé la première fois. Le troisième est acté sans discussion. La réunion se termine avec vingt minutes d'avance, sur un relevé de trois lignes lu à voix haute.</p>
+<p><strong>La leçon transposable.</strong> Rien dans l'analyse n'a changé : ni un chiffre, ni une conclusion. Ce qui a changé tient en quatre gestes — hiérarchiser jusqu'à trois constats, écrire le coût de l'inaction, désamorcer l'objection de fiabilité par une ligne de périmètre, et ouvrir sur la décision plutôt que sur le contexte. La compétence de restitution n'est pas un supplément de présentation : elle est ce qui décide si le travail des trois modules précédents produit un effet ou reste une note de service. Et c'est la seule partie de la chaîne qu'aucun outil ne fera à votre place.</p>
+"""},
+
+ "checklist": {
+   "titre": "Checklist — restituer, décider, faire durer",
+   "items": [
+     "Il existe trois tableaux distincts, un par audience, chacun portant le nom de son audience et de sa fréquence de lecture",
+     "Aucun tableau ne dépasse six blocs",
+     "L'indicateur qui déclenche le plus d'actions est en haut à gauche",
+     "Chaque bloc du tableau opérationnel est cliquable vers les éléments concernés",
+     "Chaque chiffre est accompagné d'une comparaison, et chaque taux de son numérateur",
+     "Le temps est représenté en courbes, les catégories en barres horizontales triées",
+     "Aucun axe tronqué sur un graphique en barres ; aucune série au-delà de trois",
+     "Aucun graphique à deux axes verticaux ne sert à suggérer une relation",
+     "Chaque graphique se lit correctement en trois secondes, sans commentaire oral",
+     "Chaque commentaire suit les quatre temps : constat, cause, décision, coût de l'inaction",
+     "Le degré de certitude de chaque cause est écrit : établi, probable, ou à vérifier",
+     "Rien de ce qui n'a pas bougé n'est commenté",
+     "Une restitution porte trois constats au maximum",
+     "Une ligne de périmètre annonce la couverture et l'écart entre outils",
+     "Le document est envoyé au moins vingt-quatre heures avant et annoncé comme lu",
+     "Chaque revue se conclut par un relevé de décisions daté et attribué",
+     "Un propriétaire est nommé, avec du temps identifié dans sa charge",
+     "Le dictionnaire des indicateurs, le journal des modifications et le tableau des liens sont à jour",
+     "Une revue semestrielle retire les blocs, événements et rapports que personne ne regarde",
+     "Aucun indicateur d'activité individuel n'est projeté collectivement",
+   ]},
+
+ "glossaire": [
+   ("Tableau opérationnel", "Tableau lu chaque semaine ou chaque jour, composé d'indicateurs avancés et d'anomalies, segmenté et cliquable vers les éléments concernés."),
+   ("Tableau de pilotage", "Tableau mensuel servant à arbitrer l'effort sur quelques mois, avec double comparaison mois précédent et année précédente."),
+   ("Tableau de direction", "Tableau mensuel ou trimestriel de six blocs, majoritairement des résultats, dont la qualité se juge aux arbitrages qu'il provoque."),
+   ("Règle des six blocs", "Limite au-delà de laquelle l'oeil ne hiérarchise plus et le tableau redevient un document de consultation."),
+   ("Axe tronqué", "Axe vertical ne partant pas de zéro. Trompeur sur des barres, dont la longueur est comparée ; acceptable sur une courbe si la graduation est visible."),
+   ("Commentaire en quatre temps", "Format d'un commentaire utile : constat chiffré, cause probable et son degré de certitude, décision proposée, coût de l'inaction."),
+   ("Coût de l'inaction", "Chiffrage de ce que coûte le fait de ne rien faire. Élément le plus efficace d'une restitution : il transforme un choix d'agir en choix entre deux dépenses."),
+   ("Ligne de périmètre", "Phrase annonçant la couverture des données et l'écart connu entre outils. Retire à l'avance l'objection de fiabilité."),
+   ("Revue de performance", "Réunion dont l'objet est de décider et non de s'informer. Se conclut par un relevé daté et attribué."),
+   ("Dictionnaire des indicateurs", "Document donnant pour chaque indicateur sa définition complète, son propriétaire et sa date. Fait autorité quand deux chiffres divergent."),
+   ("Revue semestrielle", "Passage en revue du dispositif avec une question unique par élément : qui s'apercevrait de sa suppression, et en combien de temps ?"),
+   ("Loi de Goodhart", "Principe selon lequel une mesure cesse d'être une bonne mesure dès qu'elle devient un objectif. Justifie de ne jamais projeter d'indicateurs d'activité individuels."),
+ ],
+
+ "retenir": [
+   "Un tableau de bord conçu pour tout le monde n'est lu par personne : trois tableaux courts coûtent moins qu'un tableau de vingt blocs.",
+   "Six blocs au maximum, l'indicateur le plus actionnable en haut à gauche, une comparaison sur chaque chiffre.",
+   "Un bloc non cliquable vers les éléments concernés est une affiche, pas un outil de décision.",
+   "Un tableau de bord se construit par soustraction : observez un mois, puis retirez ce que personne n'a regardé.",
+   "Le temps se lit en courbe, les catégories en barres horizontales triées, les parts d'un tout rarement en secteurs.",
+   "Un axe tronqué est trompeur sur des barres, légitime sur une courbe si la graduation est visible ; et trois séries au maximum par graphique, au-delà chacun y voit ce qu'il cherchait.",
+   "Un graphique qui exige une explication orale est à refaire : il circulera sans vous.",
+   "Un commentaire descriptif ne sert à rien ; « nous continuons à surveiller » en est le signe le plus fiable.",
+   "Écrivez le degré de certitude de chaque cause : cette gradation rend crédibles les causes que vous présentez comme établies.",
+   "Le coût de l'inaction chiffré est l'élément le plus efficace d'une restitution.",
+   "Trois constats au maximum : ce que vous n'écartez pas, la réunion l'écartera à votre place, et mal.",
+   "Une revue de performance décide, elle ne s'informe pas : les chiffres s'envoient avant, la séance les suppose lus, et un point sans relevé de décision écrit reviendra à l'identique le mois suivant.",
+   "Une ligne de périmètre écrite une fois clôt définitivement le débat sur la fiabilité des données.",
+   "Sans propriétaire nommé et sans temps identifié, un dispositif dérive en dix-huit mois quels que soient les moyens investis.",
+   "Une revue semestrielle qui pose une seule question — qui s'apercevrait de sa suppression ? — retire environ un tiers du dispositif.",
+   "Le signe de maturité est qu'une décision visible ait été prise publiquement sur un chiffre du dispositif.",
+   "Les indicateurs d'activité individuels ne se projettent jamais : le suivi individualisé relève des ressources humaines et de la conformité, pas de l'analyste.",
+ ],
+
+ "exercices": [
+  {"titre": "Corriger quatre représentations", "niveau": "Débutant",
+   "enonce": [
+     "Quatre visuels figurent dans un rapport mensuel. Pour chacun, dites ce qui ne va pas, ce que le lecteur risque d'en conclure à tort, et par quoi vous le remplacez.",
+     "1. Un camembert à neuf parts représentant la répartition du trafic par source. — 2. Un graphique en barres du chiffre d'affaires des quatre derniers trimestres, dont l'axe vertical commence à 480 000 € pour des valeurs comprises entre 495 000 et 530 000 €. — 3. Une courbe du taux de conversion sur douze mois, sans aucune référence ni volume affiché. — 4. Un graphique superposant, sur deux axes verticaux, le budget publicitaire mensuel et le nombre d'inscriptions.",
+   ],
+   "corrige": """
+<p><strong>1. Le camembert à neuf parts.</strong> Ce qui ne va pas : l'oeil compare mal les angles, et au-delà de trois ou quatre parts l'exercice devient une devinette ; les petites parts, souvent les plus intéressantes, deviennent illisibles. Ce que le lecteur conclura à tort : que les deux ou trois grandes sources sont l'essentiel du sujet, alors que la question intéressante porte presque toujours sur les évolutions des petites. <em>Remplacement :</em> des barres horizontales triées par valeur, avec le pourcentage et le volume affichés en bout de barre, et — si l'évolution compte — une seconde colonne donnant la variation par rapport à la période précédente. Le classement devient immédiat et les petites sources restent lisibles.</p>
+<p><strong>2. L'axe tronqué sur des barres.</strong> C'est le plus grave des quatre, car il déforme sans qu'on s'en aperçoive. En partant de 480 000, un écart réel de 7 % entre le premier et le dernier trimestre occupe visuellement le double ou le triple de sa proportion. Ce que le lecteur conclura à tort : que la croissance est spectaculaire, et il fondera peut-être une décision d'investissement sur cette impression. <em>Remplacement :</em> soit des barres partant de zéro, soit — puisqu'il s'agit d'une série temporelle — une courbe, où l'axe tronqué est légitime à condition que la graduation soit visible et que l'échelle reste identique d'un mois sur l'autre. Ajoutez la valeur du même trimestre de l'année précédente : sur des données trimestrielles, c'est la seule comparaison qui neutralise la saisonnalité.</p>
+<p><strong>3. La courbe sans référence ni volume.</strong> Le graphique est correct dans sa forme, et pourtant inexploitable : un taux de conversion isolé n'est ni bon ni mauvais, et une variation de taux peut venir du numérateur comme du dénominateur, ainsi que le module 1 l'a montré. Ce que le lecteur conclura à tort : qu'une hausse du taux est une bonne nouvelle, alors qu'elle peut n'être due qu'à la coupure d'un canal peu qualifié. <em>Remplacement :</em> la même courbe avec, en série secondaire discrète, le nombre absolu de conversions, et une ligne horizontale marquant l'objectif ou la moyenne de l'année précédente. Deux ajouts, aucun mot supplémentaire, et le graphique devient interprétable seul.</p>
+<p><strong>4. Le graphique à deux axes verticaux.</strong> En choisissant les échelles, on peut faire coïncider presque n'importe quelles séries : le visuel suggère une relation que rien n'établit. Ce que le lecteur conclura à tort : que le budget publicitaire cause les inscriptions dans le rapport exact que le graphique laisse voir — et il en déduira un ordre de grandeur de rendement entièrement artificiel. <em>Remplacement :</em> ramenez les deux séries à une base commune, en indice 100 à la première période ou en variation en pourcentage, sur un axe unique. Et si la question posée est réellement causale, aucun graphique n'y répondra : c'est un test d'incrémentalité qu'il faut, comme au module 3.</p>
+<p><strong>Le point commun des quatre cas.</strong> Aucun de ces visuels n'est faux : les données sont exactes dans les quatre. Ce sont des choix de représentation qui font lire autre chose que ce que les chiffres disent. C'est pourquoi le contrôle final vaut d'être systématique — quelqu'un qui regarde trois secondes sans légende en tire-t-il la bonne conclusion ? Les quatre visuels échouent à ce test, et c'est le seul argument dont vous aurez besoin pour les faire changer.</p>
+"""},
+
+  {"titre": "Concevoir les trois tableaux de bord d'un même site", "niveau": "Intermédiaire",
+   "enonce": [
+     "Une entreprise de services vend un abonnement mensuel en ligne. Trois audiences : le responsable acquisition, qui pilote les campagnes au quotidien ; la directrice marketing, qui arbitre chaque mois l'effort entre contenu, publicité et refonte du parcours ; le comité de direction, qui arbitre les budgets chaque trimestre.",
+     "Concevez les trois tableaux de bord, six blocs maximum chacun. Justifiez la présence de chaque bloc par la décision qu'il déclenche, et indiquez trois indicateurs que vous refusez de faire figurer, en disant comment vous le formulez.",
+   ],
+   "corrige": """
+<p><strong>Tableau opérationnel — responsable acquisition, chaque lundi.</strong></p>
+<p><em>1. Coût par inscription des sept derniers jours, par campagne, contre les sept précédents</em> — déclenche l'ajustement ou l'arrêt d'une campagne dans la journée. <em>2. Campagnes dont le coût par inscription dépasse son seuil, cliquable</em> — la liste est l'ordre du jour de la semaine. <em>3. Taux de complétion du parcours d'inscription, par appareil</em> — c'est la leçon du module 3 : une régression technique n'apparaît que segmentée. <em>4. Sessions et inscriptions par source, sept jours glissants</em> — détecte un tarissement en haut de parcours. <em>5. Valeurs de source ou de medium orphelines de la semaine</em> — contrôle de nomenclature du module 2, deux minutes par semaine, qui évite des rapports faux pendant des mois. <em>6. Écart analytics contre inscriptions enregistrées en base</em> — le recoupement permanent du module 1, qui distingue un problème de mesure d'un problème réel avant toute réunion.</p>
+<p>Les blocs 5 et 6 surprennent souvent dans un tableau opérationnel. Ils y ont pourtant leur place : ce sont eux qui garantissent que les quatre autres disent la vérité, et ils ne coûtent qu'un coup d'oeil hebdomadaire.</p>
+<p><strong>Tableau de pilotage — directrice marketing, chaque mois.</strong></p>
+<p><em>1. Inscriptions du mois et coût par inscription, par canal, contre mois précédent et contre même mois de l'année précédente</em> — arbitrage de la répartition d'effort. <em>2. Rétention à 90 jours des cohortes, par canal d'acquisition</em> — le bloc le plus important et le plus souvent absent : un canal peu cher qui amène des abonnés qui partent en deux mois coûte plus cher qu'il n'y paraît. <em>3. Entonnoir d'inscription en quatre marches, contre le trimestre précédent</em> — déclenche un chantier de parcours quand une marche décroche. <em>4. Part des inscriptions dont le parcours contient un contenu éditorial</em> — seule mesure qui arbitre l'effort de contenu contre l'effort publicitaire. <em>5. Rôle d'assistance des canaux</em> — protège les canaux de découverte que le dernier clic condamne, comme au module 2. <em>6. Répartition mobile contre ordinateur, en poids et en taux</em> — surveille l'effet de composition avant qu'il ne fausse toute lecture.</p>
+<p><strong>Tableau de direction — comité, chaque trimestre.</strong></p>
+<p><em>1. Abonnés actifs et revenu récurrent, contre trimestre précédent et année précédente</em> — cadrage, non commenté. <em>2. Inscriptions nettes : entrées moins sorties</em> — c'est le seul chiffre de croissance honnête, et il évite l'illusion de l'acquisition en hausse sur une rétention qui s'effondre. <em>3. Coût d'acquisition rapporté à la valeur d'un abonné sur douze mois</em> — arbitrage central du budget marketing. <em>4. Courbes de rétention des cohortes, quatre trimestres superposés</em> — le meilleur indicateur avancé dont dispose ce comité, et le seul qui prévienne d'un retournement plusieurs mois à l'avance. <em>5. Répartition du budget par canal contre part des inscriptions nettes</em> — met l'allocation en regard de son rendement. <em>6. Une alerte : évolution du volume d'entrées en haut de parcours sur douze mois</em> — l'indicateur avancé d'alerte du niveau direction.</p>
+<p><strong>Les trois refus, et leur formulation.</strong></p>
+<p><em>a) Le nombre total de visiteurs, demandé au comité de direction.</em> Formulation : « il ne modifie aucun arbitrage de budget, et il monte pour de bonnes comme pour de mauvaises raisons ; le bloc 6 dit la même chose de façon exploitable. » Proposer un remplacement plutôt que refuser sèchement fait passer neuf refus sur dix.</p>
+<p><em>b) Le taux de rebond, sur n'importe lequel des trois tableaux.</em> Formulation : « sa définition a changé avec notre outil et il agrège des situations opposées ; le bloc entonnoir répond mieux à la question que vous vous posez. »</p>
+<p><em>c) Le nombre de publications et de campagnes lancées, demandé pour valoriser l'activité de l'équipe.</em> C'est le refus le plus délicat, parce qu'il touche à la reconnaissance du travail. Formulation : « c'est une mesure d'activité, qu'on obtient en produisant davantage plutôt qu'en produisant mieux ; si nous l'affichons au comité, nous serons évalués sur le volume. Je propose de la suivre en interne, et de montrer au comité la part des inscriptions issues du contenu, qui valorise mieux le même travail. » Vous ne refusez pas la reconnaissance, vous en proposez une meilleure forme.</p>
+<p><strong>Ce que l'exercice illustre.</strong> Les trois tableaux partagent très peu de blocs : deux audiences différentes ne regardent presque jamais le même chiffre, ce qui est l'argument décisif contre le tableau unique filtrable. Notez aussi que chaque tableau contient au moins un bloc de contrôle de la mesure elle-même — orphelines, recoupement, composition. Un dispositif qui ne se surveille pas lui-même finit toujours par produire des chiffres faux que personne ne remarque.</p>
+"""},
+
+  {"titre": "Remettre en ordre un dispositif de mesure qui a dérivé", "niveau": "Avancé",
+   "enonce": [
+     "Vous reprenez le pilotage de la mesure dans une entreprise de 200 personnes. État des lieux : 180 événements dont personne ne connaît l'usage, quatorze rapports automatiques envoyés chaque lundi, trois définitions concurrentes du mot « client », un comité de direction qui pilote sur un tableur tenu à la main, et deux personnes qui réclament le remplacement de l'outil d'analytics.",
+     "Construisez votre plan sur six mois. Traitez explicitement la demande de changement d'outil, dites ce que vous refusez de faire, et indiquez à quoi vous saurez que le redressement fonctionne. Le directeur commercial vous demande par ailleurs un tableau de bord classant les commerciaux par nombre de démonstrations réalisées : traitez cette demande.",
+   ],
+   "corrige": """
+<p><strong>La demande de changement d'outil, d'abord — et sans la balayer.</strong> Ne répondez pas « le problème n'est pas l'outil », même si c'est presque toujours vrai : vous passeriez pour quelqu'un qui défend l'existant. Répondez : « listons ensemble ce qui ne va pas ; si ce sont des manques fonctionnels, la migration se justifie ; si ce sont des symptômes de données et d'usage, ils migreront avec nous ». Puis faites réellement la liste avec les demandeurs. Elle contiendra presque certainement des symptômes — « on ne trouve rien », « les chiffres sont faux », « personne ne sait ce que veut dire client » — et non des manques. Cette liste devient votre feuille de route, écrite avec leurs mots, et les demandeurs deviennent vos alliés.</p>
+<p><strong>Mois 1 et 2 — comprendre, et ne rien casser.</strong> Six entretiens de vingt minutes : les deux mécontents, deux opérationnels, la direction marketing, un membre du comité. Une question par profil — « qu'est-ce qui vous fait perdre du temps ? » aux uns, « sur quoi décidez-vous aujourd'hui ? » aux autres. Résistez à la tentation de corriger quoi que ce soit pendant cette période : chaque correction faite avant d'avoir compris consomme un crédit de changement qui est limité.</p>
+<p>En parallèle, deux inventaires. Les 180 événements, avec leur volume des trois derniers mois et leur usage réel dans un rapport — vous constaterez que la moitié ne se déclenche plus. Et les quatorze rapports automatiques, avec la date de dernière ouverture par leurs destinataires.</p>
+<p><strong>Mois 3 — trancher la définition de « client ».</strong> C'est la priorité absolue et non le nettoyage technique, parce que tant que trois définitions coexistent, aucun chiffre produit ne fera autorité et tout le reste du travail sera contesté. La méthode : réunir les trois porteurs de définition, écrire les trois, montrer laquelle sert quelle décision, et convenir d'un vocabulaire à trois termes distincts plutôt que d'un mot unique — par exemple « compte créé », « client actif », « client facturé ». Il ne s'agit pas d'élire une définition gagnante, ce qui fait un perdant et un conflit durable, mais de nommer différemment trois notions différentes. Le résultat entre au dictionnaire des indicateurs, qui commence ici.</p>
+<p><strong>Mois 4 — rendre avant de demander.</strong> L'ordre n'est pas négociable : on n'exige rien de nouveau tant qu'on n'a pas rendu quelque chose. Arrêtez douze des quatorze rapports automatiques, à une date annoncée — un rapport ne s'éteint pas tout seul, il faut le tuer explicitement, sans quoi il survit « au cas où ». Retirez les événements morts. Puis construisez les trois tableaux de bord par audience, en commençant par l'opérationnel, celui dont les utilisateurs verront le bénéfice le plus vite.</p>
+<p><strong>Mois 5 — déplacer la décision dans le dispositif.</strong> C'est l'étape que la plupart des plans de redressement omettent, et sans elle tout le reste retombe en un an. Construisez le tableau du comité <em>avec</em> celui qui tient le tableur à la main — il connaît les vraies questions mieux que quiconque, et il deviendra votre meilleur appui plutôt que votre adversaire. Puis obtenez l'abandon public du tableur, à une date annoncée. Tant que la décision se prend ailleurs, chacun comprend que la mesure est un exercice administratif, et elle le devient.</p>
+<p><strong>Mois 6 — installer ce qui fait durer.</strong> Propriétaire nommé avec une demi-journée par semaine reconnue. Les trois documents : dictionnaire, journal des modifications, tableau des liens. Revue mensuelle au format décrit dans ce module. Et la première revue semestrielle inscrite au calendrier — sans date inscrite, elle n'a jamais lieu.</p>
+<p><strong>Ce que je refuse de faire, et pourquoi le dire d'emblée.</strong> Reconstituer l'historique des 180 événements : le coût est considérable et le bénéfice nul, on repart de ce qui vit. Migrer d'outil avant le mois 6 : on migrerait le désordre. Et produire un chiffre unique réconciliant analytics, base et facturation : c'est la demande du module 2 à laquelle on répond par un écart stable et expliqué, jamais par une égalité.</p>
+<p><strong>La demande de classement des commerciaux.</strong> Elle se traite séparément, et elle ne se traite pas techniquement. Sur le fond, un classement par nombre de démonstrations réalisées produira exactement ce qu'il mesure : des démonstrations nombreuses et courtes, y compris auprès de prospects sans intention. C'est la loi de Goodhart, et son coût principal est la dégradation de la qualité des données de tout le dispositif que vous êtes en train de remettre en ordre.</p>
+<p>Ce que je propose au directeur commercial : le volume de démonstrations au niveau de l'<em>équipe</em>, dans le tableau de pilotage, pour détecter un tarissement ; et pour l'accompagnement individuel, des éléments consultables par le manager et l'intéressé dans le cadre de l'entretien, sans projection collective ni classement. Décrire ce que montrent les chiffres, sans en tirer de jugement sur les personnes.</p>
+<p>Ce que je ne fais pas seule, et qu'il faut dire clairement : un dispositif de suivi individualisé des salariés relève d'obligations qui dépassent la compétence de l'analyste — information des personnes concernées, consultation des représentants du personnel, proportionnalité de la mesure, durée de conservation. Je renvoie la demande aux ressources humaines et au responsable de la protection des données avant toute mise en oeuvre. Ce n'est pas un refus de rendre service : c'est la seule position tenable, et la formuler tôt évite d'avoir à défaire un outil déjà construit.</p>
+<p><strong>À quoi je saurai que ça marche, dans l'ordre d'apparition.</strong> <em>Semaine 6 :</em> quelqu'un demande spontanément un bloc ou un découpage — le dispositif est redevenu le sien, et c'est le meilleur signal précoce, qui ne se mesure pas. <em>Mois 3 :</em> une discussion se règle par une consultation du dictionnaire des indicateurs plutôt que par un débat. <em>Mois 5 :</em> le tableur parallèle a disparu, publiquement. <em>Mois 6 :</em> une décision de budget a été prise en comité sur la foi d'un chiffre du dispositif, devant tout le monde. Ce dernier critère est le seul qui compte réellement — et il ne se décrète pas, il se prépare en s'assurant que le chiffre en question est juste.</p>
+<p><strong>Ce qui n'est pas un bon signal :</strong> une augmentation du nombre de tableaux de bord ou d'indicateurs suivis. On peut instrumenter une entreprise sans qu'elle décide mieux, et c'est même le résultat le plus courant d'un plan de redressement mené par la technique. Ne prenez jamais le volume pour de la maturité.</p>
+"""},
+ ],
+
+ "ressources": [
+   "<strong>« The Visual Display of Quantitative Information », Edward Tufte</strong> — la référence sur la représentation honnête des données. Les chapitres sur les graphiques trompeurs et sur le rapport entre encre et information suffisent à changer durablement la façon de construire un tableau de bord.",
+   "<strong>Un modèle de dictionnaire des indicateurs</strong> — une page, une ligne par indicateur : nom court, définition complète, propriétaire, date, décision associée. C'est le document le plus rentable de toute cette formation, et celui qui rend le dispositif transmissible.",
+   "<strong>Les modules 1, 2 et 3 de cette formation</strong> — la ligne de périmètre vient du module 1, le rapprochement entre outils du module 2, l'entonnoir et la segmentation du module 3. Une restitution solide s'appuie sur les trois : si une objection vous met en difficulté en réunion, c'est presque toujours à l'un d'eux qu'il faut revenir.",
+   "<strong>Le guide de la CNIL sur le suivi de l'activité des salariés</strong> — à consulter avant toute demande de tableau de bord individuel, et à citer plutôt qu'à paraphraser. Il donne le cadre qui permet de renvoyer proprement ce type de demande aux ressources humaines.",
+ ],
+}
+
+QUIZ = {
+ "analytics-mesure/module-4": {
+  "module_id": "formation-analytics-mesure-module-4",
+  "version": "2.0", "last_verified": "2026-09-03",
+  "questions": [
+   {"id":"q1","question":"On vous demande un tableau de bord unique et filtrable pour toutes les audiences. Que répondre ?",
+    "choices":[{"key":"a","text":"Accepter : les filtres permettent à chacun de voir ce qui l'intéresse"},
+               {"key":"b","text":"Refuser : un tableau pour trois audiences oblige chacune à ignorer les deux tiers de ce qu'elle voit"},
+               {"key":"c","text":"Accepter, en limitant le nombre de filtres à trois"}],
+    "correct_answer":"b","feedback":"Trois tableaux de six blocs coûtent moins cher à construire et à maintenir qu'un tableau de vingt, et chacun se justifie par des décisions nommées."},
+   {"id":"q2","question":"Sur quel type de graphique un axe vertical tronqué est-il réellement trompeur ?",
+    "choices":[{"key":"a","text":"Sur une courbe, car la tendance est déformée"},
+               {"key":"b","text":"Sur des barres, car c'est leur longueur que l'oeil compare"},
+               {"key":"c","text":"Sur les deux, de façon équivalente"}],
+    "correct_answer":"b","feedback":"Sur une courbe, l'axe tronqué est légitime si la graduation est visible : c'est la variation qui est lue. Sur des barres, il transforme un écart de 2 % en différence visuelle du simple au double."},
+   {"id":"q3","question":"Quel élément d'un commentaire d'analyse est le plus efficace pour déclencher une décision ?",
+    "choices":[{"key":"a","text":"Le degré de certitude attribué à la cause"},
+               {"key":"b","text":"Le chiffrage du coût de l'inaction"},
+               {"key":"c","text":"La description détaillée de la méthode employée"}],
+    "correct_answer":"b","feedback":"Il transforme un choix entre agir et attendre en un choix entre deux dépenses, ce qui est un arbitrage bien plus facile à trancher."},
+   {"id":"q4","question":"Une revue mensuelle commence systématiquement par la lecture commentée du rapport. Quel est le principal coût ?",
+    "choices":[{"key":"a","text":"La lecture consomme le temps qui devait servir à décider"},
+               {"key":"b","text":"Les participants retiennent moins bien à l'oral qu'à l'écrit"},
+               {"key":"c","text":"Le rapport devient obsolète pendant la séance"}],
+    "correct_answer":"a","feedback":"Les chiffres s'envoient avant, et la séance commence en les supposant lus. L'objection « personne ne lit avant » cesse d'être vraie dès la deuxième réunion."},
+   {"id":"q5","question":"Que fait une revue semestrielle du dispositif de mesure ?",
+    "choices":[{"key":"a","text":"Elle ajoute les indicateurs demandés depuis six mois"},
+               {"key":"b","text":"Elle retire ce dont personne ne s'apercevrait de la disparition, soit environ un tiers"},
+               {"key":"c","text":"Elle recalcule les objectifs de chaque indicateur"}],
+    "correct_answer":"b","feedback":"Une seule question par élément : si je le supprime aujourd'hui, qui s'en apercevrait et en combien de temps ? Un dispositif qui ne fait que grossir a cessé d'être piloté."},
+   {"id":"q6","question":"Un directeur demande un tableau classant les commerciaux par nombre de rendez-vous. Quelle conduite tenir ?",
+    "choices":[{"key":"a","text":"Le construire, en précisant que les chiffres sont indicatifs"},
+               {"key":"b","text":"Proposer le volume au niveau de l'équipe, réserver l'individuel au cadre RH, et renvoyer la demande aux RH et à la protection des données"},
+               {"key":"c","text":"Refuser sans explication, la mesure individuelle étant interdite"}],
+    "correct_answer":"b","feedback":"Projeté collectivement, l'indicateur produit ce qu'il mesure et dégrade la qualité des données. Et un suivi individualisé relève d'obligations qui dépassent la compétence de l'analyste."},
+  ]},
+}
+
+for k, m in M.items():
+    w, full = build(k, m)
+    print(f"{k:30s} cours: {w} mots | page: {full} mots")
+for k, q in QUIZ.items():
+    p = os.path.join(OUT, k, "quiz.json")
+    os.makedirs(os.path.dirname(p), exist_ok=True)
+    json.dump(q, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+    open(p, "a", encoding="utf-8").write("\n")
+    print(f"{k}: quiz {len(q['questions'])} questions")

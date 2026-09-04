@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-ia-generative-module-2",
+  "version": "2.0",
+  "last_verified": "2026-09-01",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quels sont les 5 piliers d'un prompt professionnel ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Titre, Texte, Image, Son, Vidéo"
+        },
+        {
+          "key": "b",
+          "text": "Sujet, Verbe, Complément, Adverbe, Ponctuation"
+        },
+        {
+          "key": "c",
+          "text": "Rôle, Contexte, Tâche, Contraintes, Format de sortie"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Ils servent surtout de grille de diagnostic : quand un résultat déçoit, l'un des cinq manque, et on peut dire lequel."
+    },
+    {
+      "id": "q2",
+      "question": "Pourquoi une demande vague produit-elle un texte générique ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Parce que le modèle réserve ses meilleures réponses aux abonnés payants"
+        },
+        {
+          "key": "b",
+          "text": "Parce que la suite la plus plausible d'une consigne pauvre est la moyenne de tout ce que le modèle a vu"
+        },
+        {
+          "key": "c",
+          "text": "Parce que le modèle manque de créativité"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Un prompt sert à restreindre l'espace des réponses possibles : chaque contrainte écarte des milliers de continuations plausibles mais banales."
+    },
+    {
+      "id": "q3",
+      "question": "Comment régler le niveau de technicité d'un texte produit ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "En précisant le destinataire réel plutôt qu'en employant un adjectif comme « simple »"
+        },
+        {
+          "key": "b",
+          "text": "En demandant « explique simplement »"
+        },
+        {
+          "key": "c",
+          "text": "En limitant le nombre de mots"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "« Explique à un artisan qui n'a pas de service informatique » est bien plus efficace que « explique simplement »."
+    },
+    {
+      "id": "q4",
+      "question": "Quel est le pilier le plus souvent omis ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le rôle"
+        },
+        {
+          "key": "b",
+          "text": "Le format de sortie"
+        },
+        {
+          "key": "c",
+          "text": "La tâche"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Son absence coûte le plus, et de façon invisible : elle se paie en retraitement manuel à chaque usage."
+    },
+    {
+      "id": "q5",
+      "question": "Vous améliorez un prompt. Quelle méthode adopter ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Réécrire entièrement le prompt à chaque résultat décevant"
+        },
+        {
+          "key": "b",
+          "text": "Ajouter une consigne supplémentaire à chaque itération"
+        },
+        {
+          "key": "c",
+          "text": "Modifier un seul pilier à la fois, puis relancer 3 à 5 fois"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Changer trois choses simultanément rend impossible de savoir laquelle a produit l'amélioration — ou la dégradation."
+    },
+    {
+      "id": "q6",
+      "question": "Sur quel résultat faut-il juger un prompt destiné à un usage répété ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Sur son plus mauvais résultat parmi plusieurs essais"
+        },
+        {
+          "key": "b",
+          "text": "Sur son meilleur résultat, qui montre son potentiel"
+        },
+        {
+          "key": "c",
+          "text": "Sur la moyenne subjective des essais"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "En usage réel vous obtiendrez un tirage moyen. Un prompt qui excelle une fois sur trois est un piège, d'autant plus dangereux qu'il donne parfois d'excellents résultats."
+    }
+  ]
+}

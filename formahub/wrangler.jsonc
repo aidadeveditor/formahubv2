@@ -1,0 +1,11 @@
+{
+  "name": "formahub",
+  "compatibility_date": "2026-08-01",
+  "kv_namespaces": [
+    {
+      "binding": "PROGRESS_KV",
+      "id": "6513daa6afb3425db3618b233f25ffb3",
+      "preview_id": "87f9c01ed7b944dbb6ab8b2e292cd4d9"
+    }
+  ]
+}

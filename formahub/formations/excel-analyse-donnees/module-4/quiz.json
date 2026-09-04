@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-excel-analyse-donnees-module-4",
+  "version": "2.0",
+  "last_verified": "2026-09-04",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Sur quel type de graphique l'axe des ordonnées doit-il impérativement partir de zéro ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Sur les graphiques en barres, où le lecteur compare des longueurs"
+        },
+        {
+          "key": "b",
+          "text": "Sur les nuages de points, où la position encode deux variables"
+        },
+        {
+          "key": "c",
+          "text": "Sur tous les graphiques, sans aucune exception"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Une barre encode une longueur : la tronquer déforme la comparaison. Sur une courbe, où l'on lit une variation, un axe tronqué est acceptable s'il est signalé."
+    },
+    {
+      "id": "q2",
+      "question": "Pourquoi le double axe est-il une construction trompeuse ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Parce qu'Excel ne permet pas d'y afficher de légende correcte"
+        },
+        {
+          "key": "b",
+          "text": "Parce que l'échelle de chaque axe est arbitraire : on fait apparaître ou disparaître la corrélation à volonté"
+        },
+        {
+          "key": "c",
+          "text": "Parce qu'il ne peut afficher que deux séries au maximum"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Deux séries quelconques peuvent être rendues visuellement parallèles. Deux graphiques empilés sur le même axe temporel disent la même chose sans induire de relation."
+    },
+    {
+      "id": "q3",
+      "question": "Quel test décide si un indicateur mérite sa place sur un tableau de bord ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Est-il disponible sans travail supplémentaire ?"
+        },
+        {
+          "key": "b",
+          "text": "La direction l'a-t-elle demandé explicitement ?"
+        },
+        {
+          "key": "c",
+          "text": "Quelle décision prendrai-je différemment selon sa valeur ?"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Ce test élimine la moitié des indicateurs demandés. Le CA cumulé depuis janvier est légitime et ne déclenche aucune action."
+    },
+    {
+      "id": "q4",
+      "question": "Un contrôle existait en cellule B7 et personne ne l'a lu avant de diffuser un chiffre faux. Quelle est la bonne conclusion ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Qu'il faut former les utilisateurs à consulter l'onglet Contrôles"
+        },
+        {
+          "key": "b",
+          "text": "Qu'un contrôle doit s'imposer au regard et bloquer l'affichage, pas attendre d'être consulté"
+        },
+        {
+          "key": "c",
+          "text": "Qu'il faut multiplier le nombre de contrôles pour augmenter les chances d'en voir un"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Un contrôle qui suppose un lecteur disponible et méthodique ne fonctionne que les jours où il est inutile."
+    },
+    {
+      "id": "q5",
+      "question": "Lequel de ces signaux indique qu'Excel n'est plus l'outil adapté ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le fichier dépasse cinquante mille lignes"
+        },
+        {
+          "key": "b",
+          "text": "Plusieurs personnes doivent écrire dans le même fichier en même temps"
+        },
+        {
+          "key": "c",
+          "text": "Le fichier comporte plus de dix onglets"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "L'écriture concurrente est le signal le plus net des cinq. Cinquante mille lignes ou dix onglets ne posent aucun problème en soi."
+    },
+    {
+      "id": "q6",
+      "question": "Comment afficher honnêtement un taux de satisfaction de 91 % calculé sur 11 réponses ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "En l'affichant tel quel : le pourcentage est exact"
+        },
+        {
+          "key": "b",
+          "text": "En affichant l'effectif à côté, et en n'affichant pas de pourcentage sous un seuil défini à l'avance"
+        },
+        {
+          "key": "c",
+          "text": "En arrondissant à 90 % pour ne pas suggérer une fausse précision"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Un pourcentage sans son dénominateur est une information incomplète. Sous le seuil retenu, afficher « n. s. » évite qu'une décision se construise sur onze réponses."
+    }
+  ]
+}

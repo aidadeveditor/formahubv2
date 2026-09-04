@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-crm-relation-client-module-2",
+  "version": "2.0",
+  "last_verified": "2026-09-02",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Qu'est-ce qui doit déclencher le passage d'une opportunité à l'étape suivante ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Un fait vérifiable venant du client"
+        },
+        {
+          "key": "b",
+          "text": "Le sentiment du commercial que l'affaire progresse"
+        },
+        {
+          "key": "c",
+          "text": "L'envoi de la proposition commerciale"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "« J'ai envoyé la proposition » est votre action et ne prouve rien ; « le client a réagi sur le fond » est un fait qu'un tiers peut vérifier."
+    },
+    {
+      "id": "q2",
+      "question": "Pourquoi une étape « en attente de retour client » est-elle à proscrire ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Parce qu'elle allonge inutilement le pipeline visuellement"
+        },
+        {
+          "key": "b",
+          "text": "Parce qu'aucun critère de sortie ne peut être défini pour une attente : les affaires y entrent et n'en sortent jamais"
+        },
+        {
+          "key": "c",
+          "text": "Parce que Salesforce ne permet pas de la paramétrer"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Le silence du client est une information, pas un état de l'affaire. Elle reste à son étape et se traite par la règle des 30 jours."
+    },
+    {
+      "id": "q3",
+      "question": "Que faire quand une opportunité ouverte a une date de clôture dépassée ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "La laisser telle quelle, la date étant indicative"
+        },
+        {
+          "key": "b",
+          "text": "La repousser systématiquement au mois suivant"
+        },
+        {
+          "key": "c",
+          "text": "La repousser avec une justification factuelle, ou la passer en Perdue avec un motif"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Il n'existe pas de troisième option. Et au troisième report, la fermeture devient la décision par défaut, sauf argument factuel."
+    },
+    {
+      "id": "q4",
+      "question": "Faut-il ajuster à la main la probabilité d'une affaire dont on est très confiant ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Oui, c'est le moyen de refléter la réalité du terrain"
+        },
+        {
+          "key": "b",
+          "text": "Non : la probabilité suit l'étape ; la confiance s'exprime par la catégorie de prévision"
+        },
+        {
+          "key": "c",
+          "text": "Oui, mais seulement à la hausse et jamais à la baisse"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Un champ ajusté à la main perd sa comparabilité entre affaires et entre commerciaux. Une donnée doit avoir une seule signification."
+    },
+    {
+      "id": "q5",
+      "question": "Sur quoi doit porter une revue de pipeline hebdomadaire ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Sur toutes les affaires, une par une, pour n'en oublier aucune"
+        },
+        {
+          "key": "b",
+          "text": "Sur les anomalies : zombies, engagements du trimestre, changements d'étape"
+        },
+        {
+          "key": "c",
+          "text": "Sur la performance individuelle de chaque commercial"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Les affaires qui avancent normalement ne méritent aucune minute de réunion. Et mélanger revue et évaluation produit un pipeline propre mais faux."
+    },
+    {
+      "id": "q6",
+      "question": "Les affaires décrochent massivement à l'étape Proposition. Où chercher la correction ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Dans le niveau de prix, qu'il faut baisser"
+        },
+        {
+          "key": "b",
+          "text": "À l'étape précédente : dans ce qu'on a laissé entrer en Proposition"
+        },
+        {
+          "key": "c",
+          "text": "Dans la qualité de rédaction des propositions"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Un décrochage se corrige presque toujours en amont. Ici, en durcissant le critère de sortie de la Découverte : décideur rencontré et budget confirmé."
+    }
+  ]
+}

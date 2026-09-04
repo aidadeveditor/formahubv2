@@ -1,0 +1,90 @@
+[
+  {
+    "id": "skills4all-seo",
+    "titre": "Formation SEO en ligne certifiante",
+    "organisme": "Skills4All",
+    "thematique": "SEO Fondamentaux",
+    "url": "https://www.skills4all.com/certification/seo-formation-cpf/",
+    "cout": "2 000 € (30h)",
+    "eligible_cpf": true,
+    "reste_charge": "646,20 € (+ 150 € forfait)",
+    "certification": "RS (Répertoire Spécifique)"
+  },
+  {
+    "id": "livementor-seo",
+    "titre": "Accompagnement SEO individuel",
+    "organisme": "LiveMentor",
+    "thematique": "SEO Fondamentaux",
+    "url": "https://www.livementor.com/formation/seo/",
+    "cout": "1 650 €",
+    "eligible_cpf": true,
+    "reste_charge": "296,20 € (+ 150 € forfait)",
+    "certification": "RS6710"
+  },
+  {
+    "id": "hubspot-content-marketing",
+    "titre": "Content Marketing Certification",
+    "organisme": "HubSpot Academy",
+    "thematique": "Content Marketing",
+    "url": "https://academy.hubspot.fr/courses/content-marketing",
+    "cout": "Gratuit",
+    "eligible_cpf": false,
+    "reste_charge": "0 €",
+    "certification": "Certificat HubSpot (8h)"
+  },
+  {
+    "id": "hubspot-content-strategy",
+    "titre": "Content Strategy Course",
+    "organisme": "HubSpot Academy",
+    "thematique": "Content Marketing",
+    "url": "https://academy.hubspot.com/courses/content-strategy",
+    "cout": "Gratuit",
+    "eligible_cpf": false,
+    "reste_charge": "0 €",
+    "certification": "Certificat HubSpot"
+  },
+  {
+    "id": "jedha-ia-generative",
+    "titre": "Formation Pratique IA Générative & LLMs",
+    "organisme": "Jedha Bootcamp",
+    "thematique": "IA Générative",
+    "url": "https://www.jedha.co/formations/formation-intelligence-artificielle",
+    "cout": "1 500 € (42h)",
+    "eligible_cpf": true,
+    "reste_charge": "146,20 € (+ 150 € forfait)",
+    "certification": "RS7234"
+  },
+  {
+    "id": "prince2-gestion-projet",
+    "titre": "Formation PRINCE2 Foundation v7",
+    "organisme": "Skills4All / Cegos",
+    "thematique": "Gestion de projet",
+    "url": "https://www.skills4all.com/certification/gestion-projet-prince2-foundation-formation/",
+    "cout": "1 450 €",
+    "eligible_cpf": true,
+    "reste_charge": "96,20 € (+ 150 € forfait)",
+    "certification": "Certification PRINCE2 (RS)"
+  },
+  {
+    "id": "26academy-management",
+    "titre": "Manager des équipes de proximité",
+    "organisme": "26 Academy",
+    "thematique": "Management d'équipe",
+    "url": "https://www.26academy.com/",
+    "cout": "1 500 €",
+    "eligible_cpf": true,
+    "reste_charge": "146,20 € (+ 150 € forfait)",
+    "certification": "RS6626"
+  },
+  {
+    "id": "salesforce-trailhead",
+    "titre": "Trailhead — Parcours Officiel Salesforce Admin",
+    "organisme": "Salesforce",
+    "thematique": "CRM Salesforce",
+    "url": "https://trailhead.salesforce.com/fr",
+    "cout": "Gratuit",
+    "eligible_cpf": false,
+    "reste_charge": "0 €",
+    "certification": "Badges & Superbadges Officiels"
+  }
+]

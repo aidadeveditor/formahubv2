@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-content-marketing-module-4",
+  "version": "2.0",
+  "last_verified": "2026-09-01",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Dans le modèle POEM, à quelle famille appartient une page d'entreprise sur un réseau social ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Owned media : l'entreprise possède sa page et ses abonnés"
+        },
+        {
+          "key": "b",
+          "text": "Ni Owned ni pleinement maîtrisé : la plateforme contrôle la liste, le canal et l'accès"
+        },
+        {
+          "key": "c",
+          "text": "Paid media, puisqu'il faut payer pour être visible"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Vous ne possédez ni la liste, ni les conditions d'accès. Un changement d'algorithme ou une suspension vous coupe de cette audience sans recours."
+    },
+    {
+      "id": "q2",
+      "question": "Vos contenus sont bons mais peu lus. Quelle est la première hypothèse à tester ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le temps réellement consacré à leur diffusion"
+        },
+        {
+          "key": "b",
+          "text": "La qualité rédactionnelle, à faire auditer"
+        },
+        {
+          "key": "c",
+          "text": "La cadence, qu'il faut augmenter"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Publier n'est pas diffuser. Augmenter la cadence face à un problème de circulation ajoute du coût de production et dégrade la qualité."
+    },
+    {
+      "id": "q3",
+      "question": "Qu'est-ce que le repurposing ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Republier périodiquement le même texte sur plusieurs canaux"
+        },
+        {
+          "key": "b",
+          "text": "Décliner un contenu pilier en formats réécrits pour le contexte de lecture de chaque canal"
+        },
+        {
+          "key": "c",
+          "text": "Traduire ses contenus en plusieurs langues"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Copier le même texte partout produit trois contenus médiocres au lieu d'un bon — et signale à ceux qui vous suivent partout qu'ils n'ont rien à y gagner."
+    },
+    {
+      "id": "q4",
+      "question": "Que penser d'un taux de désabonnement nul sur une newsletter ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "C'est l'objectif à atteindre, signe d'un contenu parfaitement adapté"
+        },
+        {
+          "key": "b",
+          "text": "C'est souvent le signe d'une ligne éditoriale si consensuelle qu'elle n'intéresse personne"
+        },
+        {
+          "key": "c",
+          "text": "C'est impossible techniquement"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Un taux modéré accompagné d'un bon taux de clic indique une ligne assumée, qui écarte ceux qui n'étaient pas la cible."
+    },
+    {
+      "id": "q5",
+      "question": "Quel indicateur ne faut-il pas exiger d'un contenu TOFU ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le nombre de nouveaux visiteurs"
+        },
+        {
+          "key": "b",
+          "text": "Les liens et citations obtenus"
+        },
+        {
+          "key": "c",
+          "text": "Le chiffre d'affaires directement généré"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "C'est comme reprocher à une porte d'entrée de ne pas être une caisse enregistreuse : chaque étage a ses propres indicateurs."
+    },
+    {
+      "id": "q6",
+      "question": "Pourquoi présenter vos chiffres d'attribution comme un plancher ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Par prudence commerciale, pour ne pas décevoir"
+        },
+        {
+          "key": "b",
+          "text": "Parce que l'effet de mémoire, la circulation privée et l'effet sur la vente échappent structurellement aux outils"
+        },
+        {
+          "key": "c",
+          "text": "Parce que les outils de mesure surestiment toujours les résultats"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Énoncer ces limites soi-même crédibilise le propos — et protège le dispositif le jour où quelqu'un les découvrira."
+    }
+  ]
+}

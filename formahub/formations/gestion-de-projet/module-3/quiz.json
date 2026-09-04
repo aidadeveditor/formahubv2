@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-gestion-de-projet-module-3",
+  "version": "2.0",
+  "last_verified": "2026-09-01",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quel est l'objectif des limites de travail en cours ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Réduire la charge de travail de l'équipe"
+        },
+        {
+          "key": "b",
+          "text": "Supprimer les changements de contexte, livrer plus tôt et faire apparaître les blocages"
+        },
+        {
+          "key": "c",
+          "text": "Diminuer le nombre de colonnes du tableau"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Limiter le travail en cours accélère la livraison sans faire travailler personne plus vite : « arrêtez de commencer, commencez à finir »."
+    },
+    {
+      "id": "q2",
+      "question": "Quelle est la différence entre délai d'écoulement et temps de cycle ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Ce sont deux noms pour la même mesure"
+        },
+        {
+          "key": "b",
+          "text": "Le délai d'écoulement va de la demande à la livraison, le temps de cycle du début effectif du travail à la livraison"
+        },
+        {
+          "key": "c",
+          "text": "Le temps de cycle inclut les temps d'attente, pas le délai d'écoulement"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "L'écart entre les deux mesure le temps d'attente pur — et c'est presque toujours là que se trouve le gisement d'amélioration."
+    },
+    {
+      "id": "q3",
+      "question": "Une colonne pleine et un sujet urgent se présente. Que faire ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Accorder l'exception, c'est un cas particulier"
+        },
+        {
+          "key": "b",
+          "text": "Faire sortir un élément avant d'en faire entrer un, ou utiliser une voie rapide formalisée"
+        },
+        {
+          "key": "c",
+          "text": "Augmenter définitivement la limite"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Une exception accordée une fois le sera systématiquement. Une urgence prévue par le système ne le casse pas ; une urgence qui le contourne, si."
+    },
+    {
+      "id": "q4",
+      "question": "Où faut-il agir pour augmenter le débit d'un flux ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Sur l'étape la plus en amont, pour alimenter le reste"
+        },
+        {
+          "key": "b",
+          "text": "Uniformément sur toutes les étapes"
+        },
+        {
+          "key": "c",
+          "text": "Sur le goulet d'étranglement : toute amélioration ailleurs est sans effet sur le débit global"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Optimiser en amont d'un goulet ne fait qu'augmenter la file d'attente devant lui."
+    },
+    {
+      "id": "q5",
+      "question": "Quelle question poser lors d'un point d'avancement devant le tableau ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "« Qu'est-ce qui empêche cet élément d'avancer ? »"
+        },
+        {
+          "key": "b",
+          "text": "« Où en es-tu sur ton sujet ? »"
+        },
+        {
+          "key": "c",
+          "text": "« Combien de tâches as-tu terminées cette semaine ? »"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "« Où en es-tu ? » appelle une description d'activité. On fait le tour du tableau, de droite à gauche, pas le tour des personnes."
+    },
+    {
+      "id": "q6",
+      "question": "Que se passe-t-il quand la vélocité devient un objectif de performance ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "L'équipe s'améliore durablement"
+        },
+        {
+          "key": "b",
+          "text": "Les estimations gonflent et les éléments sont découpés artificiellement : la mesure se dégrade"
+        },
+        {
+          "key": "c",
+          "text": "Rien de particulier"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Le chiffre monte sans qu'aucune valeur supplémentaire soit produite. La vélocité sert à prévoir, jamais à évaluer."
+    }
+  ]
+}

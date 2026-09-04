@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-content-marketing-module-3",
+  "version": "2.0",
+  "last_verified": "2026-09-01",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quel rôle l'entreprise doit-elle occuper dans le storytelling de marque ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le héros invincible de l'histoire"
+        },
+        {
+          "key": "b",
+          "text": "Le juge qui arbitre le marché"
+        },
+        {
+          "key": "c",
+          "text": "Le guide qui fournit la méthode et le plan au client héros"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Personne ne se projette dans le récit des exploits d'une entreprise ; tout le monde se projette dans celui de quelqu'un qui lui ressemble."
+    },
+    {
+      "id": "q2",
+      "question": "Quelle est la ligne la plus importante d'un brief de contenu ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "L'angle : ce que ce contenu dira que les dix premiers résultats ne disent pas"
+        },
+        {
+          "key": "b",
+          "text": "La longueur en nombre de mots"
+        },
+        {
+          "key": "c",
+          "text": "Le ton souhaité"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Sans angle, le rédacteur ne peut produire qu'une synthèse de l'existant — exacte, complète et interchangeable."
+    },
+    {
+      "id": "q3",
+      "question": "Que signifie « agiter » dans la structure PAS ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Dramatiser la situation pour créer un sentiment d'urgence"
+        },
+        {
+          "key": "b",
+          "text": "Rendre visible, par des faits, le coût réel de l'inaction"
+        },
+        {
+          "key": "c",
+          "text": "Multiplier les relances commerciales"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "L'agitation efficace est factuelle : elle chiffre et donne un cas. On rend un problème visible, on ne fabrique pas une peur."
+    },
+    {
+      "id": "q4",
+      "question": "Pourquoi une étude de cas doit-elle mentionner un obstacle rencontré ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Pour allonger le texte et améliorer le référencement"
+        },
+        {
+          "key": "b",
+          "text": "Parce qu'un récit sans difficulté ne ressemble à aucun projet réel et n'est pas cru"
+        },
+        {
+          "key": "c",
+          "text": "Pour préparer le client à une future réclamation"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Ce que vous perdez en lissage, vous le gagnez en crédibilité — et vous donnez au lecteur l'information qu'il cherchait : à quoi s'attendre."
+    },
+    {
+      "id": "q5",
+      "question": "Comment tester si votre premier paragraphe est un simple échauffement ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "En le faisant relire par un collègue"
+        },
+        {
+          "key": "b",
+          "text": "En comptant ses caractères"
+        },
+        {
+          "key": "c",
+          "text": "En le supprimant : si le texte fonctionne mieux sans lui, il ne fallait pas le publier"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "« À l'heure du digital, les entreprises doivent… » fait perdre trois phrases avant que quoi que ce soit ne commence."
+    },
+    {
+      "id": "q6",
+      "question": "Dans quel ordre faut-il réviser un texte ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Structure, puis fond, puis langue — en trois passes distinctes"
+        },
+        {
+          "key": "b",
+          "text": "Langue d'abord, pour que le texte soit lisible avant tout"
+        },
+        {
+          "key": "c",
+          "text": "Tout en une seule lecture attentive, pour gagner du temps"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Tout corriger en une passe conduit à polir des phrases dans une section qu'il aurait fallu supprimer."
+    }
+  ]
+}

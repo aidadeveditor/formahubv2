@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-crm-relation-client-module-1",
+  "version": "2.0",
+  "last_verified": "2026-09-02",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quelle information doit être enregistrée sur le Compte plutôt que sur le Contact ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "La fonction de l'interlocuteur"
+        },
+        {
+          "key": "b",
+          "text": "Le secteur d'activité de l'entreprise"
+        },
+        {
+          "key": "c",
+          "text": "La préférence horaire d'appel de la personne"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Le Compte porte ce qui reste vrai pour l'entreprise ; le Contact porte ce qui suit la personne, même si elle change d'employeur."
+    },
+    {
+      "id": "q2",
+      "question": "À quoi sert l'objet Piste (Lead) ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "À stocker les clients qui n'ont pas encore payé"
+        },
+        {
+          "key": "b",
+          "text": "À servir de zone tampon pour les contacts non vérifiés, avant leur entrée dans la base propre"
+        },
+        {
+          "key": "c",
+          "text": "À remplacer l'Opportunité pour les petites affaires"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Sans cette zone tampon, une base de Comptes se remplit d'entreprises fantômes issues de formulaires et de listes non qualifiées."
+    },
+    {
+      "id": "q3",
+      "question": "Quel champ ne doit jamais être en texte libre ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le compte rendu d'un rendez-vous"
+        },
+        {
+          "key": "b",
+          "text": "Le motif de perte d'une opportunité"
+        },
+        {
+          "key": "c",
+          "text": "Le commentaire libre sur un contact"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Tout champ que vous voudrez un jour filtrer, grouper ou compter doit être une liste fermée. Un motif de perte en texte libre produit 400 formulations et aucune analyse."
+    },
+    {
+      "id": "q4",
+      "question": "Dans quel ordre remettre en état une base dégradée ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Nettoyer d'abord les doublons, configurer ensuite"
+        },
+        {
+          "key": "b",
+          "text": "Configurer les règles de validation d'abord, nettoyer ensuite"
+        },
+        {
+          "key": "c",
+          "text": "Les deux en parallèle pour aller plus vite"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Nettoyer avant d'avoir fermé le robinet revient à nettoyer une base qui se resalit pendant qu'on la nettoie : l'effet s'efface en quelques mois."
+    },
+    {
+      "id": "q5",
+      "question": "Quelle condition n'est PAS requise pour convertir une Piste ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Un prochain pas convenu avec l'interlocuteur"
+        },
+        {
+          "key": "b",
+          "text": "Un montant d'affaire précisément chiffré"
+        },
+        {
+          "key": "c",
+          "text": "Une entreprise identifiée et réelle"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Le montant s'affine ensuite sur l'Opportunité. Ce qui est exigé, c'est un besoin exprimé même approximatif et un prochain pas — sans quoi l'opportunité créée pourrira dans le pipeline."
+    },
+    {
+      "id": "q6",
+      "question": "Un commercial maintient un fichier Excel parallèle au CRM. Comment l'interpréter ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Comme un problème de discipline à corriger par un rappel à l'ordre"
+        },
+        {
+          "key": "b",
+          "text": "Comme un diagnostic : l'outil lui coûte plus qu'il ne lui rapporte, et le fichier indique ce qui manque"
+        },
+        {
+          "key": "c",
+          "text": "Comme une pratique acceptable tant que les chiffres sont reportés en fin de mois"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Le contenu de ce fichier est la meilleure source de diagnostic disponible : il désigne précisément le champ absent, la vue impossible ou la saisie trop longue."
+    }
+  ]
+}

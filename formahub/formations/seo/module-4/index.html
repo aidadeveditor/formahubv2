@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formahub — SEO Fondamentaux : SEO Technique &amp; Netlinking</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="../../../index.html" class="brand">
+      <div class="brand-icon">F</div>
+      <span>Formahub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../../../index.html" class="nav-link">Mes formations</a>
+      <a href="../../../ressources-externes.html" class="nav-link">Ressources externes</a>
+      <a href="../../../formations-espagne.html" class="nav-link">Formations Espagne</a>
+      <button class="theme-toggle" type="button">🌙 Mode Sombre</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="../../../index.html">Accueil</a> &gt;
+        <span>SEO Fondamentaux</span> &gt;
+        <strong>Module 4</strong>
+      </div>
+      <h1>Module 4 : SEO Technique &amp; Netlinking</h1>
+      <div class="module-meta">
+        <span class="badge badge-progress">⏱️ 55 min</span>
+        <span class="badge badge-neutral">Module 4 sur 5</span>
+        <span class="badge badge-neutral">Niveau : Intermédiaire</span>
+        <span class="badge badge-neutral">~3500 mots</span>
+      </div>
+    </div>
+
+    <article class="module-content">
+      <div class="intro-box">
+        <h3>📍 Mise en situation</h3>
+        <p>Trois semaines après la mise en ligne du nouveau site, le trafic organique a chuté de 42 %. La refonte était pourtant réussie : design moderne, site plus rapide, navigation repensée. L'agence assure que « tout a été fait dans les règles » et que « ça va revenir ».</p>
+        <p>Cela ne reviendra pas tout seul. Ce scénario est le plus coûteux du référencement, et le plus évitable : il se joue presque toujours sur trois ou quatre décisions techniques prises sans en mesurer la portée. Ce module couvre les mécanismes qui gouvernent l'accès des moteurs à votre site — codes de réponse, redirections, directives d'indexation, performance — puis la construction d'un profil de liens qui ne vous expose pas. À la fin, vous saurez sécuriser une migration <em>avant</em> qu'elle ne parte, et diagnostiquer celle qui a déjà mal tourné.</p>
+      </div>
+
+      <div class="objectives-box">
+        <h3>🎯 À l'issue de ce module, vous saurez</h3>
+        <ul>
+          <li>Choisir le bon code de réponse HTTP selon la situation, et auditer des chaînes de redirection</li>
+          <li>Distinguer blocage du crawl, désindexation et canonicalisation — trois opérations souvent confondues</li>
+          <li>Interpréter les Core Web Vitals et remonter à leurs causes réelles</li>
+          <li>Sécuriser une migration ou une refonte avec un plan de redirection complet</li>
+          <li>Évaluer un profil de liens et construire une stratégie de netlinking sans dette</li>
+        </ul>
+      </div>
+
+      <h2>1. Codes HTTP et redirections</h2>
+      <p>Chaque fois qu'un navigateur ou un robot demande une page, le serveur répond par un code à trois chiffres qui indique ce qui s'est passé. Ces codes ne sont pas un détail d'administration système : ils déterminent si une page est conservée dans l'index, si son autorité est transmise ailleurs, et à quelle vitesse le moteur en tirera les conséquences.</p>
+      <div class="table-responsive">
+<table>
+<thead><tr><th>Code</th><th>Signification</th><th>Conséquence SEO</th><th>Quand l'utiliser</th></tr></thead>
+<tbody>
+<tr><td><strong>200</strong></td><td>La page existe et répond</td><td>Indexable normalement</td><td>Situation nominale</td></tr>
+<tr><td><strong>301</strong></td><td>Déplacement permanent</td><td>Transfère l'essentiel de l'autorité vers la cible</td><td>URL changée définitivement, fusion de pages</td></tr>
+<tr><td><strong>302</strong></td><td>Déplacement temporaire</td><td>L'ancienne URL reste indexée, transfert incertain</td><td>Indisponibilité réellement provisoire, test A/B</td></tr>
+<tr><td><strong>404</strong></td><td>Page introuvable</td><td>Sortie progressive de l'index</td><td>Page supprimée sans équivalent, erreur de saisie</td></tr>
+<tr><td><strong>410</strong></td><td>Page supprimée définitivement</td><td>Sortie de l'index plus rapide qu'un 404</td><td>Suppression assumée et définitive</td></tr>
+<tr><td><strong>500</strong></td><td>Erreur serveur</td><td>Dégrade la confiance et réduit le crawl si récurrent</td><td>Jamais volontairement — à corriger d'urgence</td></tr>
+<tr><td><strong>503</strong></td><td>Service temporairement indisponible</td><td>Le moteur repassera plus tard sans pénaliser</td><td>Maintenance planifiée</td></tr>
+</tbody>
+</table>
+</div>
+      <h3>1.1 Les chaînes de redirection</h3>
+      <p>Une chaîne se forme quand une URL redirige vers une deuxième, qui redirige vers une troisième. Chaque saut ralentit le chargement pour l'utilisateur, consomme du budget de crawl, et fait perdre une fraction de l'autorité transmise. Au-delà de trois ou quatre sauts, les moteurs peuvent cesser de suivre.</p>
+      <p>Ces chaînes s'accumulent silencieusement au fil des années : une première refonte crée A→B, une seconde crée B→C, et personne ne pense à mettre à jour la première règle. Le correctif est simple et consiste à <strong>aplatir</strong> : faire pointer A directement vers C, en conservant la règle B→C.</p>
+      <p>Les <strong>boucles</strong> sont plus graves : A redirige vers B qui redirige vers A. La page devient inaccessible pour tout le monde. Elles proviennent presque toujours de deux règles écrites par deux personnes différentes, à deux moments différents.</p>
+      <div class="method-box">
+        <h4>⚙️ Méthode — auditer les redirections d'un site</h4>
+        <ol>
+          <li>Lancez un crawl du site avec un outil comme Screaming Frog, gratuit jusqu'à 500 URLs.</li>
+          <li>Filtrez sur les <strong>codes 3xx</strong> et utilisez le rapport dédié aux chaînes de redirection.</li>
+          <li>Identifiez les chaînes de <strong>2 sauts ou plus</strong> et aplatissez-les vers la destination finale.</li>
+          <li>Repérez les <strong>302 utilisées à tort</strong> pour des déplacements définitifs, et convertissez-les en 301.</li>
+          <li>Vérifiez qu'aucun <strong>lien interne</strong> ne pointe encore vers une URL redirigée : corrigez les liens à la source, car une redirection est un pansement, pas une solution.</li>
+        </ol>
+      </div>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — utiliser une 302 pour un changement définitif</h4>
+        <p>C'est l'erreur la plus fréquente, souvent parce que 302 est le réglage par défaut de certains serveurs et modules. La conséquence est concrète : l'ancienne URL reste indexée, la nouvelle peine à s'imposer, et l'autorité accumulée n'est pas transférée de façon fiable.</p>
+        <p>La règle est simple : si vous ne comptez pas remettre l'ancienne URL en service, c'est une 301. Le doute doit toujours se trancher en faveur du permanent.</p>
+      </div>
+
+      <h2>2. Piloter le crawl : robots.txt et sitemap</h2>
+      <p>Le fichier <code>robots.txt</code>, placé à la racine du domaine, indique aux robots quelles zones ils ne doivent pas explorer. Son usage légitime est d'économiser le budget de crawl sur des sections sans valeur pour la recherche : espaces d'administration, panier, pages de résultats de recherche interne, paramètres de tri infinis.</p>
+      <h3>2.1 Ce que robots.txt ne fait pas</h3>
+      <p>Vient ici la confusion la plus coûteuse de tout le SEO technique : <strong>bloquer l'exploration n'équivaut pas à désindexer</strong>. Une page bloquée par <code>robots.txt</code> peut rester dans l'index si d'autres sites pointent vers elle — Google l'affiche alors sans description, avec une mention indiquant qu'aucune information n'est disponible.</p>
+      <p>Le blocage a même un effet pervers qu'il faut avoir compris une fois pour toutes : puisque le robot ne peut plus lire la page, <strong>il ne verra jamais la directive de désindexation qu'elle contiendrait</strong>. En bloquant, vous ne supprimez pas la page de l'index, vous vous privez du moyen de l'en retirer.</p>
+      <h3>2.2 Le sitemap.xml</h3>
+      <p>Le sitemap est un fichier listant les URLs que vous souhaitez voir explorées, avec leur date de dernière modification. Il aide à la découverte, particulièrement sur les sites volumineux ou faiblement maillés, mais il ne garantit ni l'exploration ni l'indexation.</p>
+      <p>Une règle de propreté trop souvent négligée : un sitemap ne doit contenir que des URLs <strong>canoniques, en code 200 et indexables</strong>. Y laisser des pages redirigées, en 404 ou en <code>noindex</code> envoie des signaux contradictoires et dégrade la confiance accordée au fichier. Déclarez-le dans la Search Console et référencez-le en dernière ligne du <code>robots.txt</code>.</p>
+
+      <h2>3. Maîtriser l'indexation : noindex et canonique</h2>
+      <p>Trois mécanismes agissent sur l'indexation, et les confondre produit des situations ingérables. Le <code>robots.txt</code> contrôle l'<em>accès</em>. La directive <code>noindex</code> contrôle la <em>présence dans l'index</em>. La balise canonique contrôle le <em>choix entre plusieurs versions</em> d'un même contenu.</p>
+      <div class="table-responsive">
+<table>
+<thead><tr><th>Besoin</th><th>Outil correct</th><th>Erreur fréquente</th></tr></thead>
+<tbody>
+<tr><td>Économiser du budget de crawl</td><td><code>robots.txt</code></td><td>L'utiliser en croyant désindexer</td></tr>
+<tr><td>Retirer une page de l'index</td><td><code>&lt;meta name="robots" content="noindex, follow"&gt;</code>, exploration <strong>autorisée</strong></td><td>Bloquer simultanément dans robots.txt, ce qui empêche la lecture de la directive</td></tr>
+<tr><td>Regrouper des URLs dupliquées</td><td><code>&lt;link rel="canonical"&gt;</code></td><td>Canonique pointant vers une page au contenu différent</td></tr>
+<tr><td>Supprimer définitivement une page sans équivalent</td><td>Code <strong>410</strong></td><td>Laisser un 200 avec une page vide</td></tr>
+<tr><td>Remplacer une page par une autre</td><td>Redirection <strong>301</strong></td><td><code>noindex</code>, qui laisse l'autorité s'éteindre au lieu de la transférer</td></tr>
+</tbody>
+</table>
+</div>
+      <div class="method-box">
+        <h4>⚙️ Méthode — désindexer réellement une page</h4>
+        <p>L'ordre des opérations est contre-intuitif : on commence par <em>ouvrir</em> l'accès.</p>
+        <ol>
+          <li>Vérifiez que la page n'est <strong>pas bloquée</strong> par le robots.txt. Si elle l'est, retirez le blocage.</li>
+          <li>Ajoutez dans le <code>&lt;head&gt;</code> la directive <code>&lt;meta name="robots" content="noindex, follow"&gt;</code>. Le <code>follow</code> permet aux robots de continuer à suivre les liens de la page, préservant la circulation de l'autorité.</li>
+          <li>Laissez le temps au moteur de repasser : de quelques jours à plusieurs semaines selon la fréquence de crawl.</li>
+          <li><strong>Contrôlez la disparition effective</strong> dans la Search Console ou avec la commande <code>site:</code>.</li>
+          <li>Seulement <em>après</em> confirmation, si vous voulez aussi économiser du budget de crawl, ajoutez le blocage robots.txt. Inverser ces deux dernières étapes fige la page dans l'index.</li>
+        </ol>
+      </div>
+      <h3>3.1 La balise canonique en pratique</h3>
+      <p>Un même contenu accessible via plusieurs URLs — paramètres de tri, de filtre, de session, versions avec et sans slash final — disperse les signaux entre des adresses concurrentes. La balise <code>&lt;link rel="canonical" href="..."&gt;</code> désigne la version de référence.</p>
+      <p>Trois principes de mise en œuvre. D'abord, la canonique est <strong>autoréférente par défaut</strong> : chaque page indexable doit désigner sa propre URL, ce qui évite qu'un paramètre ajouté par une campagne ne crée un doublon. Ensuite, elle doit pointer vers une page au <strong>contenu réellement équivalent</strong> — une canonique vers une page différente est ignorée, et sème la confusion. Enfin, c'est une <strong>indication, pas un ordre</strong> : Google peut retenir une autre version s'il l'estime plus pertinente, ce que la Search Console signale par le statut « URL canonique sélectionnée par Google différente de celle de l'utilisateur ».</p>
+      <p>Un cas mérite une attention particulière : la <strong>pagination</strong>. Faire pointer les pages 2, 3, 4 d'une liste vers la page 1 par une canonique est une erreur classique — leur contenu diffère, et les produits des pages profondes cessent d'être découverts. Chaque page de pagination doit être autoréférente.</p>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — la combinaison qui rend une page ingérable</h4>
+        <p>On rencontre régulièrement des pages cumulant un blocage robots.txt, une directive <code>noindex</code> et une canonique vers une autre URL — trois signaux contradictoires posés par trois personnes à trois moments différents.</p>
+        <p>Le résultat est imprévisible et impossible à diagnostiquer proprement. Avant d'ajouter une directive, vérifiez toujours celles déjà en place : l'outil d'inspection d'URL de la Search Console affiche l'ensemble des signaux reçus pour une page donnée. Une seule intention par page, exprimée par un seul mécanisme.</p>
+      </div>
+
+      <h2>4. Core Web Vitals et performance</h2>
+      <p>Les Core Web Vitals mesurent l'expérience de chargement telle que l'utilisateur la perçoit. Ce sont des signaux de classement réels mais <strong>secondaires</strong> : ils départagent des pages de pertinence comparable, sans jamais compenser un contenu inadapté à l'intention. Un site rapide au contenu hors sujet ne se classe pas.</p>
+      <div class="table-responsive">
+<table>
+<thead><tr><th>Indicateur</th><th>Ce qu'il mesure</th><th>Bon</th><th>À améliorer</th><th>Causes fréquentes</th></tr></thead>
+<tbody>
+<tr><td><strong>LCP</strong><br>Largest Contentful Paint</td><td>Délai d'affichage du plus grand élément visible</td><td>≤ 2,5 s</td><td>&gt; 4 s</td><td>Image d'en-tête trop lourde, serveur lent, ressources bloquantes</td></tr>
+<tr><td><strong>INP</strong><br>Interaction to Next Paint</td><td>Réactivité de la page aux interactions</td><td>≤ 200 ms</td><td>&gt; 500 ms</td><td>JavaScript trop volumineux, scripts tiers, tâches longues</td></tr>
+<tr><td><strong>CLS</strong><br>Cumulative Layout Shift</td><td>Stabilité visuelle pendant le chargement</td><td>≤ 0,1</td><td>&gt; 0,25</td><td>Images sans dimensions, bannières insérées après coup, polices tardives</td></tr>
+</tbody>
+</table>
+</div>
+      <h3>4.1 Données de laboratoire et données de terrain</h3>
+      <p>Cette distinction évite bien des erreurs d'interprétation. Les <strong>données de laboratoire</strong> proviennent d'une simulation, dans des conditions standardisées : c'est ce que produit Lighthouse. Elles sont reproductibles et utiles pour diagnostiquer, mais ne reflètent pas l'expérience réelle de vos visiteurs.</p>
+      <p>Les <strong>données de terrain</strong> proviennent des utilisateurs réels de Chrome, agrégées sur 28 jours. Ce sont elles que Google utilise comme signal, et elles apparaissent dans PageSpeed Insights sous « Découvrez ce que vivent vos utilisateurs » ainsi que dans le rapport dédié de la Search Console.</p>
+      <p>Conséquence pratique : un score Lighthouse de 95 sur votre poste, en fibre, ne dit rien de ce que vit un visiteur en 4G sur un téléphone d'entrée de gamme. <strong>Pilotez toujours sur les données de terrain</strong>, et servez-vous du laboratoire uniquement pour identifier les causes. Si les données de terrain manquent, c'est simplement que la page reçoit trop peu de trafic pour être mesurée.</p>
+      <div class="example-box">
+        <h4>📌 Exemple — un CLS dégradé par une bannière</h4>
+        <p>Sur un site média, le CLS atteint 0,34, largement au-dessus du seuil. La cause : une bannière publicitaire insérée en haut de page après le chargement du texte, qui pousse brutalement le contenu vers le bas au moment précis où le lecteur commence sa lecture — et provoque des clics accidentels.</p>
+        <p>Correction : réserver l'espace de la bannière dès le rendu initial, en fixant sa hauteur en CSS. L'emplacement reste vide une fraction de seconde, puis se remplit sans rien déplacer. CLS ramené à 0,04 pour trois lignes de style — c'est le type de correctif à coût quasi nul et à fort effet sur l'expérience réelle.</p>
+      </div>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — courir après le score de 100</h4>
+        <p>Passer d'un score de 92 à 98 mobilise souvent plusieurs jours de travail technique pour un gain de classement imperceptible. Les Core Web Vitals fonctionnent par <strong>seuils</strong>, pas en proportion : l'enjeu est de passer dans la zone « bon », pas d'atteindre la perfection.</p>
+        <p>L'ordre de priorité utile : faire passer les pages en zone rouge vers l'orange, puis vers le vert. Une fois dans le vert, l'effort marginal se justifie rarement face à ce que produirait le même temps investi en contenu.</p>
+      </div>
+
+      <h2>5. Sécuriser une migration</h2>
+      <p>Une refonte, un changement de nom de domaine, un passage en HTTPS ou une réorganisation d'arborescence sont les opérations les plus risquées du référencement. La perte de trafic n'est jamais une fatalité : elle résulte de vérifications qui n'ont pas été faites.</p>
+      <h3>5.1 Les cinq risques d'une migration</h3>
+      <p><strong>Les URLs changent sans plan de redirection</strong> : chaque ancienne URL indexée devient un 404, et toute son autorité disparaît. C'est de loin la première cause de chute.</p>
+      <p><strong>Le <code>noindex</code> de préproduction part en production</strong> : le site de recette était protégé des moteurs, personne n'a retiré la directive à la mise en ligne. Le site se désindexe intégralement en quelques jours.</p>
+      <p><strong>Le robots.txt bloquant est déployé tel quel</strong>, avec le même effet.</p>
+      <p><strong>Le contenu est appauvri</strong> : une refonte « épurée » supprime souvent les textes de catégories et les pages de contenu jugées obsolètes, qui portaient en réalité le positionnement.</p>
+      <p><strong>Le maillage interne est reconstruit sans équivalence</strong> : des pages autrefois à deux clics se retrouvent à cinq, et perdent l'autorité qui leur parvenait.</p>
+      <div class="method-box">
+        <h4>⚙️ Méthode — plan de migration en huit étapes</h4>
+        <ol>
+          <li><strong>Avant tout développement</strong>, exportez la liste complète des URLs indexées (crawl + Search Console + sitemap + rapport des pages ayant reçu du trafic sur 12 mois). C'est votre inventaire de référence, et il ne sera plus reconstituable après la bascule.</li>
+          <li>Relevez pour chaque URL ses <strong>indicateurs de valeur</strong> : trafic organique, impressions, positions, backlinks entrants. Cela permettra de hiérarchiser et de mesurer après coup.</li>
+          <li>Construisez le <strong>tableau de correspondance</strong> ancienne URL → nouvelle URL, ligne à ligne. Chaque URL ayant reçu du trafic ou des liens doit avoir une destination pertinente — pas systématiquement la page d'accueil, qui est le réflexe paresseux et le plus destructeur de valeur.</li>
+          <li>Vérifiez sur la <strong>préproduction</strong> : absence de <code>noindex</code> résiduel, robots.txt correct, balises canoniques autoréférentes, contenus repris intégralement.</li>
+          <li>Le jour de la bascule, <strong>déployez les redirections en même temps</strong> que le nouveau site — jamais après, même de quelques heures.</li>
+          <li>Testez immédiatement un <strong>échantillon d'anciennes URLs</strong> : elles doivent répondre en 301 vers la bonne destination, en un seul saut.</li>
+          <li>Mettez à jour le <strong>sitemap</strong>, soumettez-le, et demandez l'indexation des pages stratégiques.</li>
+          <li><strong>Surveillez pendant 8 semaines</strong> : pages indexées, erreurs 404 dans la Search Console, positions des requêtes principales. Conservez les redirections au moins un an — idéalement définitivement.</li>
+        </ol>
+      </div>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — rediriger toutes les anciennes URLs vers l'accueil</h4>
+        <p>C'est la solution de facilité quand le plan de correspondance n'a pas été fait : une règle unique qui envoie tout vers la page d'accueil. Elle évite les 404 et donne l'illusion d'avoir traité le sujet.</p>
+        <p>En réalité, Google traite une redirection vers une page sans rapport comme un <em>soft 404</em> : l'autorité n'est pas transférée, et l'expérience utilisateur est mauvaise — quelqu'un qui cherchait une fiche produit précise atterrit sur l'accueil et repart. Une redirection ne transmet de valeur que si la destination répond à la même intention que l'origine.</p>
+      </div>
+
+      <h2>6. Netlinking : construire sans dette</h2>
+      <p>Le classement de Google s'est construit sur le PageRank : un lien s'interprète comme un vote, dont le poids dépend de l'autorité de la page émettrice et se dilue avec le nombre de liens qu'elle émet. Le mécanisme a été considérablement raffiné, mais la logique demeure — <strong>l'autorité se reçoit, elle ne se décrète pas</strong>.</p>
+      <h3>6.1 Les six critères de valeur d'un lien</h3>
+      <p><strong>La pertinence thématique</strong> du site émetteur, de loin le critère dominant. <strong>L'autorité propre</strong> de ce site. <strong>La position du lien</strong> dans la page : un lien contextuel au fil du texte vaut nettement plus qu'un lien en pied de page ou dans une liste de partenaires. <strong>La naturalité de l'ancre</strong> : une ancre exacte répétée à l'identique sur des dizaines de sites est un marqueur de manipulation. <strong>Le trafic réel</strong> du site source, car un site sans visiteurs n'a guère de valeur de recommandation. Et <strong>le caractère éditorial</strong> du lien : obtenu parce que le contenu le méritait, plutôt qu'acheté.</p>
+      <h3>6.2 Déclarer la nature des liens</h3>
+      <p>Trois attributs permettent de qualifier un lien sortant. <code>rel="sponsored"</code> signale un lien rémunéré ou publicitaire. <code>rel="ugc"</code> marque un lien issu de contenu généré par les utilisateurs — commentaires, forums. <code>rel="nofollow"</code> indique de façon générale que l'on ne souhaite pas transmettre d'autorité.</p>
+      <p>Déclarer honnêtement un lien commercial protège le site. Les campagnes d'achat de liens non déclarées figurent parmi les pratiques explicitement visées par les consignes de Google, et l'assainissement d'un profil toxique coûte régulièrement bien plus cher que ce que la campagne avait rapporté.</p>
+      <h3>6.3 Ce qui fonctionne durablement</h3>
+      <p>Toutes les stratégies durables reposent sur le même levier : produire quelque chose qui mérite d'être cité. Quatre familles fonctionnent particulièrement bien — une <strong>étude ou un baromètre</strong> avec des données que vous seuls possédez ; un <strong>outil gratuit</strong> rendant un service réel, comme un simulateur ou un calculateur ; un <strong>contenu de référence</strong> exhaustif sur un sujet technique mal couvert ; et l'<strong>expertise incarnée</strong>, à travers des interventions, des tribunes ou des interviews.</p>
+      <p>Ces actifs partagent une propriété que l'achat de liens n'a jamais : ils continuent d'attirer des liens des années durant, sans dépense récurrente ni risque de sanction.</p>
+      <div class="example-box">
+        <h4>📌 Exemple — deux profils de liens, deux trajectoires</h4>
+        <p>Site A obtient en six mois 250 liens issus d'annuaires et de réseaux de blogs, toutes thématiques confondues, avec la même ancre optimisée (« logiciel facturation pas cher »). Site B en obtient 12, dont trois depuis des médias spécialisés qui citent une étude qu'il a publiée sur les délais de paiement.</p>
+        <p>Le volume plaide pour A, mais son profil cumule deux marqueurs classiques de manipulation : la sur-optimisation des ancres et l'incohérence thématique. Celui de B est cohérent, motivé par un contenu réellement citable, et ne crée aucune dépendance à un prestataire. À douze mois, c'est presque toujours B qui tient la position — et B ne risque pas de voir son trafic s'effondrer du jour au lendemain.</p>
+      </div>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — lancer le netlinking en phase 1</h4>
+        <p>Le netlinking est le levier qui se délègue le plus facilement et qui produit le livrable le plus visible — un tableau de liens obtenus. C'est pourquoi tant de projets commencent par là.</p>
+        <p>C'est un mauvais ordre. Envoyer de l'autorité vers des pages qui ne répondent à aucune intention revient à remplir un seau percé : les liens ne feront pas se classer une page hors sujet, et le budget sera consommé avant que le site ait quoi que ce soit à faire valoir. Le netlinking vient en phase 4 de la feuille de route du module 1, une fois qu'il existe des pages qui méritent d'être citées.</p>
+      </div>
+
+      <div class="case-box">
+        <h3>🔍 Étude de cas — la refonte qui a coûté 42 % du trafic</h3>
+        <p>Reprenons la situation d'ouverture : trois semaines après la mise en ligne, 42 % du trafic organique a disparu. Voici le déroulé du diagnostic et de la récupération.</p>
+        <p><strong>Jour 1 — Écarter la panne globale.</strong> Le site répond en 200, il n'est pas en <code>noindex</code>, le robots.txt est correct. La chute n'est donc pas une désindexation totale : elle est sélective, ce qui oriente vers un problème d'URLs plutôt que d'accès.</p>
+        <p><strong>Jour 1 — Le rapport d'indexation.</strong> Search Console : les pages indexées passent de 1 240 à 890. Le rapport « Introuvable (404) » compte 610 URLs apparues en trois semaines. Le diagnostic se précise : des URLs ont changé sans redirection.</p>
+        <p><strong>Jour 2 — Quantifier ce qui a été perdu.</strong> Croisement entre l'export des pages ayant généré du trafic sur les 12 mois précédant la refonte et la liste des 404. Résultat : 187 anciennes URLs ayant reçu du trafic organique n'ont aucune redirection. Elles représentaient 46 % du trafic organique de la période — l'ordre de grandeur correspond à la perte constatée.</p>
+        <p><strong>Jour 2 — Deux causes secondaires.</strong> Sur les URLs effectivement redirigées, 40 % le sont en <strong>302</strong> au lieu de 301 (réglage par défaut du nouveau serveur). Et les redirections mises en place pointent pour un tiers d'entre elles vers la page d'accueil plutôt que vers l'équivalent réel.</p>
+        <p><strong>Jours 3 à 5 — Le plan de correction.</strong></p>
+        <ul>
+        <li>Reconstitution du tableau de correspondance pour les 187 URLs, à partir de l'archive du site et des titres relevés dans les données Search Console.</li>
+        <li>Mise en place des 301 vers les pages équivalentes — jamais vers l'accueil.</li>
+        <li>Conversion de l'ensemble des 302 en 301.</li>
+        <li>Correction des redirections vers l'accueil, réorientées vers la catégorie ou la fiche correspondante.</li>
+        <li>Aplatissement des chaînes créées par ces corrections successives.</li>
+        <li>Sitemap régénéré et resoumis ; demande d'indexation sur les 30 pages les plus stratégiques.</li>
+        </ul>
+        <p><strong>Résultat.</strong> Récupération d'environ 80 % du trafic perdu en sept semaines. Les 20 % restants correspondent à des pages dont l'équivalent n'existait plus dans la nouvelle arborescence — le contenu avait été supprimé, pas seulement déplacé. Aucune redirection ne peut réparer cela.</p>
+        <p><strong>Ce que le cas enseigne :</strong> la récupération est possible, mais elle n'est jamais totale, et elle coûte plusieurs fois ce qu'aurait coûté le plan de redirection en amont. Surtout, l'inventaire des URLs et de leur valeur devait être fait <em>avant</em> la bascule : après, il faut le reconstituer à partir de sources incomplètes. C'est l'étape 1 du plan de migration, et c'est celle qu'on saute presque toujours.</p>
+      </div>
+
+      <div class="checklist-box">
+        <h3>📋 Checklist — Migration ou refonte en 15 points</h3>
+        <ul class="checklist">
+          <li>Inventaire complet des URLs indexées exporté <strong>avant</strong> tout développement</li>
+          <li>Trafic, impressions, positions et backlinks relevés pour chaque URL</li>
+          <li>Tableau de correspondance ancienne → nouvelle URL complété ligne à ligne</li>
+          <li>Aucune redirection de masse vers la page d'accueil</li>
+          <li>Toutes les redirections définitives sont en 301, jamais en 302</li>
+          <li>Aucune chaîne de redirection de plus d'un saut</li>
+          <li>Le <code>noindex</code> de préproduction a été retiré (vérifié page par page sur un échantillon)</li>
+          <li>Le robots.txt de production ne bloque aucune zone stratégique</li>
+          <li>Les balises canoniques sont autoréférentes, y compris sur les pages de pagination</li>
+          <li>Les contenus de catégories et pages éditoriales ont été repris, pas « épurés »</li>
+          <li>La profondeur de clic des pages stratégiques n'a pas augmenté</li>
+          <li>Le maillage interne pointe vers les nouvelles URLs, pas vers des URLs redirigées</li>
+          <li>Sitemap régénéré, ne contenant que des URLs canoniques en 200</li>
+          <li>Redirections déployées en même temps que le site, pas après</li>
+          <li>Surveillance des 404, de l'indexation et des positions pendant 8 semaines</li>
+        </ul>
+      </div>
+
+      <div class="glossary-box">
+        <h3>📖 Glossaire du module</h3>
+        <dl>
+          <dt>Code HTTP</dt>
+          <dd>Réponse à trois chiffres du serveur indiquant l'état d'une ressource : 200 disponible, 301 déplacée, 404 introuvable.</dd>
+          <dt>Redirection 301</dt>
+          <dd>Redirection permanente transférant l'essentiel de l'autorité vers l'URL de destination.</dd>
+          <dt>Chaîne de redirection</dt>
+          <dd>Succession de redirections A→B→C ; consomme du budget de crawl et dilue l'autorité transmise.</dd>
+          <dt>Soft 404</dt>
+          <dd>Page répondant en 200 ou redirigeant vers un contenu sans rapport, que Google traite comme introuvable.</dd>
+          <dt>robots.txt</dt>
+          <dd>Fichier contrôlant l'accès des robots ; il ne désindexe pas.</dd>
+          <dt>noindex</dt>
+          <dd>Directive demandant le retrait d'une page de l'index ; exige que la page reste explorable.</dd>
+          <dt>Balise canonique</dt>
+          <dd>Balise désignant l'URL de référence parmi plusieurs versions d'un même contenu ; indication, pas ordre.</dd>
+          <dt>LCP / INP / CLS</dt>
+          <dd>Les trois Core Web Vitals. L'INP a remplacé le FID en mars 2024.</dd>
+          <dt>Données de terrain</dt>
+          <dd>Mesures issues des utilisateurs réels de Chrome sur 28 jours ; c'est le signal utilisé par Google.</dd>
+          <dt>rel=sponsored / ugc / nofollow</dt>
+          <dd>Attributs déclarant la nature d'un lien : rémunéré, généré par les utilisateurs, ou sans transmission d'autorité.</dd>
+          <dt>PageRank</dt>
+          <dd>Principe fondateur du classement : un lien vaut un vote, pondéré par l'autorité de l'émetteur.</dd>
+        </dl>
+      </div>
+
+      <div class="takeaway-box">
+        <h3>✅ À retenir</h3>
+        <ul>
+          <li>301 pour un déplacement définitif, 302 uniquement si vous comptez réellement revenir en arrière — dans le doute, 301.</li>
+          <li>Bloquer dans robots.txt ≠ désindexer : la page peut rester dans l'index, et le robot ne lira jamais la directive de retrait.</li>
+          <li>Pour désindexer : ouvrir l'accès + <code>noindex, follow</code>, vérifier la disparition, et bloquer seulement après.</li>
+          <li>Une canonique est autoréférente par défaut, et ne pointe jamais vers un contenu différent — pagination comprise.</li>
+          <li>Ne cumulez jamais plusieurs directives contradictoires sur une même page : une intention, un mécanisme.</li>
+          <li>Pilotez les Core Web Vitals sur les données de terrain, pas sur le score Lighthouse de votre poste en fibre.</li>
+          <li>Les Web Vitals fonctionnent par seuils : sortir du rouge compte, viser 100 ne se justifie presque jamais.</li>
+          <li>Une migration se prépare par l'inventaire des URLs <strong>avant</strong> la bascule — après, il faut le reconstituer.</li>
+          <li>Rediriger en masse vers l'accueil est traité comme un soft 404 : aucune autorité n'est transférée.</li>
+          <li>L'autorité se reçoit : produisez d'abord ce qui mérite d'être cité, le netlinking vient en phase 4.</li>
+        </ul>
+      </div>
+
+      <h2 class="exercises-title">Exercices d'application</h2>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 1 — Choisir le bon mécanisme <span class="badge badge-neutral">Application</span></h3>
+        <p>Pour chacune des cinq situations, indiquez le mécanisme à employer et justifiez en une phrase.</p>
+        <p><strong>(A)</strong> 800 fiches de produits définitivement arrêtés, dont 40 reçoivent des backlinks. <strong>(B)</strong> Les pages de résultats de recherche interne, qui génèrent des milliers d'URLs. <strong>(C)</strong> Une page « Conditions générales » que vous ne voulez pas voir dans les résultats. <strong>(D)</strong> Les URLs de catégorie avec paramètres de tri (<code>?tri=prix</code>). <strong>(E)</strong> Une opération commerciale suspendue pour trois mois, qui reviendra à l'identique.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>(A) 800 fiches de produits arrêtés → redirection 301 vers la catégorie parente ou le produit remplaçant.</strong> Les 40 pages avec backlinks l'exigent absolument : une 301 récupère leur autorité, alors qu'un 404 ou un <code>noindex</code> la laisserait s'éteindre. Pour les 760 autres, la 301 vers la catégorie reste préférable, à condition que la destination réponde à une intention proche. Si aucun équivalent n'existe, le <strong>410</strong> est le choix honnête.</p>
+            <p><strong>(B) Résultats de recherche interne → blocage robots.txt.</strong> C'est l'usage légitime du fichier : ces URLs se comptent en milliers, n'ont aucune valeur pour la recherche, et consomment du budget de crawl. On ne cherche pas ici à désindexer une page précise, mais à empêcher l'exploration d'un espace infini.</p>
+            <p><strong>(C) Conditions générales → <code>noindex, follow</code>, exploration autorisée.</strong> La page doit rester accessible aux utilisateurs et aux robots (elle porte des liens internes), mais n'a pas vocation à se positionner. Le piège serait de la bloquer dans robots.txt : la directive ne serait jamais lue.</p>
+            <p><strong>(D) Paramètres de tri → balise canonique</strong> vers l'URL de catégorie propre. Le tri ne crée pas de contenu nouveau, il réordonne. <em>Nuance :</em> si une variante correspond à une demande réellement exprimée par le marché — « chaussures noires » a un volume propre — elle mérite alors sa propre page indexable avec canonique autoréférente. Le filtre technique se canonicalise, la vraie catégorie commerciale s'assume.</p>
+            <p><strong>(E) Opération suspendue 3 mois → 302, ou mieux : laisser la page en 200</strong> avec un message d'indisponibilité et des alternatives. C'est l'un des rares cas légitimes de 302, puisque le retour est réellement prévu. Une 301 ferait perdre l'antériorité de l'URL, qu'il faudrait reconstruire au retour de l'opération.</p>
+            <p><strong>Fil conducteur :</strong> la question à se poser n'est jamais « quelle balise met-on ? » mais « que doit-il advenir de l'autorité accumulée par cette URL ? ». La réponse désigne le mécanisme.</p>
+          </div>
+        </details>
+      </div>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 2 — Diagnostiquer une chute post-migration <span class="badge badge-neutral">Analyse</span></h3>
+        <p>Un site a perdu 35 % de son trafic organique dix jours après une refonte. Vous disposez de la Search Console et d'un accès au serveur.</p>
+        <p><strong>1.</strong> Établissez votre séquence de diagnostic, de la vérification la plus rapide à la plus coûteuse. <strong>2.</strong> Pour chaque vérification, indiquez ce que vous chercheriez précisément. <strong>3.</strong> Quelle donnée regretterez-vous de ne pas avoir, et comment la reconstituer ?</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>1 et 2. Séquence de diagnostic, du moins coûteux au plus coûteux</strong></p>
+            <div class="table-responsive">
+            <table>
+            <thead><tr><th>Ordre</th><th>Vérification</th><th>Ce que l'on cherche</th><th>Durée</th></tr></thead>
+            <tbody>
+            <tr><td>1</td><td>Code source de plusieurs pages</td><td>Un <code>noindex</code> résiduel de préproduction — cause la plus brutale et la plus rapide à écarter</td><td>2 min</td></tr>
+            <tr><td>2</td><td>Fichier <code>/robots.txt</code></td><td>Un <code>Disallow: /</code> ou un blocage de zone stratégique déployé depuis la recette</td><td>2 min</td></tr>
+            <tr><td>3</td><td>GSC — rapport d'indexation</td><td>Écart du nombre de pages indexées, et surtout explosion des 404</td><td>10 min</td></tr>
+            <tr><td>4</td><td>GSC — rapport Performances, comparaison de périodes</td><td>La chute est-elle globale ou concentrée sur certaines pages ou requêtes ?</td><td>20 min</td></tr>
+            <tr><td>5</td><td>Crawl du site + test d'anciennes URLs</td><td>302 au lieu de 301, chaînes, redirections vers l'accueil, boucles</td><td>1 h</td></tr>
+            <tr><td>6</td><td>Comparaison des contenus avant/après</td><td>Textes de catégories ou pages supprimés lors de « l'épuration »</td><td>2 h</td></tr>
+            </tbody>
+            </table>
+            </div>
+            <p>L'ordre n'est pas arbitraire : les deux premières vérifications coûtent quatre minutes et expliquent à elles seules une part importante des chutes post-migration. Commencer par un crawl complet, c'est passer une heure sur ce qu'un coup d'œil au code source aurait pu écarter.</p>
+            <p><strong>3. La donnée qui manquera</strong></p>
+            <p>L'<strong>inventaire des anciennes URLs avec leur valeur</strong> — trafic, impressions, positions, backlinks — établi avant la bascule. Sans lui, impossible de savoir quelles URLs perdues comptaient réellement, ni de bâtir un plan de redirection hiérarchisé.</p>
+            <p><strong>Reconstitution possible, par recoupement de sources incomplètes :</strong></p>
+            <ul>
+            <li>La Search Console conserve <strong>16 mois</strong> d'historique : c'est la source principale, exportez les pages et requêtes de la période antérieure.</li>
+            <li>L'outil d'analytics du site donne les pages d'atterrissage organiques et leur volume.</li>
+            <li>L'archive du web (Wayback Machine) permet de retrouver l'arborescence et les titres des anciennes pages.</li>
+            <li>Les logs serveur, s'ils sont conservés, listent les URLs réellement demandées par Googlebot.</li>
+            </ul>
+            <p><strong>Ce qui reste définitivement perdu :</strong> le détail des backlinks pointant vers des URLs profondes, difficilement reconstituable sans outil payant. C'est précisément pour cela que l'étape 1 du plan de migration existe — et qu'elle est irremplaçable.</p>
+          </div>
+        </details>
+      </div>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 3 — Arbitrer une stratégie de liens <span class="badge badge-neutral">Synthèse</span></h3>
+        <p>Un client dispose de 12 000 € pour le netlinking sur un an. Son site a 8 mois, publie du contenu de qualité sur une niche technique (la maintenance industrielle prédictive), et compte actuellement 6 backlinks. Un prestataire propose 100 liens sur des blogs thématiques pour 10 000 €, garantis « en dofollow, sur des sites à forte autorité ».</p>
+        <p><strong>1.</strong> Quelles questions posez-vous au prestataire avant toute décision ? <strong>2.</strong> Quelle stratégie recommandez-vous et pourquoi ? <strong>3.</strong> Comment mesurerez-vous le résultat à douze mois ?</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>1. Les questions à poser</strong></p>
+            <ul>
+            <li><strong>Puis-je voir la liste des sites</strong> avant achat ? Un refus est en soi une réponse : cela signifie généralement un réseau de sites créés pour vendre des liens.</li>
+            <li><strong>Ces sites reçoivent-ils du trafic organique réel ?</strong> Un site sans visiteurs n'a aucune valeur de recommandation, quelle que soit sa note d'autorité affichée par un outil tiers.</li>
+            <li><strong>Les liens seront-ils déclarés</strong> en <code>rel="sponsored"</code> ? Si non, le prestataire propose une pratique explicitement visée par les consignes de Google, et c'est le client qui en porte le risque.</li>
+            <li><strong>Les articles seront-ils rédigés par des personnes du domaine</strong>, et les ancres variées ? 100 liens avec la même ancre exacte sont un marqueur de manipulation.</li>
+            <li><strong>Quelle est la durée de vie</strong> des liens ? Beaucoup de prestations retirent les liens à l'arrêt de l'abonnement — la « performance » disparaît alors avec le budget.</li>
+            </ul>
+            <p><strong>2. Recommandation</strong></p>
+            <p><strong>Refuser l'offre en l'état.</strong> Trois raisons cumulatives : 100 liens en un an sur un site de 8 mois qui en compte 6 constitue une progression totalement anormale ; le montant par lien (100 €) situe l'offre dans l'achat de masse, pas dans l'obtention éditoriale ; et la niche — la maintenance industrielle prédictive — ne compte tout simplement pas 100 blogs thématiques pertinents. Ces liens viendront donc de sites hors sujet, ce qui est le critère de dévalorisation numéro un.</p>
+            <p><strong>Répartition alternative des 12 000 € :</strong></p>
+            <div class="table-responsive">
+            <table>
+            <thead><tr><th>Poste</th><th>Budget</th><th>Attendu</th></tr></thead>
+            <tbody>
+            <tr><td>Baromètre annuel de la maintenance prédictive (enquête auprès de 150 industriels)</td><td>6 000 €</td><td>L'actif citable : dans une niche technique pauvre en données, c'est ce que les médias spécialisés reprennent</td></tr>
+            <tr><td>Relations presse spécialisée et interventions (webinaires, tribunes)</td><td>3 000 €</td><td>10 à 20 liens éditoriaux hautement pertinents</td></tr>
+            <tr><td>Outil gratuit : calculateur de ROI d'un plan de maintenance</td><td>2 500 €</td><td>Actif durable, liens spontanés depuis forums et documents professionnels</td></tr>
+            <tr><td>Réserve pour opportunités</td><td>500 €</td><td>Partenariats, participations à des études sectorielles</td></tr>
+            </tbody>
+            </table>
+            </div>
+            <p><strong>L'arbitrage à savoir défendre :</strong> le client obtiendra probablement 20 à 30 liens au lieu de 100. C'est un discours difficile à tenir face à une offre qui promet cinq fois plus. L'argument décisif est celui du risque asymétrique — les 100 liens peuvent nécessiter un désaveu coûteux et fragilisent durablement le domaine, tandis que le baromètre continuera de générer des liens en années 2 et 3 sans dépense supplémentaire.</p>
+            <p><strong>3. Mesure à douze mois</strong></p>
+            <ul>
+            <li><strong>Domaines référents uniques</strong> (et non nombre de liens) : un même site qui vous lie dix fois ne compte quasiment que pour un.</li>
+            <li><strong>Pertinence thématique</strong> des domaines obtenus : quelle part relève réellement de l'industrie ou de la maintenance ?</li>
+            <li><strong>Positions sur les requêtes de la tête de traîne</strong> visée : c'est l'effet que le netlinking est censé produire, et le seul qui compte.</li>
+            <li><strong>Trafic de référence</strong> apporté par les liens eux-mêmes : un bon lien amène aussi des visiteurs qualifiés, et cette mesure discrimine immédiatement les liens réels des liens décoratifs.</li>
+            <li><strong>Réutilisation du baromètre</strong> : nombre de citations et de reprises la deuxième année, sans nouvelle dépense — c'est le test de l'actif.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+      <div class="resources-box">
+        <h3>🔗 Pour aller plus loin</h3>
+        <ul>
+          <li>Google Search Central — Consignes aux webmasters sur les liens : <a href="https://developers.google.com/search/docs/essentials/spam-policies" target="_blank" rel="noopener">developers.google.com/search/docs/essentials/spam-policies</a></li>
+          <li>Guide officiel des migrations de site : <a href="https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes" target="_blank" rel="noopener">developers.google.com — site move with URL changes</a></li>
+          <li>PageSpeed Insights : <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener">pagespeed.web.dev</a> — pensez à lire les données de terrain, pas seulement le score de laboratoire.</li>
+          <li>Core Web Vitals sur web.dev : <a href="https://web.dev/vitals/" target="_blank" rel="noopener">web.dev/vitals</a> — seuils, causes et correctifs détaillés.</li>
+        </ul>
+      </div>
+    </article>
+
+    <section class="quiz-section">
+      <h2>🧠 Quiz d'auto-évaluation</h2>
+      <p style="color:var(--text-muted);margin-bottom:20px;">Sélectionnez la bonne réponse pour valider vos acquis. Le feedback immédiat vous expliquera les concepts clés.</p>
+      <div id="quiz-container">
+        <!-- Quiz chargé dynamiquement par quiz-engine.js -->
+      </div>
+      <div style="margin-top: 24px; text-align: center;">
+        <button id="btn-mark-complete" data-module-id="formation-seo-module-4" class="btn btn-primary">
+          Marquer le module comme terminé ✓
+        </button>
+      </div>
+    </section>
+
+    <nav class="module-nav">
+      <a href="../module-3/index.html" class="btn btn-outline">← Module 3</a>
+      <a href="../module-5/index.html" class="btn btn-primary">Module 5 →</a>
+    </nav>
+  </main>
+
+  <script src="../../../assets/js/progress.js"></script>
+  <script src="../../../assets/js/quiz-engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadQuiz('quiz.json', 'quiz-container');
+    });
+  </script>
+</body>
+</html>

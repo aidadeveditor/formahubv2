@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-gestion-de-projet-module-4",
+  "version": "2.0",
+  "last_verified": "2026-09-01",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quelle est la règle d'or d'un retour d'expérience sans blâme ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Identifier le responsable pour éviter la répétition"
+        },
+        {
+          "key": "b",
+          "text": "Archiver le rapport sans le diffuser"
+        },
+        {
+          "key": "c",
+          "text": "Chercher les causes systémiques : dès qu'un coupable est possible, l'information cesse de remonter"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Ce n'est pas de l'indulgence, c'est de la mécanique. Si la seule cause trouvée est humaine, l'analyse n'est pas terminée."
+    },
+    {
+      "id": "q2",
+      "question": "Comment calcule-t-on la criticité d'un risque ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Probabilité d'occurrence × impact"
+        },
+        {
+          "key": "b",
+          "text": "Coût estimé ÷ durée du projet"
+        },
+        {
+          "key": "c",
+          "text": "Nombre de personnes concernées × budget"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Mais la formule traite mal les risques à impact irréversible : ceux-là se traitent quelle que soit leur probabilité."
+    },
+    {
+      "id": "q3",
+      "question": "« Le développeur principal part en congé en mars. » De quoi s'agit-il ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "D'un risque à coter et traiter"
+        },
+        {
+          "key": "b",
+          "text": "D'une contrainte : c'est certain et daté, cela se planifie"
+        },
+        {
+          "key": "c",
+          "text": "D'un problème à résoudre"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Elle génère en revanche un risque : « si le transfert de compétences n'est pas fait avant mars, personne ne pourra reprendre le module »."
+    },
+    {
+      "id": "q4",
+      "question": "Que suppose l'acceptation d'un risque ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Qu'on n'en parle plus, la décision étant prise"
+        },
+        {
+          "key": "b",
+          "text": "Qu'elle soit explicite, écrite, prise par la bonne personne, avec un plan de repli et un seuil de déclenchement"
+        },
+        {
+          "key": "c",
+          "text": "Qu'on augmente le budget de précaution"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Sans seuil de déclenchement, on constate la réalisation du risque trop tard pour agir. « On avisera » n'est pas un plan de repli."
+    },
+    {
+      "id": "q5",
+      "question": "Pourquoi faut-il clôturer formellement un projet arrêté avant son terme ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Pour désigner les responsables de l'arrêt"
+        },
+        {
+          "key": "b",
+          "text": "Parce que sans décision écrite et motivée, il ressuscitera dans six mois porté par quelqu'un qui en ignorera les raisons"
+        },
+        {
+          "key": "c",
+          "text": "Pour des raisons comptables uniquement"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Il faut aussi capitaliser sur ce qui a été produit, et dire à l'équipe qu'un arrêt décidé à temps est souvent une bonne décision de gestion."
+    },
+    {
+      "id": "q6",
+      "question": "Quelle technique fait le mieux remonter les risques en séance collective ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Demander directement « quels sont les risques ? »"
+        },
+        {
+          "key": "b",
+          "text": "Le pré-mortem : « nous sommes dans six mois, le projet a échoué — que s'est-il passé ? »"
+        },
+        {
+          "key": "c",
+          "text": "Reprendre le registre d'un projet précédent sans le questionner"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Cette formulation lève l'autocensure : il est plus facile d'expliquer un échec hypothétique que d'annoncer un risque devant un commanditaire optimiste."
+    }
+  ]
+}

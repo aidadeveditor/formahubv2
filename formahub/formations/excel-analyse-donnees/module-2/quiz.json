@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-excel-analyse-donnees-module-2",
+  "version": "2.0",
+  "last_verified": "2026-09-04",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Une RECHERCHEV est écrite sans son quatrième argument. Que se passe-t-il ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Excel affiche un message d'avertissement à la validation"
+        },
+        {
+          "key": "b",
+          "text": "La recherche devient approximative et renvoie la valeur immédiatement inférieure au lieu d'une erreur"
+        },
+        {
+          "key": "c",
+          "text": "La formule renvoie systématiquement #N/A"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Vous cherchez le prix de REF-1050, absent : vous obtenez celui de REF-1049. Aucun signal, un chiffre parfaitement plausible."
+    },
+    {
+      "id": "q2",
+      "question": "Quelle est la meilleure protection contre le décalage de plage à la recopie ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Figer toutes les références par F4"
+        },
+        {
+          "key": "b",
+          "text": "Utiliser des références de tableau structuré, qui désignent l'objet et non des coordonnées"
+        },
+        {
+          "key": "c",
+          "text": "Recopier la formule par copier-coller plutôt que par la poignée de recopie"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Figer par F4 fonctionne mais casse quand la table grandit. La référence de tableau supprime le problème au lieu de le gérer."
+    },
+    {
+      "id": "q3",
+      "question": "Un rapprochement produit 1 800 lignes en #N/A sur 12 000. Quelle est la première chose à faire ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Envelopper la formule dans un SIERREUR pour nettoyer l'affichage"
+        },
+        {
+          "key": "b",
+          "text": "Extraire les références non trouvées, les dédoublonner et les lire"
+        },
+        {
+          "key": "c",
+          "text": "Recommencer le rapprochement avec INDEX/EQUIV"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Vingt secondes de lecture visuelle révèlent presque toujours plusieurs familles de causes : espaces, zéros initiaux, références réellement absentes."
+    },
+    {
+      "id": "q4",
+      "question": "Pourquoi un SIERREUR renvoyant zéro sur un prix d'achat non trouvé est-il dangereux ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Parce que la formule devient plus lente à recalculer"
+        },
+        {
+          "key": "b",
+          "text": "Parce que la marge calculée sur ces lignes devient égale au chiffre d'affaires, gonflant le total sans aucun signal"
+        },
+        {
+          "key": "c",
+          "text": "Parce que le zéro sera compté comme une valeur manquante par les tableaux croisés dynamiques"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Zéro n'est pas l'absence de valeur. SIERREUR ne doit jamais transformer une donnée manquante en donnée neutre."
+    },
+    {
+      "id": "q5",
+      "question": "Comment écrire correctement la borne haute d'un filtre sur le quatrième trimestre 2025 ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Inférieur ou égal au 31 décembre 2025"
+        },
+        {
+          "key": "b",
+          "text": "Strictement inférieur au 1er janvier 2026"
+        },
+        {
+          "key": "c",
+          "text": "Inférieur ou égal au 31 décembre 2025 à 23 h 59"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Une date horodatée du 31 décembre à 14 h est supérieure au 31 décembre à minuit : la première écriture exclut toute la dernière journée."
+    },
+    {
+      "id": "q6",
+      "question": "Que faut-il vérifier sur le référentiel avant tout rapprochement ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Qu'il est trié par ordre croissant de clé"
+        },
+        {
+          "key": "b",
+          "text": "Que la clé y est unique, sans quoi la recherche prendra la première occurrence, arbitrairement"
+        },
+        {
+          "key": "c",
+          "text": "Qu'il contient au moins autant de lignes que la table à rapprocher"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Un référentiel contenant deux prix pour le même code produit un résultat arbitraire et parfaitement silencieux."
+    }
+  ]
+}

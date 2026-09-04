@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-management-equipe-module-1",
+  "version": "2.0",
+  "last_verified": "2026-09-01",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Qu'est-ce que la sécurité psychologique dans une équipe ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Une garantie d'assurance souscrite par l'employeur"
+        },
+        {
+          "key": "b",
+          "text": "La croyance partagée qu'on peut questionner, signaler ou se tromper sans que cela se retourne contre soi"
+        },
+        {
+          "key": "c",
+          "text": "L'absence d'exigence sur la qualité du travail"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Elle porte sur la personne ; l'exigence porte sur le travail. Les deux se renforcent : la combinaison la plus performante est exigeante ET sûre."
+    },
+    {
+      "id": "q2",
+      "question": "À quel niveau faut-il accompagner le plus étroitement, et qu'on relâche pourtant souvent ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "D2, l'apprenant désenchanté : sa confiance chute alors que sa compétence progresse"
+        },
+        {
+          "key": "b",
+          "text": "D4, l'autonome confirmé"
+        },
+        {
+          "key": "c",
+          "text": "D3, le compétent hésitant"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "L'erreur classique est d'interpréter les progrès techniques comme un signe d'autonomie, au moment précis où la confiance s'effondre."
+    },
+    {
+      "id": "q3",
+      "question": "Comment se diagnostique le niveau d'autonomie ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Personne par personne, selon son ancienneté"
+        },
+        {
+          "key": "b",
+          "text": "Mission par mission : la même personne peut être autonome sur un sujet et débutante sur un autre"
+        },
+        {
+          "key": "c",
+          "text": "Une fois par an, lors de l'entretien annuel"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Un expert de six ans à qui l'on confie un premier encadrement est D1 sur cette mission, quelle que soit son autonomie ailleurs."
+    },
+    {
+      "id": "q4",
+      "question": "Quel est le principal piège du passage d'expert à manager ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Déléguer trop vite les tâches administratives"
+        },
+        {
+          "key": "b",
+          "text": "Le micromanagement : continuer à faire à la place de l'équipe, ce qui s'auto-entretient"
+        },
+        {
+          "key": "c",
+          "text": "Organiser trop de points d'équipe"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Reprendre le travail est rationnel à court terme — c'est ce qui rend le piège efficace. Un travail fait à 80 % par un autre vaut mieux qu'à 100 % par vous."
+    },
+    {
+      "id": "q5",
+      "question": "Qu'est-ce qui détruit le plus sûrement la sécurité psychologique ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Fixer des objectifs exigeants"
+        },
+        {
+          "key": "b",
+          "text": "Ne rien faire d'un problème signalé"
+        },
+        {
+          "key": "c",
+          "text": "Organiser des entretiens individuels réguliers"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "C'est la façon la plus sûre de garantir qu'il n'y aura pas de second signalement — celui qui a pris le risque a constaté que ça ne servait à rien."
+    },
+    {
+      "id": "q6",
+      "question": "Quelle question se poser avant de déléguer ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "« Cette personne a-t-elle le temps ? »"
+        },
+        {
+          "key": "b",
+          "text": "« Suis-je prêt à accepter que ce soit fait autrement que je ne l'aurais fait ? »"
+        },
+        {
+          "key": "c",
+          "text": "« Est-ce que je saurais le faire moi-même ? »"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Si la réponse est non, ne déléguez pas : distribuez la tâche en l'assumant comme telle. Une fausse délégation détruit plus de confiance que pas de délégation du tout."
+    }
+  ]
+}

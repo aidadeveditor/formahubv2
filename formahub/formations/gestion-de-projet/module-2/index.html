@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formahub — Gestion de Projet, les fondamentaux : Planification, Framework Scrum &amp; User Stories</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="../../../index.html" class="brand">
+      <div class="brand-icon">F</div>
+      <span>Formahub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../../../index.html" class="nav-link">Mes formations</a>
+      <a href="../../../ressources-externes.html" class="nav-link">Ressources externes</a>
+      <a href="../../../formations-espagne.html" class="nav-link">Formations Espagne</a>
+      <button class="theme-toggle" type="button">🌙 Mode Sombre</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="../../../index.html">Accueil</a> &gt;
+        <span>Gestion de Projet, les fondamentaux</span> &gt;
+        <strong>Module 2</strong>
+      </div>
+      <h1>Module 2 : Planification, Framework Scrum &amp; User Stories</h1>
+      <div class="module-meta">
+        <span class="badge badge-progress">⏱️ 55 min</span>
+        <span class="badge badge-neutral">Module 2 sur 4</span>
+        <span class="badge badge-neutral">Niveau : Débutant</span>
+        <span class="badge badge-neutral">~2800 mots</span>
+      </div>
+    </div>
+
+    <article class="module-content">
+      <div class="intro-box">
+        <h3>📍 Mise en situation</h3>
+        <p>Votre planning annonce une livraison au 15 juin. Il est détaillé, coloré, et il a demandé deux jours de travail. Nous sommes le 20 mai : trois tâches ont pris du retard, deux dépendances ont bougé, et le planning ne correspond plus à rien depuis six semaines. Personne ne l'ouvre plus.</p>
+        <p>Le problème n'est pas que le planning était faux — tous les plannings le sont. Il est qu'on lui a demandé quelque chose qu'un planning ne peut pas donner : la certitude. Ce module traite de la planification comme d'un outil de décision plutôt que de prédiction, puis présente les approches itératives qui traitent l'incertitude autrement. Vous n'en sortirez pas avec « il faut faire de l'agile », mais avec les critères qui déterminent laquelle des deux approches convient à votre projet.</p>
+      </div>
+
+      <div class="objectives-box">
+        <h3>🎯 À l'issue de ce module, vous saurez</h3>
+        <ul>
+          <li>Découper un projet en lots livrables et identifier le chemin qui commande la date de fin</li>
+          <li>Estimer une charge en connaissant les biais qui faussent systématiquement les estimations</li>
+          <li>Choisir entre approche séquentielle et approche itérative selon la nature du projet</li>
+          <li>Comprendre les rôles, événements et artefacts de Scrum, et ce qui les fait échouer</li>
+          <li>Rédiger une User Story avec des critères d'acceptation testables</li>
+        </ul>
+      </div>
+
+      <h2>1. Découper avant de planifier</h2>
+      <p>Une erreur fréquente consiste à ouvrir un outil de planification avant d'avoir découpé le travail. On obtient alors une suite de tâches formulées à des niveaux incohérents — « développer le site » à côté de « créer le formulaire de contact » — et un planning qui ne tient pas parce que ses briques ne sont pas comparables.</p>
+      <p>Le découpage précède la planification. Son principe : décomposer le projet en éléments jusqu'à ce que chacun soit <strong>estimable, attribuable à une personne, et vérifiable</strong>. Un lot dont on ne sait pas dire s'il est terminé n'est pas assez découpé.</p>
+      <div class="method-box">
+        <h4>⚙️ Méthode — découper un projet en cinq temps</h4>
+        <ol>
+          <li><strong>Partez des livrables</strong> de la note de cadrage, pas des activités. On découpe ce qui est produit, pas ce qui est fait.</li>
+          <li><strong>Décomposez chaque livrable</strong> en sous-ensembles cohérents, jusqu'à atteindre des éléments de quelques jours de travail.</li>
+          <li><strong>Appliquez le test de vérifiabilité :</strong> pour chaque élément, pouvez-vous dire en une phrase à quoi vous verrez qu'il est terminé ? Sinon, découpez encore ou précisez.</li>
+          <li><strong>Vérifiez l'exhaustivité :</strong> la somme des éléments couvre-t-elle l'intégralité du livrable, sans manque ni recouvrement ? Les oublis classiques : recette, reprise de données, formation, documentation, communication.</li>
+          <li><strong>Nommez un responsable</strong> par élément. Un lot sans nom en face n'est fait par personne.</li>
+        </ol>
+      </div>
+      <h3>1.1 Les dépendances et le chemin critique</h3>
+      <p>Une fois les lots identifiés, la question suivante est celle de leur enchaînement. Certaines tâches ne peuvent commencer qu'après d'autres : ce sont les <strong>dépendances</strong>, et ce sont elles, bien plus que la charge totale, qui déterminent la durée d'un projet.</p>
+      <p>Le <strong>chemin critique</strong> est la plus longue chaîne de tâches dépendantes entre le début et la fin. Sa propriété est décisive : tout retard sur ce chemin décale la date de fin, tandis qu'un retard hors de ce chemin peut être absorbé sans conséquence. Identifier ce chemin, c'est savoir sur quoi porter son attention — et sur quoi ne pas la gaspiller.</p>
+      <p>En pratique, sur un projet de taille moyenne, il n'est pas nécessaire de calculer formellement le chemin critique. La question suffit : <em>« si cette tâche prend une semaine de plus, la date de fin bouge-t-elle ? »</em>. Les tâches dont la réponse est oui constituent votre chemin critique, et ce sont les seules à suivre quotidiennement.</p>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — planifier à 100 % de la capacité</h4>
+        <p>Un planning qui affecte chaque personne à 100 % de son temps est certain d'être faux. Personne ne consacre 35 heures par semaine à un projet : il y a les réunions, les urgences, le support, les congés, et le travail qui n'est jamais dans le planning.</p>
+        <p>Une règle de prudence courante consiste à ne planifier qu'environ 60 à 70 % du temps théorique. La marge qui reste n'est pas du confort : c'est ce qui absorbe les aléas. Un planning sans marge ne dérape pas au premier imprévu, il dérape <em>et le retard se propage</em>, faute d'endroit pour le rattraper.</p>
+      </div>
+
+      <h2>2. Estimer : accepter de se tromper utilement</h2>
+      <p>Toutes les estimations sont fausses. L'enjeu n'est pas de les rendre exactes, mais de connaître le <em>sens</em> et l'<em>ampleur</em> de leur erreur — car elle est remarquablement systématique.</p>
+      <div class="table-responsive">
+<table>
+<thead><tr><th>Biais</th><th>Mécanisme</th><th>Correctif</th></tr></thead>
+<tbody>
+<tr><td><strong>Optimisme de planification</strong></td><td>On estime le déroulement idéal, jamais le déroulement moyen</td><td>Comparer à des projets similaires réellement réalisés, pas à son intuition</td></tr>
+<tr><td><strong>Oubli des tâches invisibles</strong></td><td>Recette, reprise de données, documentation, réunions, corrections</td><td>Les faire figurer explicitement dans le découpage</td></tr>
+<tr><td><strong>Ancrage</strong></td><td>Un chiffre évoqué en réunion oriente toutes les estimations suivantes</td><td>Faire estimer individuellement avant toute discussion collective</td></tr>
+<tr><td><strong>Pression hiérarchique</strong></td><td>L'estimation s'aligne sur la date attendue plutôt que sur la charge</td><td>Séparer clairement l'estimation de la négociation du délai</td></tr>
+<tr><td><strong>Effet tunnel</strong></td><td>Une tâche annoncée « à 90 % » y reste plusieurs semaines</td><td>Ne mesurer qu'en tout ou rien : terminé ou pas terminé</td></tr>
+</tbody>
+</table>
+</div>
+      <h3>2.1 Deux pratiques qui améliorent réellement les estimations</h3>
+      <p><strong>Estimer à plusieurs, individuellement puis collectivement.</strong> Chacun donne son estimation sans connaître celle des autres, puis on discute les écarts. C'est le principe du <em>planning poker</em> en agilité, et son intérêt n'est pas le chiffre final : c'est la <strong>discussion des écarts</strong>. Quand une personne estime deux jours et une autre huit, elles ne parlent pas de la même tâche — et c'est cette découverte qui vaut la séance.</p>
+      <p><strong>Estimer en fourchette, jamais en valeur unique.</strong> « Entre 4 et 9 jours » est une information honnête ; « 6 jours » est une fiction rassurante. La largeur de la fourchette communique en outre le niveau d'incertitude, ce qu'un chiffre unique masque complètement.</p>
+      <p>Une troisième pratique, plus exigeante mais décisive : <strong>conserver l'historique</strong>. Comparer estimations et durées réelles sur vingt tâches passées vous donne votre propre coefficient de correction. La plupart des équipes découvrent qu'elles sous-estiment d'un facteur assez stable — et cette connaissance vaut mieux que n'importe quelle méthode d'estimation.</p>
+
+      <h2>3. Séquentiel ou itératif : le vrai critère</h2>
+      <p>Le débat entre approche traditionnelle et approche agile est souvent conduit comme une affaire de conviction. Il devrait être une affaire de diagnostic : ce sont les <strong>caractéristiques du projet</strong> qui déterminent l'approche adaptée, pas les préférences de l'équipe.</p>
+      <div class="table-responsive">
+<table>
+<thead><tr><th>Critère</th><th>Plutôt séquentiel</th><th>Plutôt itératif</th></tr></thead>
+<tbody>
+<tr><td>Le besoin est-il stable ?</td><td>Oui, connu et figé</td><td>Non, il se précisera à l'usage</td></tr>
+<tr><td>Peut-on livrer par morceaux utiles ?</td><td>Non, le livrable est indivisible</td><td>Oui, une version partielle a de la valeur</td></tr>
+<tr><td>Coût d'une erreur découverte tard</td><td>Acceptable</td><td>Très élevé</td></tr>
+<tr><td>Disponibilité du commanditaire</td><td>Faible, il valide aux jalons</td><td>Forte, il arbitre en continu</td></tr>
+<tr><td>Contraintes réglementaires ou contractuelles</td><td>Fortes, périmètre contractualisé</td><td>Faibles</td></tr>
+<tr><td>Exemples</td><td>Migration technique, mise en conformité, construction</td><td>Produit numérique, refonte de service, innovation</td></tr>
+</tbody>
+</table>
+</div>
+      <h3>3.1 Ce que l'itératif règle, et ce qu'il ne règle pas</h3>
+      <p>L'approche itérative traite un problème précis : <strong>l'incertitude sur le besoin</strong>. En livrant par morceaux utilisables, elle permet de découvrir tôt qu'on s'est trompé, quand la correction coûte encore peu. C'est son unique avantage fondamental, et il est considérable.</p>
+      <p>En revanche, elle ne règle ni le manque de moyens, ni l'absence de décideur, ni un cadrage défaillant. Un projet sans commanditaire disponible fonctionnera <em>moins bien</em> en itératif qu'en séquentiel, puisque l'itératif suppose un arbitrage permanent. C'est l'erreur d'adoption la plus fréquente : passer en agile pour résoudre un problème d'organisation que l'agilité présuppose résolu.</p>
+      <p>En pratique, beaucoup de projets fonctionnent en mode <strong>hybride</strong> : un cadrage et une architecture traités en amont de façon séquentielle, puis une réalisation itérative. Ce n'est pas un compromis mou, c'est souvent la configuration la plus adaptée — à condition d'être choisie, et non subie.</p>
+
+      <h2>4. Scrum : rôles, événements, artefacts</h2>
+      <p>Scrum est le cadre itératif le plus répandu. Il repose sur des cycles courts et fixes — les <strong>sprints</strong>, généralement de deux à quatre semaines — à l'issue desquels un incrément utilisable est produit. Sa mécanique tient en trois rôles, cinq événements et trois artefacts.</p>
+      <div class="table-responsive">
+<table>
+<thead><tr><th>Rôle</th><th>Responsabilité</th><th>Ce qu'il ne fait pas</th></tr></thead>
+<tbody>
+<tr><td><strong>Product Owner</strong></td><td>Porte la vision produit, priorise le backlog, arbitre la valeur</td><td>Il ne dit pas comment réaliser, ni ne répartit les tâches</td></tr>
+<tr><td><strong>Scrum Master</strong></td><td>Facilite, lève les obstacles, garantit le cadre</td><td>Ce n'est ni un chef de projet, ni un responsable hiérarchique</td></tr>
+<tr><td><strong>Équipe de réalisation</strong></td><td>Conçoit, réalise, s'auto-organise, s'engage sur le sprint</td><td>Elle ne décide pas des priorités métier</td></tr>
+</tbody>
+</table>
+</div>
+      <h3>4.1 Les événements et ce qu'ils produisent</h3>
+      <p><strong>Le Sprint Planning</strong> ouvre le cycle : l'équipe sélectionne ce qu'elle s'engage à livrer, à partir du backlog priorisé par le Product Owner. Point essentiel : c'est l'équipe qui détermine <em>combien</em> elle prend, pas le Product Owner ni la hiérarchie.</p>
+      <p><strong>Le Daily</strong>, quinze minutes debout, sert à synchroniser et à faire remonter les obstacles. Il ne sert ni à résoudre les problèmes — cela se fait après — ni à rendre des comptes à un chef.</p>
+      <p><strong>La Revue de sprint</strong> présente l'incrément aux parties prenantes et recueille leurs retours. C'est le mécanisme central de l'approche : sans retour réel de personnes concernées, l'itératif perd son intérêt.</p>
+      <p><strong>La Rétrospective</strong> porte sur la manière de travailler, non sur le produit. Elle débouche sur une à deux actions concrètes pour le sprint suivant — pas sur une liste de doléances.</p>
+      <p><strong>L'affinage du backlog</strong>, activité continue, prépare les éléments des sprints à venir pour qu'ils soient prêts à être pris.</p>
+      <h3>4.2 Les trois artefacts</h3>
+      <p><strong>Le Product Backlog</strong> : la liste ordonnée de tout ce qui pourrait être fait, sous la responsabilité du Product Owner. Il est vivant — on y ajoute, on y retire, on réordonne en permanence.</p>
+      <p><strong>Le Sprint Backlog</strong> : ce que l'équipe s'est engagée à livrer sur le sprint en cours. Il ne change pas en cours de sprint, et c'est cette stabilité qui rend l'engagement possible.</p>
+      <p><strong>L'incrément</strong> : le résultat utilisable produit à la fin du sprint. Utilisable, pas « presque fini » — d'où l'importance de la définition de terminé.</p>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — le Scrum de façade</h4>
+        <p>Beaucoup d'organisations adoptent le vocabulaire sans la mécanique : des « sprints » dont le contenu change en cours de route, un « Daily » qui devient un point d'avancement devant le chef, un Product Owner sans réel pouvoir d'arbitrage, et des rétrospectives supprimées faute de temps.</p>
+        <p>Le résultat est le pire des deux mondes : les contraintes de l'itératif sans ses bénéfices. Trois marqueurs permettent de diagnostiquer un Scrum de façade — le contenu du sprint change en cours de sprint ; le Product Owner doit faire valider ses arbitrages ailleurs ; les rétrospectives ne produisent aucun changement observable.</p>
+      </div>
+
+      <h2>5. La User Story et ses critères d'acceptation</h2>
+      <p>La User Story est la façon d'exprimer un besoin du point de vue de celui qui l'utilisera. Sa forme canonique — <em>« En tant que [rôle], je veux [action] afin de [bénéfice] »</em> — n'a rien d'un formalisme : chacune de ses trois parties force une clarification que les spécifications classiques laissent implicite.</p>
+      <p>Le <strong>rôle</strong> oblige à nommer qui est concerné, ce qui évite les fonctionnalités « pour tout le monde », c'est-à-dire pour personne. L'<strong>action</strong> décrit un besoin, pas une solution. Le <strong>bénéfice</strong> est la partie décisive et la plus souvent bâclée : il est ce qui permettra d'arbitrer, et parfois de découvrir qu'une autre solution répondrait mieux au même besoin.</p>
+      <div class="example-box">
+        <h4>📌 Exemple — le bénéfice qui change la solution</h4>
+        <p><strong>Story initiale :</strong> « En tant que commercial, je veux pouvoir exporter la liste des clients en Excel. »</p>
+        <p>Le bénéfice manque. En le demandant, on obtient : « … afin de préparer ma tournée hebdomadaire en repérant les clients que je n'ai pas vus depuis trois mois. »</p>
+        <p>La solution demandée — un export Excel — n'est plus la meilleure réponse. Un filtre « dernière visite » directement dans l'outil traite le besoin réel, évite un fichier qui vivra sa vie hors du système, et coûte moins cher à réaliser.</p>
+        <p>C'est la fonction principale du « afin de » : il transforme une demande de solution en expression de besoin, et rouvre l'espace des réponses possibles.</p>
+      </div>
+      <h3>5.1 Les critères d'acceptation</h3>
+      <p>Une story sans critères d'acceptation n'est pas prête à être réalisée. Les critères décrivent, de façon testable, ce qui devra être vrai pour que la story soit considérée comme faite. Ils se rédigent <em>avant</em> la réalisation, et de préférence avec celui qui recettera.</p>
+      <p>Une formulation efficace suit la structure : <em>« Étant donné [situation initiale], quand [action], alors [résultat attendu] »</em>. Elle force la précision — « le formulaire fonctionne » n'est pas testable ; « étant donné un champ e-mail vide, quand je valide, alors un message d'erreur s'affiche sous le champ » l'est.</p>
+      <p>Ces critères servent trois fois : ils clarifient le besoin avant réalisation, ils guident les tests, et ils tranchent les désaccords de recette. Sans eux, la recette devient une négociation.</p>
+      <h3>5.2 La définition de terminé</h3>
+      <p>Distincte des critères d'acceptation, la <strong>définition de terminé</strong> est une liste unique qui s'applique à <em>toutes</em> les stories : le code est relu, les tests passent, la documentation est à jour, la story est déployée sur l'environnement de recette.</p>
+      <p>Son utilité est d'éliminer le « terminé à 90 % ». Une story est terminée ou ne l'est pas ; il n'existe pas d'état intermédiaire. C'est ce qui empêche l'accumulation de travail presque fini, qui est la principale source de retards invisibles dans un projet.</p>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — la story qui décrit une solution</h4>
+        <p>« En tant qu'utilisateur, je veux un bouton bleu en haut à droite » n'est pas une story : c'est une spécification d'interface déguisée. Elle ferme l'espace des solutions avant toute réflexion, et prive l'équipe de sa capacité à proposer mieux.</p>
+        <p>Le test : la story décrit-elle ce que la personne cherche à <em>accomplir</em>, ou la façon dont elle imagine que ce sera fait ? Si c'est la seconde, remontez d'un cran en demandant « afin de quoi ? » jusqu'à retrouver le besoin.</p>
+      </div>
+
+      <div class="case-box">
+        <h3>🔍 Étude de cas — un planning qui ne survit pas à six semaines</h3>
+        <p>Reprenons la situation d'ouverture : un projet de refonte d'outil interne, planning détaillé sur cinq mois, obsolète après six semaines.</p>
+        <p><strong>Diagnostic — pourquoi il a dérivé.</strong> Quatre causes, identifiées en analysant l'écart entre planning et réalité.</p>
+        <ul>
+        <li><strong>Planification à 100 %.</strong> Les trois membres de l'équipe étaient affectés à temps plein, alors qu'ils assurent aussi le support de l'outil existant — soit une demi-journée par semaine chacun, jamais planifiée. À elle seule, cette omission représentait 15 % de la capacité.</li>
+        <li><strong>Tâches invisibles absentes.</strong> Aucune ligne pour la reprise des données, la recette, la formation. Elles ont été découvertes en cours de route et ajoutées sans que la date bouge.</li>
+        <li><strong>Estimation par valeur unique, sous pression.</strong> Les chiffres avaient été donnés en réunion, après annonce de la date souhaitée. Ancrage et pression hiérarchique se sont cumulés.</li>
+        <li><strong>Besoin instable traité en séquentiel.</strong> Le point de fond : les utilisateurs découvraient ce qu'ils voulaient <em>en voyant</em> les écrans. Un projet à besoin instable planifié comme un projet à besoin figé.</li>
+        </ul>
+        <p><strong>Décision — passer en hybride.</strong> Pas « passer en agile » : un diagnostic. Le socle technique et la reprise de données restent en séquentiel — le besoin y est stable et le livrable indivisible. Les écrans métier passent en itératif, en sprints de deux semaines, parce que c'est là que l'incertitude se concentre.</p>
+        <p><strong>Mise en place.</strong> La responsable métier devient Product Owner, avec un temps explicitement dégagé — deux demi-journées par semaine, arbitrées avec sa hiérarchie. C'est la condition posée : sans disponibilité réelle du décideur, l'itératif ne fonctionne pas, et il valait mieux rester en séquentiel que de faire semblant.</p>
+        <p><strong>Replanification.</strong> Capacité recalculée à 65 % du temps théorique. Tâches invisibles inscrites explicitement. Estimations refaites individuellement puis discutées : sur la reprise de données, les écarts allaient de 3 à 12 jours — la discussion a révélé que deux personnes ignoraient l'existence d'un second référentiel à reprendre. Cette seule découverte valait la séance.</p>
+        <p><strong>Résultat.</strong> Nouvelle date annoncée : 15 septembre au lieu du 15 juin. Trois mois de plus, mais tenus — et surtout annoncés en mai plutôt que découverts en juin. Les quatre premiers sprints ont conduit à abandonner deux écrans prévus au périmètre initial, que les utilisateurs ont jugés inutiles en les voyant. Ces deux écrans représentaient trois semaines de travail qui auraient été livrées, puis inutilisées.</p>
+        <p><strong>Ce que le cas enseigne :</strong> le passage en itératif n'a pas rattrapé le retard — il a permis de <em>ne pas produire</em> ce qui ne servait pas. C'est le bénéfice réel de l'approche, et il est rarement présenté ainsi. Notez aussi que la décision structurante n'était pas méthodologique : c'était d'obtenir un temps réel de la responsable métier.</p>
+      </div>
+
+      <div class="checklist-box">
+        <h3>📋 Checklist — Planification et lancement de la réalisation</h3>
+        <ul class="checklist">
+          <li>Le découpage part des livrables, pas des activités</li>
+          <li>Chaque élément est estimable, attribuable et vérifiable</li>
+          <li>Les tâches invisibles figurent : recette, reprise de données, formation, documentation</li>
+          <li>Un responsable est nommé sur chaque lot</li>
+          <li>Les dépendances sont identifiées et le chemin critique est connu</li>
+          <li>La capacité est planifiée à 60-70 % du temps théorique, pas à 100 %</li>
+          <li>Les estimations ont été faites individuellement avant toute discussion collective</li>
+          <li>Les estimations sont exprimées en fourchette, pas en valeur unique</li>
+          <li>Les écarts d'estimation importants ont été discutés, pas moyennés</li>
+          <li>Le choix séquentiel / itératif découle des caractéristiques du projet, pas d'une préférence</li>
+          <li>Si itératif : le commanditaire dispose d'un temps réel et arbitré pour arbitrer</li>
+          <li>Chaque User Story comporte un rôle, une action et un bénéfice explicite</li>
+          <li>Aucune story ne décrit une solution d'interface à la place d'un besoin</li>
+          <li>Les critères d'acceptation sont testables et rédigés avant la réalisation</li>
+          <li>Une définition de terminé unique existe et s'applique à toutes les stories</li>
+        </ul>
+      </div>
+
+      <div class="glossary-box">
+        <h3>📖 Glossaire du module</h3>
+        <dl>
+          <dt>Découpage</dt>
+          <dd>Décomposition d'un projet en éléments estimables, attribuables et vérifiables, préalable à toute planification.</dd>
+          <dt>Dépendance</dt>
+          <dd>Contrainte d'enchaînement entre deux tâches ; ce sont elles, plus que la charge, qui déterminent la durée.</dd>
+          <dt>Chemin critique</dt>
+          <dd>La plus longue chaîne de tâches dépendantes ; tout retard sur ce chemin décale la date de fin.</dd>
+          <dt>Capacité planifiée</dt>
+          <dd>Part du temps théorique réellement affectable au projet ; 60 à 70 % est un ordre de grandeur prudent.</dd>
+          <dt>Planning poker</dt>
+          <dd>Estimation individuelle puis collective ; sa valeur est la discussion des écarts, pas le chiffre obtenu.</dd>
+          <dt>Sprint</dt>
+          <dd>Cycle court et de durée fixe, généralement 2 à 4 semaines, produisant un incrément utilisable.</dd>
+          <dt>Product Owner</dt>
+          <dd>Rôle portant la vision et la priorisation ; il décide du quoi, jamais du comment.</dd>
+          <dt>Scrum Master</dt>
+          <dd>Rôle de facilitation et de levée d'obstacles ; ce n'est ni un chef de projet ni un responsable hiérarchique.</dd>
+          <dt>Product Backlog</dt>
+          <dd>Liste ordonnée et vivante de tout ce qui pourrait être réalisé.</dd>
+          <dt>User Story</dt>
+          <dd>Expression d'un besoin du point de vue de l'utilisateur : rôle, action, bénéfice.</dd>
+          <dt>Critères d'acceptation</dt>
+          <dd>Conditions testables, écrites avant réalisation, déterminant qu'une story est conforme.</dd>
+          <dt>Définition de terminé</dt>
+          <dd>Liste unique de conditions s'appliquant à toutes les stories ; élimine le « terminé à 90 % ».</dd>
+        </dl>
+      </div>
+
+      <div class="takeaway-box">
+        <h3>✅ À retenir</h3>
+        <ul>
+          <li>Le découpage précède la planification : un lot dont on ne sait pas dire s'il est fini n'est pas assez découpé.</li>
+          <li>Les oublis classiques sont toujours les mêmes : recette, reprise de données, formation, documentation.</li>
+          <li>Ce sont les dépendances, plus que la charge, qui déterminent la durée d'un projet.</li>
+          <li>Question simple pour trouver le chemin critique : « si cette tâche prend une semaine de plus, la date de fin bouge-t-elle ? »</li>
+          <li>Un planning à 100 % de capacité est certain d'être faux : visez 60 à 70 % du temps théorique.</li>
+          <li>Estimez individuellement avant de discuter : la valeur de la séance est dans les écarts, pas dans le chiffre.</li>
+          <li>Une fourchette est une information honnête ; une valeur unique est une fiction rassurante.</li>
+          <li>L'itératif traite l'incertitude sur le besoin — il ne règle ni le manque de moyens ni l'absence de décideur.</li>
+          <li>Passer en agile pour résoudre un problème d'organisation que l'agilité présuppose résolu est l'erreur d'adoption la plus fréquente.</li>
+          <li>Le « afin de » d'une User Story transforme une demande de solution en expression de besoin.</li>
+          <li>Une story sans critères d'acceptation testables n'est pas prête : sinon la recette devient une négociation.</li>
+          <li>Une story est terminée ou ne l'est pas — le travail presque fini est la principale source de retards invisibles.</li>
+        </ul>
+      </div>
+
+      <h2 class="exercises-title">Exercices d'application</h2>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 1 — Corriger des User Stories <span class="badge badge-neutral">Application</span></h3>
+        <p>Corrigez ces trois stories et proposez deux critères d'acceptation pour chacune.</p>
+        <p><strong>(A)</strong> « En tant qu'utilisateur, je veux un bouton d'export en haut de la page. » <strong>(B)</strong> « En tant que manager, je veux voir les statistiques. » <strong>(C)</strong> « En tant que client, je veux que le site soit rapide. »</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>(A) Story décrivant une solution</strong></p>
+            <p><em>Problème :</em> « un bouton en haut de la page » est une spécification d'interface. Le rôle « utilisateur » ne désigne personne en particulier, et le bénéfice est absent.</p>
+            <p><em>Corrigée :</em> « En tant que <strong>responsable comptable</strong>, je veux <strong>récupérer les écritures du mois dans un format exploitable par mon logiciel de compta</strong>, afin de <strong>ne pas ressaisir manuellement 300 lignes lors de la clôture</strong>. »</p>
+            <p>La reformulation rouvre l'espace des solutions : un export existe, mais une intégration directe résoudrait mieux le besoin.</p>
+            <p><em>Critères :</em> « Étant donné un mois clôturé, quand je demande l'export, alors je reçois un fichier au format attendu par le logiciel comptable, contenant toutes les écritures du mois. » — « Étant donné un mois sans écriture, quand je demande l'export, alors un message m'indique qu'aucune écriture n'est disponible, sans fichier vide généré. »</p>
+            <p><strong>(B) Story trop vague</strong></p>
+            <p><em>Problème :</em> « les statistiques » ne veut rien dire. Impossible d'estimer, impossible de recetter. C'est le type de story qui produit trois cycles de réécriture après livraison.</p>
+            <p><em>Corrigée :</em> « En tant que <strong>manager d'équipe support</strong>, je veux <strong>voir le nombre de tickets ouverts et leur ancienneté moyenne sur les 30 derniers jours</strong>, afin de <strong>détecter une dérive avant que les délais de traitement ne se dégradent</strong>. »</p>
+            <p><em>Critères :</em> « Étant donné que je suis connecté comme manager, quand j'ouvre le tableau de bord, alors je vois le nombre de tickets ouverts et l'ancienneté moyenne, calculés sur 30 jours glissants. » — « Étant donné une équipe sans ticket sur la période, quand j'ouvre le tableau de bord, alors les compteurs affichent zéro et non une erreur. »</p>
+            <p><strong>(C) Story exprimant une exigence non fonctionnelle</strong></p>
+            <p><em>Problème :</em> « rapide » n'est pas testable, et il ne s'agit pas d'une fonctionnalité mais d'une exigence de performance. Ce type d'exigence ne se traite pas en story isolée : il relève de la définition de terminé ou d'une exigence transverse.</p>
+            <p><em>Deux traitements possibles.</em> Si c'est une exigence générale, elle rejoint la <strong>définition de terminé</strong> : « toute page se charge en moins de 2 secondes sur une connexion mobile standard ». Si c'est un problème identifié sur un parcours précis, elle devient une story : « En tant que <strong>client sur mobile</strong>, je veux <strong>que la page de paiement s'affiche en moins de 2 secondes</strong>, afin de <strong>ne pas abandonner ma commande</strong>. »</p>
+            <p><em>Critères :</em> « Étant donné une connexion 4G standard, quand j'accède à la page de paiement, alors elle est affichée en moins de 2 secondes au 75<sup>e</sup> centile des mesures. » — « Étant donné une connexion dégradée, quand le chargement dépasse 2 secondes, alors un indicateur de chargement s'affiche. »</p>
+            <p><strong>Le point de méthode :</strong> la troisième story est celle qui piège. Beaucoup d'équipes tentent d'en faire une story alors qu'il s'agit d'une exigence transverse — et se retrouvent avec une story impossible à terminer, qui traîne de sprint en sprint.</p>
+          </div>
+        </details>
+      </div>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 2 — Choisir une approche <span class="badge badge-neutral">Analyse</span></h3>
+        <p>Pour chacun des trois projets, recommandez une approche et justifiez avec les critères du module.</p>
+        <p><strong>(A)</strong> Migration du système de paie vers un nouvel éditeur, avec obligation de fonctionner au 1<sup>er</sup> janvier. <strong>(B)</strong> Création d'un espace client en ligne, dont personne dans l'entreprise ne sait précisément ce que les clients y attendent. <strong>(C)</strong> Mise en conformité d'un site aux exigences d'accessibilité, avec un référentiel précis et un audit externe prévu.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>(A) Migration de paie → séquentiel, sans hésitation</strong></p>
+            <div class="table-responsive">
+            <table>
+            <tbody>
+            <tr><td>Besoin stable ?</td><td>Oui — les règles de paie sont définies par la loi et les accords, pas à découvrir</td></tr>
+            <tr><td>Livrable divisible ?</td><td>Non — une paie à moitié migrée n'a aucune valeur</td></tr>
+            <tr><td>Date</td><td>Contrainte externe absolue : la bascule ne peut se faire qu'en début d'exercice</td></tr>
+            <tr><td>Coût d'une erreur</td><td>Très élevé, mais l'erreur se prévient par des tests exhaustifs, pas par de l'itération</td></tr>
+            </tbody>
+            </table>
+            </div>
+            <p>Séquentiel, avec un plan de bascule détaillé et une phase de double paie en parallèle. <em>Point de vigilance :</em> la date étant intangible et le périmètre indivisible, la seule variable d'ajustement est le coût — il faut donc une réserve de moyens explicite dès le cadrage.</p>
+            <p><strong>(B) Espace client → itératif</strong></p>
+            <p>C'est le cas d'école : besoin incertain, livrable divisible (on peut sortir avec deux fonctions utiles et enrichir), et coût élevé d'une erreur découverte tard — construire six mois puis découvrir que les clients voulaient autre chose.</p>
+            <p><strong>Condition préalable, non négociable :</strong> un Product Owner réellement disponible et habilité à arbitrer. Sans lui, l'itératif sera <em>moins</em> efficace que le séquentiel. Si l'entreprise ne peut pas dégager ce temps, mieux vaut le dire et rester en séquentiel avec des jalons de validation utilisateur — plutôt que de faire semblant.</p>
+            <p><em>Recommandation complémentaire :</em> avant même le premier sprint, mener cinq entretiens clients. Deux jours qui éviteront plusieurs sprints d'exploration à l'aveugle. L'itératif ne dispense pas de se renseigner.</p>
+            <p><strong>(C) Mise en conformité accessibilité → séquentiel, avec une nuance</strong></p>
+            <p>Le besoin est parfaitement stable — un référentiel précis existe, il n'y a rien à découvrir. L'audit externe fixe une date et un périmètre contractualisés. Tout plaide pour le séquentiel.</p>
+            <p><strong>La nuance qui compte :</strong> l'exécution gagne à être <em>rythmée</em>. Corriger par lots avec vérification intermédiaire évite de découvrir à l'audit que la méthode de correction retenue était mauvaise et qu'il faut tout reprendre. Ce n'est pas de l'itératif au sens du besoin — celui-ci est figé — mais un découpage de la réalisation avec points de contrôle.</p>
+            <p><strong>Ce que les trois cas montrent ensemble :</strong> le critère décisif n'est ni la taille ni la complexité du projet, mais la <strong>stabilité du besoin</strong> et la <strong>divisibilité du livrable</strong>. Les autres critères ajustent, ceux-là tranchent.</p>
+          </div>
+        </details>
+      </div>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 3 — Replanifier un projet en dérive <span class="badge badge-neutral">Synthèse</span></h3>
+        <p>Vous reprenez un projet à 60 % du délai écoulé et 35 % du périmètre livré. L'équipe est de 4 personnes, planifiées à 100 %. Aucune tâche de recette ni de formation n'est au planning. Le commanditaire demande « un planning fiable cette fois ».</p>
+        <p><strong>1.</strong> Décrivez votre démarche de replanification. <strong>2.</strong> Expliquez comment vous établissez une estimation crédible. <strong>3.</strong> Formulez ce que vous annoncez, sachant que la nouvelle date sera nettement postérieure.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>1. Démarche de replanification</strong></p>
+            <ol>
+            <li><strong>Mesurer la vélocité réelle.</strong> 35 % du périmètre en 60 % du délai donne un rapport observé. Si rien ne change, l'achèvement demanderait environ 1,7 fois le délai initial <em>au total</em>. Ce calcul grossier est le point de départ le plus honnête — et il est généralement plus fiable que toute réestimation détaillée, parce qu'il intègre les frictions réelles de l'équipe.</li>
+            <li><strong>Chercher la cause du ralentissement</strong> avant de replanifier. Est-ce une sous-estimation initiale, une capacité surestimée, des tâches oubliées, ou une dérive de périmètre ? Le traitement diffère : une dérive de périmètre appelle des exclusions, une capacité surestimée appelle un recalcul, une sous-estimation appelle un coefficient.</li>
+            <li><strong>Reconstituer le découpage complet</strong>, cette fois avec les tâches invisibles — recette, reprise de données, formation, documentation, corrections post-recette. Sur un projet de cette nature, elles représentent couramment 20 à 30 % de la charge totale, et leur absence explique souvent à elle seule l'écart.</li>
+            <li><strong>Recalculer la capacité</strong> à 65 % du temps théorique, et vérifier ce que fait réellement l'équipe du reste. Le simple fait de poser la question fait généralement apparaître deux ou trois activités non planifiées.</li>
+            <li><strong>Réestimer le reste à faire</strong>, individuellement puis collectivement, sur le périmètre restant uniquement — jamais en révisant le planning initial ligne à ligne.</li>
+            </ol>
+            <p><strong>2. Établir une estimation crédible</strong></p>
+            <p><strong>Croiser deux méthodes indépendantes.</strong> La projection par vélocité observée (point 1), et l'estimation détaillée du reste à faire (point 5). Si elles convergent à 15 % près, l'estimation est solide. Si elles divergent fortement, l'estimation détaillée est presque toujours la plus optimiste — parce qu'elle continue d'estimer le déroulement idéal, alors que la vélocité observée intègre les frictions réelles.</p>
+            <p><strong>Annoncer une fourchette.</strong> « Entre le 15 octobre et le 20 novembre » est plus crédible et plus utile qu'une date unique — et cela documente honnêtement l'incertitude résiduelle.</p>
+            <p><strong>Fixer un point de contrôle intermédiaire.</strong> « Nous mesurons l'avancement le 15 juillet ; si la vélocité observée se confirme, nous confirmons la date basse. » Cela transforme une annonce difficile en engagement vérifiable, et donne au commanditaire une prise sur le sujet.</p>
+            <p><strong>3. Ce que j'annonce</strong></p>
+            <blockquote>
+            <p>« Voici où nous en sommes : 35 % du périmètre livré pour 60 % du délai consommé. Le rythme observé, s'il se maintient, situe l'achèvement entre le 15 octobre et le 20 novembre.</p>
+            <p>Trois causes expliquent l'écart, et elles sont corrigeables. L'équipe était planifiée à 100 % alors qu'elle assure aussi [autre activité] — nous étions donc structurellement à 70 % de la capacité annoncée. Aucune tâche de recette ni de formation n'était planifiée, alors qu'elles représentent environ 25 % de la charge. Et [troisième cause identifiée].</p>
+            <p>Je vous propose trois options : livrer l'intégralité entre octobre et novembre ; livrer un périmètre réduit — je peux vous dire lequel — à la date initiale ; ou renforcer l'équipe, sachant qu'un renfort maintenant produira un effet à partir de septembre seulement, le temps de la montée en compétence.</p>
+            <p>Je propose un point de contrôle le 15 juillet pour confirmer ou corriger cette projection. »</p>
+            </blockquote>
+            <p><strong>Ce qui rend cette annonce tenable :</strong> elle ne demande pas de faire confiance, elle expose une méthode de calcul vérifiable ; elle nomme des causes corrigeables plutôt que des excuses ; elle propose un choix réel au lieu d'un constat ; et elle assortit la projection d'un point de contrôle rapproché. Une nouvelle date annoncée sans cela sera reçue comme la précédente — c'est-à-dire avec scepticisme, et à juste titre.</p>
+          </div>
+        </details>
+      </div>
+      <div class="resources-box">
+        <h3>🔗 Pour aller plus loin</h3>
+        <ul>
+          <li>Le <em>Guide Scrum</em> officiel, court et gratuit : la référence pour vérifier ce que le cadre dit réellement, par-delà les usages locaux.</li>
+          <li>Le module 3 de cette formation traite le pilotage au quotidien : Kanban, limites de travail en cours, indicateurs de flux.</li>
+          <li>Conservez l'historique de vos estimations et durées réelles : votre propre coefficient de correction vaut mieux que toute méthode d'estimation.</li>
+          <li>Voir l'onglet Ressources externes de Formahub pour les certifications en gestion de projet éligibles au CPF.</li>
+        </ul>
+      </div>
+    </article>
+
+    <section class="quiz-section">
+      <h2>🧠 Quiz d'auto-évaluation</h2>
+      <p style="color:var(--text-muted);margin-bottom:20px;">Sélectionnez la bonne réponse pour valider vos acquis. Le feedback immédiat vous expliquera les concepts clés.</p>
+      <div id="quiz-container">
+        <!-- Quiz chargé dynamiquement par quiz-engine.js -->
+      </div>
+      <div style="margin-top: 24px; text-align: center;">
+        <button id="btn-mark-complete" data-module-id="formation-gestion-de-projet-module-2" class="btn btn-primary">
+          Marquer le module comme terminé ✓
+        </button>
+      </div>
+    </section>
+
+    <nav class="module-nav">
+      <a href="../module-1/index.html" class="btn btn-outline">← Module 1</a>
+      <a href="../module-3/index.html" class="btn btn-primary">Module 3 →</a>
+    </nav>
+  </main>
+
+  <script src="../../../assets/js/progress.js"></script>
+  <script src="../../../assets/js/quiz-engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadQuiz('quiz.json', 'quiz-container');
+    });
+  </script>
+</body>
+</html>

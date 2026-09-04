@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-seo-module-3",
+  "version": "2.0",
+  "last_verified": "2026-09-01",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Combien de balises H1 une page doit-elle comporter, et pourquoi ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Une devant chaque paragraphe, pour découper le texte"
+        },
+        {
+          "key": "b",
+          "text": "Une seule, qui annonce le sujet central de la page"
+        },
+        {
+          "key": "c",
+          "text": "Aucune, la balise Title suffit"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Le H1 unique annonce le sujet aux moteurs comme aux lecteurs d'écran, pour qui la hiérarchie des titres est le mode de navigation principal."
+    },
+    {
+      "id": "q2",
+      "question": "Sur quoi faut-il raisonner pour la longueur d'un Title ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Sur une largeur d'affichage d'environ 600 pixels, l'essentiel dans les 40 premiers caractères"
+        },
+        {
+          "key": "b",
+          "text": "Sur un maximum absolu de 30 caractères"
+        },
+        {
+          "key": "c",
+          "text": "Sur un minimum de 100 caractères pour couvrir le champ sémantique"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Google tronque en pixels, pas en caractères : un « i » et un « M » n'occupent pas la même largeur. Placez l'information essentielle en tête pour qu'elle survive à la troncature."
+    },
+    {
+      "id": "q3",
+      "question": "Une page bien écrite stagne en 12ᵉ position. Quelle est l'hypothèse à tester en premier ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le texte est mal rédigé et demande une réécriture stylistique"
+        },
+        {
+          "key": "b",
+          "text": "La page manque de backlinks, il faut lancer une campagne"
+        },
+        {
+          "key": "c",
+          "text": "La page est incomplète : elle couvre moins le sujet que les dix qui la précèdent"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Comparez votre plan aux H2 des cinq premiers résultats : les thèmes qu'ils traitent tous et que vous n'abordez pas sont vos lacunes prioritaires."
+    },
+    {
+      "id": "q4",
+      "question": "Que penser de la règle « il faut 1 500 mots pour se positionner » ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "C'est exact, Google favorise les contenus longs"
+        },
+        {
+          "key": "b",
+          "text": "C'est une corrélation prise pour une cause : les pages longues se classent mieux parce qu'elles couvrent davantage le sujet"
+        },
+        {
+          "key": "c",
+          "text": "C'est faux, les contenus courts sont systématiquement mieux classés"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Il n'existe aucune longueur cible. Ajoutez des réponses à des questions réelles, jamais des mots pour atteindre un quota."
+    },
+    {
+      "id": "q5",
+      "question": "Quel est l'intérêt principal des données structurées (schema.org) ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Elles améliorent directement la position dans les résultats"
+        },
+        {
+          "key": "b",
+          "text": "Elles remplacent la balise Title"
+        },
+        {
+          "key": "c",
+          "text": "Elles enrichissent l'affichage dans la SERP, ce qui augmente le taux de clic à position égale"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Étoiles, prix, fil d'Ariane : le gain passe par le clic, pas par le classement. Le balisage doit toujours refléter un contenu réellement visible sur la page."
+    },
+    {
+      "id": "q6",
+      "question": "Pourquoi éviter d'utiliser toujours la même ancre exacte pour vos liens internes ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Parce que c'est un schéma non naturel qui signale une optimisation mécanique"
+        },
+        {
+          "key": "b",
+          "text": "Parce que les liens internes n'ont aucune valeur SEO"
+        },
+        {
+          "key": "c",
+          "text": "Parce que Google ne suit que le premier lien d'une page"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "L'ancre doit rester descriptive, mais variée autour du même champ sémantique : « logiciel de facturation pour auto-entrepreneurs », « notre solution dédiée », « facturer en auto-entrepreneur »."
+    }
+  ]
+}

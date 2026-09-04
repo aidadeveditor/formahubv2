@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-excel-analyse-donnees-module-1",
+  "version": "2.0",
+  "last_verified": "2026-09-04",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Une colonne de montants apparaît alignée à gauche dans un fichier reçu. Qu'est-ce que cela indique ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Une simple préférence de mise en forme, sans conséquence"
+        },
+        {
+          "key": "b",
+          "text": "Que les valeurs sont stockées en texte : toute somme les comptera pour zéro"
+        },
+        {
+          "key": "c",
+          "text": "Que la colonne contient des valeurs négatives"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Sans formatage explicite, Excel aligne nombres et dates à droite, le texte à gauche. Le danger est le typage mixte : la somme renvoie alors un total partiel, plausible et faux."
+    },
+    {
+      "id": "q2",
+      "question": "Pourquoi les cellules fusionnées sont-elles le défaut le plus destructeur ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Parce qu'elles alourdissent considérablement le fichier"
+        },
+        {
+          "key": "b",
+          "text": "Parce qu'elles contiennent une valeur et des vides, invisibles à l'écran, que filtres et tableaux croisés perdront"
+        },
+        {
+          "key": "c",
+          "text": "Parce qu'elles empêchent l'impression du document"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Le fichier a l'air complet à l'écran alors que les lignes concernées sont vides pour Excel. C'est un défaut silencieux, donc coûteux."
+    },
+    {
+      "id": "q3",
+      "question": "Quel est le premier geste après avoir terminé le nettoyage d'une plage de données ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "La convertir en tableau structuré par Ctrl + L et la nommer"
+        },
+        {
+          "key": "b",
+          "text": "Appliquer un jeu de couleurs pour distinguer les colonnes"
+        },
+        {
+          "key": "c",
+          "text": "Ajouter une ligne de total en bas de chaque colonne numérique"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Le tableau structuré étend ses plages seul, nomme ses colonnes et propage ses formules. Deux secondes de coût, et tout ce qui suit en dépend."
+    },
+    {
+      "id": "q4",
+      "question": "Vous découvrez 160 cellules vides dans la colonne Région. Que faites-vous ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Vous supprimez ces lignes pour ne pas fausser l'analyse"
+        },
+        {
+          "key": "b",
+          "text": "Vous les remplissez avec la valeur la plus fréquente de la colonne"
+        },
+        {
+          "key": "c",
+          "text": "Vous cherchez d'abord ce que ce vide signifie, puis vous tranchez et documentez l'arbitrage"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Un vide a presque toujours un sens métier. Ici, toutes ces commandes étaient des exports : le vide devenait une modalité légitime, pas une donnée à supprimer."
+    },
+    {
+      "id": "q5",
+      "question": "Quelle est la proportion de temps normale entre préparation et analyse sur un fichier d'entreprise ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Environ 80 % de préparation pour 20 % d'analyse"
+        },
+        {
+          "key": "b",
+          "text": "Environ 20 % de préparation pour 80 % d'analyse"
+        },
+        {
+          "key": "c",
+          "text": "Les deux moitiés sont généralement équivalentes"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "L'analyse proprement dite est la partie courte. Celui qui répond en vingt minutes sur un fichier non préparé n'a pas été rapide : il a sauté ce qui rend la réponse vraie."
+    },
+    {
+      "id": "q6",
+      "question": "À quoi sert principalement le journal de transformation ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "À justifier le temps passé auprès de sa hiérarchie"
+        },
+        {
+          "key": "b",
+          "text": "À rendre l'analyse reproductible et à retracer chaque arbitrage effectué"
+        },
+        {
+          "key": "c",
+          "text": "À conserver une sauvegarde des données avant nettoyage"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Il répond aux trois questions qui reviennent toujours : pourquoi ce chiffre a changé, peut-on refaire l'analyse, et qui a décidé de cet arbitrage."
+    }
+  ]
+}

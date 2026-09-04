@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formahub — IA Générative appliquée au contenu : Fondamentaux du Prompt Engineering (Les 5 Piliers)</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="../../../index.html" class="brand">
+      <div class="brand-icon">F</div>
+      <span>Formahub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../../../index.html" class="nav-link">Mes formations</a>
+      <a href="../../../ressources-externes.html" class="nav-link">Ressources externes</a>
+      <a href="../../../formations-espagne.html" class="nav-link">Formations Espagne</a>
+      <button class="theme-toggle" type="button">🌙 Mode Sombre</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="../../../index.html">Accueil</a> &gt;
+        <span>IA Générative appliquée au contenu</span> &gt;
+        <strong>Module 2</strong>
+      </div>
+      <h1>Module 2 : Fondamentaux du Prompt Engineering (Les 5 Piliers)</h1>
+      <div class="module-meta">
+        <span class="badge badge-progress">⏱️ 50 min</span>
+        <span class="badge badge-neutral">Module 2 sur 5</span>
+        <span class="badge badge-neutral">Niveau : Débutant</span>
+        <span class="badge badge-neutral">~2500 mots</span>
+      </div>
+    </div>
+
+    <article class="module-content">
+      <div class="intro-box">
+        <h3>📍 Mise en situation</h3>
+        <p>Vous demandez : <em>« Écris-moi un post LinkedIn sur notre nouvelle offre. »</em> Vous recevez un texte fluide, correctement construit — et parfaitement interchangeable. Trois emojis, une question rhétorique en ouverture, « à l'ère du digital », et une conclusion qui invite à « échanger en commentaire ». Vous le réécrivez entièrement. La fois suivante, vous obtenez la même chose.</p>
+        <p>Le réflexe est d'en conclure que l'outil est limité. En réalité, la consigne l'était : elle ne contenait ni destinataire, ni contexte, ni contrainte, ni format. Face à une demande vague, un modèle produit la réponse <em>moyenne</em> — c'est-à-dire ce qui ressemble le plus à l'ensemble des posts LinkedIn qu'il a vus. Ce module donne la structure qui remplace l'aléatoire par du prévisible, et transforme un outil frustrant en instrument de production fiable.</p>
+      </div>
+
+      <div class="objectives-box">
+        <h3>🎯 À l'issue de ce module, vous saurez</h3>
+        <ul>
+          <li>Structurer une consigne selon les cinq piliers, et diagnostiquer lequel manque quand un résultat déçoit</li>
+          <li>Écrire un rôle et un contexte qui éliminent réellement le registre générique</li>
+          <li>Formuler des contraintes négatives efficaces, y compris sur le style</li>
+          <li>Spécifier un format de sortie exploitable sans retraitement</li>
+          <li>Itérer méthodiquement sur un prompt au lieu de le réécrire au hasard</li>
+        </ul>
+      </div>
+
+      <h2>1. Pourquoi une demande vague produit un texte moyen</h2>
+      <p>Le module précédent l'a établi : un modèle produit la suite la plus plausible. Appliqué à une consigne pauvre, ce principe a une conséquence directe — en l'absence d'indications, la suite la plus plausible d'« écris un post LinkedIn » est <strong>la moyenne statistique de tous les posts LinkedIn</strong>. D'où les emojis, la question rhétorique et les formules creuses : ce n'est pas un défaut de style du modèle, c'est le reflet fidèle de ce que contient le corpus.</p>
+      <p>Le rôle d'un prompt bien construit est donc de <strong>restreindre l'espace des réponses possibles</strong>. Chaque élément que vous ajoutez — un rôle, un destinataire, une contrainte, un format — écarte des milliers de continuations plausibles mais génériques, et rapproche le résultat de ce que vous vouliez réellement.</p>
+      <p>C'est aussi pourquoi la longueur d'un prompt n'est pas un objectif en soi. Un prompt de dix lignes qui n'apporte aucune contrainte réelle ne vaut pas mieux qu'un prompt d'une ligne. Ce qui compte n'est pas le volume de consigne, mais le nombre de <em>décisions</em> qu'elle prend à la place du modèle.</p>
+      <div class="example-box">
+        <h4>📌 Exemple — la même demande, trois niveaux de contrainte</h4>
+        <p><strong>Niveau 0 :</strong> « Écris un post LinkedIn sur notre offre de maintenance préventive. » → texte générique, emojis, « à l'ère de l'industrie 4.0 ».</p>
+        <p><strong>Niveau 1 (rôle + destinataire) :</strong> « Tu es responsable maintenance dans l'industrie agroalimentaire. Écris à des pairs — d'autres responsables maintenance — sur la maintenance préventive. » → le vocabulaire se resserre, le registre devient professionnel.</p>
+        <p><strong>Niveau 2 (+ contexte, contraintes, format) :</strong> même consigne, plus : « Contexte : 62 % des arrêts non planifiés que nous constatons chez nos clients viennent de trois causes identiques. Interdits : emoji, question rhétorique en ouverture, les mots <em>innovant</em>, <em>révolutionnaire</em> et <em>solution</em>. Format : 5 lignes maximum, une seule idée, ouverture sur un constat chiffré. » → un post publiable, reconnaissable, qui ne ressemble à aucun autre.</p>
+        <p>Le passage du niveau 0 au niveau 2 n'a demandé que trois minutes de réflexion. C'est le meilleur rendement disponible dans tout l'usage de ces outils.</p>
+      </div>
+
+      <h2>2. Les cinq piliers</h2>
+      <p>Cinq composants suffisent à couvrir la quasi-totalité des besoins professionnels. Leur intérêt principal n'est pas d'être une recette à appliquer machinalement, mais une <strong>grille de diagnostic</strong> : quand un résultat déçoit, l'un des cinq manque ou est mal formulé, et il est presque toujours possible de dire lequel.</p>
+      <div class="table-responsive">
+<table>
+<thead><tr><th>Pilier</th><th>Ce qu'il apporte</th><th>Symptôme quand il manque</th></tr></thead>
+<tbody>
+<tr><td><strong>1. Rôle</strong></td><td>Un point de vue, un niveau d'expertise, un vocabulaire</td><td>Ton neutre et scolaire, vocabulaire de vulgarisation générale</td></tr>
+<tr><td><strong>2. Contexte</strong></td><td>La situation, le destinataire, l'enjeu, la matière disponible</td><td>Contenu juste mais hors sujet, ou générique</td></tr>
+<tr><td><strong>3. Tâche</strong></td><td>L'action précise attendue, avec son verbe</td><td>Le modèle fait autre chose : il explique au lieu de rédiger, ou résume au lieu d'analyser</td></tr>
+<tr><td><strong>4. Contraintes</strong></td><td>Ce qu'il faut faire et surtout ne pas faire : longueur, registre, interdits</td><td>Formules creuses, longueur non maîtrisée, superlatifs</td></tr>
+<tr><td><strong>5. Format</strong></td><td>La structure de sortie attendue</td><td>Sortie inexploitable sans retraitement manuel</td></tr>
+</tbody>
+</table>
+</div>
+      <h3>2.1 Le rôle : un point de vue, pas un déguisement</h3>
+      <p>« Tu es un expert en marketing » n'apporte pratiquement rien : l'expertise générique est déjà le registre par défaut. Un rôle utile est <strong>situé</strong> — il précise un métier, un secteur, un niveau d'exercice, parfois une contrainte de position : « Tu es responsable qualité dans une PME agroalimentaire de 80 salariés, et tu dois convaincre une direction qui trouve les investissements qualité trop coûteux. »</p>
+      <p>Ce rôle-là fait trois choses : il oriente le vocabulaire vers celui du métier, il installe un point de vue (celui qui doit convaincre, pas celui qui décide), et il rappelle une contrainte réelle. Le texte produit change complètement.</p>
+      <h3>2.2 Le contexte : la matière, pas l'ambiance</h3>
+      <p>Le contexte le plus utile n'est pas une description d'atmosphère mais de la <strong>matière exploitable</strong> : à qui l'on s'adresse, ce que cette personne sait déjà, ce qui a été tenté, et surtout les données ou documents dont vous disposez. C'est ici que se joue le lien avec le module précédent — un contexte riche en matière réelle réduit mécaniquement le besoin du modèle d'inventer.</p>
+      <p>Une règle simple : tout ce que vous savez et que le modèle ne peut pas deviner doit figurer dans le contexte. Le nom du client, la contrainte budgétaire, l'historique du dossier, l'objection qui revient toujours.</p>
+      <h3>2.3 La tâche : un verbe, un objet, un critère de réussite</h3>
+      <p>« Parle de notre offre » n'est pas une tâche. « Rédige », « compare », « classe », « extrais », « reformule », « critique » en sont. Le verbe détermine l'opération attendue, et beaucoup de résultats décevants viennent simplement d'un verbe absent ou ambigu.</p>
+      <p>Ajoutez si possible le critère de réussite : « rédige un paragraphe qu'un dirigeant non technique puisse comprendre sans relire ». Ce type de précision est plus efficace que trois lignes de consignes de style.</p>
+      <h3>2.4 Les contraintes : l'interdit est plus efficace que la description</h3>
+      <p>Décrire longuement ce que l'on veut donne des résultats inférieurs à interdire précisément ce que l'on ne veut pas. « Écris de façon naturelle et professionnelle » est trop vague pour restreindre quoi que ce soit ; « n'emploie aucun emoji, aucune question rhétorique en ouverture, et aucun des mots suivants : innovant, révolutionnaire, incontournable, solution » restreint immédiatement.</p>
+      <p>Les contraintes les plus rentables portent sur quatre registres : la <strong>longueur</strong> (en phrases ou en mots, pas « court ») ; le <strong>lexique interdit</strong>, directement repris de la liste noire de votre charte éditoriale ; les <strong>tournures</strong> proscrites ; et le <strong>niveau de technicité</strong>, exprimé par le destinataire plutôt que par un adjectif.</p>
+      <h3>2.5 Le format : ce qui décide si la sortie est exploitable</h3>
+      <p>C'est le pilier le plus souvent omis, et celui dont l'absence coûte le plus de temps — parce que le coût est invisible : il se paie en retraitement manuel. Demander « un tableau à quatre colonnes : critère, situation actuelle, situation cible, action » plutôt qu'« une analyse » économise dix minutes de mise en forme à chaque usage.</p>
+      <p>Pour tout ce qui doit être réutilisé dans un outil — tableur, base, script —, spécifiez une structure stricte : « réponds uniquement en JSON valide, avec les clés suivantes, sans texte avant ni après ». Cette dernière précision est décisive : sans elle, le modèle ajoute volontiers une phrase d'introduction qui casse le traitement automatique.</p>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — empiler les consignes sans en supprimer</h4>
+        <p>Face à un résultat imparfait, le réflexe est d'ajouter une consigne. Au bout de six itérations, le prompt fait trente lignes, se contredit par endroits, et produit un résultat moins bon qu'à la troisième version.</p>
+        <p>Quand un prompt s'allonge, relisez-le en cherchant les <strong>redondances et les contradictions</strong> — « sois concis » et « développe chaque point » coexistent plus souvent qu'on ne croit. Un bon prompt professionnel tient généralement en dix à quinze lignes.</p>
+      </div>
+
+      <h2>3. Écrire un prompt : l'ordre qui fonctionne</h2>
+      <p>L'ordre des éléments n'est pas neutre. Le modèle lit tout, mais ce qui figure en fin de prompt pèse davantage sur ce qu'il produit immédiatement après — c'est la dernière chose lue avant de commencer à répondre.</p>
+      <div class="method-box">
+        <h4>⚙️ Méthode — la structure de prompt recommandée</h4>
+        <ol>
+          <li><strong>Le rôle</strong>, en une phrase située.</li>
+          <li><strong>Les documents et données de référence</strong>, clairement délimités — par exemple entre des balises ou après une mention explicite « Documents de référence : ». Les placer tôt permet au modèle de les avoir en mémoire de travail.</li>
+          <li><strong>Le contexte</strong> : destinataire, enjeu, ce qui a déjà été tenté.</li>
+          <li><strong>La tâche</strong>, avec son verbe et son critère de réussite.</li>
+          <li><strong>Les contraintes</strong>, en liste, les interdits en dernier — ce sont eux qui doivent rester présents au moment de la production.</li>
+          <li><strong>Le format de sortie</strong> attendu, en dernière position et avec un exemple si la structure est complexe.</li>
+        </ol>
+      </div>
+      <div class="example-box">
+        <h4>📌 Exemple — un prompt professionnel complet</h4>
+        <p><em>« Tu es chargé de communication dans une mutuelle santé, tu écris pour des travailleurs indépendants qui gèrent seuls leur protection sociale.</em></p>
+        <p><em>Documents de référence : [barème 2026 collé ici] et [extrait des conditions générales, article 4].</em></p>
+        <p><em>Contexte : nos adhérents indépendants nous appellent régulièrement pour comprendre ce qui reste à leur charge après remboursement. Ils confondent systématiquement base de remboursement et montant réel. Le sujet les inquiète.</em></p>
+        <p><em>Tâche : rédige une explication en 200 mots qu'un artisan puisse comprendre sans relire, et à l'issue de laquelle il sache calculer son propre reste à charge.</em></p>
+        <p><em>Contraintes : appuie-toi exclusivement sur les documents fournis ; donne les montants en euros réels, jamais en pourcentage de la base sans conversion ; explique tout terme technique à sa première occurrence ; vouvoiement ; aucun emoji ; n'emploie pas les mots “simple”, “facile” ni “il vous suffit de”.</em></p>
+        <p><em>Format : un paragraphe d'introduction de 3 lignes, puis un exemple chiffré complet présenté en tableau à 3 colonnes (poste, montant total, votre reste à charge), puis une phrase de conclusion. »</em></p>
+      </div>
+
+      <h2>4. Itérer méthodiquement</h2>
+      <p>Un prompt destiné à un usage répété se met au point comme un outil : par corrections successives et isolées. La méthode la plus répandue — réécrire entièrement quand le résultat déçoit — fait perdre l'information sur ce qui fonctionnait déjà.</p>
+      <div class="method-box">
+        <h4>⚙️ Méthode — améliorer un prompt en cinq temps</h4>
+        <ol>
+          <li><strong>Nommez précisément ce qui ne va pas</strong> dans le résultat obtenu : trop long ? mauvais registre ? hors sujet ? format inexploitable ? Cette formulation désigne le pilier à corriger.</li>
+          <li><strong>Modifiez un seul pilier à la fois.</strong> Changer trois choses simultanément rend impossible de savoir laquelle a produit l'amélioration.</li>
+          <li><strong>Relancez 3 à 5 fois</strong> et jugez sur la constance, pas sur le meilleur essai. Un prompt fiable produit des résultats homogènes.</li>
+          <li><strong>Conservez les versions</strong> dans un document, avec une ligne sur ce que chacune a changé. C'est ce qui permet de revenir en arrière quand une modification dégrade le résultat.</li>
+          <li><strong>Arrêtez-vous quand le résultat est exploitable</strong>, pas quand il est parfait. Un prompt qui produit un texte à retoucher de 10 % est excellent ; chercher les 10 % restants coûte généralement plus cher que la retouche.</li>
+        </ol>
+      </div>
+      <h3>4.1 Constituer une bibliothèque de prompts</h3>
+      <p>Dans une équipe, la valeur ne réside pas dans les prompts individuels mais dans leur <strong>mutualisation</strong>. Un prompt mis au point pendant quarante minutes par une personne peut servir cinquante fois à quatre personnes.</p>
+      <p>Un format minimal suffit : le nom de l'usage, le prompt complet, un exemple de résultat obtenu, et une ligne indiquant les limites constatées — « ne fonctionne pas bien au-delà de 500 mots », « demande une vérification systématique des chiffres ». Cette dernière ligne est celle qui évite les mauvaises surprises quand quelqu'un d'autre reprend le prompt.</p>
+      <p>Prévoyez explicitement des <strong>emplacements à remplir</strong>, signalés par des crochets, plutôt que des exemples figés qu'un utilisateur pressé oubliera d'adapter.</p>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — juger un prompt sur son meilleur résultat</h4>
+        <p>Après cinq essais, on retient naturellement le meilleur et l'on conclut que le prompt fonctionne. C'est un biais de sélection : en usage réel, vous obtiendrez un tirage moyen, pas votre meilleur essai.</p>
+        <p>Le critère honnête est le <strong>plus mauvais</strong> des cinq résultats. Si celui-là est publiable après retouche légère, le prompt est fiable. S'il est inutilisable, le prompt est un piège — d'autant plus dangereux qu'il donnera parfois d'excellents résultats.</p>
+      </div>
+
+      <div class="case-box">
+        <h3>🔍 Étude de cas — du post générique au prompt réutilisable</h3>
+        <p>Reprenons la situation d'ouverture, dans une entreprise de maintenance industrielle qui souhaite publier deux posts par semaine sur LinkedIn.</p>
+        <p><strong>Point de départ.</strong> Prompt utilisé : « Écris un post LinkedIn sur [sujet]. » Résultat systématiquement réécrit à 80 % par la chargée de communication — soit un gain de temps quasi nul, et une frustration croissante.</p>
+        <p><strong>Diagnostic par les cinq piliers.</strong> Rôle : absent. Contexte : absent. Tâche : présente mais vague (« écris un post »). Contraintes : absentes. Format : absent. Cinq piliers sur cinq manquants — le résultat générique était la seule sortie possible.</p>
+        <p><strong>Itération 1 — ajouter le rôle et le contexte.</strong> « Tu es responsable maintenance dans l'industrie agroalimentaire, tu écris à des pairs. » Amélioration nette du vocabulaire ; le texte reste toutefois construit sur des généralités.</p>
+        <p><strong>Itération 2 — ajouter la matière.</strong> C'est le tournant. On ajoute au contexte les données réelles de l'entreprise : « Nous intervenons sur 180 sites ; 62 % des arrêts non planifiés que nous constatons viennent de trois causes identiques : défaut de lubrification, capteurs encrassés, absence de suivi vibratoire. » Le post cesse d'être une opinion générale pour devenir un constat appuyé — exactement ce qui rend un contenu citable.</p>
+        <p><strong>Itération 3 — les contraintes.</strong> Liste noire reprise de la charte éditoriale : pas d'emoji, pas de question rhétorique en ouverture, interdiction de « innovant », « incontournable », « solution », « à l'ère de ». Longueur : 5 lignes maximum. Une seule idée par post.</p>
+        <p><strong>Itération 4 — le format.</strong> « Ouvre par un constat chiffré. Développe en trois lignes. Termine par une question technique précise adressée aux pairs — jamais par une invitation générique à commenter. »</p>
+        <p><strong>Le prompt final</strong> tient en douze lignes, avec deux emplacements entre crochets : le sujet, et la donnée chiffrée à mobiliser. Testé cinq fois, il produit des résultats homogènes, dont le plus faible demande environ dix minutes de retouche au lieu d'une réécriture complète.</p>
+        <p><strong>Résultat.</strong> Temps par post passé d'environ 50 minutes à 15. Surtout, effet non anticipé : la contrainte « ouvre par un constat chiffré » a obligé l'équipe à aller chercher une donnée réelle pour chaque publication. Les posts sont devenus plus engageants non pas grâce au prompt, mais parce que le prompt <strong>imposait une exigence que personne ne s'imposait auparavant</strong>.</p>
+        <p><strong>Ce que le cas enseigne :</strong> le gain principal n'était pas la rapidité mais la discipline. Un bon prompt formalise des exigences éditoriales — c'est un document de méthode déguisé en consigne technique. Notez aussi que l'itération décisive fut celle qui a apporté de la <em>matière</em>, pas celle qui a affiné le style.</p>
+      </div>
+
+      <div class="checklist-box">
+        <h3>📋 Checklist — Un prompt professionnel</h3>
+        <ul class="checklist">
+          <li>Le rôle est situé : métier, secteur, niveau, position — pas « tu es un expert »</li>
+          <li>Le contexte contient de la matière réelle : données, historique, objection connue</li>
+          <li>Tout ce que vous savez et que le modèle ne peut pas deviner figure dans le contexte</li>
+          <li>La tâche commence par un verbe d'action précis</li>
+          <li>Un critère de réussite est énoncé (« qu'un dirigeant non technique comprenne sans relire »)</li>
+          <li>Les contraintes de longueur sont chiffrées, pas qualitatives</li>
+          <li>Une liste de mots et tournures interdits est fournie</li>
+          <li>Le format de sortie est spécifié, avec un exemple si la structure est complexe</li>
+          <li>Pour une sortie automatisée : « sans texte avant ni après » est précisé</li>
+          <li>Les interdits figurent en fin de prompt</li>
+          <li>Le prompt a été testé 3 à 5 fois, et jugé sur son plus mauvais résultat</li>
+          <li>Une seule modification a été faite entre deux essais</li>
+          <li>Les emplacements variables sont signalés par des crochets</li>
+          <li>Les limites constatées sont notées avec le prompt dans la bibliothèque d'équipe</li>
+        </ul>
+      </div>
+
+      <div class="glossary-box">
+        <h3>📖 Glossaire du module</h3>
+        <dl>
+          <dt>Prompt</dt>
+          <dd>Ensemble de ce qui est soumis au modèle : rôle, contexte, documents, tâche, contraintes et format.</dd>
+          <dt>Les 5 piliers</dt>
+          <dd>Rôle, Contexte, Tâche, Contraintes, Format — grille de construction et de diagnostic d'une consigne.</dd>
+          <dt>Rôle situé</dt>
+          <dd>Rôle précisant métier, secteur et position, par opposition à « tu es un expert ».</dd>
+          <dt>Contrainte négative</dt>
+          <dd>Instruction indiquant ce que le modèle doit éviter ; plus efficace qu'une description de ce qui est attendu.</dd>
+          <dt>Format de sortie</dt>
+          <dd>Structure attendue de la réponse ; pilier le plus souvent omis, dont l'absence se paie en retraitement manuel.</dd>
+          <dt>Itération isolée</dt>
+          <dd>Méthode consistant à ne modifier qu'un seul pilier entre deux essais, pour savoir ce qui a produit l'effet.</dd>
+          <dt>Biais de sélection</dt>
+          <dd>Erreur consistant à juger un prompt sur son meilleur essai plutôt que sur son plus mauvais.</dd>
+          <dt>Bibliothèque de prompts</dt>
+          <dd>Recueil d'équipe des prompts éprouvés, avec exemple de résultat et limites constatées.</dd>
+          <dt>Emplacement variable</dt>
+          <dd>Partie du prompt à remplir à chaque usage, signalée par des crochets.</dd>
+          <dt>Critère de réussite</dt>
+          <dd>Formulation de ce qui rendra la réponse satisfaisante ; souvent plus efficace que des consignes de style.</dd>
+        </dl>
+      </div>
+
+      <div class="takeaway-box">
+        <h3>✅ À retenir</h3>
+        <ul>
+          <li>Face à une demande vague, le modèle produit la réponse moyenne : un prompt sert à restreindre l'espace des réponses possibles.</li>
+          <li>Ce qui compte n'est pas la longueur du prompt, mais le nombre de décisions qu'il prend à la place du modèle.</li>
+          <li>Les cinq piliers sont d'abord une grille de diagnostic : quand un résultat déçoit, l'un d'eux manque, et on peut dire lequel.</li>
+          <li>Un rôle utile est situé : métier, secteur, position. « Tu es un expert » n'apporte rien.</li>
+          <li>Le contexte le plus utile est de la matière exploitable, pas une description d'ambiance.</li>
+          <li>Interdire précisément est plus efficace que décrire longuement ce que l'on veut.</li>
+          <li>Le format est le pilier le plus souvent omis, et son absence se paie en retraitement manuel invisible.</li>
+          <li>Placez les interdits en fin de prompt : c'est la dernière chose lue avant la production.</li>
+          <li>Modifiez un seul pilier à la fois, sinon vous ne saurez pas ce qui a fonctionné.</li>
+          <li>Jugez un prompt sur son plus mauvais résultat, jamais sur son meilleur.</li>
+          <li>Arrêtez-vous quand c'est exploitable, pas quand c'est parfait : les 10 % restants coûtent plus que la retouche.</li>
+        </ul>
+      </div>
+
+      <h2 class="exercises-title">Exercices d'application</h2>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 1 — Diagnostiquer par les cinq piliers <span class="badge badge-neutral">Application</span></h3>
+        <p>Pour chacun des trois cas, identifiez le ou les piliers manquants et proposez la correction.</p>
+        <p><strong>(A)</strong> Prompt : « Résume ce rapport. » Résultat : un résumé de 800 mots, alors qu'on en voulait 5 lignes pour un comité de direction. <strong>(B)</strong> Prompt : « Tu es expert en cybersécurité. Explique le hameçonnage. » Résultat : un texte technique incompréhensible pour les salariés visés. <strong>(C)</strong> Prompt : « Analyse ces 40 réponses clients et sors-moi les thèmes. » Résultat : un texte en prose de trois pages, impossible à mettre dans un tableur.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>(A) Piliers manquants : Contraintes et Contexte.</strong></p>
+            <p>Rien n'indique la longueur attendue ni le destinataire. Le modèle a produit un résumé « raisonnable » selon sa moyenne, qui n'a aucune raison de correspondre à votre besoin.</p>
+            <p><em>Correction :</em> « Résume ce rapport en 5 lignes maximum, pour un comité de direction qui n'a pas lu le document et dispose de deux minutes. Retiens uniquement ce qui appelle une décision de leur part. »</p>
+            <p>Noter la dernière phrase : elle est un <strong>critère de réussite</strong>, et c'est elle qui change le plus le résultat — elle indique quoi retenir, pas seulement combien.</p>
+            <p><strong>(B) Pilier défaillant : le Contexte ; le Rôle est mal calibré.</strong></p>
+            <p>« Tu es expert en cybersécurité » oriente le modèle vers un registre d'expert… s'adressant à des experts. Le destinataire n'est jamais mentionné, alors que c'est lui qui détermine le niveau de technicité.</p>
+            <p><em>Correction :</em> « Tu es responsable sécurité, et tu formes des salariés non techniques — comptables, commerciaux, personnel administratif. Explique le hameçonnage à quelqu'un qui n'a jamais entendu le terme. Contrainte : chaque terme technique est expliqué à sa première occurrence ; utilise une analogie concrète du quotidien. »</p>
+            <p><strong>Principe général :</strong> le niveau de technicité se règle par le <em>destinataire</em>, jamais par un adjectif comme « simple » ou « accessible ». « Explique simplement » est beaucoup moins efficace que « explique à un artisan qui n'a pas de service informatique ».</p>
+            <p><strong>(C) Pilier manquant : le Format.</strong></p>
+            <p>La tâche est correcte, le résultat est probablement juste sur le fond — mais il est inexploitable. Le coût est invisible : il se paie en retraitement manuel.</p>
+            <p><em>Correction :</em> « Analyse ces 40 réponses et identifie les thèmes récurrents. Format de sortie : un tableau à 4 colonnes — thème, nombre d'occurrences, verbatim le plus représentatif, tonalité (positive / neutre / négative). Classe par nombre d'occurrences décroissant. Ne produis aucun texte avant ni après le tableau. »</p>
+            <p>La dernière phrase compte : sans elle, le modèle ajoutera volontiers « Voici l'analyse des retours clients : » avant le tableau, ce qui casse tout traitement automatique en aval.</p>
+          </div>
+        </details>
+      </div>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 2 — Construire un prompt complet <span class="badge badge-neutral">Analyse</span></h3>
+        <p>Vous travaillez dans un cabinet d'expertise comptable. Vous devez produire chaque mois une note d'information de 300 mots destinée à vos clients dirigeants de TPE, sur une évolution réglementaire. Ces notes doivent être exactes, compréhensibles sans formation comptable, et ne jamais donner l'impression d'un conseil personnalisé.</p>
+        <p><strong>1.</strong> Rédigez le prompt complet, en respectant l'ordre recommandé. <strong>2.</strong> Justifiez trois de vos contraintes. <strong>3.</strong> Indiquez ce que vous noterez dans la bibliothèque d'équipe comme limite de ce prompt.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>1. Prompt proposé</strong></p>
+            <blockquote>
+            <p><strong>Rôle.</strong> Tu es expert-comptable et tu t'adresses à tes clients dirigeants de TPE — artisans, commerçants, professions libérales — qui n'ont aucune formation comptable et lisent ta note entre deux rendez-vous.</p>
+            <p><strong>Documents de référence.</strong> [Texte officiel collé ici, avec sa source et sa date de consultation.]</p>
+            <p><strong>Contexte.</strong> Cette note est envoyée mensuellement à 400 clients. Ils la lisent pour savoir une seule chose : est-ce que ça me concerne, et que dois-je faire. Ils ne connaissent aucun acronyme technique. Le cabinet ne peut pas donner de conseil individualisé dans ce format.</p>
+            <p><strong>Tâche.</strong> Rédige une note d'information de 300 mots présentant l'évolution réglementaire décrite dans le document fourni, à l'issue de laquelle le lecteur sait s'il est concerné et quelle est la prochaine échéance qui le concerne.</p>
+            <p><strong>Contraintes.</strong> Appuie-toi exclusivement sur le document fourni ; si une information nécessaire n'y figure pas, écris [information à compléter] plutôt que de la déduire. Explique tout terme technique à sa première occurrence. Donne les dates au format complet. N'emploie jamais « vous devez », « il vous faut » ni aucune formulation impérative personnalisée : utilise « les entreprises concernées doivent ». Termine par l'invitation à prendre contact pour un examen de la situation individuelle. Pas de superlatif, pas de registre alarmiste.</p>
+            <p><strong>Format.</strong> Un titre de 8 mots maximum. Un encadré « Êtes-vous concerné ? » en 2 lignes. Trois paragraphes courts. Un encadré « Dates à retenir » sous forme de liste. Une phrase de clôture invitant au contact.</p>
+            </blockquote>
+            <p><strong>2. Justification de trois contraintes</strong></p>
+            <ul>
+            <li><strong>« N'emploie jamais "vous devez" » :</strong> c'est la contrainte la plus importante, et elle est juridique avant d'être stylistique. Une formulation impérative adressée nominativement à 400 destinataires dont les situations diffèrent se rapproche du conseil personnalisé, ce que le format ne permet pas d'assumer. « Les entreprises concernées doivent » informe sans prescrire.</li>
+            <li><strong>« Si une information ne figure pas dans le document, écris [information à compléter] » :</strong> application directe du module 1. Sans cette permission explicite, le modèle comblera — et sur un sujet réglementaire, un comblement est une erreur publiée à 400 exemplaires.</li>
+            <li><strong>« Pas de registre alarmiste » :</strong> la tentation naturelle sur un sujet réglementaire est de dramatiser l'échéance. Outre le problème déontologique, cela use la note : à la troisième alerte maximale, les clients cessent d'ouvrir.</li>
+            </ul>
+            <p><strong>3. Limites à noter dans la bibliothèque</strong></p>
+            <blockquote><p>« <strong>Note réglementaire mensuelle client — v3.</strong> Fonctionne bien sur les textes courts et univoques. <strong>Limites constatées :</strong> (1) sur un texte de plus de 10 pages, la note perd en précision — découper et fournir seulement les articles pertinents ; (2) le modèle a tendance à réintroduire "vous devez" dans la phrase de clôture, à vérifier systématiquement ; (3) <strong>vérification obligatoire</strong> de toutes les dates et de tous les seuils à la source avant envoi, sans exception ; (4) ne convient pas aux sujets nécessitant une interprétation — dans ce cas, rédaction humaine. »</p></blockquote>
+            <p>La ligne (2) est celle qui a le plus de valeur pour un collègue : elle signale un défaut récurrent qu'on ne découvre qu'après plusieurs usages, et qu'il faudrait sinon redécouvrir soi-même.</p>
+          </div>
+        </details>
+      </div>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 3 — Mettre au point un prompt d'équipe <span class="badge badge-neutral">Synthèse</span></h3>
+        <p>Votre équipe de 5 personnes traite chaque semaine environ 60 verbatims issus d'enquêtes de satisfaction. Aujourd'hui, chacun les lit et rédige une synthèse à sa manière ; les résultats ne sont pas comparables d'une semaine à l'autre. On vous demande d'industrialiser.</p>
+        <p><strong>1.</strong> Rédigez le prompt. <strong>2.</strong> Décrivez votre protocole de mise au point et de validation. <strong>3.</strong> Indiquez les garde-fous à poser, et ce que vous refusez de déléguer au modèle.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>1. Prompt proposé</strong></p>
+            <blockquote>
+            <p><strong>Rôle.</strong> Tu es analyste de la relation client. Tu classes des verbatims d'enquête sans les interpréter au-delà de ce qu'ils disent.</p>
+            <p><strong>Contexte.</strong> Ces verbatims proviennent d'une enquête de satisfaction après intervention. Ils sont bruts, parfois mal orthographiés, parfois ambigus. Ils serviront à un suivi hebdomadaire comparé dans le temps : la stabilité de la classification prime sur sa finesse.</p>
+            <p><strong>Tâche.</strong> Classe chaque verbatim dans <strong>une seule</strong> des catégories suivantes : [liste fermée de 6 catégories définies par l'équipe]. Attribue une tonalité : positive, neutre, négative. Si un verbatim n'entre dans aucune catégorie ou est incompréhensible, classe-le en « non classable » — n'invente jamais de catégorie nouvelle.</p>
+            <p><strong>Contraintes.</strong> N'interprète pas au-delà du texte : si le verbatim ne dit pas pourquoi le client est mécontent, ne le déduis pas. Ne reformule aucun verbatim. Ne fusionne pas deux verbatims. Traite-les dans l'ordre fourni.</p>
+            <p><strong>Format.</strong> JSON valide uniquement, sans texte avant ni après. Un objet par verbatim, avec les clés : <code>id</code>, <code>categorie</code>, <code>tonalite</code>, <code>extrait_justificatif</code> (une citation exacte du verbatim, jamais reformulée), <code>certitude</code> (haute / basse).</p>
+            </blockquote>
+            <p><strong>Les deux clés qui font la différence :</strong> <code>extrait_justificatif</code> permet de contrôler la classification sans relire tous les verbatims — on vérifie que l'extrait cité justifie bien la catégorie. Et <code>certitude</code> crée un tri automatique : seuls les cas en certitude basse demandent une relecture humaine, ce qui concentre l'effort là où il sert.</p>
+            <p><strong>2. Protocole de mise au point et de validation</strong></p>
+            <ol>
+            <li><strong>Constituer un jeu de référence.</strong> 40 verbatims classés à la main par deux personnes de l'équipe, en résolvant les désaccords par discussion. Ce jeu devient l'étalon — et l'exercice révèle souvent que les catégories elles-mêmes sont mal définies, ce qui est le vrai problème à régler d'abord.</li>
+            <li><strong>Mesurer l'accord.</strong> Passer les 40 verbatims dans le prompt et comparer à la classification humaine. Un taux d'accord de 85-90 % sur ce type de tâche est un bon résultat ; en dessous de 75 %, les catégories sont probablement ambiguës.</li>
+            <li><strong>Analyser les désaccords</strong> plutôt que les compter : viennent-ils d'une catégorie mal définie, d'un verbatim réellement ambigu, ou d'une consigne imprécise ? Corriger la cause, un pilier à la fois.</li>
+            <li><strong>Tester la stabilité :</strong> relancer trois fois le même lot. Si un verbatim change de catégorie d'un passage à l'autre, la définition de cette catégorie est floue — c'est un test que presque personne ne fait, et qui révèle beaucoup.</li>
+            <li><strong>Recontrôler tous les trimestres</strong> sur un nouveau jeu de référence : le vocabulaire des clients évolue, et les modèles sont mis à jour.</li>
+            </ol>
+            <p><strong>3. Garde-fous et ce qui n'est pas délégué</strong></p>
+            <ul>
+            <li><strong>Relecture humaine obligatoire</strong> de tous les verbatims en certitude basse et de tous les « non classable » — soit environ 10 à 15 % du volume, ce qui reste très en deçà du temps actuel.</li>
+            <li><strong>Aucune donnée nominative</strong> transmise : les verbatims sont anonymisés avant traitement, et les mentions de noms ou de numéros de dossier sont retirées en amont.</li>
+            <li><strong>Les catégories restent définies par l'équipe</strong>, jamais générées par le modèle. C'est le point central : laisser le modèle créer ses propres catégories rendrait les semaines incomparables entre elles, ce qui est précisément le problème qu'on cherche à résoudre.</li>
+            <li><strong>L'interprétation et les décisions ne sont pas déléguées.</strong> Le modèle classe ; ce que ces classements signifient, et ce qu'il faut en faire, relève de l'analyse humaine. Un pic de la catégorie « délai » n'appelle pas la même réponse selon qu'il coïncide avec un déménagement d'entrepôt ou une saison chargée — cette mise en contexte, le modèle ne l'a pas.</li>
+            <li><strong>Tout verbatim signalant un incident grave</strong> (sécurité, litige, menace de résiliation) est remonté immédiatement à un humain, quelle que soit sa classification. Ce filtre se pose en amont, par mots-clés, et non par le modèle.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+      <div class="resources-box">
+        <h3>🔗 Pour aller plus loin</h3>
+        <ul>
+          <li>La documentation de prompt engineering publiée par les éditeurs de modèles : chaque modèle a ses particularités de format et de réactivité aux consignes.</li>
+          <li>La liste noire de votre charte éditoriale (module 2 de la formation Content Marketing) : elle se transpose directement en contraintes négatives.</li>
+          <li>Le module 3 de cette formation prolonge celui-ci : exemples fournis, raisonnement explicite et sorties structurées.</li>
+          <li>Constituez dès maintenant votre bibliothèque de prompts : nom de l'usage, prompt, exemple de résultat, limites constatées.</li>
+        </ul>
+      </div>
+    </article>
+
+    <section class="quiz-section">
+      <h2>🧠 Quiz d'auto-évaluation</h2>
+      <p style="color:var(--text-muted);margin-bottom:20px;">Sélectionnez la bonne réponse pour valider vos acquis. Le feedback immédiat vous expliquera les concepts clés.</p>
+      <div id="quiz-container">
+        <!-- Quiz chargé dynamiquement par quiz-engine.js -->
+      </div>
+      <div style="margin-top: 24px; text-align: center;">
+        <button id="btn-mark-complete" data-module-id="formation-ia-generative-module-2" class="btn btn-primary">
+          Marquer le module comme terminé ✓
+        </button>
+      </div>
+    </section>
+
+    <nav class="module-nav">
+      <a href="../module-1/index.html" class="btn btn-outline">← Module 1</a>
+      <a href="../module-3/index.html" class="btn btn-primary">Module 3 →</a>
+    </nav>
+  </main>
+
+  <script src="../../../assets/js/progress.js"></script>
+  <script src="../../../assets/js/quiz-engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadQuiz('quiz.json', 'quiz-container');
+    });
+  </script>
+</body>
+</html>

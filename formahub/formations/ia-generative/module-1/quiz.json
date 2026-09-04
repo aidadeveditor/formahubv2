@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-ia-generative-module-1",
+  "version": "2.0",
+  "last_verified": "2026-09-01",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quel est le principe de fonctionnement d'un grand modèle de langage ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Il consulte une base de faits vérifiés avant de répondre"
+        },
+        {
+          "key": "b",
+          "text": "Il prédit, unité après unité, la suite la plus plausible du texte"
+        },
+        {
+          "key": "c",
+          "text": "Il raisonne à partir d'une compréhension du monde comparable à l'humaine"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Un texte de 800 mots résulte d'un millier de prédictions successives. Le modèle produit ce qui ressemble à la suite attendue, pas ce qui est vérifié."
+    },
+    {
+      "id": "q2",
+      "question": "Pourquoi un modèle invente-t-il un numéro d'article de loi plausible ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Parce qu'il a appris la forme d'un numéro d'article, sans disposer de la liste de ceux qui existent"
+        },
+        {
+          "key": "b",
+          "text": "Parce qu'il cherche délibérément à tromper l'utilisateur"
+        },
+        {
+          "key": "c",
+          "text": "Parce que sa base de données juridique est incomplète"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Il ne dispose d'aucun mécanisme pour signaler qu'il ne sait pas : face à une information manquante, il produit la suite la plus plausible."
+    },
+    {
+      "id": "q3",
+      "question": "Vos consignes du début de conversation semblent ignorées après une heure d'échange. Pourquoi ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le modèle a délibérément changé d'approche"
+        },
+        {
+          "key": "b",
+          "text": "Les consignes sont sorties de la fenêtre de contexte, ou s'y trouvent noyées très en amont"
+        },
+        {
+          "key": "c",
+          "text": "Le modèle a été mis à jour pendant la session"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Le modèle ne se souvient de rien : il relit à chaque tour ce qui tient dans sa fenêtre. Redonnez les consignes structurantes ou repartez d'un échange neuf."
+    },
+    {
+      "id": "q4",
+      "question": "Où se logent principalement les hallucinations dans un texte ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Dans les explications générales et les raisonnements"
+        },
+        {
+          "key": "b",
+          "text": "Dans le style et les tournures de phrase"
+        },
+        {
+          "key": "c",
+          "text": "Dans le vérifiable précis : chiffres, dates, noms propres, références"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "D'où la méthode : extraire tous les éléments vérifiables et les contrôler un par un à la source, plutôt que de « relire attentivement »."
+    },
+    {
+      "id": "q5",
+      "question": "Quelle est la stratégie la plus efficace pour réduire le risque factuel ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Fournir les sources au modèle et lui demander de s'y limiter, en autorisant « information absente »"
+        },
+        {
+          "key": "b",
+          "text": "Formuler des questions plus précises pour obtenir des faits plus fiables"
+        },
+        {
+          "key": "c",
+          "text": "Demander au modèle de relire et corriger ses propres erreurs factuelles"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "On cesse de demander des faits au modèle : on lui fournit la matière et on lui confie la mise en forme, ce qu'il fait bien."
+    },
+    {
+      "id": "q6",
+      "question": "Comment évaluer correctement un prompt destiné à être réutilisé ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "En le testant une fois et en jugeant le résultat obtenu"
+        },
+        {
+          "key": "b",
+          "text": "En le lançant 3 à 5 fois pour observer la constance des résultats"
+        },
+        {
+          "key": "c",
+          "text": "En demandant au modèle d'évaluer la qualité de la consigne"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Une réponse unique est un tirage parmi d'autres. Un prompt fragile produit un excellent résultat une fois sur trois — et c'est le bon essai qu'on retient."
+    }
+  ]
+}

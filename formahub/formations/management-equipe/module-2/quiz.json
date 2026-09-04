@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-management-equipe-module-2",
+  "version": "2.0",
+  "last_verified": "2026-09-01",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Que doit contenir la phase « D » (Décrire) de la méthode DESC ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Des faits observables, précis et datés, sans jugement"
+        },
+        {
+          "key": "b",
+          "text": "Une appréciation générale du comportement"
+        },
+        {
+          "key": "c",
+          "text": "L'annonce de la sanction envisagée"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Si votre phrase contient un adjectif qualifiant la personne, ce n'est pas encore un fait — et un jugement se conteste, ce qui bloque tout le reste."
+    },
+    {
+      "id": "q2",
+      "question": "À qui appartient le temps du 1-on-1 ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Au manager, pour faire le point sur les dossiers"
+        },
+        {
+          "key": "b",
+          "text": "Au collaborateur, qui apporte les sujets"
+        },
+        {
+          "key": "c",
+          "text": "À l'équipe, qui en fixe collectivement l'ordre du jour"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "S'il devient un point d'avancement, on perd le seul espace où remontent les difficultés naissantes, les tensions et les envies."
+    },
+    {
+      "id": "q3",
+      "question": "Pourquoi proscrire « toujours » et « jamais » dans un feedback ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Parce que ce sont des mots trop familiers"
+        },
+        {
+          "key": "b",
+          "text": "Parce qu'ils invitent à chercher le contre-exemple, et font dériver la conversation vers la véracité de l'affirmation"
+        },
+        {
+          "key": "c",
+          "text": "Parce qu'ils allongent la phrase"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Le contre-exemple existe toujours. On finit par débattre de l'exactitude du propos au lieu de traiter le problème."
+    },
+    {
+      "id": "q4",
+      "question": "Quelle étape du DESC est la plus souvent sautée ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le E : exprimer l'effet, qui répond à la question implicite « et alors ? »"
+        },
+        {
+          "key": "b",
+          "text": "Le S : spécifier la demande"
+        },
+        {
+          "key": "c",
+          "text": "Le C : conclure"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Sans conséquence nommée, la demande sonne comme une préférence personnelle, et rien ne justifie le changement."
+    },
+    {
+      "id": "q5",
+      "question": "Qu'est-ce qui distingue un feedback positif utile d'un compliment ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Sa longueur"
+        },
+        {
+          "key": "b",
+          "text": "Le fait qu'il désigne un comportement précis et son effet, plutôt qu'un attribut de la personne"
+        },
+        {
+          "key": "c",
+          "text": "Le fait qu'il soit donné en public"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "« Tu es brillant » n'indique aucune action reproductible. « La façon dont tu as découpé ce problème a permis de le traiter en deux jours » désigne un comportement."
+    },
+    {
+      "id": "q6",
+      "question": "Un collaborateur vous fait un retour critique sur votre management. Que faites-vous sur le moment ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Vous expliquez vos raisons pour qu'il comprenne votre position"
+        },
+        {
+          "key": "b",
+          "text": "Vous remerciez et posez une question de compréhension, sans vous justifier"
+        },
+        {
+          "key": "c",
+          "text": "Vous demandez qui partage cet avis dans l'équipe"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Toute justification, même douce, apprend qu'un retour appelle un débat. Vous pourrez revenir dessus deux jours plus tard — le décalage change tout."
+    }
+  ]
+}

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Formahub — Excel &amp; analyse de données appliquée : Les Fonctions qui Font Réellement le Travail</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <header class="site-header">
+    <a href="../../../index.html" class="brand">
+      <div class="brand-icon">F</div>
+      <span>Formahub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../../../index.html" class="nav-link">Mes formations</a>
+      <a href="../../../ressources-externes.html" class="nav-link">Ressources externes</a>
+      <a href="../../../formations-espagne.html" class="nav-link">Formations Espagne</a>
+      <button class="theme-toggle" type="button">🌙 Mode sombre</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="../../../index.html">Accueil</a> &gt;
+        <span>Excel &amp; analyse de données appliquée</span> &gt;
+        <strong>Module 2</strong>
+      </div>
+      <h1>Module 2 : Les Fonctions qui Font Réellement le Travail</h1>
+      <div class="module-meta">
+        <span class="badge badge-progress">⏱️ 70 min</span>
+        <span class="badge badge-neutral">Module 2 sur 4</span>
+        <span class="badge badge-neutral">Niveau : Intermédiaire</span>
+        <span class="badge badge-neutral">~5300 mots</span>
+      </div>
+    </div>
+
+    <article class="module-content" id="contenu">
+      <div class="intro-box">
+        <h3>📍 Mise en situation</h3>
+        <p>Le fichier de ventes est propre — vous l'avez préparé au module 1. On vous demande maintenant la marge par catégorie de produits. Le prix de vente est dans votre table de commandes ; le prix d'achat, lui, est dans un second fichier, le référentiel produits, envoyé par les achats.</p>
+        <p>Vous écrivez une RECHERCHEV pour ramener le prix d'achat à côté de chaque commande. Le résultat : 1 800 lignes sur 11 990 affichent #N/A. Vous soupçonnez des références manquantes au référentiel, et vous vous apprêtez à les masquer par un SIERREUR pour « nettoyer » l'affichage.</p>
+        <p>Ce serait la pire décision possible. En regardant de plus près, trois choses différentes se cachent derrière ces 1 800 erreurs : des références réellement absentes du référentiel, des références présentes mais écrites différemment, et une plage de recherche qui s'est décalée en cours de recopie. Et surtout, parmi les 10 190 lignes <em>sans</em> erreur, environ 300 ont ramené le prix d'achat du mauvais produit — sans le moindre signal.</p>
+        <p>Ce module traite des fonctions qui font ce travail. Pas de leur syntaxe, qui s'apprend en dix minutes dans n'importe quelle aide en ligne, mais de la façon dont elles échouent — parce que c'est là que se jouent les chiffres faux.</p>
+      </div>
+
+      <div class="objectives-box">
+        <h3>🎯 À l'issue de ce module, vous saurez</h3>
+        <ul>
+          <li>Maîtriser les références relatives, absolues et mixtes et savoir pourquoi une formule se décale</li>
+          <li>Rapprocher deux tables avec RECHERCHEX ou INDEX/EQUIV en contrôlant les non-correspondances</li>
+          <li>Écrire des calculs conditionnels multicritères avec NB.SI.ENS et SOMME.SI.ENS</li>
+          <li>Construire une formule de décision lisible avec SI et SI.CONDITIONS plutôt qu'imbriquée</li>
+          <li>Employer SIERREUR sans jamais masquer une anomalie de données</li>
+          <li>Diagnostiquer les faux résultats produits par les dates et les chaînes de texte</li>
+        </ul>
+      </div>
+
+      <h2>1. Les références : la source silencieuse des tableaux faux</h2>
+      <p>Une formule Excel ne contient pas des cellules, elle contient des <em>chemins vers</em> des cellules, et ces chemins se comportent différemment selon la façon dont ils sont écrits. C'est le premier concept du tableur et le plus souvent mal maîtrisé, y compris par des utilisateurs de dix ans d'ancienneté.</p>
+      <p><strong>Une référence relative</strong> — <code>B2</code> — signifie « la cellule située une colonne à gauche et sur la même ligne ». Recopiée vers le bas, elle devient B3, B4, B5. C'est le comportement voulu dans l'immense majorité des cas.</p>
+      <p><strong>Une référence absolue</strong> — <code>$B$2</code> — signifie « la cellule B2, et rien d'autre, où que la formule soit recopiée ». C'est ce qu'il faut pour un taux, un seuil, une plage de recherche : tout ce qui est fixe.</p>
+      <p><strong>Une référence mixte</strong> — <code>$B2</code> ou <code>B$2</code> — fige la colonne ou la ligne, mais pas les deux. Elle est indispensable dès qu'une formule doit être recopiée dans les deux directions, ce qui est exactement le cas d'une matrice de calcul.</p>
+      <p>Le raccourci qui fait passer d'un mode à l'autre est <strong>F4</strong>, appuyé une à trois fois sur la référence sélectionnée dans la barre de formule. Cette touche est le meilleur investissement de temps de tout Excel : elle transforme une manipulation pénible en un réflexe d'une seconde.</p>
+      <p>L'erreur qu'il faut comprendre en profondeur est celle du <strong>décalage silencieux</strong>. Vous écrivez en D2 une formule qui cherche une valeur dans la plage <code>G2:H500</code>. Vous recopiez sur 12 000 lignes. En ligne 3, la plage est devenue G3:H501 ; en ligne 500, G500:H998 ; en ligne 5 000, la plage a quitté la table depuis longtemps. Excel ne proteste jamais. Les premières lignes donnent le bon résultat, les suivantes donnent #N/A, et les lignes intermédiaires — les plus dangereuses — donnent une valeur qui existe mais qui ne correspond pas à la bonne ligne.</p>
+      <p>C'est très exactement ce qui a produit les 300 mauvais prix d'achat de la mise en situation, et c'est pour cela qu'un tableau peut être faux à 3 % sans qu'aucune alerte n'apparaisse jamais.</p>
+      <div class="method-box">
+        <h4>⚙️ Méthode — sécuriser les références d'une formule avant de la recopier</h4>
+        <ol>
+          <li><strong>Écrivez la formule dans la première cellule seulement</strong>, et vérifiez son résultat à la main sur cette ligne. Une formule fausse recopiée 12 000 fois reste fausse 12 000 fois, et devient très coûteuse à corriger.</li>
+          <li><strong>Passez en revue chaque référence</strong> de la formule et posez une seule question : « si je descends d'une ligne, cette référence doit-elle bouger ? ». Si non, F4 pour la figer.</li>
+          <li><strong>Préférez les références de tableau structuré</strong> aux coordonnées : <code>Ventes[Montant]</code> désigne toute la colonne et ne se décale jamais. C'est la protection la plus efficace contre le décalage, parce qu'elle supprime le problème au lieu de le gérer.</li>
+          <li><strong>Recopiez sur trois lignes seulement</strong> et contrôlez les trois résultats avant d'étendre. Trois lignes suffisent à révéler un décalage.</li>
+          <li><strong>Étendez ensuite d'un double-clic sur la poignée de recopie</strong>, qui descend jusqu'à la fin de la plage contiguë — et vérifiez que vous êtes bien arrivé à la dernière ligne, ce qui n'est pas le cas si une cellule vide interrompt la colonne voisine.</li>
+          <li><strong>Contrôlez la dernière ligne</strong> aussi soigneusement que la première. C'est le geste que tout le monde saute, et c'est celui qui révèle les décalages de plage.</li>
+        </ol>
+      </div>
+      <div class="example-box">
+        <h4>📌 Exemple — la même formule, deux écritures, deux destins</h4>
+        <p><em>Écriture fragile :</em> <code>=RECHERCHEX(A2;G2:G500;H2:H500)</code>. Recopiée, la plage de recherche descend avec la formule. Fonctionne sur les premières lignes, produit ensuite des #N/A puis, si le référentiel est trié, des correspondances erronées.</p>
+        <p><em>Écriture correcte par références absolues :</em> <code>=RECHERCHEX(A2;$G$2:$G$500;$H$2:$H$500)</code>. La plage reste fixe. Fonctionne — jusqu'au jour où le référentiel gagne trente lignes et que personne ne pense à étendre la plage : les trente nouveaux produits deviennent introuvables.</p>
+        <p><em>Écriture robuste :</em> <code>=RECHERCHEX([@Reference];Referentiel[Code];Referentiel[Prix_achat])</code>. La plage est l'objet lui-même, elle s'étend avec lui. Aucune des deux pannes précédentes n'est possible, et la formule se relit un an plus tard sans avoir à ouvrir l'onglet référentiel.</p>
+        <p>Les trois écritures donnent le même résultat le premier jour. Elles se distinguent uniquement par la manière dont elles se comportent dans six mois, et c'est le seul critère qui compte.</p>
+      </div>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — corriger un décalage en réécrivant la formule ailleurs</h4>
+        <p>Quand une colonne calculée donne des résultats incohérents, le réflexe est de réécrire la formule dans une cellule qui va bien, puis de la recopier partout. Cela masque le problème sans le comprendre : si le décalage venait d'une plage relative, il reviendra à la prochaine recopie.</p>
+        <p>Prenez trente secondes pour identifier la cause. Sélectionnez trois cellules éloignées de la colonne et lisez leurs formules dans la barre : si les plages diffèrent d'une cellule à l'autre alors qu'elles devraient être identiques, vous tenez la cause. Formules &gt; Afficher les formules (Ctrl + guillemet du 4) permet de voir toute la feuille en mode formule et de repérer une anomalie d'un coup d'œil.</p>
+      </div>
+
+      <h2>2. Rapprocher deux tables sans se tromper de ligne</h2>
+      <p>Rapprocher deux tables est l'opération la plus fréquente de tout travail sur données : ramener un prix, une catégorie, un nom de commercial, un statut, depuis un référentiel vers une table de transactions. Trois fonctions font ce travail, et le choix entre elles n'est pas une affaire de goût.</p>
+      <p><strong>RECHERCHEV</strong> est la plus connue et la moins recommandable. Elle cherche une valeur dans la première colonne d'une plage et renvoie la n-ième colonne de cette plage. Ses trois faiblesses sont structurelles : elle ne peut pas chercher vers la gauche ; elle désigne la colonne de retour par un <em>numéro</em>, si bien que l'insertion d'une colonne dans le référentiel casse silencieusement toutes les formules ; et son quatrième argument, s'il est omis, active par défaut la recherche approximative, qui renvoie la valeur immédiatement inférieure au lieu d'une erreur. Ce dernier point est responsable d'une part considérable des chiffres faux produits par Excel dans le monde.</p>
+      <p><strong>INDEX / EQUIV</strong> est la combinaison classique et solide : <code>EQUIV</code> trouve la position de la valeur cherchée, <code>INDEX</code> renvoie l'élément à cette position dans une autre plage. Elle cherche dans n'importe quelle direction, ne dépend d'aucun numéro de colonne, et reste disponible sur toutes les versions d'Excel. C'est la réponse à retenir si vous travaillez sur des postes anciens ou si vos fichiers circulent.</p>
+      <p><strong>RECHERCHEX</strong> est la fonction moderne, disponible sur Microsoft 365 et Excel 2021. Elle fait ce qu'INDEX/EQUIV fait, en une écriture directe et lisible, et surtout elle possède un argument dédié à la valeur renvoyée en cas de non-correspondance. Cet argument change tout : il permet de distinguer un « non trouvé » explicite d'une erreur technique, ce qui est la base d'un rapprochement contrôlé.</p>
+      <p>La règle de choix est simple : <strong>RECHERCHEX si votre version le permet, INDEX/EQUIV sinon, RECHERCHEV jamais</strong> — sauf à reprendre un fichier existant que vous n'avez pas le mandat de réécrire.</p>
+      <h3>Le vrai sujet n'est pas la fonction, c'est la non-correspondance</h3>
+      <p>Un rapprochement produit toujours des lignes qui ne trouvent pas leur correspondance. Ce n'est ni un incident ni un échec : c'est une information, et c'est souvent la plus intéressante du fichier. Elle vous dit qu'un produit est vendu sans exister au référentiel, ou qu'un code a changé de format entre deux systèmes.</p>
+      <p>La faute professionnelle consiste à envelopper la formule dans un <code>SIERREUR(...;0)</code> ou <code>SIERREUR(...;"")</code> dès la première erreur. Le tableau devient propre, la somme devient fausse, et personne ne saura jamais qu'il manque 1 800 prix d'achat. C'est la manœuvre la plus courante et la plus grave de tout Excel.</p>
+      <p>La conduite correcte tient en trois temps. <strong>Premier temps :</strong> laissez les erreurs apparaître, et comptez-les — <code>=NB.SI(D:D;"#N/A")</code> ne fonctionne pas, utilisez <code>=SOMMEPROD(--ESTNA(D2:D12000))</code> ou plus simplement <code>=NB.SI.ENS</code> sur une colonne de contrôle. <strong>Deuxième temps :</strong> isolez les valeurs non trouvées et regardez-les. <strong>Troisième temps :</strong> classez-les, car il y en a toujours plusieurs sortes, et seule cette classification permet de décider quoi faire.</p>
+      <div class="method-box">
+        <h4>⚙️ Méthode — rapprocher deux tables et traiter les non-correspondances</h4>
+        <ol>
+          <li><strong>Vérifiez d'abord l'unicité de la clé dans le référentiel</strong> : <code>=NB.SI(Referentiel[Code];[@Reference])</code>. Si cette formule renvoie parfois 2 ou plus, votre référentiel contient des doublons et toute fonction de recherche prendra la première occurrence, arbitrairement. Ce contrôle passe avant tout le reste, et il est presque toujours sauté.</li>
+          <li><strong>Écrivez la recherche avec un troisième cas explicite</strong> : <code>=RECHERCHEX([@Reference];Referentiel[Code];Referentiel[Prix_achat];"NON TROUVE")</code>. Le libellé est visible, comptable, filtrable — contrairement à une cellule vide.</li>
+          <li><strong>Comptez les non-correspondances</strong> et rapportez-les au total : 1 800 sur 11 990, soit 15 %. Un taux au-delà de 2 % signale un problème de format ou de périmètre, pas des cas isolés.</li>
+          <li><strong>Extrayez la liste des références non trouvées</strong>, distinctes, et regardez-les. Vingt secondes de lecture visuelle en disent plus que toute analyse : un préfixe manquant, une casse différente, un zéro initial disparu sautent aux yeux.</li>
+          <li><strong>Testez l'hypothèse de format</strong> avant de conclure à des références absentes : <code>=NB.SI(Referentiel[Code];SUPPRESPACE([@Reference]))</code>, puis avec MAJUSCULE, puis avec TEXTE pour les codes numériques. Chaque test qui remonte des correspondances vous dit quelle transformation appliquer.</li>
+          <li><strong>Documentez le reliquat réel</strong> — les références qui restent introuvables après normalisation — et remontez-le à l'émetteur du référentiel. C'est un livrable en soi, souvent plus utile que l'analyse demandée.</li>
+        </ol>
+      </div>
+      <div class="example-box">
+        <h4>📌 Exemple — les 1 800 non-correspondances, décomposées</h4>
+        <p>Extraction des références non trouvées, dédoublonnées : 214 codes distincts. Lecture visuelle immédiate, trois familles apparaissent.</p>
+        <p><em>Famille 1, 1 240 lignes (89 codes).</em> Les codes du fichier de commandes portent un espace de fin. SUPPRESPACE les fait toutes correspondre. Cause : un export d'un système tiers avec un champ de longueur fixe. Correction en une formule.</p>
+        <p><em>Famille 2, 480 lignes (98 codes).</em> Les codes sont numériques dans le référentiel et textuels dans les commandes, avec un zéro initial : « 0472 » contre 472. Une comparaison texte/nombre ne correspond jamais. Correction par <code>TEXTE([@Reference];"0000")</code> des deux côtés, ou conversion du référentiel.</p>
+        <p><em>Famille 3, 80 lignes (27 codes).</em> Références réellement absentes du référentiel. Vérification faite : ce sont des produits déréférencés en cours d'année, retirés du référentiel actuel mais vendus au premier trimestre. Aucune correction technique possible — c'est une décision métier : soit on obtient l'ancien référentiel, soit on exclut ces 80 lignes en le disant explicitement dans le rapport.</p>
+        <p>Sur 1 800 erreurs, 1 720 étaient des problèmes de format réglables en deux formules, et 80 étaient une vraie question. Un SIERREUR appliqué au départ aurait effacé les trois familles ensemble, et le rapport aurait annoncé une marge calculée sur 85 % des ventes en prétendant couvrir 100 %.</p>
+      </div>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — la recherche approximative activée sans le savoir</h4>
+        <p><code>=RECHERCHEV(A2;$G$2:$H$500;2)</code> — sans quatrième argument — active la recherche approximative. Excel suppose alors que la colonne de recherche est triée par ordre croissant et renvoie la <em>valeur immédiatement inférieure</em> à celle qu'on cherche s'il ne trouve pas exactement.</p>
+        <p>Concrètement : vous cherchez le prix du produit REF-1050, absent du référentiel. Au lieu d'une erreur, vous obtenez le prix de REF-1049. Aucun signal, aucune anomalie visible, un chiffre parfaitement plausible. Sur un référentiel non trié, les résultats deviennent en plus imprévisibles d'une ligne à l'autre.</p>
+        <p>La règle sans exception : le quatrième argument de RECHERCHEV s'écrit toujours, et vaut FAUX. Avec RECHERCHEX, le comportement par défaut est la correspondance exacte, ce qui est une des raisons pour lesquelles elle est préférable. Vérifier ce point est le premier réflexe à avoir en reprenant le fichier de quelqu'un d'autre.</p>
+      </div>
+
+      <h2>3. Compter et sommer sous condition</h2>
+      <p>Une fois les tables rapprochées, l'essentiel du calcul consiste à agréger sous conditions : combien de commandes de plus de 5 000 € dans le Sud-Ouest au quatrième trimestre, quel montant total sur la catégorie Mobilier hors export, quelle moyenne par client actif. Trois familles de fonctions couvrent ces besoins.</p>
+      <p><strong>Les fonctions à conditions multiples</strong> — <code>NB.SI.ENS</code>, <code>SOMME.SI.ENS</code>, <code>MOYENNE.SI.ENS</code> — sont celles à employer par défaut. Elles acceptent jusqu'à 127 couples plage/critère, se lisent de gauche à droite, et fonctionnent parfaitement avec les références de tableau structuré. Notez l'inversion d'ordre des arguments : <code>SOMME.SI.ENS</code> commence par la plage à sommer, alors que <code>NB.SI.ENS</code> commence directement par la première plage de critère. Cette incohérence de conception est la première cause d'erreur de syntaxe sur ces fonctions.</p>
+      <p><strong>Les critères</strong> s'écrivent entre guillemets pour tout ce qui n'est pas une simple égalité : <code>"&gt;5000"</code>, <code>"&lt;&gt;Export"</code>, <code>"&gt;="&amp;DATE(2025;10;1)</code>. Ce dernier cas — la concaténation d'un opérateur et d'une valeur calculée — est la construction que tout le monde cherche un jour et qu'il faut avoir vue une fois pour la retrouver.</p>
+      <p><strong>SOMMEPROD</strong> est la fonction de secours pour tout ce que les précédentes ne savent pas faire : conditions portant sur un calcul plutôt que sur une colonne, produits croisés, comptages sur des conditions combinées par OU. <code>=SOMMEPROD((Ventes[Region]="Sud-Ouest")*(Ventes[Montant]&gt;5000))</code> compte les lignes remplissant les deux conditions ; multiplier par une colonne au lieu de compter donne la somme. Elle est plus lente sur de très gros volumes et moins lisible, mais elle ne bute sur presque rien.</p>
+      <p>Un point de méthode compte davantage que le choix de la fonction : <strong>ne codez jamais un critère en dur dans la formule</strong>. Écrivez le seuil dans une cellule et référencez-la. <code>SOMME.SI.ENS(Ventes[Montant];Ventes[Montant];"&gt;"&amp;$B$1)</code> permet de changer le seuil en un endroit ; le même seuil écrit dans quarante formules garantit qu'une analyse de sensibilité sera impossible et qu'une mise à jour en oubliera trois.</p>
+      <div class="example-box">
+        <h4>📌 Exemple — quatre questions, quatre formules</h4>
+        <p><em>« Combien de commandes dans le Sud-Ouest au quatrième trimestre ? »</em> — <code>=NB.SI.ENS(Ventes[Region];"Sud-Ouest";Ventes[Date];"&gt;="&amp;DATE(2025;10;1);Ventes[Date];"&lt;"&amp;DATE(2026;1;1))</code>. Notez la borne haute écrite en strictement inférieur au 1er janvier plutôt qu'en inférieur ou égal au 31 décembre : cela évite le piège des dates comportant une heure, où le 31/12 à 14 h serait exclu.</p>
+        <p><em>« Quel chiffre d'affaires hors export ? »</em> — <code>=SOMME.SI.ENS(Ventes[Montant];Ventes[Region];"&lt;&gt;Export")</code>. L'opérateur de différence s'écrit en toutes lettres dans les guillemets.</p>
+        <p><em>« Quel panier moyen sur les clients ayant commandé plus de trois fois ? »</em> — impossible en une seule fonction conditionnelle, parce que la condition porte sur un calcul et non sur une colonne. Créez une colonne <code>=NB.SI(Ventes[Client];[@Client])</code>, puis appliquez MOYENNE.SI.ENS dessus. <strong>Créer une colonne intermédiaire est presque toujours préférable à une formule ingénieuse</strong> : elle est vérifiable ligne à ligne, et le collègue qui reprendra le fichier la comprendra.</p>
+        <p><em>« Combien de commandes dans le Sud-Ouest OU dans l'Est ? »</em> — les fonctions .SI.ENS combinent leurs critères par ET uniquement. Deux solutions : additionner deux NB.SI.ENS, ou <code>=SOMMEPROD((Ventes[Region]="Sud-Ouest")+(Ventes[Region]="Est"))</code>, le signe plus jouant le rôle du OU. Attention à l'addition de deux NB.SI.ENS quand les conditions ne s'excluent pas : vous compteriez deux fois les lignes remplissant les deux.</p>
+      </div>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — les critères textuels qui ne correspondent à rien</h4>
+        <p>Un <code>NB.SI.ENS</code> qui renvoie obstinément zéro alors que les valeurs sont visibles à l'écran a presque toujours l'une de ces trois causes, dans cet ordre de fréquence : un espace de fin dans les données, une différence de type entre le critère et la colonne — un code écrit 472 dans la formule et "0472" dans la table — ou un caractère spécial, insécable ou apostrophe typographique, différent de celui que vous avez tapé.</p>
+        <p>Le test de diagnostic tient en une formule sur une ligne dont vous êtes sûr : <code>=([@Region]="Sud-Ouest")</code>. Si elle renvoie FAUX alors que la cellule affiche « Sud-Ouest », le problème est dans la donnée et non dans votre critère. <code>=NBCAR([@Region])</code> tranche définitivement : neuf caractères attendus, dix trouvés, il y a un espace.</p>
+        <p>Notez aussi que les fonctions .SI.ENS ne distinguent pas les majuscules des minuscules et acceptent les caractères génériques : un critère <code>"Sud*"</code> capturera Sud et Sud-Ouest ensemble. Utile quand on le veut, source de sur-comptage quand on l'ignore.</p>
+      </div>
+
+      <h2>4. Décider dans une formule, et gérer les erreurs honnêtement</h2>
+      <p>La fonction <code>SI</code> est la première que tout le monde apprend et la plus souvent mal employée. Le problème n'est pas la fonction, c'est son imbrication : <code>=SI(A2&gt;100;"A";SI(A2&gt;50;"B";SI(A2&gt;20;"C";"D")))</code> est déjà à la limite du lisible, et les formules à sept niveaux que l'on trouve dans les fichiers d'entreprise sont impossibles à vérifier et à modifier.</p>
+      <p>Trois solutions existent, par ordre de préférence.</p>
+      <p><strong>Une table de correspondance et une recherche.</strong> Placez les seuils et les libellés dans un petit tableau, et allez y chercher la valeur. La règle devient visible, modifiable sans toucher à une formule, et documentée par nature. C'est la bonne réponse dans la grande majorité des cas, et elle est presque toujours écartée à tort parce qu'elle demande de créer un objet supplémentaire.</p>
+      <p><strong><code>SI.CONDITIONS</code></strong> (Microsoft 365 et Excel 2019) évalue une suite de conditions et renvoie la première vraie : <code>=SI.CONDITIONS(A2&gt;100;"A";A2&gt;50;"B";A2&gt;20;"C";VRAI;"D")</code>. Elle se lit ligne à ligne, la dernière paire <code>VRAI;"D"</code> jouant le rôle du cas par défaut. Nettement supérieure à l'imbrication dès trois conditions.</p>
+      <p><strong>Les opérateurs logiques</strong> <code>ET</code> et <code>OU</code> à l'intérieur d'un SI restent utiles pour une condition composée unique : <code>=SI(ET([@Montant]&gt;5000;[@Region]&lt;&gt;"Export");"Prioritaire";"Standard")</code>. Au-delà de deux conditions combinées, revenez à la table de correspondance.</p>
+      <p>Reste la question des erreurs. <code>SIERREUR</code> et <code>SI.NON.DISP</code> capturent respectivement toutes les erreurs et les seules #N/A. Leur emploi légitime est étroit et mérite d'être formulé précisément : <strong>on n'utilise SIERREUR qu'une fois qu'on a compris et compté les erreurs, et seulement pour celles dont on a établi qu'elles sont normales</strong>.</p>
+      <p>Une division par zéro dans un calcul de taux d'évolution quand la période précédente vaut zéro est une erreur normale : <code>SIERREUR</code> avec un libellé « n. s. » — non significatif — est le bon traitement. Un #N/A de rapprochement n'est jamais normal tant qu'on ne l'a pas expliqué. Et <code>SI.NON.DISP</code> est préférable à <code>SIERREUR</code> dans les rapprochements, précisément parce qu'elle ne masque que la non-correspondance et laisse remonter une erreur de syntaxe ou de référence.</p>
+      <div class="method-box">
+        <h4>⚙️ Méthode — remplacer une cascade de SI par une table de correspondance</h4>
+        <p>Exemple : attribuer une catégorie de remise selon le montant. Cinq tranches, donc une formule à cinq niveaux d'imbrication.</p>
+        <ol>
+          <li><strong>Créez un petit tableau à deux colonnes</strong> dans un onglet de paramètres : borne inférieure de tranche et libellé. Les bornes sont triées par ordre croissant, la première valant 0.</li>
+          <li><strong>Convertissez-le en tableau structuré</strong> et nommez-le <em>Tranches</em>. Les seuils deviennent des données, et non plus du code enfoui dans une formule.</li>
+          <li><strong>Écrivez la recherche par tranche</strong> : <code>=RECHERCHEX([@Montant];Tranches[Borne];Tranches[Libelle];"hors tranche";-1)</code>. Le dernier argument, -1, demande la correspondance exacte ou immédiatement inférieure — c'est le seul cas où la recherche approximative est légitime, parce qu'elle est ici demandée explicitement et non subie par défaut.</li>
+          <li><strong>Testez les bornes</strong>, et uniquement les bornes : la valeur exacte du seuil, une unité en dessous, une unité au-dessus. Une erreur de tranche se loge toujours sur une borne, jamais au milieu d'un intervalle.</li>
+          <li><strong>Testez les cas limites</strong> : zéro, une valeur négative, une cellule vide. Chacun doit donner un résultat que vous avez décidé, et non un résultat que vous découvrez.</li>
+          <li><strong>Documentez la table</strong> d'une ligne : qui a fixé ces seuils, quand, et selon quelle règle. Le jour où la direction commerciale changera un seuil, la modification prendra dix secondes au lieu d'une relecture de formule.</li>
+        </ol>
+      </div>
+      <div class="example-box">
+        <h4>📌 Exemple — SIERREUR bien et mal employé</h4>
+        <p><em>Mal employé :</em> <code>=SIERREUR(RECHERCHEX([@Ref];Referentiel[Code];Referentiel[Prix]);0)</code>. Les 1 800 lignes non trouvées reçoivent un prix d'achat de zéro. La marge calculée sur ces lignes devient égale au chiffre d'affaires, soit 100 % de marge. Le total de marge est surévalué, le tableau est impeccable, et rien n'attire l'attention. C'est la forme la plus courante du chiffre faux en entreprise.</p>
+        <p><em>Mal employé autrement :</em> le même avec <code>""</code> à la place de zéro. Les lignes deviennent vides, la somme les ignore, et l'analyse porte sur 85 % du chiffre d'affaires en prétendant le couvrir en totalité. Moins spectaculaire que la version précédente, et plus difficile à détecter.</p>
+        <p><em>Bien employé :</em> <code>=SI.NON.DISP(RECHERCHEX([@Ref];Referentiel[Code];Referentiel[Prix]);"A RAPPROCHER")</code>. Les lignes concernées portent un libellé visible, filtrable et comptable. Le tableau de bord affiche le taux de couverture à côté de chaque total, et une note indique que la marge porte sur 85 % du chiffre d'affaires. Le fichier reste utilisable et l'analyse reste honnête — c'est le seul usage défendable.</p>
+        <p>La règle en une phrase : <strong>SIERREUR ne doit jamais transformer une donnée manquante en donnée neutre.</strong> Zéro n'est pas l'absence de valeur, et une cellule vide dans une colonne de calcul est une décision, pas un vide.</p>
+      </div>
+
+      <h2>5. Dates et textes : les deux fabriques de résultats faux</h2>
+      <p>Deux types de données produisent à eux seuls la majorité des résultats faux, parce qu'ils ont l'air corrects à l'écran tout en se comportant autrement dans les calculs.</p>
+      <p><strong>Les dates.</strong> Une date, pour Excel, est un nombre : le nombre de jours écoulés depuis le 1er janvier 1900. Le 4 septembre 2026 vaut 46 265. Tout ce qui découle de cette représentation compte. Une différence entre deux dates s'obtient par une simple soustraction et donne un nombre de jours. Une date accompagnée d'une heure est un nombre décimal, et c'est la source du piège de comparaison le plus courant : <code>[@Date]&lt;=DATE(2025;12;31)</code> exclut toutes les lignes du 31 décembre après minuit. La borne haute d'un intervalle s'écrit donc toujours en <em>strictement inférieur au jour suivant</em>.</p>
+      <p>Une date qui refuse de se comporter comme telle est une date stockée en texte, et le symptôme reste celui du module 1 : l'alignement à gauche. Le test définitif : <code>=ESTNUM([@Date])</code>. Si la réponse est FAUX, aucun calcul de date ne fonctionnera, aucun regroupement par mois dans un tableau croisé dynamique ne sera possible, et les tris seront alphabétiques — le 10 janvier avant le 2 février.</p>
+      <p>Les fonctions utiles sont peu nombreuses : <code>ANNEE</code>, <code>MOIS</code>, <code>JOUR</code> pour extraire ; <code>DATE(annee;mois;jour)</code> pour construire ; <code>FIN.MOIS</code> pour obtenir la fin du mois ; <code>NB.JOURS.OUVRES</code> pour compter des jours ouvrés en excluant une liste de jours fériés. Pour regrouper par mois, la bonne pratique est de créer une colonne <code>=DATE(ANNEE([@Date]);MOIS([@Date]);1)</code>, qui donne le premier jour du mois : cette colonne reste une vraie date, se trie correctement, et se lit avec le format d'affichage de votre choix. Une colonne texte « septembre 2026 » trierait le mois d'août avant avril.</p>
+      <p><strong>Les textes.</strong> Les problèmes viennent des caractères invisibles. <code>SUPPRESPACE</code> retire les espaces superflus, <code>EPURAGE</code> les caractères de contrôle non imprimables issus des exports, <code>SUBSTITUE</code> un caractère précis — dont l'espace insécable, fréquent dans les copier-coller depuis le web, et invisible à l'œil comme au SUPPRESPACE.</p>
+      <p>Pour découper : <code>GAUCHE</code>, <code>DROITE</code>, <code>STXT</code> combinés à <code>TROUVE</code> ou <code>CHERCHE</code> — le premier étant sensible à la casse, le second non. Sur Microsoft 365, <code>TEXTE.AVANT</code> et <code>TEXTE.APRES</code> font le même travail en une écriture lisible. Pour assembler : l'opérateur <code>&amp;</code>, ou <code>JOINDRE.TEXTE</code> qui accepte un séparateur et ignore les cellules vides.</p>
+      <p>Une dernière fonction mérite d'être connue parce qu'elle résout un problème récurrent : <code>TEXTE(valeur;format)</code> convertit un nombre en texte selon un format donné. <code>TEXTE([@Ref];"0000")</code> transforme 472 en "0472" et permet de rapprocher deux systèmes dont l'un a perdu les zéros initiaux — la famille 2 des non-correspondances de l'étude de cas.</p>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — le nettoyage de texte fait sur place</h4>
+        <p>La tentation est de corriger une colonne de texte directement, en écrivant la formule de nettoyage dans la colonne elle-même. Excel refuse — une cellule ne peut pas se référencer — ou, si vous passez par une colonne temporaire puis un copier-coller mal fait, vous détruisez la donnée d'origine.</p>
+        <p>Le geste correct est en trois temps, toujours le même : colonne de travail à côté avec la formule, contrôle visuel sur quelques lignes et vérification du nombre de valeurs distinctes avant et après, puis collage spécial en valeurs par-dessus la colonne d'origine — et seulement à ce moment, suppression de la colonne de travail.</p>
+        <p>Le contrôle du nombre de valeurs distinctes est le point clé : c'est lui qui vous dit si le nettoyage a fait ce que vous attendiez. Passer de onze à six modalités est le résultat espéré ; passer de onze à trois signifie que votre formule a fusionné des valeurs qui devaient rester distinctes.</p>
+      </div>
+      <div class="example-box">
+        <h4>📌 Exemple — trois anomalies de date, trois diagnostics</h4>
+        <p><em>Le tableau croisé dynamique refuse de regrouper par mois.</em> Diagnostic immédiat : les dates sont du texte. <code>ESTNUM</code> le confirme. Correction par Données &gt; Convertir en précisant l'ordre JMA.</p>
+        <p><em>Un filtre « décembre 2025 » ne remonte rien alors que des commandes de décembre existent.</em> Deux causes possibles. Soit les dates portent une composante horaire et la borne haute est mal écrite — voir plus haut. Soit l'ordre jour-mois a été inversé à l'import : le 03/12 est devenu le 12 mars. Le test qui tranche : cherchez une date dont le jour dépasse 12, par exemple le 25/12. Si elle est correcte alors que le 03/12 ne l'est pas, l'inversion est confirmée — Excel n'a pu inverser que les dates ambiguës.</p>
+        <p><em>Un calcul d'ancienneté donne des résultats négatifs sur quelques lignes.</em> Cause presque certaine : une date d'entrée postérieure à la date de sortie, donc une erreur de saisie dans la source. Ne la corrigez pas d'office. Isolez ces lignes, comptez-les, et remontez-les — une date incohérente signale souvent un problème de processus en amont, qui produira d'autres erreurs le mois prochain.</p>
+      </div>
+
+      <div class="case-box">
+        <h3>🔍 Étude de cas — Calculer la marge quand 15 % des lignes ne se rapprochent pas</h3>
+        <p>Reprenons la mise en situation : 11 990 lignes de commandes, un référentiel produits, une marge à calculer par catégorie. Voici le traitement complet.</p>
+        <p><strong>Étape 1 — contrôler le référentiel avant de s'en servir.</strong> Avant toute recherche, deux vérifications sur le référentiel lui-même. Unicité de la clé : <code>=NB.SI(Referentiel[Code];[@Code])</code> recopiée sur le référentiel, puis un maximum. Résultat : 3. Le référentiel contient des doublons — quatorze produits y figurent deux ou trois fois, avec des prix d'achat différents correspondant à des dates d'application successives. Sans ce contrôle, la recherche aurait pris la première occurrence de chaque, arbitrairement, et personne ne l'aurait su.</p>
+        <p>Décision, prise avec les achats : on retient le prix le plus récent, en conservant les autres dans un onglet d'historique. Le référentiel de travail est réduit à une ligne par code. Cet arbitrage est noté au journal.</p>
+        <p><strong>Étape 2 — écrire le rapprochement avec un cas de non-correspondance explicite.</strong> <code>=SI.NON.DISP(RECHERCHEX([@Reference];Referentiel[Code];Referentiel[Prix_achat]);"NON TROUVE")</code>. Références de tableau structuré, donc aucun risque de décalage à la recopie. Une colonne de contrôle en regard : <code>=SI([@Prix_achat]="NON TROUVE";1;0)</code>, dont la somme donne directement le nombre de non-correspondances.</p>
+        <p><strong>Étape 3 — mesurer avant d'interpréter.</strong> 1 800 lignes non rapprochées, soit 15,0 % des lignes et 11,3 % du chiffre d'affaires. L'écart entre ces deux pourcentages est déjà une information : les lignes non rapprochées portent des montants inférieurs à la moyenne, ce qui oriente vers des produits d'entrée de gamme plutôt que vers un incident aléatoire.</p>
+        <p><strong>Étape 4 — classer les non-correspondances.</strong> Extraction des références distinctes non trouvées, 214 codes, et lecture visuelle. Les trois familles décrites plus haut apparaissent en quelques minutes : espaces de fin (89 codes, 1 240 lignes), zéros initiaux perdus (98 codes, 480 lignes), produits déréférencés (27 codes, 80 lignes).</p>
+        <p>Le test qui confirme chaque hypothèse est le même à chaque fois : appliquer la transformation candidate et compter combien de correspondances elle rétablit. <code>=NB.SI(Referentiel[Code];SUPPRESPACE([@Reference]))</code> remonte 89 codes ; <code>=NB.SI(Referentiel[Code];TEXTE([@Reference];"0000"))</code> en remonte 98. Les 27 restants ne répondent à aucune transformation.</p>
+        <p><strong>Étape 5 — corriger en amont, pas dans la formule de recherche.</strong> Point de méthode important : on ne complexifie pas la RECHERCHEX pour absorber les deux formats. On crée une colonne <em>Reference_normalisee</em> qui applique SUPPRESPACE puis le formatage à quatre chiffres, et la recherche se fait sur elle. La transformation devient visible, vérifiable ligne à ligne, et réutilisable le mois prochain. Une formule de recherche qui contient trois fonctions de nettoyage imbriquées est indébogable.</p>
+        <p>Après normalisation : 80 lignes non rapprochées sur 11 990, soit 0,7 %.</p>
+        <p><strong>Étape 6 — traiter le reliquat par une décision explicite.</strong> Les 27 produits déréférencés représentent 80 lignes et 0,4 % du chiffre d'affaires. Trois options sont posées : récupérer l'ancien référentiel auprès des achats — deux jours d'attente ; appliquer un taux de marge moyen de la catégorie — approximation acceptable à ce volume ; exclure ces lignes du calcul de marge en le mentionnant.</p>
+        <p>Option retenue : exclusion, avec mention. À 0,4 % du chiffre d'affaires, l'approximation n'aurait rien changé au résultat mais aurait rendu le chiffre indéfendable en réunion — quelqu'un aurait fini par demander comment ces lignes avaient été traitées, et « on a mis une moyenne » est une réponse qui fragilise l'ensemble d'une analyse. L'exclusion assumée est plus solide, à condition d'être écrite.</p>
+        <p><strong>Étape 7 — calculer la marge, avec son taux de couverture.</strong> Colonne <code>=SI(ESTNUM([@Prix_achat]);([@Prix_vente]-[@Prix_achat])*[@Quantite];"")</code>, puis agrégation par catégorie avec <code>SOMME.SI.ENS</code>. À côté de chaque ligne du tableau final, une colonne « couverture » : <code>=SOMME.SI.ENS(Ventes[CA];Ventes[Categorie];[@Categorie];Ventes[Prix_achat];"&lt;&gt;NON TROUVE")/SOMME.SI.ENS(Ventes[CA];Ventes[Categorie];[@Categorie])</code>.</p>
+        <p>Ce dernier calcul révèle ce que le total aurait caché : la couverture est de 99,8 % sur cinq catégories et de 94 % sur la catégorie Accessoires, qui concentrait les produits déréférencés. La marge affichée sur Accessoires est donc légèrement moins fiable que les autres, et cela doit être dit.</p>
+        <p><strong>Résultat.</strong> Marge globale calculée sur 99,6 % du chiffre d'affaires, écart de couverture identifié et documenté, deux formules de normalisation réutilisables le mois suivant, et un signalement aux achats sur les doublons du référentiel — qui s'est révélé être le livrable le plus utile de tout le travail, puisqu'il a conduit à corriger la source.</p>
+        <p><strong>La leçon transposable.</strong> Un rapprochement ne se juge pas au nombre d'erreurs affichées mais à la capacité d'expliquer chacune d'elles. Les 1 800 #N/A du départ n'étaient pas un problème : c'était le seul endroit du fichier qui disait la vérité sur son état. Les masquer aurait produit un tableau plus propre et une analyse fausse — et c'est un arbitrage qu'on vous proposera, poliment, à peu près chaque fois que vous montrerez une colonne d'erreurs à quelqu'un.</p>
+      </div>
+
+      <div class="checklist-box">
+        <h3>📋 Checklist — écrire des formules qui restent justes</h3>
+        <ul class="checklist">
+          <li>Chaque référence de plage fixe est figée par F4, ou remplacée par une référence de tableau structuré</li>
+          <li>La formule a été vérifiée à la main sur la première ligne avant toute recopie</li>
+          <li>Trois lignes ont été contrôlées après recopie, dont la dernière de la plage</li>
+          <li>Aucune RECHERCHEV n'est écrite sans son quatrième argument à FAUX</li>
+          <li>L'unicité de la clé du référentiel a été vérifiée avant tout rapprochement</li>
+          <li>La fonction de recherche prévoit un cas de non-correspondance explicite et lisible</li>
+          <li>Le nombre de non-correspondances est compté et rapporté au total des lignes</li>
+          <li>Les références non trouvées ont été extraites, dédoublonnées et lues</li>
+          <li>Chaque hypothèse de format a été testée par un comptage avant d'être appliquée</li>
+          <li>Les transformations de clé sont faites dans une colonne dédiée, pas dans la formule de recherche</li>
+          <li>Le reliquat réel de non-correspondances fait l'objet d'une décision écrite</li>
+          <li>Aucun SIERREUR ne transforme une donnée manquante en zéro ou en cellule vide</li>
+          <li>SI.NON.DISP est préféré à SIERREUR sur les rapprochements</li>
+          <li>Aucun seuil n'est codé en dur dans une formule : il vit dans une cellule référencée</li>
+          <li>Les cascades de plus de trois SI sont remplacées par une table de correspondance</li>
+          <li>Les bornes de tranche ont été testées à la valeur exacte, en dessous et au-dessus</li>
+          <li>Les bornes hautes de période sont écrites en strictement inférieur au jour suivant</li>
+          <li>ESTNUM a confirmé que les colonnes de date sont bien des dates</li>
+          <li>Le regroupement mensuel passe par une vraie date au premier du mois, pas par un libellé texte</li>
+          <li>Le taux de couverture est affiché à côté de tout total calculé sur données incomplètes</li>
+        </ul>
+      </div>
+
+      <div class="glossary-box">
+        <h3>📖 Glossaire du module</h3>
+        <dl>
+          <dt>Référence relative</dt>
+          <dd>Référence qui se décale à la recopie (B2). Comportement voulu pour les colonnes de la même ligne.</dd>
+          <dt>Référence absolue</dt>
+          <dd>Référence figée par des dollars ($B$2), qui ne bouge pas à la recopie. Obligatoire pour les plages de recherche et les seuils.</dd>
+          <dt>Référence mixte</dt>
+          <dd>Référence dont seule la ligne ou la colonne est figée ($B2 ou B$2). Nécessaire pour recopier dans les deux directions.</dd>
+          <dt>Décalage silencieux</dt>
+          <dd>Glissement d'une plage relative lors d'une recopie. Produit des #N/A et, plus dangereux, des correspondances erronées sans aucune alerte.</dd>
+          <dt>RECHERCHEX</dt>
+          <dd>Fonction de recherche moderne, à correspondance exacte par défaut, avec un argument dédié à la non-correspondance. À préférer systématiquement.</dd>
+          <dt>INDEX / EQUIV</dt>
+          <dd>Combinaison classique de recherche, indépendante des numéros de colonne et disponible sur toutes les versions d'Excel.</dd>
+          <dt>Recherche approximative</dt>
+          <dd>Comportement par défaut de RECHERCHEV sans quatrième argument : renvoie la valeur immédiatement inférieure au lieu d'une erreur. Cause majeure de chiffres faux.</dd>
+          <dt>Non-correspondance</dt>
+          <dd>Ligne dont la clé n'a pas été trouvée dans la table cible. Information à comprendre et à classer, jamais à masquer.</dd>
+          <dt>Taux de couverture</dt>
+          <dd>Part du volume réellement couverte par un calcul après exclusion des non-correspondances. À afficher à côté de tout total partiel.</dd>
+          <dt>SOMME.SI.ENS</dt>
+          <dd>Somme conditionnelle multicritère. Commence par la plage à sommer, contrairement à NB.SI.ENS — première cause d'erreur de syntaxe.</dd>
+          <dt>SOMMEPROD</dt>
+          <dd>Fonction de secours pour les conditions que les fonctions .SI.ENS ne savent pas exprimer, notamment les combinaisons par OU.</dd>
+          <dt>SI.CONDITIONS</dt>
+          <dd>Fonction évaluant une suite de conditions et renvoyant la première vraie. Remplace avantageusement les SI imbriqués dès trois cas.</dd>
+          <dt>SI.NON.DISP</dt>
+          <dd>Capture uniquement les erreurs #N/A et laisse remonter les autres. À préférer à SIERREUR dans les rapprochements.</dd>
+          <dt>TEXTE(valeur;format)</dt>
+          <dd>Convertit un nombre en texte selon un format donné. Permet de rapprocher deux systèmes dont l'un a perdu les zéros initiaux.</dd>
+        </dl>
+      </div>
+
+      <div class="takeaway-box">
+        <h3>✅ À retenir</h3>
+        <ul>
+          <li>Une formule contient des chemins vers des cellules, pas des cellules : leur mode de référence décide de ce qui se passe à la recopie.</li>
+          <li>F4 fige une référence en une seconde ; c'est le raccourci au meilleur rendement de tout Excel.</li>
+          <li>Le décalage silencieux produit des valeurs plausibles et fausses : contrôlez toujours la dernière ligne d'une colonne recopiée, pas seulement la première.</li>
+          <li>Les références de tableau structuré suppriment le problème du décalage au lieu de le gérer.</li>
+          <li>RECHERCHEX si votre version le permet, INDEX/EQUIV sinon, RECHERCHEV jamais.</li>
+          <li>Une RECHERCHEV sans quatrième argument active la recherche approximative et renvoie le prix du produit d'à côté, sans aucun signal.</li>
+          <li>Vérifiez l'unicité de la clé du référentiel avant tout rapprochement : un doublon fait prendre la première occurrence, arbitrairement.</li>
+          <li>Les non-correspondances sont la partie la plus informative d'un rapprochement : comptez-les, extrayez-les, classez-les.</li>
+          <li>Un taux de non-correspondance au-delà de 2 % signale un problème de format ou de périmètre, pas des cas isolés.</li>
+          <li>Normalisez les clés dans une colonne dédiée, jamais à l'intérieur de la formule de recherche.</li>
+          <li>SIERREUR ne doit jamais transformer une donnée manquante en zéro ou en vide : zéro n'est pas l'absence de valeur.</li>
+          <li>Affichez le taux de couverture à côté de tout total calculé sur des données incomplètes.</li>
+          <li>Ne codez aucun seuil en dur : un seuil vit dans une cellule, sinon aucune analyse de sensibilité n'est possible.</li>
+          <li>Une cascade de plus de trois SI se remplace par une table de correspondance, qui rend la règle visible et modifiable.</li>
+          <li>Créer une colonne intermédiaire vaut presque toujours mieux qu'une formule ingénieuse : elle se vérifie ligne à ligne.</li>
+          <li>La borne haute d'une période s'écrit en strictement inférieur au jour suivant, sinon les lignes horodatées du dernier jour disparaissent.</li>
+          <li>Un NB.SI.ENS qui renvoie zéro sur des valeurs visibles a presque toujours pour cause un espace de fin ou une différence de type.</li>
+          <li>Pour regrouper par mois, créez une vraie date au premier du mois : un libellé texte trierait août avant avril.</li>
+        </ul>
+      </div>
+
+      <h2 class="exercises-title">Exercices d'application</h2>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 1 — Diagnostiquer trois formules défaillantes <span class="badge badge-neutral">Débutant</span></h3>
+        <p>Trois formules issues d'un fichier réel produisent des résultats incorrects. Pour chacune, identifiez la cause, décrivez le symptôme observé, et proposez la correction.</p>
+        <p><strong>A.</strong> En D2, recopiée jusqu'à D8000 : <code>=RECHERCHEV(A2;Referentiel!A2:C500;3)</code>. Les 400 premières lignes semblent correctes, ensuite les résultats deviennent incohérents puis passent en #N/A.</p>
+        <p><strong>B.</strong> <code>=NB.SI.ENS(Ventes[Region];"Sud-Ouest";Ventes[Date];"&gt;=01/10/2025")</code> renvoie 0 alors que le Sud-Ouest a bien des ventes au quatrième trimestre.</p>
+        <p><strong>C.</strong> <code>=SIERREUR(RECHERCHEX([@Client];Clients[Nom];Clients[Segment]);"")</code>. Le tableau est impeccable, mais le total du segment « Grands comptes » est très inférieur à ce que le service commercial annonce.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>A — deux fautes cumulées, dont une invisible.</strong></p>
+            <p><em>Première faute, le décalage :</em> la plage <code>Referentiel!A2:C500</code> est relative. En D3 elle devient A3:C501, en D500 elle devient A500:C998. Symptôme exactement conforme à l'observation : les premières lignes sont correctes tant que la valeur cherchée est encore dans la fenêtre, puis les résultats deviennent faux à mesure que la fenêtre glisse, puis passent en #N/A quand elle a quitté le référentiel. <em>Correction :</em> <code>$A$2:$C$500</code>, ou mieux, une référence de tableau structuré.</p>
+            <p><em>Seconde faute, la plus dangereuse :</em> le quatrième argument est absent, donc la recherche est approximative. Elle ne renvoie pas d'erreur quand elle ne trouve pas : elle renvoie la valeur immédiatement inférieure. C'est ce qui explique les « résultats incohérents » de la zone intermédiaire — sans cette recherche approximative, on serait passé directement des bonnes valeurs aux #N/A, sans zone floue au milieu. <em>Correction :</em> ajouter <code>;FAUX</code>.</p>
+            <p><em>Troisième point, structurel :</em> le <code>3</code> désigne la troisième colonne du référentiel. Que quelqu'un insère une colonne dans l'onglet Referentiel, et la formule ramènera silencieusement la mauvaise donnée. <em>Réécriture recommandée :</em> <code>=RECHERCHEX([@Reference];Referentiel[Code];Referentiel[Prix];"NON TROUVE")</code>, qui supprime les trois problèmes à la fois.</p>
+            <p><strong>B — un critère de date écrit comme du texte.</strong></p>
+            <p>Le critère <code>"&gt;=01/10/2025"</code> est une chaîne de caractères. Excel doit l'interpréter, et selon les paramètres régionaux il lira soit le 1er octobre, soit le 10 janvier, soit rien du tout. Comparé à une colonne de dates qui sont des nombres, le résultat est imprévisible et généralement nul.</p>
+            <p><em>Correction :</em> <code>=NB.SI.ENS(Ventes[Region];"Sud-Ouest";Ventes[Date];"&gt;="&amp;DATE(2025;10;1);Ventes[Date];"&lt;"&amp;DATE(2026;1;1))</code>. Deux choses ont changé. La date est construite par la fonction DATE, donc non ambiguë quels que soient les paramètres régionaux. Et une borne haute a été ajoutée : sans elle, la formule aurait compté tout le quatrième trimestre <em>et</em> toutes les années suivantes — erreur qui ne se voit pas tant que le fichier ne contient qu'une année, et qui apparaît brutalement l'année suivante.</p>
+            <p><em>Vérification à faire avant de conclure :</em> si le résultat reste à zéro après correction, testez <code>=ESTNUM(Ventes[Date])</code> sur quelques lignes. Une colonne de dates en texte donnerait le même symptôme et exige une conversion, pas une réécriture de formule.</p>
+            <p><strong>C — le cas le plus grave, parce qu'il ne produit aucun symptôme visible.</strong></p>
+            <p>Le <code>SIERREUR(...;"")</code> attribue une chaîne vide à tout client non trouvé dans la table Clients. Ces lignes n'appartiennent alors à aucun segment : elles disparaissent de tous les comptages par segment tout en restant dans le total général. D'où l'écart constaté avec le service commercial, qui compte les clients qu'il connaît, pas ceux que la table contient.</p>
+            <p><em>Le diagnostic :</em> comptez les vides — <code>=NB.SI(Ventes[Segment];"")</code>. Si le résultat est significatif, vous tenez l'explication complète de l'écart.</p>
+            <p><em>La correction en trois temps.</em> D'abord, remplacer par <code>=SI.NON.DISP(RECHERCHEX(...);"NON RAPPROCHE")</code>, ce qui rend les lignes visibles et comptables. Ensuite, extraire les noms de clients non trouvés et les examiner : dans neuf cas sur dix il s'agit de variantes d'écriture — « SARL Dupont » contre « Dupont SARL », raison sociale contre nom commercial. Enfin, décider et documenter : soit on construit une table de correspondance des variantes, soit on rapproche sur un identifiant client plutôt que sur un nom, ce qui est la vraie solution de fond.</p>
+            <p><strong>Ce que les trois cas ont en commun.</strong> Aucun ne produit de message d'erreur. Le premier donne des valeurs plausibles, le deuxième un zéro qu'on peut prendre pour une réalité, le troisième un tableau impeccable. C'est la caractéristique des erreurs de formule qui comptent : elles ne ressemblent pas à des erreurs. La seule protection est le contrôle systématique — vérifier la dernière ligne, tester une valeur connue, compter les vides — et non l'attention portée au moment de l'écriture.</p>
+          </div>
+        </details>
+      </div>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 2 — Construire un rapprochement contrôlé <span class="badge badge-neutral">Intermédiaire</span></h3>
+        <p>Vous recevez deux fichiers : 8 400 lignes de tickets d'assistance avec un code client, et un référentiel de 1 200 clients avec leur segment et leur commercial. On vous demande le nombre de tickets et le délai moyen de résolution par segment.</p>
+        <p>Décrivez votre démarche complète, de la première ouverture au tableau final, en précisant les contrôles que vous posez à chaque étape et ce que vous faites de ce qu'ils révèlent.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>Étape 0 — la question avant les fichiers.</strong> « Délai moyen de résolution » n'est pas défini. Délai entre l'ouverture et la clôture ? En jours calendaires ou ouvrés ? Les tickets non clôturés sont-ils exclus, ou comptés jusqu'à aujourd'hui ? Ces trois choix peuvent faire varier le résultat du simple au double, et aucun n'est plus juste que l'autre dans l'absolu. Posez la question, notez la réponse. Une analyse qui commence par une définition écrite ne se fait jamais contester sur ses fondations.</p>
+            <p><strong>Étape 1 — contrôler le référentiel client.</strong> Unicité du code client : <code>=NB.SI(Clients[Code];[@Code])</code>, maximum attendu 1. Un code en double avec deux segments différents rendrait tout le tableau final faux, et de façon invisible. Contrôle du nombre de segments distincts, comparé à ce que le métier annonce : cinq segments attendus, sept trouvés, il y a des variantes d'écriture à traiter avant tout rapprochement.</p>
+            <p><strong>Étape 2 — contrôler la table de tickets.</strong> Nombre de lignes, plage de dates d'ouverture, nombre de codes clients distincts. Ce dernier chiffre se compare aux 1 200 clients du référentiel : s'il est supérieur, des clients hors référentiel émettent des tickets, et vous savez déjà que le rapprochement produira des non-correspondances. Le savoir avant permet de ne pas le découvrir comme un incident.</p>
+            <p>Contrôle des dates : <code>ESTNUM</code> sur les deux colonnes, puis recherche des délais négatifs par <code>=NB.SI.ENS(Tickets[Cloture];"&lt;"&amp;...)</code> ou plus simplement une colonne d'écart et un minimum. Un délai négatif est une clôture antérieure à l'ouverture, donc une anomalie de saisie ou d'export à isoler et à signaler, jamais à corriger d'office.</p>
+            <p><strong>Étape 3 — rapprocher.</strong> <code>=SI.NON.DISP(RECHERCHEX([@Code_client];Clients[Code];Clients[Segment]);"NON RAPPROCHE")</code>. Comptage immédiat des non-rapprochés, en nombre de tickets et en nombre de codes distincts. Ces deux chiffres ne disent pas la même chose : 300 tickets sur 12 codes est un problème concentré, probablement un gros client absent du référentiel ; 300 tickets sur 280 codes est un problème diffus, probablement un format.</p>
+            <p><strong>Étape 4 — traiter selon ce que révèle le comptage.</strong> Tests de normalisation dans l'ordre habituel : SUPPRESPACE, casse, format numérique. Chaque test se juge au nombre de correspondances rétablies. Les transformations retenues vont dans une colonne <em>Code_normalise</em>, et le rapprochement est refait sur elle.</p>
+            <p>Pour le reliquat, une vérification métier s'impose : ces clients existent-ils vraiment ? Souvent, il s'agit de clients créés après l'extraction du référentiel — auquel cas la solution est de redemander un référentiel à jour, pas de bricoler. C'est le bon réflexe, et il faut y penser tôt : redemander un fichier prend deux jours, les rattraper à la main en prend cinq et donne un résultat moins bon.</p>
+            <p><strong>Étape 5 — calculer les deux indicateurs, séparément.</strong> Le nombre de tickets par segment est un <code>NB.SI.ENS</code> direct. Le délai moyen demande plus de soin : créez d'abord une colonne <em>Delai</em>, avec la définition arrêtée à l'étape 0. Si le choix est en jours ouvrés, <code>=NB.JOURS.OUVRES([@Ouverture];[@Cloture];Feries)</code>, la plage Feries étant une petite table de dates que vous documentez. Si les tickets non clôturés sont exclus, <code>=SI([@Cloture]="";"";...)</code> les laisse vides, et MOYENNE.SI.ENS les ignorera naturellement.</p>
+            <p><strong>Étape 6 — le contrôle qui change l'interprétation.</strong> Affichez à côté du délai moyen deux choses : le nombre de tickets sur lequel il est calculé, et la médiane. L'écart entre moyenne et médiane est l'information la plus utile du tableau. Une moyenne de 8,4 jours pour une médiane de 3 jours signifie que quelques tickets très longs tirent la moyenne, et que « le délai moyen est de 8,4 jours » est une phrase trompeuse. Vous verrez au module 4 que c'est aussi ce qui décide de la façon de représenter graphiquement ce résultat.</p>
+            <p><strong>Étape 7 — présenter avec ses limites.</strong> Le tableau final porte, en note : la définition retenue du délai, le taux de rapprochement, le traitement des tickets non clôturés, et le nombre de lignes écartées pour délai négatif. Quatre lignes de note.</p>
+            <p><strong>Pourquoi ces quatre lignes comptent plus que le tableau.</strong> Un tableau sans notes invite à la question « et les tickets pas encore fermés, ils sont dedans ? », posée en réunion, à laquelle une hésitation suffit à décrédibiliser l'ensemble. Le même tableau avec ses notes transforme cette question en confirmation. Le contenu est identique ; ce qui change est la position dans laquelle vous vous trouvez quand on vous interroge.</p>
+          </div>
+        </details>
+      </div>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 3 — Auditer et reprendre un fichier hérité <span class="badge badge-neutral">Avancé</span></h3>
+        <p>Vous héritez d'un fichier de suivi commercial utilisé depuis quatre ans par une personne qui a quitté l'entreprise. Il comporte 14 onglets, environ 900 formules, plusieurs RECHERCHEV, des constantes écrites en dur, et une cellule affiche #REF!. La direction s'appuie sur ce fichier chaque mois et ne peut pas s'en passer pendant que vous le reprenez.</p>
+        <p>Construisez votre plan d'audit et de reprise. Dites dans quel ordre vous intervenez, ce que vous ne touchez surtout pas au début, et comment vous vous assurez de ne rien casser.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>Principe directeur : comprendre avant de corriger, et prouver l'équivalence avant de remplacer.</strong> Un fichier utilisé depuis quatre ans est faux quelque part — c'est mathématiquement certain — mais il produit des chiffres sur lesquels des décisions ont été prises. Le corriger sans prévenir revient à faire bouger l'historique de l'entreprise sans que personne ne le sache. C'est le point le plus important de tout l'exercice.</p>
+            <p><strong>Phase 1, semaine 1 — cartographier sans rien modifier.</strong></p>
+            <p>Copie du fichier. Tout le travail d'audit se fait sur la copie, l'original continuant à vivre normalement entre les mains de ses utilisateurs.</p>
+            <p>Formules &gt; Afficher les formules sur chaque onglet, et capture d'écran de chacun. Vous obtenez en une heure une vue de ce qui est calculé et où. Puis Formules &gt; Repérer les antécédents sur les cellules de résultat principales : les flèches vous donnent la chaîne de dépendances, c'est-à-dire l'architecture réelle du fichier, qui ne correspond jamais à l'ordre des onglets.</p>
+            <p>Établissez une carte d'une page : quels onglets contiennent des données saisies, lesquels contiennent des calculs, lesquels sont de la présentation, et qui alimente quoi. Cette carte est le livrable de la phase 1, et elle vaut à elle seule le temps passé.</p>
+            <p><strong>Phase 2, semaine 1 — inventorier les risques, sans les traiter.</strong></p>
+            <p>Cinq recherches ciblées, à faire dans cet ordre. <em>Les RECHERCHEV sans quatrième argument</em> — Ctrl + F sur « RECHERCHEV » et lecture de chacune. Chaque occurrence sans FAUX est un chiffre potentiellement faux depuis quatre ans. <em>Les #REF!</em>, qui signalent une plage détruite par une suppression : la formule ne pointe plus nulle part, et toutes les cellules qui en dépendent sont fausses. <em>Les constantes en dur</em>, repérables par la présence de nombres dans les formules — un taux de TVA, un objectif, un seuil. <em>Les plages figées</em> qui ne couvrent plus toutes les données, cas classique du tableau qui a grandi. <em>Les liaisons vers des classeurs externes</em>, Données &gt; Modifier les liens : un lien vers un fichier disparu ou déplacé produit des valeurs figées à leur dernière actualisation, et c'est parfaitement invisible.</p>
+            <p>Chaque risque est noté dans un tableau : onglet, cellule, nature, impact estimé, priorité. Vous ne corrigez rien à ce stade.</p>
+            <p><strong>Phase 3, semaine 2 — établir la référence.</strong> C'est l'étape que l'on saute et sans laquelle rien n'est démontrable. Prenez les dix à quinze chiffres que la direction regarde réellement chaque mois, et relevez leurs valeurs actuelles. Ce sont vos valeurs de référence. Toute correction ultérieure sera évaluée à l'aune de son effet sur ces quinze chiffres, et non à l'aune de sa justesse technique.</p>
+            <p>Recalculez ensuite ces quinze chiffres <em>indépendamment</em>, par vos propres formules, sur les données brutes. Vous obtiendrez des écarts. Ces écarts sont le véritable audit : ils vous disent lesquelles des erreurs inventoriées en phase 2 ont un effet réel, et lesquelles sont théoriques. Il est courant qu'une RECHERCHEV inquiétante n'ait aucun impact parce qu'elle porte sur des données toujours présentes, et qu'un détail négligé en produise un considérable.</p>
+            <p><strong>Phase 4, semaine 3 — corriger par ordre d'impact, et annoncer.</strong></p>
+            <p>Traitez d'abord ce qui produit un écart démontré. Pour chaque correction : la valeur avant, la valeur après, l'explication de l'écart en une phrase.</p>
+            <p>Puis vient le moment délicat. Si une correction modifie un chiffre publié, il faut le dire, et la façon de le dire décide de la suite. Ne dites pas « le fichier était faux » : c'est à la fois désobligeant pour un absent et anxiogène pour ceux qui ont décidé sur ces chiffres. Dites : « en reprenant le fichier, j'ai trouvé une formule de recherche qui, dans certains cas, ramenait la valeur du produit précédent. L'effet sur le chiffre de marge est de plus 1,8 % sur 2025. Voici le détail, et voici la version corrigée. »</p>
+            <p>Factuel, chiffré, sans jugement, avec la correction déjà faite. C'est la seule formulation qui permette de corriger sans déclencher une crise de confiance sur l'ensemble des chiffres de l'entreprise — laquelle est un risque bien réel et coûte plus cher que l'erreur elle-même.</p>
+            <p><strong>Phase 5, semaines 4 à 6 — reconstruire ce qui doit l'être.</strong></p>
+            <p>Ne réécrivez pas tout : c'est la tentation, et elle mène à un fichier neuf que personne ne sait utiliser. Reconstruisez uniquement ce qui remplit deux conditions : c'est fragile, et c'est central.</p>
+            <p>Par ordre : convertir les plages en tableaux structurés, ce qui règle la moitié des risques d'un coup ; sortir les constantes en dur vers un onglet Paramètres unique ; remplacer les RECHERCHEV par des RECHERCHEX ou INDEX/EQUIV ; ajouter un onglet Contrôles avec les cinq ou six vérifications du module 1.</p>
+            <p>À chaque modification, revérifiez les quinze chiffres de référence. Un écart non voulu signale que vous avez cassé quelque chose, et vous le savez dans la minute plutôt que trois semaines plus tard.</p>
+            <p><strong>Phase 6 — documenter et transmettre.</strong> Un onglet « Lisez-moi » en première position : à quoi sert le fichier, d'où viennent les données, quels onglets ne pas modifier, quels paramètres sont modifiables et par qui, quels contrôles vérifier avant diffusion, et l'historique des corrections avec leurs dates.</p>
+            <p><strong>Ce qu'il ne faut pas faire, et qui est le réflexe naturel :</strong> tout reconstruire proprement en deux semaines et livrer un fichier neuf. Vous produirez un outil techniquement supérieur que personne n'utilisera, parce que les utilisateurs auront perdu leurs repères et n'auront aucune raison de vous faire confiance sur les chiffres. La reprise progressive, chiffres de référence à l'appui, est plus lente et c'est la seule qui aboutisse. Le vrai livrable n'est pas le fichier corrigé : c'est le fait que l'équipe continue de s'en servir après votre intervention.</p>
+          </div>
+        </details>
+      </div>
+      <div class="resources-box">
+        <h3>🔗 Pour aller plus loin</h3>
+        <ul>
+          <li><strong>Support Microsoft — page de la fonction RECHERCHEX</strong> : la documentation officielle, notamment sur le cinquième argument (mode de correspondance) et le sixième (mode de recherche), rarement expliqués ailleurs.</li>
+          <li><strong>La touche F9 dans la barre de formule</strong> — sélectionnez une portion de formule et appuyez sur F9 : Excel affiche le résultat intermédiaire de cette portion. C'est l'outil de débogage le plus efficace du tableur, et le moins connu. Échap pour annuler sans modifier la formule.</li>
+          <li><strong>Le module 1 de cette formation</strong> — une formule de recherche ne peut pas compenser une clé mal normalisée. Si vos rapprochements échouent massivement, le problème est en amont.</li>
+          <li><strong>Le module 3 de cette formation</strong> — Power Query fusionne deux tables sans aucune formule et affiche directement le nombre de lignes non appariées. Sur des rapprochements récurrents, il remplace avantageusement tout ce module.</li>
+        </ul>
+      </div>
+    </article>
+
+    <section class="quiz-section">
+      <h2>🧠 Quiz d'auto-évaluation</h2>
+      <p style="color:var(--text-muted);margin-bottom:20px;">Sélectionnez la bonne réponse pour valider vos acquis. Le feedback immédiat vous expliquera les concepts clés.</p>
+      <div id="quiz-container">
+        <!-- Quiz chargé dynamiquement par quiz-engine.js -->
+      </div>
+      <div style="margin-top: 24px; text-align: center;">
+        <button id="btn-mark-complete" data-module-id="formation-excel-analyse-donnees-module-2" class="btn btn-primary">
+          Marquer le module comme terminé ✓
+        </button>
+      </div>
+    </section>
+
+    <nav class="module-nav">
+      <a href="../module-1/index.html" class="btn btn-outline">← Module 1</a>
+      <a href="../module-3/index.html" class="btn btn-primary">Module 3 →</a>
+    </nav>
+  </main>
+
+  <script src="../../../assets/js/progress.js"></script>
+  <script src="../../../assets/js/quiz-engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadQuiz('quiz.json', 'quiz-container');
+    });
+  </script>
+</body>
+</html>

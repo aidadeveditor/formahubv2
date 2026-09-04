@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Formahub — dispositifs de formation gratuits accessibles depuis Valence : eFundae, LABORA, convocatorias nationales.">
+  <meta name="color-scheme" content="light dark">
+  <title>Formahub &mdash; Formations Espagne</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .orga { color: var(--text-muted); font-size: 0.85rem; }
+    .row-note { display: block; margin-top: 6px; color: var(--text-muted);
+                 font-size: 0.78rem; line-height: 1.45; }
+    .modalite { font-size: 0.85rem; color: var(--text-muted); }
+    .filter-group { margin-bottom: 10px; }
+    .filter-group-label { display: block; font-size: 0.78rem; text-transform: uppercase;
+                           letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 6px; }
+    #result-count { color: var(--text-muted); font-size: 0.9rem; margin: 4px 0 18px; }
+    #espagne-table td:first-child { min-width: 260px; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="brand">
+      <div class="brand-icon">F</div>
+      <span>Formahub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">Mes formations</a>
+      <a href="ressources-externes.html" class="nav-link">Ressources externes</a>
+      <a href="formations-espagne.html" class="nav-link active">Formations Espagne</a>
+      <button class="theme-toggle" type="button">&#127769; Mode sombre</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <div class="hero-banner">
+      <h1>Formations gratuites en Espagne</h1>
+      <p>75 dispositifs accessibles depuis Valence, tous gratuits. La page Ressources externes couvre le système français et le CPF ; celle-ci couvre le système espagnol, où le financement ne se pose pas et où la vraie question est la condition d&#x27;accès.</p>
+      <div style="margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap;">
+        <span class="badge badge-success">35 en accès libre</span>
+        <span class="badge badge-progress">33 via Espai LABORA</span>
+        <span class="badge badge-warning">7 soumis à convocatoria</span>
+      </div>
+    </div>
+
+    <div class="intro-box">
+      <h3>&#128204; Comment lire la colonne &laquo;&nbsp;accès&nbsp;&raquo;</h3>
+      <p>Ici, le coût ne trie rien : tout est à 0 &euro;. Ce qui trie, c&#x27;est la porte d&#x27;entrée, et il y en a trois.</p>
+      <p><strong>Accès libre.</strong> Ouvert à tous, immédiatement, avec une simple pièce d&#x27;identité : ni convocatoria, ni statut, ni date. C&#x27;est le seul bloc qui peut commencer aujourd&#x27;hui.</p>
+      <p><strong>Espai LABORA.</strong> Réservé aux personnes inscrites comme demandeuses d&#x27;emploi auprès de la Generalitat Valenciana, avec priorité donnée aux desempleados. Avant toute préinscription : corriger ses données dans Punt LABORA (autoentrevista, puis &laquo;&nbsp;guardar y finalizar&nbsp;&raquo;) &mdash; les erreurs de coordonnées sont la première cause d&#x27;exclusion citée par l&#x27;organisme.</p>
+      <p><strong>Convocatoria.</strong> Appels nationaux SEPE / Fundae, ouverts par vagues et par public. La mention du public compte plus que l&#x27;intitulé : une bonne part du catalogue est réservée aux <em>trabajadores y autónomos</em> et se ferme avec le statut de demandeuse d&#x27;emploi.</p>
+    </div>
+
+    <div class="pitfall-box">
+      <h4>&#9888;&#65039; Trois points à vérifier avant de s&#x27;engager</h4>
+      <p><strong>Les éditions LABORA en ligne affichent encore le millésime 2025</strong> (matriculation 17/09 &ndash; 07/10, accès 15/10 &ndash; 04/11). La page n&#x27;a pas basculé sur 2026, et les blocs <em>Competencias digitales II</em> et <em>Idiomas</em> n&#x27;ont aucune édition publiée. Les intitulés restent valables d&#x27;une édition à l&#x27;autre ; les dates, non.</p>
+      <p><strong>Aucun cours en &laquo;&nbsp;plazo de inscripción abierto&nbsp;&raquo; pour Valence au 4 septembre 2026.</strong> Les 23 codes du plan 2026 listés ici sont en phase <em>planificados</em> : la préinscription est possible dès maintenant et déclenche un courriel à l&#x27;ouverture du délai. C&#x27;est la seule façon de ne pas rater la fenêtre.</p>
+      <p><strong>Le moteur Punt LABORA plafonne à 200 résultats affichés</strong> sur les 350 cours planifiés de la province. Filtrer par comarque pour voir la totalité d&#x27;un territoire.</p>
+    </div>
+
+    <div class="filter-group">
+      <span class="filter-group-label">Thématique</span>
+      <div class="filter-bar" id="filter-theme">
+        <button class="filter-btn active" data-filter="all">Toutes</button>
+        <button class="filter-btn" data-filter="Durabilité &amp; RSE">Durabilité &amp; RSE</button>
+        <button class="filter-btn" data-filter="Numérique &amp; marketing">Numérique &amp; marketing</button>
+        <button class="filter-btn" data-filter="Langues">Langues</button>
+        <button class="filter-btn" data-filter="Transversal">Transversal</button>
+        <button class="filter-btn" data-filter="Métiers techniques">Métiers techniques</button>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <span class="filter-group-label">Accès</span>
+      <div class="filter-bar" id="filter-acces">
+        <button class="filter-btn active" data-acces="all">Tous</button>
+        <button class="filter-btn" data-acces="libre">Accès libre</button>
+        <button class="filter-btn" data-acces="labora">Espai LABORA</button>
+        <button class="filter-btn" data-acces="convocatoria">Convocatoria</button>
+      </div>
+    </div>
+
+    <p id="result-count"></p>
+
+    <div class="table-responsive">
+      <table id="espagne-table">
+        <thead>
+          <tr>
+            <th>Intitulé &amp; organisme</th>
+            <th>Thématique</th>
+            <th>Accès</th>
+            <th>Modalité</th>
+            <th>Lien</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-category="Durabilité &amp; RSE" data-acces="libre">
+            <td><strong>Cálculo de la Huella de Carbono</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, à son rythme</td>
+            <td><a href="https://www.efundae.es/course/view.php?id=1167" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="libre">
+            <td><strong>Cálculo de la huella de carbono de Alcance 3</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, à son rythme</td>
+            <td><a href="https://www.efundae.es/course/view.php?id=1168" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="libre">
+            <td><strong>Evaluación de doble materialidad en el contexto de las NEIS</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, à son rythme</td>
+            <td><a href="https://www.efundae.es/course/view.php?id=995" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="libre">
+            <td><strong>Objetivos de Desarrollo Sostenible y criterios ESG</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, à son rythme</td>
+            <td><a href="https://www.efundae.es/course/view.php?id=998" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="libre">
+            <td><strong>Taxonomía Europea de actividades sostenibles aplicada a las pymes</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, à son rythme</td>
+            <td><a href="https://www.efundae.es/course/view.php?id=1166" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="libre">
+            <td><strong>Cómo realizar informes de sostenibilidad en las pymes</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, à son rythme</td>
+            <td><a href="https://www.efundae.es/course/view.php?id=992" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="libre">
+            <td><strong>Informes de sostenibilidad para pymes que cotizan en bolsa</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, à son rythme</td>
+            <td><a href="https://www.efundae.es/course/view.php?id=999" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="libre">
+            <td><strong>Comunicación de la sostenibilidad</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, à son rythme</td>
+            <td><a href="https://www.efundae.es/course/view.php?id=993" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="libre">
+            <td><strong>Impacto de la sostenibilidad empresarial</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, à son rythme</td>
+            <td><a href="https://www.efundae.es/course/view.php?id=994" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="libre">
+            <td><strong>Economía circular</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, à son rythme</td>
+            <td><a href="https://www.efundae.es/course/view.php?id=997" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="libre">
+            <td><strong>Las 9R de la Economía Circular</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, à son rythme</td>
+            <td><a href="https://www.efundae.es/course/view.php?id=1157" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="libre">
+            <td><strong>Proyectos sostenibles y circulares</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, à son rythme</td>
+            <td><a href="https://www.efundae.es/course/view.php?id=1190" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="libre">
+            <td><strong>Sostenibilidad, economía circular y otros conceptos clave</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, à son rythme</td>
+            <td><a href="https://www.efundae.es/course/view.php?id=1000" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="libre">
+            <td><strong>Análisis del ciclo de vida</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, à son rythme</td>
+            <td><a href="https://www.efundae.es/course/view.php?id=1158" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="libre">
+            <td><strong>Logística inversa</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, à son rythme</td>
+            <td><a href="https://www.efundae.es/course/view.php?id=1003" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="libre">
+            <td><strong>Gestión de recursos y de residuos en las pymes</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, à son rythme</td>
+            <td><a href="https://www.efundae.es/course/view.php?id=1162" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="libre">
+            <td><strong>Transición energética</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, à son rythme</td>
+            <td><a href="https://www.efundae.es/course/view.php?id=996" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="libre">
+            <td><strong>Autoconsumo con energías renovables</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, à son rythme</td>
+            <td><a href="https://www.efundae.es/course/view.php?id=1192" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="libre">
+            <td><strong>Electromovilidad</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, à son rythme</td>
+            <td><a href="https://www.efundae.es/course/view.php?id=1161" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="libre">
+            <td><strong>Biodiversidad</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, à son rythme</td>
+            <td><a href="https://www.efundae.es/course/view.php?id=1191" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="libre">
+            <td><strong>Pymes y cambio climático</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, à son rythme</td>
+            <td><a href="https://www.efundae.es/course/view.php?id=1163" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="libre">
+            <td><strong>Digitalización y tecnologías sostenibles</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, à son rythme</td>
+            <td><a href="https://www.efundae.es/course/view.php?id=1160" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="libre">
+            <td><strong>Gestión de proyectos de innovación en sostenibilidad</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, à son rythme</td>
+            <td><a href="https://www.efundae.es/course/view.php?id=1159" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="libre">
+            <td><strong>Subvenciones y ayudas para sostenibilidad en pymes</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, à son rythme</td>
+            <td><a href="https://www.efundae.es/course/view.php?id=1001" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="libre">
+            <td><strong>Fiscalidad sostenible para pymes</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, à son rythme</td>
+            <td><a href="https://www.efundae.es/course/view.php?id=1002" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Numérique &amp; marketing" data-acces="libre">
+            <td><strong>Plan de marketing y estrategia digital</strong><br><span class="orga">eFundae (Fundae) — itinéraire de 4 niveaux progressifs</span></td>
+            <td><span class="badge badge-neutral">Numérique &amp; marketing</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, ~150 h</td>
+            <td><a href="https://www.efundae.es/course/index.php?categoryid=432" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Numérique &amp; marketing" data-acces="libre">
+            <td><strong>Business Analytics — Odisea Data</strong><br><span class="orga">eFundae (Fundae) — itinéraire de 4 niveaux progressifs</span></td>
+            <td><span class="badge badge-neutral">Numérique &amp; marketing</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, ~150 h</td>
+            <td><a href="https://www.efundae.es/course/index.php?categoryid=253" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Numérique &amp; marketing" data-acces="libre">
+            <td><strong>Community Manager</strong><br><span class="orga">eFundae (Fundae) — itinéraire de 4 niveaux progressifs</span></td>
+            <td><span class="badge badge-neutral">Numérique &amp; marketing</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, ~150 h</td>
+            <td><a href="https://www.efundae.es/course/index.php?categoryid=431" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Numérique &amp; marketing" data-acces="libre">
+            <td><strong>Comercio electrónico</strong><br><span class="orga">eFundae (Fundae) — itinéraire de 4 niveaux progressifs</span></td>
+            <td><span class="badge badge-neutral">Numérique &amp; marketing</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, ~150 h</td>
+            <td><a href="https://www.efundae.es/course/index.php?categoryid=529" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Numérique &amp; marketing" data-acces="libre">
+            <td><strong>Programación</strong><br><span class="orga">eFundae (Fundae) — itinéraire de 4 niveaux progressifs</span></td>
+            <td><span class="badge badge-neutral">Numérique &amp; marketing</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, ~150 h</td>
+            <td><a href="https://www.efundae.es/course/index.php?categoryid=232" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Numérique &amp; marketing" data-acces="labora">
+            <td><strong>Excel — básico</strong><br><span class="orga">Campus Virtual LABORA Formació — Competencias digitales I</span><br><span class="row-note">Édition affichée : millésime 2025. Diploma de aprovechamiento.</span></td>
+            <td><span class="badge badge-neutral">Numérique &amp; marketing</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">En ligne, tutoré, jusqu&#x27;à 30 h</td>
+            <td><a href="https://labora.gva.es/es/aula-virtual" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Numérique &amp; marketing" data-acces="labora">
+            <td><strong>Excel — avanzado</strong><br><span class="orga">Campus Virtual LABORA Formació — Competencias digitales I</span><br><span class="row-note">Édition affichée : millésime 2025. Diploma de aprovechamiento.</span></td>
+            <td><span class="badge badge-neutral">Numérique &amp; marketing</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">En ligne, tutoré, jusqu&#x27;à 30 h</td>
+            <td><a href="https://labora.gva.es/es/aula-virtual" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Transversal" data-acces="labora">
+            <td><strong>Microsoft Word — medio</strong><br><span class="orga">Campus Virtual LABORA Formació — Competencias digitales I</span><br><span class="row-note">Édition affichée : millésime 2025. Diploma de aprovechamiento.</span></td>
+            <td><span class="badge badge-neutral">Transversal</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">En ligne, tutoré, jusqu&#x27;à 30 h</td>
+            <td><a href="https://labora.gva.es/es/aula-virtual" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Transversal" data-acces="labora">
+            <td><strong>Microsoft Word — avanzado</strong><br><span class="orga">Campus Virtual LABORA Formació — Competencias digitales I</span><br><span class="row-note">Édition affichée : millésime 2025. Diploma de aprovechamiento.</span></td>
+            <td><span class="badge badge-neutral">Transversal</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">En ligne, tutoré, jusqu&#x27;à 30 h</td>
+            <td><a href="https://labora.gva.es/es/aula-virtual" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Transversal" data-acces="labora">
+            <td><strong>PowerPoint — avanzado</strong><br><span class="orga">Campus Virtual LABORA Formació — Competencias digitales I</span><br><span class="row-note">Édition affichée : millésime 2025. Diploma de aprovechamiento.</span></td>
+            <td><span class="badge badge-neutral">Transversal</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">En ligne, tutoré, jusqu&#x27;à 30 h</td>
+            <td><a href="https://labora.gva.es/es/aula-virtual" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Numérique &amp; marketing" data-acces="labora">
+            <td><strong>Metodología de gestión de proyectos de software con SCRUM</strong><br><span class="orga">Campus Virtual LABORA Formació — Competencias digitales I — IFCD048PO</span><br><span class="row-note">Édition affichée : millésime 2025. Diploma de aprovechamiento.</span></td>
+            <td><span class="badge badge-neutral">Numérique &amp; marketing</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">En ligne, tutoré, jusqu&#x27;à 30 h</td>
+            <td><a href="https://labora.gva.es/es/aula-virtual" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Numérique &amp; marketing" data-acces="labora">
+            <td><strong>Gestión de proyectos con metodologías ágiles y enfoque Lean</strong><br><span class="orga">Campus Virtual LABORA Formació — Competencias digitales I</span><br><span class="row-note">Édition affichée : millésime 2025. Diploma de aprovechamiento.</span></td>
+            <td><span class="badge badge-neutral">Numérique &amp; marketing</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">En ligne, tutoré, jusqu&#x27;à 30 h</td>
+            <td><a href="https://labora.gva.es/es/aula-virtual" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Transversal" data-acces="labora">
+            <td><strong>Técnicas y habilidades de comunicación</strong><br><span class="orga">Campus Virtual LABORA Formació — Competencias transversales</span><br><span class="row-note">Édition affichée : millésime 2025. Diploma de aprovechamiento.</span></td>
+            <td><span class="badge badge-neutral">Transversal</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">En ligne, tutoré, jusqu&#x27;à 30 h</td>
+            <td><a href="https://labora.gva.es/es/aula-virtual" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Transversal" data-acces="labora">
+            <td><strong>Liderazgo. Dirección de equipos de trabajo</strong><br><span class="orga">Campus Virtual LABORA Formació — Competencias transversales</span><br><span class="row-note">Édition affichée : millésime 2025. Diploma de aprovechamiento.</span></td>
+            <td><span class="badge badge-neutral">Transversal</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">En ligne, tutoré, jusqu&#x27;à 30 h</td>
+            <td><a href="https://labora.gva.es/es/aula-virtual" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Transversal" data-acces="labora">
+            <td><strong>Pensamiento positivo — optimismo y entusiasmo</strong><br><span class="orga">Campus Virtual LABORA Formació — Competencias transversales</span><br><span class="row-note">Édition affichée : millésime 2025. Diploma de aprovechamiento.</span></td>
+            <td><span class="badge badge-neutral">Transversal</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">En ligne, tutoré, jusqu&#x27;à 30 h</td>
+            <td><a href="https://labora.gva.es/es/aula-virtual" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Numérique &amp; marketing" data-acces="labora">
+            <td><strong>Gestión de marketing y comunicación</strong><br><span class="orga">LABORA — plan 2026, code 22085 · Valencia</span></td>
+            <td><span class="badge badge-neutral">Numérique &amp; marketing</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">Présentiel — préinscription ouverte</td>
+            <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Numérique &amp; marketing" data-acces="labora">
+            <td><strong>CMS y e-commerce</strong><br><span class="orga">LABORA — plan 2026, code 22117 · Valencia</span></td>
+            <td><span class="badge badge-neutral">Numérique &amp; marketing</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">Présentiel — préinscription ouverte</td>
+            <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Numérique &amp; marketing" data-acces="labora">
+            <td><strong>Procedimientos básicos en la atención al cliente y ecommerce</strong><br><span class="orga">LABORA — plan 2026, code 22179 · Valencia</span></td>
+            <td><span class="badge badge-neutral">Numérique &amp; marketing</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">Présentiel — préinscription ouverte</td>
+            <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Numérique &amp; marketing" data-acces="labora">
+            <td><strong>Procedimientos básicos en el marketing digital y redes sociales</strong><br><span class="orga">LABORA — plan 2026, code 22177 · Valencia</span></td>
+            <td><span class="badge badge-neutral">Numérique &amp; marketing</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">Présentiel — préinscription ouverte</td>
+            <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Numérique &amp; marketing" data-acces="labora">
+            <td><strong>Digitalización y RRSS como estrategia corporativa</strong><br><span class="orga">LABORA — plan 2026, code 22190 · Valencia</span></td>
+            <td><span class="badge badge-neutral">Numérique &amp; marketing</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">Présentiel — préinscription ouverte</td>
+            <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Numérique &amp; marketing" data-acces="labora">
+            <td><strong>Entorno y estrategia en la transformación digital</strong><br><span class="orga">LABORA — plan 2026, code 22258 · Valencia</span></td>
+            <td><span class="badge badge-neutral">Numérique &amp; marketing</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">Présentiel — préinscription ouverte</td>
+            <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Numérique &amp; marketing" data-acces="labora">
+            <td><strong>Inteligencia artificial (IA) aplicada a marketing digital</strong><br><span class="orga">LABORA — plan 2026, code 22162 · Valencia</span></td>
+            <td><span class="badge badge-neutral">Numérique &amp; marketing</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">Présentiel — préinscription ouverte</td>
+            <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Numérique &amp; marketing" data-acces="labora">
+            <td><strong>Inteligencia artificial aplicada a la empresa</strong><br><span class="orga">LABORA — plan 2026, code 22194 · Valencia</span></td>
+            <td><span class="badge badge-neutral">Numérique &amp; marketing</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">Présentiel — préinscription ouverte</td>
+            <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Numérique &amp; marketing" data-acces="labora">
+            <td><strong>Especialista en inteligencia artificial</strong><br><span class="orga">LABORA — plan 2026, code 22188 · L&#x27;Horta Nord</span></td>
+            <td><span class="badge badge-neutral">Numérique &amp; marketing</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">Présentiel — préinscription ouverte</td>
+            <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Transversal" data-acces="labora">
+            <td><strong>Habilitación para la docencia en grados A, B y C del sistema de FP</strong><br><span class="orga">LABORA — plan 2026, code 22246 · Valencia</span></td>
+            <td><span class="badge badge-neutral">Transversal</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">Présentiel — préinscription ouverte</td>
+            <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Transversal" data-acces="labora">
+            <td><strong>Gestión administrativa y financiera del comercio internacional</strong><br><span class="orga">LABORA — plan 2026, code 21912 · L&#x27;Horta Sud</span></td>
+            <td><span class="badge badge-neutral">Transversal</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">Présentiel — préinscription ouverte</td>
+            <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Transversal" data-acces="labora">
+            <td><strong>Actividades de gestión del pequeño comercio</strong><br><span class="orga">LABORA — plan 2026, code 22109 · Valencia</span></td>
+            <td><span class="badge badge-neutral">Transversal</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">Présentiel — préinscription ouverte</td>
+            <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="labora">
+            <td><strong>Operaciones básicas en montaje y mantenimiento de instalaciones de energías renovables</strong><br><span class="orga">LABORA — plan 2026, code 21963 · Valencia</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">Présentiel — préinscription ouverte</td>
+            <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="labora">
+            <td><strong>Eficiència energètica d&#x27;edificis</strong><br><span class="orga">LABORA — plan 2026, code 22339 · L&#x27;Horta Sud</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">Présentiel — préinscription ouverte</td>
+            <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Métiers techniques" data-acces="labora">
+            <td><strong>Confección y publicación de páginas web</strong><br><span class="orga">LABORA — plan 2026, code 22323 · L&#x27;Horta Nord</span></td>
+            <td><span class="badge badge-neutral">Métiers techniques</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">Présentiel — préinscription ouverte</td>
+            <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Métiers techniques" data-acces="labora">
+            <td><strong>Programación de sistemas informáticos</strong><br><span class="orga">LABORA — plan 2026, code 22048 · Valencia</span></td>
+            <td><span class="badge badge-neutral">Métiers techniques</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">Présentiel — préinscription ouverte</td>
+            <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Métiers techniques" data-acces="labora">
+            <td><strong>Seguridad informática</strong><br><span class="orga">LABORA — plan 2026, code 22043 · L&#x27;Horta Sud</span></td>
+            <td><span class="badge badge-neutral">Métiers techniques</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">Présentiel — préinscription ouverte</td>
+            <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Langues" data-acces="labora">
+            <td><strong>Inglés B2</strong><br><span class="orga">LABORA — plan 2026, code 22350 · L&#x27;Horta Sud</span></td>
+            <td><span class="badge badge-neutral">Langues</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">Présentiel — préinscription ouverte</td>
+            <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Langues" data-acces="labora">
+            <td><strong>Inglés B2</strong><br><span class="orga">LABORA — plan 2026, code 22326 · L&#x27;Horta Nord</span></td>
+            <td><span class="badge badge-neutral">Langues</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">Présentiel — préinscription ouverte</td>
+            <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Langues" data-acces="labora">
+            <td><strong>Inglés B1</strong><br><span class="orga">LABORA — plan 2026, code 22349 · L&#x27;Horta Sud</span></td>
+            <td><span class="badge badge-neutral">Langues</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">Présentiel — préinscription ouverte</td>
+            <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Langues" data-acces="labora">
+            <td><strong>Inglés B1</strong><br><span class="orga">LABORA — plan 2026, code 22325 · L&#x27;Horta Nord</span></td>
+            <td><span class="badge badge-neutral">Langues</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">Présentiel — préinscription ouverte</td>
+            <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Langues" data-acces="labora">
+            <td><strong>Inglés A2</strong><br><span class="orga">LABORA — plan 2026, code 22353 · L&#x27;Horta Sud</span></td>
+            <td><span class="badge badge-neutral">Langues</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">Présentiel — préinscription ouverte</td>
+            <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Langues" data-acces="labora">
+            <td><strong>Francés A1</strong><br><span class="orga">LABORA — plan 2026, code 22351 · L&#x27;Horta Sud</span></td>
+            <td><span class="badge badge-neutral">Langues</span></td>
+            <td><span class="badge badge-progress">Espai LABORA</span></td>
+            <td class="modalite">Présentiel — préinscription ouverte</td>
+            <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="convocatoria">
+            <td><strong>Sistemas de gestión ambiental</strong><br><span class="orga">Convocatoria estatal (SEPE / Fundae) — Desempleados, trabajadores y autónomos</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-warning">Convocatoria</span></td>
+            <td class="modalite">En ligne, 150 h</td>
+            <td><a href="https://www.cursosfemxa.es/sistemas-gestion-ambiental-gratuito-titulos-oficiales-curso" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="convocatoria">
+            <td><strong>Gestión integral de residuos</strong><br><span class="orga">Convocatoria estatal (SEPE / Fundae) — Trabajadores y autónomos uniquement</span><br><span class="row-note">Fermé tant que le statut est celui de demandeuse d&#x27;emploi.</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-warning">Convocatoria</span></td>
+            <td class="modalite">En ligne, 200 h</td>
+            <td><a href="https://www.cursosfemxa.es/gestion-integral-residuos-online-gratuito-estatal-femxa-curso" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="convocatoria">
+            <td><strong>Impacto ambiental y su auditoría</strong><br><span class="orga">Convocatoria estatal (SEPE / Fundae) — Trabajadores y autónomos uniquement</span><br><span class="row-note">Fermé tant que le statut est celui de demandeuse d&#x27;emploi.</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-warning">Convocatoria</span></td>
+            <td class="modalite">En ligne, 30 h</td>
+            <td><a href="https://www.cursosfemxa.es/impacto-ambiental-auditoria-gratuito-online-estatal-femxa-curso" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="convocatoria">
+            <td><strong>Conducción económica y ecológica</strong><br><span class="orga">Convocatoria estatal (SEPE / Fundae) — Trabajadores y autónomos uniquement</span><br><span class="row-note">Fermé tant que le statut est celui de demandeuse d&#x27;emploi.</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-warning">Convocatoria</span></td>
+            <td class="modalite">En ligne, 50 h</td>
+            <td><a href="https://www.cursosfemxa.es/conduccion-economica-ecologica-gratuito-online-curso" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Transversal" data-acces="convocatoria">
+            <td><strong>Gestión de compras informatizada</strong><br><span class="orga">Convocatoria estatal (SEPE / Fundae) — Trabajadores y autónomos uniquement</span><br><span class="row-note">Fermé tant que le statut est celui de demandeuse d&#x27;emploi.</span></td>
+            <td><span class="badge badge-neutral">Transversal</span></td>
+            <td><span class="badge badge-warning">Convocatoria</span></td>
+            <td class="modalite">En ligne, 40 h</td>
+            <td><a href="https://www.cursosfemxa.es/gestion-compras-informatizada-gratuito-online-curso" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Transversal" data-acces="convocatoria">
+            <td><strong>Personal shopper</strong><br><span class="orga">Convocatoria estatal (SEPE / Fundae) — Desempleados, trabajadores y autónomos</span></td>
+            <td><span class="badge badge-neutral">Transversal</span></td>
+            <td><span class="badge badge-warning">Convocatoria</span></td>
+            <td class="modalite">En ligne, 40 h</td>
+            <td><a href="https://www.cursosfemxa.es/personal-shopper-gratuito-online-curso" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Transversal" data-acces="convocatoria">
+            <td><strong>Básico de prevención de riesgos laborales</strong><br><span class="orga">Convocatoria estatal (SEPE / Fundae) — Trabajadores y autónomos uniquement</span><br><span class="row-note">Fermé tant que le statut est celui de demandeuse d&#x27;emploi.</span></td>
+            <td><span class="badge badge-neutral">Transversal</span></td>
+            <td><span class="badge badge-warning">Convocatoria</span></td>
+            <td class="modalite">En ligne, 30 h</td>
+            <td><a href="https://www.cursosfemxa.es/basico-prl-gratuito-online-estatal-femxa-curso" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Numérique &amp; marketing" data-acces="libre">
+            <td><strong>Conecta Empleo</strong><br><span class="orga">Fundación Telefónica — numérique, data, cybersécurité, développement</span></td>
+            <td><span class="badge badge-neutral">Numérique &amp; marketing</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne et présentiel, avec certificat</td>
+            <td><a href="https://www.fundaciontelefonica.com/empleabilidad/conecta-empleo/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Numérique &amp; marketing" data-acces="libre">
+            <td><strong>Grow with Google</strong><br><span class="orga">Google — ce qui subsiste de Google Actívate : marketing, e-commerce, cloud, IA</span></td>
+            <td><span class="badge badge-neutral">Numérique &amp; marketing</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, cours d&#x27;initiation</td>
+            <td><a href="https://grow.google/intl/es/courses-and-tools/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Durabilité &amp; RSE" data-acces="libre">
+            <td><strong>Formación Abierta</strong><br><span class="orga">EOI — école publique du ministère de l&#x27;Industrie, MOOC gratuits</span></td>
+            <td><span class="badge badge-neutral">Durabilité &amp; RSE</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, accès libre</td>
+            <td><a href="https://www.eoi.es/es/formacionabierta" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Transversal" data-acces="libre">
+            <td><strong>Mi Competencia Digital</strong><br><span class="orga">Fundae — test DigComp, environ 20 minutes</span></td>
+            <td><span class="badge badge-neutral">Transversal</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">En ligne, auto-évaluation</td>
+            <td><a href="https://micompetenciadigital.fundae.es/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+          <tr data-category="Transversal" data-acces="libre">
+            <td><strong>Buscador de formación subvencionada</strong><br><span class="orga">Fundae — moteur officiel, toutes convocatorias</span></td>
+            <td><span class="badge badge-neutral">Transversal</span></td>
+            <td><span class="badge badge-success">Accès libre</span></td>
+            <td class="modalite">Recherche par territoire et modalité</td>
+            <td><a href="https://experienciafundae.es/buscador" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="takeaway-box">
+      <h3>&#9989; Méthode de mise à jour</h3>
+      <ul>
+        <li>Revalider cette liste tous les trois mois, comme la page Ressources externes : les convocatorias ouvrent et se ferment par vagues.</li>
+        <li>Retirer un lien mort plutôt que de le laisser en ligne &mdash; une ressource introuvable coûte plus de temps qu&#x27;elle n&#x27;en fait gagner.</li>
+        <li>Vérifier une offre annoncée &laquo;&nbsp;SEPE&nbsp;&raquo; par un site privé sur le <a href="https://experienciafundae.es/buscador" target="_blank" rel="noopener">buscador de Fundae</a> : c&#x27;est le seul moteur qui fasse foi.</li>
+        <li>Reprendre les codes du plan LABORA à chaque revalidation : ils changent d&#x27;une programmation à l&#x27;autre, contrairement aux intitulés.</li>
+        <li>Relire la colonne accès après tout changement de statut : un contrat rouvre les cours <em>ocupados</em> et fait perdre la priorité LABORA.</li>
+      </ul>
+    </div>
+  </main>
+
+  <script src="assets/js/progress.js"></script>
+  <script>
+    (function () {
+      var theme = 'all', acces = 'all';
+      var rows = Array.prototype.slice.call(
+        document.querySelectorAll('#espagne-table tbody tr'));
+      var count = document.getElementById('result-count');
+
+      function apply() {
+        var shown = 0;
+        rows.forEach(function (row) {
+          var okTheme = (theme === 'all') || (row.dataset.category === theme);
+          var okAcces = (acces === 'all') || (row.dataset.acces === acces);
+          var visible = okTheme && okAcces;
+          row.style.display = visible ? '' : 'none';
+          if (visible) shown++;
+        });
+        count.textContent = shown === 0
+          ? 'Aucun dispositif ne correspond à ces filtres.'
+          : shown + (shown > 1 ? ' dispositifs affichés' : ' dispositif affiché')
+            + ' sur ' + rows.length + '.';
+      }
+
+      function wire(barId, attr, setter) {
+        var bar = document.getElementById(barId);
+        bar.addEventListener('click', function (e) {
+          var btn = e.target.closest('.filter-btn');
+          if (!btn) return;
+          bar.querySelectorAll('.filter-btn').forEach(function (b) {
+            b.classList.remove('active');
+          });
+          btn.classList.add('active');
+          setter(btn);
+          apply();
+        });
+      }
+
+      wire('filter-theme', 'filter', function (b) { theme = b.dataset.filter; });
+      wire('filter-acces', 'acces', function (b) { acces = b.dataset.acces; });
+      apply();
+    })();
+  </script>
+</body>
+</html>

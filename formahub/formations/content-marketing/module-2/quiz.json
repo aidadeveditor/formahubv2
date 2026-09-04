@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-content-marketing-module-2",
+  "version": "2.0",
+  "last_verified": "2026-09-01",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Qu'est-ce qu'un contenu « evergreen » ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Un article consacré aux sujets environnementaux"
+        },
+        {
+          "key": "b",
+          "text": "Une publication temporaire liée à l'actualité"
+        },
+        {
+          "key": "c",
+          "text": "Un contenu intemporel dont l'utilité reste intacte plusieurs années"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "C'est le socle de la production : il continue de travailler longtemps après publication et construit le trafic récurrent."
+    },
+    {
+      "id": "q2",
+      "question": "Que doit contenir en priorité un buyer persona utile ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Son âge, sa ville, ses loisirs et une photo"
+        },
+        {
+          "key": "b",
+          "text": "Ses points de friction, ses déclencheurs et ses objections"
+        },
+        {
+          "key": "c",
+          "text": "Son parcours scolaire et ses diplômes"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Un persona décrit un rapport à un problème, pas une personne. Déclencheurs et objections sont les rubriques les plus productives en sujets."
+    },
+    {
+      "id": "q3",
+      "question": "Quels entretiens sont les plus instructifs pour construire un persona ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Ceux menés avec les prospects qui ont choisi un concurrent"
+        },
+        {
+          "key": "b",
+          "text": "Ceux menés avec l'équipe marketing en atelier interne"
+        },
+        {
+          "key": "c",
+          "text": "Ceux menés avec les clients les plus satisfaits uniquement"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Ce sont aussi les plus rarement menés : ils révèlent les objections réelles et les critères de décision que les clients acquis ne mentionnent plus."
+    },
+    {
+      "id": "q4",
+      "question": "Quelle phase du parcours d'achat est le plus grand réservoir de sujets, et la plus négligée ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "La phase de décision"
+        },
+        {
+          "key": "b",
+          "text": "La phase de latence, où le prospect subit le problème sans l'avoir nommé"
+        },
+        {
+          "key": "c",
+          "text": "La phase d'évaluation"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Un contenu qui met un mot et un chiffre sur un problème subi crée la demande au lieu de la capter — et installe l'entreprise comme référence."
+    },
+    {
+      "id": "q5",
+      "question": "Combien de temps mobilise réellement un article de fond ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "3 à 4 heures, soit le temps de rédaction"
+        },
+        {
+          "key": "b",
+          "text": "11 à 15 heures cumulées, brief, recherche, entretien expert, relecture et mise en ligne compris"
+        },
+        {
+          "key": "c",
+          "text": "Une journée pleine pour une seule personne"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Ne compter que la rédaction est la cause principale des engagements intenables. Retirez ensuite 20 % pour les aléas."
+    },
+    {
+      "id": "q6",
+      "question": "Quelle est généralement la ressource limitante d'une chaîne éditoriale ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le budget de promotion"
+        },
+        {
+          "key": "b",
+          "text": "Le temps de rédaction disponible"
+        },
+        {
+          "key": "c",
+          "text": "La disponibilité des experts internes pour l'entretien et la relecture"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "C'est cette ressource qu'il faut réserver et planifier. Le levier : regrouper les entretiens — une session de 2 h bien préparée alimente 3 contenus."
+    }
+  ]
+}

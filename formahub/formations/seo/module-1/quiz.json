@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-seo-module-1",
+  "version": "2.0",
+  "last_verified": "2026-09-01",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quels sont les 3 piliers fondamentaux du SEO ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Budget publicitaire, Impressions, Clics"
+        },
+        {
+          "key": "b",
+          "text": "Design, Serveur, Code-barres"
+        },
+        {
+          "key": "c",
+          "text": "Technique, Contenu sémantique, Popularité"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Ils fonctionnent comme un trépied : c'est toujours le pilier le plus faible qui plafonne la performance de l'ensemble."
+    },
+    {
+      "id": "q2",
+      "question": "Une page est explorée par Googlebot mais n'apparaît pas dans l'index. Que faites-vous en priorité ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Réécrire le Title et la Meta Description pour améliorer le classement"
+        },
+        {
+          "key": "b",
+          "text": "Travailler la qualité et la différenciation du contenu, ainsi que le maillage interne"
+        },
+        {
+          "key": "c",
+          "text": "Lancer une campagne de netlinking vers cette page"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Le statut « Explorée, actuellement non indexée » est un signal de qualité, pas un incident technique : Google a lu la page et l'a écartée. Optimiser des balises sur une page non indexée n'a aucun effet."
+    },
+    {
+      "id": "q3",
+      "question": "Le contenu principal de vos articles n'apparaît pas dans le code source brut, mais seulement dans l'inspecteur d'éléments. Qu'en concluez-vous ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le contenu dépend du rendu JavaScript, ce qui retarde et fragilise l'indexation"
+        },
+        {
+          "key": "b",
+          "text": "Le site est protégé contre la copie, c'est un bon point"
+        },
+        {
+          "key": "c",
+          "text": "Le serveur est trop lent"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Googlebot lit d'abord le HTML brut ; le rendu JavaScript intervient dans une seconde vague parfois différée de plusieurs jours. Le sujet à instruire est le rendu côté serveur ou le pré-rendu."
+    },
+    {
+      "id": "q4",
+      "question": "Dans quel ordre séquencer les chantiers d'un projet SEO qui démarre ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Netlinking, puis contenu, puis technique"
+        },
+        {
+          "key": "b",
+          "text": "Contenu, puis netlinking, puis technique si le temps le permet"
+        },
+        {
+          "key": "c",
+          "text": "Déblocages techniques, puis mapping sémantique, puis éditorial, puis popularité"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "L'ordre découle du fonctionnement du moteur : sans indexation, l'effort éditorial est perdu ; sans pages citables, le netlinking revient à remplir un seau percé."
+    },
+    {
+      "id": "q5",
+      "question": "Pourquoi la notion d'« être premier sur Google » a-t-elle perdu de sa pertinence ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Parce que Google a supprimé le classement des résultats"
+        },
+        {
+          "key": "b",
+          "text": "Parce que la SERP empile annonces, résumés IA et questions connexes : le premier résultat organique peut être sous la ligne de flottaison"
+        },
+        {
+          "key": "c",
+          "text": "Parce que les positions changent chaque seconde de façon aléatoire"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "On raisonne désormais en part de visibilité — quelle surface de la SERP vous occupez et sous quelle forme — plutôt qu'en rang organique isolé."
+    },
+    {
+      "id": "q6",
+      "question": "Un directeur demande « des résultats SEO avant la fin du trimestre » sur un site existant. Quelle est la réponse professionnelle ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Accepter l'objectif et compenser par un effort de netlinking intensif"
+        },
+        {
+          "key": "b",
+          "text": "Refuser la mission, l'objectif étant intenable"
+        },
+        {
+          "key": "c",
+          "text": "Annoncer des jalons réalistes — indexation en semaines, effets significatifs à 4-6 mois — et proposer du SEA pour couvrir l'intervalle"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Annoncer des délais tenables dès le départ protège le projet. Le SEA achète le temps dont le SEO a besoin pour produire ses effets."
+    }
+  ]
+}

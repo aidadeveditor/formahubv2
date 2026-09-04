@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formahub — Gestion de Projet, les fondamentaux : Suivi &amp; Pilotage (Méthode Kanban &amp; WIP Limits)</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="../../../index.html" class="brand">
+      <div class="brand-icon">F</div>
+      <span>Formahub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../../../index.html" class="nav-link">Mes formations</a>
+      <a href="../../../ressources-externes.html" class="nav-link">Ressources externes</a>
+      <a href="../../../formations-espagne.html" class="nav-link">Formations Espagne</a>
+      <button class="theme-toggle" type="button">🌙 Mode Sombre</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="../../../index.html">Accueil</a> &gt;
+        <span>Gestion de Projet, les fondamentaux</span> &gt;
+        <strong>Module 3</strong>
+      </div>
+      <h1>Module 3 : Suivi &amp; Pilotage (Méthode Kanban &amp; WIP Limits)</h1>
+      <div class="module-meta">
+        <span class="badge badge-progress">⏱️ 50 min</span>
+        <span class="badge badge-neutral">Module 3 sur 4</span>
+        <span class="badge badge-neutral">Niveau : Intermédiaire</span>
+        <span class="badge badge-neutral">~2900 mots</span>
+      </div>
+    </div>
+
+    <article class="module-content">
+      <div class="intro-box">
+        <h3>📍 Mise en situation</h3>
+        <p>Point d'avancement hebdomadaire. Chacun décrit ce sur quoi il travaille : la refonte du module de facturation « avance bien », la reprise de données est « bientôt finie », l'intégration « attend un retour ». Tout le monde est occupé, personne n'est bloqué, la réunion dure quarante minutes et se termine dans une impression de progression.</p>
+        <p>Trois semaines plus tard, rien n'est livré. Aucun de ces trois chantiers n'a franchi la ligne d'arrivée, alors que l'équipe n'a pas cessé de travailler. C'est la situation la plus fréquente et la plus mal diagnostiquée du pilotage de projet : une équipe qui produit beaucoup d'activité et peu de résultats. Ce module donne les outils pour voir ce qui se passe réellement — et il commence par une idée contre-intuitive : le problème vient rarement de la vitesse, presque toujours du nombre de choses commencées.</p>
+      </div>
+
+      <div class="objectives-box">
+        <h3>🎯 À l'issue de ce module, vous saurez</h3>
+        <ul>
+          <li>Visualiser le flux de travail réel plutôt que l'activité déclarée</li>
+          <li>Limiter le travail en cours et comprendre pourquoi cela accélère la livraison</li>
+          <li>Mesurer un flux avec le délai d'écoulement et le temps de cycle</li>
+          <li>Identifier un goulet d'étranglement et le traiter là où il se trouve</li>
+          <li>Animer un point d'avancement qui fait remonter les blocages plutôt que l'activité</li>
+        </ul>
+      </div>
+
+      <h2>1. Voir le travail : le tableau de flux</h2>
+      <p>Le principe de Kanban tient en une phrase : <strong>on ne pilote bien que ce qu'on voit</strong>. Un tableau de flux rend visible chaque élément de travail et l'étape où il se trouve, ce qui transforme la conversation d'équipe — on ne discute plus de ce que chacun fait, mais de ce qui est bloqué.</p>
+      <p>Contrairement à Scrum, Kanban n'impose ni cycles fixes, ni rôles, ni cérémonies. Il s'applique donc à un travail en flux continu — maintenance, support, demandes entrantes, production éditoriale — là où Scrum suppose un périmètre stable sur la durée d'un sprint. Les deux se combinent d'ailleurs fréquemment.</p>
+      <h3>1.1 Construire des colonnes qui décrivent la réalité</h3>
+      <p>L'erreur de départ est de reprendre un modèle générique — « À faire / En cours / Terminé » — qui ne dit rien de votre processus. Trois colonnes de ce type masquent exactement ce qu'il faudrait voir : où le travail attend.</p>
+      <p>Vos colonnes doivent décrire vos <strong>étapes réelles</strong>. Pour une équipe éditoriale : <em>À cadrer / En rédaction / En relecture experte / En correction / Prêt à publier / Publié</em>. Pour une équipe technique : <em>Prêt / En développement / En revue / En recette / Déployé</em>.</p>
+      <p>Le raffinement qui change tout : distinguer les colonnes <strong>« en cours »</strong> des colonnes <strong>« en attente »</strong>. « En relecture » et « Attente de relecture » ne sont pas la même chose — et c'est presque toujours dans les secondes que le temps se perd. Une équipe qui découvre que ses éléments passent 70 % de leur temps en attente cesse immédiatement de chercher à travailler plus vite.</p>
+      <div class="example-box">
+        <h4>📌 Exemple — ce que le tableau révèle en une semaine</h4>
+        <p>Une équipe de cinq personnes met en place un tableau à sept colonnes, dont deux colonnes d'attente explicites. Au bout d'une semaine, le constat est visuel et immédiat : <strong>onze éléments</strong> stationnent dans « Attente de validation métier », contre deux ou trois dans chacune des autres colonnes.</p>
+        <p>Personne dans l'équipe n'est en cause : la validation dépend d'une responsable métier disponible deux heures par semaine. Le tableau n'a rien créé — il a rendu visible ce que quarante minutes de point hebdomadaire n'avaient jamais fait apparaître, parce que chacun décrivait son activité et que personne ne décrivait le flux.</p>
+        <p>La conversation qui a suivi n'a plus porté sur la productivité de l'équipe, mais sur la disponibilité de la validation. C'est un déplacement radical du sujet, et il a été obtenu par un tableau.</p>
+      </div>
+
+      <h2>2. Limiter le travail en cours</h2>
+      <p>C'est le principe le plus contre-intuitif et le plus puissant du module. Limiter le nombre d'éléments simultanément en cours — les <strong>limites de travail en cours</strong>, ou <em>WIP limits</em> — accélère la livraison. Non pas en faisant travailler les gens plus vite, mais en supprimant ce qui les ralentit.</p>
+      <h3>2.1 Pourquoi commencer moins accélère</h3>
+      <p>Trois mécanismes se cumulent, et chacun est mesurable.</p>
+      <p><strong>Le coût du changement de contexte.</strong> Passer d'une tâche à l'autre coûte un temps de reprise réel : retrouver où l'on en était, se replonger dans le sujet. Une personne travaillant sur cinq sujets en parallèle en perd une part importante en pure friction, sans que cela apparaisse nulle part.</p>
+      <p><strong>L'allongement mécanique des délais.</strong> Cinq tâches menées en parallèle finissent toutes à peu près en même temps, à la fin. Les mêmes cinq tâches menées séquentiellement livrent la première au cinquième du délai. La charge totale est identique ; la valeur délivrée dans le temps n'a rien à voir.</p>
+      <p><strong>La découverte tardive des problèmes.</strong> Un élément qui va jusqu'au bout révèle les difficultés de tout le processus. Cinq éléments arrêtés à mi-parcours ne révèlent rien — et les problèmes se découvrent tous en même temps, à la fin.</p>
+      <p>D'où la formule qui résume le module : <strong>« Arrêtez de commencer, commencez à finir. »</strong></p>
+      <div class="method-box">
+        <h4>⚙️ Méthode — poser des limites de travail en cours</h4>
+        <ol>
+          <li><strong>Mesurez d'abord l'existant</strong> pendant une à deux semaines : combien d'éléments se trouvent simultanément dans chaque colonne ? Ne posez aucune limite avant d'avoir ce chiffre.</li>
+          <li><strong>Fixez la limite légèrement en dessous</strong> de la moyenne constatée. Si une colonne contient habituellement six éléments, posez cinq. Une limite trop basse d'emblée bloque tout et fait rejeter la méthode.</li>
+          <li><strong>Appliquez la règle :</strong> quand une colonne est pleine, on ne peut plus y entrer. La personne qui allait commencer un nouvel élément doit d'abord aider à faire sortir ce qui est déjà là. C'est cette contrainte qui produit tout l'effet.</li>
+          <li><strong>Observez ce qui se passe.</strong> La colonne qui sature en permanence désigne votre goulet d'étranglement — voir section 4.</li>
+          <li><strong>Ajustez toutes les deux à trois semaines</strong>, en baissant progressivement. L'objectif n'est pas d'atteindre une limite idéale, c'est de rendre les blocages visibles.</li>
+        </ol>
+      </div>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — négocier l'exception « juste pour celui-ci »</h4>
+        <p>La première fois qu'une colonne est pleine et qu'un sujet urgent arrive, la tentation est immédiate : « on le passe quand même, c'est exceptionnel ». Si l'exception est accordée une fois, elle le sera systématiquement — et la limite ne sert plus à rien.</p>
+        <p>La règle à tenir : une exception se paie par une sortie. Si un élément urgent doit entrer dans une colonne pleine, un autre doit en sortir, terminé ou explicitement remis en attente. Cela oblige à un arbitrage conscient, qui est exactement ce que la limite cherche à provoquer.</p>
+        <p>Prévoyez en revanche une <strong>voie rapide</strong> formalisée pour les vraies urgences — incidents de production, obligations réglementaires — avec une limite propre, généralement de un. Une urgence prévue par le système ne le casse pas ; une urgence qui le contourne, si.</p>
+      </div>
+
+      <h2>3. Mesurer un flux</h2>
+      <p>Deux indicateurs suffisent à piloter un flux, et ils disent des choses différentes. Les confondre est fréquent, et prive de l'information la plus utile.</p>
+      <div class="table-responsive">
+<table>
+<thead><tr><th>Indicateur</th><th>Ce qu'il mesure</th><th>Point de vue</th></tr></thead>
+<tbody>
+<tr><td><strong>Délai d'écoulement</strong><br>(lead time)</td><td>De la demande à la livraison, temps d'attente inclus</td><td>Celui du demandeur : c'est ce qu'il vit</td></tr>
+<tr><td><strong>Temps de cycle</strong><br>(cycle time)</td><td>Du début effectif du travail à la livraison</td><td>Celui de l'équipe : c'est ce qu'elle produit</td></tr>
+<tr><td><strong>L'écart entre les deux</strong></td><td>Le temps d'attente pur</td><td><strong>C'est là que se trouve le gisement</strong></td></tr>
+</tbody>
+</table>
+</div>
+      <h3>3.1 L'écart est l'information</h3>
+      <p>Une équipe dont le temps de cycle est de 4 jours et le délai d'écoulement de 26 jours a un problème parfaitement identifié : les demandes attendent 22 jours avant que quiconque commence à les traiter. Travailler plus vite ferait passer le cycle de 4 à 3 jours — soit une amélioration de 4 % du délai perçu par le demandeur. Traiter l'attente est un ordre de grandeur plus rentable.</p>
+      <p>C'est le calcul qui déplace les conversations. Quand une direction demande « pourquoi c'est si long ? », la réponse habituelle est défensive. La réponse utile est : « le traitement prend 4 jours, l'attente en prend 22 — voici pourquoi les demandes attendent. »</p>
+      <p>Une précaution de lecture : suivez ces indicateurs en <strong>médiane</strong> plutôt qu'en moyenne, et regardez leur <strong>dispersion</strong>. Un délai médian de 6 jours avec des extrêmes à 40 est bien plus problématique qu'un délai médian de 10 jours régulier — parce que l'irrégularité empêche tout engagement fiable auprès des demandeurs.</p>
+      <h3>3.2 Ce que la vélocité ne dit pas</h3>
+      <p>Beaucoup d'équipes suivent le nombre d'éléments livrés par période. C'est utile pour projeter une date, à condition de ne pas en faire un objectif de performance.</p>
+      <p>Dès que la vélocité devient un indicateur de performance individuelle ou collective, elle se dégrade comme mesure : les estimations gonflent, les éléments sont découpés artificiellement, et le chiffre monte sans qu'aucune valeur supplémentaire soit produite. C'est un cas d'école de la déformation d'un indicateur transformé en cible.</p>
+      <p>La vélocité sert à <em>prévoir</em>, jamais à <em>évaluer</em>. Cette distinction doit être posée explicitement le jour où l'on commence à la mesurer, faute de quoi elle sera comprise autrement.</p>
+
+      <h2>4. Trouver et traiter le goulet d'étranglement</h2>
+      <p>Dans tout flux, une étape limite le débit de l'ensemble. C'est le <strong>goulet d'étranglement</strong>, et sa propriété est décisive : <em>toute amélioration ailleurs qu'au goulet est sans effet sur le débit global</em>. Optimiser une étape en amont ne fait qu'augmenter la file d'attente devant le goulet.</p>
+      <div class="method-box">
+        <h4>⚙️ Méthode — identifier et traiter un goulet</h4>
+        <ol>
+          <li><strong>Repérez-le visuellement :</strong> c'est la colonne devant laquelle les éléments s'accumulent, et la seule qui sature en permanence malgré les limites posées.</li>
+          <li><strong>Vérifiez par la mesure :</strong> c'est l'étape où le temps passé par élément est le plus long, ou celle dont la file d'attente amont ne se vide jamais.</li>
+          <li><strong>Ne cherchez pas à accélérer les autres étapes.</strong> C'est le réflexe naturel et il aggrave la situation : plus d'éléments arrivent devant un goulet inchangé.</li>
+          <li><strong>Traitez le goulet lui-même</strong>, par ordre de coût croissant : le décharger de ce qui n'a pas besoin d'y passer ; préparer mieux ce qui y entre pour réduire les allers-retours ; répartir la compétence sur d'autres personnes ; en dernier recours, y ajouter de la ressource.</li>
+          <li><strong>Attendez-vous à ce qu'il se déplace.</strong> Un goulet traité fait apparaître le suivant : c'est normal, et c'est le signe que la méthode fonctionne.</li>
+        </ol>
+      </div>
+      <div class="example-box">
+        <h4>📌 Exemple — le goulet qui n'était pas là où on le cherchait</h4>
+        <p>Une équipe de développement subit une pression constante sur ses délais. La direction envisage de recruter un développeur supplémentaire.</p>
+        <p>Le tableau de flux montre autre chose : les développements sortent en 3 jours, mais restent ensuite 9 jours en moyenne en « Attente de recette métier », faute de disponibilité des utilisateurs pour valider. Le goulet n'est pas le développement, il est la recette.</p>
+        <p>Un développeur de plus n'aurait rien amélioré — il aurait produit davantage d'éléments qui auraient attendu plus longtemps devant la même recette. La solution retenue a coûté beaucoup moins cher : deux créneaux de recette fixes par semaine, inscrits dans les agendas des trois utilisateurs référents, et une préparation systématique des cas de test par l'équipe pour réduire le temps demandé aux valideurs.</p>
+        <p>Délai d'écoulement moyen passé de 14 à 6 jours, sans recrutement.</p>
+      </div>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — traiter le goulet en le contournant</h4>
+        <p>Une réaction fréquente consiste à sauter l'étape saturée « pour cette fois » — livrer sans la relecture, déployer sans la recette. Le débit augmente immédiatement, ce qui donne l'impression que le problème est résolu.</p>
+        <p>En réalité, le travail non fait revient plus tard, sous forme de corrections, et il revient plus cher. Le goulet n'a pas été traité : il a été déplacé dans le futur, et sous une forme moins visible. C'est ainsi qu'une équipe se retrouve à passer la moitié de son temps en correctifs sans comprendre pourquoi.</p>
+      </div>
+
+      <h2>5. Animer un point d'avancement utile</h2>
+      <p>Le point hebdomadaire décrit en ouverture de ce module est le plus répandu, et l'un des moins utiles : chacun décrit son activité, personne ne décrit le flux, et l'on ressort avec une impression de progression sans information exploitable.</p>
+      <div class="method-box">
+        <h4>⚙️ Méthode — conduire le point devant le tableau</h4>
+        <p>Un principe : on ne fait pas le tour des personnes, on fait le tour du tableau — de droite à gauche.</p>
+        <ol>
+          <li><strong>Commencez par la droite</strong>, c'est-à-dire par ce qui est le plus proche de la livraison. Priorité à ce qui peut sortir aujourd'hui plutôt qu'à ce qui vient d'entrer.</li>
+          <li><strong>Sur chaque élément, une seule question :</strong> « qu'est-ce qui l'empêche d'avancer ? » Pas « où en es-tu ? », qui appelle une description d'activité.</li>
+          <li><strong>Signalez visuellement les éléments bloqués</strong> et notez depuis quand. Un élément bloqué depuis huit jours sans que personne ne l'ait su est le vrai sujet de la réunion.</li>
+          <li><strong>Traitez les colonnes qui saturent</strong> avant les éléments individuels : c'est là que se joue le débit.</li>
+          <li><strong>Ne résolvez pas les problèmes en séance.</strong> Nommez-les, désignez qui s'en occupe, et poursuivez. Un point d'avancement qui dérive en résolution technique perd tout le monde.</li>
+          <li><strong>Tenez-vous à 15 minutes.</strong> Si le tour du tableau prend davantage, c'est généralement qu'il y a trop d'éléments en cours — ce qui est en soi le diagnostic.</li>
+        </ol>
+      </div>
+      <h3>5.1 Faire remonter les blocages plutôt que l'activité</h3>
+      <p>La difficulté est culturelle plus que méthodologique. Dans beaucoup d'organisations, signaler un blocage est perçu comme un aveu de difficulté personnelle — d'autant plus si le point d'avancement se tient devant un responsable hiérarchique.</p>
+      <p>Deux pratiques y remédient. D'abord, <strong>poser explicitement que le blocage est une information, pas une faute</strong> : c'est ce qui permet de l'aider, et un blocage tu coûte à toute l'équipe. Ensuite, <strong>traiter les blocages en priorité absolue</strong> : si les blocages signalés ne sont pas suivis d'effet dans les jours qui suivent, plus personne n'en signalera.</p>
+      <p>Un indicateur simple permet de savoir si le climat est bon : le nombre de blocages signalés. Une équipe qui n'en remonte jamais n'est pas une équipe sans blocage — c'est une équipe qui ne les dit pas.</p>
+
+      <div class="case-box">
+        <h3>🔍 Étude de cas — l'équipe occupée qui ne livre rien</h3>
+        <p>Reprenons la situation d'ouverture : cinq personnes, aucun blocage déclaré, rien de livré depuis trois semaines.</p>
+        <p><strong>Semaine 1 — Rendre le travail visible.</strong> Mise en place d'un tableau avec les étapes réelles : <em>À cadrer / En cours / Attente de validation métier / En correction / Prêt / Livré</em>. Chaque élément en cours y est placé, sans rien changer d'autre.</p>
+        <p>Constat immédiat : <strong>19 éléments</strong> en cours simultanément pour 5 personnes. Trois à quatre sujets ouverts par personne. Personne ne s'en était rendu compte, parce que chacun ne voyait que les siens.</p>
+        <p><strong>Semaine 2 — Mesurer.</strong> Délai d'écoulement médian sur les 10 derniers éléments livrés : 23 jours. Temps de cycle médian : 5 jours. <strong>18 jours d'attente pure.</strong> Répartition de cette attente : 11 jours en « Attente de validation métier », 4 jours entre le cadrage et le démarrage effectif, 3 jours dispersés.</p>
+        <p><strong>Semaine 3 — Poser les limites.</strong> Colonne « En cours » limitée à 6 (au lieu de 12 constatés), « En correction » limitée à 3. Règle posée : quand c'est plein, on aide à faire sortir avant de commencer.</p>
+        <p>La première semaine a été inconfortable. Deux personnes se sont retrouvées sans pouvoir démarrer de nouveau sujet et ont dû aider sur des éléments qui n'étaient pas les leurs — ce qui a déclenché la remarque décisive : « en fait je ne savais pas que Karim était bloqué là-dessus depuis dix jours ».</p>
+        <p><strong>Semaine 4 — Traiter le goulet.</strong> La colonne « Attente de validation métier » sature en permanence : c'est le goulet, il représente 11 des 18 jours d'attente. Trois actions, par ordre de coût :</p>
+        <ul>
+        <li><strong>Décharger :</strong> analyse des éléments passés par cette colonne — 40 % ne nécessitaient aucune validation métier réelle, ils y passaient par habitude. Un critère explicite est défini pour savoir ce qui doit être validé.</li>
+        <li><strong>Préparer :</strong> chaque élément soumis à validation arrive désormais avec une note d'une demi-page et les cas à vérifier. Le temps demandé à la valideuse passe de 40 à 15 minutes par élément.</li>
+        <li><strong>Rythmer :</strong> deux créneaux fixes hebdomadaires, dans son agenda, plutôt que des sollicitations dispersées.</li>
+        </ul>
+        <p><strong>Résultat à six semaines.</strong> Délai d'écoulement médian : 9 jours contre 23. Temps de cycle : 5 jours, <em>inchangé</em>. L'équipe ne travaille pas plus vite — elle attend beaucoup moins. Nombre d'éléments livrés par semaine passé de 1,3 à 3,8.</p>
+        <p><strong>Le déplacement du goulet.</strong> Au bout de six semaines, la colonne « En correction » a commencé à saturer : le goulet s'était déplacé. C'est le signe que la méthode fonctionne, et le sujet du cycle d'amélioration suivant.</p>
+        <p><strong>Ce que le cas enseigne :</strong> aucune des actions n'a consisté à demander à l'équipe de travailler plus vite. Le temps de cycle n'a pas bougé d'un jour. Le gain — un délai divisé par 2,5 — vient entièrement de la réduction du travail en cours et du traitement de l'attente. C'est un résultat que les points d'avancement classiques ne peuvent pas produire, parce qu'ils mesurent l'activité et non le flux.</p>
+      </div>
+
+      <div class="checklist-box">
+        <h3>📋 Checklist — Piloter un flux de travail</h3>
+        <ul class="checklist">
+          <li>Les colonnes du tableau décrivent les étapes réelles, pas un modèle générique</li>
+          <li>Les colonnes d'attente sont distinguées des colonnes de travail effectif</li>
+          <li>Le nombre d'éléments en cours a été mesuré avant toute limite</li>
+          <li>Des limites de travail en cours sont posées, légèrement sous la moyenne constatée</li>
+          <li>La règle « colonne pleine = on aide à faire sortir » est appliquée sans exception négociée</li>
+          <li>Une voie rapide formalisée existe pour les vraies urgences, avec sa propre limite</li>
+          <li>Le délai d'écoulement et le temps de cycle sont mesurés séparément</li>
+          <li>L'écart entre les deux — le temps d'attente — est connu et suivi</li>
+          <li>Les indicateurs sont lus en médiane, avec leur dispersion</li>
+          <li>La vélocité sert à prévoir, jamais à évaluer les personnes</li>
+          <li>Le goulet d'étranglement est identifié et traité là où il se trouve</li>
+          <li>Aucune optimisation n'est menée en amont du goulet</li>
+          <li>Le point d'avancement se tient devant le tableau, de droite à gauche</li>
+          <li>La question posée est « qu'est-ce qui l'empêche d'avancer ? », pas « où en es-tu ? »</li>
+          <li>Les éléments bloqués sont signalés visuellement, avec leur ancienneté</li>
+          <li>Les blocages signalés sont traités en priorité, sinon plus personne n'en signalera</li>
+        </ul>
+      </div>
+
+      <div class="glossary-box">
+        <h3>📖 Glossaire du module</h3>
+        <dl>
+          <dt>Kanban</dt>
+          <dd>Méthode de pilotage par visualisation du flux et limitation du travail en cours ; sans cycles ni rôles imposés.</dd>
+          <dt>Tableau de flux</dt>
+          <dd>Représentation visuelle des éléments de travail et de l'étape où ils se trouvent.</dd>
+          <dt>Colonne d'attente</dt>
+          <dd>Étape où un élément ne progresse pas ; à distinguer explicitement des étapes de travail effectif.</dd>
+          <dt>Limite de travail en cours</dt>
+          <dd>Nombre maximum d'éléments autorisés simultanément dans une colonne ; principal levier d'accélération.</dd>
+          <dt>Changement de contexte</dt>
+          <dd>Coût de reprise lié au passage d'une tâche à une autre ; friction invisible mais réelle.</dd>
+          <dt>Délai d'écoulement</dt>
+          <dd>Temps entre la demande et la livraison, attentes comprises ; le délai vécu par le demandeur.</dd>
+          <dt>Temps de cycle</dt>
+          <dd>Temps entre le début effectif du travail et la livraison ; ce que produit l'équipe.</dd>
+          <dt>Goulet d'étranglement</dt>
+          <dd>Étape qui limite le débit de l'ensemble ; toute amélioration ailleurs est sans effet.</dd>
+          <dt>Voie rapide</dt>
+          <dd>Circuit formalisé pour les urgences réelles, avec sa propre limite ; évite que l'urgence casse le système.</dd>
+          <dt>Vélocité</dt>
+          <dd>Nombre d'éléments livrés par période ; sert à prévoir, jamais à évaluer.</dd>
+        </dl>
+      </div>
+
+      <div class="takeaway-box">
+        <h3>✅ À retenir</h3>
+        <ul>
+          <li>On ne pilote bien que ce qu'on voit : le tableau déplace la conversation de l'activité vers le flux.</li>
+          <li>Distinguez les colonnes d'attente des colonnes de travail — c'est presque toujours dans les attentes que le temps se perd.</li>
+          <li>Limiter le travail en cours accélère la livraison : moins de changements de contexte, livraisons plus précoces, problèmes découverts tôt.</li>
+          <li>« Arrêtez de commencer, commencez à finir. »</li>
+          <li>Mesurez avant de poser une limite, puis descendez progressivement.</li>
+          <li>Une exception à la limite se paie par une sortie — sinon la limite ne sert plus à rien.</li>
+          <li>L'écart entre délai d'écoulement et temps de cycle est le temps d'attente : c'est là qu'est le gisement.</li>
+          <li>Lisez vos indicateurs en médiane et regardez la dispersion : l'irrégularité empêche tout engagement fiable.</li>
+          <li>La vélocité transformée en objectif de performance cesse d'être une mesure fiable.</li>
+          <li>Toute amélioration ailleurs qu'au goulet est sans effet sur le débit global.</li>
+          <li>Un goulet traité fait apparaître le suivant : c'est normal, et c'est le signe que ça fonctionne.</li>
+          <li>Une équipe qui ne signale jamais de blocage n'est pas une équipe sans blocage.</li>
+        </ul>
+      </div>
+
+      <h2 class="exercises-title">Exercices d'application</h2>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 1 — Concevoir un tableau de flux <span class="badge badge-neutral">Application</span></h3>
+        <p>Vous pilotez une équipe de 4 personnes traitant les demandes d'évolution d'un outil interne. Le processus réel : une demande arrive par courriel, elle est qualifiée, chiffrée, soumise à arbitrage budgétaire mensuel, développée, testée par le demandeur, puis mise en production lors des fenêtres de déploiement bimensuelles.</p>
+        <p><strong>1.</strong> Concevez les colonnes du tableau. <strong>2.</strong> Identifiez les colonnes d'attente et expliquez pourquoi elles doivent être visibles. <strong>3.</strong> Prédisez où se situera le goulet et justifiez.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>1. Colonnes proposées</strong></p>
+            <div class="table-responsive">
+            <table>
+            <thead><tr><th>Colonne</th><th>Nature</th><th>Ce qui s'y passe</th></tr></thead>
+            <tbody>
+            <tr><td>Reçu</td><td>Attente</td><td>La demande est arrivée, personne ne l'a encore regardée</td></tr>
+            <tr><td>En qualification</td><td>Travail</td><td>On comprend le besoin, on chiffre</td></tr>
+            <tr><td><strong>Attente d'arbitrage</strong></td><td><strong>Attente</strong></td><td>Chiffré, en attente du comité mensuel</td></tr>
+            <tr><td>Prêt à développer</td><td>Attente</td><td>Arbitré favorablement, en file</td></tr>
+            <tr><td>En développement</td><td>Travail</td><td>—</td></tr>
+            <tr><td><strong>Attente de recette</strong></td><td><strong>Attente</strong></td><td>Livré au demandeur, en attente de son test</td></tr>
+            <tr><td>En recette</td><td>Travail</td><td>Le demandeur teste effectivement</td></tr>
+            <tr><td>En correction</td><td>Travail</td><td>Retours de recette à traiter</td></tr>
+            <tr><td><strong>Attente de déploiement</strong></td><td><strong>Attente</strong></td><td>Validé, en attente de la fenêtre bimensuelle</td></tr>
+            <tr><td>En production</td><td>Terminé</td><td>—</td></tr>
+            </tbody>
+            </table>
+            </div>
+            <p><strong>2. Les colonnes d'attente, et pourquoi les rendre visibles</strong></p>
+            <p>Quatre colonnes d'attente : <em>Reçu</em>, <em>Attente d'arbitrage</em>, <em>Attente de recette</em>, <em>Attente de déploiement</em>.</p>
+            <p>Les rendre visibles a trois effets. <strong>Cela dissocie la performance de l'équipe du délai perçu :</strong> le demandeur qui attend 6 semaines croit que l'équipe est lente, alors que le développement a pris 3 jours. Le tableau permet de montrer où le temps passe réellement — ce qui protège l'équipe et cible la discussion.</p>
+            <p><strong>Cela distingue les attentes structurelles des attentes subies.</strong> L'attente d'arbitrage et l'attente de déploiement sont imposées par des rythmes externes ; l'attente de recette dépend de la disponibilité du demandeur. Les traitements sont différents.</p>
+            <p><strong>Cela permet de chiffrer le coût de ces rythmes.</strong> Un arbitrage mensuel introduit jusqu'à 30 jours d'attente ; le tableau permet de dire « ce comité mensuel nous coûte en moyenne 18 jours de délai » — information qui n'existait pas avant.</p>
+            <p><strong>3. Prédiction du goulet</strong></p>
+            <p><strong>L'attente d'arbitrage</strong> est le candidat le plus probable, pour une raison mécanique : une demande arrivant le lendemain d'un comité attend 29 jours avant d'être examinée. Sur un délai total, c'est structurellement le poste dominant, et il ne dépend pas du tout de l'équipe.</p>
+            <p><strong>L'attente de recette</strong> est le second candidat, et souvent le plus irrégulier — elle dépend de la disponibilité d'un demandeur pour qui tester n'est pas la priorité. Elle produit typiquement des délais très dispersés : certaines demandes recettées en un jour, d'autres oubliées trois semaines.</p>
+            <p><em>Ce qu'il faut retenir de cette prédiction :</em> les deux goulets probables sont <strong>hors de l'équipe</strong>. C'est le cas le plus fréquent, et c'est pourquoi une équipe qui subit une pression sur ses délais a tout intérêt à mesurer avant de s'accuser — ou de se faire accuser.</p>
+          </div>
+        </details>
+      </div>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 2 — Diagnostiquer par les indicateurs <span class="badge badge-neutral">Analyse</span></h3>
+        <p>Trois équipes vous transmettent leurs chiffres sur 20 éléments livrés. <strong>Équipe A :</strong> délai d'écoulement médian 8 jours, temps de cycle médian 6 jours, dispersion faible. <strong>Équipe B :</strong> délai 30 jours, cycle 4 jours, dispersion faible. <strong>Équipe C :</strong> délai médian 9 jours, cycle médian 7 jours, mais des extrêmes à 45 jours sur un quart des éléments.</p>
+        <p><strong>1.</strong> Diagnostiquez chaque situation. <strong>2.</strong> Indiquez l'action prioritaire pour chacune. <strong>3.</strong> Laquelle des trois est la plus difficile à traiter, et pourquoi ?</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>1 et 2. Diagnostic et action</strong></p>
+            <p><strong>Équipe A — flux sain.</strong> Écart de 2 jours entre délai et cycle : l'attente est marginale. La dispersion faible signifie que l'équipe peut s'engager de façon fiable auprès de ses demandeurs.</p>
+            <p><em>Action :</em> aucune urgence. Si l'on veut améliorer, c'est sur le temps de cycle lui-même — donc sur la façon de travailler, pas sur le flux. C'est aussi la seule des trois équipes chez qui une réflexion sur les outils ou les compétences serait rentable.</p>
+            <p><strong>Équipe B — attente massive.</strong> 26 jours d'attente pour 4 jours de travail : 87 % du délai vécu par le demandeur est du temps mort. L'équipe est efficace ; le système autour d'elle ne l'est pas.</p>
+            <p><em>Action :</em> identifier où se situent ces 26 jours — file d'entrée, arbitrage, validation, fenêtre de déploiement — et traiter le poste dominant. <strong>Ne surtout pas chercher à améliorer le temps de cycle :</strong> le faire passer de 4 à 3 jours améliorerait le délai perçu de 3 %. C'est l'équipe où l'erreur d'analyse serait la plus coûteuse, parce que la pression se porte naturellement sur ceux qui travaillent.</p>
+            <p><strong>Équipe C — irrégularité.</strong> La médiane est bonne, mais un quart des éléments prend cinq fois plus de temps. C'est le cas le plus mal diagnostiqué, parce que la moyenne et la médiane semblent acceptables.</p>
+            <p><em>Action :</em> analyser spécifiquement les éléments extrêmes. Trois causes typiques à explorer — un type de demande particulier (plus complexe, ou nécessitant une compétence rare détenue par une seule personne) ; une dépendance externe intermittente ; ou des éléments qui restent bloqués sans que personne ne le remarque. La solution passe souvent par un signalement visuel de l'ancienneté sur le tableau.</p>
+            <p><strong>3. La plus difficile à traiter : l'équipe C</strong></p>
+            <p>Trois raisons.</p>
+            <p><strong>Le problème est invisible dans les indicateurs habituels.</strong> Une direction qui regarde la médiane conclut que tout va bien. Ce sont les demandeurs des 25 % lents qui se plaignent, et leur plainte semble contredite par les chiffres — ce qui les discrédite.</p>
+            <p><strong>La cause n'est pas dans le flux mais dans sa variabilité</strong>, ce que les limites de travail en cours ne traitent pas directement. Il faut mener une analyse au cas par cas des éléments extrêmes, ce qui est plus long et moins spectaculaire que de poser des limites.</p>
+            <p><strong>L'effet sur la confiance est disproportionné.</strong> Une équipe dont le délai varie de 9 à 45 jours ne peut s'engager sur rien. Les demandeurs le savent, et ils compensent en réclamant, en doublant leurs demandes ou en contournant le circuit — ce qui dégrade encore le flux. L'irrégularité s'auto-entretient, alors qu'un délai long mais régulier permet au moins de s'organiser.</p>
+            <p><strong>Le principe à retenir :</strong> un délai médian de 15 jours régulier vaut mieux, pour l'organisation, qu'un délai médian de 9 jours imprévisible. La régularité a une valeur propre, rarement reconnue.</p>
+          </div>
+        </details>
+      </div>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 3 — Traiter un goulet <span class="badge badge-neutral">Synthèse</span></h3>
+        <p>Sur votre tableau, la colonne « En revue technique » sature depuis deux mois : 8 à 12 éléments en permanence, contre 2 à 3 ailleurs. Une seule personne dans l'équipe, l'architecte, effectue ces revues, et elle y consacre déjà deux jours par semaine. La direction propose de « supprimer l'étape de revue pour fluidifier ».</p>
+        <p><strong>1.</strong> Argumentez sur la proposition de la direction. <strong>2.</strong> Proposez un plan de traitement par ordre de coût croissant. <strong>3.</strong> Indiquez ce que vous surveillerez pour savoir si ça fonctionne.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>1. Sur la proposition de supprimer la revue</strong></p>
+            <p><strong>Reconnaître qu'elle produirait l'effet annoncé, à court terme.</strong> Le débit augmenterait immédiatement, et le tableau se viderait. C'est réel, et le nier ferait perdre la discussion.</p>
+            <p><strong>Puis poser le mécanisme :</strong> supprimer une étape de contrôle ne supprime pas le travail qu'elle produit — elle le déplace en aval, sous forme de correctifs, d'incidents et de dette technique. Le goulet n'est pas traité, il est reporté dans le futur et sous une forme moins visible. C'est ainsi qu'une équipe se retrouve à passer la moitié de son temps en correctifs sans comprendre pourquoi.</p>
+            <p><strong>Proposer une mesure plutôt qu'un débat d'opinion :</strong> « Nous pouvons tester sur six semaines, en suivant le taux d'incidents en production et le temps passé en correctifs. Si ces deux indicateurs ne bougent pas, la revue n'apportait effectivement rien et nous la supprimons. » Cette formulation transforme une opposition en expérience, et elle est difficile à refuser.</p>
+            <p><strong>Enfin, poser la vraie question :</strong> qu'est-ce que cette revue détecte, concrètement ? Si personne ne sait répondre, la direction a peut-être raison. Si elle détecte régulièrement des problèmes sérieux, le sujet est de la rendre plus efficace, pas de la supprimer.</p>
+            <p><strong>2. Plan de traitement par coût croissant</strong></p>
+            <p><strong>(a) Décharger — coût nul.</strong> Tous les éléments ont-ils besoin de cette revue ? Définir un critère explicite : correction mineure, modification de contenu, changement de paramétrage peuvent en être dispensés. Dans la plupart des cas, 30 à 50 % du flux n'a aucune raison d'y passer. C'est l'action la plus rentable, et elle se décide en une réunion.</p>
+            <p><strong>(b) Préparer — coût faible.</strong> Réduire le temps que chaque élément consomme au goulet : une liste de points à vérifier appliquée par l'auteur avant soumission, un format de présentation standard, des éléments soumis plus petits. Si le temps par revue passe de 45 à 25 minutes, la capacité du goulet augmente de 80 % sans ajouter personne.</p>
+            <p><strong>(c) Protéger — coût faible.</strong> Deux créneaux fixes et sanctuarisés dans l'agenda de l'architecte, plutôt que des revues intercalées entre deux réunions. Le goulet est la ressource la plus contrainte du système : c'est celle dont le temps doit être le mieux protégé, pas la plus sollicitée en interruption.</p>
+            <p><strong>(d) Répartir — coût moyen, effet durable.</strong> Former deux autres personnes à effectuer une partie des revues, en commençant par les cas les plus simples et en binôme avec l'architecte. C'est l'action structurante : elle traite aussi le risque de dépendance à une seule personne — un point que la direction devrait entendre indépendamment du sujet du flux.</p>
+            <p><strong>(e) Ajouter de la ressource — coût élevé, en dernier.</strong> Et seulement après avoir constaté que (a) à (d) ne suffisent pas, ce qui est rare.</p>
+            <p><strong>3. Ce que je surveille</strong></p>
+            <ul>
+            <li><strong>La taille de la file devant la revue</strong> — l'indicateur direct du goulet. Objectif : redescendre sous 4.</li>
+            <li><strong>Le temps moyen passé en revue par élément</strong>, qui mesure l'effet des actions (a) et (b).</li>
+            <li><strong>Le délai d'écoulement médian global</strong>, qui dira si le débit de l'ensemble s'améliore réellement — c'est le seul indicateur qui compte in fine.</li>
+            <li><strong>Le taux d'incidents en production et le temps passé en correctifs</strong>, pour vérifier qu'on n'a pas déplacé le problème en aval — indicateur à suivre quelle que soit l'option retenue, y compris si la direction impose sa solution.</li>
+            <li><strong>Où le goulet se déplace.</strong> Il se déplacera, et c'est le signe que ça fonctionne. Anticiper la colonne suivante permet de ne pas être surpris — et de ne pas conclure que « ça n'a rien changé » parce qu'un nouveau problème est apparu.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+      <div class="resources-box">
+        <h3>🔗 Pour aller plus loin</h3>
+        <ul>
+          <li>La théorie des contraintes, popularisée par <em>Le But</em> d'Eliyahu Goldratt : le raisonnement sur les goulets, présenté sous forme de roman.</li>
+          <li>Le module 2 de cette formation traite la planification amont ; celui-ci traite le pilotage au quotidien. Les deux se complètent.</li>
+          <li>Un tableau physique au mur reste souvent plus efficace qu'un outil numérique pour une équipe co-localisée : il est vu sans qu'on ait à l'ouvrir.</li>
+          <li>Mesurez vos délais pendant un mois avant de changer quoi que ce soit : sans référence de départ, aucune amélioration ne sera démontrable.</li>
+        </ul>
+      </div>
+    </article>
+
+    <section class="quiz-section">
+      <h2>🧠 Quiz d'auto-évaluation</h2>
+      <p style="color:var(--text-muted);margin-bottom:20px;">Sélectionnez la bonne réponse pour valider vos acquis. Le feedback immédiat vous expliquera les concepts clés.</p>
+      <div id="quiz-container">
+        <!-- Quiz chargé dynamiquement par quiz-engine.js -->
+      </div>
+      <div style="margin-top: 24px; text-align: center;">
+        <button id="btn-mark-complete" data-module-id="formation-gestion-de-projet-module-3" class="btn btn-primary">
+          Marquer le module comme terminé ✓
+        </button>
+      </div>
+    </section>
+
+    <nav class="module-nav">
+      <a href="../module-2/index.html" class="btn btn-outline">← Module 2</a>
+      <a href="../module-4/index.html" class="btn btn-primary">Module 4 →</a>
+    </nav>
+  </main>
+
+  <script src="../../../assets/js/progress.js"></script>
+  <script src="../../../assets/js/quiz-engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadQuiz('quiz.json', 'quiz-container');
+    });
+  </script>
+</body>
+</html>

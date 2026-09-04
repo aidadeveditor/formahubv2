@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Formahub — plateforme d'auto-formation : 7 parcours professionnels, 29 modules complets avec exercices corrigés et quiz.">
+  <meta name="color-scheme" content="light dark">
+  <title>Formahub — Mes formations</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#catalogue">Aller au catalogue</a>
+
+  <header class="site-header">
+    <a href="index.html" class="brand">
+      <div class="brand-icon">F</div>
+      <span>Formahub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link active">Mes formations</a>
+      <a href="ressources-externes.html" class="nav-link">Ressources externes</a>
+      <a href="formations-espagne.html" class="nav-link">Formations Espagne</a>
+      <button class="theme-toggle" type="button">🌙 Mode sombre</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <div class="hero-banner">
+      <h1>Plateforme d'auto-formation Formahub</h1>
+      <p>7 parcours professionnels complets, 29 modules approfondis &mdash; cours détaillé, exemples, étude de cas résolue, exercices corrigés et quiz d'auto-évaluation. Environ <strong>25 heures</strong> de formation, progression sauvegardée automatiquement.</p>
+    </div>
+
+    <section class="dashboard" aria-label="Ma progression globale">
+      <div class="progress-ring" id="global-ring" role="progressbar"
+           aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"
+           aria-label="Progression globale"><span>0%</span></div>
+      <div class="dashboard-stats">
+        <div class="stat-tile">
+          <span class="stat-value" id="stat-done">0/29</span>
+          <span class="stat-label">Modules terminés</span>
+        </div>
+        <div class="stat-tile">
+          <span class="stat-value" id="stat-formations">0/7</span>
+          <span class="stat-label">Parcours bouclés</span>
+        </div>
+        <div class="stat-tile">
+          <span class="stat-value" id="stat-progress">0</span>
+          <span class="stat-label">En cours</span>
+        </div>
+        <div class="stat-tile">
+          <span class="stat-value" id="stat-time">25 h 00</span>
+          <span class="stat-label">Restant estimé</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="resume-bar" id="resume-bar" hidden>
+      <div class="resume-icon" aria-hidden="true">📖</div>
+      <div class="resume-text">
+        <span class="resume-kicker">Reprendre où vous en étiez</span>
+        <span class="resume-title"></span>
+      </div>
+      <a href="#" class="btn btn-primary btn-sm resume-link">Continuer →</a>
+    </div>
+
+    <div class="toolbar">
+      <div class="search-field">
+        <input type="search" id="catalogue-search" aria-label="Rechercher une formation"
+               placeholder="Rechercher un parcours, un thème…" autocomplete="off">
+        <kbd>/</kbd>
+      </div>
+      <div class="filter-bar" role="group" aria-label="Filtrer par état">
+        <button class="filter-btn active" type="button" data-state-filter="all" aria-pressed="true">Tous</button>
+        <button class="filter-btn" type="button" data-state-filter="progress" aria-pressed="false">En cours</button>
+        <button class="filter-btn" type="button" data-state-filter="todo" aria-pressed="false">À commencer</button>
+        <button class="filter-btn" type="button" data-state-filter="done" aria-pressed="false">Terminés</button>
+      </div>
+    </div>
+
+    <div class="catalogue-grid" id="catalogue">
+
+      <article class="card" data-formation-slug="seo" data-total-modules="5" data-minutes="250">
+        <div>
+          <div class="card-top">
+            <span class="badge badge-neutral status-badge">Non commencé</span>
+            <span class="card-tags">
+              <span class="badge badge-neutral">5 modules</span>
+            </span>
+          </div>
+          <h2>SEO Fondamentaux</h2>
+          <p>Maîtriser les 3 piliers du référencement naturel : sémantique, technique et netlinking.</p>
+        </div>
+        <div>
+          <div class="progress-container">
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Progression SEO Fondamentaux">
+              <div class="progress-bar-fill" style="width: 0%;"></div>
+            </div>
+            <div class="progress-label">
+              <span class="progress-text">0/5 terminés (0%)</span>
+              <span class="progress-duration">⏱️ 4 h 10</span>
+            </div>
+          </div>
+          <a href="formations/seo/module-1/index.html" class="btn btn-primary btn-block" data-cta>Commencer la formation →</a>
+        </div>
+      </article>
+
+      <article class="card" data-formation-slug="content-marketing" data-total-modules="4" data-minutes="195">
+        <div>
+          <div class="card-top">
+            <span class="badge badge-neutral status-badge">Non commencé</span>
+            <span class="card-tags">
+              <span class="badge badge-neutral">4 modules</span>
+            </span>
+          </div>
+          <h2>Content Marketing &amp; Stratégie Éditoriale</h2>
+          <p>Attirer, engager et convertir une audience qualifiée grâce à des contenus à haute valeur ajoutée.</p>
+        </div>
+        <div>
+          <div class="progress-container">
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Progression Content Marketing">
+              <div class="progress-bar-fill" style="width: 0%;"></div>
+            </div>
+            <div class="progress-label">
+              <span class="progress-text">0/4 terminés (0%)</span>
+              <span class="progress-duration">⏱️ 3 h 15</span>
+            </div>
+          </div>
+          <a href="formations/content-marketing/module-1/index.html" class="btn btn-primary btn-block" data-cta>Commencer la formation →</a>
+        </div>
+      </article>
+
+      <article class="card" data-formation-slug="ia-generative" data-total-modules="5" data-minutes="250">
+        <div>
+          <div class="card-top">
+            <span class="badge badge-neutral status-badge">Non commencé</span>
+            <span class="card-tags">
+              <span class="badge badge-neutral">5 modules</span>
+            </span>
+          </div>
+          <h2>IA Générative appliquée au contenu</h2>
+          <p>Comprendre les LLMs, maîtriser le prompt engineering et déployer l'IA de façon responsable.</p>
+        </div>
+        <div>
+          <div class="progress-container">
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Progression IA Générative">
+              <div class="progress-bar-fill" style="width: 0%;"></div>
+            </div>
+            <div class="progress-label">
+              <span class="progress-text">0/5 terminés (0%)</span>
+              <span class="progress-duration">⏱️ 4 h 10</span>
+            </div>
+          </div>
+          <a href="formations/ia-generative/module-1/index.html" class="btn btn-primary btn-block" data-cta>Commencer la formation →</a>
+        </div>
+      </article>
+
+      <article class="card" data-formation-slug="gestion-de-projet" data-total-modules="4" data-minutes="205">
+        <div>
+          <div class="card-top">
+            <span class="badge badge-neutral status-badge">Non commencé</span>
+            <span class="card-tags">
+              <span class="badge badge-neutral">4 modules</span>
+            </span>
+          </div>
+          <h2>Gestion de Projet, les fondamentaux</h2>
+          <p>Méthodologies prédictives et agiles, planification SMART, Kanban et gestion des risques.</p>
+        </div>
+        <div>
+          <div class="progress-container">
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Progression Gestion de projet">
+              <div class="progress-bar-fill" style="width: 0%;"></div>
+            </div>
+            <div class="progress-label">
+              <span class="progress-text">0/4 terminés (0%)</span>
+              <span class="progress-duration">⏱️ 3 h 25</span>
+            </div>
+          </div>
+          <a href="formations/gestion-de-projet/module-1/index.html" class="btn btn-primary btn-block" data-cta>Commencer la formation →</a>
+        </div>
+      </article>
+
+      <article class="card" data-formation-slug="management-equipe" data-total-modules="4" data-minutes="200">
+        <div>
+          <div class="card-top">
+            <span class="badge badge-neutral status-badge">Non commencé</span>
+            <span class="card-tags">
+              <span class="badge badge-neutral">4 modules</span>
+            </span>
+          </div>
+          <h2>Management d'équipe, les bases</h2>
+          <p>Posture de leader facilitateur, 1-on-1, méthode DESC, organisation hybride et régulation des conflits.</p>
+        </div>
+        <div>
+          <div class="progress-container">
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Progression Management d'équipe">
+              <div class="progress-bar-fill" style="width: 0%;"></div>
+            </div>
+            <div class="progress-label">
+              <span class="progress-text">0/4 terminés (0%)</span>
+              <span class="progress-duration">⏱️ 3 h 20</span>
+            </div>
+          </div>
+          <a href="formations/management-equipe/module-1/index.html" class="btn btn-primary btn-block" data-cta>Commencer la formation →</a>
+        </div>
+      </article>
+
+      <article class="card" data-formation-slug="crm-relation-client" data-total-modules="3" data-minutes="160">
+        <div>
+          <div class="card-top">
+            <span class="badge badge-neutral status-badge">Non commencé</span>
+            <span class="card-tags">
+              <span class="badge badge-neutral">3 modules</span>
+            </span>
+          </div>
+          <h2>CRM et relation client (Salesforce)</h2>
+          <p>Architecture des données CRM, pipeline commercial, forecasting, Salesforce Flows et Service Cloud.</p>
+        </div>
+        <div>
+          <div class="progress-container">
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Progression CRM et relation client">
+              <div class="progress-bar-fill" style="width: 0%;"></div>
+            </div>
+            <div class="progress-label">
+              <span class="progress-text">0/3 terminés (0%)</span>
+              <span class="progress-duration">⏱️ 2 h 40</span>
+            </div>
+          </div>
+          <a href="formations/crm-relation-client/module-1/index.html" class="btn btn-primary btn-block" data-cta>Commencer la formation →</a>
+        </div>
+      </article>
+
+      <article class="card" data-formation-slug="analytics-mesure" data-total-modules="4" data-minutes="240">
+        <div>
+          <div class="card-top">
+            <span class="badge badge-neutral status-badge">Non commencé</span>
+            <span class="card-tags">
+              <span class="badge badge-neutral">4 modules</span>
+            </span>
+          </div>
+          <h2>Analytics &amp; mesure de la performance</h2>
+          <p>Plan de mesure, attribution, entonnoirs et tests : lire la donnée produite par le SEO, le contenu et le CRM, et décider avec.</p>
+        </div>
+        <div>
+          <div class="progress-container">
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Progression Analytics et mesure">
+              <div class="progress-bar-fill" style="width: 0%;"></div>
+            </div>
+            <div class="progress-label">
+              <span class="progress-text">0/4 terminés (0%)</span>
+              <span class="progress-duration">⏱️ 4 h 00</span>
+            </div>
+          </div>
+          <a href="formations/analytics-mesure/module-1/index.html" class="btn btn-primary btn-block" data-cta>Commencer la formation →</a>
+        </div>
+      </article>
+
+      <div class="empty-state" id="catalogue-empty" hidden>
+        <strong>Aucun parcours ne correspond</strong>
+        Essayez un autre mot-clé ou revenez au filtre « Tous ».
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/js/progress.js"></script>
+</body>
+</html>

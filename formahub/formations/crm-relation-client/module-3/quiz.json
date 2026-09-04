@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-crm-relation-client-module-3",
+  "version": "2.0",
+  "last_verified": "2026-09-02",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Faut-il automatiser le passage en Perdue d'une opportunité inactive depuis 90 jours ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Oui, cela garantit un pipeline toujours propre"
+        },
+        {
+          "key": "b",
+          "text": "Non : fermer est une décision commerciale. On automatise l'alerte, pas la décision"
+        },
+        {
+          "key": "c",
+          "text": "Oui, à condition d'en informer le commercial par e-mail"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Automatisée, la règle détruirait des affaires vivantes mais lentes, et apprendrait aux commerciaux à faire une modification cosmétique tous les 89 jours."
+    },
+    {
+      "id": "q2",
+      "question": "Quelle partie d'une règle d'automatisation est le plus souvent oubliée ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le déclencheur"
+        },
+        {
+          "key": "b",
+          "text": "La condition"
+        },
+        {
+          "key": "c",
+          "text": "L'action"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Son absence produit les alertes trop larges : le manager en reçoit deux cents par jour et les filtre dans un dossier qu'il ne lit pas."
+    },
+    {
+      "id": "q3",
+      "question": "Quel test permet de décider si un indicateur mérite sa place dans un tableau de bord ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Est-il facile à calculer automatiquement ?"
+        },
+        {
+          "key": "b",
+          "text": "La direction l'a-t-elle demandé ?"
+        },
+        {
+          "key": "c",
+          "text": "Quelle décision prendrai-je différemment selon sa valeur ?"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Ce test élimine généralement la moitié des indicateurs demandés — le chiffre d'affaires cumulé, par exemple, est légitime mais ne déclenche aucune action."
+    },
+    {
+      "id": "q4",
+      "question": "Pourquoi ne pas projeter en réunion le nombre d'appels par commercial ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Parce que la donnée est difficile à collecter de façon fiable"
+        },
+        {
+          "key": "b",
+          "text": "Parce qu'une mesure devenue objectif cesse d'être une bonne mesure : on obtient des appels courts et nombreux"
+        },
+        {
+          "key": "c",
+          "text": "Parce que le règlement intérieur l'interdit généralement"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "C'est la loi de Goodhart. Le coût réel n'est pas la vexation, c'est la dégradation silencieuse de la qualité des données."
+    },
+    {
+      "id": "q5",
+      "question": "Quel signal prédit le mieux le non-renouvellement d'un client ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le changement de l'interlocuteur principal chez le client"
+        },
+        {
+          "key": "b",
+          "text": "Une hausse du nombre de connexions au produit"
+        },
+        {
+          "key": "c",
+          "text": "Un délai de paiement allongé sur la dernière facture"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "C'est le premier facteur de non-renouvellement, et le CRM peut le signaler automatiquement par une tâche de reprise de contact."
+    },
+    {
+      "id": "q6",
+      "question": "Un CRM est déserté deux ans après son déploiement. Par quoi commencer ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Par une nouvelle session de formation des utilisateurs"
+        },
+        {
+          "key": "b",
+          "text": "Par retirer des champs obligatoires inutiles et donner à chacun sa vue de travail"
+        },
+        {
+          "key": "c",
+          "text": "Par rendre la saisie obligatoire avant la validation des commissions"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "On ne demande rien de nouveau tant qu'on n'a pas rendu quelque chose. Un CRM tient s'il rend service à celui qui le remplit."
+    }
+  ]
+}

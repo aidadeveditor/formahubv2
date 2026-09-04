@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formahub — IA Générative appliquée au contenu : Prompts Métiers pour le Content Specialist</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="../../../index.html" class="brand">
+      <div class="brand-icon">F</div>
+      <span>Formahub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../../../index.html" class="nav-link">Mes formations</a>
+      <a href="../../../ressources-externes.html" class="nav-link">Ressources externes</a>
+      <a href="../../../formations-espagne.html" class="nav-link">Formations Espagne</a>
+      <button class="theme-toggle" type="button">🌙 Mode Sombre</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="../../../index.html">Accueil</a> &gt;
+        <span>IA Générative appliquée au contenu</span> &gt;
+        <strong>Module 4</strong>
+      </div>
+      <h1>Module 4 : Prompts Métiers pour le Content Specialist</h1>
+      <div class="module-meta">
+        <span class="badge badge-progress">⏱️ 50 min</span>
+        <span class="badge badge-neutral">Module 4 sur 5</span>
+        <span class="badge badge-neutral">Niveau : Intermédiaire</span>
+        <span class="badge badge-neutral">~2600 mots</span>
+      </div>
+    </div>
+
+    <article class="module-content">
+      <div class="intro-box">
+        <h3>📍 Mise en situation</h3>
+        <p>Trois mois que votre équipe utilise l'IA. Le bilan est mitigé : tout le monde s'en sert pour « écrire plus vite », et le temps gagné à la rédaction se perd en réécriture. Les textes produits sont corrects et fades, et deux personnes ont discrètement arrêté de s'en servir.</p>
+        <p>L'erreur de départ est presque universelle : on a confié à l'outil la tâche qu'il fait le <em>moins</em> bien — produire un texte original à partir de rien — et on a négligé celles où il excelle. Un modèle est faible en création à partir du vide, et remarquable en analyse critique, en reformulation, en extraction et en variation. Ce module renverse l'usage : dix emplois métier où le gain est réel, avec les prompts correspondants. Aucun ne consiste à faire écrire l'article à votre place.</p>
+      </div>
+
+      <div class="objectives-box">
+        <h3>🎯 À l'issue de ce module, vous saurez</h3>
+        <ul>
+          <li>Identifier les tâches éditoriales où l'IA apporte réellement un gain, et celles où elle en fait perdre</li>
+          <li>Employer le modèle comme relecteur critique plutôt que comme rédacteur</li>
+          <li>Auditer la lisibilité et la structure d'un texte de façon systématique</li>
+          <li>Produire des variations et des déclinaisons à partir d'un contenu validé</li>
+          <li>Construire vos propres prompts métier à partir d'une grille reproductible</li>
+        </ul>
+      </div>
+
+      <h2>1. Où le gain est réel, où il est illusoire</h2>
+      <p>Un modèle est excellent lorsqu'il travaille <strong>sur une matière existante</strong> : analyser, reformuler, extraire, comparer, décliner, critiquer. Il est médiocre lorsqu'on lui demande de produire à partir de rien : il retombe alors sur la moyenne du corpus, ce qui donne les textes plats du module 2.</p>
+      <p>Ce constat conduit à un renversement simple : <strong>vous écrivez, il travaille votre texte</strong>. Le premier jet reste humain — c'est là que se logent l'angle, l'expérience et la matière propre. L'outil intervient ensuite, sur les opérations où il est plus rapide et plus systématique qu'un relecteur fatigué.</p>
+      <div class="table-responsive">
+<table>
+<thead><tr><th>Usage</th><th>Gain réel</th><th>Pourquoi</th></tr></thead>
+<tbody>
+<tr><td>Rédiger un article de fond à partir d'un titre</td><td><strong>Faible, voire négatif</strong></td><td>Résultat générique, réécriture complète, angle absent</td></tr>
+<tr><td>Critiquer un texte que vous avez écrit</td><td><strong>Élevé</strong></td><td>Systématique, sans complaisance, sans fatigue</td></tr>
+<tr><td>Auditer lisibilité et structure</td><td><strong>Élevé</strong></td><td>Repère mécaniquement ce que l'œil ne voit plus</td></tr>
+<tr><td>Produire 10 variantes de titre</td><td><strong>Élevé</strong></td><td>La quantité est exactement ce qu'il fait bien</td></tr>
+<tr><td>Décliner un contenu validé en formats</td><td><strong>Élevé</strong></td><td>La matière existe, il ne reste que l'adaptation</td></tr>
+<tr><td>Extraire et structurer d'un entretien</td><td><strong>Très élevé</strong></td><td>Tâche longue et sans valeur ajoutée humaine</td></tr>
+<tr><td>Trouver l'angle d'un sujet</td><td><strong>Moyen</strong></td><td>Utile en génération d'options, mais l'arbitrage reste humain</td></tr>
+<tr><td>Vérifier des faits</td><td><strong>Nul</strong></td><td>Voir module 1 : il n'a pas accès aux faits</td></tr>
+</tbody>
+</table>
+</div>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — mesurer le gain à la rédaction seule</h4>
+        <p>« J'ai eu mon article en trois minutes » ne dit rien tant qu'on n'a pas compté la réécriture, la vérification factuelle et les allers-retours. Sur un article de fond produit à partir de rien, le temps total est fréquemment <em>supérieur</em> à une rédaction humaine — avec un résultat moins bon.</p>
+        <p>Comptez toujours le cycle complet : cadrage, production, réécriture, vérification, validation. C'est le seul chiffre qui permette de décider où l'outil sert réellement.</p>
+      </div>
+
+      <h2>2. Le modèle comme relecteur critique</h2>
+      <p>C'est l'usage au meilleur rendement, et le plus sous-employé. Un relecteur humain se fatigue, hésite à être dur, et laisse passer ce qu'il a déjà lu trois fois. Un modèle applique une grille sans complaisance, autant de fois qu'on le lui demande, et sur un texte qu'il découvre à chaque passage.</p>
+      <h3>2.1 L'avocat du diable éditorial</h3>
+      <p>Le principe : demander au modèle d'attaquer votre texte plutôt que de l'approuver. Formulée directement — « relis mon texte » — la demande produit des compliments et trois suggestions cosmétiques, parce que c'est la continuation la plus plausible d'une telle demande. Formulée en opposition, elle produit une critique utilisable.</p>
+      <div class="method-box">
+        <h4>⚙️ Méthode — prompt de relecture critique</h4>
+        <p>À employer sur un texte que vous avez écrit, avant toute diffusion.</p>
+        <ol>
+          <li><strong>Rôle :</strong> « Tu es un lecteur hostile et compétent sur le sujet. Tu cherches les failles de ce texte, pas ses qualités. »</li>
+          <li><strong>Tâche :</strong> « Relève : (1) les affirmations non étayées, (2) les objections qu'un lecteur informé opposerait, (3) les passages où le raisonnement saute une étape, (4) ce qui est promis dans le titre et non tenu dans le corps. »</li>
+          <li><strong>Contrainte décisive :</strong> « Ne propose aucune reformulation et ne complimente rien. Cite le passage exact concerné pour chaque point. »</li>
+          <li><strong>Format :</strong> « Une liste, classée du problème le plus grave au moins grave, avec pour chacun : le passage cité, le problème, et pourquoi c'est un problème. »</li>
+          <li><strong>Exploitation :</strong> traitez les points, ne les acceptez pas tous. Certaines objections seront hors sujet — c'est normal et sans importance : sur dix points, trois qui portent justifient l'exercice.</li>
+        </ol>
+      </div>
+      <div class="example-box">
+        <h4>📌 Exemple — ce que la critique fait remonter</h4>
+        <p>Sur un article d'une page consacré à la maintenance préventive, le prompt de relecture critique a remonté six points. Trois étaient hors sujet. Les trois autres :</p>
+        <p>« <em>Le texte affirme que la maintenance préventive réduit les coûts, sans distinguer coût direct et coût d'immobilisation. Un directeur financier objectera que le coût direct augmente.</em> » — objection réelle, qui n'avait été anticipée par personne, et qui a conduit à ajouter un paragraphe.</p>
+        <p>« <em>Le titre annonce “en 6 mois”, le corps ne mentionne aucun délai.</em> » — promesse non tenue, invisible pour l'auteur qui avait le délai en tête sans l'avoir écrit.</p>
+        <p>« <em>Le passage sur le suivi vibratoire suppose que le lecteur sait ce qu'est une signature vibratoire. Rien ne l'explique.</em> » — saut de raisonnement typique de l'expert qui écrit pour des pairs alors que la cible est plus large.</p>
+        <p>Ces trois points auraient demandé un relecteur compétent, disponible et suffisamment franc. Ils ont coûté deux minutes.</p>
+      </div>
+
+      <h2>3. Auditer la forme : lisibilité et structure</h2>
+      <p>Deux audits mécaniques, à lancer sur tout texte long. Ils repèrent ce que l'œil de l'auteur ne voit plus — non pas des fautes, mais des défauts de construction que la familiarité avec son propre texte rend invisibles.</p>
+      <h3>3.1 L'audit de lisibilité</h3>
+      <p>Le prompt : « Relève dans ce texte, sans le réécrire : les phrases de plus de 30 mots ; les occurrences de voix passive ; les paragraphes de plus de 5 lignes ; les termes techniques employés sans explication ; les répétitions d'un même mot à moins de trois phrases d'intervalle. Présente le résultat en tableau : passage cité, problème, gravité. »</p>
+      <p>La contrainte « sans le réécrire » est essentielle. Si vous demandez une correction, vous obtenez un texte lissé qui a perdu votre voix. Vous voulez un diagnostic, pas une réécriture — la correction, vous la ferez vous-même, en décidant ce qui mérite d'être changé.</p>
+      <h3>3.2 L'audit de structure</h3>
+      <p>Le prompt : « Extrais uniquement les titres et intertitres de ce texte, dans l'ordre, sans le corps. Puis réponds à trois questions : (1) ce plan permet-il de comprendre le sujet sans lire le texte ? (2) une section traite-t-elle deux idées distinctes ? (3) l'ordre suit-il la logique de découverte d'un lecteur qui ne connaît pas le sujet ? »</p>
+      <p>C'est l'automatisation du <em>test du plan lu seul</em> vu dans la formation Content Marketing. Le modèle est particulièrement bon à cet exercice, parce qu'il n'a précisément pas le contexte que l'auteur a en tête — il ne voit que ce qui est écrit, ce qui est exactement la situation du lecteur.</p>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — demander une correction plutôt qu'un diagnostic</h4>
+        <p>« Améliore ce texte » produit un texte différent, souvent plus lisse, plus long, et dépouillé de ce qui faisait sa voix. Vous perdez alors précisément ce qui distinguait votre contenu.</p>
+        <p>La règle : <strong>le modèle diagnostique, vous corrigez</strong>. Cette séparation préserve votre style et vous laisse arbitrer — toutes les phrases longues ne sont pas à couper, et certaines voix passives sont volontaires.</p>
+      </div>
+
+      <h2>4. Produire des variations</h2>
+      <p>La génération de quantité est ce qu'un modèle fait le mieux, et c'est directement utile sur trois usages : les titres, les accroches et les déclinaisons. Le principe commun est que <strong>vous ne cherchez pas la bonne proposition, vous cherchez de la matière à choisir</strong>.</p>
+      <div class="method-box">
+        <h4>⚙️ Méthode — obtenir des variantes réellement différentes</h4>
+        <ol>
+          <li><strong>Imposez des angles distincts</strong> plutôt qu'un nombre : « propose 8 titres, dont 2 fondés sur un chiffre, 2 sur une question du lecteur, 2 sur un contre-pied, 2 sur un bénéfice concret ». Sans cette consigne, vous obtenez huit variantes de la même formulation.</li>
+          <li><strong>Fournissez les contraintes de votre charte</strong> : longueur, interdits lexicaux, registre. Sinon la moitié des propositions est inutilisable d'emblée.</li>
+          <li><strong>Interdisez explicitement les tournures usées</strong> : « aucun titre ne doit commencer par <em>Comment</em>, ni contenir <em>les X clés</em>, <em>tout savoir sur</em> ou deux-points suivis d'une liste ».</li>
+          <li><strong>Demandez une justification d'une ligne</strong> par proposition : elle vous aide à choisir, et révèle les propositions creuses dont la justification tourne à vide.</li>
+          <li><strong>Choisissez, puis retravaillez à la main.</strong> La meilleure proposition est presque toujours un point de départ, pas un résultat final.</li>
+        </ol>
+      </div>
+      <h3>4.1 La déclinaison d'un contenu validé</h3>
+      <p>C'est l'application directe du repurposing vu en Content Marketing, et l'un des usages au meilleur rendement — parce que la matière est déjà là, vérifiée et validée.</p>
+      <p>Le prompt type : « À partir de l'article ci-dessous, produis : (1) un post professionnel de 5 lignes ouvrant sur le constat chiffré le plus fort ; (2) le texte d'une édition de newsletter de 150 mots, ajoutant un commentaire personnel que je remplirai entre crochets ; (3) une fiche pratique d'une page reprenant uniquement la procédure. Chaque format est réécrit pour son contexte de lecture, pas copié. Respecte les contraintes suivantes : [charte]. »</p>
+      <p>Deux précautions. Le modèle ne doit <strong>introduire aucun fait absent</strong> de l'article source — précisez-le. Et l'emplacement du commentaire personnel doit rester à remplir par vous : c'est ce qui distingue une newsletter lue d'un sommaire automatique.</p>
+
+      <h2>5. Extraire d'un entretien</h2>
+      <p>C'est probablement l'usage au rendement le plus élevé de tout le module, et le moins spectaculaire. Exploiter un entretien enregistré avec un expert interne — la matière première de tout contenu crédible — est une tâche longue, fastidieuse et sans valeur ajoutée humaine.</p>
+      <div class="method-box">
+        <h4>⚙️ Méthode — exploiter un entretien expert</h4>
+        <ol>
+          <li><strong>Enregistrez et faites transcrire</strong> l'entretien. La transcription brute, avec ses hésitations, convient parfaitement.</li>
+          <li><strong>Premier passage — extraire les affirmations :</strong> « Relève toutes les affirmations factuelles de cet entretien : chiffres, constats, exemples, cas cités. Format : tableau — affirmation, citation exacte, minutage approximatif. N'ajoute rien qui ne soit dit. »</li>
+          <li><strong>Deuxième passage — extraire les citations :</strong> « Relève les 10 formulations les plus percutantes, reproduites <strong>textuellement</strong>, sans aucune correction ni reformulation. » La contrainte textuelle est impérative : une citation reformulée attribuée à quelqu'un est un risque réel.</li>
+          <li><strong>Troisième passage — repérer les manques :</strong> « Quelles questions un lecteur se poserait-il et auxquelles cet entretien ne répond pas ? » Vous obtenez la liste des relances pour le prochain échange.</li>
+          <li><strong>Rédigez vous-même</strong> à partir de ce matériau structuré. C'est là que l'angle apparaît, et c'est votre travail.</li>
+        </ol>
+      </div>
+      <div class="example-box">
+        <h4>📌 Exemple — un entretien d'une heure, trois contenus</h4>
+        <p>Une chargée de communication enregistre 55 minutes avec un ingénieur qualité. Avant : elle réécoutait l'enregistrement deux fois, prenait des notes, et produisait un article en trois heures.</p>
+        <p>Après : transcription automatique, trois passages d'extraction en dix minutes. Le tableau des affirmations fait apparaître onze constats chiffrés dont elle n'avait retenu que quatre à la réécoute — dont celui qui deviendra l'angle du contenu principal.</p>
+        <p>Le troisième passage — les questions sans réponse — a permis un rappel de vingt minutes qui a fourni la matière de deux contenus supplémentaires. L'entretien d'une heure a produit trois contenus au lieu d'un.</p>
+        <p>Le gain n'est pas seulement du temps : c'est la <strong>récupération de matière</strong> qui se perdait. Une écoute humaine retient ce qui l'a frappée ; une extraction systématique retient tout, et laisse le choix.</p>
+      </div>
+
+      <h2>6. Construire vos propres prompts métier</h2>
+      <p>Les prompts de ce module couvrent des besoins courants, mais votre métier a les siens. La grille suivante permet de transformer n'importe quelle tâche répétitive en prompt réutilisable.</p>
+      <div class="method-box">
+        <h4>⚙️ Méthode — transformer une tâche récurrente en prompt</h4>
+        <ol>
+          <li><strong>Repérez la tâche :</strong> répétitive, textuelle, chronophage, et à faible valeur ajoutée créative. Si elle demande un jugement métier, ce n'est pas la bonne candidate.</li>
+          <li><strong>Faites-la une fois à la main</strong> en notant vos étapes. Ce sont elles qui deviendront les consignes — un prompt n'est que l'explicitation d'une méthode que vous avez déjà.</li>
+          <li><strong>Vérifiez que le modèle travaille sur une matière existante.</strong> Si la tâche consiste à créer à partir de rien, le gain sera faible.</li>
+          <li><strong>Appliquez les cinq piliers</strong>, puis ajoutez la technique du module 3 si nécessaire : exemples pour une classification, étapes nommées pour un calcul, format structuré pour une exploitation en aval.</li>
+          <li><strong>Testez sur cinq cas réels</strong> et jugez sur le plus mauvais résultat.</li>
+          <li><strong>Documentez dans la bibliothèque d'équipe</strong> avec ses limites constatées — c'est ce qui transforme un gain individuel en gain collectif.</li>
+        </ol>
+      </div>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — automatiser une tâche qui demandait un jugement</h4>
+        <p>Certaines tâches paraissent répétitives et ne le sont pas. Trier des candidatures, arbitrer entre deux angles éditoriaux, décider qu'un sujet est sensible : ces opérations mobilisent un jugement contextuel que le modèle simulera sans l'avoir.</p>
+        <p>Le test : <em>si le résultat est faux, quelqu'un peut-il en subir un préjudice ?</em> Si oui, le modèle peut préparer, proposer, présélectionner — jamais décider. C'est le sujet du module suivant.</p>
+      </div>
+
+      <div class="case-box">
+        <h3>🔍 Étude de cas — renverser l'usage dans une équipe de trois personnes</h3>
+        <p>Reprenons la situation d'ouverture. Équipe de trois personnes, un contenu de fond par semaine, trois mois d'usage de l'IA pour un bilan jugé décevant.</p>
+        <p><strong>Étape 1 — Mesurer le cycle complet.</strong> Chronométrage sur quatre contenus produits « avec l'IA » : rédaction 25 min, réécriture 1 h 40, vérification factuelle 35 min, allers-retours 30 min. Total 3 h 10. Comparaison avec quatre contenus rédigés à la main : 2 h 45. <strong>L'IA faisait perdre 25 minutes par contenu</strong> — un chiffre que personne n'avait mesuré, parce que tout le monde ne regardait que les 25 minutes de rédaction.</p>
+        <p><strong>Étape 2 — Identifier où le temps passe réellement.</strong> Décomposition du cycle complet d'un contenu rédigé à la main : entretien expert et exploitation 1 h 10 ; rédaction 55 min ; relecture et corrections 25 min ; déclinaisons 15 min. Le poste le plus lourd n'était pas la rédaction, c'était l'<strong>exploitation de l'entretien</strong>.</p>
+        <p><strong>Étape 3 — Renverser l'usage.</strong> Trois décisions :</p>
+        <ul>
+        <li><strong>L'IA ne rédige plus le premier jet.</strong> C'est l'humain qui écrit, à partir du matériau extrait.</li>
+        <li><strong>L'IA exploite les entretiens.</strong> Transcription, puis les trois passages d'extraction : affirmations, citations textuelles, questions sans réponse. Poste ramené de 1 h 10 à 20 minutes.</li>
+        <li><strong>L'IA relit et audite.</strong> Relecture critique, audit de lisibilité, audit de structure — trois prompts lancés systématiquement avant validation.</li>
+        </ul>
+        <p><strong>Étape 4 — Le résultat mesuré à six semaines.</strong> Cycle complet ramené à 1 h 50 par contenu, contre 2 h 45 à la main et 3 h 10 avec l'ancien usage. Soit un gain réel de 55 minutes, là où l'usage précédent faisait perdre du temps.</p>
+        <p><strong>Étape 5 — L'effet inattendu.</strong> La qualité éditoriale a progressé, ce que personne n'avait anticipé. Deux raisons : l'extraction systématique des entretiens récupérait des constats chiffrés qui se perdaient à la réécoute ; et la relecture critique lancée sur <em>chaque</em> contenu a fait remonter des promesses de titre non tenues et des sauts de raisonnement que personne n'avait le temps de traquer manuellement.</p>
+        <p><strong>Ce que le cas enseigne :</strong> le diagnostic est venu du chronométrage du cycle complet. Sans ce chiffre, l'équipe serait restée sur l'impression que « ça fait gagner du temps » tout en constatant le contraire. Et la conclusion est contre-intuitive : le gain est venu de <strong>retirer</strong> à l'IA la tâche pour laquelle on l'avait adoptée.</p>
+      </div>
+
+      <div class="checklist-box">
+        <h3>📋 Checklist — Usages métier de l'IA en production éditoriale</h3>
+        <ul class="checklist">
+          <li>Le gain est mesuré sur le cycle complet, pas sur la seule rédaction</li>
+          <li>Le premier jet des contenus de fond reste humain</li>
+          <li>Le modèle travaille sur une matière existante, pas à partir de rien</li>
+          <li>La relecture critique est lancée systématiquement avant validation</li>
+          <li>Le prompt de relecture interdit les compliments et les reformulations</li>
+          <li>L'audit de lisibilité demande un diagnostic, jamais une correction</li>
+          <li>L'audit de structure vérifie que le plan lu seul raconte le texte</li>
+          <li>Les demandes de variantes imposent des angles distincts, pas seulement un nombre</li>
+          <li>Les tournures usées sont explicitement interdites dans les demandes de titres</li>
+          <li>Les entretiens experts sont transcrits puis exploités en trois passages</li>
+          <li>Les citations sont extraites textuellement, jamais reformulées</li>
+          <li>Les déclinaisons n'introduisent aucun fait absent du contenu source</li>
+          <li>L'emplacement du commentaire personnel reste à remplir par un humain</li>
+          <li>Aucune tâche demandant un jugement métier n'a été automatisée</li>
+          <li>Chaque prompt métier est documenté dans la bibliothèque, avec ses limites</li>
+        </ul>
+      </div>
+
+      <div class="glossary-box">
+        <h3>📖 Glossaire du module</h3>
+        <dl>
+          <dt>Relecture critique</dt>
+          <dd>Usage du modèle comme lecteur hostile, cherchant les failles d'un texte plutôt que ses qualités.</dd>
+          <dt>Audit de lisibilité</dt>
+          <dd>Relevé systématique des phrases longues, voix passives, paragraphes denses et termes non expliqués.</dd>
+          <dt>Audit de structure</dt>
+          <dd>Extraction des seuls titres pour vérifier que le plan lu seul raconte le texte.</dd>
+          <dt>Diagnostic vs correction</dt>
+          <dd>Principe séparant le repérage des problèmes (au modèle) et leur traitement (à l'humain), pour préserver la voix.</dd>
+          <dt>Variation</dt>
+          <dd>Production de plusieurs propositions différenciées par des angles imposés, pour choisir plutôt que pour retenir.</dd>
+          <dt>Déclinaison</dt>
+          <dd>Adaptation d'un contenu validé à d'autres formats, sans introduction de fait nouveau.</dd>
+          <dt>Extraction d'entretien</dt>
+          <dd>Exploitation systématique d'une transcription : affirmations, citations textuelles, questions sans réponse.</dd>
+          <dt>Citation textuelle</dt>
+          <dd>Reproduction exacte des propos, sans correction ni reformulation — impératif dès qu'on attribue à quelqu'un.</dd>
+          <dt>Cycle complet</dt>
+          <dd>Somme du temps de cadrage, production, réécriture, vérification et validation ; seule mesure honnête du gain.</dd>
+          <dt>Prompt métier</dt>
+          <dd>Prompt réutilisable formalisant une tâche récurrente propre à votre activité.</dd>
+        </dl>
+      </div>
+
+      <div class="takeaway-box">
+        <h3>✅ À retenir</h3>
+        <ul>
+          <li>Un modèle est médiocre en création à partir de rien, et remarquable sur une matière existante.</li>
+          <li>Vous écrivez, il travaille votre texte : le premier jet reste humain, c'est là que se logent l'angle et l'expérience.</li>
+          <li>Mesurez toujours le cycle complet — la rédaction seule cache souvent une perte de temps nette.</li>
+          <li>« Relis mon texte » produit des compliments ; « cherche les failles, ne complimente rien » produit une critique utilisable.</li>
+          <li>Le modèle diagnostique, vous corrigez : demander une correction fait perdre votre voix.</li>
+          <li>L'audit de structure fonctionne bien parce que le modèle n'a pas le contexte que l'auteur a en tête — comme le lecteur.</li>
+          <li>Pour des variantes utiles, imposez des angles distincts et interdisez les tournures usées.</li>
+          <li>L'exploitation d'entretiens est l'usage au meilleur rendement : elle récupère la matière qui se perd à la réécoute.</li>
+          <li>Les citations s'extraient textuellement : une citation reformulée et attribuée est un risque réel.</li>
+          <li>Si le résultat d'une tâche peut causer un préjudice, le modèle prépare et propose — il ne décide pas.</li>
+        </ul>
+      </div>
+
+      <h2 class="exercises-title">Exercices d'application</h2>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 1 — Écrire un prompt de relecture <span class="badge badge-neutral">Application</span></h3>
+        <p>Vous venez de rédiger une page de vente pour une offre de formation. Vous voulez la faire critiquer avant diffusion.</p>
+        <p><strong>1.</strong> Rédigez le prompt complet, en appliquant les cinq piliers. <strong>2.</strong> Expliquez pourquoi vous interdisez la reformulation. <strong>3.</strong> Indiquez comment vous exploiterez le retour, sachant qu'il contiendra des points hors sujet.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>1. Prompt proposé</strong></p>
+            <blockquote>
+            <p><strong>Rôle.</strong> Tu es un acheteur potentiel sceptique : responsable formation dans une entreprise de taille moyenne, tu as déjà été déçu par deux prestataires, et tu dois justifier cette dépense auprès de ta direction.</p>
+            <p><strong>Contexte.</strong> Voici la page de vente d'une offre de formation à [sujet], à [prix], destinée à [cible]. Nos concurrents affichent des offres comparables entre [fourchette].</p>
+            <p><strong>Tâche.</strong> Relève tout ce qui, dans cette page, t'empêcherait d'acheter ou de défendre cet achat en interne. Cherche en particulier : (1) les affirmations que rien n'étaye ; (2) les questions que tu te poses et auxquelles la page ne répond pas ; (3) ce qui te ferait douter du sérieux du prestataire ; (4) ce que tu ne saurais pas répondre si ta direction te demandait « pourquoi eux ? ».</p>
+            <p><strong>Contraintes.</strong> Ne propose aucune reformulation. Ne relève aucun point positif. Cite le passage exact concerné pour chaque remarque. Si un point est mineur, dis-le.</p>
+            <p><strong>Format.</strong> Liste classée du plus bloquant au moins bloquant. Pour chaque point : le passage cité, l'objection, et ce qui la lèverait.</p>
+            </blockquote>
+            <p>Le rôle est le pilier décisif ici : un « acheteur sceptique ayant déjà été déçu et devant justifier en interne » produit des objections nettement plus utiles qu'un « relecteur professionnel ». La contrainte de justification interne fait remonter des manques qu'aucune relecture stylistique ne détecte.</p>
+            <p><strong>2. Pourquoi interdire la reformulation</strong></p>
+            <p>Trois raisons. D'abord, une reformulation proposée par le modèle ramène le texte vers la moyenne du corpus — vous perdez ce qui vous distinguait. Ensuite, elle détourne l'attention : on discute de la formulation proposée au lieu de traiter le problème signalé. Enfin, c'est un mélange de deux opérations : le diagnostic gagne à rester séparé de la correction, exactement comme la révision en trois passes du module 3 de Content Marketing.</p>
+            <p><strong>3. Exploitation du retour</strong></p>
+            <ol>
+            <li><strong>Lire sans se défendre</strong>, en notant sa réaction. Une objection qui agace est fréquemment une objection qui porte.</li>
+            <li><strong>Trier en trois piles :</strong> les points qui portent et qu'on traite ; ceux qui portent mais qu'on assume de ne pas traiter — auquel cas on écrit pourquoi, ce qui sera utile aux commerciaux ; ceux qui sont hors sujet, qu'on écarte sans état d'âme.</li>
+            <li><strong>Ne pas viser le zéro objection.</strong> Sur dix points, trois qui portent justifient l'exercice. Chercher à tout traiter conduit à une page défensive qui répond à des objections que personne ne se pose.</li>
+            <li><strong>Conserver les objections écartées</strong> dans un document : celles qui reviennent d'un texte à l'autre signalent un problème d'offre, pas de rédaction — c'est une information précieuse pour l'équipe commerciale.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 2 — Auditer le temps réellement gagné <span class="badge badge-neutral">Analyse</span></h3>
+        <p>Votre équipe affirme gagner « au moins 50 % de temps » grâce à l'IA. Vous n'en êtes pas certain. On vous demande de trancher avant d'investir dans des licences supplémentaires.</p>
+        <p><strong>1.</strong> Concevez le protocole de mesure. <strong>2.</strong> Indiquez les biais à neutraliser. <strong>3.</strong> Décrivez comment vous présenterez un résultat qui contredirait l'impression de l'équipe.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>1. Protocole de mesure</strong></p>
+            <p><strong>Comparer des cycles complets sur des contenus comparables.</strong> Sélectionnez huit contenus de même nature et de difficulté proche : quatre produits avec IA, quatre sans. Chronométrez chaque poste séparément.</p>
+            <div class="table-responsive">
+            <table>
+            <thead><tr><th>Poste à chronométrer</th><th>Pourquoi il compte</th></tr></thead>
+            <tbody>
+            <tr><td>Cadrage et brief</td><td>Un usage IA demande souvent un brief plus précis — c'est un coût à comptabiliser</td></tr>
+            <tr><td>Collecte de matière</td><td>Poste souvent dominant, et où le gain est réel</td></tr>
+            <tr><td>Production du premier jet</td><td>Le seul poste que l'équipe mesure spontanément</td></tr>
+            <tr><td>Réécriture</td><td>Le poste que l'IA fait exploser quand elle rédige à partir de rien</td></tr>
+            <tr><td>Vérification factuelle</td><td>Poste nouveau, quasi inexistant sans IA</td></tr>
+            <tr><td>Allers-retours et validation</td><td>Augmente si le texte produit ne convainc pas le valideur</td></tr>
+            </tbody>
+            </table>
+            </div>
+            <p>Ajoutez deux indicateurs de qualité, sans quoi la mesure de temps ne veut rien dire : le <strong>nombre de cycles de validation</strong> avant acceptation, et une <strong>évaluation à l'aveugle</strong> des huit contenus par une personne extérieure qui ignore lesquels ont été produits comment.</p>
+            <p><strong>2. Biais à neutraliser</strong></p>
+            <ul>
+            <li><strong>Le biais de la rédaction visible.</strong> Le gain sur le premier jet est spectaculaire et immédiatement perceptible ; la perte en réécriture est diffuse et invisible. C'est le biais principal, et il explique à lui seul l'écart entre l'impression et la réalité.</li>
+            <li><strong>L'effet d'observation.</strong> Se savoir chronométré modifie le comportement. Mesurez sur au moins deux semaines, et sur des contenus réels.</li>
+            <li><strong>Le biais de sélection des contenus.</strong> Si les contenus « avec IA » sont les plus simples et les autres les plus techniques, la comparaison est faussée. Appariez-les par difficulté avant de mesurer.</li>
+            <li><strong>Le coût d'apprentissage.</strong> Une équipe en phase de découverte est plus lente. Si l'usage a trois mois, ce biais est en partie résorbé — mais mentionnez-le.</li>
+            <li><strong>L'oubli des tâches nouvelles.</strong> La vérification factuelle n'existait pas avant. L'omettre revient à comparer deux processus différents.</li>
+            </ul>
+            <p><strong>3. Présenter un résultat qui contredit l'équipe</strong></p>
+            <p>C'est la partie délicate de l'exercice, et la manière de le faire détermine si la mesure servira à quelque chose.</p>
+            <p><strong>Ne présentez pas le résultat comme un démenti.</strong> « Vous vous trompiez » ferme la discussion et met l'équipe en défense. La formulation utile est : <em>« Le gain sur la rédaction est bien réel — 25 minutes contre 55. Ce que nous n'avions pas mesuré, c'est ce qui se passe après. »</em></p>
+            <p><strong>Montrez la décomposition, pas le total.</strong> Le tableau poste par poste raconte l'histoire tout seul et n'accuse personne. Chacun y reconnaît son expérience : oui, on réécrit beaucoup ; oui, on vérifie maintenant.</p>
+            <p><strong>Concluez sur un redéploiement, jamais sur un abandon.</strong> « Les postes où le gain est net sont l'exploitation des entretiens et la relecture. Le poste où l'on perd est la rédaction du premier jet. Je propose de déplacer l'usage. » L'équipe passe alors d'accusée à participante, et l'outil n'est pas remis en cause.</p>
+            <p><strong>Assumez la limite de votre mesure.</strong> Huit contenus, ce n'est pas une étude. Présentez-le comme un ordre de grandeur qui justifie de déplacer l'usage, pas comme une preuve définitive — et proposez de remesurer dans trois mois.</p>
+          </div>
+        </details>
+      </div>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 3 — Créer un prompt métier <span class="badge badge-neutral">Synthèse</span></h3>
+        <p>Dans votre organisation, chaque contenu publié doit être accompagné d'une fiche de diffusion : à quels commerciaux il est utile, quelle objection il lève, quel extrait utiliser en e-mail, et quel format de déclinaison prévoir. Cette fiche prend 20 minutes et n'est presque jamais faite.</p>
+        <p><strong>1.</strong> Vérifiez que cette tâche est une bonne candidate. <strong>2.</strong> Rédigez le prompt. <strong>3.</strong> Décrivez la mise au point et ce que vous documenterez dans la bibliothèque.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>1. La tâche est-elle une bonne candidate ?</strong></p>
+            <div class="table-responsive">
+            <table>
+            <thead><tr><th>Critère</th><th>Verdict</th></tr></thead>
+            <tbody>
+            <tr><td>Répétitive</td><td>✓ À chaque publication</td></tr>
+            <tr><td>Textuelle</td><td>✓ Entrée et sortie sont du texte</td></tr>
+            <tr><td>Chronophage</td><td>✓ 20 minutes, et de fait jamais faite</td></tr>
+            <tr><td>Matière existante</td><td>✓ L'article est déjà écrit et validé</td></tr>
+            <tr><td>Faible valeur ajoutée créative</td><td>✓ C'est de la reformulation ciblée</td></tr>
+            <tr><td>Ne demande pas de jugement métier</td><td>~ <strong>Réserve :</strong> « à quels commerciaux » suppose de connaître leur portefeuille. Cette partie doit être fournie en contexte, pas devinée.</td></tr>
+            </tbody>
+            </table>
+            </div>
+            <p>Bonne candidate, à condition de fournir la liste des segments commerciaux en contexte. C'est exactement le type de nuance qui distingue un prompt qui fonctionne d'un prompt qui invente.</p>
+            <p><strong>2. Prompt proposé</strong></p>
+            <blockquote>
+            <p><strong>Rôle.</strong> Tu es responsable de l'activation commerciale : tu fais le lien entre les contenus publiés et les équipes de vente.</p>
+            <p><strong>Contexte.</strong> Voici l'article publié : [article]. Nos commerciaux sont répartis en trois segments : [segment A — cible, enjeux], [segment B], [segment C]. Les objections les plus fréquentes rencontrées sont : [liste des 8 objections types].</p>
+            <p><strong>Tâche.</strong> Produis la fiche de diffusion de cet article, permettant à un commercial de savoir en 30 secondes s'il doit l'utiliser et comment.</p>
+            <p><strong>Contraintes.</strong> N'attribue l'article à un segment que si son contenu y correspond réellement — si aucun ne convient, écris « aucun segment prioritaire ». Ne retiens une objection que si l'article y répond effectivement : cite le passage qui y répond. L'extrait d'e-mail est repris <strong>textuellement</strong> de l'article, sans reformulation. N'introduis aucun fait absent de l'article.</p>
+            <p><strong>Format.</strong> Tableau à 5 lignes : <em>Segments concernés</em> (avec justification en une ligne) ; <em>Objection(s) levée(s)</em> (avec le passage cité) ; <em>Extrait pour e-mail</em> (3 à 5 lignes, texte exact) ; <em>Accroche de mise en relation</em> (2 lignes, à personnaliser, avec [crochets] aux endroits à adapter) ; <em>Déclinaisons recommandées</em> (2 formats maximum, avec l'unité de l'article à réutiliser).</p>
+            </blockquote>
+            <p><strong>3. Mise au point et documentation</strong></p>
+            <p><strong>Mise au point :</strong> testez sur cinq articles déjà publiés dont vous connaissez l'usage commercial réel. Comparez la fiche produite à ce que les commerciaux ont effectivement fait de l'article. Corrigez un pilier à la fois — le plus probable étant le contexte, si les segments sont décrits trop vaguement. Jugez sur la plus mauvaise des cinq fiches.</p>
+            <p><strong>Fiche de bibliothèque :</strong></p>
+            <blockquote><p>« <strong>Fiche de diffusion commerciale — v2.</strong> Entrée : article publié + description des segments + liste des objections types (à jour au [date]).<br>
+            <strong>Limites constatées :</strong> (1) tend à rattacher l'article à tous les segments — la consigne « aucun segment prioritaire » doit être maintenue, et le résultat vérifié ; (2) l'accroche de mise en relation est souvent trop générique, la retravailler systématiquement ; (3) vérifier que l'extrait e-mail est bien textuel — dérive observée une fois sur cinq ; (4) <strong>mettre à jour la liste des objections chaque trimestre</strong>, sinon la fiche rattache à des objections périmées.<br>
+            <strong>Temps constaté :</strong> 4 minutes contre 20 à la main, retouche de l'accroche comprise. »</p></blockquote>
+            <p>La limite (4) est celle qui a le plus de valeur : elle signale une dépendance à une donnée externe qui se périme, et qu'on oublierait de maintenir — le type de défaut qui fait qu'un prompt fonctionne six mois puis produit silencieusement n'importe quoi.</p>
+          </div>
+        </details>
+      </div>
+      <div class="resources-box">
+        <h3>🔗 Pour aller plus loin</h3>
+        <ul>
+          <li>Un outil de transcription automatique : c'est le préalable de l'usage au meilleur rendement de ce module, l'exploitation d'entretiens experts.</li>
+          <li>La formation Content Marketing de Formahub, module 3 : les critères de révision qu'automatisent les audits présentés ici.</li>
+          <li>Le module 5 de cette formation traite les limites à ne pas franchir : données personnelles, droit d'auteur, responsabilité.</li>
+          <li>Votre bibliothèque de prompts d'équipe : c'est elle, et non les prompts individuels, qui transforme un gain personnel en gain collectif.</li>
+        </ul>
+      </div>
+    </article>
+
+    <section class="quiz-section">
+      <h2>🧠 Quiz d'auto-évaluation</h2>
+      <p style="color:var(--text-muted);margin-bottom:20px;">Sélectionnez la bonne réponse pour valider vos acquis. Le feedback immédiat vous expliquera les concepts clés.</p>
+      <div id="quiz-container">
+        <!-- Quiz chargé dynamiquement par quiz-engine.js -->
+      </div>
+      <div style="margin-top: 24px; text-align: center;">
+        <button id="btn-mark-complete" data-module-id="formation-ia-generative-module-4" class="btn btn-primary">
+          Marquer le module comme terminé ✓
+        </button>
+      </div>
+    </section>
+
+    <nav class="module-nav">
+      <a href="../module-3/index.html" class="btn btn-outline">← Module 3</a>
+      <a href="../module-5/index.html" class="btn btn-primary">Module 5 →</a>
+    </nav>
+  </main>
+
+  <script src="../../../assets/js/progress.js"></script>
+  <script src="../../../assets/js/quiz-engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadQuiz('quiz.json', 'quiz-container');
+    });
+  </script>
+</body>
+</html>

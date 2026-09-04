@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formahub — Gestion de Projet, les fondamentaux : Gestion des Risques, Clôture &amp; REX Blameless</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="../../../index.html" class="brand">
+      <div class="brand-icon">F</div>
+      <span>Formahub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../../../index.html" class="nav-link">Mes formations</a>
+      <a href="../../../ressources-externes.html" class="nav-link">Ressources externes</a>
+      <a href="../../../formations-espagne.html" class="nav-link">Formations Espagne</a>
+      <button class="theme-toggle" type="button">🌙 Mode Sombre</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="../../../index.html">Accueil</a> &gt;
+        <span>Gestion de Projet, les fondamentaux</span> &gt;
+        <strong>Module 4</strong>
+      </div>
+      <h1>Module 4 : Gestion des Risques, Clôture &amp; REX Blameless</h1>
+      <div class="module-meta">
+        <span class="badge badge-progress">⏱️ 50 min</span>
+        <span class="badge badge-neutral">Module 4 sur 4</span>
+        <span class="badge badge-neutral">Niveau : Intermédiaire</span>
+        <span class="badge badge-neutral">~2800 mots</span>
+      </div>
+    </div>
+
+    <article class="module-content">
+      <div class="intro-box">
+        <h3>📍 Mise en situation</h3>
+        <p>La mise en production a échoué. Trois heures d'indisponibilité, des données à reprendre, un client mécontent. En réunion de crise, quelqu'un demande : « comment ça a pu arriver ? » Le développeur qui a lancé le déploiement explique qu'il n'a pas vu que la procédure avait changé. La conversation s'oriente naturellement vers lui.</p>
+        <p>Elle s'oriente au mauvais endroit. Dans deux mois, cette personne sera plus prudente, et un autre incident du même type se produira — parce que la cause réelle n'aura pas été traitée. Ce module traite les deux moments où un projet apprend, ou n'apprend pas : la gestion des risques, qui anticipe, et le retour d'expérience, qui capitalise. L'un et l'autre échouent pour la même raison — ils sont perçus comme de la formalité, alors qu'ils sont les seuls dispositifs qui empêchent de refaire deux fois la même erreur.</p>
+      </div>
+
+      <div class="objectives-box">
+        <h3>🎯 À l'issue de ce module, vous saurez</h3>
+        <ul>
+          <li>Identifier et coter des risques, et savoir lesquels méritent une action</li>
+          <li>Choisir entre éviter, réduire, transférer et accepter un risque</li>
+          <li>Distinguer un risque d'un problème, et suivre les deux différemment</li>
+          <li>Clôturer un projet correctement, y compris quand il s'arrête mal</li>
+          <li>Conduire un retour d'expérience sans blâme qui produit des changements réels</li>
+        </ul>
+      </div>
+
+      <h2>1. Identifier les risques : le moment et la méthode</h2>
+      <p>Un risque est un événement <strong>incertain</strong> qui, s'il survient, affecte le projet. Cette définition contient l'essentiel : ce qui est certain n'est pas un risque, c'est une contrainte ; ce qui est déjà survenu n'est plus un risque, c'est un problème. Confondre les trois produit des registres de risques inutilisables où figurent pêle-mêle des évidences et des incidents en cours.</p>
+      <p>L'identification se fait au cadrage, puis se poursuit tout au long du projet. Les risques les plus coûteux ne sont presque jamais identifiés au démarrage : ils apparaissent quand le projet avance et que des dépendances se révèlent. Un registre figé au lancement et jamais rouvert ne sert à rien.</p>
+      <div class="method-box">
+        <h4>⚙️ Méthode — faire remonter les risques réels</h4>
+        <p>La séance d'identification collective produit peu si elle est menée frontalement — « quels sont les risques ? » appelle des réponses convenues. Quatre angles font remonter beaucoup plus.</p>
+        <ol>
+          <li><strong>Interrogez le passé :</strong> « sur les trois derniers projets comparables, qu'est-ce qui s'est mal passé ? » Les risques se répètent d'un projet à l'autre avec une régularité remarquable.</li>
+          <li><strong>Interrogez les dépendances :</strong> « de quoi ou de qui dépendons-nous, et que se passe-t-il si ce n'est pas là à temps ? » Prestataires, validations, autres projets, disponibilités.</li>
+          <li><strong>Interrogez les hypothèses :</strong> « qu'est-ce que nous tenons pour acquis sans l'avoir vérifié ? » Chaque hypothèse non vérifiée est un risque déguisé.</li>
+          <li><strong>Pratiquez le pré-mortem :</strong> « nous sommes dans six mois, le projet a échoué. Que s'est-il passé ? » Cette formulation lève l'autocensure : il est plus facile d'expliquer un échec hypothétique que d'annoncer un risque devant un commanditaire optimiste.</li>
+          <li><strong>Recueillez individuellement avant la séance collective.</strong> Les risques les plus gênants — ceux qui touchent à l'organisation ou à des personnes — ne se disent pas en groupe.</li>
+        </ol>
+      </div>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — le registre des risques qui ne contient que des évidences</h4>
+        <p>« Risque de retard », « risque de dépassement budgétaire », « risque de démotivation de l'équipe » : ces lignes figurent dans la moitié des registres et n'ont jamais aidé personne. Elles nomment des conséquences, pas des causes.</p>
+        <p>Un risque utile est <strong>spécifique et actionnable</strong> : « le prestataire chargé de la reprise de données n'a pas confirmé sa disponibilité en août, période de ses congés ». On peut agir sur celui-là — appeler, contractualiser, prévoir une alternative. On ne peut rien faire de « risque de retard ».</p>
+      </div>
+
+      <h2>2. Coter et hiérarchiser</h2>
+      <p>Tous les risques ne méritent pas le même effort. La cotation sert à trier, et sa formule est simple : <strong>criticité = probabilité × impact</strong>. L'important n'est pas la précision du chiffre — elle est illusoire — mais le fait de forcer une discussion explicite sur ces deux dimensions.</p>
+      <div class="table-responsive">
+<table>
+<thead><tr><th>Criticité</th><th>Traitement attendu</th><th>Suivi</th></tr></thead>
+<tbody>
+<tr><td><strong>Élevée</strong> (forte probabilité, fort impact)</td><td>Action obligatoire, avec un responsable et une échéance</td><td>À chaque comité de pilotage</td></tr>
+<tr><td><strong>Moyenne</strong></td><td>Action prévue, ou acceptation documentée</td><td>Revue mensuelle</td></tr>
+<tr><td><strong>Faible</strong></td><td>Acceptation, simple surveillance</td><td>Revue trimestrielle</td></tr>
+<tr><td><strong>Impact catastrophique, probabilité faible</strong></td><td><strong>Traitement obligatoire malgré la faible probabilité</strong></td><td>À chaque comité</td></tr>
+</tbody>
+</table>
+</div>
+      <h3>2.1 Le cas que la formule traite mal</h3>
+      <p>La dernière ligne du tableau mérite qu'on s'y arrête. Un risque à probabilité très faible mais à impact catastrophique — perte irréversible de données, non-conformité réglementaire majeure, atteinte à la sécurité des personnes — obtient une criticité arithmétique modeste, et se retrouve en bas du registre.</p>
+      <p>C'est une erreur de méthode. Sur ces risques-là, la question n'est pas « quelle est la probabilité ? » mais « sommes-nous en mesure de survivre à cet événement ? ». Si la réponse est non, le risque doit être traité quelle que soit sa cotation.</p>
+      <p>La règle pratique : tout risque dont l'impact serait <strong>irréversible</strong> sort de la grille et fait l'objet d'un traitement systématique. La réversibilité est un meilleur critère de tri que la criticité seule.</p>
+
+      <h2>3. Les quatre stratégies de traitement</h2>
+      <p>Face à un risque identifié, quatre réponses sont possibles. Le choix entre elles est un arbitrage économique — le coût du traitement doit rester inférieur au coût attendu du risque.</p>
+      <div class="table-responsive">
+<table>
+<thead><tr><th>Stratégie</th><th>Principe</th><th>Exemple</th><th>Coût</th></tr></thead>
+<tbody>
+<tr><td><strong>Éviter</strong></td><td>Supprimer la cause en changeant le projet</td><td>Renoncer à une technologie mal maîtrisée au profit d'une solution connue</td><td>Souvent élevé : on renonce à quelque chose</td></tr>
+<tr><td><strong>Réduire</strong></td><td>Diminuer la probabilité ou l'impact</td><td>Former l'équipe, tester tôt, prévoir une bascule progressive</td><td>Modéré ; stratégie la plus fréquente</td></tr>
+<tr><td><strong>Transférer</strong></td><td>Confier le risque à un tiers</td><td>Assurance, clause contractuelle, prestataire engagé sur un résultat</td><td>Le prix du transfert</td></tr>
+<tr><td><strong>Accepter</strong></td><td>Assumer le risque en connaissance de cause</td><td>Risque faible, ou traitement plus coûteux que le risque</td><td>Nul — mais l'acceptation doit être écrite</td></tr>
+</tbody>
+</table>
+</div>
+      <h3>3.1 Accepter n'est pas ignorer</h3>
+      <p>L'acceptation est une décision légitime et souvent la bonne. Elle se distingue de l'ignorance par trois éléments : elle est <strong>explicite</strong>, elle est <strong>écrite</strong>, et elle est <strong>prise par la bonne personne</strong> — celle qui assumera si le risque survient.</p>
+      <p>Un risque accepté doit également disposer d'un <strong>plan de repli</strong> : que fait-on s'il se réalise ? Ce plan n'a pas besoin d'être détaillé, mais il doit exister et être connu. « On avisera » n'est pas un plan de repli.</p>
+      <p>Enfin, définissez un <strong>seuil de déclenchement</strong> : à partir de quel signal considère-t-on que le risque est en train de se réaliser ? « Si le prestataire n'a pas confirmé au 15 juin, nous activons l'alternative. » Sans ce seuil, on constate la réalisation du risque trop tard pour agir.</p>
+      <div class="example-box">
+        <h4>📌 Exemple — un risque traité par réduction</h4>
+        <p><strong>Risque identifié :</strong> la reprise des données historiques est confiée à un prestataire dont c'est le seul intervenant compétent, en congés en août. Probabilité moyenne, impact fort — la reprise conditionne la bascule.</p>
+        <p><strong>Options examinées.</strong> <em>Éviter</em> : renoncer à la reprise des données antérieures — refusé par le métier. <em>Transférer</em> : clause de pénalité — sans effet réel, une pénalité ne fait pas revenir la personne. <em>Accepter</em> : impact trop fort.</p>
+        <p><strong>Réduction retenue, en trois actions :</strong> avancer la reprise à juillet plutôt qu'à septembre ; faire documenter la procédure par le prestataire et former une personne en interne à la relancer ; et prévoir un jeu de données de test permettant de valider avant les congés. Coût total : environ trois jours. Coût du risque s'il se réalisait : six semaines de décalage.</p>
+        <p><strong>Seuil de déclenchement associé :</strong> « si la reprise de test n'est pas validée au 20 juillet, nous décalons la bascule à octobre. » Cette phrase, écrite en avril, a évité une décision prise dans l'urgence en août.</p>
+      </div>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — confondre risque et problème</h4>
+        <p>Un registre où figurent côte à côte « risque que le prestataire soit indisponible » et « le prestataire n'a pas livré » mélange deux objets qui appellent des traitements différents. Le premier se prévient, le second se résout.</p>
+        <p>Tenez deux listes distinctes : un <strong>registre des risques</strong> (événements incertains, avec probabilité, impact, stratégie, responsable, seuil) et un <strong>journal des problèmes</strong> (événements survenus, avec impact constaté, action de résolution, échéance). Quand un risque se réalise, il quitte le premier et entre dans le second — ce basculement est en lui-même une information utile pour le retour d'expérience.</p>
+      </div>
+
+      <h2>4. Clôturer un projet</h2>
+      <p>La clôture est la phase la plus systématiquement escamotée. L'équipe est déjà mobilisée ailleurs, le livrable est en service, et personne ne voit ce qu'il reste à faire. C'est pourtant là que se joue tout ce que l'organisation retirera du projet au-delà de son livrable.</p>
+      <div class="method-box">
+        <h4>⚙️ Méthode — les six actes d'une clôture</h4>
+        <ol>
+          <li><strong>Prononcer la réception</strong> : vérifier les critères d'acceptation définis au cadrage, et obtenir une validation écrite. Sans acte formel, un projet ne finit jamais — il s'étiole en demandes résiduelles.</li>
+          <li><strong>Transférer à l'exploitation</strong> : qui maintient, qui répond aux utilisateurs, avec quel budget ? Un livrable sans propriétaire après le projet se dégrade en quelques mois.</li>
+          <li><strong>Solder l'administratif</strong> : facturation, clôture des commandes, restitution des accès et des licences, archivage des documents.</li>
+          <li><strong>Établir le bilan</strong> : écarts entre prévu et réalisé sur le coût, le délai et le périmètre. Chiffré, factuel, sans commentaire de valeur à ce stade.</li>
+          <li><strong>Conduire le retour d'expérience</strong> — section suivante.</li>
+          <li><strong>Reconnaître le travail accompli</strong>. Ce n'est pas de la décoration : une équipe dont les projets se terminent sans que rien ne soit dit s'investit moins dans le suivant. C'est le seul acte de clôture dont l'omission ne se voit jamais dans un tableau de bord.</li>
+        </ol>
+      </div>
+      <h3>4.1 Clôturer un projet arrêté</h3>
+      <p>Un projet arrêté avant son terme se clôture aussi, et c'est plus difficile — la tentation est de le laisser s'éteindre discrètement, ce qui est le pire traitement.</p>
+      <p>Trois actes s'imposent alors. <strong>Formaliser la décision d'arrêt</strong> et ses motifs par écrit : sans cela, le projet ressuscitera dans six mois, porté par quelqu'un qui ignorera pourquoi il avait été arrêté. <strong>Capitaliser sur ce qui a été produit</strong> : une analyse, un prototype, une cartographie ont souvent une valeur réutilisable ailleurs. Et <strong>traiter l'équipe correctement</strong> : un arrêt est vécu comme un échec personnel par ceux qui y ont travaillé, alors qu'un arrêt décidé à temps est souvent une bonne décision de gestion. Le dire explicitement change la façon dont ces personnes aborderont le projet suivant.</p>
+
+      <h2>5. Le retour d'expérience sans blâme</h2>
+      <p>Le principe du retour d'expérience sans blâme — <em>blameless post-mortem</em> — repose sur un constat vérifié dans tous les secteurs à haute fiabilité : <strong>chercher un responsable individuel empêche de trouver la cause réelle</strong>. Non par indulgence, mais par mécanique — dès que la recherche d'un coupable est possible, les informations cessent de remonter.</p>
+      <p>L'hypothèse de travail est explicite : chacun a agi au mieux compte tenu des informations dont il disposait, des contraintes du moment et des outils à sa disposition. Si quelqu'un a commis une erreur, la question n'est pas « pourquoi a-t-il fait cela ? » mais <strong>« qu'est-ce qui a rendu cette erreur possible, et pourquoi rien ne l'a arrêtée ? »</strong></p>
+      <div class="method-box">
+        <h4>⚙️ Méthode — conduire un retour d'expérience</h4>
+        <ol>
+          <li><strong>Poser le cadre en ouverture</strong>, à voix haute : on cherche des causes systémiques, pas des responsables ; ce qui est dit ici ne sera pas utilisé en évaluation individuelle. Cette phrase doit être prononcée à chaque fois, même si tout le monde la connaît.</li>
+          <li><strong>Établir la chronologie des faits</strong> avant toute analyse : qui savait quoi, à quel moment. Uniquement des faits, sans interprétation. Cette étape occupe souvent la moitié de la séance, et elle fait fréquemment apparaître que le déroulement réel n'était celui que personne n'imaginait.</li>
+          <li><strong>Remonter aux causes</strong> en demandant plusieurs fois « pourquoi ? ». S'arrêter à « il n'a pas vu la procédure » revient à s'arrêter à la première réponse. Pourquoi ne l'a-t-il pas vue ? Où était-elle ? Qui savait qu'elle avait changé ?</li>
+          <li><strong>Chercher les causes systémiques</strong> : documentation, outillage, communication, charge de travail, absence de contrôle automatique. Si la seule cause trouvée est humaine, l'analyse n'est pas terminée.</li>
+          <li><strong>Décider deux à trois actions</strong>, pas quinze. Chacune avec un responsable et une échéance. Un plan d'action de quinze lignes ne sera pas exécuté.</li>
+          <li><strong>Vérifier l'exécution</strong> lors du retour d'expérience suivant. C'est le point qui distingue une pratique vivante d'un rituel : si les actions décidées ne sont jamais suivies d'effet, les séances suivantes se videront de leur substance.</li>
+        </ol>
+      </div>
+      <div class="example-box">
+        <h4>📌 Exemple — remonter d'une erreur humaine à sa cause</h4>
+        <p><strong>Fait :</strong> le déploiement a échoué, le développeur n'avait pas suivi la nouvelle procédure.</p>
+        <p><strong>Pourquoi ?</strong> Il ignorait qu'elle avait changé. <strong>Pourquoi ?</strong> Le changement avait été annoncé dans un message de discussion trois semaines plus tôt, un jour où il était en congés. <strong>Pourquoi n'a-t-il pas vu le document à jour ?</strong> Parce que deux versions de la procédure coexistaient, et que le lien depuis l'espace de l'équipe pointait vers l'ancienne. <strong>Pourquoi rien ne l'a arrêté ?</strong> Parce qu'aucun contrôle automatique ne vérifiait l'étape ajoutée par la nouvelle procédure.</p>
+        <p><strong>Causes retenues :</strong> une procédure critique modifiée sans mécanisme d'information fiable ; deux versions d'un même document en circulation ; absence de contrôle automatique sur une étape critique.</p>
+        <p><strong>Actions décidées :</strong> supprimer l'ancienne version et rediriger le lien ; ajouter un contrôle bloquant dans le processus de déploiement ; instaurer une règle — tout changement de procédure critique est annoncé en réunion d'équipe, pas seulement par message écrit.</p>
+        <p><strong>Ce que la version « responsabilité individuelle » aurait donné :</strong> un rappel à la vigilance. Les deux versions du document seraient toujours en circulation, et le même incident se serait reproduit avec quelqu'un d'autre.</p>
+      </div>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — le REX sans blâme… en présence du responsable hiérarchique</h4>
+        <p>Annoncer qu'il n'y aura pas de recherche de responsable, puis conduire la séance devant le supérieur direct des personnes concernées, ne fonctionne pas. Quelles que soient les intentions, chacun ajuste ce qu'il dit — et l'information la plus utile est précisément celle qui ne sortira pas.</p>
+        <p>Deux aménagements possibles : conduire la séance sans la hiérarchie et lui restituer les causes et les actions, sans les propos individuels ; ou, si sa présence est indispensable, la faire intervenir en fin de séance seulement. Le principe demeure : <strong>ce qui compte est ce qui remonte</strong>, et cela dépend entièrement de qui est dans la pièce.</p>
+      </div>
+
+      <div class="case-box">
+        <h3>🔍 Étude de cas — après l'échec du déploiement</h3>
+        <p>Reprenons la situation d'ouverture : trois heures d'indisponibilité, données à reprendre, client mécontent, et une réunion de crise qui s'oriente vers le développeur.</p>
+        <p><strong>Redresser la séance.</strong> Première intervention du chef de projet : « Avant de comprendre pourquoi Julien n'a pas vu la procédure, établissons ce qui s'est passé, heure par heure. » Le déplacement est immédiat : on cesse de chercher un pourquoi personnel pour établir des faits.</p>
+        <p><strong>La chronologie révèle autre chose.</strong> L'établissement des faits fait apparaître un élément que personne n'avait mentionné : le déploiement avait été avancé de deux jours, à la demande du client, et lancé un vendredi à 17 h — hors de la fenêtre habituelle du mardi matin. Le développeur avait signalé la veille qu'il préférait attendre. Ce point n'aurait jamais émergé d'une conversation centrée sur son erreur.</p>
+        <p><strong>La remontée aux causes.</strong> Quatre causes systémiques identifiées, aucune individuelle :</p>
+        <ul>
+        <li>Une procédure critique modifiée sans mécanisme d'information fiable — annonce par message écrit uniquement.</li>
+        <li>Deux versions du document en circulation, le lien de l'espace d'équipe pointant vers l'ancienne.</li>
+        <li>Aucun contrôle automatique sur l'étape ajoutée par la nouvelle procédure.</li>
+        <li><strong>Aucun processus pour arbitrer une demande de déploiement hors fenêtre.</strong> C'est la cause la plus importante, et elle n'était dans aucune hypothèse de départ : la réserve exprimée par le développeur n'avait nulle part où être traitée.</li>
+        </ul>
+        <p><strong>Trois actions décidées</strong>, pas dix : supprimer l'ancienne version du document et rediriger le lien ; ajouter un contrôle bloquant sur l'étape critique ; instaurer une règle de déploiement hors fenêtre — possible uniquement avec l'accord écrit du responsable technique et un second intervenant présent.</p>
+        <p><strong>Ce qui a été dit à Julien, et devant tous.</strong> Que sa réserve exprimée la veille était le bon réflexe, que le problème est qu'elle n'avait aucun canal pour être entendue, et que la troisième action existe précisément pour cela. Cette phrase a produit un effet mesurable : dans les mois suivants, deux autres réserves du même type ont été exprimées et traitées.</p>
+        <p><strong>Vérification à trois mois.</strong> Les trois actions sont exécutées. Un déploiement hors fenêtre a été demandé, arbitré selon la nouvelle règle, et refusé. Aucun incident de déploiement sur la période.</p>
+        <p><strong>Ce que le cas enseigne :</strong> la cause la plus importante — l'absence de circuit d'arbitrage — n'était visible qu'à condition de ne chercher personne. Une séance orientée vers la responsabilité individuelle aurait produit un rappel à la vigilance et laissé les quatre causes intactes. Le retour d'expérience sans blâme n'est pas une posture bienveillante : c'est la seule méthode qui donne accès à l'information.</p>
+      </div>
+
+      <div class="checklist-box">
+        <h3>📋 Checklist — Risques, clôture et retour d'expérience</h3>
+        <ul class="checklist">
+          <li>Les risques sont distingués des contraintes et des problèmes</li>
+          <li>Le registre contient des risques spécifiques et actionnables, pas « risque de retard »</li>
+          <li>Les risques ont été cherchés par le passé, les dépendances, les hypothèses et un pré-mortem</li>
+          <li>Un recueil individuel a précédé la séance collective</li>
+          <li>Chaque risque est coté en probabilité et impact</li>
+          <li>Les risques à impact irréversible sont traités indépendamment de leur cotation</li>
+          <li>Chaque risque significatif porte une stratégie, un responsable et une échéance</li>
+          <li>Les risques acceptés le sont explicitement, par écrit, par la bonne personne</li>
+          <li>Chaque risque accepté dispose d'un plan de repli et d'un seuil de déclenchement</li>
+          <li>Le registre est revu à chaque comité, pas figé au lancement</li>
+          <li>La réception est prononcée par écrit, sur les critères d'acceptation du cadrage</li>
+          <li>Le transfert à l'exploitation désigne un propriétaire et un budget</li>
+          <li>Le bilan chiffré coût / délai / périmètre est établi</li>
+          <li>Le cadre du retour d'expérience est posé à voix haute en ouverture</li>
+          <li>La chronologie des faits est établie avant toute analyse des causes</li>
+          <li>L'analyse ne s'arrête pas à une cause humaine</li>
+          <li>Deux à trois actions sont décidées, avec responsable et échéance</li>
+          <li>L'exécution des actions est vérifiée lors de la séance suivante</li>
+        </ul>
+      </div>
+
+      <div class="glossary-box">
+        <h3>📖 Glossaire du module</h3>
+        <dl>
+          <dt>Risque</dt>
+          <dd>Événement incertain qui affecterait le projet s'il survenait ; à distinguer d'une contrainte et d'un problème.</dd>
+          <dt>Problème</dt>
+          <dd>Événement déjà survenu ; se résout, ne se prévient plus. À suivre dans un journal distinct du registre des risques.</dd>
+          <dt>Criticité</dt>
+          <dd>Probabilité × impact ; sert à hiérarchiser, sans dispenser d'examiner la réversibilité.</dd>
+          <dt>Pré-mortem</dt>
+          <dd>Exercice consistant à imaginer le projet échoué et à en expliquer les causes ; lève l'autocensure.</dd>
+          <dt>Éviter / Réduire / Transférer / Accepter</dt>
+          <dd>Les quatre stratégies de traitement d'un risque.</dd>
+          <dt>Plan de repli</dt>
+          <dd>Ce que l'on fait si le risque se réalise ; obligatoire pour tout risque accepté.</dd>
+          <dt>Seuil de déclenchement</dt>
+          <dd>Signal à partir duquel on considère que le risque se réalise et qu'on active le plan de repli.</dd>
+          <dt>Réception</dt>
+          <dd>Acte formel constatant la conformité du livrable aux critères d'acceptation.</dd>
+          <dt>Transfert à l'exploitation</dt>
+          <dd>Passage du livrable du mode projet au mode courant, avec un propriétaire et un budget.</dd>
+          <dt>REX sans blâme</dt>
+          <dd>Retour d'expérience cherchant les causes systémiques plutôt qu'un responsable individuel.</dd>
+          <dt>Cause systémique</dt>
+          <dd>Cause tenant à l'organisation, aux outils ou aux processus, par opposition à une cause individuelle.</dd>
+        </dl>
+      </div>
+
+      <div class="takeaway-box">
+        <h3>✅ À retenir</h3>
+        <ul>
+          <li>Ce qui est certain est une contrainte, ce qui est survenu est un problème : seul l'incertain est un risque.</li>
+          <li>Un risque utile est spécifique et actionnable — « risque de retard » ne permet aucune action.</li>
+          <li>Le pré-mortem lève l'autocensure : il est plus facile d'expliquer un échec hypothétique que d'annoncer un risque.</li>
+          <li>Les risques les plus gênants ne se disent pas en groupe : recueillez individuellement d'abord.</li>
+          <li>Un risque à impact irréversible se traite quelle que soit sa probabilité — la réversibilité prime sur la criticité.</li>
+          <li>Accepter un risque est légitime : à condition que ce soit explicite, écrit, décidé par la bonne personne, avec un plan de repli et un seuil.</li>
+          <li>Tenez deux listes : registre des risques et journal des problèmes. Le basculement de l'une à l'autre est une information.</li>
+          <li>Sans acte de réception écrit, un projet ne finit jamais : il s'étiole en demandes résiduelles.</li>
+          <li>Un projet arrêté se clôture aussi — sinon il ressuscitera dans six mois sans que personne sache pourquoi il avait été arrêté.</li>
+          <li>Chercher un responsable individuel empêche de trouver la cause réelle : l'information cesse de remonter.</li>
+          <li>Si la seule cause trouvée est humaine, l'analyse n'est pas terminée.</li>
+          <li>Deux à trois actions, pas quinze — et l'exécution se vérifie à la séance suivante, sinon la pratique se vide.</li>
+        </ul>
+      </div>
+
+      <h2 class="exercises-title">Exercices d'application</h2>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 1 — Trier un registre de risques <span class="badge badge-neutral">Application</span></h3>
+        <p>Voici cinq lignes extraites d'un registre. Pour chacune, dites s'il s'agit d'un risque, d'une contrainte ou d'un problème, et reformulez si nécessaire.</p>
+        <p><strong>(A)</strong> « Risque de dépassement du budget. » <strong>(B)</strong> « Le développeur principal part en congé maternité en mars. » <strong>(C)</strong> « Le prestataire n'a pas livré le module de facturation, prévu la semaine dernière. » <strong>(D)</strong> « Risque que les utilisateurs n'adoptent pas l'outil. » <strong>(E)</strong> « La nouvelle réglementation entre en vigueur le 1<sup>er</sup> janvier. »</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>(A) « Risque de dépassement du budget » → risque, mais inutilisable.</strong></p>
+            <p>C'est une conséquence, pas une cause. Aucune action possible sur cet énoncé.</p>
+            <p><em>Reformulation :</em> il faut identifier les causes possibles et en faire des risques distincts. Par exemple : « le chiffrage de la reprise de données repose sur une hypothèse de 40 000 enregistrements, non vérifiée à ce jour » — actionnable, on peut aller compter.</p>
+            <p><strong>(B) « Le développeur part en congé maternité en mars » → contrainte, pas risque.</strong></p>
+            <p>C'est certain et daté : il n'y a aucune incertitude. Une contrainte se planifie, elle ne se « traite » pas comme un risque.</p>
+            <p><em>Traitement :</em> l'intégrer au planning et à la capacité. En revanche, elle <em>génère</em> un risque : « si le transfert de compétences n'est pas effectué avant mars, les corrections sur le module X ne pourront être prises en charge par personne. » Celui-là est incertain, et il est actionnable.</p>
+            <p><strong>(C) « Le prestataire n'a pas livré » → problème.</strong></p>
+            <p>C'est survenu. Il quitte le registre des risques et entre au journal des problèmes, avec impact constaté, action de résolution, responsable et échéance.</p>
+            <p><em>Point de méthode :</em> ce basculement mérite d'être noté. Si ce risque figurait au registre et n'a pas été traité, c'est une information pour le retour d'expérience. S'il n'y figurait pas, c'est un angle mort de l'identification.</p>
+            <p><strong>(D) « Risque que les utilisateurs n'adoptent pas l'outil » → risque réel, mais trop vague.</strong></p>
+            <p>Le risque d'adoption est l'un des plus fréquents et des plus sous-estimés. Formulé ainsi, il ne permet aucune action.</p>
+            <p><em>Reformulation en causes :</em> « les utilisateurs n'ont pas été associés à la conception et découvriront l'outil à la mise en service » ; « la formation est prévue trois semaines après le déploiement » ; « l'ancien outil reste accessible en parallèle sans date d'arrêt ». Chacune est actionnable, et la troisième est souvent décisive — un ancien outil laissé ouvert garantit la non-adoption du nouveau.</p>
+            <p><strong>(E) « La réglementation entre en vigueur le 1<sup>er</sup> janvier » → contrainte.</strong></p>
+            <p>Certaine et datée. Elle structure le projet — c'est probablement elle qui fixe la date de fin.</p>
+            <p><em>Risques associés :</em> « les textes d'application ne sont pas encore publiés, ce qui empêche de figer les spécifications » — voilà l'incertitude réelle, et elle appelle une stratégie : concevoir de façon paramétrable pour absorber les variantes possibles.</p>
+            <p><strong>Le fil conducteur :</strong> un registre utile contient des <em>causes incertaines et actionnables</em>. Les conséquences (A, D) doivent être décomposées, les certitudes (B, E) sortent du registre mais génèrent des risques dérivés, et les événements survenus (C) changent de liste.</p>
+          </div>
+        </details>
+      </div>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 2 — Traiter un risque majeur <span class="badge badge-neutral">Analyse</span></h3>
+        <p>Sur un projet de migration de système d'information, vous identifiez ce risque : « la reprise des données clients repose sur un export dont le format n'a jamais été testé sur le volume réel ; en cas d'échec, il n'existe pas de solution de repli et la bascule ne pourra pas avoir lieu ». Probabilité estimée : faible. Impact : la bascule est reportée de six mois, avec maintien de l'ancien système sous contrat de support exceptionnel.</p>
+        <p><strong>1.</strong> Cotez ce risque et discutez la cotation. <strong>2.</strong> Examinez les quatre stratégies. <strong>3.</strong> Proposez le traitement, avec seuil de déclenchement et plan de repli.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>1. Cotation et discussion</strong></p>
+            <p>Probabilité faible × impact fort donne une criticité moyenne. Une application mécanique de la grille le placerait en revue mensuelle, sans action obligatoire.</p>
+            <p><strong>C'est ici que la grille doit être dépassée.</strong> Deux caractéristiques le sortent de la logique arithmétique : l'échec serait constaté <em>au moment de la bascule</em>, c'est-à-dire au pire moment, sans marge de manœuvre ; et il n'existe aucun repli, ce qui rend la conséquence subie plutôt que gérée.</p>
+            <p>Le critère décisif n'est donc pas la criticité mais la <strong>réversibilité</strong> : peut-on revenir en arrière si cela se produit ? Ici, non — d'où un traitement obligatoire quelle que soit la probabilité.</p>
+            <p><strong>Une remarque sur la probabilité elle-même :</strong> « faible » repose sur quoi ? Le format n'ayant jamais été testé sur le volume réel, personne n'est en position d'estimer cette probabilité. Une probabilité estimée en l'absence de toute donnée n'est pas une estimation, c'est un espoir — et c'est un signal fort qu'il faut aller chercher l'information.</p>
+            <p><strong>2. Examen des quatre stratégies</strong></p>
+            <div class="table-responsive">
+            <table>
+            <thead><tr><th>Stratégie</th><th>Applicable ?</th><th>Analyse</th></tr></thead>
+            <tbody>
+            <tr><td><strong>Éviter</strong></td><td>Partiellement</td><td>Changer de méthode de reprise — extraction directe en base plutôt qu'export — supprimerait la cause. À examiner sérieusement, mais probablement coûteux et porteur d'autres risques.</td></tr>
+            <tr><td><strong>Réduire</strong></td><td><strong>Oui, prioritaire</strong></td><td>Tester le format sur le volume réel, très en amont. C'est l'action évidente : elle transforme une incertitude en fait connu.</td></tr>
+            <tr><td><strong>Transférer</strong></td><td>Illusoire</td><td>Une clause de pénalité contre le prestataire ne fait pas basculer le système. Le risque opérationnel reste chez vous.</td></tr>
+            <tr><td><strong>Accepter</strong></td><td>Non</td><td>Impact irréversible sans repli : l'acceptation n'est pas défendable.</td></tr>
+            </tbody>
+            </table>
+            </div>
+            <p><strong>3. Traitement proposé</strong></p>
+            <p><strong>Action principale — réduire par un test précoce.</strong> Réaliser une reprise à blanc sur la totalité du volume réel, <strong>quatre mois avant la bascule</strong>. Le calendrier est le cœur du dispositif : tester tôt ne réduit pas la probabilité d'échec du format, mais il transforme un risque irréversible en problème traitable, parce qu'il reste du temps pour agir.</p>
+            <p><strong>Actions complémentaires :</strong> faire valider la volumétrie exacte auprès de l'exploitation (l'hypothèse est peut-être fausse d'un facteur important) ; documenter une seconde méthode de reprise sans la développer, pour disposer d'une alternative étudiée.</p>
+            <p><strong>Seuil de déclenchement :</strong> « si la reprise à blanc sur volume complet n'est pas validée au 15 mai, nous engageons la méthode alternative et décalons la bascule d'un mois. » Écrit, daté, validé par le commanditaire.</p>
+            <p><strong>Plan de repli :</strong> reprise en deux temps — bascule avec les données des 24 derniers mois, reprise de l'historique plus ancien en différé, l'ancien système restant accessible en consultation pendant trois mois. Cette option dégrade le service mais permet la bascule ; elle doit être chiffrée <em>avant</em>, pas improvisée en mai.</p>
+            <p><strong>Ce que ce traitement change réellement :</strong> il ne rend pas l'échec moins probable. Il déplace le moment où l'on saura, de septembre à mai — et à cette date, l'échec est un problème qui se traite, alors qu'en septembre c'est une crise.</p>
+          </div>
+        </details>
+      </div>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 3 — Conduire un retour d'expérience <span class="badge badge-neutral">Synthèse</span></h3>
+        <p>Un projet vient de se terminer avec deux mois de retard et 30 % de dépassement budgétaire. Le livrable fonctionne et le commanditaire est satisfait du résultat. L'équipe est épuisée. Le directeur vous demande d'organiser « un point pour comprendre ce qui n'a pas marché ». Deux personnes de l'équipe vous disent en aparté qu'elles ne viendront pas si le directeur est présent.</p>
+        <p><strong>1.</strong> Comment organisez-vous la séance ? <strong>2.</strong> Comment traitez-vous la question de la présence du directeur ? <strong>3.</strong> Que faites-vous du fait que le projet a, malgré tout, réussi ?</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>1. Organisation de la séance</strong></p>
+            <p><strong>Avant.</strong> Recueil individuel écrit, quinze minutes par personne, sur trois questions : qu'est-ce qui a bien fonctionné ? qu'est-ce qui vous a fait perdre du temps ? qu'auriez-vous voulu savoir plus tôt ? Ce recueil préalable est décisif ici : l'équipe est épuisée et une partie ne s'exprimera pas en séance.</p>
+            <p><strong>Cadre posé en ouverture</strong>, à voix haute : on cherche des causes systémiques ; rien de ce qui se dit ne sera utilisé en évaluation individuelle ; l'objectif est deux à trois actions, pas un rapport.</p>
+            <p><strong>Déroulé.</strong> (1) Chronologie factuelle des moments où le projet a basculé — la première fois où le retard est apparu, la décision qui a fait dériver le budget. Faits seulement. (2) Remontée aux causes, en insistant sur les moments où quelqu'un a su quelque chose sans que cela ne remonte. (3) Ce qui a bien fonctionné — voir point 3. (4) Deux à trois actions.</p>
+            <p><strong>Format.</strong> Deux heures maximum, avec une équipe épuisée. Une séance qui s'éternise sur un projet difficile produit de l'amertume, pas de l'apprentissage.</p>
+            <p><strong>2. La présence du directeur</strong></p>
+            <p>C'est le point délicat, et il ne se règle ni en cédant ni en passant outre.</p>
+            <p><strong>Ce qu'il ne faut pas faire :</strong> tenir la séance avec lui en espérant que ça se passera bien — deux personnes ne viendront pas, et celles qui viendront ajusteront leurs propos ; ou l'exclure sans lui parler, ce qui le mettra en position de suspicion vis-à-vis de la restitution.</p>
+            <p><strong>La conversation à avoir avec lui, en amont :</strong> <em>« Deux personnes m'ont dit qu'elles ne s'exprimeraient pas librement en votre présence. Ce n'est pas une question de confiance en vous : c'est mécanique, et cela vaut dans toutes les organisations. Si vous êtes là, j'aurai une séance polie et sans information. Je vous propose de conduire la séance sans vous, et de vous restituer sous 48 heures les causes identifiées et les actions décidées — pas les propos individuels. Vous aurez plus d'information par ce chemin. »</em></p>
+            <p>Cet argument fonctionne parce qu'il ne met pas en cause le directeur et qu'il lui promet un meilleur résultat. S'il refuse malgré tout, une solution intermédiaire : il rejoint la séance sur la dernière demi-heure, pour les actions.</p>
+            <p><strong>3. Que faire de la réussite du projet</strong></p>
+            <p>C'est le point le plus important de l'exercice, et le plus souvent manqué.</p>
+            <p><strong>Le projet a réussi</strong> : le livrable fonctionne et le commanditaire est satisfait. Deux mois de retard et 30 % de dépassement sur un projet dont le résultat est bon n'est pas un échec — c'est un écart de prévision. Traiter la séance comme une autopsie d'échec serait à la fois faux et destructeur pour une équipe déjà épuisée.</p>
+            <p><strong>Trois conséquences pratiques :</strong></p>
+            <ul>
+            <li><strong>Analyser aussi ce qui a fonctionné.</strong> Comment l'équipe a-t-elle tenu le résultat malgré la dérive ? Ces mécanismes-là sont reproductibles, et personne ne les documente jamais. C'est la partie du retour d'expérience qui a le plus de valeur et qu'on saute systématiquement.</li>
+            <li><strong>Requalifier l'écart.</strong> Un dépassement de 30 % interroge d'abord l'estimation initiale, pas l'exécution. La question utile n'est pas « pourquoi avons-nous dépassé ? » mais « pourquoi avons-nous estimé ainsi ? » — et la réponse alimentera le module 2 : biais d'optimisme, tâches invisibles oubliées, pression sur la date.</li>
+            <li><strong>Le dire à l'équipe, explicitement.</strong> Une équipe épuisée qui entend « comprendre ce qui n'a pas marché » comprend qu'on va lui reprocher quelque chose. Ouvrir par « le projet a atteint son objectif et le commanditaire est satisfait — nous regardons maintenant ce qui nous a coûté deux mois, pour ne pas le repayer au projet suivant » change entièrement la teneur de la séance.</li>
+            </ul>
+            <p><strong>Reformulation à proposer au directeur :</strong> plutôt que « un point pour comprendre ce qui n'a pas marché », « un retour d'expérience sur un projet réussi qui nous a coûté plus cher que prévu ». Ce n'est pas de la nuance de langage : cela détermine ce que les gens diront dans la pièce.</p>
+          </div>
+        </details>
+      </div>
+      <div class="resources-box">
+        <h3>🔗 Pour aller plus loin</h3>
+        <ul>
+          <li>La pratique du <em>blameless post-mortem</em>, formalisée dans les métiers de la fiabilité des systèmes : les publications d'ingénierie de fiabilité en donnent des modèles directement transposables.</li>
+          <li>Le module 1 de cette formation : la note de cadrage contient le premier registre des risques, et les critères d'acceptation servent à la réception.</li>
+          <li>Conservez vos registres de risques d'un projet à l'autre : les mêmes risques se répètent, et un registre passé est le meilleur point de départ d'une identification.</li>
+          <li>Vérifiez l'exécution des actions de retour d'expérience au démarrage du projet suivant : c'est ce qui distingue une pratique vivante d'un rituel.</li>
+        </ul>
+      </div>
+    </article>
+
+    <section class="quiz-section">
+      <h2>🧠 Quiz d'auto-évaluation</h2>
+      <p style="color:var(--text-muted);margin-bottom:20px;">Sélectionnez la bonne réponse pour valider vos acquis. Le feedback immédiat vous expliquera les concepts clés.</p>
+      <div id="quiz-container">
+        <!-- Quiz chargé dynamiquement par quiz-engine.js -->
+      </div>
+      <div style="margin-top: 24px; text-align: center;">
+        <button id="btn-mark-complete" data-module-id="formation-gestion-de-projet-module-4" class="btn btn-primary">
+          Marquer le module comme terminé ✓
+        </button>
+      </div>
+    </section>
+
+    <nav class="module-nav">
+      <a href="../module-3/index.html" class="btn btn-outline">← Module 3</a>
+      <a href="../../../index.html" class="btn btn-primary">Terminer la formation ✓</a>
+    </nav>
+  </main>
+
+  <script src="../../../assets/js/progress.js"></script>
+  <script src="../../../assets/js/quiz-engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadQuiz('quiz.json', 'quiz-container');
+    });
+  </script>
+</body>
+</html>

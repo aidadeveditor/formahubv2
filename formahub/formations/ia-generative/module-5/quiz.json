@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-ia-generative-module-5",
+  "version": "2.0",
+  "last_verified": "2026-09-01",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Qui porte la responsabilité d'un contenu publié avec l'aide de l'IA ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "L'éditeur de l'outil utilisé"
+        },
+        {
+          "key": "b",
+          "text": "Le fournisseur d'accès à internet"
+        },
+        {
+          "key": "c",
+          "text": "L'organisation qui publie et la personne qui a validé la diffusion"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Aucune clause ne transfère cette responsabilité, et « c'est l'IA qui l'a écrit » n'a jamais constitué un moyen de défense."
+    },
+    {
+      "id": "q2",
+      "question": "Qu'est-ce qui constitue une donnée personnelle ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Uniquement le nom, le prénom et l'adresse"
+        },
+        {
+          "key": "b",
+          "text": "Toute information se rapportant à une personne identifiée ou identifiable, y compris par recoupement"
+        },
+        {
+          "key": "c",
+          "text": "Uniquement les données saisies dans un formulaire"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "« Le responsable qualité de notre client fabricant de packaging en Alsace » ne contient aucun nom et identifie pourtant une personne."
+    },
+    {
+      "id": "q3",
+      "question": "Quelle est la question numéro un à poser avant d'adopter un outil ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Mes saisies servent-elles à entraîner les modèles ?"
+        },
+        {
+          "key": "b",
+          "text": "Quel est le prix de l'abonnement ?"
+        },
+        {
+          "key": "c",
+          "text": "L'interface est-elle disponible en français ?"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Les offres professionnelles l'excluent généralement par contrat ; certaines offres gratuites ne l'excluent pas."
+    },
+    {
+      "id": "q4",
+      "question": "Qu'est-ce qui conditionne la protection d'un contenu par le droit d'auteur ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "L'existence d'une création intellectuelle originale portant l'empreinte d'un auteur humain"
+        },
+        {
+          "key": "b",
+          "text": "La longueur du contenu produit"
+        },
+        {
+          "key": "c",
+          "text": "La mention de l'outil utilisé en bas de page"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Une sortie brute publiée telle quelle a peu de chances de remplir cette condition. Conservez la trace de votre processus : elle établit la réalité de votre contribution."
+    },
+    {
+      "id": "q5",
+      "question": "Pourquoi une interdiction générale de l'IA est-elle contre-productive ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Parce qu'elle prive l'entreprise d'un avantage concurrentiel"
+        },
+        {
+          "key": "b",
+          "text": "Parce qu'elle déplace l'usage hors de tout contrôle et supprime toute traçabilité"
+        },
+        {
+          "key": "c",
+          "text": "Parce qu'elle est illégale"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Les outils sont accessibles depuis n'importe quel navigateur personnel : l'interdiction rend l'usage invisible, elle ne le supprime pas."
+    },
+    {
+      "id": "q6",
+      "question": "Quelle pratique constitue une ligne rouge, indépendamment de toute évolution réglementaire ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Faire relire la structure d'un article par un modèle"
+        },
+        {
+          "key": "b",
+          "text": "Faire rédiger un témoignage client à partir de notes d'entretien"
+        },
+        {
+          "key": "c",
+          "text": "Faire reformuler ses propres écrits"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "C'est attribuer à une personne des propos qu'elle n'a pas tenus : la bascule de l'assistance vers la tromperie."
+    }
+  ]
+}

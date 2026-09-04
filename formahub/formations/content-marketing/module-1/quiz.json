@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-content-marketing-module-1",
+  "version": "2.0",
+  "last_verified": "2026-09-01",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quel contenu convient le mieux à l'étape BOFU (décision) ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Une étude de cas client chiffrée avec résultats mesurés"
+        },
+        {
+          "key": "b",
+          "text": "Un article de découverte sur les enjeux du secteur"
+        },
+        {
+          "key": "c",
+          "text": "Un quiz de divertissement"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "En phase de décision, le prospect a choisi son approche et compare des prestataires : il a besoin de preuves, pas de pédagogie."
+    },
+    {
+      "id": "q2",
+      "question": "Qu'est-ce qui distingue fondamentalement un contenu de content marketing d'une publicité ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Sa longueur et son niveau de détail"
+        },
+        {
+          "key": "b",
+          "text": "Le fait qu'il ait de la valeur pour le lecteur même s'il n'achète jamais rien"
+        },
+        {
+          "key": "c",
+          "text": "Le canal sur lequel il est diffusé"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "C'est le contrat implicite : vous aidez réellement, il vous accorde attention et crédibilité. Le rompre produit un contenu que personne ne lit."
+    },
+    {
+      "id": "q3",
+      "question": "Dans quel cas l'inbound marketing est-il mal adapté ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Quand le cycle de vente est long et implique plusieurs décideurs"
+        },
+        {
+          "key": "b",
+          "text": "Quand l'achat suppose de la pédagogie préalable"
+        },
+        {
+          "key": "c",
+          "text": "Quand votre marché total tient en cinquante entreprises identifiables"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Sur un marché aussi restreint, une approche directe et personnalisée coûte moins cher et va beaucoup plus vite."
+    },
+    {
+      "id": "q4",
+      "question": "Une entreprise a du trafic mais ne génère aucun lead. Quel étage manque le plus probablement ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le TOFU, il faut produire plus d'articles de découverte"
+        },
+        {
+          "key": "b",
+          "text": "Le MOFU, qui permet d'identifier le visiteur et de le faire passer de l'anonymat à la relation"
+        },
+        {
+          "key": "c",
+          "text": "Le BOFU, il faut ajouter des pages produits"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Sans mécanisme de captation — lead magnet, livre blanc, outil —, l'audience passe, lit et repart sans jamais devenir identifiable."
+    },
+    {
+      "id": "q5",
+      "question": "Qu'est-ce qui caractérise un lead magnet efficace ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Un document exhaustif de 40 pages qui démontre toute votre expertise"
+        },
+        {
+          "key": "b",
+          "text": "Un contenu résolvant un problème précis, consommable en quelques minutes, cohérent avec l'offre"
+        },
+        {
+          "key": "c",
+          "text": "Un contenu généraliste, pour attirer le maximum de contacts"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "« Le guide complet du marketing digital » ne convertit pas ; « le modèle de calcul de votre stock de sécurité » convertit — bénéfice immédiat, périmètre clair."
+    },
+    {
+      "id": "q6",
+      "question": "Comment déterminer une cadence de publication tenable ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Par le bas : ce que vous pouvez produire au niveau de qualité visé pendant un mois chargé, avec une absence"
+        },
+        {
+          "key": "b",
+          "text": "Par le haut : viser un article par semaine et ajuster ensuite"
+        },
+        {
+          "key": "c",
+          "text": "En s'alignant sur la cadence du concurrent le plus actif"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Publier deux fois par mois pendant trois ans bat toutes les stratégies hebdomadaires abandonnées au bout de six mois."
+    }
+  ]
+}

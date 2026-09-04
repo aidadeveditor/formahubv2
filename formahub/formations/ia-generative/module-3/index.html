@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formahub — IA Générative appliquée au contenu : Techniques avancées : Few-Shot &amp; Chain-of-Thought</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="../../../index.html" class="brand">
+      <div class="brand-icon">F</div>
+      <span>Formahub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../../../index.html" class="nav-link">Mes formations</a>
+      <a href="../../../ressources-externes.html" class="nav-link">Ressources externes</a>
+      <a href="../../../formations-espagne.html" class="nav-link">Formations Espagne</a>
+      <button class="theme-toggle" type="button">🌙 Mode Sombre</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="../../../index.html">Accueil</a> &gt;
+        <span>IA Générative appliquée au contenu</span> &gt;
+        <strong>Module 3</strong>
+      </div>
+      <h1>Module 3 : Techniques avancées : Few-Shot &amp; Chain-of-Thought</h1>
+      <div class="module-meta">
+        <span class="badge badge-progress">⏱️ 50 min</span>
+        <span class="badge badge-neutral">Module 3 sur 5</span>
+        <span class="badge badge-neutral">Niveau : Intermédiaire</span>
+        <span class="badge badge-neutral">~2600 mots</span>
+      </div>
+    </div>
+
+    <article class="module-content">
+      <div class="intro-box">
+        <h3>📍 Mise en situation</h3>
+        <p>Votre prompt est bien construit : rôle situé, contexte fourni, contraintes explicites, format spécifié. Et pourtant, sur deux tâches précises, le résultat reste insuffisant. Quand vous demandez de classer des retours clients, la classification varie d'un lot à l'autre. Quand vous demandez un calcul de rentabilité en plusieurs étapes, le raisonnement paraît juste mais le résultat final est faux une fois sur trois.</p>
+        <p>Les cinq piliers ne suffisent plus, non parce qu'ils seraient mal appliqués, mais parce que ces deux tâches relèvent d'autre chose : la première demande de <em>montrer</em> plutôt que de décrire, la seconde de <em>ralentir</em> le modèle. Ce module couvre les trois techniques qui traitent ces situations — l'exemple fourni, le raisonnement explicité, et la sortie structurée — ainsi que leurs limites, rarement mentionnées.</p>
+      </div>
+
+      <div class="objectives-box">
+        <h3>🎯 À l'issue de ce module, vous saurez</h3>
+        <ul>
+          <li>Choisir entre décrire une consigne et fournir des exemples, selon la nature de la tâche</li>
+          <li>Construire des exemples qui enseignent réellement, y compris sur les cas limites</li>
+          <li>Employer le raisonnement explicité là où il apporte quelque chose, et savoir où il n'apporte rien</li>
+          <li>Obtenir des sorties structurées directement exploitables dans vos outils</li>
+          <li>Décomposer une tâche complexe en étapes plutôt que de tout demander en une fois</li>
+        </ul>
+      </div>
+
+      <h2>1. Montrer plutôt que décrire : le Few-Shot</h2>
+      <p>On appelle <strong>zero-shot</strong> une demande formulée sans exemple : vous décrivez ce que vous voulez, le modèle produit. C'est le mode par défaut, et il suffit pour la majorité des tâches rédactionnelles.</p>
+      <p>Le <strong>few-shot</strong> consiste à joindre deux à cinq exemples d'entrée et de sortie attendue avant de soumettre le cas réel. Le modèle infère alors la règle à partir des exemples plutôt qu'à partir de votre description. C'est souvent plus efficace, parce que certaines choses se montrent bien mieux qu'elles ne se décrivent — un ton, un niveau de granularité, une façon de trancher un cas ambigu.</p>
+      <div class="table-responsive">
+<table>
+<thead><tr><th>Situation</th><th>Technique adaptée</th><th>Pourquoi</th></tr></thead>
+<tbody>
+<tr><td>Rédaction ouverte, texte original</td><td>Zero-shot</td><td>Les exemples enferment : le modèle imite au lieu de créer</td></tr>
+<tr><td>Classification, étiquetage, extraction</td><td><strong>Few-shot</strong></td><td>La frontière entre catégories se montre mieux qu'elle ne se décrit</td></tr>
+<tr><td>Respect d'un ton ou d'un style maison</td><td><strong>Few-shot</strong></td><td>Trois exemples de votre style valent trois pages de charte</td></tr>
+<tr><td>Format de sortie inhabituel</td><td><strong>Few-shot</strong></td><td>Un exemple de sortie vaut mieux qu'une description de structure</td></tr>
+<tr><td>Tâche standard et bien décrite</td><td>Zero-shot</td><td>Les exemples alourdissent sans rien apporter</td></tr>
+</tbody>
+</table>
+</div>
+      <h3>1.1 Ce qui fait un bon jeu d'exemples</h3>
+      <p><strong>La cohérence avant tout.</strong> Si vos exemples se contredisent sur un point de détail — l'un met une majuscule, l'autre non — le modèle reproduira l'incohérence. Relisez vos exemples comme un jeu de règles, pas comme des illustrations.</p>
+      <p><strong>La couverture des cas limites.</strong> C'est le point décisif, et le plus souvent manqué. Des exemples tous évidents n'enseignent rien : le modèle savait déjà les traiter. Ce sont les cas ambigus qui portent l'information — le retour client qui pourrait relever de deux catégories, la phrase qu'on décide de classer en négatif malgré une formulation polie.</p>
+      <p><strong>La représentativité.</strong> Si 60 % de vos cas réels relèvent d'une catégorie, vos exemples ne doivent pas donner l'impression que toutes les catégories sont également fréquentes — vous induiriez une répartition artificielle.</p>
+      <p><strong>Le nombre juste.</strong> Deux à cinq exemples suffisent presque toujours. Au-delà, le gain devient marginal alors que le coût en contexte augmente, et le risque de contradiction entre exemples croît.</p>
+      <div class="example-box">
+        <h4>📌 Exemple — l'exemple qui enseigne un cas limite</h4>
+        <p>Une équipe classe des retours clients en « produit », « livraison », « service client » et « prix ». Le taux d'accord avec la classification humaine plafonne à 71 %.</p>
+        <p>L'analyse des désaccords montre que le modèle classe en « service client » tous les verbatims qui mentionnent un échange avec un conseiller, même quand le problème de fond est ailleurs : « j'ai appelé trois fois pour signaler que le colis n'était jamais arrivé » était classé « service client » alors que l'équipe le classe en « livraison ».</p>
+        <p>Correction : ajouter précisément ce cas comme exemple, avec sa classification et une phrase de règle — « on classe selon le problème de fond, pas selon le canal par lequel il a été signalé ». Le taux d'accord passe à 89 %. Un seul exemple bien choisi, celui qui portait exactement l'ambiguïté, a produit tout le gain.</p>
+      </div>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — donner des exemples tous faciles</h4>
+        <p>Le réflexe naturel est de choisir des exemples clairs, parce qu'ils illustrent bien la règle. Ce sont précisément les moins utiles : le modèle les traitait déjà correctement sans eux.</p>
+        <p>Choisissez vos exemples parmi vos <strong>désaccords passés</strong> — les cas sur lesquels deux personnes de l'équipe auraient hésité. Si vous n'avez pas encore de désaccords, c'est que vous n'avez pas assez travaillé la définition de vos catégories : commencez par là.</p>
+      </div>
+
+      <h2>2. Faire ralentir le modèle : le raisonnement explicité</h2>
+      <p>Le <strong>chain-of-thought</strong> — raisonnement en chaîne — consiste à demander au modèle d'expliciter ses étapes intermédiaires avant de conclure. La formulation minimale, « procède étape par étape », suffit souvent à améliorer nettement les résultats sur les tâches de calcul, de comparaison structurée ou de déduction en plusieurs temps.</p>
+      <p>L'explication tient à la mécanique vue au module 1. Le modèle produit son texte unité par unité, sans retour en arrière : s'il énonce d'emblée une conclusion, il n'a effectué aucun calcul intermédiaire — il a produit la conclusion qui paraissait la plus plausible. En lui faisant écrire les étapes, on l'oblige à produire ces intermédiaires, qui deviennent alors le contexte sur lequel s'appuie la conclusion. On ne rend pas le modèle plus intelligent : on lui donne de la place pour travailler.</p>
+      <h3>2.1 Où cela fonctionne, et où cela n'apporte rien</h3>
+      <p><strong>Efficace</strong> sur les calculs en plusieurs étapes, les comparaisons multicritères, les déductions à partir de règles fournies, les diagnostics à embranchements, et toute tâche où l'on peut se tromper à une étape intermédiaire.</p>
+      <p><strong>Sans effet notable</strong> sur la rédaction créative, la reformulation, la traduction, ou l'extraction simple. Sur ces tâches, demander un raisonnement produit surtout du texte parasite qu'il faudra retirer.</p>
+      <p><strong>Un point à connaître :</strong> le raisonnement affiché ressemble à une justification, mais ce n'est pas une garantie de validité. Le modèle peut produire un enchaînement d'apparence rigoureuse et faux. L'intérêt du raisonnement explicité est double : il améliore le résultat, et il rend l'erreur <em>repérable</em> — vous pouvez identifier à quelle étape ça a dérapé, ce qui est impossible avec une réponse brute.</p>
+      <div class="method-box">
+        <h4>⚙️ Méthode — obtenir un raisonnement utile et vérifiable</h4>
+        <ol>
+          <li><strong>Nommez les étapes attendues</strong> plutôt que de dire « raisonne » : « 1) relève les données pertinentes, 2) pose le calcul, 3) effectue-le, 4) vérifie l'ordre de grandeur, 5) conclus. » Un raisonnement guidé vaut mieux qu'un raisonnement libre.</li>
+          <li><strong>Demandez une étape de vérification</strong> explicite : « avant de conclure, contrôle que ton résultat est cohérent avec les données de départ ». C'est l'étape que le modèle n'ajoutera jamais spontanément.</li>
+          <li><strong>Séparez raisonnement et réponse</strong> dans le format : « donne d'abord ton raisonnement sous le titre <em>Analyse</em>, puis la réponse finale sous le titre <em>Conclusion</em> ». Vous pouvez ainsi ne diffuser que la conclusion tout en conservant l'analyse pour contrôle.</li>
+          <li><strong>Faites recalculer autrement</strong> pour les résultats critiques : « refais ce calcul par une autre méthode et compare les deux résultats ». Une divergence signale immédiatement un problème.</li>
+          <li><strong>Vérifiez vous-même les calculs qui engagent.</strong> Un raisonnement lisible n'est pas un raisonnement validé — pour un chiffre destiné à un client ou à une décision, refaites-le.</li>
+        </ol>
+      </div>
+      <div class="example-box">
+        <h4>📌 Exemple — la même question, avec et sans étapes</h4>
+        <p><strong>Sans étapes :</strong> « Une machine coûte 45 000 € et permet d'économiser 1 850 € par mois de main-d'œuvre, mais coûte 320 € par mois en maintenance. Au bout de combien de temps est-elle rentabilisée ? » → une réponse immédiate, souvent juste, parfois fausse d'un mois ou deux selon les essais.</p>
+        <p><strong>Avec étapes nommées :</strong> « … Procède ainsi : 1) calcule l'économie nette mensuelle, 2) divise l'investissement par cette économie, 3) arrondis au mois supérieur, 4) vérifie en multipliant ton résultat par l'économie nette, 5) conclus. » → le calcul devient stable d'un essai à l'autre, et l'étape 4 permet de repérer immédiatement une erreur.</p>
+        <p>L'écart ne tient pas à la difficulté du calcul, qui est élémentaire. Il tient à ce que sans étapes, le modèle produit une réponse plausible ; avec étapes, il produit une réponse calculée.</p>
+      </div>
+
+      <h2>3. Les sorties structurées</h2>
+      <p>Une sortie structurée est une réponse dont la forme est contrainte : tableau, liste de champs, ou format de données comme le JSON. Son intérêt dépasse le confort de lecture — c'est ce qui permet d'intégrer la production du modèle dans une chaîne de traitement sans intervention manuelle.</p>
+      <h3>3.1 Trois règles pour obtenir un format fiable</h3>
+      <p><strong>Montrez le format plutôt que de le décrire.</strong> Un exemple de sortie complète, avec des valeurs fictives, obtient de bien meilleurs résultats qu'une description en prose de la structure attendue. C'est un usage du few-shot appliqué à la forme.</p>
+      <p><strong>Interdisez explicitement le texte alentour.</strong> « Réponds uniquement par le JSON, sans phrase d'introduction ni commentaire final. » Sans cette précision, le modèle ajoutera volontiers « Voici l'analyse demandée : », ce qui casse tout traitement automatique en aval.</p>
+      <p><strong>Prévoyez les cas vides et les incertitudes.</strong> Que doit contenir un champ dont l'information est absente ? Si vous ne le dites pas, le modèle inventera une valeur plausible — ce qui nous ramène au problème du module 1. Imposez une valeur conventionnelle : <code>null</code>, « non renseigné », ou une chaîne vide.</p>
+      <h3>3.2 Le champ qui change tout : la certitude</h3>
+      <p>Ajouter à chaque enregistrement un champ indiquant le niveau de certitude — <em>haute</em> ou <em>basse</em> — transforme l'exploitation d'un traitement en volume. Au lieu de relire cent classifications, vous relisez les dix signalées comme incertaines.</p>
+      <p>Ce champ n'est pas une mesure statistique fiable de la confiance du modèle, et il ne faut pas le présenter comme tel. C'est un <strong>signal de tri</strong>, et il fonctionne remarquablement bien pour cet usage : les cas que le modèle signale comme douteux sont, dans la pratique, très majoritairement ceux sur lesquels un humain hésiterait aussi.</p>
+      <p>Complétez-le d'un champ <code>justification</code> contenant un extrait exact du texte source. Il permet de contrôler une classification sans relire l'ensemble du document d'origine — et il interdit au modèle de reformuler, donc de déformer.</p>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — traiter cent éléments d'un coup</h4>
+        <p>Soumettre une liste de 200 verbatims en une seule demande produit souvent une dégradation en fin de liste : classifications plus approximatives, éléments oubliés, format qui se relâche. Le modèle traite bien un long contexte, mais la qualité n'est pas parfaitement uniforme d'un bout à l'autre.</p>
+        <p>Traitez par <strong>lots de 20 à 30</strong>, et vérifiez systématiquement que le nombre d'éléments en sortie correspond au nombre d'éléments en entrée. C'est un contrôle qui prend cinq secondes et détecte le problème le plus fréquent de ce type de traitement.</p>
+      </div>
+
+      <h2>4. Décomposer une tâche complexe</h2>
+      <p>La dernière technique est la plus simple à énoncer et la plus négligée : quand une demande combine plusieurs opérations, il vaut presque toujours mieux les <strong>séparer en plusieurs échanges</strong> que de tout demander en une fois.</p>
+      <p>« Analyse ces 40 retours clients, identifie les thèmes, hiérarchise-les par gravité, et rédige-moi un plan d'action » est une demande à quatre opérations. Le modèle produira quelque chose, mais chaque étape sera exécutée superficiellement, et vous ne pourrez corriger aucune sans tout relancer.</p>
+      <div class="method-box">
+        <h4>⚙️ Méthode — chaîner les étapes en gardant le contrôle</h4>
+        <ol>
+          <li><strong>Étape 1 — Extraire.</strong> Demandez uniquement la classification, en sortie structurée. Vérifiez-la avant d'aller plus loin.</li>
+          <li><strong>Étape 2 — Agréger.</strong> Fournissez le résultat validé et demandez une synthèse quantifiée. Le modèle travaille alors sur une matière que vous avez contrôlée.</li>
+          <li><strong>Étape 3 — Hiérarchiser.</strong> Donnez vos critères de gravité — ils sont métier, le modèle ne peut pas les deviner — et demandez le classement.</li>
+          <li><strong>Étape 4 — Proposer.</strong> Demandez des pistes d'action sur les trois premiers thèmes seulement.</li>
+          <li><strong>À chaque étape, validez avant de poursuivre.</strong> C'est ce qui évite de découvrir à l'étape 4 que la classification de l'étape 1 était fausse — et que tout ce qui suit l'est aussi.</li>
+        </ol>
+      </div>
+      <h3>4.1 Pourquoi la décomposition fonctionne mieux</h3>
+      <p>Trois raisons se cumulent. Chaque étape reçoit <strong>toute l'attention</strong> du modèle plutôt qu'un cinquième. Les erreurs sont <strong>rattrapées tôt</strong>, avant de se propager dans les étapes suivantes. Et surtout, vous conservez la <strong>maîtrise du raisonnement</strong> : les critères de hiérarchisation viennent de vous, pas d'une convention que le modèle aurait inventée sans le dire.</p>
+      <p>Ce dernier point est le plus important en usage professionnel. Une demande globale produit un résultat dont vous ne connaissez pas les hypothèses. Une chaîne d'étapes validées produit un résultat dont vous pouvez justifier chaque maillon — ce qui compte le jour où quelqu'un vous demande comment vous êtes arrivé là.</p>
+
+      <div class="case-box">
+        <h3>🔍 Étude de cas — industrialiser l'analyse des retours clients</h3>
+        <p>Reprenons la situation d'ouverture. Une équipe qualité traite 250 verbatims mensuels issus d'enquêtes après intervention. Objectif : produire un suivi mensuel comparable dans le temps.</p>
+        <p><strong>Point de départ.</strong> Un prompt unique demandant d'analyser le lot et de produire une synthèse. Résultats non comparables d'un mois à l'autre : les catégories changent, la granularité varie, et personne ne peut dire si une hausse des remontées sur les délais est réelle ou due à un classement différent.</p>
+        <p><strong>Correction 1 — Fermer la liste des catégories.</strong> Le modèle ne doit jamais créer de catégorie. Six catégories sont définies par l'équipe, plus « non classable ». C'est la condition de toute comparaison dans le temps, et c'est une décision métier, pas technique.</p>
+        <p><strong>Correction 2 — Passer en few-shot avec les bons exemples.</strong> Premier jeu d'exemples : quatre cas clairs. Taux d'accord avec la classification humaine : 71 %. L'analyse des désaccords révèle deux ambiguïtés récurrentes — le problème signalé par téléphone classé en « service client », et les verbatims mêlant deux sujets.</p>
+        <p>Second jeu d'exemples : les quatre cas remplacés par <em>quatre cas ambigus</em>, chacun accompagné d'une phrase de règle (« on classe selon le problème de fond, pas selon le canal de signalement » ; « en cas de double sujet, on retient celui qui motive l'insatisfaction »). Taux d'accord : <strong>89 %</strong>.</p>
+        <p><strong>Correction 3 — Sortie structurée avec certitude et justification.</strong> Format JSON à cinq champs : <code>id</code>, <code>categorie</code>, <code>tonalite</code>, <code>justification</code> (citation exacte), <code>certitude</code>. Effet immédiat : la relecture humaine passe de 250 verbatims à environ 30 — ceux en certitude basse et les non classables.</p>
+        <p><strong>Correction 4 — Décomposer.</strong> La chaîne devient : classer (validé) → agréger et quantifier → hiérarchiser selon des critères de gravité définis par l'équipe → proposer des pistes sur les trois premiers thèmes. Quatre échanges au lieu d'un.</p>
+        <p><strong>Correction 5 — Traiter par lots.</strong> Passage en lots de 25, avec contrôle systématique que le nombre de sorties égale le nombre d'entrées. Ce seul contrôle a révélé que l'ancien traitement global perdait régulièrement trois à cinq verbatims par lot, sans que personne s'en aperçoive.</p>
+        <p><strong>Résultat.</strong> Temps de traitement mensuel passé d'environ 6 heures à 1 h 30. Mais le gain principal est ailleurs : les chiffres sont enfin <strong>comparables d'un mois à l'autre</strong>, ce qui était l'objectif initial et que la vitesse seule n'aurait jamais donné.</p>
+        <p><strong>Ce que le cas enseigne :</strong> l'amélioration décisive n'est venue ni d'une technique sophistiquée ni d'un prompt plus long. Elle est venue du remplacement de quatre exemples faciles par quatre exemples ambigus — et de la décision, purement métier, de figer les catégories. Les techniques de ce module ne valent que branchées sur un travail de définition que le modèle ne peut pas faire à votre place.</p>
+      </div>
+
+      <div class="checklist-box">
+        <h3>📋 Checklist — Techniques avancées</h3>
+        <ul class="checklist">
+          <li>Le choix zero-shot / few-shot correspond à la nature de la tâche</li>
+          <li>Les exemples fournis sont cohérents entre eux, relus comme un jeu de règles</li>
+          <li>Les exemples couvrent les cas limites, pas seulement les cas évidents</li>
+          <li>Les exemples sont issus de désaccords réels, pas inventés pour l'occasion</li>
+          <li>Le nombre d'exemples reste entre 2 et 5</li>
+          <li>Le raisonnement explicité n'est demandé que là où il apporte quelque chose</li>
+          <li>Les étapes du raisonnement sont nommées, pas laissées libres</li>
+          <li>Une étape de vérification figure explicitement dans la séquence</li>
+          <li>Raisonnement et conclusion sont séparés dans le format de sortie</li>
+          <li>Les calculs qui engagent ont été refaits à la main</li>
+          <li>Le format de sortie est montré par un exemple, pas seulement décrit</li>
+          <li>Le texte avant et après la structure est explicitement interdit</li>
+          <li>Le comportement attendu en cas d'information absente est spécifié</li>
+          <li>Un champ de certitude permet de cibler la relecture humaine</li>
+          <li>Les traitements en volume se font par lots de 20 à 30, avec contrôle du nombre d'éléments</li>
+          <li>Les tâches à plusieurs opérations sont décomposées et validées étape par étape</li>
+        </ul>
+      </div>
+
+      <div class="glossary-box">
+        <h3>📖 Glossaire du module</h3>
+        <dl>
+          <dt>Zero-shot</dt>
+          <dd>Demande formulée sans exemple : on décrit ce que l'on attend. Mode par défaut, adapté à la rédaction ouverte.</dd>
+          <dt>Few-shot</dt>
+          <dd>Demande accompagnée de 2 à 5 exemples d'entrée/sortie ; le modèle infère la règle plutôt que de suivre une description.</dd>
+          <dt>Cas limite</dt>
+          <dd>Exemple ambigu situé à la frontière entre deux traitements possibles ; c'est lui qui porte l'information utile.</dd>
+          <dt>Chain-of-thought</dt>
+          <dd>Demande d'expliciter les étapes intermédiaires avant de conclure ; efficace sur le calcul et la déduction.</dd>
+          <dt>Sortie structurée</dt>
+          <dd>Réponse dont la forme est contrainte — tableau, JSON — pour être exploitable sans retraitement.</dd>
+          <dt>JSON</dt>
+          <dd>Format de données structuré, directement lisible par un tableur ou un programme.</dd>
+          <dt>Champ de certitude</dt>
+          <dd>Indicateur haute/basse ajouté à chaque enregistrement, servant de signal de tri pour la relecture humaine.</dd>
+          <dt>Justification</dt>
+          <dd>Champ contenant une citation exacte du texte source, permettant de contrôler sans relire l'original.</dd>
+          <dt>Décomposition</dt>
+          <dd>Séparation d'une demande à plusieurs opérations en étapes successives validées une à une.</dd>
+          <dt>Traitement par lots</dt>
+          <dd>Découpage d'un volume en groupes de 20 à 30 éléments, pour préserver la qualité et permettre le contrôle.</dd>
+        </dl>
+      </div>
+
+      <div class="takeaway-box">
+        <h3>✅ À retenir</h3>
+        <ul>
+          <li>Zero-shot pour la rédaction ouverte ; few-shot pour la classification, le style maison et les formats inhabituels.</li>
+          <li>Des exemples tous faciles n'enseignent rien : choisissez-les parmi vos désaccords réels.</li>
+          <li>Relisez vos exemples comme un jeu de règles — une incohérence entre eux sera fidèlement reproduite.</li>
+          <li>Deux à cinq exemples suffisent presque toujours ; au-delà, le coût dépasse le gain.</li>
+          <li>Le raisonnement explicité ne rend pas le modèle plus intelligent : il lui donne de la place pour travailler.</li>
+          <li>Nommez les étapes attendues plutôt que de dire « raisonne », et incluez une étape de vérification.</li>
+          <li>Un raisonnement lisible n'est pas un raisonnement validé — refaites les calculs qui engagent.</li>
+          <li>Montrez le format de sortie par un exemple, et interdisez explicitement le texte avant et après.</li>
+          <li>Spécifiez toujours quoi faire en cas d'information absente, sinon le modèle inventera une valeur plausible.</li>
+          <li>Un champ de certitude fait passer la relecture de 250 éléments à 30.</li>
+          <li>Traitez par lots de 20 à 30, et vérifiez que le nombre de sorties égale le nombre d'entrées.</li>
+          <li>Décomposez les tâches à plusieurs opérations : les erreurs sont rattrapées tôt et vous gardez la maîtrise des critères.</li>
+        </ul>
+      </div>
+
+      <h2 class="exercises-title">Exercices d'application</h2>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 1 — Choisir la technique <span class="badge badge-neutral">Application</span></h3>
+        <p>Pour chacune des cinq tâches, indiquez la technique adaptée et justifiez en une phrase.</p>
+        <p><strong>(A)</strong> Rédiger un éditorial de newsletter, à publier sous la signature du dirigeant. <strong>(B)</strong> Classer 300 candidatures selon 5 critères de présélection. <strong>(C)</strong> Calculer le coût complet d'un déplacement à partir de plusieurs postes de dépense. <strong>(D)</strong> Extraire d'un contrat les dates, montants et parties, pour alimenter un tableur. <strong>(E)</strong> Reformuler un texte technique pour un public non spécialiste.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>(A) Éditorial signé du dirigeant → few-shot, mais sur le style uniquement.</strong></p>
+            <p>Cas intéressant car il combine deux logiques. La rédaction est ouverte, ce qui plaide pour le zero-shot ; mais il faut reproduire une voix personnelle, ce que trois éditoriaux précédents du dirigeant enseignent bien mieux que n'importe quelle description. La formulation correcte : fournir les exemples <em>comme référence de ton</em>, en précisant explicitement « inspire-toi du ton de ces textes, pas de leur sujet ni de leur structure ». Sans cette précision, le modèle imitera aussi le plan et les thèmes.</p>
+            <p><strong>(B) 300 candidatures → few-shot + sortie structurée + lots + champ de certitude.</strong></p>
+            <p>Tâche de classification en volume : tous les outils du module s'appliquent. Exemples pris sur des candidatures ambiguës, sortie JSON avec certitude et justification, traitement par lots de 25 avec contrôle du compte.</p>
+            <p><em>Réserve importante :</em> une présélection de candidatures touche à des décisions concernant des personnes. Le modèle propose un tri, il ne décide pas ; toute candidature écartée doit pouvoir l'être sur un motif vérifiable dans la justification, et le champ de certitude doit déclencher une relecture systématique. Ce point relève du module 5.</p>
+            <p><strong>(C) Coût complet d'un déplacement → chain-of-thought avec étapes nommées et vérification.</strong></p>
+            <p>Calcul en plusieurs temps, exactement le domaine où le raisonnement explicité produit le plus d'effet. Nommez les étapes, ajoutez un contrôle d'ordre de grandeur — et refaites le calcul vous-même s'il part chez un client.</p>
+            <p><strong>(D) Extraction depuis un contrat → few-shot sur le format + sortie structurée.</strong></p>
+            <p>Un exemple complet de sortie avec des valeurs fictives vaut mieux qu'une description de la structure. Prévoyez impérativement la valeur à mettre quand une information est absente du contrat : c'est le cas le plus fréquent, et sans consigne, le modèle comblera par une date ou un montant plausible.</p>
+            <p><strong>(E) Reformulation pour non-spécialistes → zero-shot.</strong></p>
+            <p>Tâche standard, bien décrite par les cinq piliers du module 2. Ce qui compte ici est de nommer le destinataire réel, pas d'ajouter des exemples qui alourdiraient inutilement le prompt.</p>
+            <p><strong>Le fil conducteur :</strong> les exemples servent quand il faut transmettre une <em>frontière</em> (entre catégories) ou une <em>forme</em> (un ton, une structure). Ils desservent quand la tâche demande de produire quelque chose de nouveau.</p>
+          </div>
+        </details>
+      </div>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 2 — Construire un jeu d'exemples <span class="badge badge-neutral">Analyse</span></h3>
+        <p>Vous devez faire classer des demandes entrantes d'un service support en trois catégories : <em>incident</em> (quelque chose ne fonctionne pas), <em>demande d'évolution</em> (le client veut une fonctionnalité), <em>question d'usage</em> (le client ne sait pas comment faire). Le premier essai plafonne à 68 % d'accord.</p>
+        <p><strong>1.</strong> Identifiez les trois ambiguïtés structurelles de cette typologie. <strong>2.</strong> Rédigez trois exemples traitant chacune d'elles, avec leur règle. <strong>3.</strong> Indiquez comment vous mesurerez l'amélioration.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>1. Les trois ambiguïtés structurelles</strong></p>
+            <ul>
+            <li><strong>Incident ou question d'usage ?</strong> « Ça ne marche pas » signifie souvent « je ne sais pas m'en servir ». Du point de vue du client, c'est un incident ; du point de vue du support, c'est une question d'usage. La frontière dépend d'une décision métier, pas du texte.</li>
+            <li><strong>Question d'usage ou demande d'évolution ?</strong> « Comment faire pour exporter en PDF ? » relève de l'usage si la fonction existe, de l'évolution si elle n'existe pas. Le classement dépend d'une connaissance du produit que le texte ne contient pas.</li>
+            <li><strong>Incident ou demande d'évolution ?</strong> « Le système devrait m'alerter avant expiration » décrit un manque : le client l'exprime comme un dysfonctionnement, c'est fonctionnellement une évolution.</li>
+            </ul>
+            <p><strong>Constat central :</strong> ces ambiguïtés ne se résolvent pas par un meilleur prompt. Elles se résolvent par une <em>décision d'équipe</em> sur où placer la frontière. Le modèle appliquera la règle que vous lui donnez — encore faut-il l'avoir prise.</p>
+            <p><strong>2. Trois exemples avec leur règle</strong></p>
+            <blockquote>
+            <p><strong>Exemple 1.</strong><br>
+            Demande : « Impossible de générer mon rapport mensuel, le bouton ne répond pas. »<br>
+            Catégorie : <strong>incident</strong><br>
+            Règle : quand le client décrit une fonction existante qui ne produit pas l'effet attendu, c'est un incident — même si la cause s'avère ensuite être une mauvaise manipulation. <em>On classe sur ce que décrit le client, pas sur la cause qu'on découvrira.</em></p>
+            <p><strong>Exemple 2.</strong><br>
+            Demande : « Je ne trouve pas où changer la périodicité de mes rapports. »<br>
+            Catégorie : <strong>question d'usage</strong><br>
+            Règle : quand le client cherche <em>où</em> ou <em>comment</em> faire quelque chose que le produit permet, c'est une question d'usage. Signal distinctif : la formulation porte sur la recherche, pas sur l'échec.</p>
+            <p><strong>Exemple 3.</strong><br>
+            Demande : « Le système devrait m'alerter avant l'expiration de mes accès. »<br>
+            Catégorie : <strong>demande d'évolution</strong><br>
+            Règle : le conditionnel (« devrait », « il faudrait », « ce serait bien de ») décrivant un comportement qui n'existe pas relève toujours de l'évolution, même formulé comme un reproche.</p>
+            </blockquote>
+            <p>Notez que chaque exemple porte une <strong>règle explicite</strong>, pas seulement une classification. C'est ce qui permet au modèle de généraliser à des cas voisins non couverts, et c'est ce que la plupart des jeux d'exemples omettent.</p>
+            <p><strong>3. Mesure de l'amélioration</strong></p>
+            <ol>
+            <li><strong>Jeu de référence :</strong> 50 demandes classées à la main par deux personnes, désaccords tranchés en réunion. Cette étape produit souvent plus de valeur que le prompt lui-même : elle force à écrire les règles.</li>
+            <li><strong>Mesure avant / après</strong> sur ce même jeu, avec l'ancien puis le nouveau prompt. Objectif réaliste : passer de 68 % à 85-90 %.</li>
+            <li><strong>Analyse des désaccords résiduels</strong> — pas leur simple comptage. S'ils se concentrent sur une catégorie, c'est sa définition qui pose problème. S'ils se dispersent, on approche de la limite acceptable.</li>
+            <li><strong>Test de stabilité :</strong> relancer trois fois le même jeu. Une demande qui change de catégorie d'un passage à l'autre signale une règle encore floue.</li>
+            <li><strong>Contrôle de l'accord humain lui-même :</strong> si les deux personnes de référence ne s'accordent qu'à 85 %, il est illusoire d'attendre mieux du modèle. C'est un plafond utile à connaître avant de s'acharner.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 3 — Concevoir une chaîne de traitement <span class="badge badge-neutral">Synthèse</span></h3>
+        <p>Votre direction commerciale vous demande de produire chaque trimestre une analyse des raisons de perte des affaires, à partir de 180 champs libres remplis par les commerciaux dans le CRM. Ces champs sont hétérogènes : certains font trois mots, d'autres dix lignes ; certains donnent une raison, d'autres racontent l'historique.</p>
+        <p><strong>1.</strong> Concevez la chaîne de traitement en étapes. <strong>2.</strong> Précisez pour chaque étape la technique employée et le point de contrôle. <strong>3.</strong> Identifiez ce qui, dans cette demande, ne doit pas être confié au modèle.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>1 et 2. Chaîne de traitement</strong></p>
+            <div class="table-responsive">
+            <table>
+            <thead><tr><th>Étape</th><th>Opération</th><th>Technique</th><th>Point de contrôle</th></tr></thead>
+            <tbody>
+            <tr><td><strong>0</strong></td><td>Préparation : anonymisation (retrait des noms de clients et de commerciaux), exclusion des champs vides ou non exploitables</td><td>Traitement automatique, hors modèle</td><td>Nombre de champs retenus / écartés, avec les motifs</td></tr>
+            <tr><td><strong>1</strong></td><td>Classer chaque perte selon une liste fermée de motifs définie par la direction commerciale</td><td>Few-shot sur cas ambigus + sortie JSON avec certitude et justification + lots de 25</td><td>Nombre de sorties = nombre d'entrées ; relecture des certitudes basses et des « non classable »</td></tr>
+            <tr><td><strong>2</strong></td><td>Agréger : effectifs et pourcentages par motif, comparés au trimestre précédent</td><td>Calcul hors modèle, dans un tableur</td><td>Somme des effectifs = total des affaires perdues</td></tr>
+            <tr><td><strong>3</strong></td><td>Extraire, pour les trois motifs dominants, les verbatims les plus représentatifs</td><td>Sortie structurée, citations exactes uniquement</td><td>Vérifier que chaque citation figure bien telle quelle dans la source</td></tr>
+            <tr><td><strong>4</strong></td><td>Rédiger la synthèse à partir des chiffres validés et des verbatims retenus</td><td>Zero-shot avec les 5 piliers, matière fournie</td><td>Aucun chiffre ne doit apparaître qui ne vienne de l'étape 2</td></tr>
+            </tbody>
+            </table>
+            </div>
+            <p><strong>Deux décisions importantes.</strong> L'agrégation de l'étape 2 se fait <em>hors du modèle</em>, dans un tableur : c'est du calcul exact, il n'y a aucune raison de le confier à un système probabiliste. Et l'étape 4 ne reçoit que des chiffres déjà validés, ce qui interdit structurellement l'apparition d'une statistique inventée.</p>
+            <p><strong>3. Ce qui ne doit pas être confié au modèle</strong></p>
+            <ul>
+            <li><strong>La définition de la liste des motifs.</strong> Elle relève de la direction commerciale et conditionne toute comparaison dans le temps. Laisser le modèle générer ses catégories rendrait les trimestres incomparables — c'est-à-dire détruirait l'objet même de l'exercice.</li>
+            <li><strong>Le calcul des pourcentages.</strong> Aucun intérêt à le déléguer, et un risque réel d'erreur silencieuse.</li>
+            <li><strong>L'interprétation causale.</strong> Une hausse du motif « prix » ne signifie pas que vos prix sont trop élevés : elle peut refléter un changement de segment, l'arrivée d'un concurrent, ou simplement une consigne de remplissage donnée aux commerciaux. Cette mise en contexte demande une connaissance du terrain que le modèle n'a pas — et une analyse qui l'affirmerait sans réserve serait pire qu'inutile.</li>
+            <li><strong>Les recommandations d'action.</strong> Elles engagent des décisions commerciales et budgétaires. Le modèle peut proposer des pistes en étape 5 si vous le souhaitez, à condition qu'elles soient présentées comme telles et arbitrées par des humains.</li>
+            <li><strong>La qualité des données d'entrée.</strong> Un point rarement soulevé et pourtant décisif : si les commerciaux remplissent ce champ à la va-vite en fin de trimestre, aucune sophistication du traitement ne compensera. Il faut le dire dans la restitution, avec le taux de champs exploitables — et c'est souvent le constat le plus utile de tout l'exercice.</li>
+            </ul>
+            <p><strong>Formulation à retenir pour la restitution :</strong> « sur 180 affaires perdues, 142 champs étaient exploitables. Les chiffres qui suivent portent sur ces 142, soit 79 % du total. » Cette phrase vaut mieux qu'une analyse présentée comme exhaustive alors qu'elle ne l'est pas.</p>
+          </div>
+        </details>
+      </div>
+      <div class="resources-box">
+        <h3>🔗 Pour aller plus loin</h3>
+        <ul>
+          <li>La documentation de votre modèle sur les formats de sortie structurés : certains services proposent un mode garantissant un JSON valide, ce qui évite les échecs de parsing.</li>
+          <li>Le module 4 de cette formation applique ces techniques à des cas métier concrets du travail éditorial.</li>
+          <li>Constituez un jeu de référence classé à la main pour toute tâche de classification récurrente : c'est le seul moyen de mesurer une amélioration.</li>
+          <li>Conservez vos jeux d'exemples avec vos prompts dans la bibliothèque d'équipe — ce sont eux qui portent la valeur, davantage que la formulation de la consigne.</li>
+        </ul>
+      </div>
+    </article>
+
+    <section class="quiz-section">
+      <h2>🧠 Quiz d'auto-évaluation</h2>
+      <p style="color:var(--text-muted);margin-bottom:20px;">Sélectionnez la bonne réponse pour valider vos acquis. Le feedback immédiat vous expliquera les concepts clés.</p>
+      <div id="quiz-container">
+        <!-- Quiz chargé dynamiquement par quiz-engine.js -->
+      </div>
+      <div style="margin-top: 24px; text-align: center;">
+        <button id="btn-mark-complete" data-module-id="formation-ia-generative-module-3" class="btn btn-primary">
+          Marquer le module comme terminé ✓
+        </button>
+      </div>
+    </section>
+
+    <nav class="module-nav">
+      <a href="../module-2/index.html" class="btn btn-outline">← Module 2</a>
+      <a href="../module-4/index.html" class="btn btn-primary">Module 4 →</a>
+    </nav>
+  </main>
+
+  <script src="../../../assets/js/progress.js"></script>
+  <script src="../../../assets/js/quiz-engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadQuiz('quiz.json', 'quiz-container');
+    });
+  </script>
+</body>
+</html>

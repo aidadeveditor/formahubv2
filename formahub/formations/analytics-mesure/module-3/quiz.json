@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-analytics-mesure-module-3",
+  "version": "2.0",
+  "last_verified": "2026-09-03",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Dans un entonnoir, quelle marche faut-il traiter en priorité ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Celle dont le taux de passage est le plus bas en valeur absolue"
+        },
+        {
+          "key": "b",
+          "text": "Celle dont le taux s'écarte le plus de sa propre valeur passée"
+        },
+        {
+          "key": "c",
+          "text": "La première, car elle conditionne tout le reste du parcours"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Les marches trient des populations d'intention croissante : leurs taux n'ont aucune raison d'être comparables entre eux. Un entonnoir se lit en mouvement, pas en niveau."
+    },
+    {
+      "id": "q2",
+      "question": "Le taux de conversion global baisse alors que chaque segment progresse. Que s'est-il passé ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Les données sont incohérentes : il faut vérifier la collecte"
+        },
+        {
+          "key": "b",
+          "text": "La part d'un segment à faible taux a augmenté : c'est un effet de composition"
+        },
+        {
+          "key": "c",
+          "text": "La saisonnalité affecte le total mais pas les segments"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Rien ne s'est dégradé : c'est la composition de l'audience qui a changé. D'où la règle de vérifier les poids des segments avant toute conclusion sur la performance."
+    },
+    {
+      "id": "q3",
+      "question": "Après une semaine exceptionnellement mauvaise, vous agissez et la semaine suivante s'améliore. Quel mécanisme faut-il écarter avant de conclure ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "La régression vers la moyenne"
+        },
+        {
+          "key": "b",
+          "text": "L'effet de composition"
+        },
+        {
+          "key": "c",
+          "text": "L'arrêt anticipé"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Une valeur extrême est presque toujours suivie d'une valeur plus ordinaire, quoi qu'on fasse. Comme on agit après les mauvaises semaines, on s'attribue une amélioration spontanée."
+    },
+    {
+      "id": "q4",
+      "question": "Vous voulez détecter un effet deux fois plus petit qu'initialement prévu. Que devient le volume nécessaire ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Il double environ"
+        },
+        {
+          "key": "b",
+          "text": "Il quadruple environ"
+        },
+        {
+          "key": "c",
+          "text": "Il reste identique, seule la durée change"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "La relation est quadratique. C'est pourquoi le calcul de volume doit précéder le lancement : il montre souvent que le test est hors de portée du site."
+    },
+    {
+      "id": "q5",
+      "question": "Au cinquième jour d'un test prévu pour trois semaines, l'outil affiche 96 % de confiance. Que faire ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Déployer : le seuil de significativité est franchi"
+        },
+        {
+          "key": "b",
+          "text": "Attendre la date de fin prévue, car des lectures répétées multiplient le risque de conclure à tort"
+        },
+        {
+          "key": "c",
+          "text": "Prolonger le test d'une semaine pour confirmer"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Le chiffre affiché suppose une lecture unique en fin de test. Avec des consultations quotidiennes, la probabilité de se tromper peut approcher un cas sur trois."
+    },
+    {
+      "id": "q6",
+      "question": "Dans lequel de ces cas ne faut-il pas lancer de test A/B ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Pour comparer deux formulations d'un titre de page produit"
+        },
+        {
+          "key": "b",
+          "text": "Pour valider la correction d'un formulaire cassé sur un navigateur mobile"
+        },
+        {
+          "key": "c",
+          "text": "Pour comparer deux emplacements d'un bouton de demande de devis"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Tester une correction de défaut laisse la moitié des visiteurs sur la version cassée pendant des semaines, pour démontrer une évidence. On corrige, puis on surveille le retour à la normale."
+    }
+  ]
+}

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formahub — CRM &amp; Relation Client (Salesforce) : Fondamentaux du CRM &amp; Modèle de Données Salesforce</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="../../../index.html" class="brand">
+      <div class="brand-icon">F</div>
+      <span>Formahub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../../../index.html" class="nav-link">Mes formations</a>
+      <a href="../../../ressources-externes.html" class="nav-link">Ressources externes</a>
+      <a href="../../../formations-espagne.html" class="nav-link">Formations Espagne</a>
+      <button class="theme-toggle" type="button">🌙 Mode Sombre</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="../../../index.html">Accueil</a> &gt;
+        <span>CRM &amp; Relation Client (Salesforce)</span> &gt;
+        <strong>Module 1</strong>
+      </div>
+      <h1>Module 1 : Fondamentaux du CRM &amp; Modèle de Données Salesforce</h1>
+      <div class="module-meta">
+        <span class="badge badge-progress">⏱️ 50 min</span>
+        <span class="badge badge-neutral">Module 1 sur 3</span>
+        <span class="badge badge-neutral">Niveau : Débutant</span>
+        <span class="badge badge-neutral">~2400 mots</span>
+      </div>
+    </div>
+
+    <article class="module-content">
+      <div class="intro-box">
+        <h3>📍 Mise en situation</h3>
+        <p>Votre entreprise vient de déployer Salesforce. Trois mois plus tard, la direction commerciale demande un chiffre simple : combien de clients actifs avons-nous dans le secteur industriel ? Personne ne sait répondre. Non pas parce que l'information manque, mais parce qu'elle existe en cinq versions différentes : des sociétés saisies deux fois avec des orthographes différentes, des contacts rattachés à rien, un champ « secteur » rempli en texte libre où l'on trouve « industrie », « Industriel », « INDUS » et 340 cases vides.</p>
+        <p>Ce scénario n'est pas une anomalie, c'est le mode d'échec par défaut d'un CRM. Un CRM ne produit pas de la donnée fiable ; il stocke ce qu'on y met, dans la structure qu'on lui a donnée. Ce module porte sur cette structure : comprendre le modèle de données de Salesforce, savoir dans quel objet va quelle information, et pourquoi cette discipline conditionne tout ce que vous ferez ensuite — pipeline, prévisions, tableaux de bord.</p>
+      </div>
+
+      <div class="objectives-box">
+        <h3>🎯 À l'issue de ce module, vous saurez</h3>
+        <ul>
+          <li>Expliquer ce qu'un CRM apporte réellement, et ce qu'il n'apporte pas</li>
+          <li>Nommer et distinguer les objets standard de Salesforce : Compte, Contact, Piste, Opportunité, Activité, Requête</li>
+          <li>Choisir le bon objet pour une information donnée, sans hésiter</li>
+          <li>Comprendre la différence entre une Piste et un Compte/Contact, et le moment de la conversion</li>
+          <li>Identifier les champs qui doivent être obligatoires et ceux qui ne doivent jamais être en texte libre</li>
+          <li>Reconnaître et éviter les cinq causes classiques de dégradation de la donnée</li>
+        </ul>
+      </div>
+
+      <h2>1. Ce qu'un CRM fait, et ce qu'il ne fait pas</h2>
+      <p>Un CRM (<em>Customer Relationship Management</em>) est une base de données partagée sur les entreprises et les personnes avec lesquelles vous êtes en relation, et sur l'historique de cette relation. Sa promesse tient en une phrase : quand quelqu'un quitte l'entreprise, la connaissance de ses clients reste. C'est tout, et c'est déjà considérable.</p>
+      <p>Ce qu'un CRM ne fait pas, en revanche, mérite d'être dit clairement, parce que la déception qui suit un déploiement vient presque toujours d'une attente mal placée. Un CRM ne vend pas à votre place. Il n'améliore pas mécaniquement le chiffre d'affaires. Il ne remplace pas une méthode commerciale — si votre équipe n'a pas de méthode, le CRM rendra simplement cette absence visible. Et il ne corrige pas les données : si vos commerciaux saisissent mal, vous obtiendrez des tableaux de bord faux, présentés avec la même autorité graphique que des tableaux de bord justes. C'est le danger principal.</p>
+      <p>La valeur d'un CRM est donc proportionnelle à la discipline de saisie. Cela paraît trivial ; c'est en réalité la seule chose qui décide du succès ou de l'échec du projet. Retenez cette asymétrie : une donnée manquante se voit et se corrige ; une donnée fausse se propage silencieusement dans tous les rapports.</p>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — « On verra plus tard pour la qualité des données »</h4>
+        <p>C'est l'arbitrage le plus fréquent au démarrage, et le plus coûteux. Reprendre 8 000 comptes mal saisis six mois après le lancement représente un chantier de plusieurs semaines, généralement arbitré à la baisse — donc jamais terminé.</p>
+        <p>L'ordre correct est inverse : définir les règles de saisie avant l'ouverture aux utilisateurs, quitte à ouvrir avec moins de champs. Un CRM avec dix champs bien remplis vaut infiniment mieux qu'un CRM avec soixante champs à moitié vides.</p>
+      </div>
+
+      <h2>2. Les six objets que vous devez connaître</h2>
+      <p>Salesforce organise l'information en <strong>objets</strong> : chaque objet est une table, chaque enregistrement une ligne. Il en existe des dizaines, mais six suffisent à couvrir 90 % de l'usage commercial quotidien. Les comprendre, c'est comprendre où poser chaque information.</p>
+      <h3>Compte (Account) — l'entreprise</h3>
+      <p>Un Compte représente une organisation : une entreprise cliente, un prospect, un partenaire, un fournisseur. C'est l'objet pivot autour duquel tout le reste s'articule. Un Compte porte la raison sociale, le secteur, l'adresse du siège, le chiffre d'affaires, le propriétaire (le commercial responsable).</p>
+      <p>Règle d'or : <strong>une entreprise = un Compte, et un seul</strong>. Les doublons de Comptes sont la première cause de CRM inutilisable, parce qu'ils fracturent l'historique — la moitié des échanges sur l'un, la moitié sur l'autre, et aucune vue complète nulle part.</p>
+      <h3>Contact — la personne</h3>
+      <p>Un Contact est un individu, rattaché à un Compte : nom, fonction, e-mail, téléphone, rôle dans la décision. Un Compte peut avoir vingt Contacts ; un Contact appartient à un Compte.</p>
+      <p>C'est sur le Contact que se joue une grande partie de la valeur commerciale : dans une vente B2B, la décision implique en moyenne plusieurs personnes aux intérêts différents. Un CRM où chaque Compte n'a qu'un seul Contact est un CRM qui documente une relation, pas un compte.</p>
+      <h3>Piste (Lead) — le contact non qualifié</h3>
+      <p>Une Piste est une personne dont on ne sait pas encore si elle représente une opportunité : un formulaire web rempli, une carte de visite d'un salon, une liste achetée. La Piste est volontairement un objet à part, en dehors du modèle Compte/Contact : c'est une <strong>zone tampon</strong> qui protège votre base propre des données non vérifiées.</p>
+      <p>Quand la Piste est qualifiée — l'entreprise existe, la personne est la bonne, il y a un besoin identifié — on la <strong>convertit</strong>. La conversion crée en une opération un Compte, un Contact, et éventuellement une Opportunité, puis archive la Piste. C'est une opération à sens unique : on ne « déconvertit » pas.</p>
+      <h3>Opportunité — l'affaire en cours</h3>
+      <p>Une Opportunité est une vente potentielle identifiée : un montant, une date de clôture prévue, une étape dans le cycle de vente, un taux de probabilité. C'est l'objet qui alimente le pipeline et les prévisions — l'objet du module 2.</p>
+      <p>Une Opportunité est toujours rattachée à un Compte. Un même Compte peut porter plusieurs Opportunités simultanées ou successives : c'est normal et souhaitable, chaque affaire ayant son propre cycle.</p>
+      <h3>Activité — la trace de l'échange</h3>
+      <p>Les Activités regroupent les Tâches (à faire) et les Événements (rendez-vous, appels passés). Elles se rattachent à un Contact, un Compte ou une Opportunité et constituent l'historique de la relation.</p>
+      <p>C'est la partie la plus négligée du CRM et la plus utile : c'est elle qui répond à « que s'est-il passé avec ce client depuis un an ? » quand le commercial qui le suivait est parti.</p>
+      <h3>Requête (Case) — la demande client</h3>
+      <p>Une Requête est une sollicitation entrante d'un client : réclamation, demande de support, question technique. Elle a un statut, une priorité, un propriétaire et une date de résolution.</p>
+      <p>Elle relie le commercial au service client : voir qu'un compte a trois réclamations ouvertes avant de l'appeler pour un renouvellement change la conversation.</p>
+      <div class="example-box">
+        <h4>📌 Exemple — où va quoi, concrètement</h4>
+        <p>Vous rencontrez sur un salon Claire Vasseur, directrice achats chez Delcourt Industries, qui vous dit chercher une solution pour l'an prochain. De retour au bureau, vous créez : une <strong>Piste</strong> « Claire Vasseur — Delcourt Industries ».</p>
+        <p>Deux semaines plus tard, un premier rendez-vous confirme le besoin et un budget. Vous <strong>convertissez</strong> : Salesforce crée le <strong>Compte</strong> « Delcourt Industries », le <strong>Contact</strong> « Claire Vasseur », et l'<strong>Opportunité</strong> « Delcourt Industries — Refonte 2027 », 45 000 €, clôture prévue en mars.</p>
+        <p>Le rendez-vous lui-même devient un <strong>Événement</strong> rattaché à l'Opportunité, avec un compte rendu. Vous créez une <strong>Tâche</strong> « envoyer la proposition » pour le vendredi. Trois mois après signature, un problème de livraison fait l'objet d'une <strong>Requête</strong>. La chaîne est complète, et n'importe qui dans l'entreprise peut reconstituer l'histoire.</p>
+      </div>
+
+      <h2>3. Piste ou Compte ? Le seul arbitrage qui compte au démarrage</h2>
+      <p>La question qui bloque le plus les équipes au démarrage est celle-ci : dois-je créer une Piste ou directement un Compte et un Contact ? Les deux pratiques existent et les deux se défendent, mais le choix doit être fait <strong>une fois pour toute l'entreprise</strong>, pas laissé à chacun.</p>
+      <p>Le critère simple : si votre activité génère beaucoup de contacts entrants non vérifiés — formulaires web, salons, campagnes — le passage par la Piste est indispensable, sinon votre base de Comptes se remplit d'entreprises fantômes. Si votre activité repose sur un nombre restreint de comptes connus travaillés dans la durée, l'objet Piste est une complication inutile et beaucoup d'entreprises le désactivent.</p>
+      <div class="method-box">
+        <h4>⚙️ Méthode — définir votre règle de qualification en quatre points</h4>
+        <p>Une Piste ne doit être convertie que si les quatre points suivants sont vérifiés. Écrivez-les, affichez-les, et faites-en le critère unique.</p>
+        <ol>
+          <li><strong>L'entreprise est identifiée et réelle</strong> — raison sociale exacte, pas « société de Claire ». Vérification rapide sur un annuaire officiel si le doute existe.</li>
+          <li><strong>L'interlocuteur est pertinent</strong> — la personne a un rôle dans la décision ou l'accès à ceux qui l'ont. Un stagiaire curieux n'est pas une Piste qualifiée.</li>
+          <li><strong>Un besoin est exprimé</strong> — pas un intérêt général, un besoin daté ou chiffré, même approximativement.</li>
+          <li><strong>Un prochain pas est convenu</strong> — une date, un rendez-vous, un envoi attendu. Sans prochain pas, la conversion crée une Opportunité qui pourrira dans le pipeline.</li>
+        </ol>
+      </div>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — convertir trop tôt pour « faire du chiffre dans le pipeline »</h4>
+        <p>La tentation est forte, surtout quand le nombre d'opportunités créées est suivi comme un indicateur. Le résultat est un pipeline gonflé d'affaires qui n'existent pas, donc des prévisions fausses, donc une direction qui cesse de croire au CRM.</p>
+        <p>Le remède est de ne jamais faire du volume d'opportunités un objectif en soi. Suivez le taux de conversion des pistes et l'âge moyen des opportunités : ces deux indicateurs punissent immédiatement la conversion prématurée.</p>
+      </div>
+
+      <h2>4. Les champs : ce qui doit être obligatoire, ce qui ne doit jamais être libre</h2>
+      <p>Chaque objet porte des champs. La qualité de votre CRM se décide sur trois arbitrages de configuration, faits une fois, qui vous épargneront des années de nettoyage.</p>
+      <p><strong>Premier arbitrage : le minimum obligatoire.</strong> Rendre un champ obligatoire a un coût — cela ralentit la saisie et pousse aux valeurs bidon (« NC », « aaa@aaa.fr »). Rendez obligatoire uniquement ce dont vous avez besoin pour piloter : sur une Opportunité, le montant, la date de clôture et l'étape ; sur un Compte, la raison sociale et le propriétaire. Rien d'autre au démarrage.</p>
+      <p><strong>Deuxième arbitrage : listes de sélection contre texte libre.</strong> Toute information sur laquelle vous voudrez un jour filtrer, grouper ou compter doit être une liste de sélection fermée, jamais un champ texte. Secteur d'activité, source du contact, motif de perte, taille d'entreprise : listes. Le texte libre est réservé à ce qui est irréductiblement singulier — les commentaires, le contexte, le compte rendu d'échange.</p>
+      <p><strong>Troisième arbitrage : la longueur des listes.</strong> Une liste de sélection de trente valeurs sera mal utilisée : les gens choisissent la première option plausible. Sept à dix valeurs, mutuellement exclusives, formulées sans ambiguïté, avec une valeur « Autre » qu'on surveille — si « Autre » dépasse 15 %, votre liste est incomplète.</p>
+      <div class="example-box">
+        <h4>📌 Exemple — un champ « motif de perte » qui sert à quelque chose</h4>
+        <p>Mauvaise version : champ texte libre. Après un an, vous obtenez 400 formulations différentes, aucune analyse possible.</p>
+        <p>Bonne version : liste fermée de sept valeurs — <em>Prix trop élevé</em>, <em>Fonctionnalité manquante</em>, <em>Concurrent choisi</em>, <em>Projet abandonné / reporté</em>, <em>Pas de budget</em>, <em>Décision interne (solution maison)</em>, <em>Sans réponse du client</em>. Champ obligatoire au passage d'une Opportunité en « Perdue », doublé d'un champ commentaire facultatif.</p>
+        <p>Six mois plus tard, vous savez que 34 % de vos pertes sont dues à une fonctionnalité manquante, et laquelle grâce aux commentaires. C'est une information qui remonte au produit et change une feuille de route. C'était impossible avec du texte libre.</p>
+      </div>
+      <div class="method-box">
+        <h4>⚙️ Méthode — auditer la qualité de vos données en 30 minutes</h4>
+        <ol>
+          <li>Créez un rapport <em>Comptes</em> groupé par <strong>Secteur</strong> : comptez les valeurs vides et les valeurs proches (« Industrie » / « industrie »). C'est votre taux de complétude.</li>
+          <li>Créez un rapport <em>Comptes</em> trié par <strong>Nom</strong> et parcourez-le visuellement : les doublons sautent aux yeux car ils se suivent alphabétiquement.</li>
+          <li>Créez un rapport <em>Contacts</em> filtré sur <strong>Compte = vide</strong> : ce sont vos contacts orphelins, invisibles dans toute analyse par entreprise.</li>
+          <li>Créez un rapport <em>Opportunités ouvertes</em> filtré sur <strong>date de clôture &lt; aujourd'hui</strong> : ce sont les affaires zombies, qui faussent toutes vos prévisions.</li>
+          <li>Notez les quatre chiffres, datez-les, et refaites l'exercice chaque trimestre. La tendance compte plus que la valeur absolue.</li>
+        </ol>
+      </div>
+
+      <div class="case-box">
+        <h3>🔍 Étude de cas — Delcourt Industries, ou comment un doublon coûte une affaire</h3>
+        <p>Reprenons le scénario d'ouverture. Trois mois après le déploiement, la question « combien de clients actifs dans l'industrie ? » reste sans réponse. Voici le diagnostic réel, tel qu'il se présente presque toujours.</p>
+        <p><strong>Constat 1 — les doublons.</strong> Un rapport Comptes trié par nom révèle « Delcourt Industries », « DELCOURT INDUSTRIES » et « Delcourt Ind. » : trois enregistrements pour une entreprise, créés par trois commerciaux à trois moments. Conséquence concrète : lors d'un renouvellement, le commercial consulte le mauvais enregistrement, ne voit ni les deux réclamations en cours ni la remise accordée l'an dernier, et propose un tarif incohérent. L'affaire est perdue.</p>
+        <p><strong>Constat 2 — les contacts orphelins.</strong> 210 contacts ne sont rattachés à aucun compte. Ils proviennent d'un import de fichier salon fait sans mapping. Ils sont invisibles dans toute vue par entreprise : personne ne les rappellera jamais.</p>
+        <p><strong>Constat 3 — le champ secteur en texte libre.</strong> 340 valeurs vides, 22 orthographes pour six secteurs réels. D'où l'impossibilité de répondre à la question initiale.</p>
+        <p><strong>Le plan de remise en état, dans l'ordre.</strong></p>
+        <p>1. <em>Fermer le robinet avant d'éponger.</em> On commence par la configuration, pas par le nettoyage — sinon on nettoie une base qui se resalit pendant qu'on la nettoie. Le champ Secteur devient une liste de sélection à sept valeurs, obligatoire à la création d'un Compte. Une règle de validation bloque la création d'un Compte dont le nom existe déjà à la casse près.</p>
+        <p>2. <em>Fusionner les doublons.</em> Salesforce propose une fusion de Comptes qui rapatrie contacts, opportunités et activités sur l'enregistrement conservé. On fusionne par ordre décroissant de volume d'activité, en désignant comme enregistrement maître celui qui porte l'historique le plus riche. 180 doublons traités en deux demi-journées à deux personnes.</p>
+        <p>3. <em>Rattacher les orphelins.</em> Export des 210 contacts, rattachement par correspondance sur le domaine e-mail — <code>@delcourt-industries.fr</code> pointe vers le compte Delcourt. 160 se rattachent automatiquement, 50 sont traités à la main, 12 sont supprimés faute d'information exploitable.</p>
+        <p>4. <em>Rétro-remplir le secteur.</em> Pour les comptes ayant du chiffre d'affaires, on remplit à la main — 90 comptes, une demi-journée. Pour les autres, on laisse vide plutôt que de deviner : une donnée vide est honnête, une donnée devinée est un mensonge qui se propage.</p>
+        <p><strong>Résultat six semaines plus tard.</strong> La question initiale trouve une réponse en douze secondes. Mais l'acquis principal n'est pas là : il est dans les règles de validation posées à l'étape 1, qui font que le problème ne reviendra pas. C'est le principe à retenir de tout ce module — <strong>la qualité de la donnée est une question de configuration, pas de bonne volonté</strong>.</p>
+      </div>
+
+      <div class="checklist-box">
+        <h3>📋 Checklist — mettre en ordre le socle de données</h3>
+        <ul class="checklist">
+          <li>Une règle écrite tranche : passe-t-on par les Pistes, oui ou non ?</li>
+          <li>Les quatre critères de qualification d'une Piste sont écrits et connus de l'équipe</li>
+          <li>La liste des champs obligatoires tient en moins de six champs par objet</li>
+          <li>Tout champ destiné à être filtré ou compté est une liste de sélection, pas du texte</li>
+          <li>Chaque liste de sélection compte moins de dix valeurs, mutuellement exclusives</li>
+          <li>Une valeur « Autre » existe et son taux d'usage est surveillé</li>
+          <li>Une règle de validation empêche la création d'un Compte au nom déjà existant</li>
+          <li>Le champ « motif de perte » est une liste fermée, obligatoire à la clôture en perte</li>
+          <li>Chaque Compte a un propriétaire identifié</li>
+          <li>Un rapport « contacts sans compte » existe et est consulté mensuellement</li>
+          <li>Un rapport « opportunités dont la date de clôture est dépassée » existe</li>
+          <li>Le taux de complétude des champs clés est mesuré et daté chaque trimestre</li>
+          <li>Une procédure de fusion de doublons est documentée et connue d'au moins deux personnes</li>
+          <li>Les imports de fichiers externes passent par une étape de mapping validée</li>
+        </ul>
+      </div>
+
+      <div class="glossary-box">
+        <h3>📖 Glossaire du module</h3>
+        <dl>
+          <dt>CRM</dt>
+          <dd>Customer Relationship Management. Base de données partagée des entreprises, personnes et échanges commerciaux, destinée à rendre la connaissance client indépendante des individus qui la détiennent.</dd>
+          <dt>Objet</dt>
+          <dd>Dans Salesforce, une table de données. Les objets standard (Compte, Contact, Opportunité…) sont fournis ; les objets personnalisés sont créés pour les besoins propres à l'entreprise.</dd>
+          <dt>Enregistrement</dt>
+          <dd>Une ligne dans un objet : un compte précis, un contact précis. Terme équivalent à « fiche ».</dd>
+          <dt>Compte (Account)</dt>
+          <dd>Objet représentant une organisation. Objet pivot du modèle : contacts, opportunités et requêtes s'y rattachent.</dd>
+          <dt>Contact</dt>
+          <dd>Objet représentant une personne physique, rattachée à un Compte.</dd>
+          <dt>Piste (Lead)</dt>
+          <dd>Objet tampon représentant un contact entrant non encore qualifié. Se convertit en Compte + Contact (+ Opportunité) une fois validé.</dd>
+          <dt>Conversion</dt>
+          <dd>Opération transformant une Piste qualifiée en Compte, Contact et éventuellement Opportunité. Irréversible.</dd>
+          <dt>Opportunité</dt>
+          <dd>Objet représentant une vente potentielle : montant, date de clôture, étape, probabilité.</dd>
+          <dt>Activité</dt>
+          <dd>Terme regroupant les Tâches (à faire) et les Événements (rendez-vous, appels effectués), rattachés à un enregistrement.</dd>
+          <dt>Requête (Case)</dt>
+          <dd>Objet représentant une demande entrante d'un client : réclamation, support, question.</dd>
+          <dt>Liste de sélection (picklist)</dt>
+          <dd>Champ dont les valeurs possibles sont prédéfinies et fermées. Condition nécessaire pour pouvoir filtrer, grouper ou compter sur ce champ.</dd>
+          <dt>Règle de validation</dt>
+          <dd>Règle empêchant l'enregistrement d'une fiche qui ne respecte pas une condition. Principal outil de préservation de la qualité des données.</dd>
+          <dt>Complétude</dt>
+          <dd>Part des enregistrements dont un champ donné est renseigné. Indicateur de base de la santé d'une base CRM.</dd>
+        </dl>
+      </div>
+
+      <div class="takeaway-box">
+        <h3>✅ À retenir</h3>
+        <ul>
+          <li>Un CRM ne crée pas de valeur commerciale par lui-même : il rend la connaissance client indépendante des personnes. Tout le reste découle de la discipline de saisie.</li>
+          <li>Une donnée manquante se voit et se corrige ; une donnée fausse se propage silencieusement dans tous les rapports. La seconde est bien plus dangereuse.</li>
+          <li>Six objets couvrent l'essentiel : Compte (l'entreprise), Contact (la personne), Piste (le contact non vérifié), Opportunité (l'affaire), Activité (la trace), Requête (la demande client).</li>
+          <li>Une entreprise = un Compte, et un seul. Les doublons de Comptes fracturent l'historique et sont la première cause de CRM inexploitable.</li>
+          <li>La Piste est une zone tampon qui protège votre base propre. Elle n'a de sens que si vous recevez beaucoup de contacts non vérifiés.</li>
+          <li>Convertir une Piste exige quatre conditions : entreprise réelle, interlocuteur pertinent, besoin exprimé, prochain pas convenu.</li>
+          <li>Ne faites jamais du nombre d'opportunités créées un objectif : cela produit mécaniquement un pipeline gonflé et des prévisions fausses.</li>
+          <li>Tout champ que vous voudrez filtrer, grouper ou compter doit être une liste de sélection fermée. Le texte libre est réservé aux commentaires.</li>
+          <li>Moins de six champs obligatoires par objet. Au-delà, les utilisateurs saisissent des valeurs bidon et la donnée devient pire que vide.</li>
+          <li>Une liste de sélection dépasse rarement dix valeurs utiles, et son taux d'« Autre » doit rester sous 15 %.</li>
+          <li>Avant de nettoyer une base, posez les règles de validation : sinon vous nettoyez une base qui se resalit pendant que vous la nettoyez.</li>
+          <li>Une donnée vide est honnête ; une donnée devinée pour remplir un tableau est un mensonge durable.</li>
+          <li>Quatre rapports suffisent à auditer une base : complétude d'un champ clé, doublons par tri alphabétique, contacts sans compte, opportunités à date dépassée.</li>
+        </ul>
+      </div>
+
+      <h2 class="exercises-title">Exercices d'application</h2>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 1 — Placer l'information au bon endroit <span class="badge badge-neutral">Débutant</span></h3>
+        <p>Pour chacune des dix informations ci-dessous, indiquez dans quel objet Salesforce elle doit être enregistrée, et sur quel enregistrement elle se rattache.</p>
+        <p>1. Le numéro de TVA intracommunautaire de la société Delcourt. — 2. Le fait que Claire Vasseur préfère être appelée le matin. — 3. Un compte rendu de rendez-vous du 12 mars. — 4. Un devis de 45 000 € envoyé et en attente de réponse. — 5. Une carte de visite récupérée sur un salon, entreprise inconnue de vous. — 6. Une réclamation sur un retard de livraison. — 7. Le rappel de relancer Claire vendredi. — 8. Le fait que le décideur final est le directeur financier, que vous n'avez pas encore rencontré. — 9. La raison pour laquelle vous avez perdu l'affaire de l'an dernier. — 10. Le secteur d'activité de Delcourt.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>1. Numéro de TVA</strong> → champ sur le <strong>Compte</strong> Delcourt Industries. Information administrative attachée à l'entité juridique, pas à une personne.</p>
+            <p><strong>2. Préférence horaire de Claire</strong> → champ description ou commentaire sur le <strong>Contact</strong> Claire Vasseur. C'est une caractéristique de la personne, elle la suit si elle change d'entreprise.</p>
+            <p><strong>3. Compte rendu du rendez-vous</strong> → un <strong>Événement</strong> (Activité) daté du 12 mars, rattaché à l'<strong>Opportunité</strong> concernée si elle existe, sinon au Contact. Le rattachement à l'Opportunité est préférable : il reconstitue l'histoire de l'affaire.</p>
+            <p><strong>4. Devis de 45 000 € en attente</strong> → l'<strong>Opportunité</strong> elle-même : montant 45 000 €, étape « Proposition envoyée », date de clôture estimée. Le document PDF s'attache en pièce jointe sur l'Opportunité.</p>
+            <p><strong>5. Carte de visite d'un salon, entreprise inconnue</strong> → une <strong>Piste</strong>. C'est exactement le cas d'usage : information non vérifiée qu'on ne veut pas laisser entrer dans la base propre. Elle deviendra Compte + Contact après qualification.</p>
+            <p><strong>6. Réclamation sur un retard</strong> → une <strong>Requête</strong> rattachée au Compte Delcourt, avec statut et priorité. Ne jamais la saisir comme un simple commentaire : elle doit être suivie jusqu'à résolution et comptabilisée.</p>
+            <p><strong>7. Rappel de relancer vendredi</strong> → une <strong>Tâche</strong> (Activité) avec échéance au vendredi, rattachée au Contact ou à l'Opportunité, assignée à vous.</p>
+            <p><strong>8. Le directeur financier est le décideur final</strong> → question piège en deux temps. Si vous ne l'avez pas rencontré mais connaissez son existence et son nom, créez le <strong>Contact</strong> avec sa fonction : le rôle dans la décision est une information commerciale de premier ordre. Si vous ne connaissez que le rôle sans la personne, notez-le sur l'<strong>Opportunité</strong> (champ contexte / processus de décision). Ne le laissez pas seulement dans un compte rendu d'événement, où personne ne le retrouvera.</p>
+            <p><strong>9. Raison de la perte de l'an dernier</strong> → le champ <strong>motif de perte</strong> de l'<strong>Opportunité</strong> perdue, qui reste dans la base. C'est précisément l'usage qui justifie de ne jamais supprimer une opportunité perdue : elle documente une histoire et alimente vos analyses.</p>
+            <p><strong>10. Secteur d'activité</strong> → champ liste de sélection sur le <strong>Compte</strong>. Jamais en texte libre — c'est l'exemple canonique du champ destiné à être filtré et compté.</p>
+            <p><em>Point commun aux dix réponses :</em> l'information se place là où elle reste vraie le plus longtemps et où elle sera retrouvée par quelqu'un d'autre que vous. C'est la seule règle de placement à mémoriser.</p>
+          </div>
+        </details>
+      </div>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 2 — Concevoir une liste de sélection exploitable <span class="badge badge-neutral">Intermédiaire</span></h3>
+        <p>Votre direction veut suivre l'origine des affaires pour arbitrer les budgets marketing. Le champ « Source » existe actuellement en texte libre sur la Piste et l'Opportunité ; un export révèle 187 valeurs distinctes pour 900 enregistrements.</p>
+        <p>Concevez la liste de sélection qui remplacera ce champ : proposez les valeurs, justifiez le découpage, et indiquez comment vous traitez l'historique existant.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>Étape 1 — analyser avant de proposer.</strong> On ne conçoit pas une liste de valeurs depuis un bureau : on part de l'existant. Exportez les 187 valeurs avec leur fréquence et regroupez-les manuellement. Vous constaterez presque toujours que 90 % des enregistrements se répartissent en sept ou huit familles, et que la longue traîne des 180 autres valeurs sont des variantes orthographiques ou des cas uniques.</p>
+            <p><strong>Étape 2 — la liste proposée (8 valeurs).</strong></p>
+            <ul>
+            <li><em>Recommandation client</em> — bouche-à-oreille, mise en relation par un client existant</li>
+            <li><em>Partenaire / apporteur d'affaires</em> — distinct de la recommandation car il implique une rémunération et un pilotage différents</li>
+            <li><em>Formulaire site web</em></li>
+            <li><em>Campagne e-mail / newsletter</em></li>
+            <li><em>Salon / événement</em></li>
+            <li><em>Prospection sortante</em> — appel ou message à l'initiative du commercial</li>
+            <li><em>Client existant (extension)</em> — nouvelle affaire chez un compte déjà client</li>
+            <li><em>Autre</em></li>
+            </ul>
+            <p><strong>Étape 3 — justifier le découpage.</strong> Le critère de découpage n'est pas « d'où vient le contact » mais <strong>« quelle décision cette valeur permettra-t-elle d'arbitrer ? »</strong>. La direction veut arbitrer des budgets : chaque valeur doit donc correspondre à une ligne budgétaire ou à un effort identifiable. C'est pourquoi « Recommandation » et « Partenaire » sont séparés (l'un est gratuit, l'autre coûte une commission), et pourquoi « Client existant » est isolé (il ne relève d'aucun budget d'acquisition et gonflerait artificiellement la performance des autres canaux s'il y était noyé).</p>
+            <p><strong>Étape 4 — les valeurs à ne pas créer.</strong> Évitez « LinkedIn », « Google », « téléphone » : ce sont des supports, pas des canaux d'acquisition, et ils se recoupent avec les autres valeurs — un contact peut venir d'une campagne e-mail relancée par téléphone. Une liste dont deux valeurs peuvent être vraies en même temps est une liste ratée.</p>
+            <p><strong>Étape 5 — traiter l'historique.</strong> Trois règles, dans l'ordre :</p>
+            <p>a) Créez le nouveau champ à côté de l'ancien plutôt que d'écraser : <code>Source</code> (liste) et <code>Source_texte_ancien</code> (le texte conservé en lecture seule). On ne détruit jamais une donnée historique lors d'une migration.</p>
+            <p>b) Migrez par lots via un export/import : les valeurs les plus fréquentes se mappent en masse (les 40 variantes de « site web » → <em>Formulaire site web</em>). Une demi-journée suffit à traiter 80 % du volume.</p>
+            <p>c) Pour la longue traîne inclassable, laissez vide plutôt que de forcer en « Autre ». « Autre » doit rester un signal de liste incomplète, pas une poubelle : si vous y versez l'historique douteux, l'indicateur perd sa fonction d'alerte.</p>
+            <p><strong>Étape 6 — verrouiller.</strong> Le champ devient obligatoire à la création d'une Piste et à la conversion. Sans cela, vous aurez reconstruit le problème en six mois avec un champ vide au lieu d'un champ sale.</p>
+          </div>
+        </details>
+      </div>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 3 — Diagnostiquer une base dégradée <span class="badge badge-neutral">Avancé</span></h3>
+        <p>On vous confie une instance Salesforce en service depuis dix-huit mois. Symptômes rapportés : les commerciaux disent « ne rien trouver », la direction ne fait plus confiance aux chiffres, et deux personnes ont recommencé à tenir un fichier Excel parallèle.</p>
+        <p>Vous disposez d'une demi-journée pour établir un diagnostic et d'une note d'une page à rendre. Décrivez votre démarche, les mesures que vous produisez, et la manière dont vous formulez vos recommandations.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>Avant tout : lire correctement le symptôme le plus important.</strong> Le retour au fichier Excel n'est pas un problème de discipline, c'est un <em>diagnostic posé par les utilisateurs</em>. Quand quelqu'un maintient un système parallèle, c'est que l'outil officiel lui coûte plus qu'il ne lui rapporte. Votre première tâche n'est pas de faire cesser les fichiers Excel, c'est de comprendre ce qu'ils contiennent — ils vous diront exactement ce qui manque au CRM.</p>
+            <p><strong>Heure 1 — les deux entretiens qui valent tous les rapports.</strong> Voyez les deux personnes concernées, séparément, quinze minutes chacune. Une seule question : « montrez-moi votre fichier, et dites-moi ce que vous y trouvez que vous ne trouvez pas dans Salesforce ». Ne défendez pas l'outil, ne promettez rien. Vous en sortirez avec deux ou trois manques précis — presque toujours : un champ qui n'existe pas, une vue de liste impossible à obtenir, ou une saisie trop longue pour être faite entre deux rendez-vous.</p>
+            <p><strong>Heures 2 et 3 — les six mesures.</strong> Chacune est un rapport standard, aucune ne demande de développement :</p>
+            <ol>
+            <li><em>Complétude</em> des trois champs les plus structurants (secteur, propriétaire, motif de perte) : part de valeurs vides.</li>
+            <li><em>Doublons</em> : rapport Comptes trié par nom, comptage visuel des noms voisins. Exprimez-le en pourcentage du total.</li>
+            <li><em>Orphelins</em> : contacts sans compte, opportunités sans contact associé.</li>
+            <li><em>Fraîcheur</em> : part des opportunités ouvertes dont la date de dernière modification remonte à plus de 30 jours. C'est l'indicateur le plus révélateur : il mesure si le CRM est vivant ou s'il est devenu une archive.</li>
+            <li><em>Zombies</em> : opportunités ouvertes dont la date de clôture est dépassée. Rapportez le montant total qu'elles représentent — c'est le chiffre qui fait réagir une direction.</li>
+            <li><em>Adoption</em> : nombre d'activités (tâches + événements) créées par utilisateur sur les 30 derniers jours. Une adoption très inégale entre commerciaux indique un problème de pratique, pas d'outil.</li>
+            </ol>
+            <p><strong>Heure 4 — la note.</strong> Sa structure conditionne son effet plus que son contenu. Trois parties :</p>
+            <p><em>a) Un constat chiffré, sans adjectif.</em> « 41 % des opportunités ouvertes ont une date de clôture dépassée, représentant 1,2 M€ de pipeline fictif. » Pas de « la situation est préoccupante » : le chiffre fait le travail, le commentaire l'affaiblit.</p>
+            <p><em>b) Une distinction explicite entre trois causes</em>, car elles n'appellent pas les mêmes décisions : ce qui relève de la <strong>configuration</strong> (champs manquants, listes en texte libre, absence de règles de validation) — corrigeable par une personne en quelques jours ; ce qui relève de la <strong>pratique</strong> (opportunités non mises à jour, activités non saisies) — corrigeable seulement par un rituel managérial, pas par un paramétrage ; ce qui relève de la <strong>donnée historique</strong> (doublons, orphelins) — un chantier ponctuel et chiffrable.</p>
+            <p><em>c) Trois actions maximum, ordonnées, avec un responsable et une date.</em> Au-delà de trois, rien ne se fera. L'ordre est toujours le même : d'abord fermer le robinet (configuration), ensuite instaurer la revue de pipeline hebdomadaire (pratique), enfin nettoyer l'historique. Nettoyer en premier est l'erreur classique — c'est le plus visible, le plus coûteux, et l'effet s'efface en trois mois.</p>
+            <p><strong>Ce qu'il ne faut pas mettre dans la note.</strong> Aucun nom d'utilisateur associé à un mauvais chiffre d'adoption. Le diagnostic porte sur un système, pas sur des personnes ; une note qui désigne des coupables obtient de la conformité de façade — des opportunités mises à jour la veille de la revue — et détruit la sincérité des données que vous cherchez précisément à rétablir.</p>
+            <p><strong>Le suivi.</strong> Reprogrammez les six mesures à trois mois. Un diagnostic sans deuxième mesure est un avis ; avec la deuxième mesure, c'est un pilotage.</p>
+          </div>
+        </details>
+      </div>
+      <div class="resources-box">
+        <h3>🔗 Pour aller plus loin</h3>
+        <ul>
+          <li><strong>Salesforce Trailhead</strong> — parcours « Data Modeling » et « Salesforce Platform Basics » : gratuit, en français partiellement, avec un environnement de test fourni. La référence pour pratiquer sans risque.</li>
+          <li><strong>Documentation Salesforce Help</strong> — articles « Standard Objects » et « Validation Rules » : indispensable au moment de configurer, peu utile en lecture générale.</li>
+          <li><strong>Le module 2 de cette formation</strong> — le pipeline et les prévisions reposent entièrement sur la qualité du modèle vu ici : n'y allez pas avant d'avoir des Opportunités correctement structurées.</li>
+          <li><strong>Un environnement Developer Edition gratuit</strong> (developer.salesforce.com/signup) — permet de tester règles de validation et listes de sélection sans toucher à votre instance de production. À faire avant toute modification réelle.</li>
+        </ul>
+      </div>
+    </article>
+
+    <section class="quiz-section">
+      <h2>🧠 Quiz d'auto-évaluation</h2>
+      <p style="color:var(--text-muted);margin-bottom:20px;">Sélectionnez la bonne réponse pour valider vos acquis. Le feedback immédiat vous expliquera les concepts clés.</p>
+      <div id="quiz-container">
+        <!-- Quiz chargé dynamiquement par quiz-engine.js -->
+      </div>
+      <div style="margin-top: 24px; text-align: center;">
+        <button id="btn-mark-complete" data-module-id="formation-crm-relation-client-module-1" class="btn btn-primary">
+          Marquer le module comme terminé ✓
+        </button>
+      </div>
+    </section>
+
+    <nav class="module-nav">
+      <a href="../../../index.html" class="btn btn-outline">← Retour catalogue</a>
+      <a href="../module-2/index.html" class="btn btn-primary">Module 2 →</a>
+    </nav>
+  </main>
+
+  <script src="../../../assets/js/progress.js"></script>
+  <script src="../../../assets/js/quiz-engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadQuiz('quiz.json', 'quiz-container');
+    });
+  </script>
+</body>
+</html>

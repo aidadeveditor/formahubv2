@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-gestion-de-projet-module-1",
+  "version": "2.0",
+  "last_verified": "2026-09-01",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Combien de personnes doivent porter le rôle « Accountable » sur une activité ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Toute l'équipe projet"
+        },
+        {
+          "key": "b",
+          "text": "Aucune, le rôle est facultatif"
+        },
+        {
+          "key": "c",
+          "text": "Exactement une seule personne"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "À deux décideurs, personne ne décide : chacun attend l'autre, ou les deux arbitrent en sens contraire. C'est le blocage silencieux le plus courant."
+    },
+    {
+      "id": "q2",
+      "question": "Quel est le rôle de la triple contrainte au cadrage ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Rappeler qu'on ne peut pas tout avoir"
+        },
+        {
+          "key": "b",
+          "text": "Imposer de désigner à l'avance la variable qui cédera en cas d'imprévu"
+        },
+        {
+          "key": "c",
+          "text": "Garantir que la qualité restera constante"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Le jour de l'imprévu, la question « qu'est-ce qui cède ? » aura déjà sa réponse, décidée à froid plutôt que dans l'urgence."
+    },
+    {
+      "id": "q3",
+      "question": "Quelle différence entre un objectif et un livrable ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le livrable est ce que l'équipe produit, l'objectif est ce que l'organisation en retire"
+        },
+        {
+          "key": "b",
+          "text": "Ce sont deux termes équivalents"
+        },
+        {
+          "key": "c",
+          "text": "L'objectif est technique, le livrable est commercial"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "On peut livrer un site et manquer complètement l'objectif — c'est même l'issue la plus fréquente des projets mal cadrés."
+    },
+    {
+      "id": "q4",
+      "question": "Quelle rubrique de la note de cadrage protège le mieux contre la dérive de périmètre ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "La liste des livrables"
+        },
+        {
+          "key": "b",
+          "text": "Les exclusions : ce que le projet ne traitera pas, écrit noir sur blanc"
+        },
+        {
+          "key": "c",
+          "text": "Le planning détaillé"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Chaque exclusion écrite est une discussion évitée en avril et un conflit désamorcé en juin. Si personne n'y réagit, c'est qu'elles n'ont pas été lues."
+    },
+    {
+      "id": "q5",
+      "question": "Quelle partie prenante représente le risque le plus coûteux si elle est négligée ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Celle à pouvoir faible et intérêt fort"
+        },
+        {
+          "key": "b",
+          "text": "Celle à pouvoir fort et intérêt faible, qu'on informe trop tard"
+        },
+        {
+          "key": "c",
+          "text": "Celle à pouvoir faible et intérêt faible"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Son indifférence peut se transformer en veto lorsqu'elle découvre les implications du projet à la dernière étape."
+    },
+    {
+      "id": "q6",
+      "question": "Le commanditaire ne parvient pas à dire ce qui aura changé une fois le projet livré. Que faites-vous ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Vous démarrez : l'objectif se précisera en avançant"
+        },
+        {
+          "key": "b",
+          "text": "Vous refusez le projet"
+        },
+        {
+          "key": "c",
+          "text": "Vous signalez que le besoin n'est pas mûr, documentez le risque et proposez une phase de cadrage"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "La formulation efficace ne dit pas non : elle rend visible ce qui manque, laisse la décision à qui elle revient, et en garde la trace."
+    }
+  ]
+}

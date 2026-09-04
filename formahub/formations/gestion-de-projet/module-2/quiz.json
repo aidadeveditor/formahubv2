@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-gestion-de-projet-module-2",
+  "version": "2.0",
+  "last_verified": "2026-09-01",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quel est le rôle du Product Owner dans Scrum ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Réaliser les développements techniques"
+        },
+        {
+          "key": "b",
+          "text": "Encadrer hiérarchiquement l'équipe"
+        },
+        {
+          "key": "c",
+          "text": "Porter la vision et prioriser le backlog : il décide du quoi, jamais du comment"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Il arbitre la valeur métier. La façon de réaliser appartient à l'équipe, qui s'auto-organise."
+    },
+    {
+      "id": "q2",
+      "question": "À quel taux faut-il planifier la capacité d'une équipe ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "100 % du temps théorique, pour ne pas gaspiller de ressource"
+        },
+        {
+          "key": "b",
+          "text": "Environ 60 à 70 %, le reste absorbant réunions, support et aléas"
+        },
+        {
+          "key": "c",
+          "text": "120 %, pour créer une pression positive"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Un planning sans marge ne dérape pas seulement au premier imprévu : le retard s'y propage, faute d'endroit pour le rattraper."
+    },
+    {
+      "id": "q3",
+      "question": "Quelle est la valeur principale d'une séance d'estimation collective ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "La discussion des écarts, qui révèle que les participants ne parlaient pas de la même tâche"
+        },
+        {
+          "key": "b",
+          "text": "La moyenne obtenue, plus précise qu'une estimation individuelle"
+        },
+        {
+          "key": "c",
+          "text": "L'engagement collectif sur le chiffre retenu"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Quand une personne estime deux jours et une autre huit, elles ne parlent pas de la même chose — et c'est cette découverte qui vaut la séance."
+    },
+    {
+      "id": "q4",
+      "question": "Quel problème l'approche itérative traite-t-elle réellement ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le manque de moyens"
+        },
+        {
+          "key": "b",
+          "text": "L'incertitude sur le besoin, en permettant de découvrir tôt qu'on s'est trompé"
+        },
+        {
+          "key": "c",
+          "text": "L'absence de décideur disponible"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Elle ne règle ni le manque de moyens ni l'absence de décideur — un projet sans commanditaire disponible fonctionne moins bien en itératif qu'en séquentiel."
+    },
+    {
+      "id": "q5",
+      "question": "À quoi sert le « afin de » d'une User Story ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "À respecter le formalisme attendu par la méthode"
+        },
+        {
+          "key": "b",
+          "text": "À transformer une demande de solution en expression de besoin, rouvrant l'espace des réponses"
+        },
+        {
+          "key": "c",
+          "text": "À justifier la priorité de la story dans le backlog"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "« Exporter en Excel afin de repérer les clients non vus depuis 3 mois » : le besoin réel appelle un filtre, pas un export."
+    },
+    {
+      "id": "q6",
+      "question": "Quel marqueur trahit un « Scrum de façade » ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Des sprints de quatre semaines plutôt que deux"
+        },
+        {
+          "key": "b",
+          "text": "Le contenu du sprint change en cours de sprint et les rétrospectives ne produisent aucun changement"
+        },
+        {
+          "key": "c",
+          "text": "Une équipe de moins de cinq personnes"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "On obtient alors le pire des deux mondes : les contraintes de l'itératif sans ses bénéfices."
+    }
+  ]
+}

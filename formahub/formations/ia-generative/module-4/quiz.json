@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-ia-generative-module-4",
+  "version": "2.0",
+  "last_verified": "2026-09-01",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Comment tester la solidité d'un texte avec l'IA ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Lui demander d'agir en lecteur hostile et de relever les failles, sans complimenter ni reformuler"
+        },
+        {
+          "key": "b",
+          "text": "Lui demander de relire et d'améliorer le texte"
+        },
+        {
+          "key": "c",
+          "text": "Lui demander une note sur 10"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "« Relis mon texte » produit des compliments et trois suggestions cosmétiques : c'est la continuation la plus plausible d'une telle demande."
+    },
+    {
+      "id": "q2",
+      "question": "Pour quelle tâche le gain apporté par l'IA est-il le plus faible, voire négatif ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Extraire les affirmations d'un entretien transcrit"
+        },
+        {
+          "key": "b",
+          "text": "Rédiger un article de fond à partir d'un simple titre"
+        },
+        {
+          "key": "c",
+          "text": "Auditer la lisibilité d'un texte existant"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Le résultat est générique, la réécriture complète, et le cycle total dépasse souvent une rédaction humaine — pour un résultat moins bon."
+    },
+    {
+      "id": "q3",
+      "question": "Pourquoi demander un diagnostic plutôt qu'une correction lors d'un audit de lisibilité ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Parce que le modèle ne sait pas corriger"
+        },
+        {
+          "key": "b",
+          "text": "Parce qu'une correction ramène le texte vers la moyenne et lui fait perdre sa voix"
+        },
+        {
+          "key": "c",
+          "text": "Parce que la correction coûte plus cher en tokens"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Le modèle diagnostique, vous corrigez : cette séparation préserve votre style et vous laisse arbitrer ce qui mérite d'être changé."
+    },
+    {
+      "id": "q4",
+      "question": "Comment obtenir des variantes de titre réellement différentes ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "En demandant simplement un plus grand nombre de propositions"
+        },
+        {
+          "key": "b",
+          "text": "En imposant des angles distincts et en interdisant les tournures usées"
+        },
+        {
+          "key": "c",
+          "text": "En augmentant la longueur du prompt"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Sans angles imposés, vous obtenez huit variantes de la même formulation."
+    },
+    {
+      "id": "q5",
+      "question": "Lors de l'exploitation d'un entretien, quelle contrainte est impérative sur les citations ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Qu'elles soient reproduites textuellement, sans correction ni reformulation"
+        },
+        {
+          "key": "b",
+          "text": "Qu'elles soient reformulées pour gagner en clarté"
+        },
+        {
+          "key": "c",
+          "text": "Qu'elles soient limitées à une par contenu"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Une citation reformulée puis attribuée à quelqu'un est un risque réel, réputationnel et parfois juridique."
+    },
+    {
+      "id": "q6",
+      "question": "Quel test permet de savoir si une tâche peut être automatisée ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Vérifier qu'elle prend plus de 20 minutes"
+        },
+        {
+          "key": "b",
+          "text": "Se demander si quelqu'un peut subir un préjudice en cas de résultat faux"
+        },
+        {
+          "key": "c",
+          "text": "Vérifier qu'elle est effectuée au moins une fois par semaine"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Si oui, le modèle peut préparer, proposer, présélectionner — jamais décider."
+    }
+  ]
+}

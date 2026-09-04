@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formahub — IA Générative appliquée au contenu : Usage Responsable, RGPD &amp; Propriété Intellectuelle</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="../../../index.html" class="brand">
+      <div class="brand-icon">F</div>
+      <span>Formahub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../../../index.html" class="nav-link">Mes formations</a>
+      <a href="../../../ressources-externes.html" class="nav-link">Ressources externes</a>
+      <a href="../../../formations-espagne.html" class="nav-link">Formations Espagne</a>
+      <button class="theme-toggle" type="button">🌙 Mode Sombre</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="../../../index.html">Accueil</a> &gt;
+        <span>IA Générative appliquée au contenu</span> &gt;
+        <strong>Module 5</strong>
+      </div>
+      <h1>Module 5 : Usage Responsable, RGPD &amp; Propriété Intellectuelle</h1>
+      <div class="module-meta">
+        <span class="badge badge-progress">⏱️ 50 min</span>
+        <span class="badge badge-neutral">Module 5 sur 5</span>
+        <span class="badge badge-neutral">Niveau : Intermédiaire</span>
+        <span class="badge badge-neutral">~3000 mots</span>
+      </div>
+    </div>
+
+    <article class="module-content">
+      <div class="intro-box">
+        <h3>📍 Mise en situation</h3>
+        <p>Un commercial colle dans un assistant en ligne le compte rendu d'un rendez-vous client pour en tirer une synthèse. Le texte contient le nom du client, celui de son dirigeant, le montant de l'offre en cours et une remarque sur des difficultés de trésorerie. La synthèse est excellente et lui fait gagner vingt minutes.</p>
+        <p>Rien ne s'est passé. Aucune alerte, aucun refus, aucune conséquence visible. C'est précisément ce qui rend le sujet difficile : les manquements en matière de données personnelles et de propriété intellectuelle ne produisent aucun signal immédiat. Ce module donne les règles applicables, les questions à poser avant d'utiliser un outil, et la façon de construire un cadre interne tenable — c'est-à-dire un cadre que les équipes appliqueront réellement.</p>
+        <p><strong>Avertissement :</strong> ce module présente les principes généraux applicables en France et dans l'Union européenne à la date indiquée. Il ne constitue pas un conseil juridique, et la matière évolue rapidement — notamment sur l'encadrement de l'IA et sur le droit d'auteur, où plusieurs contentieux sont en cours. Pour toute situation engageant votre organisation, faites valider par un juriste et vérifiez l'état du droit en vigueur.</p>
+      </div>
+
+      <div class="objectives-box">
+        <h3>🎯 À l'issue de ce module, vous saurez</h3>
+        <ul>
+          <li>Identifier ce qui ne doit jamais être saisi dans un outil d'IA, et pourquoi</li>
+          <li>Poser les bonnes questions avant d'adopter un outil : traitement des données, hébergement, réutilisation</li>
+          <li>Comprendre ce qui est protégeable, ou non, par le droit d'auteur dans un contenu assisté</li>
+          <li>Situer la responsabilité éditoriale et les obligations de transparence</li>
+          <li>Construire une charte d'usage interne que les équipes appliqueront</li>
+        </ul>
+      </div>
+
+      <h2>1. Données personnelles : ce qui se joue à la saisie</h2>
+      <p>Saisir un texte dans un outil d'IA en ligne, c'est transmettre ce texte à un tiers — souvent hors de votre organisation, parfois hors de l'Union européenne. Si ce texte contient des données personnelles, cette transmission constitue un traitement au sens du RGPD, avec les obligations qui l'accompagnent : base légale, information des personnes, encadrement du sous-traitant, et maîtrise des transferts.</p>
+      <p>Le point qui surprend le plus : une donnée personnelle n'est pas seulement un nom. C'est <strong>toute information se rapportant à une personne identifiée ou identifiable</strong>. Un compte rendu mentionnant « le directeur financier de la société Dupont » identifie une personne aussi sûrement qu'un nom propre. Une adresse e-mail professionnelle est une donnée personnelle. Un verbatim client suffisamment circonstancié peut l'être.</p>
+      <div class="table-responsive">
+<table>
+<thead><tr><th>Catégorie</th><th>Exemples</th><th>Règle</th></tr></thead>
+<tbody>
+<tr><td><strong>À ne jamais saisir</strong></td><td>Données de santé, opinions, situation judiciaire, données bancaires, mots de passe, données de mineurs</td><td>Interdit sans exception — catégories particulièrement protégées ou hautement sensibles</td></tr>
+<tr><td><strong>À anonymiser avant saisie</strong></td><td>Noms de clients et de contacts, comptes rendus de rendez-vous, verbatims circonstanciés, CV et candidatures</td><td>Retirer les éléments identifiants, ou utiliser un outil contractuellement encadré</td></tr>
+<tr><td><strong>Confidentiel non personnel</strong></td><td>Grilles tarifaires, code source, contrats, stratégie, données de production</td><td>Enjeu de secret des affaires : interdit hors outil validé par l'organisation</td></tr>
+<tr><td><strong>Sans difficulté</strong></td><td>Textes déjà publics, contenus rédigés par vous sans donnée tierce, documents publiés</td><td>Usage libre</td></tr>
+</tbody>
+</table>
+</div>
+      <h3>1.1 Anonymiser correctement</h3>
+      <p>Retirer le nom ne suffit pas toujours. Un texte mentionnant « le responsable qualité de notre client fabricant de packaging alimentaire en Alsace » ne contient aucun nom et identifie pourtant une personne sans ambiguïté dans un secteur restreint. C'est ce qu'on appelle une donnée <em>indirectement identifiante</em>.</p>
+      <p>La méthode consiste à remplacer systématiquement par des étiquettes neutres : « le client », « le responsable », « la société A ». Vous conservez la correspondance de votre côté et la rétablissez dans le résultat. Ce remplacement coûte deux minutes et supprime l'essentiel du risque.</p>
+      <p>Une précaution complémentaire : plus vous réduisez le volume soumis, plus vous réduisez le risque. Soumettre l'extrait pertinent plutôt que le document entier relève du principe de minimisation, et c'est aussi ce qui produit les meilleurs résultats — un contexte ciblé vaut mieux qu'un contexte volumineux.</p>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — croire que « ça reste entre moi et l'outil »</h4>
+        <p>L'interface d'un assistant donne l'impression d'un échange privé. Ce n'est pas le cas : les données transitent par des serveurs tiers, sont journalisées, et peuvent selon les offres être conservées, examinées par des humains à des fins de qualité ou de sécurité, voire réutilisées pour l'amélioration des services.</p>
+        <p>C'est précisément ce que les offres professionnelles encadrent contractuellement, et ce que les offres grand public encadrent beaucoup moins. La question n'est donc pas « puis-je faire confiance à cet éditeur ? » mais <strong>« qu'ai-je signé, et qu'est-ce que ça m'autorise ? »</strong></p>
+      </div>
+
+      <h2>2. Choisir un outil : les questions à poser</h2>
+      <p>Le choix d'un outil est une décision d'organisation, pas une préférence individuelle. Six questions suffisent à trancher, et leurs réponses figurent normalement dans les conditions contractuelles et la documentation de sécurité de l'éditeur.</p>
+      <div class="method-box">
+        <h4>⚙️ Méthode — les six questions avant d'adopter un outil</h4>
+        <ol>
+          <li><strong>Mes saisies servent-elles à entraîner les modèles ?</strong> C'est la question numéro un. Les offres professionnelles l'excluent généralement par contrat ; certaines offres gratuites ne l'excluent pas.</li>
+          <li><strong>Où les données sont-elles hébergées et traitées ?</strong> Un traitement hors Union européenne suppose un encadrement spécifique des transferts.</li>
+          <li><strong>Combien de temps les échanges sont-ils conservés, et puis-je l'ajuster ?</strong> Certaines offres proposent une conservation réduite ou une désactivation de l'historique.</li>
+          <li><strong>Existe-t-il un contrat de sous-traitance</strong> au sens du RGPD, précisant les obligations de l'éditeur ? Sans cet accord, l'usage professionnel sur données personnelles est difficilement défendable.</li>
+          <li><strong>Qui, chez l'éditeur, peut accéder au contenu de mes échanges</strong>, et dans quelles circonstances ?</li>
+          <li><strong>Que dit ma propre organisation ?</strong> Direction des systèmes d'information, délégué à la protection des données, service juridique — le cadre interne prime sur la commodité individuelle.</li>
+        </ol>
+      </div>
+      <h3>2.1 L'informatique de l'ombre</h3>
+      <p>Le risque principal dans la plupart des organisations n'est pas l'outil validé, mais celui que personne n'a déclaré : le compte personnel utilisé sur un poste professionnel, l'extension de navigateur installée pour dépanner, l'assistant intégré à un outil tiers dont personne n'a lu les conditions.</p>
+      <p>Une interdiction générale aggrave ce phénomène au lieu de le réduire — elle déplace l'usage hors de tout contrôle, et supprime toute possibilité de tracer ce qui a été soumis, à quel outil. C'est pourquoi la réponse efficace est presque toujours <strong>un outil validé, accessible, et bien documenté</strong>, accompagné de règles claires sur ce qu'on y met.</p>
+
+      <h2>3. Propriété intellectuelle : ce qui est protégeable</h2>
+      <p>Deux questions distinctes se posent, qu'il faut cesser de confondre : <em>ce qui entre</em> dans le modèle — les contenus d'entraînement — et <em>ce qui sort</em> — le contenu que vous publiez. La première fait l'objet de contentieux en cours dans plusieurs pays ; la seconde vous concerne directement et appelle des réponses plus stables.</p>
+      <h3>3.1 Ce qui sort : votre contenu est-il protégé ?</h3>
+      <p>En droit français et européen, la protection par le droit d'auteur suppose une <strong>création intellectuelle originale</strong>, portant l'empreinte de la personnalité de son auteur — laquelle est nécessairement humaine. Une sortie brute de modèle, obtenue par une consigne courte et publiée telle quelle, a peu de chances de remplir cette condition.</p>
+      <p>En revanche, un contenu où l'humain a exercé des choix créatifs substantiels — structure, angle, sélection, réécriture, apport de matière propre — reste protégeable au titre de ces apports. La conséquence pratique est double : plus votre intervention est réelle, plus votre contenu est défendable ; et la manière dont vous travaillez est aussi ce qui détermine si vous pourrez vous opposer à sa reprise par un tiers.</p>
+      <p>Une précaution utile : <strong>conservez la trace de votre processus</strong> — briefs, versions successives, apports documentaires. En cas de contestation, c'est ce qui établit la réalité de votre contribution.</p>
+      <h3>3.2 Les risques de reproduction</h3>
+      <p>Un modèle peut, dans certains cas, restituer des fragments proches de textes vus à l'entraînement — d'autant plus qu'il s'agit de formulations très répandues ou de textes courts et distinctifs. Le risque est faible sur de la prose ordinaire, plus réel sur des slogans, des paroles, du code, ou lorsqu'on demande explicitement « à la manière de ».</p>
+      <p>Deux précautions simples : ne demandez pas d'imiter le style d'un auteur ou d'une marque identifiable ; et vérifiez, pour toute formulation courte et marquante que vous comptez utiliser en accroche ou en signature, qu'elle n'appartient pas déjà à quelqu'un — une recherche de la phrase exacte entre guillemets suffit le plus souvent.</p>
+      <h3>3.3 Le cas des images</h3>
+      <p>Les mêmes principes s'appliquent, avec deux difficultés supplémentaires. Le <strong>droit à l'image</strong> des personnes s'ajoute : une image générée représentant une personne reconnaissable pose une question distincte du droit d'auteur. Et les <strong>éléments protégés</strong> — logos, personnages, œuvres d'art identifiables — peuvent apparaître dans une génération sans que vous les ayez demandés.</p>
+      <p>En usage professionnel, examinez systématiquement les conditions de l'outil quant aux droits d'utilisation commerciale des sorties : elles varient sensiblement d'un service à l'autre, et certaines offres gratuites les restreignent.</p>
+      <div class="example-box">
+        <h4>📌 Exemple — deux slogans, deux issues</h4>
+        <p><em>Cas 1.</em> Une équipe demande à un assistant vingt accroches pour une campagne, en retient une de sept mots, et la place en visuel principal. Personne ne vérifie. Trois semaines plus tard, un concurrent signale que la formule est sa signature déposée depuis 2019. La campagne est retirée, les supports imprimés sont perdus.</p>
+        <p><em>Cas 2, même équipe, six mois plus tard.</em> Même méthode de génération, mais une étape ajoutée : chaque formulation courte retenue est recherchée entre guillemets sur un moteur, puis vérifiée dans la base des marques de l'INPI. Trois minutes par accroche. Deux des cinq finalistes sont écartées à ce stade.</p>
+        <p>Ce qui distingue les deux cas n'est ni l'outil ni la qualité de la consigne : c'est une vérification de trois minutes appliquée aux seuls contenus qui la méritent — les formulations courtes et marquantes, celles qui portent le risque de reproduction. Le contrôle proportionné au risque, c'est exactement cela : pas tout vérifier, mais savoir quoi vérifier.</p>
+      </div>
+
+      <h2>4. Responsabilité et transparence</h2>
+      <p>C'est le point le plus simple à énoncer et le plus structurant : <strong>la responsabilité de ce qui est publié appartient à celui qui publie</strong>. Aucun outil ne la partage, aucune clause ne la transfère, et « c'est l'IA qui l'a écrit » n'a jamais constitué un moyen de défense.</p>
+      <h3>4.1 Ce que cela recouvre concrètement</h3>
+      <p>Une information fausse publiée engage l'organisation comme si elle avait été écrite à la main : information trompeuse du consommateur, engagement contractuel involontaire, préjudice causé à un tiers, atteinte à la réputation d'un concurrent. Le mode de production n'atténue rien.</p>
+      <p>Cette responsabilité descend jusqu'au niveau opérationnel : la personne qui appuie sur « publier » assume ce qu'elle publie, et l'organisation assume l'absence de cadre si elle n'en a pas donné. C'est aussi pourquoi la charte d'usage protège autant les équipes que l'entreprise.</p>
+      <h3>4.2 Faut-il signaler l'usage de l'IA ?</h3>
+      <p>La question se pose sur deux plans. Sur le plan réglementaire, l'encadrement européen de l'IA prévoit des obligations de transparence, notamment pour les contenus manipulés de type <em>deepfake</em> et pour l'information des personnes interagissant avec un système d'IA ; ces obligations s'appliquent de manière échelonnée et leurs modalités précises méritent d'être vérifiées à jour auprès de votre service juridique.</p>
+      <p>Sur le plan de la pratique éditoriale, un principe simple donne de bons résultats : <strong>signalez quand l'information change la lecture</strong>. Une image générée présentée comme une photographie doit être signalée. Un témoignage client entièrement rédigé par une IA ne doit pas exister. En revanche, un article dont vous avez fait relire la structure par un outil ne demande pas de mention particulière — pas plus qu'on ne mentionne un correcteur orthographique.</p>
+      <p>Une ligne rouge mérite d'être posée explicitement : <strong>ne jamais fabriquer un témoignage, un avis ou une citation</strong>. C'est le point où l'usage bascule de l'assistance à la tromperie, et il ne dépend d'aucune évolution réglementaire.</p>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — l'IA comme circonstance atténuante</h4>
+        <p>« Nous n'avions pas vérifié, c'est l'outil qui l'a produit » est un argument qui aggrave la situation plutôt qu'il ne l'atténue : il établit qu'aucun contrôle n'était en place sur un processus dont l'organisation connaissait les défaillances possibles.</p>
+        <p>La position défendable est l'inverse : un cadre écrit, un contrôle proportionné au risque, et une trace de ce contrôle. C'est exactement ce que produit la charte de la section suivante.</p>
+      </div>
+
+      <h2>5. Construire une charte d'usage applicable</h2>
+      <p>Une charte d'usage n'a de valeur que si elle est appliquée. Deux écueils symétriques la rendent inutile : trop restrictive, elle est contournée ; trop vague, elle ne tranche rien. Une charte utile tient en deux pages et répond à quatre questions concrètes.</p>
+      <div class="method-box">
+        <h4>⚙️ Méthode — les quatre questions auxquelles une charte doit répondre</h4>
+        <ol>
+          <li><strong>Quels outils sont autorisés ?</strong> Nommez-les. Une liste précise vaut mieux qu'un principe général, et elle rend l'informatique de l'ombre visible.</li>
+          <li><strong>Qu'est-ce qu'on ne saisit jamais ?</strong> Reprenez le tableau de la section 1, adapté à votre activité, avec des exemples tirés de votre quotidien — c'est cela qui rend la règle mémorisable.</li>
+          <li><strong>Quels usages sont autorisés, et à quel niveau de contrôle ?</strong> Trois niveaux suffisent (vert, orange, rouge), avec le protocole associé à chacun.</li>
+          <li><strong>Qui valide, et qu'est-ce qu'on trace ?</strong> Nommez le responsable pour les contenus à risque, et le minimum à conserver : sources utilisées, contrôles effectués.</li>
+          <li><strong>Ajoutez une procédure d'incident</strong> en trois lignes : que faire si une donnée sensible a été saisie par erreur. Sans elle, un incident n'est jamais signalé — et donc jamais traité.</li>
+        </ol>
+      </div>
+      <h3>5.1 Ce qui fait qu'une charte est appliquée</h3>
+      <p><strong>Elle donne une alternative.</strong> Interdire sans proposer d'outil validé garantit le contournement. La phrase « on ne met pas de données clients dans un outil externe » doit être suivie de « voici l'outil interne, ou voici comment anonymiser en deux minutes ».</p>
+      <p><strong>Elle est écrite avec ceux qui l'appliqueront.</strong> Une charte rédigée par le service juridique seul décrit des situations qui n'existent pas et manque celles qui se produisent tous les jours.</p>
+      <p><strong>Elle traite le signalement sans sanction.</strong> Si déclarer une erreur expose à une sanction, personne ne déclare, et l'organisation apprend d'un incident au moment où il devient public. Les quasi-incidents rattrapés à temps sont la matière la plus utile pour améliorer un cadre.</p>
+      <p><strong>Elle est révisée.</strong> Datez-la, et fixez une revue — semestrielle est raisonnable. Les outils, les offres contractuelles et la réglementation évoluent plus vite que les documents internes.</p>
+      <div class="example-box">
+        <h4>📌 Exemple — la même règle, écrite deux fois</h4>
+        <p><em>Version qui n'est pas appliquée :</em> « Les collaborateurs veillent à ne pas transmettre à des systèmes d'intelligence artificielle générative des informations présentant un caractère confidentiel ou personnel. » Personne ne sait ce que recouvre « caractère confidentiel » sur un compte rendu de réunion ordinaire, et aucune alternative n'est proposée. Résultat mesuré dans l'entreprise concernée : la règle est citée par 3 collaborateurs sur 12 interrogés, et contournée par 9.</p>
+        <p><em>Version appliquée :</em> « On ne colle jamais dans un outil externe : un nom de client, un montant de contrat, un extrait de contrat, un compte rendu d'entretien. <strong>À la place :</strong> remplacez les noms par Client A / Client B, arrondissez les montants ou retirez-les. Deux minutes. En cas de doute, l'outil interne accepte ces contenus — lien ici. Si vous vous apercevez qu'une donnée sensible est partie, écrivez à [nom] : il n'y a pas de sanction, seulement un délai à respecter pour agir. »</p>
+        <p>Trois différences font tout le travail : elle nomme les cas réels au lieu de qualifier abstraitement, elle donne l'alternative dans la même phrase que l'interdiction, et elle rend le signalement sans risque. Une charte n'échoue presque jamais sur son contenu juridique — elle échoue sur ces trois points.</p>
+      </div>
+
+      <div class="case-box">
+        <h3>🔍 Étude de cas — le compte rendu client collé dans un assistant</h3>
+        <p>Reprenons la situation d'ouverture. Un commercial a soumis à un assistant en ligne, depuis un compte personnel gratuit, un compte rendu contenant le nom du client, celui de son dirigeant, le montant d'une offre en cours et une remarque sur des difficultés de trésorerie.</p>
+        <p><strong>Étape 1 — Qualifier ce qui s'est passé.</strong> Trois problèmes distincts, qu'il faut séparer pour traiter correctement.</p>
+        <ul>
+        <li><strong>Données personnelles :</strong> le nom du dirigeant et la remarque sur sa situation constituent des données personnelles transmises à un tiers, sans base légale identifiée, sans information de la personne concernée, et sans contrat de sous-traitance.</li>
+        <li><strong>Secret des affaires :</strong> le montant de l'offre en cours est une information confidentielle de l'entreprise, indépendamment de toute question de données personnelles.</li>
+        <li><strong>Information sur un tiers :</strong> la mention de difficultés de trésorerie concerne l'entreprise cliente et pourrait, si elle circulait, lui causer un préjudice.</li>
+        </ul>
+        <p><strong>Étape 2 — Ce qu'il ne faut pas faire.</strong> Sanctionner le commercial. Il n'existait aucune règle écrite, aucun outil validé, et son intention était de travailler mieux. Une sanction garantirait qu'aucun incident ne soit plus jamais signalé — et il y en aura d'autres.</p>
+        <p><strong>Étape 3 — Traiter l'incident.</strong> Vérifier les paramètres du compte utilisé (l'historique peut-il être supprimé ? les données servent-elles à l'entraînement ?), demander la suppression des échanges, documenter l'incident, et informer le délégué à la protection des données pour qu'il apprécie s'il y a lieu de faire davantage.</p>
+        <p><strong>Étape 4 — Traiter la cause.</strong> Le vrai constat est que le besoin était légitime : synthétiser un compte rendu fait gagner vingt minutes, et l'équipe commerciale en a une dizaine par semaine. Interdire ne supprimerait pas le besoin, seulement sa visibilité.</p>
+        <p>Décisions prises : mise à disposition d'un outil contractuellement encadré, avec exclusion de l'usage des données pour l'entraînement et hébergement européen. Formation d'une heure aux quatre catégories de la section 1. Et une règle simple, retenue parce qu'elle est mémorisable : <strong>« pas de nom propre, pas de montant »</strong> — avec la méthode d'anonymisation par étiquettes.</p>
+        <p><strong>Étape 5 — Ce qui a été noté dans la charte.</strong> Une procédure d'incident en trois lignes : « si vous pensez avoir saisi une donnée sensible, prévenez [nom] dans la journée. Aucun incident signalé de bonne foi ne donne lieu à sanction. » Sur les douze mois suivants, quatre signalements sont remontés — dont trois qui auraient été invisibles sans cette clause.</p>
+        <p><strong>Ce que le cas enseigne :</strong> le manquement initial était réel, mais il révélait un défaut d'organisation, pas un défaut de comportement. Le traitement efficace a consisté à rendre disponible la version conforme du besoin. La règle « pas de nom propre, pas de montant » a produit plus d'effet que trois pages de rappel réglementaire, parce qu'elle tient dans la tête au moment où l'on colle un texte.</p>
+      </div>
+
+      <div class="checklist-box">
+        <h3>📋 Checklist — Usage responsable au quotidien</h3>
+        <ul class="checklist">
+          <li>L'outil utilisé figure sur la liste des outils validés par l'organisation</li>
+          <li>Il est établi contractuellement que les saisies ne servent pas à entraîner les modèles</li>
+          <li>Le lieu d'hébergement et la durée de conservation sont connus</li>
+          <li>Aucune donnée de santé, judiciaire, bancaire ou concernant un mineur n'est saisie</li>
+          <li>Les noms de personnes et de sociétés ont été remplacés par des étiquettes neutres</li>
+          <li>Les données indirectement identifiantes ont été vérifiées, pas seulement les noms</li>
+          <li>Aucun montant, tarif ou information couverte par le secret des affaires n'est saisi</li>
+          <li>Seul l'extrait nécessaire a été soumis, pas le document entier</li>
+          <li>Aucune demande d'imitation du style d'un auteur ou d'une marque identifiable</li>
+          <li>Les formulations courtes destinées à une accroche ont été vérifiées comme non déjà utilisées</li>
+          <li>Les conditions d'usage commercial des images générées ont été vérifiées</li>
+          <li>Aucun témoignage, avis ou citation n'a été fabriqué</li>
+          <li>Une personne identifiée assume la publication</li>
+          <li>La trace du processus est conservée : sources, versions, contrôles effectués</li>
+          <li>La procédure d'incident est connue de l'équipe</li>
+        </ul>
+      </div>
+
+      <div class="glossary-box">
+        <h3>📖 Glossaire du module</h3>
+        <dl>
+          <dt>Donnée personnelle</dt>
+          <dd>Toute information se rapportant à une personne identifiée ou identifiable — un nom n'est pas nécessaire.</dd>
+          <dt>Donnée indirectement identifiante</dt>
+          <dd>Information permettant d'identifier une personne par recoupement, sans la nommer.</dd>
+          <dt>Anonymisation par étiquettes</dt>
+          <dd>Remplacement des éléments identifiants par des libellés neutres, la correspondance restant chez vous.</dd>
+          <dt>Minimisation</dt>
+          <dd>Principe consistant à ne traiter que les données strictement nécessaires ; réduit le risque et améliore les résultats.</dd>
+          <dt>Sous-traitant</dt>
+          <dd>Prestataire traitant des données pour le compte d'un responsable de traitement, avec des obligations contractuelles.</dd>
+          <dt>Secret des affaires</dt>
+          <dd>Protection des informations confidentielles à valeur économique ; distinct du RGPD et souvent oublié.</dd>
+          <dt>Originalité</dt>
+          <dd>Condition de la protection par le droit d'auteur : une création intellectuelle portant l'empreinte de son auteur humain.</dd>
+          <dt>Informatique de l'ombre</dt>
+          <dd>Usage d'outils non déclarés ni validés par l'organisation ; principal risque en pratique.</dd>
+          <dt>Responsabilité éditoriale</dt>
+          <dd>Responsabilité de ce qui est publié, qui appartient à celui qui publie et ne se transfère à aucun outil.</dd>
+          <dt>Charte d'usage</dt>
+          <dd>Document interne fixant outils autorisés, données interdites, niveaux de contrôle et procédure d'incident.</dd>
+        </dl>
+      </div>
+
+      <div class="takeaway-box">
+        <h3>✅ À retenir</h3>
+        <ul>
+          <li>Saisir un texte dans un outil en ligne, c'est le transmettre à un tiers : c'est un traitement, avec ses obligations.</li>
+          <li>Une donnée personnelle n'est pas seulement un nom — « le directeur financier de la société Dupont » identifie une personne.</li>
+          <li>Ne jamais saisir : santé, opinions, situation judiciaire, données bancaires, données de mineurs.</li>
+          <li>Anonymisez par étiquettes neutres, et vérifiez aussi les données indirectement identifiantes.</li>
+          <li>Soumettez l'extrait nécessaire, pas le document entier : c'est le principe de minimisation, et cela produit de meilleurs résultats.</li>
+          <li>La question n'est pas « puis-je faire confiance à cet éditeur ? » mais « qu'ai-je signé, et qu'est-ce que ça m'autorise ? ».</li>
+          <li>Une interdiction générale déplace l'usage hors de tout contrôle : proposez un outil validé.</li>
+          <li>La protection par le droit d'auteur suppose une création humaine originale — plus votre intervention est réelle, plus le contenu est défendable.</li>
+          <li>Conservez la trace de votre processus : c'est ce qui établit la réalité de votre contribution.</li>
+          <li>La responsabilité de ce qui est publié appartient à celui qui publie. « C'est l'IA » n'est pas un moyen de défense.</li>
+          <li>Ne fabriquez jamais un témoignage, un avis ou une citation : c'est la bascule de l'assistance vers la tromperie.</li>
+          <li>Une charte n'est appliquée que si elle propose une alternative et si signaler un incident n'expose à aucune sanction.</li>
+        </ul>
+      </div>
+
+      <h2 class="exercises-title">Exercices d'application</h2>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 1 — Qualifier les situations <span class="badge badge-neutral">Application</span></h3>
+        <p>Pour chacun des cinq cas, indiquez ce qui pose problème, ce qui ne pose pas problème, et la conduite à tenir.</p>
+        <p><strong>(A)</strong> Coller un CV reçu pour en extraire les compétences. <strong>(B)</strong> Faire reformuler un article de presse public pour une revue de presse interne. <strong>(C)</strong> Soumettre 200 verbatims d'enquête de satisfaction anonymes pour les classer. <strong>(D)</strong> Faire rédiger un témoignage client à partir de notes prises lors d'un échange. <strong>(E)</strong> Faire générer une illustration « dans le style de » un illustrateur connu.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>(A) CV — problème sérieux.</strong></p>
+            <p>Un CV est un concentré de données personnelles : identité, parcours, parfois âge, situation familiale, photo. La personne n'a pas consenti à ce que sa candidature soit transmise à un tiers, et elle a des droits sur ces données.</p>
+            <p><em>Conduite à tenir :</em> ne pas soumettre le CV. Si l'extraction est un besoin récurrent, elle relève d'un outil de recrutement contractuellement encadré, avec information des candidats. Rappel du module 4 : une présélection touchant à des personnes ne se délègue pas — le modèle peut préparer, un humain décide.</p>
+            <p><strong>(B) Article de presse public — deux questions distinctes.</strong></p>
+            <p><em>Données personnelles :</em> aucun problème, le texte est public. <em>Droit d'auteur :</em> l'article est protégé, mais un usage interne de type revue de presse relève d'un cadre spécifique — souvent d'un accord avec les organismes de gestion des droits. La question ne vient pas de l'IA : elle se poserait à l'identique avec un copier-coller manuel.</p>
+            <p><em>Conduite à tenir :</em> vérifier le cadre de votre revue de presse. Point de vigilance IA : ne pas diffuser la reformulation comme un contenu original — ce serait s'approprier le travail d'un journaliste.</p>
+            <p><strong>(C) 200 verbatims anonymes — usage légitime, avec une vérification.</strong></p>
+            <p>C'est l'usage type du module 3, et il ne pose pas de difficulté <em>si l'anonymat est réel</em>. Or un verbatim peut être indirectement identifiant : « votre technicien est passé mardi dernier à notre entrepôt de Vitrolles » identifie à la fois un client et un salarié.</p>
+            <p><em>Conduite à tenir :</em> filtrer les verbatims avant soumission — noms, lieux, dates précises, fonctions. Puis traiter par lots avec sortie structurée. C'est le cas où la vigilance porte sur ce qu'on croit anonyme et qui ne l'est pas.</p>
+            <p><strong>(D) Témoignage client rédigé à partir de notes — ligne rouge.</strong></p>
+            <p>Faire rédiger un témoignage revient à attribuer à une personne des propos qu'elle n'a pas tenus. C'est le point où l'usage bascule de l'assistance à la tromperie, quelle que soit la fidélité au fond de l'échange.</p>
+            <p><em>Conduite à tenir :</em> l'IA peut structurer vos notes et préparer des questions pour un entretien. Le témoignage lui-même est constitué des <strong>propos exacts</strong> du client, relus et validés par écrit par lui. Application directe de la règle du module 4 sur les citations textuelles.</p>
+            <p><strong>(E) Illustration « dans le style de » — à éviter.</strong></p>
+            <p>Demander explicitement d'imiter le style d'un artiste identifiable augmente le risque de produire quelque chose de trop proche de son travail, et pose une question de parasitisme distincte du droit d'auteur.</p>
+            <p><em>Conduite à tenir :</em> décrivez le rendu recherché par ses caractéristiques — palette, technique, ambiance, composition — sans nommer personne. Vérifiez par ailleurs les conditions d'usage commercial des sorties de votre outil.</p>
+          </div>
+        </details>
+      </div>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 2 — Auditer un outil <span class="badge badge-neutral">Analyse</span></h3>
+        <p>Votre direction vous demande d'évaluer trois outils avant de choisir : (1) une offre gratuite grand public très utilisée dans l'équipe, (2) une offre professionnelle payante du même éditeur, (3) un assistant intégré à votre suite bureautique existante.</p>
+        <p><strong>1.</strong> Listez les éléments à obtenir pour chacun, et où les chercher. <strong>2.</strong> Indiquez le critère qui devrait primer sur le prix. <strong>3.</strong> Décrivez ce que vous recommandez si aucun des trois n'est satisfaisant.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>1. Éléments à obtenir, et où les chercher</strong></p>
+            <div class="table-responsive">
+            <table>
+            <thead><tr><th>Élément</th><th>Où le trouver</th><th>Ce qui doit alerter</th></tr></thead>
+            <tbody>
+            <tr><td>Usage des saisies pour l'entraînement</td><td>Conditions d'utilisation, section sur les données</td><td>Une formulation vague du type « améliorer nos services »</td></tr>
+            <tr><td>Localisation du traitement</td><td>Documentation de sécurité, annexes contractuelles</td><td>Absence d'information, ou mention de sous-traitants non listés</td></tr>
+            <tr><td>Durée de conservation et réglage possible</td><td>Paramètres du compte + conditions</td><td>Aucune possibilité de désactiver l'historique</td></tr>
+            <tr><td>Accord de sous-traitance RGPD</td><td>À demander à l'éditeur ; souvent réservé aux offres professionnelles</td><td>Non proposé sur l'offre gratuite — critère éliminatoire pour un usage professionnel sur données personnelles</td></tr>
+            <tr><td>Accès humain aux échanges</td><td>Politique de confidentialité, section modération et sécurité</td><td>Accès non encadré, ou non documenté</td></tr>
+            <tr><td>Droits sur les sorties</td><td>Conditions d'utilisation</td><td>Restriction d'usage commercial, fréquente sur les offres gratuites</td></tr>
+            <tr><td>Position interne</td><td>DSI, délégué à la protection des données, juridique</td><td>Outil déjà écarté pour un motif que vous ignorez</td></tr>
+            </tbody>
+            </table>
+            </div>
+            <p><strong>Sur le cas (3), l'assistant intégré :</strong> point souvent négligé, l'intégration à une suite existante ne signifie pas que les mêmes garanties s'appliquent. Vérifiez si l'assistant est couvert par le contrat principal ou relève de conditions distinctes — c'est fréquemment le second cas, et c'est une source de fausse sécurité.</p>
+            <p><strong>2. Le critère qui prime sur le prix</strong></p>
+            <p><strong>L'existence d'un accord de sous-traitance RGPD assorti de l'exclusion contractuelle de l'entraînement.</strong> C'est ce qui rend l'usage professionnel défendable ; sans lui, aucun tarif ne compense le risque.</p>
+            <p>Il faut savoir défendre ce point face à l'objection « mais l'outil gratuit fonctionne aussi bien ». La réponse tient en une phrase : la qualité des résultats et la conformité de l'usage sont deux questions distinctes, et seule la seconde engage l'entreprise. La commodité d'un outil gratuit se paie au moment où quelqu'un demande sur quel fondement vous avez transmis des données clients à un tiers.</p>
+            <p><strong>3. Si aucun des trois n'est satisfaisant</strong></p>
+            <ol>
+            <li><strong>Ne pas conclure à l'interdiction.</strong> Vous savez que l'usage existe déjà ; l'interdire le rend invisible.</li>
+            <li><strong>Ouvrir un usage restreint documenté :</strong> autoriser l'outil le moins risqué pour les seuls contenus sans donnée personnelle ni information confidentielle — reformulation de textes publics, relecture de vos propres écrits, brainstorming. Cela couvre une part réelle du besoin sans exposition.</li>
+            <li><strong>Élargir la recherche</strong> : offres avec hébergement européen, solutions déployées en interne, options proposées par vos prestataires existants.</li>
+            <li><strong>Poser une échéance.</strong> « Usage restreint jusqu'au [date], puis décision. » Sans échéance, le provisoire s'installe et l'informatique de l'ombre reprend.</li>
+            <li><strong>Documenter la décision et ses motifs.</strong> Si la situation est examinée plus tard, la trace d'une évaluation sérieuse et d'un cadre provisoire assumé vaut infiniment mieux qu'une absence de décision.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 3 — Rédiger la charte <span class="badge badge-neutral">Synthèse</span></h3>
+        <p>Vous êtes responsable communication d'une association de 60 salariés intervenant auprès de publics fragiles. Les équipes commencent à utiliser des outils d'IA. Les données manipulées sont particulièrement sensibles. La direction vous demande une charte.</p>
+        <p><strong>1.</strong> Rédigez les quatre sections de la charte. <strong>2.</strong> Justifiez la règle qui, dans ce contexte, doit être absolument non négociable. <strong>3.</strong> Décrivez comment vous la faites adopter plutôt que subir.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>1. Charte d'usage — version courte</strong></p>
+            <p><strong>Section 1 — Outils autorisés.</strong> Seul [outil X], mis à disposition par l'association, est autorisé pour un usage professionnel. Il fait l'objet d'un contrat garantissant l'absence d'utilisation de nos saisies pour l'entraînement, un hébergement dans l'Union européenne et une conservation limitée à [durée]. L'usage de comptes personnels sur des outils grand public est exclu dans le cadre professionnel.</p>
+            <p><strong>Section 2 — Ce qu'on ne saisit jamais.</strong> Aucune information relative à une personne accompagnée, sous aucune forme, même sans son nom : situation, parcours, éléments de suivi, propos rapportés, éléments permettant de l'identifier par recoupement. Aucune donnée relative à la santé, à la situation judiciaire ou familiale de qui que ce soit. Aucun élément concernant un mineur. Aucune donnée relative aux salariés — dossiers, évaluations, arrêts.</p>
+            <p><em>Exemples tirés de notre activité :</em> un compte rendu d'entretien, même anonymisé, ne se saisit pas ; une demande de subvention décrivant des situations individuelles ne se saisit pas ; une trame de rapport d'activité vide se saisit sans difficulté.</p>
+            <p><strong>Section 3 — Usages autorisés et niveaux de contrôle.</strong></p>
+            <div class="table-responsive">
+            <table>
+            <thead><tr><th>Niveau</th><th>Usages</th><th>Contrôle</th></tr></thead>
+            <tbody>
+            <tr><td><strong>Vert</strong></td><td>Reformulation de nos propres textes, relecture, plans, traduction, supports de formation internes sans cas individuel</td><td>Relecture ordinaire</td></tr>
+            <tr><td><strong>Orange</strong></td><td>Contenus publiés : site, rapport d'activité, communication externe</td><td>Vérification de tous les éléments factuels + relecture par un second regard</td></tr>
+            <tr><td><strong>Rouge</strong></td><td>Tout contenu évoquant nos publics, même de façon générale ou statistique</td><td>Validation par [direction] avant diffusion, et vérification qu'aucune situation individuelle n'est reconnaissable</td></tr>
+            </tbody>
+            </table>
+            </div>
+            <p><strong>Section 4 — Validation, traçabilité et incidents.</strong> Les contenus orange et rouge portent le nom de la personne qui les valide. Les sources utilisées sont conservées. <em>Procédure d'incident :</em> si vous pensez avoir saisi une information qui n'aurait pas dû l'être, prévenez [nom] dans la journée — aucun signalement fait de bonne foi ne donne lieu à sanction. Charte datée du [date], revue prévue le [date + 6 mois].</p>
+            <p><strong>2. La règle non négociable</strong></p>
+            <p><strong>Aucune information relative à une personne accompagnée, sous aucune forme, même anonymisée.</strong></p>
+            <p>Trois raisons de ne souffrir aucune exception dans ce contexte précis.</p>
+            <p><em>L'anonymisation y est illusoire.</em> Une association intervient sur un territoire donné, auprès d'un public spécifique. « Une femme de 34 ans avec deux enfants suivie depuis mars pour un problème de logement » peut être identifiable par plusieurs personnes du territoire. Les techniques d'anonymisation qui suffisent ailleurs ne suffisent pas ici.</p>
+            <p><em>La donnée est particulièrement protégée.</em> Situation sociale, santé, difficultés judiciaires ou familiales relèvent de catégories dont le traitement est strictement encadré.</p>
+            <p><em>Le rapport de confiance est le socle de l'activité.</em> Une personne accompagnée qui apprendrait que sa situation a été soumise à un outil externe ne reviendrait pas — et l'information circulerait. C'est un risque qui excède le risque juridique, et c'est l'argument qui emporte l'adhésion des équipes de terrain.</p>
+            <p><strong>3. Faire adopter la charte</strong></p>
+            <ol>
+            <li><strong>L'écrire avec trois personnes de terrain</strong>, pas seule. Ce sont elles qui savent quels cas se présentent réellement, et leur présence dans l'élaboration rend le document légitime.</li>
+            <li><strong>Partir des usages réels, sans les juger.</strong> Ouvrir en demandant « à quoi vous en servez-vous aujourd'hui ? » plutôt qu'en énonçant des règles. Vous obtiendrez la liste des besoins à couvrir — et la charte y répondra.</li>
+            <li><strong>Donner l'alternative avant l'interdit.</strong> Pour chaque usage interdit, proposer la version conforme : « pas de compte rendu individuel, mais voici comment faire relire une trame ». C'est ce qui distingue une charte appliquée d'une charte affichée.</li>
+            <li><strong>Une session d'une heure, avec des cas de l'association</strong> — pas un envoi par courriel. Trois ou quatre cas réels discutés collectivement installent la règle bien mieux qu'une lecture.</li>
+            <li><strong>Assumer la revue à six mois</strong> et le dire : « cette version sera imparfaite, on la corrigera avec vos retours ». Une charte présentée comme définitive et parfaite invite à chercher ses failles ; une charte présentée comme perfectible invite à la faire remonter.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+      <div class="resources-box">
+        <h3>🔗 Pour aller plus loin</h3>
+        <ul>
+          <li>Le site de la CNIL, en particulier ses publications sur l'intelligence artificielle : <a href="https://www.cnil.fr/" target="_blank" rel="noopener">cnil.fr</a> — source de référence en France, régulièrement mise à jour.</li>
+          <li>Les conditions d'utilisation et la documentation de sécurité de l'outil que vous employez : c'est le document qui détermine ce que vous avez le droit d'en faire.</li>
+          <li>Votre délégué à la protection des données, s'il en existe un dans votre organisation : à associer avant toute adoption d'outil, pas après.</li>
+          <li>La réglementation européenne sur l'IA s'applique de façon échelonnée : faites vérifier auprès de votre service juridique les obligations en vigueur à la date de votre projet.</li>
+        </ul>
+      </div>
+    </article>
+
+    <section class="quiz-section">
+      <h2>🧠 Quiz d'auto-évaluation</h2>
+      <p style="color:var(--text-muted);margin-bottom:20px;">Sélectionnez la bonne réponse pour valider vos acquis. Le feedback immédiat vous expliquera les concepts clés.</p>
+      <div id="quiz-container">
+        <!-- Quiz chargé dynamiquement par quiz-engine.js -->
+      </div>
+      <div style="margin-top: 24px; text-align: center;">
+        <button id="btn-mark-complete" data-module-id="formation-ia-generative-module-5" class="btn btn-primary">
+          Marquer le module comme terminé ✓
+        </button>
+      </div>
+    </section>
+
+    <nav class="module-nav">
+      <a href="../module-4/index.html" class="btn btn-outline">← Module 4</a>
+      <a href="../../../index.html" class="btn btn-primary">Terminer la formation ✓</a>
+    </nav>
+  </main>
+
+  <script src="../../../assets/js/progress.js"></script>
+  <script src="../../../assets/js/quiz-engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadQuiz('quiz.json', 'quiz-container');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-seo-module-5",
+  "version": "2.0",
+  "last_verified": "2026-09-01",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Qu'appelle-t-on une recherche Zero-Click ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Une panne de connexion pendant la recherche"
+        },
+        {
+          "key": "b",
+          "text": "Un clic frauduleux sur une annonce"
+        },
+        {
+          "key": "c",
+          "text": "Une requête résolue directement dans la SERP, sans visite d'un site tiers"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Extraits enrichis, encarts de connaissance et résumés IA satisfont l'internaute avant qu'il n'atteigne les résultats organiques."
+    },
+    {
+      "id": "q2",
+      "question": "La position moyenne de votre site passe de 8 à 14, mais les clics augmentent. Que s'est-il probablement passé ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le site est apparu sur de nouvelles requêtes, positionnées loin, qui tirent la moyenne vers le bas"
+        },
+        {
+          "key": "b",
+          "text": "Le site a été pénalisé par Google"
+        },
+        {
+          "key": "c",
+          "text": "Les concurrents ont tous progressé simultanément"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Contrôle en deux minutes : comparez le nombre de requêtes distinctes générant des impressions. S'il augmente, vous captez du nouveau terrain."
+    },
+    {
+      "id": "q3",
+      "question": "Pourquoi faut-il segmenter le trafic organique entre marque et hors marque ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Parce que Google le demande dans ses consignes"
+        },
+        {
+          "key": "b",
+          "text": "Parce que les requêtes de marque mesurent la notoriété, pas le travail d'acquisition SEO"
+        },
+        {
+          "key": "c",
+          "text": "Parce que le trafic de marque ne doit jamais être compté"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Une campagne de publicité peut faire bondir le trafic « organique » de 40 % sans qu'une ligne de contenu ait été produite. Le hors marque est le périmètre de votre travail."
+    },
+    {
+      "id": "q4",
+      "question": "Quelle configuration offre le meilleur rendement immédiat ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Position 4, CTR 0,9 %, 20 000 impressions"
+        },
+        {
+          "key": "b",
+          "text": "Position 58, CTR 0,2 %, 15 000 impressions"
+        },
+        {
+          "key": "c",
+          "text": "Position 2, CTR 12 %, 800 impressions"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Une position 4 devrait produire un CTR bien supérieur : l'écart signale un problème de snippet, corrigeable en une heure sur un volume important."
+    },
+    {
+      "id": "q5",
+      "question": "Au mois 2 d'un projet, quel indicateur est honnête à présenter ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le chiffre d'affaires attribué au canal organique"
+        },
+        {
+          "key": "b",
+          "text": "Le retour sur investissement du projet"
+        },
+        {
+          "key": "c",
+          "text": "Le nombre de pages indexées et les corrections réalisées"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Annoncer un indicateur trop avancé pour un jalon précoce est le meilleur moyen de faire passer un projet sain pour un échec."
+    },
+    {
+      "id": "q6",
+      "question": "Qu'est-ce que le gain d'information ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "La quantité de mots-clés couverts par un article"
+        },
+        {
+          "key": "b",
+          "text": "Ce qu'un contenu apporte en plus de ce qui existe déjà : donnée propriétaire, test mené, expérience vécue"
+        },
+        {
+          "key": "c",
+          "text": "Le nombre de sources citées en bas de page"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "C'est la seule défense durable face aux résumés automatiques : un article qui reformule les dix premiers résultats se laisse résumer sans perte."
+    }
+  ]
+}

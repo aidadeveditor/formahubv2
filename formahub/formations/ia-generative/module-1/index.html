@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formahub — IA Générative appliquée au contenu : Inférence LLM, Tokens &amp; Prévention des Hallucinations</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="../../../index.html" class="brand">
+      <div class="brand-icon">F</div>
+      <span>Formahub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../../../index.html" class="nav-link">Mes formations</a>
+      <a href="../../../ressources-externes.html" class="nav-link">Ressources externes</a>
+      <a href="../../../formations-espagne.html" class="nav-link">Formations Espagne</a>
+      <button class="theme-toggle" type="button">🌙 Mode Sombre</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="../../../index.html">Accueil</a> &gt;
+        <span>IA Générative appliquée au contenu</span> &gt;
+        <strong>Module 1</strong>
+      </div>
+      <h1>Module 1 : Inférence LLM, Tokens &amp; Prévention des Hallucinations</h1>
+      <div class="module-meta">
+        <span class="badge badge-progress">⏱️ 50 min</span>
+        <span class="badge badge-neutral">Module 1 sur 5</span>
+        <span class="badge badge-neutral">Niveau : Débutant</span>
+        <span class="badge badge-neutral">~3000 mots</span>
+      </div>
+    </div>
+
+    <article class="module-content">
+      <div class="intro-box">
+        <h3>📍 Mise en situation</h3>
+        <p>Un article généré avec l'aide d'une IA est publié sur le site de votre entreprise. Trois jours plus tard, un client signale une erreur : le texte cite un article de loi qui n'existe pas, avec un numéro d'apparence parfaitement plausible. En vérifiant, vous découvrez deux autres approximations — une date fausse et une statistique attribuée à un organisme qui ne l'a jamais publiée.</p>
+        <p>Personne n'a menti, et le rédacteur a fait son travail. Le problème est que ni lui ni vous ne saviez <em>où</em> ces outils se trompent, ni <em>pourquoi</em>. Ce module explique le fonctionnement réel d'un modèle de langage — sans mathématiques — afin que vous puissiez anticiper ses défaillances au lieu de les découvrir en production. À la fin, vous saurez à quels endroits précis d'un texte porter votre vérification, et pourquoi une relecture générale ne suffit jamais.</p>
+      </div>
+
+      <div class="objectives-box">
+        <h3>🎯 À l'issue de ce module, vous saurez</h3>
+        <ul>
+          <li>Expliquer en termes simples ce que fait un modèle de langage, et ce qu'il ne fait pas</li>
+          <li>Raisonner en tokens et en fenêtre de contexte pour comprendre coûts et limites</li>
+          <li>Identifier les cinq types d'hallucinations et les endroits du texte où elles se produisent</li>
+          <li>Réduire le risque par l'ancrage documentaire plutôt que par la seule confiance au modèle</li>
+          <li>Placer le contrôle humain là où il est réellement utile, sans relire aveuglément</li>
+        </ul>
+      </div>
+
+      <h2>1. Ce qu'est un modèle de langage, et ce qu'il n'est pas</h2>
+      <p>Un grand modèle de langage (LLM) est un système entraîné à prédire la suite d'un texte. À chaque étape, il calcule quelle unité de texte est la plus probable compte tenu de tout ce qui précède, la produit, puis recommence en intégrant ce qu'il vient d'écrire. Un texte de 800 mots est le résultat d'un millier de ces prédictions successives.</p>
+      <p>Cette mécanique explique à la fois la qualité surprenante des résultats et la nature de leurs défaillances. Le modèle a été exposé à d'immenses volumes de texte, il a donc appris des régularités très fines : la syntaxe, le registre, la structure d'un raisonnement, la forme habituelle d'un numéro de loi ou d'une référence bibliographique. Ce qu'il produit est ce qui <strong>ressemble</strong> le plus à la suite attendue.</p>
+      <div class="table-responsive">
+<table>
+<thead><tr><th>Ce qu'un LLM fait</th><th>Ce qu'il ne fait pas</th></tr></thead>
+<tbody>
+<tr><td>Produire un texte plausible et bien formé</td><td>Consulter une base de faits vérifiés</td></tr>
+<tr><td>Reformuler, résumer, traduire, structurer</td><td>Distinguer par lui-même le vrai du vraisemblable</td></tr>
+<tr><td>Repérer des régularités dans un texte fourni</td><td>Savoir ce qu'il ignore</td></tr>
+<tr><td>Suivre des consignes de forme avec précision</td><td>Avoir une intention, une opinion ou un intérêt propre</td></tr>
+<tr><td>Restituer ce qui figure dans son contexte</td><td>Se souvenir d'un échange précédent, sauf si on le lui redonne</td></tr>
+</tbody>
+</table>
+</div>
+      <h3>1.1 La conséquence pratique la plus importante</h3>
+      <p>Un LLM ne dispose d'aucun mécanisme interne pour signaler qu'il ne sait pas. Face à une question dont la réponse ne figure ni dans son entraînement ni dans ce que vous lui avez fourni, il ne s'arrête pas : il produit la suite la plus plausible. Un numéro d'article de loi inventé a exactement la même forme qu'un vrai, parce que le modèle a parfaitement appris <em>la forme</em> d'un numéro d'article — sans disposer de la liste de ceux qui existent.</p>
+      <p>C'est la raison pour laquelle l'assurance apparente d'une réponse ne dit rien de sa fiabilité. Un texte faux est produit avec exactement le même aplomb qu'un texte exact, et c'est précisément ce qui rend ces erreurs difficiles à repérer en relecture ordinaire.</p>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — prendre le modèle pour un moteur de recherche</h4>
+        <p>« Donne-moi les trois dernières décisions de jurisprudence sur ce sujet » adressé à un modèle sans accès documentaire produira trois références bien formées, dont une partie sera inventée. Le modèle n'interroge aucune base : il génère ce à quoi ressemblent des références.</p>
+        <p>La formulation correcte inverse le mouvement : on <strong>fournit</strong> les documents et on demande au modèle de les exploiter — résumer, comparer, extraire. On ne lui demande pas de retrouver des faits qu'il devrait aller chercher.</p>
+      </div>
+
+      <h2>2. Tokens, contexte et coût</h2>
+      <p>Le modèle ne manipule pas des mots mais des <strong>tokens</strong> : des fragments de texte, souvent une syllabe, une partie de mot ou un mot court. En français, il faut compter à titre d'ordre de grandeur autour de trois à quatre caractères par token — un mot courant vaut souvent un à deux tokens, un terme rare ou technique peut en valoir davantage. Les chiffres varient selon les modèles ; l'important est de raisonner en ordres de grandeur.</p>
+      <h3>2.1 La fenêtre de contexte</h3>
+      <p>La <strong>fenêtre de contexte</strong> est la quantité de texte que le modèle peut prendre en compte simultanément : votre consigne, les documents fournis, l'historique de la conversation et la réponse en cours de production. Tout doit tenir dedans.</p>
+      <p>Trois conséquences pratiques en découlent. D'abord, une conversation longue finit par <strong>perdre son début</strong> : les premiers échanges sortent de la fenêtre, et le modèle cesse d'en tenir compte — d'où ces consignes initiales soudainement ignorées après une heure d'échange. Ensuite, la position compte : ce qui figure au début et à la fin d'un long contexte est généralement mieux pris en compte que ce qui se trouve enfoui au milieu, ce qui invite à placer les consignes décisives en fin de prompt. Enfin, la facturation des services professionnels se fait au token, en entrée comme en sortie : un contexte volumineux renvoyé à chaque tour coûte à chaque tour.</p>
+      <div class="method-box">
+        <h4>⚙️ Méthode — gérer une conversation longue</h4>
+        <ol>
+          <li><strong>Repartez d'un échange neuf</strong> quand vous changez de tâche. Prolonger une conversation qui a dérivé coûte plus cher et produit de moins bons résultats qu'un nouveau départ bien cadré.</li>
+          <li><strong>Redonnez les consignes structurantes</strong> lorsque l'échange s'allonge : le modèle ne « se souvient » de rien, il relit à chaque fois ce qui tient dans la fenêtre.</li>
+          <li><strong>Placez les documents de référence en début de prompt</strong>, et la consigne d'action à la fin — c'est la dernière chose que le modèle lit avant de produire.</li>
+          <li><strong>Fournissez des extraits ciblés plutôt que des documents entiers.</strong> Vingt pages dont trois paragraphes sont utiles diluent l'attention du modèle et augmentent le coût sans rien apporter.</li>
+          <li><strong>Faites produire une synthèse intermédiaire</strong> avant de repartir : elle devient le point de départ compact d'un nouvel échange.</li>
+        </ol>
+      </div>
+      <div class="example-box">
+        <h4>📌 Exemple — pourquoi la consigne du début a disparu</h4>
+        <p>Une chargée de communication travaille pendant deux heures avec un assistant sur une série de fiches produits. Elle avait précisé au premier message : « ne jamais employer le mot <em>innovant</em> ». Après une quinzaine d'échanges, le mot réapparaît.</p>
+        <p>Ce n'est pas un oubli au sens humain. La consigne est sortie de la fenêtre de contexte, ou s'est trouvée noyée très loin en amont d'un historique devenu volumineux. La parade est simple : conserver les consignes permanentes dans un bloc que l'on recolle à chaque nouvelle demande, ou repartir d'un échange neuf en réinjectant ce bloc.</p>
+      </div>
+
+      <h2>3. Pourquoi deux réponses ne sont jamais identiques</h2>
+      <p>À chaque étape, le modèle dispose d'une distribution de probabilités sur les suites possibles. Il ne retient pas systématiquement la plus probable : un paramètre, souvent appelé <strong>température</strong>, règle le degré d'aléa dans ce choix.</p>
+      <p>Une température basse rend les réponses plus déterministes, plus prévisibles, parfois plus plates : c'est ce que l'on veut pour de l'extraction de données, de la classification ou de la production de format structuré. Une température plus élevée introduit de la variété : utile pour explorer des angles, générer des idées, produire plusieurs variantes d'un titre.</p>
+      <p>Retenez surtout le principe : <strong>relancer la même demande donne un résultat différent</strong>. Ce n'est ni un dysfonctionnement, ni le signe que le modèle a « changé d'avis ». C'est aussi une propriété exploitable — demander trois versions d'un même texte et choisir est souvent plus efficace que de tenter d'obtenir la bonne du premier coup.</p>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — conclure d'une seule réponse</h4>
+        <p>Tester un prompt une fois et juger sur ce résultat unique est une erreur de méthode courante. La réponse obtenue est un tirage parmi d'autres : elle peut être exceptionnellement bonne, ou exceptionnellement mauvaise, sans que cela vous apprenne quoi que ce soit sur la qualité de votre consigne.</p>
+        <p>Pour évaluer un prompt destiné à être réutilisé, lancez-le <strong>trois à cinq fois</strong> et regardez la constance des résultats. Un bon prompt produit des réponses de qualité homogène ; un prompt fragile produit un excellent résultat une fois sur trois — ce qui est un piège, car on retient le bon essai.</p>
+      </div>
+
+      <h2>4. Les hallucinations : typologie et localisation</h2>
+      <p>On appelle <strong>hallucination</strong> une affirmation fausse produite avec assurance. Le terme est trompeur — il suggère un dysfonctionnement exceptionnel, alors qu'il s'agit du fonctionnement normal du modèle appliqué à une zone où il ne dispose pas de l'information. Savoir <em>où</em> ces erreurs se logent est plus utile que de savoir qu'elles existent.</p>
+      <div class="table-responsive">
+<table>
+<thead><tr><th>Type</th><th>Manifestation</th><th>Risque</th><th>Où vérifier</th></tr></thead>
+<tbody>
+<tr><td><strong>Référence inventée</strong></td><td>Article de loi, norme, étude, ouvrage au format parfaitement plausible mais inexistant</td><td>Très élevé</td><td>Chaque référence citée, une par une, à la source</td></tr>
+<tr><td><strong>Chiffre fabriqué</strong></td><td>Statistique précise attribuée à un organisme réel qui ne l'a jamais publiée</td><td>Très élevé</td><td>Tout nombre, sans exception</td></tr>
+<tr><td><strong>Attribution erronée</strong></td><td>Citation authentique attribuée à la mauvaise personne, ou concept attribué au mauvais auteur</td><td>Élevé</td><td>Noms propres associés à une affirmation</td></tr>
+<tr><td><strong>Détail comblé</strong></td><td>Précision inventée pour compléter une réponse partielle : une date, un seuil, un pourcentage</td><td>Élevé et insidieux</td><td>Les précisions non demandées</td></tr>
+<tr><td><strong>Obsolescence</strong></td><td>Information exacte à une époque, périmée depuis — un taux, une règle, un dirigeant</td><td>Moyen à élevé</td><td>Tout ce qui dépend d'une date</td></tr>
+</tbody>
+</table>
+</div>
+      <h3>4.1 Le principe de localisation</h3>
+      <p>Ces cinq types ont un point commun : ils se logent tous dans le <strong>vérifiable précis</strong>. Un raisonnement général, une explication de mécanisme ou une reformulation présentent un risque nettement plus faible qu'un chiffre, une date, un nom propre ou une référence normative.</p>
+      <p>Ce constat transforme la relecture. Plutôt que de relire un texte « attentivement » — ce qui ne veut rien dire et laisse passer l'essentiel —, on procède par extraction : on relève tous les éléments vérifiables, on les liste, et on les contrôle un par un à la source. Le reste du texte relève d'une relecture éditoriale ordinaire.</p>
+      <p>Ce risque est amplifié par deux facteurs : plus le sujet est <strong>spécialisé ou récent</strong>, moins le modèle dispose de matière fiable ; et plus votre demande est <strong>précise</strong>, plus vous l'incitez à produire du détail — donc à en inventer si l'information lui manque.</p>
+      <div class="example-box">
+        <h4>📌 Exemple — l'erreur la plus difficile à repérer</h4>
+        <p>Demandez à un modèle sans accès documentaire : « Quel est le délai légal de rétractation pour un contrat conclu à distance entre professionnels ? »</p>
+        <p>Une réponse typique combinera un élément exact (l'existence d'un régime de protection pour les consommateurs), une extrapolation fausse (l'application de ce délai entre professionnels, alors que le régime diffère), et un article de code d'apparence crédible. Les trois éléments sont dans la même phrase, écrits du même ton assuré.</p>
+        <p>C'est cette combinaison — du vrai, du faux et du plausible entremêlés — qui rend la relecture générale inopérante. Seule la vérification élément par élément, à la source, permet de séparer les trois.</p>
+      </div>
+
+      <h2>5. Réduire le risque : ancrer plutôt que faire confiance</h2>
+      <p>La stratégie la plus efficace ne consiste pas à mieux formuler ses questions pour obtenir des faits plus fiables — elle consiste à <strong>cesser de demander des faits au modèle</strong>. On lui fournit la matière, et on lui confie ce qu'il fait bien : reformuler, structurer, comparer, adapter le registre, résumer.</p>
+      <h3>5.1 L'ancrage documentaire</h3>
+      <p>Ancrer consiste à joindre à sa demande les documents de référence — texte réglementaire, données internes, page officielle — et à demander explicitement au modèle de <strong>ne s'appuyer que sur eux</strong>, en signalant ce qui n'y figure pas.</p>
+      <p>Deux consignes changent radicalement le résultat : « appuie-toi exclusivement sur les documents fournis ci-dessus » et « si l'information ne s'y trouve pas, écris explicitement <em>information absente des sources fournies</em> plutôt que de la compléter ». La seconde est la plus importante : elle donne au modèle une issue acceptable autre que l'invention.</p>
+      <p>Cette approche porte un nom dans les outils qui l'automatisent — la génération augmentée par la recherche, souvent désignée par l'acronyme <strong>RAG</strong>. Le principe est identique : le système va d'abord chercher des documents pertinents, puis demande au modèle de répondre à partir de ces seuls documents. Que vous colliez les sources à la main ou qu'un outil le fasse pour vous, la logique ne change pas.</p>
+      <div class="method-box">
+        <h4>⚙️ Méthode — obtenir un contenu vérifiable</h4>
+        <ol>
+          <li><strong>Fournissez les sources</strong> plutôt que de demander au modèle de les retrouver : textes officiels, données internes, extraits pertinents.</li>
+          <li><strong>Exigez l'attribution :</strong> « pour chaque affirmation factuelle, indique entre crochets le document dont elle provient. » Les affirmations sans crochet deviennent immédiatement suspectes.</li>
+          <li><strong>Autorisez l'absence de réponse</strong> par une consigne explicite. Sans cette permission, le modèle comblera.</li>
+          <li><strong>Demandez la liste des points à vérifier</strong> en fin de production : « liste séparément tous les chiffres, dates, noms propres et références juridiques employés. » Vous obtenez votre plan de contrôle gratuitement.</li>
+          <li><strong>Vérifiez cette liste à la source</strong>, ligne par ligne. C'est l'étape que rien ne remplace, et elle prend d'autant moins de temps que la liste a été produite pour vous.</li>
+        </ol>
+      </div>
+
+      <h2>6. Le contrôle humain, placé où il compte</h2>
+      <p>« Il faut toujours relire » est une consigne vraie et inutile : elle ne dit ni où porter l'attention, ni ce qui relève de la responsabilité de qui. Le principe dit du <em>human-in-the-loop</em> désigne quelque chose de plus précis — l'humain conserve trois prérogatives que le modèle ne peut pas exercer.</p>
+      <h3>6.1 Les trois prérogatives non délégables</h3>
+      <p><strong>Le cadrage.</strong> Décider du sujet, de l'angle, de la cible et de ce qui vaut la peine d'être écrit. Un modèle produit ce qu'on lui demande ; il ne décide pas de ce qui mérite d'être produit.</p>
+      <p><strong>La vérification factuelle.</strong> Contrôler à la source ce qui est vérifiable. Demander au modèle de se relire lui-même ne constitue pas une vérification : il peut confirmer une erreur avec le même aplomb qu'il l'a produite.</p>
+      <p><strong>La validation avant diffusion.</strong> Assumer ce qui est publié. C'est une responsabilité juridique et professionnelle qui ne se délègue à aucun outil — sujet développé au module 5.</p>
+      <h3>6.2 Adapter l'effort au risque</h3>
+      <p>Toute production assistée n'appelle pas le même niveau de contrôle, et prétendre le contraire conduit soit à un contrôle superficiel généralisé, soit à un abandon de l'outil. Trois niveaux suffisent à couvrir la plupart des situations.</p>
+      <p><strong>Risque faible</strong> — reformulation, correction, traduction d'un texte que vous avez écrit, brouillon interne : relecture éditoriale ordinaire. Le modèle travaille sur une matière que vous maîtrisez.</p>
+      <p><strong>Risque moyen</strong> — contenu destiné à publication sur un sujet que vous connaissez : extraction et vérification de tous les éléments factuels, plus relecture de fond.</p>
+      <p><strong>Risque élevé</strong> — sujets réglementaires, sanitaires, financiers, juridiques, ou toute production engageant la responsabilité de l'entreprise : ancrage documentaire obligatoire, vérification exhaustive à la source, et <strong>relecture par une personne compétente sur le fond</strong>. Sur ces sujets, l'IA fait gagner du temps sur la forme, jamais sur la validation.</p>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — demander au modèle de vérifier son propre texte</h4>
+        <p>« Relis ce texte et corrige les erreurs factuelles » semble raisonnable et ne fonctionne pas de façon fiable. Le modèle n'a pas davantage accès aux faits lors de la relecture qu'il n'en avait à la génération : il peut aussi bien valider une invention que corriger un élément exact.</p>
+        <p>Ce qu'il fait utilement en revanche : <strong>lister</strong> les éléments à vérifier. « Relève tous les chiffres, dates, noms et références de ce texte, sans les commenter » est une demande à laquelle il répond très bien — et elle vous fournit exactement la liste de contrôle dont vous avez besoin.</p>
+      </div>
+
+      <div class="case-box">
+        <h3>🔍 Étude de cas — l'article publié avec trois erreurs</h3>
+        <p>Reprenons la situation d'ouverture. L'article, consacré aux obligations d'affichage environnemental pour les PME, comportait trois erreurs : un article de code inexistant, une date d'entrée en vigueur fausse, et une statistique attribuée à un organisme public qui ne l'a jamais publiée.</p>
+        <p><strong>Étape 1 — Comprendre comment elles se sont produites.</strong> Le rédacteur avait demandé au modèle un article complet sur le sujet, sans fournir de source. Les trois erreurs correspondent exactement à trois des cinq types du module : référence inventée, obsolescence (la date correspondait à un projet de texte finalement modifié), et chiffre fabriqué. Aucune n'est un hasard : elles se situent toutes dans le vérifiable précis.</p>
+        <p><strong>Étape 2 — Mesurer ce que la relecture avait manqué.</strong> L'article <em>avait</em> été relu, par deux personnes. Elles avaient corrigé le style, la structure et deux répétitions. Aucune n'avait ouvert le code pour vérifier le numéro d'article, parce que rien dans le texte ne signalait ce point comme incertain — il était écrit du même ton assuré que le reste. C'est le constat central : <strong>une relecture attentive ne détecte pas ces erreurs</strong>, car elles n'ont aucune signature stylistique.</p>
+        <p><strong>Étape 3 — Le protocole mis en place.</strong> Trois règles, inscrites dans le processus éditorial :</p>
+        <ul>
+        <li><strong>Aucune demande de fait au modèle.</strong> Les textes réglementaires sont fournis en pièce jointe, extraits du site officiel, avec la consigne d'exploitation exclusive et l'autorisation explicite de signaler une information absente.</li>
+        <li><strong>Attribution obligatoire.</strong> Chaque affirmation factuelle doit porter la mention de sa source entre crochets. Une affirmation sans crochet est supprimée ou vérifiée avant publication — la règle est binaire, ce qui la rend applicable.</li>
+        <li><strong>Extraction avant relecture.</strong> Le modèle produit lui-même la liste des chiffres, dates, noms et références du texte. Cette liste devient un document de contrôle, vérifié ligne à ligne, et archivé avec l'article.</li>
+        </ul>
+        <p><strong>Étape 4 — Le point qui a fait débat en interne.</strong> Fallait-il renoncer à l'IA sur les sujets réglementaires ? La décision retenue a été de la conserver, mais en changeant son rôle : elle ne produit plus de contenu réglementaire, elle <em>met en forme</em> un contenu dont la matière vient des textes officiels fournis. Le gain de temps est passé d'environ 60 % à environ 30 % — et le risque a été ramené à un niveau acceptable.</p>
+        <p><strong>Résultat sur douze mois :</strong> 40 contenus produits selon ce protocole, aucune erreur factuelle signalée. Le temps de vérification représente 20 à 25 minutes par article, presque intégralement consacrées au contrôle de la liste extraite.</p>
+        <p><strong>Ce que le cas enseigne :</strong> le correctif n'était pas de mieux relire, ni de mieux formuler ses demandes. Il était de <strong>changer ce qu'on demande au modèle</strong> — passer de « produis un contenu exact » à « mets en forme cette matière exacte ». C'est le déplacement le plus utile de tout ce module.</p>
+      </div>
+
+      <div class="checklist-box">
+        <h3>📋 Checklist — Avant de publier un contenu assisté par IA</h3>
+        <ul class="checklist">
+          <li>Le modèle n'a pas eu à retrouver de faits : les sources lui ont été fournies</li>
+          <li>La consigne d'exploitation exclusive des sources a été donnée</li>
+          <li>Le modèle avait l'autorisation explicite d'écrire « information absente des sources »</li>
+          <li>Chaque affirmation factuelle porte l'indication de sa source</li>
+          <li>La liste des chiffres, dates, noms propres et références a été extraite</li>
+          <li>Chaque élément de cette liste a été vérifié à la source, un par un</li>
+          <li>Les références juridiques ou normatives ont été ouvertes, pas seulement plausibles</li>
+          <li>Les informations dépendant d'une date ont été confrontées à l'état en vigueur</li>
+          <li>Le niveau de contrôle correspond au niveau de risque du sujet</li>
+          <li>Sur un sujet à risque élevé, une personne compétente sur le fond a relu</li>
+          <li>La relecture factuelle a été menée séparément de la relecture éditoriale</li>
+          <li>Une personne identifiée assume la publication</li>
+        </ul>
+      </div>
+
+      <div class="glossary-box">
+        <h3>📖 Glossaire du module</h3>
+        <dl>
+          <dt>LLM</dt>
+          <dd><em>Large Language Model</em> : modèle entraîné à prédire la suite d'un texte, unité par unité.</dd>
+          <dt>Token</dt>
+          <dd>Fragment de texte manipulé par le modèle ; en français, de l'ordre de trois à quatre caractères.</dd>
+          <dt>Fenêtre de contexte</dt>
+          <dd>Quantité de texte que le modèle prend en compte simultanément : consigne, documents, historique et réponse.</dd>
+          <dt>Inférence</dt>
+          <dd>Phase d'utilisation du modèle, par opposition à son entraînement.</dd>
+          <dt>Température</dt>
+          <dd>Paramètre réglant la part d'aléa dans le choix de la suite ; basse pour l'extraction, plus haute pour l'exploration.</dd>
+          <dt>Hallucination</dt>
+          <dd>Affirmation fausse produite avec assurance ; fonctionnement normal du modèle appliqué à une zone sans information.</dd>
+          <dt>Ancrage documentaire</dt>
+          <dd>Fait de fournir les sources et d'exiger que la réponse s'y limite.</dd>
+          <dt>RAG</dt>
+          <dd><em>Retrieval-Augmented Generation</em> : dispositif qui recherche automatiquement des documents pertinents avant de faire répondre le modèle à partir d'eux.</dd>
+          <dt>Human-in-the-loop</dt>
+          <dd>Principe réservant à l'humain le cadrage, la vérification factuelle et la validation avant diffusion.</dd>
+          <dt>Prompt</dt>
+          <dd>Ensemble de ce qui est soumis au modèle : consigne, contexte, documents et format attendu.</dd>
+        </dl>
+      </div>
+
+      <div class="takeaway-box">
+        <h3>✅ À retenir</h3>
+        <ul>
+          <li>Un LLM prédit la suite la plus plausible d'un texte : il ne consulte aucune base de faits vérifiés.</li>
+          <li>Il ne dispose d'aucun mécanisme pour signaler qu'il ne sait pas — il comble, avec le même aplomb.</li>
+          <li>L'assurance d'une réponse ne dit rien de sa fiabilité : le faux et le vrai sortent du même ton.</li>
+          <li>Une conversation longue perd son début : les consignes structurantes doivent être redonnées.</li>
+          <li>Relancer la même demande donne un résultat différent — évaluez un prompt sur 3 à 5 essais, jamais sur un seul.</li>
+          <li>Les hallucinations se logent dans le vérifiable précis : chiffres, dates, noms propres, références.</li>
+          <li>Plus le sujet est spécialisé ou récent, et plus votre demande est précise, plus le risque d'invention augmente.</li>
+          <li>Cessez de demander des faits au modèle : fournissez la matière, confiez-lui la mise en forme.</li>
+          <li>Autorisez explicitement la réponse « information absente des sources » — sans cette permission, il comblera.</li>
+          <li>Demander au modèle de vérifier son propre texte ne vérifie rien ; lui demander de lister les éléments à contrôler fonctionne très bien.</li>
+          <li>Adaptez le contrôle au risque : sur un sujet réglementaire, l'IA fait gagner du temps sur la forme, jamais sur la validation.</li>
+        </ul>
+      </div>
+
+      <h2 class="exercises-title">Exercices d'application</h2>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 1 — Localiser le risque dans un texte <span class="badge badge-neutral">Application</span></h3>
+        <p>Voici un extrait produit par un modèle sans source fournie : <em>« Depuis le 1<sup>er</sup> janvier 2025, les entreprises de plus de 250 salariés doivent publier leur bilan carbone annuel, conformément à l'article L. 229-25 du code de l'environnement. Selon l'ADEME, 68 % d'entre elles n'étaient pas en conformité fin 2025. Cette obligation, introduite par la loi Climat et Résilience, prévoit une sanction pouvant atteindre 10 000 €. »</em></p>
+        <p><strong>1.</strong> Relevez tous les éléments à vérifier et classez-les par type d'hallucination potentielle. <strong>2.</strong> Indiquez pour chacun la source de vérification. <strong>3.</strong> Réécrivez la consigne qui aurait dû être donnée au modèle.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>1 et 2. Éléments à vérifier</strong></p>
+            <div class="table-responsive">
+            <table>
+            <thead><tr><th>Élément</th><th>Type de risque</th><th>Source de vérification</th></tr></thead>
+            <tbody>
+            <tr><td>« 1<sup>er</sup> janvier 2025 »</td><td>Obsolescence / détail comblé</td><td>Le texte en vigueur sur Légifrance, avec sa date d'entrée en application</td></tr>
+            <tr><td>« plus de 250 salariés »</td><td>Détail comblé</td><td>Le seuil exact figurant dans le texte — les seuils sont une source d'erreur classique</td></tr>
+            <tr><td>« article L. 229-25 du code de l'environnement »</td><td>Référence inventée</td><td>Ouvrir l'article sur Légifrance et vérifier qu'il existe <em>et</em> qu'il porte bien sur ce sujet</td></tr>
+            <tr><td>« Selon l'ADEME, 68 % »</td><td>Chiffre fabriqué + attribution erronée</td><td>Le site de l'ADEME. Double vérification : le chiffre existe-t-il, et vient-il bien de cet organisme ?</td></tr>
+            <tr><td>« loi Climat et Résilience »</td><td>Attribution erronée</td><td>Vérifier que c'est bien ce texte qui a introduit l'obligation, et non un autre</td></tr>
+            <tr><td>« sanction pouvant atteindre 10 000 € »</td><td>Chiffre fabriqué</td><td>Le montant figurant dans le texte — les montants ronds sont particulièrement suspects</td></tr>
+            </tbody>
+            </table>
+            </div>
+            <p><strong>Observation :</strong> sur trois phrases, six éléments à vérifier. C'est le ratio habituel d'un contenu réglementaire, et c'est ce qui rend la relecture générale inopérante — il faudrait détecter six points sans qu'aucun ne soit signalé comme incertain.</p>
+            <p><strong>Point d'attention particulier :</strong> le « 68 % » est le plus dangereux. Il est précis, attribué à un organisme réel et crédible, et parfaitement plausible. Un chiffre rond (« environ 70 % ») éveillerait davantage la méfiance ; la précision apparente inspire confiance à tort.</p>
+            <p><strong>3. Consigne qui aurait dû être donnée</strong></p>
+            <blockquote><p>« Tu trouveras ci-dessous : (1) le texte intégral de l'article du code de l'environnement applicable, extrait de Légifrance le [date], et (2) le rapport ADEME de [année], pages 12 à 18.</p>
+            <p>Rédige un paragraphe de 120 mots présentant l'obligation d'affichage aux dirigeants de PME.</p>
+            <p>Contraintes impératives : appuie-toi <strong>exclusivement</strong> sur ces deux documents. Pour chaque affirmation factuelle — date, seuil, montant, pourcentage, référence d'article — indique entre crochets le document et la page dont elle provient. Si une information nécessaire ne figure pas dans les documents fournis, écris explicitement <em>[information absente des sources fournies]</em> au lieu de la compléter. N'ajoute aucune référence juridique qui ne figure pas dans les documents. »</p></blockquote>
+            <p>Cette consigne ne supprime pas la vérification, mais elle change sa nature : au lieu de contrôler six affirmations sorties de nulle part, on vérifie que chaque crochet correspond bien à ce que dit la source — un travail plus rapide et beaucoup plus fiable.</p>
+          </div>
+        </details>
+      </div>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 2 — Calibrer le niveau de contrôle <span class="badge badge-neutral">Analyse</span></h3>
+        <p>Pour chacune des cinq productions suivantes, déterminez le niveau de risque et le protocole de contrôle adapté : <strong>(A)</strong> reformulation d'un e-mail interne que vous avez rédigé ; <strong>(B)</strong> fiche produit e-commerce à partir des spécifications techniques du fabricant ; <strong>(C)</strong> article de blog sur les nouvelles obligations de facturation électronique ; <strong>(D)</strong> réponse type au service client sur les conditions de remboursement ; <strong>(E)</strong> contenu de brochure pour un complément alimentaire.</p>
+        <p><strong>1.</strong> Classez par niveau de risque. <strong>2.</strong> Précisez le protocole pour chacun. <strong>3.</strong> Identifiez celui qui piège le plus souvent, et pourquoi.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>1 et 2. Classement et protocoles</strong></p>
+            <div class="table-responsive">
+            <table>
+            <thead><tr><th>Cas</th><th>Risque</th><th>Protocole</th></tr></thead>
+            <tbody>
+            <tr><td><strong>(A)</strong> Reformulation d'e-mail</td><td>Faible</td><td>Relecture éditoriale ordinaire. Le modèle travaille sur une matière que vous maîtrisez et n'a aucun fait à produire.</td></tr>
+            <tr><td><strong>(B)</strong> Fiche produit</td><td>Moyen</td><td>Sources fournies (spécifications du fabricant), extraction et vérification des caractéristiques chiffrées : dimensions, puissance, compatibilités. Une erreur ici crée un litige commercial.</td></tr>
+            <tr><td><strong>(C)</strong> Article réglementaire</td><td>Élevé</td><td>Ancrage documentaire obligatoire sur les textes officiels, attribution par crochets, vérification exhaustive, relecture par une personne compétente sur le fond.</td></tr>
+            <tr><td><strong>(D)</strong> Réponse type client</td><td>Élevé</td><td>Ancrage sur les CGV réelles. Ce texte engage contractuellement l'entreprise et sera envoyé des centaines de fois : une erreur se démultiplie.</td></tr>
+            <tr><td><strong>(E)</strong> Brochure complément alimentaire</td><td>Très élevé</td><td>Domaine à allégations réglementées. Ancrage sur la liste des allégations autorisées, validation obligatoire par une personne qualifiée. L'IA ne doit ici produire aucune formulation d'effet santé.</td></tr>
+            </tbody>
+            </table>
+            </div>
+            <p><strong>3. Le cas qui piège : (D), la réponse type au service client.</strong></p>
+            <p>Trois raisons se cumulent, et aucune n'est évidente au premier regard.</p>
+            <p><strong>Elle ne ressemble pas à un contenu à risque.</strong> Ce n'est ni un article juridique, ni une publication officielle : c'est un message opérationnel, traité comme tel, souvent produit rapidement par une personne du support sans passage par un circuit de validation.</p>
+            <p><strong>Elle engage contractuellement.</strong> Une réponse écrite sur des conditions de remboursement peut être opposée à l'entreprise. Un délai ou une condition inventés par le modèle deviennent un engagement pris.</p>
+            <p><strong>Elle se démultiplie.</strong> Contrairement à un article publié une fois, une réponse type est envoyée des centaines de fois, souvent sans nouvelle relecture. Une erreur y a une portée sans commune mesure avec sa visibilité apparente.</p>
+            <p><strong>Le principe à retenir :</strong> le niveau de risque ne se déduit ni de la longueur du texte, ni de sa visibilité, ni du fait qu'il soit publié ou non. Il se déduit de <em>ce qui se passe si le contenu est faux</em> — et de <em>combien de fois</em> il sera utilisé.</p>
+          </div>
+        </details>
+      </div>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 3 — Construire un protocole d'équipe <span class="badge badge-neutral">Synthèse</span></h3>
+        <p>Vous encadrez une équipe éditoriale de quatre personnes dans une mutuelle. Chacune utilise l'IA sans cadre commun. Deux incidents ont eu lieu en six mois : un montant de remboursement erroné dans une fiche pratique, et une citation attribuée à un dirigeant qui ne l'a jamais prononcée. La direction envisage d'interdire purement et simplement l'usage de l'IA.</p>
+        <p><strong>1.</strong> Argumentez contre l'interdiction, en reconnaissant le problème. <strong>2.</strong> Rédigez le protocole que vous proposez, en distinguant les niveaux de risque. <strong>3.</strong> Indiquez comment vous vérifierez qu'il est appliqué.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>1. Argumentaire contre l'interdiction</strong></p>
+            <p><strong>Reconnaître d'abord :</strong> les deux incidents sont réels et sérieux. Dans une mutuelle, un montant de remboursement erroné peut créer une attente opposable ; une citation inventée attribuée à un dirigeant est un risque réputationnel et potentiellement juridique. L'inquiétude de la direction est fondée, et commencer par la contester serait une erreur.</p>
+            <p><strong>Puis poser le vrai diagnostic :</strong> aucun des deux incidents ne provient de l'outil lui-même, mais de son emploi hors protocole. Le montant a été demandé au modèle au lieu d'être extrait du barème interne ; la citation a été « améliorée » à partir d'un propos réel. Dans les deux cas, on a demandé au modèle de produire un fait plutôt que de mettre en forme un fait fourni.</p>
+            <p><strong>Trois arguments contre l'interdiction :</strong></p>
+            <ul>
+            <li><strong>Elle ne sera pas respectée.</strong> Les outils sont accessibles depuis n'importe quel navigateur personnel. Une interdiction déplace l'usage hors de tout contrôle, ce qui aggrave le risque au lieu de le réduire — et supprime toute possibilité de tracer ce qui a été produit comment.</li>
+            <li><strong>Elle traite le symptôme.</strong> Les deux erreurs relèvent d'un problème de processus de vérification qui existait avant l'IA : rien n'imposait de vérifier un montant à la source avant publication. Le même incident pouvait se produire avec un stagiaire mal briefé.</li>
+            <li><strong>Elle a un coût mesurable.</strong> Chiffrez-le : si l'équipe gagne l'équivalent d'une demi-journée par personne et par semaine, l'interdiction représente deux jours-personne hebdomadaires. À mettre en regard du risque résiduel après protocole.</li>
+            </ul>
+            <p><strong>La proposition à formuler :</strong> ni interdiction, ni statu quo — un protocole écrit, avec une période d'essai de trois mois et un point d'étape. Cette formulation donne à la direction un contrôle réel sur la décision, ce qui est souvent ce qu'elle cherche.</p>
+            <p><strong>2. Protocole proposé</strong></p>
+            <p><strong>Règle générale, applicable sans exception :</strong> l'IA ne produit jamais un fait propre à la mutuelle. Montants, taux, garanties, délais, conditions et citations proviennent exclusivement des documents internes de référence, fournis dans la demande.</p>
+            <div class="table-responsive">
+            <table>
+            <thead><tr><th>Niveau</th><th>Contenus concernés</th><th>Protocole</th></tr></thead>
+            <tbody>
+            <tr><td><strong>Vert</strong></td><td>Reformulation, correction, traduction, brouillons internes, plans</td><td>Usage libre, relecture ordinaire</td></tr>
+            <tr><td><strong>Orange</strong></td><td>Contenus éditoriaux publiés sans donnée de garantie : prévention, mode de vie, explication générale</td><td>Extraction de la liste des éléments vérifiables + contrôle à la source, tracée dans un champ dédié</td></tr>
+            <tr><td><strong>Rouge</strong></td><td>Tout contenu mentionnant un montant, un taux, une garantie, un délai, une condition, ou citant une personne</td><td>Ancrage documentaire obligatoire, attribution par crochets, vérification exhaustive, <strong>et validation par le référent garanties</strong> avant publication</td></tr>
+            </tbody>
+            </table>
+            </div>
+            <p><strong>Deux règles complémentaires :</strong> aucune donnée personnelle d'adhérent n'est saisie dans un outil externe (voir module 5) ; et toute citation d'une personne est reprise <em>textuellement</em> de sa source, jamais reformulée par un modèle — c'est la règle qui traite directement le second incident.</p>
+            <p><strong>3. Vérifier l'application</strong></p>
+            <ul>
+            <li><strong>Une trace obligatoire dans le circuit de publication :</strong> un champ « niveau » et un champ « sources utilisées » à renseigner. Sans eux, le contenu ne passe pas en publication. C'est le contrôle le plus efficace car il est bloquant, et il ne repose pas sur la bonne volonté.</li>
+            <li><strong>Un audit mensuel sur trois contenus tirés au sort</strong> en niveau orange ou rouge : les éléments factuels sont-ils réellement vérifiables dans les sources citées ? L'audit porte sur le processus, pas sur les personnes — c'est ce qui permet qu'on y remonte les difficultés réelles.</li>
+            <li><strong>Un registre des incidents et des quasi-incidents</strong>, y compris ceux rattrapés avant publication. Ce sont les plus instructifs, et ils ne remontent que si les signaler n'expose à aucune sanction.</li>
+            <li><strong>Un point d'étape à trois mois</strong> devant la direction : nombre de contenus produits par niveau, incidents constatés, temps de vérification moyen. C'est ce rendez-vous qui transforme la période d'essai en décision documentée plutôt qu'en pari.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+      <div class="resources-box">
+        <h3>🔗 Pour aller plus loin</h3>
+        <ul>
+          <li>La documentation officielle de l'outil que vous utilisez : les paramètres disponibles, la taille de la fenêtre de contexte et les conditions de traitement des données varient d'un service à l'autre et évoluent vite.</li>
+          <li>Le module 5 de cette formation traite la suite de ce sujet : RGPD, propriété intellectuelle et responsabilité éditoriale.</li>
+          <li>Pour un sujet réglementaire, gardez toujours ouverte la source primaire — Légifrance ou le site de l'autorité compétente. C'est le seul ancrage qui vaille.</li>
+          <li>Constituez un dossier de sources internes de référence (barèmes, CGV, données d'activité) : c'est la matière première de tout usage sûr de l'IA en entreprise.</li>
+        </ul>
+      </div>
+    </article>
+
+    <section class="quiz-section">
+      <h2>🧠 Quiz d'auto-évaluation</h2>
+      <p style="color:var(--text-muted);margin-bottom:20px;">Sélectionnez la bonne réponse pour valider vos acquis. Le feedback immédiat vous expliquera les concepts clés.</p>
+      <div id="quiz-container">
+        <!-- Quiz chargé dynamiquement par quiz-engine.js -->
+      </div>
+      <div style="margin-top: 24px; text-align: center;">
+        <button id="btn-mark-complete" data-module-id="formation-ia-generative-module-1" class="btn btn-primary">
+          Marquer le module comme terminé ✓
+        </button>
+      </div>
+    </section>
+
+    <nav class="module-nav">
+      <a href="../../../index.html" class="btn btn-outline">← Retour catalogue</a>
+      <a href="../module-2/index.html" class="btn btn-primary">Module 2 →</a>
+    </nav>
+  </main>
+
+  <script src="../../../assets/js/progress.js"></script>
+  <script src="../../../assets/js/quiz-engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadQuiz('quiz.json', 'quiz-container');
+    });
+  </script>
+</body>
+</html>

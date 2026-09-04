@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-analytics-mesure-module-2",
+  "version": "2.0",
+  "last_verified": "2026-09-03",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Une personne visite le site depuis son téléphone puis depuis son ordinateur. Que compte l'outil ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Un utilisateur et deux sessions"
+        },
+        {
+          "key": "b",
+          "text": "Deux utilisateurs, car un utilisateur est un identifiant de navigateur"
+        },
+        {
+          "key": "c",
+          "text": "Un utilisateur, l'outil recollant automatiquement les appareils"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Seul un identifiant de compte transmis à la connexion permet de recoller les appareils. Sans lui, le nombre d'utilisateurs surestime le nombre de personnes."
+    },
+    {
+      "id": "q2",
+      "question": "Sur un site de service, les pages par session augmentent nettement. Comment le lire ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "C'est un bon signe : les visiteurs explorent davantage le site"
+        },
+        {
+          "key": "b",
+          "text": "C'est probablement un mauvais signe : ils ne trouvent pas ce qu'ils cherchent"
+        },
+        {
+          "key": "c",
+          "text": "L'indicateur est neutre et ne s'interprète pas"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Un visiteur qui trouve immédiatement consulte une page ; celui qui erre en consulte six. L'indicateur n'a un sens favorable que sur un site de contenu financé par la publicité."
+    },
+    {
+      "id": "q3",
+      "question": "Peut-on poser des paramètres UTM sur la bannière de sa propre page d'accueil ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Oui, c'est le moyen normal de mesurer les clics internes"
+        },
+        {
+          "key": "b",
+          "text": "Non : cela ouvre une session et réattribue le visiteur, détruisant sa vraie source"
+        },
+        {
+          "key": "c",
+          "text": "Oui, à condition de n'utiliser que utm_content"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Les UTM ne servent qu'aux liens entrants. Pour un clic interne, on utilise un événement dédié prévu au plan de mesure."
+    },
+    {
+      "id": "q4",
+      "question": "Un canal obtient 4 % des conversions en dernier clic mais figure dans 35 % des parcours convertis. Qu'en conclure ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Les deux chiffres sont incohérents : l'un des outils est mal configuré"
+        },
+        {
+          "key": "b",
+          "text": "C'est un canal de découverte, que le dernier clic sous-évalue par construction"
+        },
+        {
+          "key": "c",
+          "text": "Le canal est inefficace : seul le dernier clic mesure une vraie conversion"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Le dernier clic ne crédite que ce qui conclut. Un canal agissant avant l'intention affichera toujours des résultats médiocres avec ce modèle, y compris s'il est le moteur de l'activité."
+    },
+    {
+      "id": "q5",
+      "question": "Une régie annonce 340 conversions, l'analytics 190. Quel poste d'écart examiner en premier ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le post-impression, que l'analytics ne peut pas voir"
+        },
+        {
+          "key": "b",
+          "text": "Le fuseau horaire appliqué par chaque outil"
+        },
+        {
+          "key": "c",
+          "text": "Le filtrage des robots"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "C'est de loin le premier poste d'écart sur les campagnes d'affichage et de vidéo. Fuseau et robots existent, mais pèsent bien moins."
+    },
+    {
+      "id": "q6",
+      "question": "Quel dispositif répond réellement à la question « combien ce canal ajoute-t-il ? »",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Passer d'un modèle dernier clic à un modèle multi-touch"
+        },
+        {
+          "key": "b",
+          "text": "Un test d'incrémentalité : couper le canal sur une part comparable de l'audience et comparer le volume total"
+        },
+        {
+          "key": "c",
+          "text": "Élargir la fenêtre de conversion à 90 jours"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Changer de modèle ou de fenêtre change la convention comptable, pas la réalité. Seule une coupure comparée mesure ce que le canal ajoute."
+    }
+  ]
+}

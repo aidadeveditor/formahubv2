@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-analytics-mesure-module-4",
+  "version": "2.0",
+  "last_verified": "2026-09-03",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "On vous demande un tableau de bord unique et filtrable pour toutes les audiences. Que répondre ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Accepter : les filtres permettent à chacun de voir ce qui l'intéresse"
+        },
+        {
+          "key": "b",
+          "text": "Refuser : un tableau pour trois audiences oblige chacune à ignorer les deux tiers de ce qu'elle voit"
+        },
+        {
+          "key": "c",
+          "text": "Accepter, en limitant le nombre de filtres à trois"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Trois tableaux de six blocs coûtent moins cher à construire et à maintenir qu'un tableau de vingt, et chacun se justifie par des décisions nommées."
+    },
+    {
+      "id": "q2",
+      "question": "Sur quel type de graphique un axe vertical tronqué est-il réellement trompeur ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Sur une courbe, car la tendance est déformée"
+        },
+        {
+          "key": "b",
+          "text": "Sur des barres, car c'est leur longueur que l'oeil compare"
+        },
+        {
+          "key": "c",
+          "text": "Sur les deux, de façon équivalente"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Sur une courbe, l'axe tronqué est légitime si la graduation est visible : c'est la variation qui est lue. Sur des barres, il transforme un écart de 2 % en différence visuelle du simple au double."
+    },
+    {
+      "id": "q3",
+      "question": "Quel élément d'un commentaire d'analyse est le plus efficace pour déclencher une décision ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le degré de certitude attribué à la cause"
+        },
+        {
+          "key": "b",
+          "text": "Le chiffrage du coût de l'inaction"
+        },
+        {
+          "key": "c",
+          "text": "La description détaillée de la méthode employée"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Il transforme un choix entre agir et attendre en un choix entre deux dépenses, ce qui est un arbitrage bien plus facile à trancher."
+    },
+    {
+      "id": "q4",
+      "question": "Une revue mensuelle commence systématiquement par la lecture commentée du rapport. Quel est le principal coût ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "La lecture consomme le temps qui devait servir à décider"
+        },
+        {
+          "key": "b",
+          "text": "Les participants retiennent moins bien à l'oral qu'à l'écrit"
+        },
+        {
+          "key": "c",
+          "text": "Le rapport devient obsolète pendant la séance"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Les chiffres s'envoient avant, et la séance commence en les supposant lus. L'objection « personne ne lit avant » cesse d'être vraie dès la deuxième réunion."
+    },
+    {
+      "id": "q5",
+      "question": "Que fait une revue semestrielle du dispositif de mesure ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Elle ajoute les indicateurs demandés depuis six mois"
+        },
+        {
+          "key": "b",
+          "text": "Elle retire ce dont personne ne s'apercevrait de la disparition, soit environ un tiers"
+        },
+        {
+          "key": "c",
+          "text": "Elle recalcule les objectifs de chaque indicateur"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Une seule question par élément : si je le supprime aujourd'hui, qui s'en apercevrait et en combien de temps ? Un dispositif qui ne fait que grossir a cessé d'être piloté."
+    },
+    {
+      "id": "q6",
+      "question": "Un directeur demande un tableau classant les commerciaux par nombre de rendez-vous. Quelle conduite tenir ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le construire, en précisant que les chiffres sont indicatifs"
+        },
+        {
+          "key": "b",
+          "text": "Proposer le volume au niveau de l'équipe, réserver l'individuel au cadre RH, et renvoyer la demande aux RH et à la protection des données"
+        },
+        {
+          "key": "c",
+          "text": "Refuser sans explication, la mesure individuelle étant interdite"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Projeté collectivement, l'indicateur produit ce qu'il mesure et dégrade la qualité des données. Et un suivi individualisé relève d'obligations qui dépassent la compétence de l'analyste."
+    }
+  ]
+}

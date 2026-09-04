@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-analytics-mesure-module-1",
+  "version": "2.0",
+  "last_verified": "2026-09-03",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quel test permet de décider si un indicateur mérite d'être affiché ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Est-il disponible sans configuration supplémentaire ?"
+        },
+        {
+          "key": "b",
+          "text": "Quelle décision prendrai-je différemment selon sa valeur ?"
+        },
+        {
+          "key": "c",
+          "text": "La direction l'a-t-elle demandé explicitement ?"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Appliqué honnêtement, ce test élimine la moitié à deux tiers d'un tableau de bord courant. Seuls deux ou trois indicateurs de cadrage y échappent."
+    },
+    {
+      "id": "q2",
+      "question": "Le taux de conversion passe de 2,1 % à 3,4 % après l'arrêt d'une campagne payante. Que s'est-il passé ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le site convertit mieux : le parcours s'est amélioré"
+        },
+        {
+          "key": "b",
+          "text": "Du trafic peu qualifié a quitté le dénominateur ; le nombre de conversions a probablement baissé"
+        },
+        {
+          "key": "c",
+          "text": "Les deux valeurs ne sont pas comparables car la période a changé"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Un taux monte aussi quand son dénominateur diminue. D'où la règle : ne jamais afficher un taux sans afficher son numérateur à côté."
+    },
+    {
+      "id": "q3",
+      "question": "Vous devez suivre les demandes de démonstration et les demandes de devis. Comment les marquer ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Deux événements distincts, un par type de demande"
+        },
+        {
+          "key": "b",
+          "text": "Un événement demande_envoyee avec une propriété type_demande"
+        },
+        {
+          "key": "c",
+          "text": "Un événement par page contenant un formulaire"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Ce qui varie est une propriété, pas un nom. Sinon le total, dont on a besoin neuf fois sur dix, exige d'additionner des événements dont on n'est jamais sûr d'avoir la liste complète."
+    },
+    {
+      "id": "q4",
+      "question": "Quelle décision d'un plan de mesure est la moins réversible ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le choix des propriétés portées par chaque événement"
+        },
+        {
+          "key": "b",
+          "text": "Le choix de l'outil d'analytics"
+        },
+        {
+          "key": "c",
+          "text": "Le choix de la référence de comparaison des indicateurs"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Une propriété ne peut pas être ajoutée rétroactivement : les données déjà collectées ne la porteront jamais. Outil et référence, eux, se changent."
+    },
+    {
+      "id": "q5",
+      "question": "Le trafic mesuré chute de 30 % le mois suivant la refonte du bandeau de consentement. Par quoi commencer ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Vérifier les positions dans les moteurs de recherche"
+        },
+        {
+          "key": "b",
+          "text": "Comparer l'évolution d'un volume métier non soumis au consentement, commandes ou demandes en base"
+        },
+        {
+          "key": "c",
+          "text": "Basculer du budget vers la publicité payante pour compenser"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "On vérifie l'instrument avant d'interpréter le phénomène. Si l'activité réelle est stable, la chute est dans la collecte et le débat est clos en dix minutes."
+    },
+    {
+      "id": "q6",
+      "question": "Un tiers des demandes arrivent sans source identifiable. Que faire dans le tableau de restitution ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Les répartir au prorata des canaux connus pour obtenir un tableau complet"
+        },
+        {
+          "key": "b",
+          "text": "Les exclure du tableau et n'afficher que les demandes attribuées"
+        },
+        {
+          "key": "c",
+          "text": "Afficher une ligne « source inconnue » avec son volume réel"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "La répartition au prorata produit un tableau propre et faux. Une incertitude assumée résiste au premier recoupement ; une fausse précision, non."
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-management-equipe-module-4",
+  "version": "2.0",
+  "last_verified": "2026-09-01",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quels sont les trois leviers de la motivation intrinsèque selon Daniel Pink ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Autonomie, Maîtrise, Sens"
+        },
+        {
+          "key": "b",
+          "text": "Salaire, Horaires, Avantages"
+        },
+        {
+          "key": "c",
+          "text": "Contrôle, Objectifs, Sanction"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Ils n'agissent toutefois que si les conditions de base sont acceptables : une rémunération perçue comme injuste annule leur effet."
+    },
+    {
+      "id": "q2",
+      "question": "Quelle étape ne doit jamais être sautée dans une médiation ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "L'écoute individuelle séparée, avant toute séance conjointe"
+        },
+        {
+          "key": "b",
+          "text": "La rédaction d'un compte rendu détaillé"
+        },
+        {
+          "key": "c",
+          "text": "L'information de la direction"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Ce qui se dit en entretien individuel ne se dirait jamais devant l'autre — et c'est souvent là qu'apparaît la cause réelle."
+    },
+    {
+      "id": "q3",
+      "question": "Quelle question fait remonter le besoin sous une position ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "« Qui a commencé ? »"
+        },
+        {
+          "key": "b",
+          "text": "« Qu'est-ce que tu crains qu'il se passe si tu n'obtiens pas ça ? »"
+        },
+        {
+          "key": "c",
+          "text": "« Pourquoi tu ne lui en as pas parlé ? »"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Les positions s'opposent, les besoins presque jamais. La réponse à cette question est souvent le vrai sujet."
+    },
+    {
+      "id": "q4",
+      "question": "Pourquoi l'évitement est-il le mode le plus coûteux chez un manager ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Parce qu'il est mal vu par la hiérarchie"
+        },
+        {
+          "key": "b",
+          "text": "Parce qu'un conflit non traité ne stagne pas : il s'étend à l'équipe et devient plus difficile à traiter"
+        },
+        {
+          "key": "c",
+          "text": "Parce qu'il prend plus de temps que les autres modes"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Il ne se présente jamais comme de l'évitement, mais comme de la patience ou du respect de l'autonomie."
+    },
+    {
+      "id": "q5",
+      "question": "Une collaboratrice vous rapporte des remarques répétées d'un collègue qui la mettent mal à l'aise. Que faites-vous ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Vous organisez une médiation entre les deux"
+        },
+        {
+          "key": "b",
+          "text": "Vous écoutez, écrivez les faits, et saisissez les interlocuteurs compétents sans promettre le secret"
+        },
+        {
+          "key": "c",
+          "text": "Vous attendez de voir si la situation se répète"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Ces situations ne se médient pas : mettre en présence une personne et celle dont elle subit les agissements est susceptible de lui nuire."
+    },
+    {
+      "id": "q6",
+      "question": "Face à un collaborateur désengagé, par quoi commencer ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Par lui proposer une prime ou un projet plus intéressant"
+        },
+        {
+          "key": "b",
+          "text": "Par demander ce qui a changé pour lui ces derniers mois"
+        },
+        {
+          "key": "c",
+          "text": "Par en parler à ses collègues pour comprendre"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Proposer avant d'avoir compris revient à traiter au hasard — et une proposition qui rate confirme à la personne qu'on ne l'a pas comprise."
+    }
+  ]
+}

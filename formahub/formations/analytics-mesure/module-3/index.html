@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formahub — Analytics &amp; mesure de la performance : De la mesure à l'analyse : entonnoirs, cohortes et tests</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="../../../index.html" class="brand">
+      <div class="brand-icon">F</div>
+      <span>Formahub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="../../../index.html" class="nav-link">Mes formations</a>
+      <a href="../../../ressources-externes.html" class="nav-link">Ressources externes</a>
+      <a href="../../../formations-espagne.html" class="nav-link">Formations Espagne</a>
+      <button class="theme-toggle" type="button">🌙 Mode Sombre</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <div class="module-header">
+      <div class="breadcrumb">
+        <a href="../../../index.html">Accueil</a> &gt;
+        <span>Analytics &amp; mesure de la performance</span> &gt;
+        <strong>Module 3</strong>
+      </div>
+      <h1>Module 3 : De la mesure à l'analyse : entonnoirs, cohortes et tests</h1>
+      <div class="module-meta">
+        <span class="badge badge-progress">⏱️ 60 min</span>
+        <span class="badge badge-neutral">Module 3 sur 4</span>
+        <span class="badge badge-neutral">Niveau : Intermédiaire</span>
+        <span class="badge badge-neutral">~4200 mots</span>
+      </div>
+    </div>
+
+    <article class="module-content">
+      <div class="intro-box">
+        <h3>📍 Mise en situation</h3>
+        <p>Mardi 2 juin. Le taux de conversion global du site est passé de 3,1 % à 2,6 % en deux mois. La baisse est régulière, elle ne s'explique par aucun changement de trafic, et elle représente environ 40 demandes commerciales perdues par mois.</p>
+        <p>La réunion de crise converge vite sur une explication et une solution : la page d'accueil serait « datée », il faudrait la refondre. Un devis circule déjà, à 40 000 € et trois mois de travail. Personne dans la salle n'a de raison de penser que la page d'accueil est en cause ; c'est simplement la seule hypothèse formulée, et une hypothèse unique finit toujours par être adoptée.</p>
+        <p>La baisse est réelle, elle ne vient pas de la page d'accueil, et il faudra deux heures d'analyse pour le montrer. L'étude de cas de ce module reprend ce diagnostic pas à pas.</p>
+        <p>Les quatre outils qui permettent de le mener sont ceux de ce module : l'entonnoir, qui localise la marche qui casse ; la segmentation, qui dit sur qui ; les cohortes, qui distinguent un effet durable d'un accident ; et le test contrôlé, seul moyen de savoir si une correction fonctionne réellement. Le module 1 a servi à collecter, le module 2 à lire ; celui-ci sert à conclure — et surtout à ne pas conclure trop vite.</p>
+      </div>
+
+      <div class="objectives-box">
+        <h3>🎯 À l'issue de ce module, vous saurez</h3>
+        <ul>
+          <li>Construire un entonnoir de conversion exploitable et identifier la marche qui casse</li>
+          <li>Segmenter une baisse jusqu'à la population réellement concernée, sans descendre dans le bruit</li>
+          <li>Lire une courbe de rétention par cohorte et distinguer un effet durable d'un accident</li>
+          <li>Écarter les quatre façons les plus courantes de conclure trop vite</li>
+          <li>Dimensionner un test A/B : effet minimal détectable, volume nécessaire, durée</li>
+          <li>Refuser un test dans les cas où il ne peut rien démontrer, et dire pourquoi</li>
+        </ul>
+      </div>
+
+      <h2>1. L'entonnoir de conversion : localiser la marche qui casse</h2>
+      <p>Un taux de conversion global est un chiffre sans adresse : il dit qu'il y a un problème, jamais où. L'entonnoir sert exactement à cela — décomposer le parcours en étapes ordonnées et regarder le taux de passage entre chacune, de sorte qu'une baisse cesse d'être une inquiétude générale pour devenir un endroit précis.</p>
+      <p>Deux formes coexistent et il faut savoir laquelle on utilise. L'<strong>entonnoir fermé</strong> impose l'ordre strict des étapes dans une même session : il est rigoureux et il exclut les parcours réels, qui reviennent en arrière et s'étalent sur plusieurs visites. L'<strong>entonnoir ouvert</strong> compte quiconque a franchi les étapes dans un ordre quelconque à l'intérieur d'une fenêtre de temps ; il est plus fidèle à la réalité et donne toujours des taux plus élevés. Les deux sont légitimes, mais un entonnoir ouvert comparé à un entonnoir fermé du mois précédent ne veut rien dire — c'est la même exigence de constance des définitions qu'aux modules 1 et 2.</p>
+      <p>La construction obéit à une contrainte de sobriété : quatre à six étapes, chacune correspondant à un événement du plan de mesure, chacune étant un franchissement volontaire et non un simple affichage. Un entonnoir de douze étapes ne se lit pas, et il finit par diluer la marche intéressante dans une succession de micro-pertes sans signification.</p>
+      <p>La lecture, enfin, comporte un piège de raisonnement constant. La marche à traiter n'est pas celle dont le taux de passage est le plus bas dans l'absolu — le passage de la visite à l'ajout au panier est structurellement bas partout, et il n'y a rien à en conclure. C'est celle dont le taux <strong>s'écarte de sa propre histoire</strong>, ou de celui du même segment ailleurs. On compare une marche à elle-même dans le temps, jamais à ses voisines.</p>
+      <div class="example-box">
+        <h4>📌 Exemple — deux entonnoirs, une seule marche à traiter</h4>
+        <p>Entonnoir d'un formulaire de demande, sur deux mois : <em>page produit vue</em> 100 % → <em>page contact atteinte</em> 22 % (mars) puis 21 % (mai) → <em>formulaire commencé</em> 64 % puis 63 % → <em>formulaire envoyé</em> 71 % puis 52 %.</p>
+        <p>La marche au taux le plus bas est la première : seuls 22 % des visiteurs d'une page produit atteignent le contact. C'est celle qu'on désigne spontanément, et il n'y a rien à y faire — cette valeur est normale et stable.</p>
+        <p>La marche à traiter est la dernière, passée de 71 % à 52 % en deux mois. Elle est la plus haute en valeur absolue et la seule qui bouge. À volume constant, elle explique à elle seule la quasi-totalité de la perte, et le travail consiste maintenant à savoir sur qui : c'est l'objet de la section suivante.</p>
+      </div>
+      <div class="method-box">
+        <h4>⚙️ Méthode — construire et lire un entonnoir en cinq étapes</h4>
+        <ol>
+          <li><strong>Écrivez les étapes en français avant de les configurer</strong>, en ne retenant que les franchissements volontaires. Un affichage de page n'est pas une étape ; un clic, un début de formulaire, un envoi en sont.</li>
+          <li><strong>Choisissez la forme et la fenêtre</strong> — fermé ou ouvert, 1 session ou 30 jours — puis inscrivez ce choix sur le rapport. Un entonnoir dont la fenêtre n'est pas écrite deviendra incomparable dès qu'une autre personne le reproduira.</li>
+          <li><strong>Affichez les taux de passage entre marches</strong>, jamais seulement les volumes cumulés. C'est le taux entre deux marches consécutives qui porte l'information.</li>
+          <li><strong>Comparez chaque marche à sa propre valeur passée</strong>, sur une période équivalente. Une marche stable, même basse, ne demande aucune action.</li>
+          <li><strong>Descendez ensuite par segment sur la seule marche qui bouge.</strong> Analyser tout l'entonnoir par segment produit un tableau illisible et fait perdre une demi-journée.</li>
+        </ol>
+      </div>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — comparer une marche à sa voisine</h4>
+        <p>C'est l'erreur de lecture la plus répandue, et elle conduit systématiquement à travailler au mauvais endroit. Les marches d'un entonnoir n'ont aucune raison d'avoir des taux comparables : elles trient des populations d'intention croissante, et il est normal que la première élimine beaucoup et la dernière peu.</p>
+        <p>Un entonnoir se lit donc en dérivée, pas en niveau : ce qui compte est le mouvement de chaque marche dans le temps. Une conséquence pratique s'impose — un entonnoir observé une seule fois ne sert presque à rien. C'est en le regardant deux fois qu'il devient un outil de diagnostic.</p>
+      </div>
+
+      <h2>2. Segmenter : pourquoi la moyenne est un mensonge confortable</h2>
+      <p>Une moyenne est une opération qui détruit de l'information au profit de la commodité. Elle est utile pour communiquer et dangereuse pour analyser, parce qu'elle peut rester parfaitement stable pendant que deux populations évoluent en sens contraire, et parce qu'elle peut baisser sans qu'aucune population n'ait baissé.</p>
+      <p>Ce dernier cas mérite d'être connu précisément, tant il piège de gens compétents. Si le taux de conversion progresse chez les visiteurs sur ordinateur et progresse aussi chez ceux sur mobile, mais que la part du mobile — dont le taux est plus faible — augmente fortement, alors le taux global peut baisser. Rien ne s'est dégradé ; c'est la composition de l'audience qui a changé. La conséquence pratique est une règle absolue : <strong>devant une variation globale, on regarde toujours si les poids des segments ont bougé avant de chercher une cause de performance.</strong></p>
+      <p>Trois axes de segmentation suffisent à traiter la grande majorité des cas, et il vaut mieux les passer systématiquement que d'improviser. L'<strong>appareil</strong> d'abord, parce que c'est l'axe où les écarts techniques se logent et où les régressions apparaissent. La <strong>source</strong> ensuite, parce qu'elle porte l'intention : un visiteur venu d'une recherche de marque et un visiteur venu d'une bannière ne sont pas la même population, et les moyenner n'a pas de sens. Le statut <strong>nouveau ou revenant</strong> enfin, qui sépare la découverte de la décision.</p>
+      <p>Reste à savoir où s'arrêter, car la segmentation a une limite basse. En dessous d'un certain volume, les écarts observés ne sont plus que du bruit : sur quelques dizaines de conversions, un taux peut varier de plusieurs points d'une semaine à l'autre sans qu'il ne se soit rien passé. Fixez un plancher explicite — au minimum quelques centaines de sessions et quelques dizaines de conversions par segment — et refusez de commenter en dessous. Ce refus est une compétence, pas une lacune.</p>
+      <div class="example-box">
+        <h4>📌 Exemple — tout progresse, et le total baisse</h4>
+        <p>Mars : ordinateur, 10 000 sessions à 4,0 % ; mobile, 10 000 sessions à 2,0 %. Total : 20 000 sessions, 600 conversions, soit 3,0 %.</p>
+        <p>Mai : ordinateur, 8 000 sessions à 4,2 % ; mobile, 16 000 sessions à 2,1 %. Total : 24 000 sessions, 672 conversions, soit 2,8 %.</p>
+        <p>Chaque segment a progressé, le nombre absolu de conversions a augmenté de 12 %, et le taux global a baissé de 0,2 point. Une réunion qui ne regarde que le taux global conclura à une dégradation et lancera un chantier ; une réunion qui regarde les poids constatera que le mobile est passé de 50 % à 67 % de l'audience et posera la seule bonne question — pourquoi, et faut-il s'en réjouir ou s'en inquiéter ?</p>
+      </div>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — segmenter jusqu'à trouver quelque chose</h4>
+        <p>En croisant assez de dimensions — appareil, navigateur, région, source, heure — on finit toujours par isoler un segment où l'écart est spectaculaire. Ce n'est pas une découverte, c'est une propriété arithmétique : plus on découpe, plus on augmente la probabilité qu'un sous-groupe s'écarte fortement par pur hasard.</p>
+        <p>Deux garde-fous suffisent. Formuler l'hypothèse <em>avant</em> de découper — « je soupçonne un problème mobile » se vérifie, « je cherche où ça cloche » ne se vérifie jamais. Et exiger d'un segment intéressant qu'il tienne sur une <strong>seconde période indépendante</strong> avant d'agir. Un écart qui disparaît quand on le regarde sur le mois suivant n'a jamais existé.</p>
+      </div>
+
+      <h2>3. Cohortes et rétention : mesurer ce qui dure</h2>
+      <p>Une <strong>cohorte</strong> est un groupe défini par un moment d'entrée : tous les visiteurs venus pour la première fois en avril, tous les clients signés au deuxième trimestre. On suit ensuite ce groupe dans le temps, sans jamais le mélanger aux suivants. C'est cette immobilité de la population observée qui donne à la méthode son pouvoir : elle permet de comparer ce qui est comparable.</p>
+      <p>La <strong>rétention</strong> est la part de la cohorte encore active après un certain délai. Elle répond à une question qu'aucun indicateur global ne peut traiter : ce que nous avons changé au produit ou au service a-t-il un effet durable, ou seulement un effet d'annonce ? Un taux global mélange les anciens et les nouveaux, et un afflux de nouveaux venus masque très efficacement une dégradation.</p>
+      <p>La forme de la courbe se lit en une seconde et dit l'essentiel. Une courbe qui décroît puis <strong>s'aplatit</strong> révèle un noyau d'audience fidèle : la valeur de l'entreprise est là, et l'enjeu devient d'élargir ce noyau. Une courbe qui décroît <strong>jusqu'à zéro</strong> signale que rien ne retient, et qu'aucun effort d'acquisition ne compensera durablement — on remplit un réservoir percé, ce qui coûte de plus en plus cher à mesure qu'on grandit.</p>
+      <p>L'usage le plus utile de la méthode est comparatif. On superpose la courbe des cohortes entrées avant un changement et celle des cohortes entrées après, à âge égal. C'est le seul moyen honnête de juger l'effet d'une refonte, d'un nouveau parcours d'accueil ou d'un changement d'offre — et il exige de la patience, puisqu'il faut laisser la cohorte récente vieillir suffisamment avant de la comparer.</p>
+      <div class="example-box">
+        <h4>📌 Exemple — l'afflux qui cache l'érosion</h4>
+        <p>Une plateforme d'abonnement observe un nombre d'utilisateurs actifs mensuels en hausse constante sur douze mois. Le tableau de bord de direction est excellent et personne ne s'inquiète.</p>
+        <p>L'analyse par cohortes donne un tout autre récit : la rétention à 90 jours des cohortes de janvier était de 41 %, celle des cohortes de septembre est de 24 %. Le total ne monte que parce que l'acquisition monte plus vite que l'érosion.</p>
+        <p>Le diagnostic est sévère et il est précieux : le coût d'acquisition devra croître indéfiniment pour maintenir la courbe, et le jour où il plafonnera, le total se retournera brutalement. Rien de cela n'était visible sur l'indicateur global — c'est l'illustration la plus nette de ce que les cohortes apportent et de ce que les moyennes dissimulent.</p>
+      </div>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — juger une cohorte trop jeune</h4>
+        <p>La cohorte du mois en cours a l'air excellente : sa rétention à 30 jours n'est pas encore calculable, et les rapports affichent souvent une valeur partielle qui paraît flatteuse. La comparer à des cohortes plus anciennes revient à comparer un coureur au dixième kilomètre à un autre à l'arrivée.</p>
+        <p>La règle est mécanique : on ne compare que des cohortes <strong>de même âge</strong>, et on exclut des graphiques toute cohorte n'ayant pas atteint l'âge observé. Beaucoup d'outils ne le font pas automatiquement et affichent une dernière colonne en chute libre, qui n'est qu'un artefact de calcul et qui déclenche pourtant des réunions.</p>
+      </div>
+
+      <h2>4. Corrélation, causalité, saisonnalité : quatre façons de conclure trop vite</h2>
+      <p>Une analyse produit une observation ; l'erreur consiste à en faire immédiatement une explication. Quatre mécanismes produisent l'essentiel des fausses conclusions, et les connaître par leur nom permet de les repérer chez soi.</p>
+      <p>La <strong>corrélation prise pour une causalité</strong> est la plus connue et reste la plus fréquente. Deux courbes qui montent ensemble peuvent n'avoir aucun lien, ou dépendre toutes deux d'une troisième cause. Le cas typique : les visiteurs qui consultent trois pages ou plus convertissent quatre fois mieux — d'où la conclusion qu'il faut pousser à consulter davantage de pages. Le lien est inverse : ce sont les personnes déjà intéressées qui consultent davantage. Agir sur la mesure ne produira pas l'intention.</p>
+      <p>La <strong>saisonnalité ignorée</strong> vient ensuite. Comparer août à juin, ou décembre à novembre, produit des variations spectaculaires qui ne disent rien. Le remède est simple et rarement appliqué : comparer systématiquement à la même période de l'année précédente, en plus de la période précédente. Quand l'historique n'existe pas, il faut le dire plutôt que de commenter.</p>
+      <p>La <strong>variable cachée</strong> est la plus coûteuse parce qu'elle est invisible dans les données : une campagne lancée au même moment, une mise à jour technique, un article de presse, un concurrent en difficulté. C'est la raison d'être du journal des modifications du module 1 — sans lui, on attribue à ce qu'on a fait ce qui vient d'autre chose.</p>
+      <p>La <strong>régression vers la moyenne</strong>, enfin, est la plus insidieuse. Après une semaine exceptionnellement mauvaise, la suivante sera presque toujours meilleure, quoi qu'on fasse. Comme on agit précisément après les mauvaises semaines, on attribue à l'action une amélioration qui serait survenue seule. C'est le mécanisme qui fait croire à l'efficacité d'une bonne moitié des mesures correctives prises en urgence.</p>
+      <div class="method-box">
+        <h4>⚙️ Méthode — cinq questions avant de conclure</h4>
+        <ol>
+          <li><strong>Qu'est-ce qui d'autre a changé sur la période ?</strong> Journal des modifications, campagnes, actualité, concurrence. Question à poser en premier, toujours.</li>
+          <li><strong>Les poids des segments ont-ils bougé ?</strong> Une variation globale sans variation de segment est une variation de composition, pas de performance.</li>
+          <li><strong>Que dit la même période de l'année précédente ?</strong> Si l'historique manque, le dire explicitement plutôt que d'interpréter.</li>
+          <li><strong>La période précédente était-elle atypique ?</strong> Si le point de départ était un creux ou un pic, une partie du mouvement est un simple retour à la normale.</li>
+          <li><strong>Quel serait le résultat si mon hypothèse était fausse ?</strong> Nommez l'observation qui vous ferait changer d'avis. Une hypothèse qu'aucune donnée ne pourrait contredire n'est pas une analyse.</li>
+        </ol>
+      </div>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — le graphique à deux axes</h4>
+        <p>Superposer deux courbes d'unités différentes sur deux axes verticaux permet, en choisissant les échelles, de faire coïncider à peu près n'importe quelles séries. L'œil y lit une relation que rien n'établit, et l'effet est d'autant plus fort que le graphique est soigné.</p>
+        <p>Si la comparaison est nécessaire, ramenez les deux séries à une base commune — indice 100 à la première période, ou variation en pourcentage — et affichez-les sur un seul axe. Le module 4 revient sur les représentations qui trompent ; retenez ici que celle-ci est de très loin la plus fréquente en réunion.</p>
+      </div>
+
+      <h2>5. L'A/B test : ce qu'il démontre, et quand ne pas en faire</h2>
+      <p>Le test A/B est le seul dispositif qui établisse une causalité : on répartit aléatoirement les visiteurs entre deux versions, et comme l'attribution est aléatoire, les deux groupes ne diffèrent en moyenne que par la version reçue. Toute différence d'issue lui est donc imputable — à ceci près que le hasard produit aussi des différences, et que la statistique sert à distinguer les deux.</p>
+      <p>Un test se dimensionne <strong>avant</strong> d'être lancé, et cette étape décide de tout. Trois grandeurs entrent en jeu : le taux de conversion actuel, l'<strong>effet minimal détectable</strong> que l'on souhaite pouvoir mettre en évidence, et le volume nécessaire par variante. La relation est brutale et il faut en avoir l'ordre de grandeur en tête : plus l'effet recherché est petit, plus le volume explose, et la relation est quadratique — détecter un effet deux fois plus petit demande environ quatre fois plus de visiteurs. Sur un taux de conversion de l'ordre de 3 %, mettre en évidence une amélioration relative de 10 % demande couramment plusieurs dizaines de milliers de visiteurs par variante. Beaucoup de sites n'ont tout simplement pas ce trafic, et il vaut mieux le savoir avant qu'après.</p>
+      <p>La <strong>durée</strong> obéit à une contrainte propre, indépendante du volume : un test doit couvrir au moins un cycle hebdomadaire complet, et de préférence deux, parce que le comportement du lundi n'est pas celui du samedi. Un test qui atteint son volume en trois jours doit néanmoins durer deux semaines, faute de quoi il mesure une population particulière et non votre audience.</p>
+      <p>La <strong>significativité</strong>, enfin, est le point le plus mal compris. Un seuil usuel de 5 % signifie que si les deux versions étaient identiques, on observerait par pur hasard un écart au moins aussi grand dans 5 % des cas. Elle ne dit ni que la variante est meilleure, ni de combien, ni que le résultat se reproduira. Elle dit seulement que l'écart observé est difficile à expliquer par le seul hasard — et cette prudence n'est pas une réserve d'universitaire : c'est ce qui distingue une décision fondée d'une superstition chiffrée.</p>
+      <div class="method-box">
+        <h4>⚙️ Méthode — conduire un test en six étapes</h4>
+        <ol>
+          <li><strong>Écrivez l'hypothèse et le critère de décision avant de lancer</strong> : quelle mesure, quel effet minimal, quelle décision selon le résultat. Un critère écrit après coup se négocie ; écrit avant, il tranche.</li>
+          <li><strong>Calculez le volume nécessaire par variante</strong> à partir du taux actuel et de l'effet minimal détectable. Si le volume dépasse ce que le site produit en six semaines, renoncez au test et décidez autrement, en le disant.</li>
+          <li><strong>Fixez la date de fin</strong> — volume atteint <em>et</em> deux semaines entières écoulées — et engagez-vous à ne pas la modifier.</li>
+          <li><strong>Vérifiez la répartition dans les premières heures</strong> : proportions conformes, aucune différence anormale entre les deux groupes sur les caractéristiques connues. Un déséquilibre initial invalide tout ce qui suivra.</li>
+          <li><strong>Ne regardez pas les résultats avant la date de fin</strong>, ou regardez-les sans jamais décider sur cette base. C'est la règle la plus difficile à tenir et la plus importante du module.</li>
+          <li><strong>À la fin, décidez selon le critère écrit</strong>, y compris quand le résultat déplaît. Un test dont on ne suit pas la conclusion n'aurait pas dû être lancé.</li>
+        </ol>
+      </div>
+      <div class="pitfall-box">
+        <h4>⚠️ Erreur fréquente — arrêter le test dès qu'il devient significatif</h4>
+        <p>C'est l'erreur la plus grave du domaine, et la plus commise, parce qu'elle paraît raisonnable. On surveille le test chaque jour ; au cinquième, l'outil annonce 96 % de confiance en faveur de la variante B ; on arrête et on déploie.</p>
+        <p>Le mécanisme est le suivant : au cours d'un test, l'écart entre les deux versions fluctue continuellement, et il franchit le seuil de significativité par hasard bien plus souvent qu'on ne l'imagine. En regardant tous les jours et en s'autorisant à arrêter au premier franchissement, on ne teste plus une hypothèse — on attend que le bruit soit favorable. La probabilité de conclure à tort n'est plus de 5 % mais peut approcher un cas sur trois selon la fréquence des consultations.</p>
+        <p>Deux parades existent. La plus simple : fixer la date de fin à l'avance et s'y tenir absolument, ce qui suffit dans l'immense majorité des cas. La plus technique : utiliser un dispositif d'analyse séquentielle prévu pour des lectures répétées, proposé par certains outils sous le nom de test séquentiel. Ce qu'il ne faut jamais faire, c'est regarder chaque jour un test conçu pour être lu une fois.</p>
+      </div>
+      <h3>Quand il ne faut pas tester</h3>
+      <p>Un test n'est pas toujours la bonne réponse, et savoir le refuser fait partie du métier. <strong>Quand le trafic est insuffisant</strong> : un test sous-dimensionné ne produit pas un résultat incertain, il produit un résultat trompeur, et il consomme des semaines. Mieux vaut décider sur l'argumentation, en assumant l'incertitude.</p>
+      <p><strong>Quand le changement corrige un défaut évident</strong> : un formulaire cassé sur un navigateur, un bouton invisible sur mobile, une page qui met huit secondes à s'afficher. Tester une correction de bogue est une perte de temps et laisse la moitié des visiteurs sur la version défectueuse.</p>
+      <p><strong>Quand l'effet attendu est lointain</strong> : un test mesure bien une conversion immédiate, mal une fidélité à six mois. Sur ces questions, la comparaison de cohortes de la section 3 est l'outil adapté. <strong>Et quand la décision n'est pas mesurable</strong> — cohérence de marque, conformité, accessibilité : ces choix se tranchent sur des principes, et les soumettre à un test revient à déguiser une décision en mesure.</p>
+
+      <div class="case-box">
+        <h3>🔍 Étude de cas — 3,1 % à 2,6 % : la refonte à 40 000 € qui n'avait pas lieu d'être</h3>
+        <p>Reprenons la réunion du 2 juin et son devis de refonte. Voici le diagnostic, mené en deux heures avec les outils des trois premiers modules.</p>
+        <p><strong>Étape 1 — vérifier l'instrument avant le phénomène.</strong> Réflexe du module 1. Journal des modifications : une mise à jour du formulaire de demande a été déployée le 8 avril. Recoupement avec le nombre de fiches créées dans le CRM : la baisse est réelle, elle n'est pas un artefact de collecte. Le phénomène existe, on peut analyser.</p>
+        <p><strong>Étape 2 — l'entonnoir, pour savoir où.</strong> Quatre marches : page produit vue, page contact atteinte, formulaire commencé, formulaire envoyé. Les trois premières sont stables à un point près sur les deux mois. La quatrième passe de 71 % à 52 %. La perte est entièrement située entre le début et l'envoi du formulaire — la page d'accueil, qui n'apparaît même pas dans l'entonnoir, ne peut pas être en cause. Cette seule observation suffit à retirer le devis de la table, et elle a pris vingt minutes.</p>
+        <p><strong>Étape 3 — la segmentation, pour savoir sur qui.</strong> On segmente la seule marche qui bouge, et uniquement celle-là. Par appareil : ordinateur stable à 74 %, mobile effondré de 68 % à 39 %. Par navigateur au sein du mobile : un navigateur concentre la quasi-totalité de la chute. Par source : aucun effet, ce qui est cohérent avec une cause technique et non avec un problème de qualité d'audience.</p>
+        <p><strong>Étape 4 — reconstituer le mécanisme.</strong> La mise à jour du 8 avril a ajouté au formulaire un champ de sélection dont l'affichage est défectueux sur ce navigateur mobile : la liste s'ouvre hors de l'écran. L'utilisateur ne peut pas la renseigner, le champ est obligatoire, et l'envoi est refusé sans message d'erreur visible. Le formulaire n'est pas long, il est impossible à terminer.</p>
+        <p><strong>Étape 5 — vérifier le calendrier avant de conclure.</strong> Contrôle indispensable : la chute commence-t-elle bien le 8 avril ? Oui, avec un décrochage net à cette date sur le segment concerné, et rien avant. Sans cette vérification, on aurait une corrélation entre deux faits — un déploiement et une baisse — sans certitude de lien. La coïncidence de date sur un segment précis, et sur lui seul, rend l'explication difficile à contester.</p>
+        <p><strong>Étape 6 — corriger, et ne pas tester.</strong> Le correctif est déployé le lendemain. Aucun test A/B n'est lancé, et c'est une décision réfléchie : il s'agit d'une correction de défaut, pas d'une amélioration à évaluer. Tester aurait laissé la moitié des visiteurs mobiles sur la version cassée pendant deux semaines, pour démontrer une évidence. La vérification se fait autrement — on surveille le retour de la marche à sa valeur historique sur le segment concerné, ce qui se produit en quatre jours.</p>
+        <p><strong>Le bilan chiffré.</strong> Deux heures d'analyse, une journée de développement, et un taux global revenu à 3,1 % en une semaine. Le devis de refonte de la page d'accueil est abandonné — non parce que la page est parfaite, mais parce que rien n'indiquait qu'elle posait problème. Sur deux mois, l'incident aura coûté environ 80 demandes commerciales.</p>
+        <p><strong>Les trois leçons transposables.</strong> D'abord, un taux global ne désigne jamais un coupable : l'entonnoir localise, la segmentation identifie, et l'ordre des deux opérations n'est pas interchangeable. Ensuite, une hypothèse unique finit toujours par être adoptée faute de concurrente — la valeur de l'analyse tient autant à ce qu'elle élimine qu'à ce qu'elle démontre. Enfin, la chute était invisible dans les indicateurs suivis : le taux global bougeait de 0,5 point, ce qui semble peu, alors qu'un segment perdait plus de 40 % de sa conversion. C'est l'argument le plus solide en faveur d'un suivi segmenté par appareil, que le module 4 placera dans le tableau de bord opérationnel.</p>
+      </div>
+
+      <div class="checklist-box">
+        <h3>📋 Checklist — analyser sans conclure trop vite</h3>
+        <ul class="checklist">
+          <li>L'entonnoir compte quatre à six étapes, toutes des franchissements volontaires</li>
+          <li>Sa forme (fermé ou ouvert) et sa fenêtre sont écrites sur le rapport</li>
+          <li>Les taux de passage entre marches sont affichés, pas seulement les volumes cumulés</li>
+          <li>Chaque marche est comparée à sa propre histoire, jamais à ses voisines</li>
+          <li>La segmentation ne porte que sur la marche qui bouge</li>
+          <li>Les poids des segments ont été vérifiés avant toute conclusion sur la performance</li>
+          <li>Les trois axes appareil, source et statut nouveau ou revenant ont été passés</li>
+          <li>Un volume plancher par segment est fixé, et rien n'est commenté en dessous</li>
+          <li>Toute hypothèse est formulée avant le découpage, jamais découverte en découpant</li>
+          <li>Un segment intéressant a été confirmé sur une seconde période indépendante</li>
+          <li>Les cohortes comparées ont le même âge, et les cohortes trop jeunes sont exclues</li>
+          <li>L'effet d'un changement est jugé sur des cohortes avant et après, pas sur un total</li>
+          <li>Les cinq questions préalables ont été posées avant de conclure</li>
+          <li>La comparaison à la même période de l'année précédente a été faite, ou son absence signalée</li>
+          <li>Aucun graphique à deux axes verticaux n'est utilisé pour suggérer une relation</li>
+          <li>L'hypothèse, l'effet minimal détectable et le critère de décision sont écrits avant le test</li>
+          <li>Le volume nécessaire par variante a été calculé avant le lancement</li>
+          <li>La date de fin est fixée à l'avance et couvre au moins deux semaines entières</li>
+          <li>Aucun test n'est arrêté par anticipation au motif qu'il est devenu significatif</li>
+          <li>Les corrections de défaut et les décisions de principe ne sont pas soumises à un test</li>
+        </ul>
+      </div>
+
+      <div class="glossary-box">
+        <h3>📖 Glossaire du module</h3>
+        <dl>
+          <dt>Entonnoir de conversion</dt>
+          <dd>Décomposition d'un parcours en étapes ordonnées, permettant de localiser la marche où se produit la perte.</dd>
+          <dt>Entonnoir fermé / ouvert</dt>
+          <dd>Le premier impose l'ordre strict dans une même session, le second admet un ordre quelconque dans une fenêtre. Le second donne toujours des taux plus élevés : les deux ne se comparent pas.</dd>
+          <dt>Taux de passage</dt>
+          <dd>Part d'une marche qui franchit la suivante. Porte l'information ; se compare à lui-même dans le temps, jamais aux marches voisines.</dd>
+          <dt>Effet de composition</dt>
+          <dd>Variation d'une moyenne due au changement de poids des segments et non à leur performance. Peut faire baisser un total pendant que chaque segment progresse.</dd>
+          <dt>Cohorte</dt>
+          <dd>Groupe défini par son moment d'entrée, suivi dans le temps sans être mélangé aux suivants.</dd>
+          <dt>Rétention</dt>
+          <dd>Part d'une cohorte encore active après un délai donné. Une courbe qui s'aplatit révèle un noyau fidèle ; une courbe qui va à zéro, un réservoir percé.</dd>
+          <dt>Variable cachée</dt>
+          <dd>Cause extérieure survenue en même temps que l'action observée. Raison d'être du journal des modifications.</dd>
+          <dt>Régression vers la moyenne</dt>
+          <dd>Tendance d'une valeur extrême à être suivie d'une valeur plus ordinaire. Fait attribuer à une action corrective une amélioration qui serait survenue seule.</dd>
+          <dt>Test A/B</dt>
+          <dd>Comparaison de deux versions sur des groupes constitués au hasard. Seul dispositif établissant une causalité.</dd>
+          <dt>Effet minimal détectable</dt>
+          <dd>Plus petit écart que le test doit pouvoir mettre en évidence. Détermine le volume nécessaire, selon une relation quadratique.</dd>
+          <dt>Significativité</dt>
+          <dd>Probabilité d'observer un écart au moins aussi grand si les deux versions étaient identiques. Ne dit ni l'ampleur de l'effet, ni qu'il se reproduira.</dd>
+          <dt>Arrêt anticipé</dt>
+          <dd>Interruption d'un test au premier franchissement du seuil de significativité. Multiplie fortement les faux positifs : l'erreur la plus grave du domaine.</dd>
+          <dt>Test d'incrémentalité</dt>
+          <dd>Suppression d'un canal sur une part comparable de l'audience, pour mesurer ce qu'il ajoute réellement au volume total.</dd>
+        </dl>
+      </div>
+
+      <div class="takeaway-box">
+        <h3>✅ À retenir</h3>
+        <ul>
+          <li>Un taux global dit qu'il y a un problème, jamais où : l'entonnoir localise, la segmentation identifie, dans cet ordre.</li>
+          <li>Un entonnoir se lit en mouvement, pas en niveau : la marche à traiter est celle qui s'écarte de son histoire, pas la plus basse.</li>
+          <li>Un entonnoir observé une seule fois ne sert presque à rien.</li>
+          <li>Fermé et ouvert ne se comparent pas : écrivez la forme et la fenêtre sur le rapport.</li>
+          <li>Devant une variation globale, vérifiez d'abord si les poids des segments ont bougé.</li>
+          <li>Chaque segment peut progresser pendant que le total baisse : c'est un effet de composition, pas une dégradation.</li>
+          <li>Fixez un volume plancher par segment et refusez de commenter en dessous : ce refus est une compétence.</li>
+          <li>Formulez l'hypothèse avant de découper ; en découpant assez, on trouve toujours quelque chose qui n'existe pas.</li>
+          <li>Un segment intéressant doit tenir sur une seconde période indépendante avant qu'on agisse.</li>
+          <li>Les cohortes disent ce que les totaux cachent : une acquisition en hausse masque très efficacement une rétention qui s'effondre.</li>
+          <li>Ne comparez que des cohortes de même âge, et excluez les cohortes trop jeunes des graphiques.</li>
+          <li>Quatre mécanismes produisent l'essentiel des fausses conclusions : corrélation, saisonnalité, variable cachée, régression vers la moyenne.</li>
+          <li>Nommez toujours l'observation qui vous ferait changer d'avis : une hypothèse irréfutable n'est pas une analyse.</li>
+          <li>Un test se dimensionne avant d'être lancé : détecter un effet deux fois plus petit demande environ quatre fois plus de visiteurs.</li>
+          <li>Un test dure au moins deux semaines entières, même si le volume est atteint en trois jours.</li>
+          <li>Arrêter un test au premier seuil franchi peut porter la probabilité de conclure à tort à près d'un cas sur trois.</li>
+          <li>Ne testez pas une correction de défaut, ni une décision de principe, ni un effet lointain : le test n'est pas toujours la bonne réponse.</li>
+        </ul>
+      </div>
+
+      <h2 class="exercises-title">Exercices d'application</h2>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 1 — Lire un entonnoir et désigner la marche à traiter <span class="badge badge-neutral">Débutant</span></h3>
+        <p>Un site de vente en ligne affiche l'entonnoir suivant, comparé au même mois de l'année précédente. Visite du site : 100 % dans les deux cas. Fiche produit vue : 34 % l'an dernier, 33 % cette année. Ajout au panier : 11 % l'an dernier, 11 % cette année. Début de commande : 58 % l'an dernier, 57 % cette année. Commande validée : 81 % l'an dernier, 62 % cette année.</p>
+        <p>Désignez la marche à traiter et justifiez. Indiquez ensuite les trois analyses que vous menez avant de formuler la moindre hypothèse sur la cause, et dites ce que vous répondez si l'on vous demande de travailler d'abord sur le taux d'ajout au panier, qui n'est que de 11 %.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>La marche à traiter est la dernière : commande validée, passée de 81 % à 62 %.</strong> C'est la seule qui s'écarte de son histoire, et l'écart est de 19 points. Les trois autres marches sont stables à un point près, ce qui est du bruit ordinaire. Cette lecture prend trente secondes une fois le réflexe acquis.</p>
+            <p><strong>Pourquoi ce n'est pas le taux d'ajout au panier, malgré ses 11 %.</strong> C'est la question qui sera posée en réunion, et il faut y répondre sans se réfugier derrière la méthode. Argument : 11 % est le taux d'ajout au panier de l'an dernier <em>et</em> de cette année. Il est bas, comme il l'est sur la quasi-totalité des sites de vente en ligne, parce que cette marche trie entre les curieux et les acheteurs — c'est sa fonction. Un taux bas et stable ne signale rien ; un taux haut qui chute de 19 points signale un accident. Formulation utile : « travailler sur l'ajout au panier est un projet d'optimisation légitime, qui n'a rien à voir avec la perte que nous constatons ; commençons par récupérer ce que nous venons de perdre, c'est plus rapide et plus rentable ».</p>
+            <p><strong>Le chiffrage qui emporte la décision.</strong> Ne restez pas sur un raisonnement de taux : convertissez en volume. À trafic constant, la marche finale perdue représente environ 23 % des commandes qui parvenaient à cette étape — soit, sur les volumes concernés, une perte directe et immédiatement récupérable. L'ajout au panier, même amélioré de 10 % en relatif après trois mois de travail, rapporterait bien moins. Un arbitrage exprimé en volumes est presque toujours accepté, là où le même arbitrage exprimé en points de pourcentage se discute.</p>
+            <p><strong>Les trois analyses à mener avant toute hypothèse.</strong></p>
+            <p><em>1. Le journal des modifications et le calendrier.</em> Qu'a-t-on déployé sur le tunnel de commande depuis un an, et à quelle date exactement ? La chute est-elle progressive ou franche à une date ? Une chute franche désigne un déploiement ; une dérive progressive oriente plutôt vers un changement de composition de l'audience ou de moyens de paiement.</p>
+            <p><em>2. La segmentation de cette seule marche.</em> Par appareil d'abord, puis par navigateur si l'appareil montre quelque chose, puis par moyen de paiement — c'est le segment spécifique de cette marche sur un site marchand, et souvent le plus révélateur. Ne segmentez pas les autres marches : elles sont stables, il n'y a rien à y trouver.</p>
+            <p><em>3. Le contrôle de composition.</em> Les poids des segments ont-ils bougé en un an ? Si la part du mobile ou celle d'un moyen de paiement à taux plus faible a fortement augmenté, une partie de la chute est un effet de composition et non une dégradation. Ce contrôle évite de partir en chasse d'un bogue qui n'existe pas.</p>
+            <p><strong>L'ordre compte.</strong> Ces trois analyses se font avant de formuler une cause, précisément parce qu'une hypothèse énoncée trop tôt oriente tout le reste : on cherche alors ce qui la confirme. Le bon réflexe est de produire d'abord les trois découpages, puis de regarder ce qu'ils dessinent.</p>
+          </div>
+        </details>
+      </div>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 2 — Le taux baisse, tous les segments montent <span class="badge badge-neutral">Intermédiaire</span></h3>
+        <p>Votre direction constate que le taux de conversion est passé de 3,4 % à 3,0 % en un an et demande des explications. Vos données : ordinateur, 120 000 sessions à 5,1 % l'an dernier, 96 000 sessions à 5,4 % cette année. Mobile, 80 000 sessions à 0,9 % l'an dernier, 144 000 sessions à 1,0 % cette année.</p>
+        <p>Établissez ce qui s'est réellement passé, en chiffres. Dites ce que vous recommandez, et comment vous présentez ce constat à une direction qui attend une explication de la baisse.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>Le calcul, d'abord.</strong> L'an dernier : 120 000 × 5,1 % = 6 120 conversions sur ordinateur, 80 000 × 0,9 % = 720 sur mobile, soit 6 840 conversions pour 200 000 sessions — 3,42 %. Cette année : 96 000 × 5,4 % = 5 184 et 144 000 × 1,0 % = 1 440, soit 6 624 conversions pour 240 000 sessions — 2,76 %.</p>
+            <p><strong>Ce que cela établit.</strong> Les deux segments ont progressé, l'ordinateur de 5,1 à 5,4 %, le mobile de 0,9 à 1,0 %. Le taux global a pourtant chuté de 0,66 point, parce que la part du mobile est passée de 40 % à 60 % de l'audience, et que le mobile convertit cinq fois moins bien. C'est un effet de composition à l'état pur, et la première phrase à prononcer est : « rien ne s'est dégradé ».</p>
+            <p><strong>Mais il faut aller plus loin, car il y a une vraie mauvaise nouvelle.</strong> Ne vous arrêtez pas au constat rassurant — ce serait une analyse incomplète, et elle vous reviendra. Le nombre absolu de conversions a <em>baissé</em>, de 6 840 à 6 624, alors que le trafic a augmenté de 20 %. Autrement dit : l'entreprise a acheté ou gagné 40 000 sessions supplémentaires et en a retiré 216 conversions de moins. C'est le chiffre qui compte, et il est invisible aussi bien dans le taux global que dans la lecture par segment.</p>
+            <p><strong>Le vrai sujet est donc l'écart mobile.</strong> 1,0 % contre 5,4 % : un facteur cinq. Un tel écart n'est jamais entièrement explicable par l'intention — le mobile sert davantage à découvrir et l'ordinateur à décider, ce qui justifie un écart, mais rarement de cet ordre. Il faut donc décomposer le parcours mobile avec l'entonnoir de la section 1, marche par marche, pour voir si la perte est répartie ou concentrée. Une perte concentrée sur une marche désigne un problème technique réparable ; une perte répartie sur toutes les marches désigne une différence d'intention, contre laquelle on n'agit pas de la même façon.</p>
+            <p><strong>Ce que je recommande, dans cet ordre.</strong> Ouvrir l'entonnoir mobile avant toute autre chose. Suivre désormais le taux de conversion <em>par appareil</em> et non en global, le global n'étant plus interprétable dès lors que la composition bouge. Suivre en parallèle le nombre absolu de conversions, qui reste vrai quelle que soit la composition. Et vérifier l'origine du basculement d'audience : s'il vient d'un canal payant qui envoie massivement du mobile, le coût par conversion de ce canal doit être réexaminé, car il est probablement bien plus mauvais qu'il n'apparaît.</p>
+            <p><strong>Comment le présenter.</strong> Ne commencez pas par le paradoxe arithmétique : « en fait chaque segment progresse » sonne comme une excuse et sera reçu comme tel. Commencez par le fait le plus dur — « nous avons 20 % de trafic en plus et 216 conversions en moins » — puis expliquez le mécanisme, puis proposez le plan. Vous serez entendue, et le taux global cessera d'être commenté en réunion, ce qui est le vrai bénéfice de l'exercice. Une analyse qui aboutit à changer l'indicateur suivi vaut plus qu'une analyse qui explique l'ancien.</p>
+          </div>
+        </details>
+      </div>
+      <div class="exercise-box">
+        <h3>🛠️ Exercice 3 — On vous demande d'arrêter un test au cinquième jour <span class="badge badge-neutral">Avancé</span></h3>
+        <p>Vous conduisez un test A/B sur une nouvelle page de tarifs, dimensionné pour détecter une amélioration relative de 10 % sur un taux de base de 2,8 %, soit une date de fin fixée au 28 du mois. Au cinquième jour, l'outil affiche 96 % de confiance en faveur de la variante B, avec un gain apparent de 31 %. Le directeur marketing veut déployer immédiatement : « le résultat est là, chaque jour d'attente coûte de l'argent ».</p>
+        <p>Expliquez ce qui se passe réellement dans ces chiffres, dites ce que vous répondez, et proposez la conduite à tenir — y compris dans le cas où l'attente ferait courir un risque commercial réel.</p>
+        <details class="solution-box">
+          <summary>Afficher le corrigé commenté</summary>
+          <div class="solution-content">
+            <p><strong>Ce que disent réellement ces deux chiffres.</strong> Le gain apparent de 31 % est le premier signal d'alarme, et non une bonne nouvelle. Le test a été dimensionné pour détecter 10 % : observer 31 % au cinquième jour, sur une fraction du volume prévu, est bien plus compatible avec du bruit qu'avec un effet réel. Les écarts extrêmes apparaissent tôt, quand les effectifs sont faibles, puis se rapprochent de la réalité à mesure que le volume s'accumule. Un résultat spectaculaire et précoce est la signature statistique du hasard, pas celle d'une innovation réussie.</p>
+            <p><strong>Le mécanisme de l'arrêt anticipé.</strong> L'écart entre les deux versions fluctue en permanence pendant un test. Le seuil de significativité est franchi et refranchi au gré de ces fluctuations. Surveiller quotidiennement en s'autorisant à arrêter au premier franchissement, ce n'est plus tester une hypothèse : c'est attendre que le bruit soit favorable, et l'on finit toujours par obtenir gain de cause. La probabilité de conclure à tort n'est plus de 5 % mais peut approcher un cas sur trois selon la fréquence des consultations. Le « 96 % de confiance » affiché est calculé comme si l'on n'avait regardé qu'une fois : il est faux dans ce contexte, et c'est le point qu'il faut faire comprendre.</p>
+            <p><strong>Ce que je réponds, et comment.</strong> Ne dites pas « ce n'est pas significatif » : l'outil affiche 96 %, vous auriez tort en apparence et la discussion tournerait à l'opposition d'autorités. Dites : « le chiffre affiché suppose une seule lecture en fin de test ; nous en sommes à la cinquième, ce qui multiplie par plusieurs fois le risque de nous tromper. Et un gain de 31 % sur un test conçu pour en détecter 10 est très probablement du bruit — si nous déployons maintenant, nous avons une chance sur trois environ de généraliser une version qui ne vaut pas mieux, et nous n'aurons aucun moyen de nous en apercevoir ensuite. »</p>
+            <p><strong>Le coût de l'erreur, chiffré — c'est ce qui emporte la décision.</strong> Le directeur raisonne sur le coût de l'attente : trois semaines de gain supposé. Opposez-lui le coût de l'erreur : une version généralisée à tort n'est pas neutre, elle sera considérée comme acquise, deviendra la référence des tests suivants, et personne ne la remettra en cause. Vous n'aurez pas perdu trois semaines, vous aurez perdu la capacité de savoir. Formulé ainsi, l'arbitrage change de nature.</p>
+            <p><strong>La conduite à tenir dans le cas normal.</strong> Maintenir la date de fin au 28, ne pas consulter les résultats intermédiaires, et rappeler que le critère de décision a été écrit avant le lancement — c'est précisément à ce moment-là qu'il sert. Si l'organisation ne supporte pas l'attente en aveugle, la solution honnête existe : basculer sur un dispositif d'<strong>analyse séquentielle</strong>, prévu pour des lectures répétées et proposé par plusieurs outils. Il faut alors le décider explicitement, l'annoncer, et accepter qu'il demande généralement un peu plus de volume qu'un test à lecture unique. Ce n'est pas un contournement, c'est un autre protocole.</p>
+            <p><strong>Le cas où l'attente fait courir un risque réel — et où il faut savoir céder.</strong> Il existe : une opération commerciale se termine le 15, une contrainte réglementaire impose une date, la variante corrige au passage un défaut avéré. La position raisonnable n'est alors pas de s'accrocher au protocole, c'est de déployer <em>en nommant ce qu'on abandonne</em> : « nous déployons B pour la campagne, nous ne saurons pas si elle est meilleure, et nous ne considérerons pas la question comme tranchée ». Consignez-le par écrit, car sans cette trace, le déploiement deviendra dans six mois « le test qui avait montré 31 % de gain ». Le principal dégât d'un test interrompu n'est pas la mauvaise décision du jour : c'est la fausse certitude qu'il laisse derrière lui.</p>
+            <p><strong>Ce qu'il faut mettre en place pour que la situation ne se reproduise pas.</strong> Retirer l'accès aux résultats intermédiaires, ou à défaut convenir par écrit que les consultations ne fondent aucune décision. Écrire la date de fin et le critère dans le même document que l'hypothèse, signé par le demandeur du test. Et prendre le temps, une fois, d'expliquer le mécanisme de l'arrêt anticipé à ceux qui commandent des tests : c'est un quart d'heure, il ne se rattrape jamais en situation de tension, et c'est le meilleur investissement de tout ce module.</p>
+          </div>
+        </details>
+      </div>
+      <div class="resources-box">
+        <h3>🔗 Pour aller plus loin</h3>
+        <ul>
+          <li><strong>Un calculateur de taille d'échantillon</strong> — la plupart des éditeurs d'outils de test en proposent un gratuitement. Prenez l'habitude de l'ouvrir avant d'accepter un test : dans bien des cas, il montre en trente secondes que le volume nécessaire est hors de portée, ce qui évite six semaines inutiles.</li>
+          <li><strong>« Trustworthy Online Controlled Experiments », Kohavi, Tang et Xu</strong> — l'ouvrage de référence sur les tests en ligne, écrit par des praticiens. Les chapitres sur les pièges de l'arrêt anticipé et sur les tests qui ne prouvent rien justifient à eux seuls la lecture.</li>
+          <li><strong>Les modules 1 et 2 de cette formation</strong> — le journal des modifications du module 1 est ce qui permet d'écarter la variable cachée, et l'attribution du module 2 conditionne toute analyse par canal. Une analyse menée sans eux repose sur du sable.</li>
+          <li><strong>Le module 4 de cette formation</strong> — il traite la restitution : comment présenter un constat comme celui de l'étude de cas sans que la réunion reparte sur l'hypothèse la plus séduisante. Analyser et faire entendre sont deux compétences distinctes.</li>
+        </ul>
+      </div>
+    </article>
+
+    <section class="quiz-section">
+      <h2>🧠 Quiz d'auto-évaluation</h2>
+      <p style="color:var(--text-muted);margin-bottom:20px;">Sélectionnez la bonne réponse pour valider vos acquis. Le feedback immédiat vous expliquera les concepts clés.</p>
+      <div id="quiz-container">
+        <!-- Quiz chargé dynamiquement par quiz-engine.js -->
+      </div>
+      <div style="margin-top: 24px; text-align: center;">
+        <button id="btn-mark-complete" data-module-id="formation-analytics-mesure-module-3" class="btn btn-primary">
+          Marquer le module comme terminé ✓
+        </button>
+      </div>
+    </section>
+
+    <nav class="module-nav">
+      <a href="../module-2/index.html" class="btn btn-outline">← Module 2</a>
+      <a href="../module-4/index.html" class="btn btn-primary">Module 4 →</a>
+    </nav>
+  </main>
+
+  <script src="../../../assets/js/progress.js"></script>
+  <script src="../../../assets/js/quiz-engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadQuiz('quiz.json', 'quiz-container');
+    });
+  </script>
+</body>
+</html>

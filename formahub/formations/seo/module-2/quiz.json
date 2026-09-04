@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-seo-module-2",
+  "version": "2.0",
+  "last_verified": "2026-09-01",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quelle est l'intention de la requête « logiciel compta vs excel comparatif » ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Navigationnelle"
+        },
+        {
+          "key": "b",
+          "text": "Commerciale d'investigation"
+        },
+        {
+          "key": "c",
+          "text": "Transactionnelle"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "L'internaute compare plusieurs options pour préparer son choix : il évalue activement, sans être encore prêt à acheter."
+    },
+    {
+      "id": "q2",
+      "question": "Comment identifier de façon fiable le format de page attendu sur une requête ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "En observant le type des 10 premiers résultats en navigation privée"
+        },
+        {
+          "key": "b",
+          "text": "En choisissant le format qui sert le mieux les objectifs commerciaux"
+        },
+        {
+          "key": "c",
+          "text": "En reprenant le format de la page la plus rentable du site"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Le top 10 est la réponse explicite du moteur à la question « quel contenu satisfait cette intention ? ». C'est une observation gratuite, pas une supposition."
+    },
+    {
+      "id": "q3",
+      "question": "Que valent les volumes de recherche affichés par les outils ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Des mesures exactes, utilisables pour prévoir un trafic"
+        },
+        {
+          "key": "b",
+          "text": "Des estimations arrondies, utiles pour hiérarchiser des requêtes entre elles"
+        },
+        {
+          "key": "c",
+          "text": "Des données sans aucune valeur"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Souvent regroupés entre variantes proches et parfois éloignés du réel, ils servent à comparer des requêtes — jamais à bâtir une prévision de trafic."
+    },
+    {
+      "id": "q4",
+      "question": "Deux requêtes obtiennent le même score total. Quel critère doit trancher ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le volume de recherche, qui détermine le trafic potentiel"
+        },
+        {
+          "key": "b",
+          "text": "L'effort de production, pour livrer plus vite"
+        },
+        {
+          "key": "c",
+          "text": "La valeur métier, c'est-à-dire la proximité avec l'acte d'achat"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Une requête à fort volume sans intention commerciale produit des statistiques flatteuses et aucun chiffre d'affaires."
+    },
+    {
+      "id": "q5",
+      "question": "Une page de blog en cannibalisation possède 6 backlinks externes. Quel traitement privilégier ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "La supprimer pour éliminer la concurrence interne"
+        },
+        {
+          "key": "b",
+          "text": "La différencier en la réorientant vers une intention distincte, et la relier à la page cible"
+        },
+        {
+          "key": "c",
+          "text": "La bloquer dans le robots.txt"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Des backlinks font d'une page un actif. La différenciation conserve cette autorité tout en supprimant la concurrence interne — la supprimer détruirait de la valeur."
+    },
+    {
+      "id": "q6",
+      "question": "Avant de créer un nouveau contenu, quelle vérification est indispensable ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Qu'aucune page du site ne vise déjà cette intention"
+        },
+        {
+          "key": "b",
+          "text": "Que le mot-clé apparaît au moins 10 fois dans le texte prévu"
+        },
+        {
+          "key": "c",
+          "text": "Que le contenu sera plus long que celui des concurrents"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Ajouter une page sur une intention déjà couverte aggrave la dispersion. Le mapping sémantique existe pour rendre cette réponse immédiate."
+    }
+  ]
+}
