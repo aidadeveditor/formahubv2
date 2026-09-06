@@ -140,7 +140,7 @@
         <p><strong>Constat 2 — les contacts orphelins.</strong> 210 contacts ne sont rattachés à aucun compte. Ils proviennent d'un import de fichier salon fait sans mapping. Ils sont invisibles dans toute vue par entreprise : personne ne les rappellera jamais.</p>
         <p><strong>Constat 3 — le champ secteur en texte libre.</strong> 340 valeurs vides, 22 orthographes pour six secteurs réels. D'où l'impossibilité de répondre à la question initiale.</p>
         <p><strong>Le plan de remise en état, dans l'ordre.</strong></p>
-        <p>1. <em>Fermer le robinet avant d'éponger.</em> On commence par la configuration, pas par le nettoyage — sinon on nettoie une base qui se resalit pendant qu'on la nettoie. Le champ Secteur devient une liste de sélection à sept valeurs, obligatoire à la création d'un Compte. Une règle de validation bloque la création d'un Compte dont le nom existe déjà à la casse près.</p>
+        <p>1. <em>Fermer le robinet avant d'éponger.</em> On commence par la configuration, pas par le nettoyage — sinon on nettoie une base qui se resalit pendant qu'on la nettoie. Le champ Secteur devient une liste de sélection à sept valeurs, obligatoire à la création d'un Compte. Une règle de doublon, adossée à une règle de correspondance sur le nom, bloque ou alerte à la création d'un Compte dont le nom ressemble à un enregistrement existant. C'est la gestion native des doublons : une règle de validation classique ne peut pas interroger les autres enregistrements.</p>
         <p>2. <em>Fusionner les doublons.</em> Salesforce propose une fusion de Comptes qui rapatrie contacts, opportunités et activités sur l'enregistrement conservé. On fusionne par ordre décroissant de volume d'activité, en désignant comme enregistrement maître celui qui porte l'historique le plus riche. 180 doublons traités en deux demi-journées à deux personnes.</p>
         <p>3. <em>Rattacher les orphelins.</em> Export des 210 contacts, rattachement par correspondance sur le domaine e-mail — <code>@delcourt-industries.fr</code> pointe vers le compte Delcourt. 160 se rattachent automatiquement, 50 sont traités à la main, 12 sont supprimés faute d'information exploitable.</p>
         <p>4. <em>Rétro-remplir le secteur.</em> Pour les comptes ayant du chiffre d'affaires, on remplit à la main — 90 comptes, une demi-journée. Pour les autres, on laisse vide plutôt que de deviner : une donnée vide est honnête, une donnée devinée est un mensonge qui se propage.</p>
@@ -156,7 +156,7 @@
           <li>Tout champ destiné à être filtré ou compté est une liste de sélection, pas du texte</li>
           <li>Chaque liste de sélection compte moins de dix valeurs, mutuellement exclusives</li>
           <li>Une valeur « Autre » existe et son taux d'usage est surveillé</li>
-          <li>Une règle de validation empêche la création d'un Compte au nom déjà existant</li>
+          <li>Une règle de doublon empêche la création d'un Compte au nom déjà existant</li>
           <li>Le champ « motif de perte » est une liste fermée, obligatoire à la clôture en perte</li>
           <li>Chaque Compte a un propriétaire identifié</li>
           <li>Un rapport « contacts sans compte » existe et est consulté mensuellement</li>
@@ -299,7 +299,7 @@
       <div class="resources-box">
         <h3>🔗 Pour aller plus loin</h3>
         <ul>
-          <li><strong>Salesforce Trailhead</strong> — parcours « Data Modeling » et « Salesforce Platform Basics » : gratuit, en français partiellement, avec un environnement de test fourni. La référence pour pratiquer sans risque.</li>
+          <li><strong>Salesforce Trailhead</strong> — parcours « Data Modeling » et « Agentforce 360 Platform Basics (ex-Salesforce Platform Basics) » : gratuit, en français partiellement, avec un environnement de test fourni. La référence pour pratiquer sans risque.</li>
           <li><strong>Documentation Salesforce Help</strong> — articles « Standard Objects » et « Validation Rules » : indispensable au moment de configurer, peu utile en lecture générale.</li>
           <li><strong>Le module 2 de cette formation</strong> — le pipeline et les prévisions reposent entièrement sur la qualité du modèle vu ici : n'y allez pas avant d'avoir des Opportunités correctement structurées.</li>
           <li><strong>Un environnement Developer Edition gratuit</strong> (developer.salesforce.com/signup) — permet de tester règles de validation et listes de sélection sans toucher à votre instance de production. À faire avant toute modification réelle.</li>

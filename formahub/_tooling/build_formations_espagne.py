@@ -12,7 +12,8 @@ trois mois comme la page Ressources externes.
 """
 
 # --- Accès : la colonne structurante de cette page -------------------------
-# libre        : ouvert à tous, tout de suite, sans convocatoria ni statut
+# libre        : ouvert à tous, tout de suite, sans compte ni convocatoria ni statut
+# compte       : gratuit et permanent, mais création d'un compte plateforme obligatoire
 # labora       : réservé aux inscrits Espai LABORA, priorité aux desempleados
 # convocatoria : dépend d'un appel national ouvert et du statut (voir public)
 
@@ -55,10 +56,14 @@ EFUNDAE_RSE = [
     ("Subvenciones y ayudas para sostenibilidad en pymes", 1001),
     ("Fiscalidad sostenible para pymes", 1002),
 ]
+EFUNDAE_NOTE = ("Compte plateforme Fundae requis : le lien direct renvoie vers l'écran de "
+                "connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — "
+                "vérifier l'accès depuis un statut de demandeuse d'emploi.")
+
 for titre, cid in EFUNDAE_RSE:
     add(titre, "eFundae (Fundae) — Sensibilización Medioambiental",
-        "Durabilité &amp; RSE", "libre", "En ligne, à son rythme",
-        EFUNDAE.format(cid))
+        "Durabilité &amp; RSE", "compte", "En ligne, à son rythme",
+        EFUNDAE.format(cid), note=EFUNDAE_NOTE)
 
 # --- 2. eFundae — itinéraires numériques (4 niveaux DigComp) ---------------
 EFUNDAE_ITI = [
@@ -70,8 +75,9 @@ EFUNDAE_ITI = [
 ]
 for titre, cid, theme in EFUNDAE_ITI:
     add(titre, "eFundae (Fundae) — itinéraire de 4 niveaux progressifs",
-        theme, "libre", "En ligne, ~150 h",
-        "https://www.efundae.es/course/index.php?categoryid={}".format(cid))
+        theme, "compte", "En ligne, ~150 h",
+        "https://www.efundae.es/course/index.php?categoryid={}".format(cid),
+        note=EFUNDAE_NOTE)
 
 # --- 3. Campus virtuel LABORA — en ligne, tutoré ---------------------------
 LABORA_ONLINE = [
@@ -95,7 +101,9 @@ for titre, bloc, theme in LABORA_ONLINE:
     add(titre, "Campus Virtual LABORA Formació — " + bloc, theme, "labora",
         "En ligne, tutoré, jusqu'à 30 h",
         "https://labora.gva.es/es/aula-virtual",
-        note="Édition affichée : millésime 2025. Diploma de aprovechamiento.")
+        note="Édition affichée : millésime 2025 — offre probablement périmée, vérifier "
+             "l'ouverture d'une édition 2026 avant de compter dessus. "
+             "Diploma de aprovechamiento.")
 
 # --- 4. Plan LABORA 2026 — Valence et l'Horta, présentiel ------------------
 LABORA_FPE = [
@@ -126,7 +134,10 @@ LABORA_FPE = [
 for code, titre, comarque, theme in LABORA_FPE:
     add(titre,
         "LABORA — plan 2026, code {} · {}".format(code, comarque),
-        theme, "labora", "Présentiel — préinscription ouverte", PUNT)
+        theme, "labora", "Présentiel — statut d'inscription à vérifier", PUNT,
+        note="Relevé du 4 septembre 2026, non revérifié depuis : le moteur puntlabora "
+             "n'était pas joignable au contrôle. Saisir le code dans le moteur pour "
+             "confirmer que la préinscription est encore ouverte.")
 
 # --- 5. Convocatoria estatal — en ligne ------------------------------------
 ESTATAL = [
@@ -155,10 +166,14 @@ ESTATAL = [
 for titre, heures, desempleados, url, theme in ESTATAL:
     public = "Desempleados, trabajadores y autónomos" if desempleados \
         else "Trabajadores y autónomos uniquement"
+    base_note = ("" if desempleados
+                 else "Fermé tant que le statut est celui de demandeuse d'emploi. ")
     add(titre, "Convocatoria estatal (SEPE / Fundae) — " + public,
         theme, "convocatoria", "En ligne, " + heures, url,
-        note="" if desempleados
-        else "Fermé tant que le statut est celui de demandeuse d'emploi.")
+        note=base_note + "Vérifier deux points sur la fiche : les places sont réparties par "
+                         "communauté autonome et la Comunitat Valenciana n'est pas toujours "
+                         "servie ; certains cours imposent des visioconférences à horaires fixes "
+                         "et un examen en présentiel hors de Valence.")
 
 # --- 6. Plateformes permanentes -------------------------------------------
 PLATEFORMES = [
@@ -185,6 +200,7 @@ for titre, orga, theme, modalite, url in PLATEFORMES:
 # --- Rendu -----------------------------------------------------------------
 ACCES_BADGE = {
     "libre": ('badge-success', 'Accès libre'),
+    "compte": ('badge-progress', 'Compte requis'),
     "labora": ('badge-progress', 'Espai LABORA'),
     "convocatoria": ('badge-warning', 'Convocatoria'),
 }
@@ -196,6 +212,7 @@ def esc(s):
 
 def render():
     n_libre = sum(1 for r in ROWS if r["acces"] == "libre")
+    n_compte = sum(1 for r in ROWS if r["acces"] == "compte")
     n_labora = sum(1 for r in ROWS if r["acces"] == "labora")
     n_conv = sum(1 for r in ROWS if r["acces"] == "convocatoria")
 
@@ -224,7 +241,8 @@ def render():
                 modalite=esc(r["modalite"]), lien=r["lien"]))
 
     return TEMPLATE.format(
-        total=len(ROWS), n_libre=n_libre, n_labora=n_labora, n_conv=n_conv,
+        total=len(ROWS), n_libre=n_libre, n_compte=n_compte,
+        n_labora=n_labora, n_conv=n_conv,
         theme_btns=theme_btns, rows="\n".join(rows_html))
 
 
@@ -269,6 +287,7 @@ TEMPLATE = """<!DOCTYPE html>
       <p>{total} dispositifs accessibles depuis Valence, tous gratuits. La page Ressources externes couvre le système français et le CPF ; celle-ci couvre le système espagnol, où le financement ne se pose pas et où la vraie question est la condition d&#x27;accès.</p>
       <div style="margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap;">
         <span class="badge badge-success">{n_libre} en accès libre</span>
+        <span class="badge badge-progress">{n_compte} avec compte à créer</span>
         <span class="badge badge-progress">{n_labora} via Espai LABORA</span>
         <span class="badge badge-warning">{n_conv} soumis à convocatoria</span>
       </div>
@@ -302,6 +321,7 @@ TEMPLATE = """<!DOCTYPE html>
       <div class="filter-bar" id="filter-acces">
         <button class="filter-btn active" data-acces="all">Tous</button>
         <button class="filter-btn" data-acces="libre">Accès libre</button>
+        <button class="filter-btn" data-acces="compte">Compte requis</button>
         <button class="filter-btn" data-acces="labora">Espai LABORA</button>
         <button class="filter-btn" data-acces="convocatoria">Convocatoria</button>
       </div>

@@ -1,0 +1,431 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+import sys, json, os
+sys.path.insert(0, "/tmp")
+from fh_builder import build
+
+M = {}
+QUIZ = {}
+FORM = "RSE &amp; transition écologique en entreprise"
+
+M["rse-transition-ecologique/module-2"] = {
+ "formation": FORM,
+ "titre": "Mesurer : le Bilan d'Émissions et les Trois Scopes",
+ "num": 2, "total": 4, "duree": "70 min", "niveau": "Intermédiaire",
+ "module_id": "formation-rse-transition-ecologique-module-2",
+ "situation": [
+   "La décision est prise : l'entreprise fera son bilan d'émissions. Un cabinet a chiffré la prestation à 25 000 euros, ce que la direction juge élevé pour une première itération. Vous engagez le travail en interne, avec un accompagnement méthodologique restreint.",
+   "La première semaine ne se passe pas comme prévu. Vous pensiez que la difficulté serait le calcul ; elle est ailleurs. Personne ne sait qui détient les relevés de consommation d'électricité des trois sites — la comptabilité a les factures, en euros, pas en kilowattheures. Le service généraux a changé de fournisseur en cours d'année et ne retrouve pas les données du premier semestre. Les achats disposent d'un état par fournisseur, en montants, sans aucune quantité.",
+   "Et lorsque vous obtenez enfin un premier résultat, il diffère d'un facteur trois selon que vous calculez les achats à partir des montants ou à partir des quantités physiques sur les quelques familles où vous les avez.",
+   "Ces trois difficultés — la collecte, le périmètre, l'incertitude — sont l'essentiel du travail réel d'un bilan d'émissions. Le calcul lui-même est une multiplication. Ce module traite de ce qui l'entoure, parce que c'est là que se joue la différence entre un chiffre défendable et un chiffre qu'on n'osera pas présenter.",
+ ],
+ "objectifs": [
+   "Expliquer ce qu'est une tonne équivalent CO2 et d'où viennent les facteurs d'émission",
+   "Répartir des émissions entre les scopes 1, 2 et 3 sans se tromper de poste",
+   "Fixer un périmètre organisationnel et opérationnel, et une année de référence défendables",
+   "Organiser la collecte des données en distinguant données physiques et données monétaires",
+   "Estimer et présenter l'incertitude d'un résultat plutôt que de la taire",
+   "Tirer d'un bilan les deux ou trois conclusions qu'il permet réellement",
+ ],
+ "sections": [
+  {"titre": "La tonne équivalent CO2 et les facteurs d'émission",
+   "paras": [
+     "Tout bilan d'émissions repose sur une opération unique, répétée quelques centaines de fois : <strong>une donnée d'activité multipliée par un facteur d'émission donne une quantité d'émissions</strong>. Litres de gazole fois facteur d'émission du gazole. Kilowattheures fois facteur de l'électricité. Tonnes d'acier fois facteur de l'acier. Il n'y a rien d'autre.",
+     "Toute la difficulté tient donc dans deux endroits : obtenir la donnée d'activité, et choisir le bon facteur. Le calcul, lui, est une multiplication — c'est une chose qu'il faut dire clairement, parce que la technicité apparente du sujet décourage des gens parfaitement capables de le mener.",
+     "<strong>L'unité de compte est la tonne équivalent CO2</strong>, notée tCO2e. Elle existe parce que plusieurs gaz contribuent au réchauffement avec des intensités très différentes. Le méthane réchauffe de l'ordre de trente fois plus que le dioxyde de carbone à masse égale sur un horizon de cent ans ; le protoxyde d'azote, de l'ordre de deux cent soixante-dix fois ; certains gaz fluorés, plusieurs milliers de fois. Le pouvoir de réchauffement global permet de tout ramener à une unité commune.",
+     "Deux précisions utiles sur cette unité. D'abord, ces coefficients dépendent de l'horizon de temps retenu et de la version du rapport du GIEC utilisée : ils évoluent d'une édition à l'autre. Un écart de quelques pour cent entre deux bilans peut venir de là et non d'une variation réelle — raison pour laquelle un bilan sérieux mentionne la base de facteurs employée et sa version.",
+     "Ensuite, l'unité est une <em>équivalence de réchauffement</em>, pas une équivalence physique. Réduire une tonne de méthane et compenser une tonne de CO2 ne sont pas des opérations symétriques, notamment parce que leurs durées de vie dans l'atmosphère diffèrent considérablement. C'est un point qui compte au module 4, quand il s'agit de communiquer honnêtement.",
+     "<strong>Les facteurs d'émission</strong> proviennent de bases publiques. En France, la référence est la Base Empreinte de l'ADEME, gratuite, documentée, et qui fait autorité auprès de l'administration comme des vérificateurs. Chaque facteur y est accompagné de son périmètre, de sa source, de sa date et de son incertitude — ces quatre informations comptent autant que la valeur elle-même.",
+   ],
+   "blocks": [
+     {"type": "exemple", "titre": "un calcul complet, de bout en bout",
+      "paras": [
+        "<em>Poste :</em> la flotte de véhicules utilitaires. <em>Donnée d'activité :</em> 184 000 litres de gazole consommés sur l'année, relevés sur les factures du carburant.",
+        "<em>Facteur d'émission :</em> environ 3,1 kg CO2e par litre de gazole en analyse de cycle de vie — c'est-à-dire en incluant l'extraction, le raffinage et le transport du carburant, et pas seulement sa combustion. La combustion seule serait de l'ordre de 2,7 kg.",
+        "<em>Calcul :</em> 184 000 × 3,1 = 570 400 kg, soit environ 570 tCO2e.",
+        "<em>Ce qu'il faut noter :</em> le choix entre facteur de combustion et facteur d'analyse de cycle de vie change le résultat de 15 %. Ce n'est pas un détail technique, c'est une décision de périmètre, et elle doit être écrite. Un bilan qui ne dit pas quel type de facteur il emploie n'est comparable à rien, y compris à lui-même l'année suivante.",
+        "<em>Et l'ordre de grandeur :</em> 570 tCO2e pour une flotte, c'est l'équivalent des émissions annuelles d'environ soixante personnes en France tous usages confondus. Savoir situer un résultat par rapport à des repères de ce type est ce qui permet de détecter une erreur de facteur mille, qui est l'erreur la plus fréquente et la plus embarrassante.",
+      ]},
+     {"type": "pitfall", "titre": "additionner des facteurs de périmètres différents",
+      "paras": [
+        "Le piège le plus courant du calcul : mélanger des facteurs en analyse de cycle de vie et des facteurs de combustion seule dans un même bilan, ou mélanger des facteurs français et des facteurs issus d'une base étrangère aux conventions différentes.",
+        "Le résultat n'est pas faux au sens d'un calcul incorrect : chaque ligne est juste, et le total n'a pas de signification. C'est exactement le genre d'erreur qui ne se voit pas et qui rend un bilan indéfendable dès qu'un vérificateur regarde le détail.",
+        "La discipline : <strong>une seule base de facteurs, une seule version, notée dans le fichier</strong>. Si un facteur manque et qu'il faut aller le chercher ailleurs, la ligne est signalée comme telle, avec sa source. Trois ou quatre lignes documentées de cette manière ne posent aucun problème ; un mélange non tracé en pose un immédiatement.",
+      ]},
+   ]},
+
+  {"titre": "Les trois scopes, et pourquoi le scope 3 est le sujet",
+   "paras": [
+     "La répartition en trois scopes vient du GHG Protocol, le référentiel international de comptabilisation. Elle n'a rien d'arbitraire : elle distingue les émissions selon le degré de contrôle qu'exerce l'entreprise, ce qui détermine directement ce qu'elle peut faire.",
+     "<strong>Le scope 1 rassemble les émissions directes</strong>, produites par des sources que l'entreprise possède ou contrôle : combustion de gaz ou de fioul dans ses bâtiments, carburant de ses véhicules, fuites de fluides frigorigènes de ses installations de froid, émissions de ses procédés industriels. Ce sont les émissions dont l'entreprise est physiquement responsable et sur lesquelles elle a une prise directe.",
+     "<strong>Le scope 2 rassemble les émissions indirectes liées à l'énergie achetée</strong> : électricité, vapeur, chaleur et froid consommés mais produits ailleurs. Elles se calculent de deux façons, et il faut connaître les deux. L'approche <em>par localisation</em> applique le facteur moyen du réseau du pays — en France, un facteur bas grâce au nucléaire et à l'hydraulique. L'approche <em>par marché</em> tient compte des contrats d'approvisionnement et des garanties d'origine souscrites. Les deux donnent des résultats différents, et un bilan complet publie les deux.",
+     "<strong>Le scope 3 rassemble tout le reste</strong> : les émissions indirectes qui ne relèvent pas de l'énergie achetée. En amont, les achats de biens et services, le transport des marchandises entrantes, les immobilisations, les déplacements professionnels, les trajets domicile-travail des salariés. En aval, le transport des produits vendus, leur utilisation, leur fin de vie, les déchets. Le GHG Protocol le structure en quinze catégories ; la méthode réglementaire française utilisée pour le BEGES organise l'ensemble en six catégories et vingt-trois postes.",
+     "<strong>Un fait détermine tout le reste de ce module : dans la grande majorité des entreprises, le scope 3 représente entre 70 % et plus de 95 % du total.</strong> Pour une entreprise de services, l'essentiel est dans les achats de prestations et le numérique. Pour un distributeur, dans les produits achetés. Pour un industriel, dans les matières premières et l'usage des produits vendus. Pour une banque, dans les activités financées, qui écrasent tout le reste dans un rapport de plusieurs centaines à un.",
+     "La conséquence pratique est brutale : <strong>un bilan limité aux scopes 1 et 2 mesure généralement moins de 15 % de l'empreinte réelle</strong>, et il oriente vers des actions marginales — l'éclairage, le chauffage des bureaux, le tri des déchets. C'est la raison pour laquelle beaucoup de démarches RSE s'épuisent sur des gestes symboliques : elles ont mesuré la partie visible et agi dessus.",
+   ],
+   "blocks": [
+     {"type": "method", "titre": "classer un poste dans le bon scope en trois questions",
+      "paras": ["Les erreurs de classement sont fréquentes et faussent la lecture du bilan sans changer le total. Trois questions suffisent."],
+      "steps": [
+        "<strong>La combustion a-t-elle lieu dans une installation ou un véhicule que nous possédons ou contrôlons ?</strong> Si oui, scope 1. La chaudière de nos bureaux et le camion de notre flotte sont en scope 1 ; le camion d'un transporteur que nous payons ne l'est pas.",
+        "<strong>S'agit-il d'énergie que nous achetons et consommons, produite ailleurs ?</strong> Si oui, scope 2. Électricité, vapeur, réseau de chaleur ou de froid. Rien d'autre n'entre en scope 2 — c'est le scope le plus étroit et le plus souvent surchargé à tort.",
+        "<strong>Dans tous les autres cas, scope 3</strong>, et il reste à trouver la bonne catégorie : en amont si l'émission précède notre activité, en aval si elle la suit.",
+        "<strong>Vérifiez le cas des véhicules loués</strong>, source d'erreur classique : une location longue durée avec carburant à notre charge relève du scope 1, une prestation de transport achetée à un tiers relève du scope 3.",
+        "<strong>Vérifiez le cas du télétravail</strong> : la consommation énergétique du domicile d'un salarié relève du scope 3, et non du scope 2, puisque l'entreprise n'achète pas cette énergie.",
+        "<strong>Vérifiez l'absence de double comptage</strong> entre postes du scope 3 : le transport d'une marchandise achetée est souvent déjà inclus dans le facteur d'émission du produit acheté. Le compter en plus le double.",
+      ]},
+     {"type": "exemple", "titre": "la même entreprise, deux bilans",
+      "paras": [
+        "L'entreprise de services de la mise en situation, 380 salariés.",
+        "<em>Bilan scopes 1 et 2 seuls :</em> gaz de chauffage 180 tCO2e, flotte 570 tCO2e, fluides frigorigènes 40 tCO2e, électricité 90 tCO2e. Total : 880 tCO2e. Conclusions qu'on en tirerait : la flotte est le premier poste, il faut électrifier les véhicules et isoler les bâtiments.",
+        "<em>Bilan complet avec scope 3 :</em> les 880 tCO2e précédentes, plus achats de biens et services 2 900, transport aval 570, déplacements professionnels 160, trajets domicile-travail 130, immobilisations et numérique 90. Total : environ 4 700 tCO2e.",
+        "Les scopes 1 et 2 représentent 19 % du total. La flotte, qui semblait le premier poste, en représente 12 %. Le premier poste réel est les achats, à 62 %, et il n'apparaissait pas du tout dans le premier bilan.",
+        "<em>Ce que cela change concrètement :</em> le plan d'action initialement envisagé — électrification de la flotte, isolation — représentait un investissement de plusieurs centaines de milliers d'euros pour agir sur 12 % de l'empreinte. Le même effort porté sur trois familles d'achats représentant 40 % du total aurait un rendement trois fois supérieur, pour un investissement bien moindre.",
+        "<em>Ce qu'il faut en retenir :</em> l'intérêt d'un bilan n'est pas le total. C'est la <strong>hiérarchie</strong> qu'il révèle, et cette hiérarchie est presque toujours contre-intuitive.",
+      ]},
+     {"type": "pitfall", "titre": "croire que le scope 3 est facultatif parce qu'il est difficile",
+      "paras": [
+        "L'argument revient systématiquement : le scope 3 est incertain, les données sont chez les fournisseurs, autant s'en tenir à ce qu'on maîtrise. Il est faux à deux titres.",
+        "D'abord parce qu'un ordre de grandeur incertain sur 85 % de l'empreinte est infiniment plus utile qu'une mesure précise sur 15 %. Une estimation à plus ou moins 40 % qui vous dit que les achats pèsent dix fois la flotte est une information décisive ; elle ne cesse pas de l'être parce qu'elle est imprécise.",
+        "Ensuite parce que la réglementation ne le traite plus comme facultatif : en France, le BEGES exige les émissions indirectes significatives au-delà de 100 millions d'euros de chiffre d'affaires ou de total de bilan, avec une couverture d'au moins 80 % de ces émissions.",
+        "La bonne conduite est de commencer grossièrement et de raffiner : première itération par ratios monétaires sur les achats, deuxième itération en données physiques sur les familles les plus lourdes. Ce que vous cherchez la première année est la hiérarchie, pas la décimale.",
+      ]},
+   ]},
+
+  {"titre": "Fixer le périmètre avant de calculer",
+   "paras": [
+     "Trois décisions de périmètre précèdent tout calcul. Prises implicitement, elles rendent le bilan incomparable et contestable ; écrites, elles ne posent plus jamais de problème. Elles prennent une heure.",
+     "<strong>Le périmètre organisationnel</strong> répond à la question : quelles entités comptons-nous ? Trois approches existent. Le <em>contrôle opérationnel</em> retient les entités dont l'entreprise dirige les activités — l'approche la plus courante et la plus simple à documenter. Le <em>contrôle financier</em> retient celles qu'elle contrôle financièrement. La <em>part du capital</em> compte les émissions au prorata de la détention. Une coentreprise détenue à 40 % sera intégralement comptée, exclue, ou comptée à 40 % selon l'approche retenue — d'où l'importance de choisir explicitement.",
+     "<strong>Le périmètre opérationnel</strong> répond à : quels postes incluons-nous ? La réponse honnête pour une première itération n'est jamais « tous ». Elle est : les scopes 1 et 2 en totalité, et les postes du scope 3 qui sont significatifs, chacun étant justifié. Un poste peut être écarté pour deux motifs légitimes — il est manifestement négligeable, ou la donnée est inaccessible cette année — et il faut dire lequel des deux. Un poste écarté sans motif écrit sera lu comme une omission.",
+     "<strong>L'année de référence</strong> est celle par rapport à laquelle toutes les évolutions futures seront mesurées. Choisissez une année représentative — ni un pic exceptionnel, ni un creux — et documentez pourquoi. Prévoyez également la règle de recalcul : que faire si le périmètre change en cours de route, par acquisition, cession ou changement de méthode. Sans règle écrite, une croissance externe fera apparaître une hausse d'émissions qui n'en est pas une, ou une cession une baisse qui n'en est pas une non plus.",
+     "Ce dernier point est celui qu'on néglige et qui coûte le plus cher. Une entreprise qui affiche « moins 12 % d'émissions » après avoir cédé une activité communique un chiffre exact et trompeur. La règle usuelle est de <strong>recalculer l'année de référence à périmètre constant</strong> dès qu'un changement affecte plus d'un seuil défini à l'avance — souvent 5 % du total.",
+   ],
+   "blocks": [
+     {"type": "method", "titre": "écrire sa note de périmètre en une page",
+      "paras": ["Cette page unique est le document le plus rentable de tout le bilan. Elle se rédige avant le premier calcul et se joint à tout résultat diffusé."],
+      "steps": [
+        "<strong>Nommez les entités incluses et exclues</strong>, avec l'approche de consolidation retenue et sa justification en une phrase.",
+        "<strong>Listez les postes inclus</strong>, scope par scope, avec pour chacun la source de donnée et la méthode — donnée physique, ratio monétaire, estimation.",
+        "<strong>Listez les postes exclus</strong>, avec le motif : négligeable, ou donnée indisponible cette année. Ajoutez une estimation grossière de ce que représenterait un poste écarté pour donnée indisponible : cela montre que l'omission est mesurée et non subie.",
+        "<strong>Nommez la base de facteurs d'émission et sa version</strong>, ainsi que le type de facteurs employé — analyse de cycle de vie ou combustion.",
+        "<strong>Fixez l'année de référence</strong> et la règle de recalcul en cas de changement de périmètre, avec le seuil de déclenchement.",
+        "<strong>Datez, signez, et indiquez qui a validé.</strong> Un périmètre validé par la direction financière plutôt que par le seul responsable RSE résiste beaucoup mieux à la contestation.",
+      ]},
+     {"type": "pitfall", "titre": "changer de méthode entre deux exercices sans le dire",
+      "paras": [
+        "Deuxième année, vous améliorez la méthode : les achats passent des ratios monétaires à des données physiques sur trois familles. Le total baisse de 18 %. Vous êtes tenté d'annoncer une réduction.",
+        "Ce serait une faute, au sens propre : ce n'est pas une réduction d'émissions, c'est un changement de mesure. Aucune tonne n'a été évitée. Annoncer une baisse dans ces conditions est exactement ce que le module 4 décrira comme une allégation trompeuse, et c'est d'autant plus grave que l'entreprise dispose des éléments montrant qu'elle le sait.",
+        "La conduite correcte : présenter les deux effets séparément. « À méthode constante, nos émissions ont progressé de 3 % ; l'amélioration de la méthode de calcul sur les achats conduit par ailleurs à réviser notre estimation de 18 % à la baisse. » Deux phrases, et un chiffre qui reste crédible.",
+        "C'est aussi ce qui justifie de recalculer l'année de référence à chaque changement de méthode significatif. Une série de chiffres non homogènes ne se compare pas, et un tableau d'évolution sur cinq ans construit sur trois méthodes différentes ne veut rien dire.",
+      ]},
+   ]},
+
+  {"titre": "Collecter : l'ordre de bataille",
+   "paras": [
+     "La collecte représente couramment 70 % du temps d'un premier bilan. Elle se prépare comme un projet, avec un ordre qui n'est pas indifférent : commencer par les postes lourds, et non par les postes faciles.",
+     "<strong>Les données physiques sont toujours préférables aux données monétaires.</strong> Un kilowattheure, un litre, un kilomètre, une tonne : ces grandeurs sont mesurées et leur facteur d'émission est robuste. Un montant en euros ne l'est pas — il dépend des prix, des marges, du fournisseur, et le facteur monétaire associé est une moyenne sectorielle très large.",
+     "L'ordre de grandeur de l'écart mérite d'être connu : une donnée physique associée à un facteur adapté donne typiquement une incertitude de 5 % à 15 % ; un ratio monétaire sur une famille d'achats hétérogène peut dépasser 50 %. Ce n'est pas une raison de renoncer aux ratios monétaires — ils permettent de couvrir en deux jours ce que les données physiques demanderaient six mois d'obtenir — mais une raison de savoir où l'on se situe.",
+     "<strong>La stratégie qui fonctionne est en deux temps.</strong> Première passe : couvrir 100 % du périmètre le plus grossièrement possible, en ratios monétaires pour tout ce qui est un achat, en données physiques pour ce qui est immédiatement disponible. Vous obtenez en trois semaines une hiérarchie. Seconde passe : reprendre les trois ou quatre postes qui représentent 80 % du total, et y investir l'effort de collecte physique. Vous améliorez ainsi la précision là où elle a un effet, et vous ne perdez pas de temps sur des postes à 2 %.",
+     "<strong>Les sources de données existent presque toutes déjà</strong>, dispersées. La comptabilité fournisseurs donne les achats par catégorie et par fournisseur. Les factures d'énergie donnent les consommations physiques, à condition de les demander en kilowattheures et non en euros. Le service des ressources humaines donne les effectifs et, par une enquête simple, les modes de déplacement domicile-travail. La flotte ou les cartes carburant donnent les litres. L'agence de voyage donne les kilomètres aériens et ferroviaires. Les prestataires de collecte donnent les tonnages de déchets par flux.",
+     "<strong>Le point de blocage récurrent est l'énergie.</strong> Deux difficultés reviennent partout : les factures sont détenues par un service qui ne suit que les montants, et un changement de fournisseur en cours d'année laisse un trou. Deux parades : demander au fournisseur actuel l'historique de consommation, qu'il détient et fournit sur simple demande ; et pour un trou irrécupérable, extrapoler à partir des mois disponibles en le signalant explicitement dans la note de périmètre. Une extrapolation documentée est acceptable ; une extrapolation silencieuse ne l'est pas.",
+   ],
+   "blocks": [
+     {"type": "exemple", "titre": "le plan de collecte de l'entreprise, semaine par semaine",
+      "paras": [
+        "<em>Semaine 1 — cadrage.</em> Note de périmètre rédigée et validée. Liste des postes attendus et, pour chacun, la personne détentrice de la donnée. Un tableau de suivi à cinq colonnes : poste, donnée attendue, détenteur, statut, méthode retenue.",
+        "<em>Semaine 2 — les demandes, toutes en même temps.</em> Un message à chacun des sept détenteurs identifiés, précisant l'unité attendue — kilowattheures et non euros, litres et non montants — la période, et la date de retour. Les envoyer tous simultanément est important : les relances s'étalent sinon sur deux mois.",
+        "<em>Semaine 3 — les achats en ratios monétaires.</em> Extraction comptable des achats de l'année par catégorie, rapprochement de chaque catégorie avec un facteur monétaire de la base ADEME. Quelques centaines de lignes, deux jours de travail. C'est ce qui va révéler la hiérarchie.",
+        "<em>Semaine 4 — la relance et les manques.</em> Deux détenteurs sur sept n'ont pas répondu, c'est la norme. Pour l'un, la donnée existe et il faut la chercher soi-même. Pour l'autre, elle n'existe pas : décision d'estimation, écrite dans la note de périmètre.",
+        "<em>Semaine 5 — le premier résultat, et sa relecture.</em> Total, répartition par scope, et surtout classement des postes par ordre décroissant. Relecture de vraisemblance poste par poste, avec la question : ce chiffre est-il compatible avec ce que je sais de l'activité ?",
+        "<em>Semaines 6 et 7 — la seconde passe.</em> Les trois postes principaux repris en données physiques quand c'est possible : quantités achetées auprès des trois premiers fournisseurs, tonnages transportés, consommations réelles.",
+        "<em>Semaine 8 — la restitution.</em> Le résultat, son incertitude, la hiérarchie, et deux ou trois conclusions. Pas davantage.",
+        "Total : environ 25 jours-homme pour une première itération complète, à comparer aux 25 000 euros du devis. Le bon arbitrage dépend surtout de la disponibilité interne — et la deuxième année ne coûtera qu'un quart de ce temps.",
+      ]},
+     {"type": "pitfall", "titre": "attendre la donnée parfaite",
+      "paras": [
+        "Le scénario qui tue les premiers bilans : on décide de ne rien estimer, de tout obtenir en données réelles, et de ne publier que lorsque tout sera solide. Dix-huit mois plus tard, le bilan n'est pas sorti, l'année de référence est périmée, et la direction a conclu que le sujet était insoluble.",
+        "Le principe à opposer : <strong>un bilan est une estimation, pas une comptabilité</strong>. Personne, dans aucune entreprise, ne connaît ses émissions à 5 % près sur le scope 3. Ce qui est attendu n'est pas l'exactitude mais la traçabilité : que chaque chiffre puisse être expliqué, et que l'incertitude soit affichée.",
+        "La règle opérationnelle : fixez une date de publication au démarrage et tenez-la. Ce qui n'est pas collecté à cette date est estimé, signalé, et amélioré l'année suivante. Un bilan imparfait publié à temps produit des décisions ; un bilan parfait jamais publié n'en produit aucune.",
+      ]},
+   ]},
+
+  {"titre": "Lire son résultat : incertitude, repères et conclusions",
+   "paras": [
+     "Un bilan produit un nombre, et ce nombre est la partie la moins intéressante du travail. Trois lectures comptent davantage.",
+     "<strong>La hiérarchie.</strong> Classez les postes par ordre décroissant et regardez où se situe la coupure des 80 %. Dans la plupart des cas, trois à cinq postes suffisent à l'atteindre. Ces postes sont votre plan d'action, et tout le reste est du bruit pour les deux premières années. C'est la conclusion principale de tout bilan, et souvent la seule qui soit vraiment robuste.",
+     "<strong>L'intensité.</strong> Le total absolu ne dit rien sur la performance : une entreprise qui croît voit ses émissions croître. Rapportez le total à une grandeur d'activité — par million d'euros de chiffre d'affaires, par salarié, par tonne produite, par client servi. L'intensité permet de comparer d'une année sur l'autre et, prudemment, avec un concurrent. Publiez toujours les deux : l'absolu, parce que c'est ce que l'atmosphère reçoit, et l'intensité, parce que c'est ce qui mesure l'effort.",
+     "<strong>L'incertitude.</strong> Elle s'estime, grossièrement, en attribuant à chaque poste une fourchette selon sa méthode : de l'ordre de 10 % pour une donnée physique avec un facteur adapté, 30 % pour une donnée physique avec un facteur générique, 50 % ou davantage pour un ratio monétaire. Une agrégation simple donne l'incertitude globale, et il est courant qu'elle atteigne 30 % sur un premier bilan dominé par les achats.",
+     "<strong>Afficher cette incertitude est un signe de sérieux et non de faiblesse</strong>, contrairement à ce que craignent beaucoup de directions. Un bilan présenté comme « 4 700 tCO2e, dont 62 % sur les achats calculés par ratios monétaires, incertitude globale estimée à plus ou moins 30 % » est incomparablement plus crédible que « 4 683 tCO2e » — dont la fausse précision signale immédiatement que la méthode n'a pas été comprise.",
+     "Une dernière lecture mérite d'être faite systématiquement : <strong>la vraisemblance par comparaison</strong>. Les bilans déposés sur la plateforme publique de l'ADEME sont consultables : cherchez deux ou trois entreprises de votre secteur et de taille voisine, et comparez vos intensités. Un écart d'un facteur deux est plausible ; un écart d'un facteur dix signale une erreur, chez vous ou chez eux, et vaut la peine d'être élucidé avant publication.",
+   ],
+   "blocks": [
+     {"type": "h3", "titre": "Quelques repères d'ordre de grandeur",
+      "paras": [
+        "Ces repères ne servent pas à calculer mais à détecter une aberration. Une erreur de facteur mille — une confusion entre kilogrammes et tonnes, ou entre kWh et MWh — est l'erreur la plus fréquente d'un premier bilan, et elle ne se voit que si l'on a des points de comparaison en tête.",
+        "<strong>L'empreinte moyenne d'une personne en France</strong> est de l'ordre de 9 tonnes CO2e par an, tous usages confondus. Une entreprise de 380 personnes émettant 4 700 tCO2e est donc à environ 12 tonnes par salarié, ce qui est plausible pour une activité avec de la logistique.",
+        "<strong>Un aller-retour Paris-New York en avion</strong> est de l'ordre de 1,5 à 2 tCO2e par passager. Une entreprise dont les déplacements professionnels dépassent quelques centaines de tonnes fait donc beaucoup d'avion, et cela doit correspondre à ce qu'on observe.",
+        "<strong>Un kilowattheure d'électricité en France</strong> est de l'ordre de 0,05 à 0,08 kg CO2e selon la méthode et l'année, contre 0,3 à 0,5 dans plusieurs pays européens. Un site industriel français aura donc un scope 2 faible et un scope 1 potentiellement élevé s'il consomme du gaz — la structure du bilan dépend directement du pays.",
+        "<strong>Un kilogramme d'acier</strong> est de l'ordre de 2 kg CO2e, un kilogramme d'aluminium primaire de l'ordre de 10 à 15, un kilogramme de plastique vierge de l'ordre de 2 à 3. Ces trois repères permettent de vérifier en trente secondes qu'un poste matières premières a le bon ordre de grandeur.",
+        "Si un de vos postes s'écarte d'un facteur dix de ce que ces repères laissent attendre, cherchez l'erreur d'unité avant toute autre explication. Dans neuf cas sur dix, c'est cela.",
+      ]},
+     {"type": "exemple", "titre": "ce qu'on peut et ce qu'on ne peut pas conclure",
+      "paras": [
+        "Résultat : 4 700 tCO2e, dont achats 62 %, transport aval 12 %, flotte 12 %, énergie des sites 6 %, déplacements 3 %, autres 5 %. Incertitude globale estimée à plus ou moins 30 %, portée essentiellement par les achats.",
+        "<em>Conclusions robustes :</em> les achats dominent largement, et aucune incertitude raisonnable ne remet cela en cause — même avec 50 % d'erreur sur ce poste, il resterait le premier. Le plan d'action doit donc porter sur les achats et le transport. La flotte, qui mobilisait l'attention, est un poste secondaire.",
+        "<em>Conclusions non robustes :</em> le classement relatif du transport aval et de la flotte, tous deux à 12 % avec des incertitudes différentes, n'est pas établi. Il serait imprudent d'en faire un argument.",
+        "<em>Conclusion impossible :</em> toute comparaison avec l'an dernier, puisqu'il n'y a pas d'an dernier. C'est évident et il faut pourtant le dire, car la première question posée en comité de direction sera « et par rapport à avant ? ». La réponse est que ce bilan <em>est</em> le point de départ, et c'est sa fonction.",
+        "<em>Conclusion à ne pas tirer trop vite :</em> « il faut demander à nos fournisseurs de réduire leurs émissions ». C'est vrai à terme, et c'est inopérant la première année : un courrier à trois cents fournisseurs ne produit rien. Le module 3 traite de ce que l'on fait réellement d'un poste achats dominant, et la réponse n'est pas celle-là.",
+      ]},
+     {"type": "pitfall", "titre": "présenter le bilan comme une performance",
+      "paras": [
+        "La tentation, en restitution, est de présenter le résultat comme un accomplissement — un rapport, des graphiques, une conclusion positive. C'est un mauvais calcul.",
+        "Un bilan n'est pas une performance, c'est un diagnostic, et son seul intérêt est de conduire à des décisions. Une restitution qui se termine sur « nous avons réalisé notre bilan carbone » a manqué son objet. Une restitution qui se termine sur « voici les trois postes sur lesquels nous devons agir, voici ce que nous proposons pour les deux premiers, et voici ce que cela coûte » ouvre la suite.",
+        "Concrètement : consacrez un quart de la restitution au résultat et trois quarts à ce qu'on en fait. Et présentez le premier plan d'action dans la même réunion, même à l'état d'esquisse — l'écart de six semaines entre le diagnostic et les propositions est celui pendant lequel un sujet retombe.",
+      ]},
+   ]},
+ ],
+
+ "etude_cas": {
+   "titre": "Le facteur trois entre deux méthodes, et comment le trancher",
+   "html": """
+<p>Reprenons la difficulté de la mise en situation : sur les achats, le calcul par ratios monétaires et le calcul par quantités physiques donnent des résultats dans un rapport de un à trois. Voici comment le problème a été instruit et tranché.</p>
+<p><strong>Étape 1 — ne pas choisir tout de suite le chiffre qui arrange.</strong> Le résultat par ratios monétaires donne 2 900 tCO2e sur les achats ; le calcul physique, sur les familles où les quantités sont connues, extrapolé au reste, donne environ 900 tCO2e. La tentation immédiate est de retenir le second, plus flatteur, ou le premier, plus prudent. Les deux réflexes sont mauvais : un écart de ce type est une information, et il faut l'expliquer avant de conclure.</p>
+<p><strong>Étape 2 — localiser l'écart plutôt que de le constater.</strong> Décomposition famille par famille plutôt que sur le total. L'écart n'est pas uniforme : sur six familles d'achats, quatre donnent des résultats cohérents à 20 % près entre les deux méthodes. L'écart provient presque intégralement de deux familles — les prestations de sous-traitance et l'achat de matériel informatique.</p>
+<p>C'est le geste décisif de toute l'étude de cas. Un écart global est ininterprétable ; un écart concentré sur deux postes se diagnostique.</p>
+<p><strong>Étape 3 — comprendre chaque famille.</strong></p>
+<p><em>La sous-traitance</em> représente 4,2 M€ d'achats. Le ratio monétaire du secteur des services aux entreprises appliqué à ce montant donne environ 1 100 tCO2e. Or l'essentiel de ces prestations est de la main-d'œuvre facturée à un taux journalier élevé : le montant est important, le contenu matériel est faible. Le ratio monétaire, calibré sur la moyenne du secteur, surestime ici massivement.</p>
+<p><em>Le matériel informatique</em> représente 380 k€. Le ratio monétaire donne environ 90 tCO2e. Le calcul physique — 210 ordinateurs portables, 40 écrans, des serveurs — donne environ 240 tCO2e. Ici le ratio <em>sous-estime</em>, parce que la fabrication d'un équipement électronique est très émettrice rapportée à son prix, bien au-dessus de la moyenne des achats.</p>
+<p>Les deux familles se compensent partiellement, ce qui rendait l'écart global encore plus trompeur : le total masquait deux biais de sens contraire.</p>
+<p><strong>Étape 4 — la règle de décision.</strong> Elle se formule en une phrase : <strong>on retient la donnée physique partout où elle existe et où le facteur d'émission est adapté ; on conserve le ratio monétaire ailleurs, en signalant les postes concernés et le sens probable du biais.</strong></p>
+<p>Application : matériel informatique en physique — 240 tCO2e, incertitude 15 %. Sous-traitance en ratio monétaire corrigé, en retenant un facteur adapté aux services intellectuels plutôt qu'à la moyenne du secteur — environ 420 tCO2e, incertitude 50 %, biais probable à la baisse signalé. Les quatre autres familles restent en ratio monétaire, incertitude 40 %.</p>
+<p>Total achats retenu : environ 2 100 tCO2e, avec une incertitude affichée de plus ou moins 35 %.</p>
+<p><strong>Étape 5 — vérifier que la conclusion tient malgré l'incertitude.</strong> C'est le test qui compte réellement, et il est trop rarement fait. La question n'est pas « quel est le chiffre juste ? » mais « ma conclusion change-t-elle si je me trompe autant que je le crains ? ».</p>
+<p>Bornes basses et hautes du poste achats : entre 1 350 et 2 850 tCO2e. Deuxième poste, le transport aval, à 570 tCO2e avec 20 % d'incertitude, soit entre 456 et 684.</p>
+<p>Dans l'hypothèse la plus défavorable — achats au minimum, transport au maximum — les achats restent deux fois supérieurs au deuxième poste. <strong>La conclusion est donc robuste, et c'est cela qu'il faut présenter</strong>, pas le chiffre central.</p>
+<p><strong>Étape 6 — la restitution, et la phrase qui a débloqué le sujet.</strong> Présentation en comité de direction, quinze minutes.</p>
+<p>« Nos émissions sont de l'ordre de 4 700 tonnes, à plus ou moins 30 %. Ce chiffre est imprécis et il le restera : personne ne connaît ses émissions de chaîne d'approvisionnement à 5 % près. Ce qui est certain, en revanche, c'est que nos achats représentent au moins la moitié du total et qu'ils pèsent au minimum deux fois plus que n'importe quel autre poste, quelle que soit l'hypothèse retenue. Toutes les actions que nous avions envisagées jusqu'ici portent sur des postes qui, ensemble, font moins de 20 %. »</p>
+<p>La question posée en retour a été : « qu'est-ce que ça veut dire concrètement pour les achats ? » — et c'est exactement la question qu'un bilan doit provoquer.</p>
+<p><strong>Étape 7 — ce qui a été inscrit pour l'année suivante.</strong> Trois améliorations de méthode, ciblées et non générales : obtenir les données physiques auprès des trois premiers fournisseurs, qui représentent 40 % des achats ; remplacer le ratio moyen de la sous-traitance par une décomposition en trois sous-familles ; et fiabiliser le transport aval, dont l'incertitude est faible mais la donnée fragile.</p>
+<p>Aucune amélioration prévue sur les postes inférieurs à 5 %, y compris ceux où elle serait facile. C'est un arbitrage explicite : l'effort de mesure suit l'effort d'action, et non l'inverse.</p>
+<p><strong>La leçon transposable.</strong> Un écart entre deux méthodes n'est pas un problème à arbitrer, c'est une information à décomposer. Ici, la décomposition a révélé deux biais de sens opposé qu'aucun choix global n'aurait corrigés — et elle a produit une compréhension des achats que le chiffre seul n'aurait jamais donnée.</p>
+<p>Le second enseignement porte sur la façon de présenter : en annonçant l'incertitude d'emblée et en montrant que la conclusion y résiste, on désamorce la seule objection sérieuse qu'on puisse opposer à un bilan. Une direction ne conteste presque jamais un chiffre dont on lui a expliqué la marge d'erreur avant qu'elle ne la demande.</p>
+"""},
+
+ "checklist": {
+   "titre": "Checklist — réaliser un bilan d'émissions défendable",
+   "items": [
+     "Le périmètre organisationnel est écrit, avec l'approche de consolidation et sa justification",
+     "Les entités incluses et exclues sont nommées",
+     "Chaque poste inclus porte sa source de donnée et sa méthode de calcul",
+     "Chaque poste exclu porte son motif : négligeable ou donnée indisponible",
+     "Les postes exclus pour indisponibilité font l'objet d'une estimation grossière de leur poids",
+     "Une seule base de facteurs d'émission est utilisée, avec sa version notée",
+     "Le type de facteur est précisé : analyse de cycle de vie ou combustion seule",
+     "Toute ligne utilisant une autre source est signalée individuellement",
+     "L'année de référence est choisie et sa représentativité justifiée",
+     "La règle de recalcul en cas de changement de périmètre est écrite, avec son seuil",
+     "Le scope 2 est calculé selon les deux approches, par localisation et par marché",
+     "Le scope 3 couvre au moins les postes significatifs, sans se limiter aux données faciles",
+     "Aucun double comptage entre transport et facteur produit n'a été laissé",
+     "Les véhicules loués et le télétravail sont classés dans le bon scope",
+     "Les données physiques ont été préférées aux ratios monétaires partout où elles existent",
+     "Chaque poste porte une incertitude estimée selon sa méthode",
+     "L'incertitude globale est calculée et affichée avec le résultat",
+     "Le résultat est présenté en absolu et en intensité rapportée à une grandeur d'activité",
+     "La vraisemblance a été contrôlée par comparaison à des repères d'ordre de grandeur",
+     "La robustesse de la hiérarchie a été testée aux bornes hautes et basses des incertitudes",
+     "La restitution consacre au moins trois quarts du temps aux suites à donner",
+   ]},
+
+ "glossaire": [
+   ("tCO2e", "Tonne équivalent CO2 : unité ramenant tous les gaz à effet de serre à une même échelle de réchauffement. Équivalence de réchauffement, non d'effet physique."),
+   ("Facteur d'émission", "Quantité d'émissions associée à une unité d'activité. Provient d'une base publique, avec un périmètre, une source, une date et une incertitude."),
+   ("Base Empreinte", "Base de facteurs d'émission de l'ADEME, référence française gratuite et documentée, opposable à l'administration comme aux vérificateurs."),
+   ("Donnée d'activité", "Grandeur mesurée à laquelle on applique un facteur : litres, kilowattheures, kilomètres, tonnes, ou à défaut un montant en euros."),
+   ("Scope 1", "Émissions directes des sources possédées ou contrôlées : combustion sur site, flotte propre, fuites de fluides frigorigènes, procédés."),
+   ("Scope 2", "Émissions indirectes de l'énergie achetée et consommée : électricité, vapeur, chaleur, froid. Le scope le plus étroit, souvent surchargé à tort."),
+   ("Scope 3", "Toutes les autres émissions indirectes, en amont et en aval. Représente couramment 70 % à plus de 95 % du total."),
+   ("Approche par localisation", "Calcul du scope 2 avec le facteur moyen du réseau électrique du pays."),
+   ("Approche par marché", "Calcul du scope 2 tenant compte des contrats d'approvisionnement et des garanties d'origine. À publier conjointement à la précédente."),
+   ("Périmètre organisationnel", "Décision sur les entités comptées : contrôle opérationnel, contrôle financier ou part du capital. À écrire avant tout calcul."),
+   ("Année de référence", "Année servant de base à toutes les évolutions futures. Doit être représentative et assortie d'une règle de recalcul."),
+   ("Ratio monétaire", "Facteur d'émission appliqué à un montant d'achat. Permet de couvrir tout un périmètre rapidement, avec une incertitude pouvant dépasser 50 %."),
+   ("Intensité", "Émissions rapportées à une grandeur d'activité : par million d'euros, par salarié, par tonne produite. Seule mesure comparable dans le temps."),
+   ("Incertitude", "Fourchette d'erreur estimée par poste selon la méthode employée. À afficher : elle rend le bilan plus crédible, pas moins."),
+   ("Double comptage", "Comptabilisation d'une même émission dans deux postes. Cas fréquent : le transport d'un achat déjà inclus dans le facteur du produit."),
+ ],
+
+ "retenir": [
+   "Un bilan d'émissions est une multiplication répétée : donnée d'activité fois facteur d'émission. Toute la difficulté est ailleurs.",
+   "Précisez toujours la base de facteurs, sa version, et le type de facteur employé : sans cela, le bilan n'est comparable à rien, pas même à lui-même.",
+   "Ne mélangez jamais des facteurs de périmètres différents dans un même bilan : chaque ligne serait juste et le total dénué de sens.",
+   "Le scope 1 est ce que vous brûlez, le scope 2 l'énergie que vous achetez, le scope 3 tout le reste.",
+   "Le scope 3 représente couramment 70 % à plus de 95 % du total : un bilan limité aux scopes 1 et 2 mesure moins de 15 % de l'empreinte.",
+   "L'intérêt d'un bilan n'est pas son total mais la hiérarchie qu'il révèle, et cette hiérarchie est presque toujours contre-intuitive.",
+   "Un ordre de grandeur incertain sur 85 % de l'empreinte vaut mieux qu'une mesure précise sur 15 %.",
+   "Écrivez le périmètre avant de calculer : entités, postes inclus, postes exclus avec motif, base de facteurs, année de référence.",
+   "Prévoyez la règle de recalcul de l'année de référence : sans elle, une cession fera apparaître une baisse d'émissions qui n'en est pas une.",
+   "Un changement de méthode n'est jamais une réduction d'émissions : présentez les deux effets séparément.",
+   "La collecte représente 70 % du temps d'un premier bilan : elle se prépare comme un projet, et on commence par les postes lourds.",
+   "Demandez les consommations en kilowattheures, pas en euros : c'est la première cause de blocage de la collecte.",
+   "Procédez en deux passes : couvrir 100 % grossièrement, puis raffiner les trois ou quatre postes qui font 80 % du total.",
+   "Un bilan est une estimation, pas une comptabilité : ce qui est attendu est la traçabilité, pas l'exactitude.",
+   "Fixez une date de publication au démarrage et tenez-la : ce qui manque est estimé et signalé, puis amélioré l'année suivante.",
+   "Publiez l'absolu et l'intensité : l'un mesure ce que l'atmosphère reçoit, l'autre l'effort accompli.",
+   "Afficher son incertitude rend un bilan plus crédible : une fausse précision signale au contraire que la méthode n'a pas été comprise.",
+   "Testez la robustesse de vos conclusions aux bornes hautes et basses des incertitudes : c'est ce qu'il faut présenter, pas le chiffre central.",
+   "Ayez des repères d'ordre de grandeur en tête : l'erreur la plus fréquente d'un premier bilan est un facteur mille sur une unité.",
+   "Un bilan n'est pas une performance mais un diagnostic : consacrez trois quarts de la restitution à ce qu'on en fait.",
+ ],
+
+ "exercices": [
+  {"titre": "Classer des postes dans les bons scopes", "niveau": "Débutant",
+   "enonce": [
+     "Pour chacun des dix postes suivants, indiquez le scope, et signalez les cas qui présentent une difficulté particulière.",
+     "1. Le gaz consommé par la chaudière du siège. — 2. L'électricité des trois sites. — 3. Le gazole des camions de l'entreprise. — 4. Le transport de marchandises confié à un transporteur. — 5. Les billets d'avion des commerciaux. — 6. Les ordinateurs portables achetés cette année. — 7. Les fuites de fluide frigorigène de la climatisation du siège. — 8. L'électricité consommée au domicile des salariés en télétravail. — 9. Les déchets de production envoyés en incinération. — 10. Le gazole d'un véhicule en location longue durée, carburant payé par l'entreprise.",
+   ],
+   "corrige": """
+<p><strong>1. Gaz de la chaudière du siège — scope 1.</strong> Combustion dans une installation que nous contrôlons. Cas d'école.</p>
+<p><strong>2. Électricité des sites — scope 2.</strong> Énergie achetée et consommée, produite ailleurs. <em>Point de méthode :</em> à calculer selon les deux approches. Par localisation, avec le facteur moyen du réseau français, la valeur sera basse. Par marché, elle dépendra de vos contrats et de vos garanties d'origine. Publier les deux est la pratique correcte, et c'est aussi ce qui vous évitera de communiquer un scope 2 nul, qui n'est jamais crédible.</p>
+<p><strong>3. Gazole des camions de l'entreprise — scope 1.</strong> Véhicules possédés, combustion sous notre contrôle. <em>À vérifier :</em> que le facteur retenu est bien celui de l'analyse de cycle de vie si c'est la convention du bilan, et que la même convention s'applique au poste 10.</p>
+<p><strong>4. Transport confié à un transporteur — scope 3.</strong> Nous achetons une prestation, la combustion a lieu dans un véhicule que nous ne contrôlons pas. <em>Difficulté réelle et fréquemment manquée :</em> risque de double comptage. Si vous calculez par ailleurs vos achats de marchandises par ratio monétaire, le facteur employé inclut souvent déjà une part de transport amont. Compter les deux revient à compter deux fois. La parade : décider explicitement où le transport est compté, l'écrire, et vérifier les facteurs employés.</p>
+<p><strong>5. Billets d'avion — scope 3</strong>, catégorie déplacements professionnels. <em>Précision qui compte :</em> le facteur retenu doit indiquer s'il inclut ou non les effets de traînée de condensation et le forçage radiatif d'altitude, qui peuvent multiplier le résultat par deux. Ce choix se documente. Un bilan qui affiche des déplacements aériens sans préciser ce point est difficilement comparable à un autre.</p>
+<p><strong>6. Ordinateurs portables — scope 3</strong>, catégorie achats de biens. <em>Point important :</em> c'est la <em>fabrication</em> qui est comptée ici, et elle représente la très grande majorité de l'empreinte d'un équipement électronique — l'électricité consommée pendant son usage relève, elle, du scope 2. Deuxième point : le ratio monétaire sous-estime fortement ce poste, la fabrication électronique étant très émettrice rapportée au prix. Préférez toujours un calcul par unité sur cette famille.</p>
+<p><strong>7. Fuites de fluide frigorigène — scope 1.</strong> Poste souvent oublié et parfois considérable : certains fluides ont un pouvoir de réchauffement de plusieurs milliers de fois celui du CO2, si bien que quelques kilogrammes de fuite peuvent représenter des dizaines de tonnes équivalent CO2. <em>Où trouver la donnée :</em> dans les rapports de maintenance des installations de froid, qui mentionnent les recharges effectuées. Une recharge est une fuite.</p>
+<p><strong>8. Électricité du domicile des télétravailleurs — scope 3</strong>, catégorie trajets domicile-travail selon les conventions usuelles. <em>Erreur classique :</em> la classer en scope 2. Ce serait faux, l'entreprise n'achetant pas cette énergie. <em>Point d'attention :</em> ce poste est généralement faible, et il attire une attention disproportionnée parce qu'il touche à un sujet d'organisation. Ne lui consacrez pas plus d'effort que son poids ne le justifie.</p>
+<p><strong>9. Déchets de production incinérés — scope 3</strong>, catégorie déchets. <em>Nuance :</em> si l'incinération a lieu dans une installation que vous exploitez, elle relève du scope 1. Confiée à un prestataire, elle est en scope 3. C'est le même critère que pour le transport, et il vaut pour tous les postes : la question est toujours qui contrôle l'installation où se produit l'émission.</p>
+<p><strong>10. Véhicule en location longue durée, carburant à notre charge — scope 1.</strong> C'est le cas piège de la liste. Le critère n'est pas la propriété mais le contrôle opérationnel : nous décidons de l'usage du véhicule et nous achetons son carburant. <em>À l'inverse :</em> un véhicule avec chauffeur mis à disposition par un prestataire relève du scope 3, puisque nous achetons une prestation et non l'usage d'un véhicule.</p>
+<p><strong>Le fil conducteur des dix réponses.</strong> Une seule question tranche : qui contrôle l'installation ou le véhicule où se produit physiquement l'émission ? Le reste — propriété, facturation, lieu — est secondaire. Et les deux difficultés récurrentes ne sont pas des difficultés de classement mais de méthode : le double comptage du transport, et le choix du facteur pour l'aérien.</p>
+"""},
+
+  {"titre": "Construire un plan de collecte réaliste", "niveau": "Intermédiaire",
+   "enonce": [
+     "Vous devez produire le premier bilan d'une entreprise de distribution de 240 salariés, deux entrepôts, une flotte de 30 véhicules, 45 M€ de chiffre d'affaires dont l'essentiel en achats de marchandises revendues. Vous avez trois mois et un tiers de votre temps.",
+     "Construisez le plan de collecte : ce que vous demandez, à qui, dans quel ordre, avec quelle méthode, et ce que vous faites des données que vous n'obtiendrez pas.",
+   ],
+   "corrige": """
+<p><strong>Le raisonnement préalable, avant toute demande.</strong> Sur une activité de distribution, la structure du bilan est connue d'avance : les marchandises achetées et revendues représenteront très probablement 80 % ou plus du total. Le transport viendra ensuite, puis l'énergie des entrepôts, puis la flotte.</p>
+<p>Cette anticipation n'est pas un préjugé, c'est une hypothèse de travail qui détermine l'allocation de l'effort. Elle sera vérifiée ou infirmée par la première passe. Mais commencer une collecte sans hypothèse conduit à répartir l'effort uniformément, donc à passer autant de temps sur un poste à 1 % que sur un poste à 80 %.</p>
+<p><strong>Semaine 1 — le périmètre et l'annonce.</strong></p>
+<p>La note de périmètre, une page. Contrôle opérationnel, les deux entrepôts et le siège, année de référence l'exercice écoulé, Base Empreinte de l'ADEME, facteurs en analyse de cycle de vie.</p>
+<p>Puis, et c'est aussi important : un message du directeur général — pas de vous — annonçant l'exercice, sa raison et son calendrier. Une demande de données qui arrive sans mandat visible obtient des réponses en trois semaines ; la même demande précédée d'une annonce de la direction en obtient en trois jours. C'est la mesure la moins coûteuse et la plus efficace de tout le plan.</p>
+<p><strong>Semaine 2 — les sept demandes, envoyées simultanément.</strong></p>
+<p><em>Comptabilité :</em> le grand livre des achats de l'exercice, par compte et par fournisseur. C'est la demande la plus importante et la plus facile à satisfaire.</p>
+<p><em>Achats :</em> les quantités physiques disponibles sur les principales familles — tonnages, unités, volumes — et la liste des dix premiers fournisseurs en montant.</p>
+<p><em>Services généraux :</em> les consommations d'électricité et de gaz des trois implantations, <strong>en kilowattheures</strong>, sur douze mois. Précisez l'unité dans la demande, et précisez que les factures en euros ne conviennent pas — sans cela, vous recevrez des montants.</p>
+<p><em>Flotte :</em> les litres de carburant par énergie, depuis les cartes carburant. Et les contrats, pour trancher le classement scope 1 ou 3 de chaque véhicule.</p>
+<p><em>Logistique :</em> les tonnes-kilomètres du transport aval, ou à défaut le nombre d'expéditions et une distance moyenne. Les prestataires transport communiquent souvent ces données sur demande, et de plus en plus fournissent directement un calcul d'émissions.</p>
+<p><em>Ressources humaines :</em> l'effectif moyen, la répartition par site, et le lancement d'une enquête domicile-travail à cinq questions.</p>
+<p><em>Prestataire déchets :</em> les tonnages par flux et par mode de traitement.</p>
+<p><strong>Semaines 3 et 4 — les achats, qui sont le sujet.</strong></p>
+<p>Le grand livre arrive. Rapprochement de chaque compte d'achat avec un facteur monétaire de la base ADEME. Le travail réel est ici : la qualité du résultat dépend entièrement de la finesse du rapprochement entre vos comptes comptables et les catégories de la base.</p>
+<p>Un point de méthode qui fait la différence : n'appliquez pas un facteur unique à un compte hétérogène. Si le compte « achats de marchandises » mélange des familles de nature très différente, décomposez-le au moins en trois ou quatre sous-familles. C'est deux heures de travail supplémentaire et cela divise l'incertitude par deux sur le poste qui pèse 80 %.</p>
+<p>En parallèle, sur les familles où les quantités physiques existent, faites le double calcul. Vous saurez ainsi si vos ratios monétaires surestiment ou sous-estiment, et dans quel sens — information qui vaudra pour tout le poste.</p>
+<p><strong>Semaine 5 — la relance, et le tri entre ce qui manque.</strong></p>
+<p>Deux ou trois demandes seront restées sans réponse, c'est systématique. Distinguez alors deux cas, et traitez-les différemment.</p>
+<p><em>La donnée existe mais personne n'a le temps :</em> allez la chercher vous-même. Une demi-journée passée dans les factures d'énergie vaut mieux que six semaines de relances.</p>
+<p><em>La donnée n'existe pas :</em> estimez, et écrivez l'estimation. Les consommations d'un entrepôt manquantes sur un semestre s'extrapolent depuis l'autre semestre avec une correction saisonnière grossière. L'enquête domicile-travail à faible taux de réponse s'extrapole depuis les répondants, en signalant le taux de réponse. Aucune de ces estimations n'est problématique tant qu'elle est signalée.</p>
+<p><strong>Semaine 6 — le premier résultat et sa relecture de vraisemblance.</strong></p>
+<p>Total, répartition, hiérarchie. Puis la relecture poste par poste avec les repères d'ordre de grandeur : le total par salarié est-il plausible pour une activité de distribution ? Les litres de carburant divisés par le nombre de véhicules donnent-ils une consommation annuelle réaliste ? Les kilowattheures par mètre carré d'entrepôt sont-ils dans une fourchette normale ?</p>
+<p>C'est à ce moment que se détectent les erreurs d'unité, et il faut y consacrer une vraie demi-journée. Un facteur mille passé inaperçu ici sera présenté en comité de direction.</p>
+<p><strong>Semaines 7 à 10 — la seconde passe, uniquement sur les achats.</strong></p>
+<p>Contact des cinq premiers fournisseurs en montant. Question simple : disposez-vous de données d'émissions sur vos produits, ou à défaut des quantités et compositions ? Vous obtiendrez une réponse utile de deux ou trois sur cinq, ce qui est un bon rendement, et cela couvrira peut-être 30 % du poste principal.</p>
+<p>Aucun effort supplémentaire sur les autres postes, y compris ceux où il serait facile. L'effort de mesure suit le poids, sans exception — c'est la discipline la plus difficile à tenir, parce qu'il est agréable de raffiner ce qui est facile à raffiner.</p>
+<p><strong>Semaines 11 et 12 — restitution.</strong> Résultat, incertitude, hiérarchie, test de robustesse, et esquisse du plan d'action dans la même réunion.</p>
+<p><strong>Ce qui vous manquera à coup sûr, et comment le dire.</strong></p>
+<p>L'usage et la fin de vie des produits vendus, faute de données. Le détail de certains achats de services. Une partie du transport amont, souvent inclus dans les prix d'achat sans être identifiable.</p>
+<p>Formulation à employer : « ces trois postes ne sont pas couverts cette année. Sur la base des ordres de grandeur du secteur, ils représenteraient entre 5 % et 15 % du total. Ils sont inscrits au programme de la deuxième itération. »</p>
+<p>Une omission chiffrée et datée est acceptée sans difficulté. Une omission non mentionnée sera découverte par quelqu'un d'autre, et elle jettera un doute sur l'ensemble.</p>
+"""},
+
+  {"titre": "Instruire un résultat contesté en interne", "niveau": "Avancé",
+   "enonce": [
+     "Vous présentez votre premier bilan : 12 400 tCO2e, dont 78 % sur les achats. Le directeur des achats conteste vivement : selon lui, la méthode par ratios monétaires est « du pifomètre », le chiffre est « inventé », et fonder un plan d'action dessus serait irresponsable. Le directeur général, mal à l'aise, suspend la décision et vous demande de « consolider ».",
+     "Construisez votre réponse et votre plan. Traitez la question de fond — a-t-il raison ? — avant celle de la relation.",
+   ],
+   "corrige": """
+<p><strong>Premier constat, qu'il faut s'avouer avant tout : il n'a pas entièrement tort.</strong> Un ratio monétaire appliqué à des familles d'achats hétérogènes porte une incertitude qui peut dépasser 50 %. Si vous l'avez présenté comme un chiffre ferme, la critique est fondée, et le réflexe défensif serait la pire réponse possible.</p>
+<p>Deuxième constat, tout aussi important : sa conclusion, elle, ne suit pas de sa prémisse. Une incertitude élevée sur un poste qui pèse 78 % n'invalide pas la hiérarchie. Même à 50 % d'erreur, les achats resteraient largement le premier poste. Contester la précision est légitime ; en déduire qu'il ne faut pas agir ne l'est pas.</p>
+<p>C'est cette distinction qu'il faut établir, et elle est de nature technique, pas relationnelle.</p>
+<p><strong>Étape 1 — le test de robustesse, fait et présenté.</strong></p>
+<p>Reprenez chaque poste avec ses bornes basse et haute. Achats entre 6 200 et 14 500 tCO2e ; deuxième poste, transport, entre 900 et 1 100.</p>
+<p>Dans l'hypothèse la plus défavorable aux achats — borne basse pour eux, borne haute pour tout le reste — ils représentent encore plus de la moitié du total et près de six fois le deuxième poste. <strong>Aucun jeu d'hypothèses raisonnable ne fait sortir les achats de la première place</strong>, et c'est démontrable en une diapositive.</p>
+<p>C'est l'argument central. Il ne défend pas le chiffre, il défend la conclusion, et c'est une position bien plus solide.</p>
+<p><strong>Étape 2 — la vérification externe, qui coûte deux heures.</strong></p>
+<p>Consultez sur la plateforme publique de l'ADEME les bilans de trois entreprises de votre secteur et de taille comparable. Comparez les intensités par million d'euros de chiffre d'affaires et la part des achats dans leur total.</p>
+<p>Dans une activité où les achats dominent, vous trouverez presque certainement des parts comparables, entre 70 % et 85 %. Ce n'est pas une preuve de votre calcul, et c'est un argument redoutable : votre structure de bilan est conforme à celle du secteur, ce qui rend l'hypothèse d'une erreur grossière peu vraisemblable.</p>
+<p>Cette vérification aurait dû être faite avant la présentation. Le premier enseignement de l'épisode est là.</p>
+<p><strong>Étape 3 — le calcul indépendant sur une famille, et c'est ce qui emporte la décision.</strong></p>
+<p>Proposez au directeur des achats de choisir <em>lui-même</em> une famille d'achats, et refaites-la ensemble en données physiques.</p>
+<p>Ce geste change la nature de l'échange pour trois raisons. Il est vérifiable et il l'associe. Il porte sur son terrain, où il détient l'information et où il ne peut pas être mis en difficulté. Et il vous engage : si le calcul physique s'écarte fortement du ratio, vous le direz.</p>
+<p>Trois issues, toutes utiles. Les résultats convergent à 25 % près : votre méthode est validée sur cette famille, et le débat est clos. Le ratio surestime : vous corrigez, le total baisse, et la hiérarchie reste très probablement identique — vous avez gagné en précision et en allié. Le ratio sous-estime : c'est le cas le plus intéressant, parce qu'il retourne complètement la situation.</p>
+<p><strong>Étape 4 — traiter ce qui se joue réellement, qui n'est pas le chiffre.</strong></p>
+<p>Un directeur des achats qui apprend que 78 % de l'empreinte de l'entreprise relève de son périmètre entend surtout deux choses : que son travail va être remis en cause, et qu'on va lui demander de renoncer à des économies pour des raisons environnementales. Sa réaction est une réaction de protection, et elle est prévisible.</p>
+<p>Deux conduites suivent de ce diagnostic.</p>
+<p><em>Ne défendez pas le chiffre en réunion plénière.</em> Voyez-le seul à seul, avant. Une contestation technique en comité de direction est une position publique dont il est difficile de sortir sans perdre la face ; le même désaccord traité en bilatéral se résout dans neuf cas sur dix.</p>
+<p><em>Reformulez ce que le résultat signifie pour lui.</em> « 78 % de l'empreinte est dans les achats. Cela ne veut pas dire que les achats sont mal faits — c'est structurel dans notre activité, et nos concurrents ont la même répartition. Cela veut dire que c'est le seul endroit où l'on peut agir sérieusement, et donc que la direction des achats devient centrale sur ce sujet. J'ai besoin de vous pour savoir ce qui est faisable et ce qui ne l'est pas. »</p>
+<p>Vous transformez une accusation implicite en un rôle. C'est la seule formulation qui fonctionne durablement, parce qu'elle est vraie.</p>
+<p><strong>Étape 5 — ce que vous demandez au directeur général.</strong></p>
+<p>Pas de valider votre chiffre : de valider une méthode de travail. « Je propose de refaire deux familles d'achats en données physiques avec les achats, sous six semaines. Si la hiérarchie change, nous révisons le plan. Si elle se confirme, nous engageons les deux premières actions. »</p>
+<p>Ce cadrage donne une issue à tout le monde. Le directeur des achats obtient sa vérification, vous obtenez une décision datée, et le directeur général n'a pas à arbitrer entre deux personnes sur un sujet technique qu'il ne maîtrise pas — ce qu'aucun dirigeant ne souhaite faire.</p>
+<p><strong>Ce qu'il ne faut surtout pas faire.</strong></p>
+<p><em>Défendre le chiffre pied à pied.</em> Vous perdriez, parce qu'il est effectivement imprécis, et vous perdriez sur le mauvais terrain.</p>
+<p><em>Accepter de « consolider » sans définir ce que cela veut dire.</em> « Consolider » est un mot qui enterre les sujets. Transformez-le immédiatement en un périmètre, une échéance et un critère de décision, sinon vous y reviendrez dans un an.</p>
+<p><em>Concéder que la méthode ne vaut rien pour apaiser.</em> Vous auriez la paix six semaines, et vous ne pourriez plus jamais présenter un bilan par ratios monétaires — c'est-à-dire plus jamais présenter de bilan de scope 3, puisque aucune entreprise ne dispose de données physiques sur l'ensemble de ses achats.</p>
+<p><strong>Le principe général.</strong> Sur un sujet chiffré contesté, ne défendez jamais la valeur : défendez la conclusion, et montrez qu'elle survit à l'incertitude que votre contradicteur invoque. Vous lui donnez raison sur le point technique — ce qui coûte peu et rapporte beaucoup — sans rien céder sur la décision. Et vous restez celui qui a présenté l'incertitude avant qu'on ne la lui reproche, ce qui est la meilleure position possible.</p>
+"""},
+ ],
+
+ "ressources": [
+   "<strong>La Base Empreinte de l'ADEME</strong> (base-empreinte.ademe.fr) — la base de facteurs d'émission de référence en France, gratuite et documentée. Chaque facteur y porte son périmètre, sa source, sa date et son incertitude : ces quatre informations comptent autant que la valeur.",
+   "<strong>La plateforme des bilans GES de l'ADEME</strong> (bilans-ges.ademe.fr) — base publique des bilans déposés. Le moyen le plus rapide de vérifier la vraisemblance de votre propre résultat en comparant vos intensités à celles d'entreprises comparables.",
+   "<strong>Le GHG Protocol Corporate Standard et son Scope 3 Standard</strong> — les documents fondateurs, en anglais, qui définissent les quinze catégories du scope 3 et les règles de périmètre. À consulter sur les cas limites plutôt qu'à lire intégralement.",
+   "<strong>Le module 3 de cette formation</strong> — ce que l'on fait d'un bilan une fois qu'il existe : double matérialité, priorisation et plan d'action chiffré. Un bilan sans suite est un exercice, pas une démarche.",
+ ],
+}
+
+QUIZ["rse-transition-ecologique/module-2"] = {
+ "module_id": "formation-rse-transition-ecologique-module-2",
+ "version": "2.0", "last_verified": "2026-09-04",
+ "questions": [
+  {"id":"q1","question":"Quelle part de l'empreinte totale un bilan limité aux scopes 1 et 2 mesure-t-il généralement ?",
+   "choices":[{"key":"a","text":"Environ la moitié, les deux ensembles s'équilibrant dans la plupart des secteurs"},
+              {"key":"b","text":"Moins de 15 % : le scope 3 représente couramment 70 % à plus de 95 % du total"},
+              {"key":"c","text":"Plus de 80 %, le scope 3 restant marginal hors industrie lourde"}],
+   "correct_answer":"b","feedback":"C'est pourquoi beaucoup de démarches s'épuisent sur des gestes symboliques : elles ont mesuré la partie visible et agi dessus."},
+  {"id":"q2","question":"Un véhicule en location longue durée, dont l'entreprise paie le carburant, relève de quel scope ?",
+   "choices":[{"key":"a","text":"Scope 1 : le critère est le contrôle opérationnel, pas la propriété"},
+              {"key":"b","text":"Scope 3, puisque le véhicule ne lui appartient pas"},
+              {"key":"c","text":"Scope 2, comme toute énergie achetée par l'entreprise"}],
+   "correct_answer":"a","feedback":"À l'inverse, un véhicule avec chauffeur mis à disposition par un prestataire relève du scope 3 : on achète alors une prestation, pas l'usage d'un véhicule."},
+  {"id":"q3","question":"La deuxième année, vous passez des ratios monétaires à des données physiques et le total baisse de 18 %. Que communiquez-vous ?",
+   "choices":[{"key":"a","text":"Une réduction de 18 % de vos émissions"},
+              {"key":"b","text":"Les deux effets séparément : l'évolution à méthode constante, et la révision liée au changement de méthode"},
+              {"key":"c","text":"Rien, tant que la série n'est pas homogène sur trois ans"}],
+   "correct_answer":"b","feedback":"Aucune tonne n'a été évitée. Annoncer une baisse dans ces conditions est une allégation trompeuse, d'autant plus grave que l'entreprise dispose des éléments montrant qu'elle le sait."},
+  {"id":"q4","question":"Pourquoi afficher l'incertitude d'un bilan plutôt que de la taire ?",
+   "choices":[{"key":"a","text":"Parce que la réglementation l'impose explicitement depuis 2023"},
+              {"key":"b","text":"Parce que cela dispense de tester la robustesse des conclusions"},
+              {"key":"c","text":"Parce qu'une fausse précision signale au contraire que la méthode n'a pas été comprise"}],
+   "correct_answer":"c","feedback":"« 4 700 tCO2e à plus ou moins 30 % » est plus crédible que « 4 683 tCO2e ». Et présenter l'incertitude avant qu'on ne la demande désamorce la principale objection."},
+  {"id":"q5","question":"Comment organiser la collecte d'un premier bilan ?",
+   "choices":[{"key":"a","text":"En traitant d'abord les postes dont les données sont les plus faciles à obtenir"},
+              {"key":"b","text":"En attendant d'avoir des données physiques sur tous les postes avant de publier"},
+              {"key":"c","text":"En deux passes : couvrir 100 % du périmètre grossièrement, puis raffiner les trois ou quatre postes qui font 80 % du total"}],
+   "correct_answer":"c","feedback":"L'effort de mesure suit le poids des postes. Commencer par le facile répartit l'effort uniformément, donc autant sur un poste à 1 % que sur un poste à 80 %."},
+  {"id":"q6","question":"Un poste de votre bilan s'écarte d'un facteur dix des repères d'ordre de grandeur connus. Que cherchez-vous en premier ?",
+   "choices":[{"key":"a","text":"Une erreur d'unité : kilogrammes et tonnes, ou kWh et MWh"},
+              {"key":"b","text":"Une spécificité de votre activité expliquant cet écart"},
+              {"key":"c","text":"Un facteur d'émission obsolète dans la base employée"}],
+   "correct_answer":"a","feedback":"L'erreur de facteur mille est la plus fréquente d'un premier bilan, et elle ne se détecte que si l'on a des points de comparaison en tête."},
+ ]}
+
+for k, m in M.items():
+    w, full = build(k, m)
+    print(f"{k:38s} cours: {w} mots | page: {full} mots")
+for k, q in QUIZ.items():
+    p = os.path.join("/tmp/out_v2", k, "quiz.json")
+    os.makedirs(os.path.dirname(p), exist_ok=True)
+    json.dump(q, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+    open(p, "a", encoding="utf-8").write("\n")
+    print(f"{k}: quiz {len(q['questions'])} questions")

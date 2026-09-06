@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-rse-transition-ecologique-module-4",
+  "version": "2.0",
+  "last_verified": "2026-09-04",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "À partir de quelle taille d'entreprise le droit des allégations environnementales s'applique-t-il ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "À partir de 250 salariés, comme la plupart des obligations extra-financières"
+        },
+        {
+          "key": "b",
+          "text": "Sans aucun seuil : il s'applique dès qu'une entreprise communique"
+        },
+        {
+          "key": "c",
+          "text": "À partir des seuils CSRD, soit 1 000 salariés et 450 M€"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "C'est l'inverse exact de l'idée reçue. Une PME non soumise à la CSRD est pleinement soumise au droit de la consommation dès qu'elle communique."
+    },
+    {
+      "id": "q2",
+      "question": "Quel principe sous-tend l'ensemble du dispositif juridique sur les allégations ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Toute allégation doit être validée par un organisme certificateur avant diffusion"
+        },
+        {
+          "key": "b",
+          "text": "Aucune allégation environnementale ne peut porter sur l'entreprise dans son ensemble"
+        },
+        {
+          "key": "c",
+          "text": "La preuve doit avoir la même profondeur que l'allégation"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Corollaire libérateur : plus vous êtes précis, plus vous êtes en sécurité — et plus vous êtes convaincant. Le droit pousse ici dans le même sens qu'une bonne communication."
+    },
+    {
+      "id": "q3",
+      "question": "Vos émissions affichent -20 %, dont l'essentiel vient d'un changement de méthode de calcul. Que communiquez-vous ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "-20 %, le chiffre étant exact et figurant dans le rapport"
+        },
+        {
+          "key": "b",
+          "text": "Rien, tant que la série n'est pas homogène"
+        },
+        {
+          "key": "c",
+          "text": "La réduction réelle obtenue par les actions, en tonnes et en pourcentage à méthode constante"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Le droit s'intéresse à ce que l'affirmation fait comprendre, pas à son exactitude arithmétique. Un chiffre exact peut servir à dire quelque chose de faux."
+    },
+    {
+      "id": "q4",
+      "question": "Un label attribué par votre fédération professionnelle peut-il être affiché ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Non s'il ne repose pas sur un système de certification vérifié par un tiers indépendant"
+        },
+        {
+          "key": "b",
+          "text": "Oui, une fédération professionnelle constitue un tiers par rapport à l'entreprise"
+        },
+        {
+          "key": "c",
+          "text": "Oui, à condition d'indiquer le nom de la fédération à côté du logo"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Une fédération dont l'entreprise est membre et cotisante ne remplit pas la condition d'indépendance. L'inventaire des logos affichés est un contrôle rapide et souvent productif."
+    },
+    {
+      "id": "q5",
+      "question": "Vous avez publié un objectif de -40 % en 2030 et l'écart de 18 points n'a pas de solution. Que faites-vous ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Vous retirez discrètement l'objectif des supports en attendant d'y voir plus clair"
+        },
+        {
+          "key": "b",
+          "text": "Vous écrivez l'écart, ses causes et les actions engagées pour le réduire"
+        },
+        {
+          "key": "c",
+          "text": "Vous comblez l'écart par de la compensation carbone"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Se taire expose, retirer discrètement se remarque, et compenser ne réduit aucune émission propre. Écrire l'écart transforme aussi un objectif décoratif en demande d'arbitrage."
+    },
+    {
+      "id": "q6",
+      "question": "Quel est le meilleur ordre pour obtenir qu'une formulation soit corrigée ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "L'argument commercial d'abord, le risque juridique ensuite pour verrouiller"
+        },
+        {
+          "key": "b",
+          "text": "L'argument de risque juridique d'abord, puis l'argument commercial"
+        },
+        {
+          "key": "c",
+          "text": "Un refus argumenté par la réglementation, sans proposer d'alternative"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Un argument de risque présenté en premier fait de la fonction RSE un service de contrôle. Et un refus sans version de remplacement crée un adversaire au lieu d'un processus."
+    }
+  ]
+}

@@ -4,7 +4,8 @@
 import html as H
 
 SOLDE = 1353.80
-PART_MIN, PART_MAX = 103.20, 150.0
+PARTICIPATION = 150.0  # décret n° 2026-234 du 30 mars 2026 (publié le 1er avril),
+# applicable aux demandes déposées à compter du 2 avril 2026 ; non due par les demandeurs d'emploi
 
 # (titre, organisme, note_organisme, cout_txt, cout_min|None, plafond|None,
 #  cpf: "oui"|"non"|"variable", url|None, note|None)
@@ -16,20 +17,28 @@ CATS = [
    "Gratuit (mode libre)", None, None, "non", "https://openclassrooms.com/fr/", None),
   ("Semrush Academy", "Semrush", "Modules courts, tous niveaux",
    "Gratuit", None, None, "non", "https://www.semrush.com/academy/", None),
-  ("Accompagnement SEO individuel", "LiveMentor", "RS6710 — mentorat individuel",
-   "1 650 à 1 980 €", 1650, 1500, "oui", "https://www.livementor.com/formation/seo/", None),
+  ("Accompagnement SEO individuel", "LiveMentor", "Mentorat individuel, 3 mois — 1 650 €",
+   "1 650 €", 1650, 1500, "variable", "https://www.livementor.com/formation/seo/",
+   "Le RS6710 affiché par l'organisme a expiré le 19/07/2026 ; il est remplacé par le RS7589, "
+   "intitulé « Entreprendre et développer sa clientèle grâce au marketing digital » — pas une "
+   "certification SEO. Faire confirmer le code réellement mobilisable avant inscription."),
   ("Formation SEO certifiante", "Skills4All", "RS — vidéos, exercices et projet final, 30 h",
    "≈ 2 000 €", 2000, 1500, "oui", "https://www.skills4all.com/", None),
   ("Formation SEO éligible CPF", "La WAB", "RS7500 — e-learning et visio hebdomadaire, 8 semaines",
    "≈ 1 485 €", 1485, 1500, "oui",
    "https://www.la-wab.fr/formation-seo-eligible-cpf-reconnu-par-l-etat", None),
   ("Formation SEO", "Wemodo (ex-Webmyday)", "RS — modules et coaching de groupe",
-   "1 740 à 2 088 €", 1740, 1500, "oui", "https://wemodo.com/formations/web/formation-seo",
-   "L'organisme a été renommé : Webmyday est devenu Wemodo."),
+   "1 640 €", 1640, 1500, "oui", "https://wemodo.com/formations/web/formation-seo",
+   "L'organisme a été renommé : Webmyday est devenu Wemodo. Tarif relevé sur la page : 1 640 € "
+   "pour la formule certifiante, 42 h sur 3 mois, certification RS7500."),
   ("Formation SEO", "The Business Legion", "Formation et communauté Discord",
-   "≈ 2 000 €", 2000, 1500, "oui", "https://the-business-legion.com/", None),
+   "≈ 2 000 €", 2000, 1500, "oui", "https://the-business-legion.com/",
+   "Site injoignable lors du contrôle de septembre 2026 (erreur serveur). "
+   "À revérifier avant toute démarche."),
   ("Formation SEO", "Mantra (ex-GrowthMakers)", "Orientée futurs responsables SEO",
-   "≈ 1 990 €", 1990, 1500, "oui", "https://www.mantra.work/", None),
+   "Variable", None, 1500, "oui", "https://www.mantra.work/",
+   "Renommage GrowthMakers → Mantra confirmé (2023). Aucun tarif public sur le site : "
+   "le prix de 1 990 € parfois cité n'a pas pu être vérifié, demander un devis."),
   ("Cours SEO (Guersan)", "Udemy", "9 h 30 de contenu — option petit budget",
    "≈ 22,99 €", None, None, "non", "https://www.udemy.com/", None),
  ]),
@@ -46,17 +55,20 @@ CATS = [
    "Variable", None, 1500, "oui", "https://www.savoiria.fr/", None),
   ("Formation IA générative", "Jedha", "Certification IA générative, 42 h",
    "1 500 €", 1500, 1500, "oui", "https://www.jedha.co/", None),
-  ("Prompt Engineer", "Jedha", "RS7234 — certification « Generative AI »",
-   "Variable", None, 1500, "oui", "https://www.jedha.co/", None),
-  ("Parcours IA — Fondamental et Approfondi", "Skillevos", "RS6776",
-   "Variable", None, 1500, "oui", "https://www.skillevos.fr/formation-ia-entreprise/", None),
-  ("Formation IA générative", "Perma France", "18 h — annoncée sans reste à charge",
-   "≈ 1 490 €", 1490, 1500, "oui", None,
-   "Organisme non retrouvé lors de la vérification des liens — à confirmer avant toute inscription."),
+  ("Prompt Engineer", "Jedha", "Certification à confirmer auprès de l'organisme",
+   "Variable", None, 1500, "variable", "https://www.jedha.co/",
+   "Le code RS7234 ne correspond pas à cette formation : il est enregistré au nom de LION "
+   "pour « Intégrer l'utilisation des outils numériques et de l'IA dans la gestion de projet ». "
+   "Demander à Jedha le code exact mobilisable au CPF."),
+  ("Parcours IA — Fondamental et Approfondi", "Skillevos", "Formats de 3 h à 1 journée",
+   "1 300 à 2 300 €", 1300, 1500, "variable", "https://www.skillevos.fr/formation-ia-entreprise/",
+   "L'organisme indique lui-même être « en cours d'agrément EDOF » pour l'éligibilité CPF : "
+   "à ce stade le financement passe par l'OPCO, pas par le CPF individuel."),
   ("Formation IA", "26 Academy", "RNCP / RS — 100 % en ligne, tuteur dédié",
    "Variable", None, 1500, "oui", "https://26academy.com/", None),
-  ("Formation IA", "Phoenix Performance", "16 h — prise en charge annoncée jusqu'à 1 500 €",
-   "Variable", None, 1500, "oui", "https://www.phoenix-performance.pro/formation-ia", None),
+  ("Formation IA", "Phoenix Performance", "RS6776 — 16 h en synchrone",
+   "1 650 €", 1650, 1500, "oui", "https://www.phoenix-performance.pro/formation-ia",
+   "Tarif construit pour tomber juste : 1 500 € de CPF + 150 € de participation obligatoire."),
   ("Introduction to Generative AI", "Google Cloud Skills Boost", "Fondamentaux de l'IA générative",
    "Gratuit", None, None, "non", "https://www.cloudskillsboost.google/paths/118", None),
   ("Notions fondamentales — IA générative", "Microsoft Learn", "Parcours guidé",
@@ -71,17 +83,22 @@ CATS = [
    "https://www.skills4all.com/", None),
   ("Préparation PMP", "Cegos / Orsys / Demos", "Certification PMP",
    "2 000 à 3 500 €", 2000, 1500, "oui", "https://www.cegos.fr/", None),
-  ("Gestion de projet agile", "26 Academy", "RS5487 / RNCP37091 — Scrum, transformation digitale",
-   "Variable", None, 1500, "oui", "https://26academy.com/", None),
+  ("Gestion de projet agile", "26 Academy", "Codes à faire confirmer par l'organisme",
+   "Variable", None, 1500, "variable", "https://26academy.com/",
+   "Le RS5487 « Gérer un projet en mobilisant les méthodes agiles » (Simplon.co) est inactif "
+   "depuis le 08/07/2026. Le RNCP37091 est actif mais correspond au titre « Manager d'unité "
+   "opérationnelle » de niveau 7 (Montpellier BS), pas à une formation agile courte."),
   ("CompTIA Project+", "CompTIA", "Pour coordinateurs IT",
    "≈ 350 €", None, None, "non", "https://www.comptia.org/", None),
   ("ITIL 4 Foundation", "Cegos / Orsys", "Gestion des services IT",
    "1 200 à 1 800 €", 1200, 1500, "oui", "https://www.orsys.fr/", None),
  ]),
  ("Management d'équipe", "Management", [
-  ("Manager des équipes de proximité", "26 Academy", "RS6626",
+  ("Manager des équipes et piloter l'efficacité collective", "26 Academy",
+   "RS6626 — certificateur SCYFCO, actif jusqu'au 31/05/2027",
    "Variable", None, 1500, "oui", "https://26academy.com/", None),
-  ("Management d'équipe", "Walter Learning", "RS6626 — 34 h",
+  ("Manager des équipes et piloter l'efficacité collective", "Walter Learning",
+   "RS6626 — 34 h, certificateur SCYFCO",
    "Variable", None, 1500, "oui", "https://walter-learning.com/", None),
   ("Certification RS6626", "Organismes référencés MaFormation", "Comparateur multi-organismes",
    "2 110 à 2 850 €", 2110, 1500, "oui", "https://www.maformation.fr/", None),
@@ -95,8 +112,12 @@ CATS = [
  ]),
  ("Langues", "Langues", [
   ("DELE espagnol (A1 à C2)", "Instituto Cervantes", "Officialise un niveau d'espagnol déjà acquis",
-   "500 à 3 000 € selon le niveau", 500, 1500, "oui",
-   "https://paris.cervantes.es/fr/examens_espagnol/info_examens_espagnol.htm", None),
+   "Examen seul : de l'ordre de 100 à 250 € selon le niveau", None, None, "variable",
+   "https://paris.cervantes.es/fr/diplomes_espagnol/tarifs_inscription_dele.htm",
+   "Ne pas confondre les deux prix : l'inscription à l'examen DELE coûte quelques centaines "
+   "d'euros au plus ; les 500 à 3 000 € parfois cités correspondent à une formation de "
+   "préparation vendue par un organisme tiers. Vérifier le tarif exact du niveau visé sur la "
+   "page tarifs, et l'éligibilité CPF du passage de l'examen seul."),
   ("TOEIC / DELE / Goethe / CILS", "OpenLang", "RS — organisme certifié Qualiopi",
    "Variable", None, 1500, "oui", "https://openlang.fr/", None),
   ("LILATE / CLOE", "Cercle des Langues", "RS — guide et organismes partenaires",
@@ -107,13 +128,20 @@ CATS = [
    "Variable", None, 1500, "oui", "https://ile-international.com/", None),
  ]),
  ("Transition écologique & RSE", "RSE", [
-  ("Responsable RSE", "Nova Formation", "43 h — e-learning avec formateur",
-   "2 850 €", 2850, 1500, "oui", "https://www.novaformation.com/formation-rse/",
-   "Homonyme : ne pas confondre avec le Nova Formation du secteur funéraire."),
-  ("Responsable RSE", "E&H Academy", "RS7389 — sans prérequis, éligible depuis janvier 2026",
-   "Variable", None, 1500, "oui", "https://eh-academy.com/fr/formations/responsable-rse/", None),
-  ("Transition écologique & RSE", "L'Air des Pichoulis", "Diagnostic, plan d'action, bilan carbone",
-   "Variable", None, 1500, "oui", "https://www.lairdespichoulis.fr/formations/", None),
+  ("Responsable RSE", "Nova Formation", "E-learning avec formateur — durée à confirmer",
+   "Variable", None, 1500, "oui", "https://www.novaformation.com/formation-rse/",
+   "Homonyme : ne pas confondre avec le Nova Formation du secteur funéraire. La page annonce "
+   "une « Formation RSE opérationnelle » de 204 h, pas 43 h, et n'affiche aucun tarif : "
+   "les 2 850 € précédemment indiqués n'ont pas pu être vérifiés."),
+  ("Responsable RSE", "E&H Academy", "RS7389 — 56 h sur 8 jours, sans prérequis",
+   "4 000 € HT", 4000, 1500, "oui", "https://eh-academy.com/fr/formations/responsable-rse/",
+   "RS7389 « Définir et déployer une stratégie de durabilité en entreprise », certificateur "
+   "Des Enjeux et Des Hommes, enregistré le 27/11/2025 et actif jusqu'au 27/11/2028. "
+   "Aucune session n'était ouverte lors du contrôle de septembre 2026."),
+  ("Transition écologique & RSE", "L'Air des Pichoulis", "RSE, bilan carbone méthode ADEME",
+   "Variable", None, 1500, "variable", "https://www.lairdespichoulis.fr/formations/",
+   "Organisme Qualiopi confirmé (NDA 32 59 09711 59). L'éligibilité CPF est affirmée par "
+   "l'organisme lui-même sans code RS ou RNCP publié : à faire confirmer."),
   ("Stratège de la Transformation Durable", "École Polytechnique (Exed)", "RNCP41077BC05 — 68 h",
    "14 400 € TTC", 14400, None, "oui",
    "https://exed.polytechnique.edu/formations/durabilite/stratege-transformation-durable",
@@ -264,8 +292,9 @@ PAGE = f"""<!DOCTYPE html>
     </div>
 
     <div class="pitfall-box">
-      <h4>⚠️ Deux points à vérifier avant de vous engager</h4>
-      <p><strong>Le montant de la participation obligatoire.</strong> Les sources consultées l'annoncent entre <strong>103,20 €</strong> et <strong>150 €</strong>. Elle n'est donc pas intégrée aux montants du tableau, qui indiquent seulement « + participation obligatoire ». Le montant exact s'affiche au moment de l'inscription sur moncompteformation.gouv.fr.</p>
+      <h4>⚠️ Trois points à vérifier avant de vous engager</h4>
+      <p><strong>La participation obligatoire est de 150 €.</strong> Fixée par le décret n° 2026-234 du 30 mars 2026, elle s'applique à toute demande d'inscription déposée <strong>à compter du 2 avril 2026</strong> (elle était de 100 € depuis mai 2024, puis de 103,20 € au 1er janvier 2026). Elle est due une fois par dossier, quel que soit le coût de la formation. <strong>Deux cas d'exonération</strong> : les demandeurs d'emploi n'en sont pas redevables, et elle est neutralisée lorsque l'employeur ou un opérateur de compétences abonde le dossier. Elle n'est donc pas intégrée aux montants du tableau — le montant réellement dû s'affiche à l'inscription sur moncompteformation.gouv.fr.</p>
+      <p><strong>Le code de certification annoncé.</strong> Un code RS ou RNCP se périme : plusieurs organismes affichent encore un code expiré, ou un code qui ne correspond pas à la formation vendue. Avant de payer, cherchez le code sur <a href="https://www.francecompetences.fr/" target="_blank" rel="noopener">francecompetences.fr</a> et vérifiez trois choses : qu'il est actif, que son intitulé correspond bien à ce que vous allez apprendre, et que l'organisme est le certificateur ou un partenaire déclaré. Les lignes concernées de ce tableau portent un avertissement.</p>
       <p><strong>Le solde CPF réellement disponible.</strong> Les cinq dernières années travaillées en Espagne n'alimentent pas le CPF français : le solde de référence utilisé ici est à confirmer sur <a href="https://www.moncompteformation.gouv.fr/" target="_blank" rel="noopener">moncompteformation.gouv.fr</a> avant tout arbitrage. Tous les calculs de cette page en dépendent.</p>
       <p>Enfin, le CPF ne finance que les formations menant à une certification RNCP ou RS. Une attestation de suivi, même délivrée par un organisme sérieux, n'ouvre aucun droit.</p>
     </div>

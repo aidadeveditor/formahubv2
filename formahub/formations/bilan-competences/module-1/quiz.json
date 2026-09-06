@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-bilan-competences-module-1",
+  "version": "2.0",
+  "last_verified": "2026-09-04",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Laquelle de ces formulations est une compétence ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Gestion d'un portefeuille de quarante partenaires"
+        },
+        {
+          "key": "b",
+          "text": "Rigoureux, autonome et doté d'un bon relationnel"
+        },
+        {
+          "key": "c",
+          "text": "Négocier des objectifs annuels avec quarante interlocuteurs sans lien hiérarchique, taux de reconduction de 92 % sur trois ans"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Verbe d'action, objet, contexte, résultat. « Gestion d'un portefeuille » est une tâche de fiche de poste ; « rigoureux, autonome » une série de traits invérifiables."
+    },
+    {
+      "id": "q2",
+      "question": "Dans quel ordre faut-il procéder pour établir son inventaire ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Lister ses compétences, puis chercher des exemples qui les illustrent"
+        },
+        {
+          "key": "b",
+          "text": "Partir des offres d'emploi visées et vérifier lesquelles de leurs exigences on remplit"
+        },
+        {
+          "key": "c",
+          "text": "Fiches de réalisations d'abord, extraction des compétences ensuite"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Commencer par les compétences ne fait retrouver que celles qu'on croit avoir, et aucune de celles qu'on ignore posséder."
+    },
+    {
+      "id": "q3",
+      "question": "Quelle famille de compétences est la plus transférable et la moins spontanément citée ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Les compétences transverses : analyser, conduire un projet, négocier, former"
+        },
+        {
+          "key": "b",
+          "text": "Les compétences techniques liées au métier exercé"
+        },
+        {
+          "key": "c",
+          "text": "Les compétences comportementales, qui s'exercent partout"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Elles n'ont pas de nom dans le langage de l'entreprise où on les exerce, ce qui les rend invisibles à celui qui les possède."
+    },
+    {
+      "id": "q4",
+      "question": "Quel est le meilleur révélateur d'une compétence que vous sous-estimez ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Les résultats d'un test de personnalité"
+        },
+        {
+          "key": "b",
+          "text": "Les sujets sur lesquels des collègues viennent spontanément vous consulter"
+        },
+        {
+          "key": "c",
+          "text": "Les évaluations annuelles de votre hiérarchie"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Une compétence reconnue par des pairs sans qu'on la leur ait présentée est l'information la plus fiable dont vous disposiez — et elle est gratuite."
+    },
+    {
+      "id": "q5",
+      "question": "À qui appartient le document de synthèse d'un bilan de compétences financé par l'employeur ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Au bénéficiaire : il ne peut être communiqué à personne sans son accord écrit"
+        },
+        {
+          "key": "b",
+          "text": "À l'employeur, puisqu'il l'a financé"
+        },
+        {
+          "key": "c",
+          "text": "À l'organisme prestataire, qui en délivre une copie aux deux parties"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "C'est une protection forte prévue par le code du travail. Un financement par l'employeur ne lui donne aucun droit de regard sur le contenu."
+    },
+    {
+      "id": "q6",
+      "question": "Sur quoi doit déboucher un travail d'inventaire de compétences ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Sur un intitulé de poste précis, sinon le travail n'a pas abouti"
+        },
+        {
+          "key": "b",
+          "text": "Sur trois ou quatre hypothèses de cible, faites pour être testées"
+        },
+        {
+          "key": "c",
+          "text": "Sur un plan de formation permettant d'accéder au métier choisi"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Une seule piste est une fermeture prématurée, douze est une absence de tri. Et il est souhaitable que deux des quatre tombent après confrontation au terrain."
+    }
+  ]
+}

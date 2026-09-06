@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-rse-transition-ecologique-module-3",
+  "version": "2.0",
+  "last_verified": "2026-09-04",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Un enjeu a un impact environnemental fort mais aucun effet financier sur l'entreprise. Est-il matériel ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Oui : un enjeu est matériel s'il l'est sur l'une au moins des deux dimensions"
+        },
+        {
+          "key": "b",
+          "text": "Non : sans effet financier, il ne peut pas être priorisé"
+        },
+        {
+          "key": "c",
+          "text": "Seulement si l'entreprise est soumise à une obligation de reporting"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "C'est précisément cette règle qui empêche d'écarter un impact réel au motif qu'il ne coûte rien. C'est aussi le cas le plus difficile à défendre en interne."
+    },
+    {
+      "id": "q2",
+      "question": "Pourquoi ne faut-il pas construire un plan RSE à partir du seul bilan carbone ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Parce que le bilan carbone est trop incertain pour servir de base"
+        },
+        {
+          "key": "b",
+          "text": "Parce que ce qui ne se mesure pas en tonnes disparaît du champ de vision : conditions de travail, égalité, loyauté des pratiques"
+        },
+        {
+          "key": "c",
+          "text": "Parce que la réglementation impose de partir des attentes des parties prenantes"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "La parade est méthodologique : établir la liste d'enjeux avant de regarder les chiffres, à partir d'un référentiel couvrant environnement, social et gouvernance."
+    },
+    {
+      "id": "q3",
+      "question": "Quels sont les quatre leviers de réduction des émissions ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Mesurer, communiquer, compenser, certifier"
+        },
+        {
+          "key": "b",
+          "text": "Investir, former, contractualiser, contrôler"
+        },
+        {
+          "key": "c",
+          "text": "Consommer moins, substituer, améliorer l'efficacité, agir sur la chaîne de valeur"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Consommer moins est le plus efficace et le plus négligé : allonger la durée du parc informatique de trois à cinq ans réduit ce poste de 40 % sans investissement."
+    },
+    {
+      "id": "q4",
+      "question": "À quoi sert le coût de la tonne évitée ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "À calculer le montant de crédits carbone à acheter en compensation"
+        },
+        {
+          "key": "b",
+          "text": "À estimer l'exposition de l'entreprise au prix futur du carbone"
+        },
+        {
+          "key": "c",
+          "text": "À comparer des actions sans rapport entre elles et à repérer celles qui rapportent"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Il permet aussi de fixer un seuil au-delà duquel on n'engage pas — décision de direction générale, et non décision technique."
+    },
+    {
+      "id": "q5",
+      "question": "Dans quel ordre fixer l'objectif de réduction et construire le plan ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le plan d'abord : l'objectif découle de la somme des actions, plus une part explicite d'actions à construire"
+        },
+        {
+          "key": "b",
+          "text": "L'objectif d'abord, pour donner un cap ambitieux aux équipes"
+        },
+        {
+          "key": "c",
+          "text": "Les deux en parallèle, puis on ajuste le plan jusqu'à atteindre l'objectif"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Un objectif annoncé d'abord se comble par de la compensation, qui n'évite aucune tonne. « Moins 18 % dont 12 % identifiés » se tient ; un chiffre rond ne se tient pas."
+    },
+    {
+      "id": "q6",
+      "question": "Quelle est la condition la plus déterminante pour qu'une action soit exécutée ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Qu'elle figure dans un budget RSE dédié et protégé"
+        },
+        {
+          "key": "b",
+          "text": "Qu'elle ait un porteur opérationnel nommé, qui n'est pas le responsable RSE, et qui a validé en bilatéral"
+        },
+        {
+          "key": "c",
+          "text": "Qu'elle soit annoncée publiquement, ce qui crée un engagement"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Une action portée par le responsable RSE dépend de son autorité d'influence, c'est-à-dire de rien. Et un budget RSE séparé marginalise le sujet au lieu de le protéger."
+    }
+  ]
+}

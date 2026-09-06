@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-rse-transition-ecologique-module-2",
+  "version": "2.0",
+  "last_verified": "2026-09-04",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quelle part de l'empreinte totale un bilan limité aux scopes 1 et 2 mesure-t-il généralement ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Environ la moitié, les deux ensembles s'équilibrant dans la plupart des secteurs"
+        },
+        {
+          "key": "b",
+          "text": "Moins de 15 % : le scope 3 représente couramment 70 % à plus de 95 % du total"
+        },
+        {
+          "key": "c",
+          "text": "Plus de 80 %, le scope 3 restant marginal hors industrie lourde"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "C'est pourquoi beaucoup de démarches s'épuisent sur des gestes symboliques : elles ont mesuré la partie visible et agi dessus."
+    },
+    {
+      "id": "q2",
+      "question": "Un véhicule en location longue durée, dont l'entreprise paie le carburant, relève de quel scope ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Scope 1 : le critère est le contrôle opérationnel, pas la propriété"
+        },
+        {
+          "key": "b",
+          "text": "Scope 3, puisque le véhicule ne lui appartient pas"
+        },
+        {
+          "key": "c",
+          "text": "Scope 2, comme toute énergie achetée par l'entreprise"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "À l'inverse, un véhicule avec chauffeur mis à disposition par un prestataire relève du scope 3 : on achète alors une prestation, pas l'usage d'un véhicule."
+    },
+    {
+      "id": "q3",
+      "question": "La deuxième année, vous passez des ratios monétaires à des données physiques et le total baisse de 18 %. Que communiquez-vous ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Une réduction de 18 % de vos émissions"
+        },
+        {
+          "key": "b",
+          "text": "Les deux effets séparément : l'évolution à méthode constante, et la révision liée au changement de méthode"
+        },
+        {
+          "key": "c",
+          "text": "Rien, tant que la série n'est pas homogène sur trois ans"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Aucune tonne n'a été évitée. Annoncer une baisse dans ces conditions est une allégation trompeuse, d'autant plus grave que l'entreprise dispose des éléments montrant qu'elle le sait."
+    },
+    {
+      "id": "q4",
+      "question": "Pourquoi afficher l'incertitude d'un bilan plutôt que de la taire ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Parce que la réglementation l'impose explicitement depuis 2023"
+        },
+        {
+          "key": "b",
+          "text": "Parce que cela dispense de tester la robustesse des conclusions"
+        },
+        {
+          "key": "c",
+          "text": "Parce qu'une fausse précision signale au contraire que la méthode n'a pas été comprise"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "« 4 700 tCO2e à plus ou moins 30 % » est plus crédible que « 4 683 tCO2e ». Et présenter l'incertitude avant qu'on ne la demande désamorce la principale objection."
+    },
+    {
+      "id": "q5",
+      "question": "Comment organiser la collecte d'un premier bilan ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "En traitant d'abord les postes dont les données sont les plus faciles à obtenir"
+        },
+        {
+          "key": "b",
+          "text": "En attendant d'avoir des données physiques sur tous les postes avant de publier"
+        },
+        {
+          "key": "c",
+          "text": "En deux passes : couvrir 100 % du périmètre grossièrement, puis raffiner les trois ou quatre postes qui font 80 % du total"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "L'effort de mesure suit le poids des postes. Commencer par le facile répartit l'effort uniformément, donc autant sur un poste à 1 % que sur un poste à 80 %."
+    },
+    {
+      "id": "q6",
+      "question": "Un poste de votre bilan s'écarte d'un facteur dix des repères d'ordre de grandeur connus. Que cherchez-vous en premier ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Une erreur d'unité : kilogrammes et tonnes, ou kWh et MWh"
+        },
+        {
+          "key": "b",
+          "text": "Une spécificité de votre activité expliquant cet écart"
+        },
+        {
+          "key": "c",
+          "text": "Un facteur d'émission obsolète dans la base employée"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "L'erreur de facteur mille est la plus fréquente d'un premier bilan, et elle ne se détecte que si l'on a des points de comparaison en tête."
+    }
+  ]
+}

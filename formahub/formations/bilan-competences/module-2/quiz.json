@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-bilan-competences-module-2",
+  "version": "2.0",
+  "last_verified": "2026-09-04",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quarante candidatures sont restées sans réponse. Qu'est-ce que cela vous apprend ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Que votre profil ne correspond pas au marché visé"
+        },
+        {
+          "key": "b",
+          "text": "Que le marché est saturé et qu'il faut élargir la zone géographique"
+        },
+        {
+          "key": "c",
+          "text": "Rien : le silence peut recouvrir un profil hors sujet, un mauvais vocabulaire, un mauvais canal ou un poste déjà pourvu"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Le silence est un signal sans contenu. C'est pourquoi il ne faut pas candidater pendant les quatre premières semaines : ce temps sert à comprendre."
+    },
+    {
+      "id": "q2",
+      "question": "Comment trouver les intitulés de poste réellement employés par le secteur visé ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "En observant les parcours publics de dix personnes exerçant ce métier"
+        },
+        {
+          "key": "b",
+          "text": "En consultant les fiches métiers des répertoires officiels"
+        },
+        {
+          "key": "c",
+          "text": "En demandant à un conseiller en évolution professionnelle"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Vous obtiendrez quatre à huit intitulés là où vous en connaissiez un, plus une information rare : les chemins réellement empruntés pour arriver au métier."
+    },
+    {
+      "id": "q3",
+      "question": "Qu'est-ce qui fait le plus échouer une demande d'entretien exploratoire ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le fait de contacter quelqu'un qu'on ne connaît pas du tout"
+        },
+        {
+          "key": "b",
+          "text": "Le CV joint, qui transforme la demande en candidature déguisée"
+        },
+        {
+          "key": "c",
+          "text": "Le fait de demander trente minutes plutôt que dix"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "La personne, n'ayant pas de poste à offrir, ne répond pas. D'où l'utilité de la phrase « je ne cherche pas de poste chez vous », qui paraît maladroite et qui est décisive."
+    },
+    {
+      "id": "q4",
+      "question": "Vous possédez la compétence mais ne pouvez pas la démontrer dans le contexte visé. De quel écart s'agit-il et comment le combler ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Un écart de preuve, à combler par une démonstration courte laissant une trace"
+        },
+        {
+          "key": "b",
+          "text": "Un écart de compétence, à combler par une formation certifiante"
+        },
+        {
+          "key": "c",
+          "text": "Un écart de vocabulaire, à combler par la traduction du CV"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Une demi-journée d'intervention vaut mieux qu'un projet de six mois jamais engagé. Fixez une échéance de deux mois, sinon l'écart de preuve devient un prétexte."
+    },
+    {
+      "id": "q5",
+      "question": "Une offre a été republiée trois fois en quatre mois. Comment le lire ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Comme une annonce fictive servant à constituer un vivier de candidatures"
+        },
+        {
+          "key": "b",
+          "text": "Comme un poste difficile à pourvoir, donc un bon endroit où se présenter avec un profil atypique"
+        },
+        {
+          "key": "c",
+          "text": "Comme un signe que les exigences sont trop élevées pour être satisfaites"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "C'est même le meilleur endroit où se présenter quand on ne coche pas toutes les cases : l'employeur a déjà constaté que le profil idéal ne se présente pas."
+    },
+    {
+      "id": "q6",
+      "question": "Combien de pistes faut-il retenir à l'issue de l'exploration ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Une seule, pour concentrer tout l'effort"
+        },
+        {
+          "key": "b",
+          "text": "Toutes celles qui restent valides, pour maximiser les chances"
+        },
+        {
+          "key": "c",
+          "text": "Deux, hiérarchisées à 70 % et 30 %, avec un critère de bascule écrit à l'avance"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Une seule piste crée une dépendance à un marché ; trois pistes menées en parallèle diluent l'effort au point qu'aucune n'aboutit."
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-bilan-competences-module-3",
+  "version": "2.0",
+  "last_verified": "2026-09-04",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quel format de CV convient à un changement de métier ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Titre du poste visé, bandeau de faits chiffrés, compétences démontrées, puis parcours condensé"
+        },
+        {
+          "key": "b",
+          "text": "Le CV chronologique intégral, qui rassure sur la continuité du parcours"
+        },
+        {
+          "key": "c",
+          "text": "Un CV par compétences sans aucune mention des postes occupés"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Le chronologique met en avant ce qui compte le moins et enfouit les compétences transférables au milieu de descriptions de fonctions."
+    },
+    {
+      "id": "q2",
+      "question": "Que faire de l'objection évidente contre votre candidature ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "L'éviter, pour ne pas attirer l'attention dessus"
+        },
+        {
+          "key": "b",
+          "text": "La nommer soi-même et la traiter par un fait"
+        },
+        {
+          "key": "c",
+          "text": "La compenser par une expression forte de motivation"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Le lecteur la formulera de toute façon. La traiter vous-même lui retire le travail de conclure à votre place, et vous vaut un crédit considérable."
+    },
+    {
+      "id": "q3",
+      "question": "Sur un canal de recrutement dominé par le réseau, quel indicateur suivre ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Le nombre de personnes qui savent précisément ce que vous cherchez"
+        },
+        {
+          "key": "b",
+          "text": "Le nombre de candidatures envoyées par semaine"
+        },
+        {
+          "key": "c",
+          "text": "Le nombre d'offres consultées quotidiennement"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "« Je cherche du travail » ne s'active pas. Une recherche formulée précisément se retient, et votre nom remonte quand quelqu'un entend parler d'une ouverture."
+    },
+    {
+      "id": "q4",
+      "question": "Comment répondre à « qu'est-ce qui vous manque pour ce poste ? »",
+      "choices": [
+        {
+          "key": "a",
+          "text": "En affirmant que rien ne manque, pour ne pas donner de raison de vous écarter"
+        },
+        {
+          "key": "b",
+          "text": "En nommant un manque réel mais secondaire, et en disant ce que vous faites pour le traiter"
+        },
+        {
+          "key": "c",
+          "text": "En retournant la question sur les attentes réelles du poste"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Nier tout manque passe pour un défaut de lucidité. Un manque nommé et traité inquiète moins qu'un manque que l'interlocuteur devine et que vous n'évoquez pas."
+    },
+    {
+      "id": "q5",
+      "question": "Une proposition vous est faite en fin d'entretien. Que répondez-vous ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Vous acceptez immédiatement pour ne pas laisser passer l'occasion"
+        },
+        {
+          "key": "b",
+          "text": "Vous engagez la négociation salariale dans la conversation"
+        },
+        {
+          "key": "c",
+          "text": "Vous vous montrez très intéressé et confirmez sous quarante-huit heures"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "C'est une réponse attendue qui ne compromet rien, et elle donne le temps de relire, de comparer et de préparer une demande groupée."
+    },
+    {
+      "id": "q6",
+      "question": "Comment expliquer un licenciement ou une période sans emploi ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "En détaillant le contexte pour montrer que ce n'était pas de votre fait"
+        },
+        {
+          "key": "b",
+          "text": "En l'omettant du CV et en l'abordant seulement si la question est posée"
+        },
+        {
+          "key": "c",
+          "text": "En une phrase factuelle, sans y revenir"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "La longueur de l'explication crée le problème que le fait lui-même ne crée pas. Une phrase, un fait, et on passe à la suite."
+    }
+  ]
+}

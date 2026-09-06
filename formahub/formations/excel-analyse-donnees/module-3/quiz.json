@@ -13,14 +13,14 @@
         },
         {
           "key": "b",
-          "text": "Qu'il compte au lieu de sommer, donc que la colonne contient au moins une valeur non numérique"
+          "text": "Que le TCD n'a pas été actualisé depuis le dernier ajout de données"
         },
         {
           "key": "c",
-          "text": "Que le TCD n'a pas été actualisé depuis le dernier ajout de données"
+          "text": "Qu'il compte au lieu de sommer, donc que la colonne contient au moins une valeur non numérique"
         }
       ],
-      "correct_answer": "b",
+      "correct_answer": "c",
       "feedback": "Excel bascule en comptage dès qu'une cellule texte est présente. Ne corrigez pas seulement l'affichage : allez traiter le typage à la source."
     },
     {
@@ -29,18 +29,18 @@
       "choices": [
         {
           "key": "a",
-          "text": "Parce qu'un champ calculé opère sur les totaux agrégés : il multiplierait la somme des prix par la somme des quantités"
-        },
-        {
-          "key": "b",
           "text": "Parce que les champs calculés ralentissent excessivement l'actualisation"
         },
         {
-          "key": "c",
+          "key": "b",
           "text": "Parce qu'Excel limite les champs calculés à une seule opération"
+        },
+        {
+          "key": "c",
+          "text": "Parce qu'un champ calculé opère sur les totaux agrégés : il multiplierait la somme des prix par la somme des quantités"
         }
       ],
-      "correct_answer": "a",
+      "correct_answer": "c",
       "feedback": "Agréger puis diviser est correct, agréger puis multiplier ne l'est presque jamais. Le produit se calcule en colonne de la table source."
     },
     {
@@ -49,18 +49,18 @@
       "choices": [
         {
           "key": "a",
-          "text": "Il convertit les dates en texte et casse les tris"
+          "text": "Sans cocher Années, il agrège tous les mois de janvier de toutes les années ensemble"
         },
         {
           "key": "b",
-          "text": "Sans cocher Années, il agrège tous les mois de janvier de toutes les années ensemble"
+          "text": "Il convertit les dates en texte et casse les tris"
         },
         {
           "key": "c",
           "text": "Il exclut automatiquement les mois sans aucune donnée"
         }
       ],
-      "correct_answer": "b",
+      "correct_answer": "a",
       "feedback": "Invisible sur une seule année, le problème double silencieusement tous les chiffres le jour où l'on ajoute l'année précédente."
     },
     {
@@ -73,14 +73,14 @@
         },
         {
           "key": "b",
-          "text": "Ajouter les requêtes"
+          "text": "Dépivoter les colonnes"
         },
         {
           "key": "c",
-          "text": "Dépivoter les colonnes"
+          "text": "Ajouter les requêtes"
         }
       ],
-      "correct_answer": "c",
+      "correct_answer": "b",
       "feedback": "Sélectionner les douze colonnes de mois puis Transformer > Dépivoter donne la structure longue en un clic. Probablement l'opération la plus utile de Power Query."
     },
     {

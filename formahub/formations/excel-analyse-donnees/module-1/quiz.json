@@ -9,18 +9,18 @@
       "choices": [
         {
           "key": "a",
-          "text": "Une simple préférence de mise en forme, sans conséquence"
+          "text": "Que les valeurs sont stockées en texte : toute somme les comptera pour zéro"
         },
         {
           "key": "b",
-          "text": "Que les valeurs sont stockées en texte : toute somme les comptera pour zéro"
+          "text": "Une simple préférence de mise en forme, sans conséquence"
         },
         {
           "key": "c",
           "text": "Que la colonne contient des valeurs négatives"
         }
       ],
-      "correct_answer": "b",
+      "correct_answer": "a",
       "feedback": "Sans formatage explicite, Excel aligne nombres et dates à droite, le texte à gauche. Le danger est le typage mixte : la somme renvoie alors un total partiel, plausible et faux."
     },
     {
@@ -49,18 +49,18 @@
       "choices": [
         {
           "key": "a",
-          "text": "La convertir en tableau structuré par Ctrl + L et la nommer"
-        },
-        {
-          "key": "b",
           "text": "Appliquer un jeu de couleurs pour distinguer les colonnes"
         },
         {
-          "key": "c",
+          "key": "b",
           "text": "Ajouter une ligne de total en bas de chaque colonne numérique"
+        },
+        {
+          "key": "c",
+          "text": "La convertir en tableau structuré par Ctrl + L et la nommer"
         }
       ],
-      "correct_answer": "a",
+      "correct_answer": "c",
       "feedback": "Le tableau structuré étend ses plages seul, nomme ses colonnes et propage ses formules. Deux secondes de coût, et tout ce qui suit en dépend."
     },
     {

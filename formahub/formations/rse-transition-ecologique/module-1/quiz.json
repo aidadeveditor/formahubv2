@@ -1,0 +1,127 @@
+{
+  "module_id": "formation-rse-transition-ecologique-module-1",
+  "version": "2.0",
+  "last_verified": "2026-09-04",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quels sont les seuils de la CSRD après la directive Omnibus entrée en vigueur le 18 mars 2026 ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Plus de 1 000 salariés ET plus de 450 M€ de chiffre d'affaires net, cumulativement"
+        },
+        {
+          "key": "b",
+          "text": "250 salariés ou 50 M€ de chiffre d'affaires, au choix"
+        },
+        {
+          "key": "c",
+          "text": "500 salariés et 100 M€ de chiffre d'affaires"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Les deux conditions doivent être remplies, ce qui a réduit le périmètre d'environ 80 %. Première application aux exercices ouverts à compter de 2027."
+    },
+    {
+      "id": "q2",
+      "question": "Un client soumis à la CSRD vous adresse 180 questions. Votre entreprise compte 380 salariés. Que prévoit la réglementation ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Vous devez répondre intégralement, la CSRD s'appliquant par ricochet à toute la chaîne de valeur"
+        },
+        {
+          "key": "b",
+          "text": "Au-delà du périmètre VSME, vous disposez d'un droit statutaire de refus, que le client doit vous signaler"
+        },
+        {
+          "key": "c",
+          "text": "Vous n'avez aucune obligation et pouvez ignorer la demande sans conséquence"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Le plafond de chaîne de valeur protège les partenaires de moins de 1 000 salariés. Cela n'oblige pas à refuser : cela permet de négocier le périmètre."
+    },
+    {
+      "id": "q3",
+      "question": "À partir de quel effectif le bilan d'émissions de gaz à effet de serre est-il obligatoire en France métropolitaine ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "500 salariés"
+        },
+        {
+          "key": "b",
+          "text": "250 salariés"
+        },
+        {
+          "key": "c",
+          "text": "1 000 salariés, comme la CSRD"
+        }
+      ],
+      "correct_answer": "a",
+      "feedback": "Article L. 229-25 du code de l'environnement, tous les quatre ans, avec plan de transition depuis 2023. Sanction de 50 000 € et exclusion possible des marchés publics."
+    },
+    {
+      "id": "q4",
+      "question": "Peut-on être certifié ISO 26000 ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Oui, par tout organisme accrédité, comme pour l'ISO 9001"
+        },
+        {
+          "key": "b",
+          "text": "Non : c'est une ligne directrice, pas une norme certifiable"
+        },
+        {
+          "key": "c",
+          "text": "Oui, mais uniquement pour les entreprises de plus de 500 salariés"
+        }
+      ],
+      "correct_answer": "b",
+      "feedback": "Confusion très répandue. L'ISO 26000 structure sept questions centrales et sert de grille de cadrage, sans certification possible."
+    },
+    {
+      "id": "q5",
+      "question": "Comment choisir un référentiel volontaire comme EcoVadis, B Corp ou le CDP ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "En prenant le plus exigeant, qui couvrira automatiquement les autres"
+        },
+        {
+          "key": "b",
+          "text": "En prenant le moins coûteux la première année, quitte à changer ensuite"
+        },
+        {
+          "key": "c",
+          "text": "En partant du demandeur et de ce qu'il cherche à évaluer"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Un client industriel demande EcoVadis, une banque regarde le CDP, un marché public un bilan d'émissions. Adopter un référentiel sans demandeur identifié, c'est répondre à une question que personne ne pose."
+    },
+    {
+      "id": "q6",
+      "question": "Dans quel ordre construire une démarche RSE en entreprise de taille moyenne ?",
+      "choices": [
+        {
+          "key": "a",
+          "text": "Raison d'être, stratégie, indicateurs, puis actions"
+        },
+        {
+          "key": "b",
+          "text": "Certification d'abord, car elle structure toute la démarche"
+        },
+        {
+          "key": "c",
+          "text": "Mesurer, prioriser sur les chiffres, agir sur deux ou trois postes, puis formaliser la stratégie"
+        }
+      ],
+      "correct_answer": "c",
+      "feedback": "Une stratégie écrite avant toute mesure repose sur des intuitions : il est fréquent qu'un bilan montre ensuite que 80 % de l'empreinte est dans un poste qu'elle n'évoquait pas."
+    }
+  ]
+}

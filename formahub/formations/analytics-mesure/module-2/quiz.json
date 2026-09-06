@@ -53,7 +53,7 @@
         },
         {
           "key": "b",
-          "text": "Non : cela ouvre une session et réattribue le visiteur, détruisant sa vraie source"
+          "text": "Non : cela réattribue la source de la session en cours, détruisant la vraie origine du visiteur"
         },
         {
           "key": "c",

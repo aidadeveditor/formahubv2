@@ -4,11 +4,12 @@ Plateforme d'auto-formation professionnelle 100 % statique (HTML5, CSS3, JS vani
 
 ## 🚀 Caractéristiques
 
-- **7 formations, 29 modules** : SEO (5), Content Marketing (4), IA Générative (5), Gestion de projet (4), Management d'équipe (4), CRM Salesforce (3), Analytics et mesure de la performance (4).
-- **≈ 171 000 mots** de contenu rédigé, soit ~5 900 mots et 50 à 60 minutes par module — **25 h 00** de formation (somme des durées affichées).
-- **Moteur de quiz JSON** (`quiz-engine.js`) : 174 questions (6 par module), correction instantanée et feedback explicatif.
+- **10 formations, 40 modules** : SEO (5), Content Marketing (4), IA Générative (5), Gestion de projet (4), Management d'équipe (4), CRM Salesforce (3), Analytics et mesure de la performance (4), Excel et analyse de données (4), RSE et transition écologique (4), Bilan de compétences et repositionnement (3).
+- **≈ 279 000 mots** de contenu rédigé, soit ~7 000 mots et 50 à 75 minutes par module — **37 h 45** de formation (somme des durées affichées).
+- **Moteur de quiz JSON** (`quiz-engine.js`) : 240 questions (6 par module), correction instantanée et feedback explicatif.
 - **Suivi de progression** en `localStorage`, avec synchronisation optionnelle vers Cloudflare Workers KV (`functions/api/progress/[id].js`).
 - **Onglet Ressources externes** : tableau filtrable, calcul du reste à charge et solde CPF.
+- **Onglet Formations Espagne** : dispositifs espagnols, présentés par condition d'accès.
 - **Mode sombre / clair** accessible (WCAG AA), piloté par `data-theme` et les variables CSS de `:root`.
 
 ## 📐 Structure d'un module

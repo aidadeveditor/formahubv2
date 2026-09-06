@@ -9,18 +9,18 @@
       "choices": [
         {
           "key": "a",
-          "text": "Sur les graphiques en barres, où le lecteur compare des longueurs"
-        },
-        {
-          "key": "b",
           "text": "Sur les nuages de points, où la position encode deux variables"
         },
         {
-          "key": "c",
+          "key": "b",
           "text": "Sur tous les graphiques, sans aucune exception"
+        },
+        {
+          "key": "c",
+          "text": "Sur les graphiques en barres, où le lecteur compare des longueurs"
         }
       ],
-      "correct_answer": "a",
+      "correct_answer": "c",
       "feedback": "Une barre encode une longueur : la tronquer déforme la comparaison. Sur une courbe, où l'on lit une variation, un axe tronqué est acceptable s'il est signalé."
     },
     {
@@ -29,18 +29,18 @@
       "choices": [
         {
           "key": "a",
-          "text": "Parce qu'Excel ne permet pas d'y afficher de légende correcte"
+          "text": "Parce que l'échelle de chaque axe est arbitraire : on fait apparaître ou disparaître la corrélation à volonté"
         },
         {
           "key": "b",
-          "text": "Parce que l'échelle de chaque axe est arbitraire : on fait apparaître ou disparaître la corrélation à volonté"
+          "text": "Parce qu'Excel ne permet pas d'y afficher de légende correcte"
         },
         {
           "key": "c",
           "text": "Parce qu'il ne peut afficher que deux séries au maximum"
         }
       ],
-      "correct_answer": "b",
+      "correct_answer": "a",
       "feedback": "Deux séries quelconques peuvent être rendues visuellement parallèles. Deux graphiques empilés sur le même axe temporel disent la même chose sans induire de relation."
     },
     {
@@ -53,14 +53,14 @@
         },
         {
           "key": "b",
-          "text": "La direction l'a-t-elle demandé explicitement ?"
+          "text": "Quelle décision prendrai-je différemment selon sa valeur ?"
         },
         {
           "key": "c",
-          "text": "Quelle décision prendrai-je différemment selon sa valeur ?"
+          "text": "La direction l'a-t-elle demandé explicitement ?"
         }
       ],
-      "correct_answer": "c",
+      "correct_answer": "b",
       "feedback": "Ce test élimine la moitié des indicateurs demandés. Le CA cumulé depuis janvier est légitime et ne déclenche aucune action."
     },
     {
@@ -69,18 +69,18 @@
       "choices": [
         {
           "key": "a",
-          "text": "Qu'il faut former les utilisateurs à consulter l'onglet Contrôles"
+          "text": "Qu'un contrôle doit s'imposer au regard et bloquer l'affichage, pas attendre d'être consulté"
         },
         {
           "key": "b",
-          "text": "Qu'un contrôle doit s'imposer au regard et bloquer l'affichage, pas attendre d'être consulté"
+          "text": "Qu'il faut former les utilisateurs à consulter l'onglet Contrôles"
         },
         {
           "key": "c",
           "text": "Qu'il faut multiplier le nombre de contrôles pour augmenter les chances d'en voir un"
         }
       ],
-      "correct_answer": "b",
+      "correct_answer": "a",
       "feedback": "Un contrôle qui suppose un lecteur disponible et méthodique ne fonctionne que les jours où il est inutile."
     },
     {
@@ -113,14 +113,14 @@
         },
         {
           "key": "b",
-          "text": "En affichant l'effectif à côté, et en n'affichant pas de pourcentage sous un seuil défini à l'avance"
+          "text": "En arrondissant à 90 % pour ne pas suggérer une fausse précision"
         },
         {
           "key": "c",
-          "text": "En arrondissant à 90 % pour ne pas suggérer une fausse précision"
+          "text": "En affichant l'effectif à côté, et en n'affichant pas de pourcentage sous un seuil défini à l'avance"
         }
       ],
-      "correct_answer": "b",
+      "correct_answer": "c",
       "feedback": "Un pourcentage sans son dénominateur est une information incomplète. Sous le seuil retenu, afficher « n. s. » évite qu'une décision se construise sur onze réponses."
     }
   ]

@@ -33,14 +33,14 @@
         },
         {
           "key": "b",
-          "text": "Utiliser des références de tableau structuré, qui désignent l'objet et non des coordonnées"
+          "text": "Recopier la formule par copier-coller plutôt que par la poignée de recopie"
         },
         {
           "key": "c",
-          "text": "Recopier la formule par copier-coller plutôt que par la poignée de recopie"
+          "text": "Utiliser des références de tableau structuré, qui désignent l'objet et non des coordonnées"
         }
       ],
-      "correct_answer": "b",
+      "correct_answer": "c",
       "feedback": "Figer par F4 fonctionne mais casse quand la table grandit. La référence de tableau supprime le problème au lieu de le gérer."
     },
     {
@@ -53,14 +53,14 @@
         },
         {
           "key": "b",
-          "text": "Extraire les références non trouvées, les dédoublonner et les lire"
+          "text": "Recommencer le rapprochement avec INDEX/EQUIV"
         },
         {
           "key": "c",
-          "text": "Recommencer le rapprochement avec INDEX/EQUIV"
+          "text": "Extraire les références non trouvées, les dédoublonner et les lire"
         }
       ],
-      "correct_answer": "b",
+      "correct_answer": "c",
       "feedback": "Vingt secondes de lecture visuelle révèlent presque toujours plusieurs familles de causes : espaces, zéros initiaux, références réellement absentes."
     },
     {
@@ -69,18 +69,18 @@
       "choices": [
         {
           "key": "a",
-          "text": "Parce que la formule devient plus lente à recalculer"
+          "text": "Parce que la marge calculée sur ces lignes devient égale au chiffre d'affaires, gonflant le total sans aucun signal"
         },
         {
           "key": "b",
-          "text": "Parce que la marge calculée sur ces lignes devient égale au chiffre d'affaires, gonflant le total sans aucun signal"
+          "text": "Parce que la formule devient plus lente à recalculer"
         },
         {
           "key": "c",
           "text": "Parce que le zéro sera compté comme une valeur manquante par les tableaux croisés dynamiques"
         }
       ],
-      "correct_answer": "b",
+      "correct_answer": "a",
       "feedback": "Zéro n'est pas l'absence de valeur. SIERREUR ne doit jamais transformer une donnée manquante en donnée neutre."
     },
     {
@@ -101,7 +101,7 @@
         }
       ],
       "correct_answer": "b",
-      "feedback": "Une date horodatée du 31 décembre à 14 h est supérieure au 31 décembre à minuit : la première écriture exclut toute la dernière journée."
+      "feedback": "Une date horodatée du 31 décembre à 14 h est supérieure au 31 décembre à minuit : écrire « inférieur ou égal au 31 décembre » exclut toute la dernière journée."
     },
     {
       "id": "q6",
@@ -109,18 +109,18 @@
       "choices": [
         {
           "key": "a",
-          "text": "Qu'il est trié par ordre croissant de clé"
+          "text": "Que la clé y est unique, sans quoi la recherche prendra la première occurrence, arbitrairement"
         },
         {
           "key": "b",
-          "text": "Que la clé y est unique, sans quoi la recherche prendra la première occurrence, arbitrairement"
+          "text": "Qu'il est trié par ordre croissant de clé"
         },
         {
           "key": "c",
           "text": "Qu'il contient au moins autant de lignes que la table à rapprocher"
         }
       ],
-      "correct_answer": "b",
+      "correct_answer": "a",
       "feedback": "Un référentiel contenant deux prix pour le même code produit un résultat arbitraire et parfaitement silencieux."
     }
   ]

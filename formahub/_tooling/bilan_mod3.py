@@ -1,0 +1,459 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+import sys, json, os
+sys.path.insert(0, "/tmp")
+from fh_builder import build
+
+M = {}
+QUIZ = {}
+FORM = "Bilan de Compétences &amp; Repositionnement Professionnel"
+
+M["bilan-competences/module-3"] = {
+ "formation": FORM,
+ "titre": "Se Rendre Visible et Convertir : Candidature, Réseau, Entretien",
+ "num": 3, "total": 3, "duree": "75 min", "niveau": "Intermédiaire",
+ "module_id": "formation-bilan-competences-module-3",
+ "situation": [
+   "La cible est arrêtée : formateur interne ou référent métier, en entreprise de plus de deux cents salariés. Le canal dominant est identifié — recrutement majoritairement interne ou par recommandation, les postes ouverts à l'externe étant ceux d'entreprises en croissance. L'écart de preuve est comblé par une intervention réalisée le mois dernier.",
+   "Une offre paraît, et elle correspond exactement : entreprise de trois cent cinquante salariés, création de poste, transmission des savoir-faire métier aux équipes terrain. Vous la lisez trois fois et vous ouvrez votre CV.",
+   "Il fait deux pages, il est chronologique, et il raconte huit ans de fonction commerciale. Le mot « formation » y apparaît une fois, dans une liste de tâches, en dernière position. Un recruteur qui le parcourt en quarante secondes verra un commercial qui postule à un poste de formateur — et il classera la candidature.",
+   "Le problème n'est pas votre profil : le module 2 a établi qu'il correspond à ce que le métier recherche réellement. Le problème est que votre candidature ne le montre pas. Ce module traite de cette dernière étape — traduire, se rendre visible sur le bon canal, et convertir un entretien — qui décide de tout le reste et que l'on aborde presque toujours sans méthode.",
+ ],
+ "objectifs": [
+   "Construire un CV qui répond à une offre plutôt qu'il ne raconte une carrière",
+   "Rédiger un message d'accroche en trois paragraphes qui traite l'objection principale",
+   "Adapter sa stratégie au canal de recrutement identifié",
+   "Rendre son profil trouvable et lisible par ceux qui recrutent",
+   "Préparer les cinq questions qui décident d'un entretien de recrutement",
+   "Négocier, décider, et tenir une période de recherche dans la durée",
+ ],
+ "sections": [
+  {"titre": "Le CV répond à une offre, il ne raconte pas une carrière",
+   "paras": [
+     "Un CV n'est pas un document biographique. C'est un argumentaire, construit pour une offre précise, dont la fonction est de faire franchir une étape : obtenir un entretien. Toute ligne qui ne sert pas cette fonction encombre.",
+     "<strong>La contrainte de lecture détermine tout.</strong> Un CV est parcouru en quelques dizaines de secondes lors du premier tri. Le lecteur cherche à répondre à une seule question : cette personne peut-elle faire ce travail ? Il ne cherche pas à comprendre votre parcours, et il n'en a pas le temps.",
+     "Cette contrainte a une conséquence directe et souvent mal acceptée : <strong>le CV chronologique intégral est le pire format pour un changement de métier.</strong> Il met en avant ce qui compte le moins — la succession des postes — et enfouit ce qui compte le plus — les compétences transférables — au milieu de descriptions de fonctions.",
+     "<strong>La structure qui fonctionne</strong> pour un repositionnement comporte quatre blocs, dans cet ordre. Un <em>titre</em>, qui est le poste visé et non votre ancien métier. Un <em>bandeau de quatre à cinq lignes</em> qui énonce ce que vous savez faire et ce que vous cherchez. Un bloc de <em>compétences démontrées</em>, trois à cinq, chacune avec sa preuve chiffrée. Puis le <em>parcours chronologique</em>, condensé, en dernier.",
+     "Le bandeau est la partie décisive et c'est celle que la plupart des gens négligent ou remplissent d'adjectifs. Il doit répondre en quatre lignes à la question du lecteur. « Huit ans à développer et former un réseau de quarante distributeurs indépendants. Conception et animation de vingt sessions de formation par an auprès de publics non captifs. Je m'oriente vers la formation interne, où cette expérience de transmission en situation commerciale trouve son application directe. »",
+     "Trois faits, une direction, aucun adjectif. Un lecteur qui parcourt cela en dix secondes sait à qui il a affaire, et il lit la suite avec la bonne grille.",
+   ],
+   "blocks": [
+     {"type": "method", "titre": "construire un CV pour une offre précise",
+      "paras": ["Comptez quarante-cinq minutes pour la première offre, quinze pour les suivantes une fois la trame établie. Ce temps est le meilleur investissement possible : dix candidatures adaptées produisent davantage que cent envois du même document."],
+      "steps": [
+        "<strong>Relevez dans l'offre les cinq exigences principales</strong>, en les recopiant mot pour mot. Ce vocabulaire exact servira dans votre CV — non par flatterie, mais parce que c'est celui que le lecteur cherche et, souvent, celui que filtrent les outils de présélection.",
+        "<strong>Mettez en titre l'intitulé de l'offre</strong>, ou son équivalent. Un CV titré « Responsable commercial » qui répond à une offre de formateur perd au premier coup d'œil. Le titre n'est pas une revendication de statut : c'est l'indication de ce que vous visez.",
+        "<strong>Rédigez le bandeau en quatre lignes</strong> : ce que vous avez fait, avec des chiffres ; ce que vous savez faire, en reprenant le vocabulaire de l'offre ; où vous allez et pourquoi ce parcours y conduit.",
+        "<strong>Choisissez trois à cinq compétences</strong> parmi celles de votre inventaire, celles qui répondent aux exigences relevées. Chacune formulée avec un verbe, un objet, un contexte et un résultat chiffré.",
+        "<strong>Condensez le parcours chronologique</strong> : deux à trois lignes par poste, en ne gardant que ce qui sert la candidature. Un poste de dix ans peut tenir en trois lignes si ses compétences sont déjà exposées au-dessus.",
+        "<strong>Vérifiez qu'aucune ligne ne fait référence à votre secteur d'origine sans traduction.</strong> Chaque terme interne, chaque sigle, chaque nom d'outil propriétaire doit être remplacé ou explicité.",
+        "<strong>Testez en quarante secondes.</strong> Faites lire à quelqu'un qui ne vous connaît pas, chronomètre en main, puis demandez-lui ce que vous savez faire et ce que vous cherchez. S'il hésite, le document est à reprendre — et le problème est presque toujours dans le titre ou le bandeau.",
+      ]},
+     {"type": "exemple", "titre": "le même parcours, avant et après",
+      "paras": [
+        "<em>Avant, en tête du CV :</em> « Responsable animation réseau — Société X, 2018-2026. Animation d'un portefeuille de quarante partenaires distributeurs. Suivi des objectifs commerciaux. Reporting mensuel. Organisation d'événements. Formation des équipes partenaires. »",
+        "<em>Après, pour l'offre de formateur interne :</em>",
+        "<em>Titre :</em> « Formateur interne — transmission des savoir-faire métier ».",
+        "<em>Bandeau :</em> « Huit ans à former et accompagner les équipes de quarante distributeurs indépendants. Vingt sessions par an conçues et animées auprès de publics non captifs, sans lien hiérarchique. Je m'oriente vers la formation interne en entreprise, où cette pratique de la transmission en situation opérationnelle s'applique directement. »",
+        "<em>Compétences démontrées :</em> « Concevoir et animer des sessions de formation de un à deux jours pour des publics non captifs — 20 sessions par an, 160 personnes formées en 2025, taux de satisfaction moyen de 4,3 sur 5. » — « Transmettre un savoir-faire opérationnel à des équipes que je n'encadre pas, sans autorité hiérarchique. » — « Concevoir des supports pédagogiques et des outils d'aide à la vente utilisés par quarante structures. » — « Diagnostiquer un besoin de montée en compétences à partir de données d'activité et d'entretiens terrain. »",
+        "<em>Ce qui a changé :</em> aucun fait nouveau. Les mêmes huit années, réorganisées autour de ce que l'offre demande. La formation, qui apparaissait en dernière position d'une liste de tâches, est devenue la ligne directrice — et c'est la vérité de ce poste, simplement jamais formulée ainsi.",
+      ]},
+     {"type": "pitfall", "titre": "le CV unique envoyé partout",
+      "paras": [
+        "L'objection est connue : adapter chaque CV prend du temps, et il faut bien envoyer un certain volume de candidatures. Le raisonnement paraît solide et il est faux, parce qu'il compare des choses qui ne se comparent pas.",
+        "Cent CV identiques envoyés produisent typiquement un ou deux entretiens. Dix CV adaptés en produisent couramment trois ou quatre. Le second scénario demande moins de temps total et donne un meilleur résultat.",
+        "Il y a une exception, et elle mérite d'être nommée : dans un métier très standardisé où le canal dominant est l'annonce et où les postes sont nombreux, un CV bien construit et légèrement ajusté suffit. C'est précisément pourquoi le module 2 fait identifier le canal — la stratégie de candidature en découle.",
+        "La règle générale : <strong>le volume est une stratégie valable uniquement quand le profil correspond déjà.</strong> En repositionnement, où le profil doit être expliqué, seule l'adaptation fonctionne.",
+      ]},
+   ]},
+
+  {"titre": "Le message d'accroche : trois paragraphes qui traitent l'objection",
+   "paras": [
+     "La lettre de motivation traditionnelle — trois paragraphes sur l'entreprise, votre parcours et votre motivation — n'est plus lue et ne sert à rien. Ce qui la remplace utilement est plus court et plus difficile à écrire : un message de trois paragraphes qui traite frontalement la raison pour laquelle on pourrait vous écarter.",
+     "<strong>Le principe :</strong> dans un repositionnement, il existe une objection évidente contre votre candidature, et le lecteur la formulera de toute façon. Vous avez le choix entre la laisser agir en silence ou la traiter vous-même. La traiter est presque toujours gagnant, parce que cela retire au lecteur le travail de conclure à votre place.",
+     "<strong>Premier paragraphe — ce que vous savez faire, avec une preuve.</strong> Pas votre parcours, pas votre motivation : le fait le plus directement pertinent pour ce poste. « J'ai formé cent soixante personnes l'an dernier, dans un contexte où aucune n'était obligée d'assister à la session. »",
+     "<strong>Deuxième paragraphe — l'objection, nommée et traitée.</strong> « Mon parcours est commercial et non pédagogique, et c'est probablement la première chose que vous noterez. Ce que cette expérience apporte : j'ai formé des publics qui pouvaient partir à tout moment, ce qui impose une exigence d'adhésion que peu de contextes exigent. » L'objection est reconnue, et retournée par un fait.",
+     "<strong>Troisième paragraphe — pourquoi ce poste, précisément.</strong> Un élément qui montre que vous avez lu l'offre et compris le contexte. « Votre offre mentionne une création de poste dans un contexte de croissance des effectifs terrain : le sujet n'est donc pas d'animer un catalogue existant mais de construire la transmission là où elle était informelle. C'est ce que j'ai fait sur un réseau en développement. »",
+     "Trois paragraphes, quinze lignes au total. Pas de formule de politesse ampoulée, pas de « votre entreprise leader sur son marché », pas de « je serais ravi de mettre mes compétences au service de ». Ces formules sont lues comme le signe d'un envoi de masse, ce qu'elles sont presque toujours.",
+   ],
+   "blocks": [
+     {"type": "h3", "titre": "Les quatre objections classiques, et comment les traiter",
+      "paras": [
+        "<strong>« Vous venez d'un autre métier. »</strong> À traiter par la compétence transférable démontrée, jamais par la motivation. « Je viens d'un autre métier et j'y ai exercé pendant huit ans exactement ce que ce poste demande » vaut mieux que « je suis passionné par ce domaine depuis longtemps ».",
+        "<strong>« Vous êtes surqualifié » ou « vous allez perdre en rémunération ».</strong> À traiter de front et par un fait, jamais en le niant. « Ce poste représente une baisse par rapport à ma situation précédente, je l'ai anticipée et elle est compatible avec mes choix » clôt le sujet. Un candidat qui élude cette question sera écarté par prudence, l'employeur craignant un départ rapide.",
+        "<strong>« Il vous manque le diplôme ou la certification. »</strong> À traiter par ce qui en tient lieu, et par une ouverture. « Je n'ai pas la certification que vous mentionnez. J'ai en revanche X années de pratique et voici ce que j'ai réalisé. Si la certification est nécessaire, je suis disposé à l'engager. » Reconnaître, compenser, ouvrir.",
+        "<strong>« Vous avez été licencié » ou « il y a un trou dans votre parcours ».</strong> À traiter en une phrase factuelle, sans justification excessive. « Mon poste a été supprimé dans une réorganisation qui a concerné quatorze personnes. » Une phrase, un fait, et on passe à la suite. La longueur de l'explication est ce qui inquiète, pas le fait lui-même.",
+        "<strong>La règle commune aux quatre :</strong> nommez l'objection en premier, traitez-la par un fait, et n'y revenez pas. Un candidat qui traite lui-même la principale réserve qu'on lui opposerait obtient un crédit considérable — et il économise à son interlocuteur un moment inconfortable.",
+      ]},
+     {"type": "pitfall", "titre": "la motivation comme argument principal",
+      "paras": [
+        "« Ce secteur me passionne », « je souhaite donner du sens à mon parcours », « ce poste correspond à mes valeurs » : ces phrases sont sincères, elles occupent l'essentiel des lettres de reconversion, et elles ne servent à rien.",
+        "La raison est simple : elles sont invérifiables et universelles. Tous les candidats les écrivent. Elles n'apportent aucune information permettant de vous distinguer, et elles occupent la place de ce qui en apporterait.",
+        "Pire, une candidature construite sur la motivation suggère implicitement qu'il n'y a rien d'autre à dire — que le candidat n'a pas d'argument de compétence. C'est l'inverse de l'effet recherché.",
+        "La motivation a une place, et elle est étroite : elle explique <em>pourquoi ce poste et pas un autre</em>, dans le troisième paragraphe, et elle s'appuie sur un élément concret de l'offre. Elle ne remplace jamais la démonstration de compétence.",
+      ]},
+   ]},
+
+  {"titre": "Se rendre visible sur le canal identifié",
+   "paras": [
+     "Le module 2 a établi le canal de recrutement dominant de votre cible. C'est lui qui détermine où porter l'effort, et cette allocation est le principal facteur de réussite d'une recherche.",
+     "<strong>Si le canal dominant est l'annonce</strong>, la stratégie est directe : veille quotidienne sur les intitulés relevés, candidature adaptée, et rapidité. Sur ce canal, répondre dans les quarante-huit heures change sensiblement les chances, les premiers dossiers reçus étant lus avec plus d'attention. Visez la qualité et la réactivité plutôt que le volume.",
+     "<strong>Si le canal dominant est le réseau et la recommandation</strong> — cas le plus fréquent sur les postes d'expertise, dans les petites structures et pour les créations de poste — le nombre de candidatures cesse d'être un indicateur utile. L'indicateur devient : <em>combien de personnes savent précisément ce que je cherche ?</em>",
+     "Cela suppose une chose simple et souvent négligée : <strong>dire ce que l'on cherche, précisément, à des gens qui peuvent s'en souvenir</strong>. « Je cherche du travail » ne se retient pas et ne s'active pas. « Je cherche un poste de formateur interne dans une entreprise de plus de deux cents salariés, dans un rayon d'une heure autour d'ici » se retient, et quand quelqu'un entend parler d'une ouverture, votre nom vient.",
+     "Les quinze personnes rencontrées en entretien exploratoire au module 2 constituent le premier cercle. Elles vous connaissent, elles connaissent votre projet, et un message de trois lignes leur annonçant que vous êtes désormais en recherche active suffit à activer ce réseau. C'est le meilleur retour sur investissement de tout le parcours, et il ne coûte rien.",
+     "<strong>Le profil en ligne</strong> mérite un traitement particulier, parce qu'il fonctionne dans les deux sens : vous cherchez, et l'on vous trouve. Trois éléments décident de sa performance. Le <em>titre</em>, qui doit indiquer ce que vous visez et non ce que vous avez été — c'est aussi le principal critère des recherches effectuées par les recruteurs. Le <em>résumé</em>, qui reprend le bandeau du CV. Et les <em>mots-clés</em> du secteur visé, présents dans les descriptions de postes : un profil qui n'emploie que le vocabulaire de son ancien métier n'apparaît dans aucune recherche du nouveau.",
+     "<strong>La candidature spontanée ciblée</strong> a mauvaise réputation parce qu'elle est presque toujours mal faite. Envoyée en masse, elle ne produit rien. Adressée à une personne nommée, dans une entreprise dont on a identifié une raison précise — croissance des effectifs, ouverture de site, création d'une activité — elle atteint des taux de réponse bien supérieurs à ceux des réponses à annonce, précisément parce qu'elle arrive sans concurrence.",
+   ],
+   "blocks": [
+     {"type": "method", "titre": "activer un réseau sans demander un emploi",
+      "paras": ["La difficulté n'est pas technique, elle est psychologique : demander est inconfortable. La méthode qui suit contourne l'obstacle en ne demandant rien."],
+      "steps": [
+        "<strong>Formulez votre recherche en une phrase mémorisable</strong>, avec le poste, le type d'organisation et la zone. Testez-la : quelqu'un qui l'entend une fois doit pouvoir la répéter approximativement une semaine plus tard.",
+        "<strong>Reprenez contact avec les personnes rencontrées en exploration</strong>, en trois lignes : où vous en êtes, ce que leur conversation a changé, et le fait que vous êtes désormais en recherche active sur cette cible précise. Aucune demande.",
+        "<strong>Élargissez aux anciens collègues et relations professionnelles</strong>, même anciennes, même distantes. Les liens faibles produisent davantage d'opportunités que les liens forts, pour une raison mécanique : vos proches connaissent les mêmes personnes que vous, les relations distantes en connaissent d'autres.",
+        "<strong>Ne demandez jamais « as-tu quelque chose pour moi ? »</strong>, question qui appelle un non et clôt l'échange. Demandez plutôt : « connais-tu quelqu'un qui travaille dans ce domaine et à qui je pourrais parler ? » — question à laquelle on peut répondre utilement même sans poste à proposer.",
+        "<strong>Tenez un suivi</strong> : qui a été contacté, quand, ce qui a été dit, quand recontacter. Trente contacts sans suivi deviennent ingérables en trois semaines, et les relances oubliées sont la principale perte de ce canal.",
+        "<strong>Redonnez de vos nouvelles tous les deux mois</strong>, en trois lignes, à ceux qui vous ont aidé. C'est ce qui maintient le réseau actif, et c'est presque toujours à la deuxième ou troisième nouvelle qu'une opportunité remonte.",
+      ]},
+     {"type": "exemple", "titre": "trois canaux, trois allocations d'effort",
+      "paras": [
+        "<em>Cible A — comptable en PME, canal dominant : annonce.</em> Marché abondant et standardisé. Allocation : 70 % veille et candidatures adaptées, 20 % profil en ligne et cabinets de recrutement, 10 % réseau. Indicateur de suivi : nombre de candidatures adaptées par semaine, et taux de réponse.",
+        "<em>Cible B — formateur interne, canal dominant : réseau et interne.</em> Marché restreint, postes souvent pourvus avant publication. Allocation : 50 % réseau et visibilité, 30 % candidatures spontanées ciblées sur des entreprises en croissance, 20 % réponses à annonces. Indicateur : nombre de personnes qui connaissent précisément votre recherche, et nombre de conversations par mois.",
+        "<em>Cible C — chef de projet dans le secteur public, canal dominant : concours et publications officielles.</em> Marché encadré, calendrier fixe. Allocation : 60 % préparation des dossiers et des épreuves, 20 % veille sur les plateformes officielles, 20 % contacts dans les structures visées. Indicateur : respect du calendrier des échéances, qui ne se rattrape pas.",
+        "<em>Ce que cet exemple illustre :</em> une même personne appliquant la stratégie de la cible A à la cible B enverrait beaucoup de candidatures sur un marché de onze offres mensuelles, et conclurait au bout de trois mois que le marché est fermé. Ce serait faux — elle aurait simplement travaillé sur le mauvais canal.",
+      ]},
+     {"type": "pitfall", "titre": "confondre activité et progression",
+      "paras": [
+        "Une recherche d'emploi produit facilement le sentiment d'être occupé sans avancer. Consulter les offres deux heures par jour, actualiser son profil, lire des articles sur son secteur : ces activités remplissent le temps et ne font rien progresser.",
+        "Le test qui distingue : <strong>une action progresse si elle met votre candidature devant les yeux d'un être humain, ou si elle vous apporte une information que vous n'aviez pas.</strong> Tout le reste est de l'occupation, quelle que soit son utilité apparente.",
+        "Une conséquence pratique : suivez deux indicateurs hebdomadaires et deux seulement, choisis selon votre canal. Sur le canal annonce : candidatures adaptées envoyées, et réponses obtenues. Sur le canal réseau : conversations tenues, et nouvelles personnes informées de votre recherche. Ces chiffres vous diront si vous avancez, ce que le sentiment d'être occupé ne dit jamais.",
+      ]},
+   ]},
+
+  {"titre": "L'entretien : les cinq questions qui décident",
+   "paras": [
+     "Un entretien de recrutement pour un repositionnement se joue sur cinq questions. Elles seront posées, sous une forme ou une autre, et les préparer transforme entièrement la conversation. Non pas les apprendre par cœur — cela s'entend — mais avoir réfléchi à la réponse et disposer des faits pour l'étayer.",
+     "<strong>1. « Parlez-moi de votre parcours. »</strong> Question d'ouverture, presque toujours posée, et presque toujours mal traitée : la plupart des candidats racontent leur parcours chronologiquement, en huit minutes, et perdent l'attention de leur interlocuteur avant d'arriver au point pertinent. La bonne réponse tient en deux minutes, part de ce qui est pertinent pour ce poste, et se termine sur la raison du changement. Elle se prépare et se dit à voix haute plusieurs fois — c'est la seule des cinq qu'il faut réellement répéter.",
+     "<strong>2. « Pourquoi changer de métier ? »</strong> Ce que l'interlocuteur cherche à savoir est si vous fuyez quelque chose ou si vous allez vers quelque chose. Une réponse qui critique l'employeur précédent inquiète, même si la critique est fondée. Une réponse qui va vers l'avant rassure. « J'ai découvert au fil des années que la partie du poste qui me tenait le plus était la transmission, et j'ai construit ce projet en rencontrant une quinzaine de professionnels du métier avant de me positionner. » Cette dernière précision fait beaucoup : elle démontre le sérieux du projet mieux que n'importe quelle affirmation.",
+     "<strong>3. « Qu'est-ce qui vous manque pour ce poste ? »</strong> Question redoutée et souvent posée. Nier tout manque est la mauvaise réponse — elle passe pour une absence de lucidité. Nommer un manque réel, secondaire, et dire comment vous le traitez est la bonne. « Je n'ai pas d'expérience des outils de formation à distance. J'ai commencé à me former dessus, et je pense pouvoir être opérationnel en quelques semaines. » Un manque nommé et traité inquiète moins qu'un manque que l'interlocuteur devine et que vous n'évoquez pas.",
+     "<strong>4. « Racontez-moi une situation difficile. »</strong> C'est ici que servent les fiches de réalisation du module 1. Une réponse préparée, factuelle, qui décrit la situation, ce que vous avez fait, le résultat et ce que vous en avez tiré, vous distingue immédiatement — la plupart des candidats improvisent une réponse d'évitement ou choisissent une difficulté sans enjeu.",
+     "<strong>5. « Avez-vous des questions ? »</strong> Traitée comme une formalité de fin, c'est en réalité la question la plus révélatrice de l'entretien. Trois ou quatre questions préparées, portant sur le contenu du travail et non sur les avantages, montrent que vous avez réfléchi au poste. « Qu'est-ce qui fait qu'une personne réussit à ce poste chez vous ? » et « quelle est la première chose que vous attendez dans les trois premiers mois ? » sont deux questions qui produisent de l'information utile et qui font bonne impression — c'est rare de réunir les deux.",
+   ],
+   "blocks": [
+     {"type": "method", "titre": "préparer un entretien en une heure",
+      "steps": [
+        "<strong>Relisez l'offre et relevez les trois attentes principales.</strong> Toute votre préparation vise à démontrer que vous y répondez, et rien d'autre.",
+        "<strong>Préparez la réponse de deux minutes sur votre parcours</strong>, et dites-la à voix haute trois fois. C'est le seul élément qu'il faut réellement répéter, parce qu'il ouvre l'entretien et qu'il donne le cadre de tout ce qui suit.",
+        "<strong>Sélectionnez trois fiches de réalisation</strong> répondant aux trois attentes de l'offre, et relisez-les. Vous aurez ainsi une histoire concrète pour chaque sujet, quelle que soit la façon dont la question est posée.",
+        "<strong>Écrivez votre réponse à « qu'est-ce qui vous manque »</strong> : un manque réel, secondaire, avec ce que vous faites pour le traiter.",
+        "<strong>Préparez quatre questions à poser</strong>, portant sur le contenu du travail, l'équipe, les attentes des premiers mois et la raison de l'ouverture du poste. Aucune sur les congés ou les avantages lors d'un premier entretien.",
+        "<strong>Renseignez-vous sur l'organisation</strong> pendant vingt minutes : activité, actualité récente, taille, structure. Assez pour poser une question informée, pas assez pour réciter.",
+        "<strong>Préparez la question de la rémunération</strong> : votre fourchette, obtenue au module 2, et la formulation. « Sur ce type de poste, la fourchette que j'ai observée se situe entre X et Y ; je me situe dans cette fourchette selon le contenu exact du poste. »",
+      ]},
+     {"type": "exemple", "titre": "la réponse de deux minutes, construite",
+      "paras": [
+        "<em>Version chronologique, la plus fréquente :</em> « J'ai commencé en 2014 comme assistant commercial chez A, puis je suis passé chez B en 2016 où j'ai d'abord été chargé de secteur avant d'évoluer vers l'animation réseau en 2018, poste que j'ai occupé jusqu'à la réorganisation de cette année… » — Sept minutes, l'interlocuteur décroche à la troisième, et rien de ce qui concerne le poste visé n'a été dit.",
+        "<em>Version construite pour le poste :</em> « Ce qui me semble le plus utile de vous dire, c'est que j'ai passé les huit dernières années à former des gens qui n'étaient pas obligés de m'écouter. J'animais un réseau de quarante distributeurs indépendants, et l'essentiel de mon travail consistait à leur transmettre des méthodes de vente et une connaissance produit — une vingtaine de sessions par an, cent soixante personnes formées l'an dernier. Comme ils n'étaient pas mes salariés, la seule façon de les faire venir et de les faire appliquer était que ce soit réellement utile pour eux. »",
+        "« Mon poste a été supprimé lors d'une réorganisation. J'en ai profité pour regarder ce que je voulais faire de la suite, et j'ai rencontré une quinzaine de personnes exerçant des métiers de formation avant de me décider. Ce qui m'a confirmé la direction, c'est que la difficulté qu'ils citent tous — faire adhérer un public qui n'a pas demandé la formation — est exactement ce que je fais depuis huit ans. »",
+        "<em>Durée : environ deux minutes.</em> Elle dit ce que la personne sait faire, avec des chiffres, traite la raison du départ en une phrase, et démontre le sérieux du projet par le travail d'exploration. Le parcours chronologique n'a pas été énoncé — il est sur le CV, et il sera abordé si l'interlocuteur le souhaite.",
+      ]},
+     {"type": "pitfall", "titre": "le trou de parcours ou le licenciement sur-expliqué",
+      "paras": [
+        "L'inquiétude est fréquente et légitime : comment expliquer une période sans emploi, un licenciement, une rupture ? La réponse tient en un principe — <strong>la longueur de l'explication crée le problème que le fait lui-même ne crée pas.</strong>",
+        "Un candidat qui dit en une phrase « mon poste a été supprimé dans une réorganisation qui a concerné quatorze personnes » passe à autre chose. Un candidat qui explique pendant trois minutes le contexte, les torts des uns et des autres et ce qu'il aurait fallu faire installe un malaise que rien ne justifiait.",
+        "Le même principe vaut pour une période sans emploi : « j'ai pris six mois pour construire ce projet et rencontrer des professionnels du métier » est une phrase complète. Elle n'appelle pas de justification supplémentaire, et le travail d'exploration du module 2 lui donne un contenu réel.",
+        "Une remarque enfin sur ce que l'on n'est pas tenu de dire : les raisons personnelles d'une interruption — santé, famille, situation privée — n'ont pas à être détaillées. « Une interruption pour raisons personnelles, aujourd'hui réglée » est une réponse suffisante et parfaitement recevable.",
+      ]},
+   ]},
+
+  {"titre": "Négocier, décider, et tenir la durée",
+   "paras": [
+     "Une proposition arrive, et deux erreurs symétriques guettent : accepter immédiatement par soulagement, ou négocier comme si l'on était en position de force alors que l'on sort d'une période de recherche.",
+     "<strong>La règle de base :</strong> ne répondez jamais dans la conversation où la proposition est faite. « Je suis très intéressé, je vous confirme d'ici quarante-huit heures » est une réponse professionnelle, attendue, et qui ne compromet rien. Elle vous donne le temps de relire, de comparer, et de préparer ce que vous voulez discuter.",
+     "<strong>Ce qui se négocie</strong> ne se limite pas au salaire, et c'est souvent oublié. La date de prise de poste, le rythme de travail à distance, un budget de formation la première année, un intitulé de poste plus proche de votre cible, les modalités d'un point d'étape à six mois : tous ces éléments sont négociables et coûtent souvent moins à l'employeur qu'une hausse de rémunération. Dans un repositionnement, un engagement de formation ou un intitulé peuvent valoir davantage à moyen terme que quelques centaines d'euros mensuels.",
+     "<strong>Comment poser une demande</strong> : une seule fois, clairement, en donnant sa raison, et en indiquant que vous êtes preneur si elle est acceptée. « La proposition me convient sur le fond. Deux points : je souhaiterais une prise de poste au 15 plutôt qu'au 1er, et un engagement sur la certification que nous avons évoquée dans la première année. Si nous nous accordons là-dessus, je signe. » Une demande formulée ainsi aboutit dans la majorité des cas ; une négociation qui revient par petites touches successives use la relation avant même le premier jour.",
+     "<strong>Décider quand on hésite.</strong> Deux questions tranchent mieux que les listes d'avantages et d'inconvénients. <em>Qu'est-ce que ce poste me permettra de faire dans trois ans que je ne peux pas faire aujourd'hui ?</em> — c'est la question du repositionnement, et un poste qui n'ouvre rien est un poste de transition qu'il faut assumer comme tel. Et : <em>qu'est-ce qui, dans ce poste, ressemble à ce que j'ai décidé de ne plus faire ?</em> Les critères rédhibitoires du module 1 servent ici, et il faut les relire avant de signer plutôt qu'après.",
+     "<strong>Sur la durée de la recherche</strong>, quelques éléments pratiques valent d'être posés. Une recherche de repositionnement est plus longue qu'une recherche à poste équivalent, souvent de plusieurs mois — non parce que le profil est mauvais, mais parce que chaque candidature demande une explication. Le savoir à l'avance évite d'interpréter la durée comme un échec.",
+     "Trois choses aident concrètement : un rythme défini avec des plages de travail et des plages sans, plutôt qu'une disponibilité permanente qui n'est ni tenable ni efficace ; le maintien d'activités et de relations sans rapport avec la recherche ; et le fait de compter comme des résultats les étapes intermédiaires — une conversation obtenue, une information nouvelle, une candidature bien construite — et non seulement les entretiens décrochés. <strong>Si la période devient difficile à porter, en parler tôt vaut mieux que tard</strong> : un conseiller en évolution professionnelle, un groupe de personnes en démarche similaire, ou un professionnel de santé si la difficulté déborde le cadre du travail. Chercher un appui n'est pas un aveu, et la durée d'une recherche n'est pas une mesure de votre valeur professionnelle.",
+   ],
+   "blocks": [
+     {"type": "h3", "titre": "Ce que ce parcours a construit",
+      "paras": [
+        "Trois modules, et une progression qui est aussi l'ordre dans lequel il faut travailler.",
+        "<strong>Module 1 — l'inventaire.</strong> Extraire des compétences à partir de réalisations datées, pas de souvenirs. Trier par transférabilité. Poser à côté ce que l'on veut, ce que l'on ne veut plus et ce qui contraint. Aboutir à trois ou quatre hypothèses, pas à un métier.",
+        "<strong>Module 2 — l'exploration.</strong> Ne pas candidater pendant quatre semaines. Trouver le vocabulaire réel, lire quinze offres, mener dix à quinze entretiens exploratoires, identifier le canal de recrutement. Qualifier l'écart — vocabulaire, preuve ou compétence — et le traiter dans cet ordre.",
+        "<strong>Module 3 — la conversion.</strong> Un CV qui répond à une offre, un message qui traite l'objection, un effort porté sur le canal identifié, et cinq questions d'entretien préparées.",
+        "Trois idées traversent l'ensemble. <em>Les faits valent mieux que les affirmations</em> — dans l'inventaire, dans le CV, en entretien, un chiffre et une situation valent toujours mieux qu'un adjectif. <em>Comprendre avant de se présenter</em> — la plupart des difficultés attribuées au marché sont des problèmes de méthode : mauvais vocabulaire, mauvais canal, écart mal qualifié. Et <em>un repositionnement se construit par étapes</em> — le poste suivant n'a pas besoin d'être le poste final, il doit ouvrir ce qu'aujourd'hui ne permet pas.",
+        "Ce que ce parcours ne peut pas donner : la connaissance de votre marché local, de votre secteur et de vos contraintes propres. Elle s'obtient en appliquant ces méthodes à votre situation, et c'est le travail qui commence maintenant.",
+      ]},
+     {"type": "pitfall", "titre": "accepter par soulagement",
+      "paras": [
+        "Après plusieurs mois de recherche, la première proposition est chargée d'un soulagement considérable, et ce soulagement est un mauvais conseiller. Il fait accepter des postes que l'on aurait écartés trois mois plus tôt, et qu'on quittera dans l'année.",
+        "La protection tient à un geste simple : relire les critères rédhibitoires écrits au module 1 avant de répondre. Ils ont été établis à froid, à un moment où aucune pression ne pesait. S'ils sont violés, la question mérite d'être posée sérieusement plutôt que balayée.",
+        "Cela ne veut pas dire refuser. Une situation financière peut rendre nécessaire d'accepter un poste imparfait, et c'est une décision légitime. Ce qui compte est de le décider <em>en le sachant</em> : « j'accepte ce poste comme une étape, il ne correspond pas à deux de mes critères, et je réexamine dans dix-huit mois » est une position tenable. « Ça ira bien » ne l'est pas — c'est ainsi qu'on se retrouve à refaire le même travail deux ans plus tard, dans de moins bonnes conditions.",
+      ]},
+   ]},
+ ],
+
+ "etude_cas": {
+   "titre": "D'un CV commercial à une prise de poste en formation interne",
+   "html": """
+<p>Reprenons la situation : une offre de formateur interne qui correspond exactement, un CV commercial de deux pages, et une seule chance de ne pas être classé au premier tri. Voici le déroulé, de la candidature à la signature.</p>
+<p><strong>Jour 1 — la reconstruction du CV, quarante-cinq minutes.</strong> Les cinq exigences de l'offre relevées mot pour mot : « transmission des savoir-faire métier », « conception de supports pédagogiques », « animation de sessions auprès des équipes terrain », « diagnostic des besoins de montée en compétences », « expérience opérationnelle du métier ».</p>
+<p>Les cinq figurent dans l'inventaire du module 1, sous d'autres noms. Le CV est reconstruit en quatre blocs, titre en tête, bandeau de quatre lignes, quatre compétences chiffrées, parcours condensé en dernier.</p>
+<p><em>Test des quarante secondes</em> auprès d'une personne extérieure au secteur. Question posée après lecture : « qu'est-ce que cette personne sait faire ? » Réponse : « former des gens qui ne sont pas obligés de venir ». Le CV fonctionne — c'est exactement le message visé, et c'est la première fois qu'il passe.</p>
+<p><strong>Jour 1, suite — le message d'accroche.</strong> Trois paragraphes, quatorze lignes.</p>
+<p>Le premier énonce le fait le plus pertinent : cent soixante personnes formées l'an dernier dans un contexte non captif. Le deuxième nomme l'objection — « mon parcours est commercial et non pédagogique, et c'est probablement la première chose que vous noterez » — et la retourne par le fait que ces publics pouvaient partir à tout moment. Le troisième s'appuie sur un élément de l'offre : la création de poste dans un contexte de croissance des effectifs terrain signifie construire une transmission là où elle était informelle, ce qui est exactement ce qui a été fait sur un réseau en développement.</p>
+<p><em>Ce qui n'y figure pas :</em> aucune mention de passion, de sens, ou de valeurs. Aucune formule sur l'entreprise. Rien qui puisse être écrit à l'identique dans une autre candidature.</p>
+<p><strong>Jour 2 — le contact humain, avant l'envoi.</strong> Vérification dans le réseau : l'une des quinze personnes rencontrées en entretien exploratoire connaît quelqu'un dans cette entreprise. Un message de trois lignes lui est envoyé, sans rien demander d'autre qu'une confirmation : « je postule à cette offre, tu m'avais dit connaître quelqu'un là-bas — sais-tu si le poste est déjà pourvu en interne ? »</p>
+<p>Réponse en deux jours : le poste n'est pas pourvu, la personne recrutante est identifiée, et un mot lui a été passé spontanément.</p>
+<p><em>Ce geste a probablement décidé de la suite.</em> Il n'a pas demandé de recommandation, seulement une information — et la recommandation est venue d'elle-même. C'est le fonctionnement ordinaire du canal réseau, et il n'aurait pas existé sans les quinze conversations du module 2.</p>
+<p><strong>Jour 9 — l'appel de préqualification.</strong> Vingt minutes. La première question est la question de parcours, et la réponse préparée de deux minutes est donnée telle qu'elle avait été répétée.</p>
+<p>Deuxième question, immédiate : « vous n'avez pas de formation de formateur, comment voyez-vous cela ? ». La réponse préparée est donnée — un manque réel, secondaire, et ce qui est fait pour le traiter — suivie de l'intervention réalisée le mois précédent en association professionnelle, avec le témoignage obtenu.</p>
+<p><em>L'écart de preuve comblé au module 2 a servi ici, et à ce moment précis.</em> Sans lui, la réponse aurait été une intention ; avec lui, c'est un fait daté.</p>
+<p><strong>Jour 18 — l'entretien.</strong> Une heure et quart, avec la responsable des ressources humaines et le directeur des opérations.</p>
+<p>Les cinq questions préparées ont été posées, dans un ordre différent. La question de la situation difficile a porté sur « une fois où vous n'avez pas réussi à faire passer un message » — l'une des trois fiches de réalisation sélectionnées y répondait directement, et la réponse a duré trois minutes au lieu des trente secondes embarrassées que la plupart des candidats produisent.</p>
+<p><em>Le moment décisif</em> a été la question posée en fin d'entretien : « qu'est-ce qui fait qu'une personne réussit à ce poste chez vous ? ». La réponse du directeur des opérations — la difficulté à obtenir l'adhésion d'équipes terrain surchargées qui vivent la formation comme une contrainte — a permis une dernière intervention de trente secondes reliant précisément ce point aux huit années de travail avec des distributeurs indépendants.</p>
+<p>Cette réponse n'a pas été improvisée : la difficulté était connue depuis le module 2, où sept praticiens sur quinze l'avaient citée. La question n'avait pas été posée pour faire bonne impression, mais pour vérifier qu'elle valait aussi dans cette entreprise.</p>
+<p><strong>Jour 26 — la proposition, et les quarante-huit heures.</strong> Rémunération légèrement inférieure au seuil fixé au module 1, prise de poste demandée sous trois semaines.</p>
+<p>Réponse donnée dans la conversation : « je suis très intéressé, je vous confirme d'ici quarante-huit heures. » Aucune négociation improvisée.</p>
+<p><strong>Jour 28 — la négociation, une seule demande groupée.</strong> « La proposition me convient sur le fond. Trois points : la rémunération, où je suis un peu en dessous de la fourchette que j'avais identifiée sur ce type de poste ; une prise de poste à quatre semaines plutôt que trois ; et un engagement sur la certification de formateur dans la première année, que nous avons évoquée en entretien. Si nous nous accordons là-dessus, je signe. »</p>
+<p><em>Résultat :</em> rémunération relevée de la moitié de l'écart, délai accordé, certification acceptée et inscrite dans la lettre d'engagement. Trois demandes, une conversation, aucune tension.</p>
+<p><em>Ce qui a rendu la demande facile à accepter :</em> la certification ne coûte presque rien à l'entreprise et sert son besoin ; le délai ne coûte rien du tout. Deux des trois demandes étaient gratuites pour l'employeur et précieuses pour le candidat — c'est exactement ce qu'il faut chercher dans une négociation.</p>
+<p><strong>Bilan de la séquence.</strong> Du module 1 à la signature : cinq mois. Trois semaines de candidatures inutiles au début, cinq semaines d'inventaire, six semaines d'exploration sans aucune candidature, et environ six semaines de recherche active — sur laquelle onze candidatures ont été envoyées, quatre entretiens obtenus, deux propositions reçues.</p>
+<p><strong>La leçon transposable.</strong> Onze candidatures ont produit quatre entretiens, là où quarante n'en avaient produit aucun. La différence ne tient à aucun changement de profil : elle tient au vocabulaire, au canal et à la préparation.</p>
+<p>La seconde leçon porte sur l'enchaînement. Chaque élément décisif venait d'une étape antérieure : la fiche de réalisation utilisée en entretien venait du module 1, le contact dans l'entreprise et la connaissance de la difficulté du métier venaient du module 2, la certification négociée venait de l'écart identifié. <strong>Aucune de ces trois choses n'aurait pu être improvisée au moment où elle a servi</strong> — et c'est ce qui rend les deux premiers modules décisifs alors qu'ils ne produisent aucune candidature.</p>
+"""},
+
+ "checklist": {
+   "titre": "Checklist — candidater, se rendre visible, convertir",
+   "items": [
+     "Le CV porte en titre le poste visé, pas l'ancien métier",
+     "Le bandeau de quatre lignes énonce des faits chiffrés, sans aucun adjectif",
+     "Trois à cinq compétences démontrées figurent avant le parcours chronologique",
+     "Chaque compétence porte un verbe, un objet, un contexte et un résultat chiffré",
+     "Le vocabulaire exact de l'offre a été repris",
+     "Aucun sigle, outil propriétaire ou terme interne n'est employé sans traduction",
+     "Le CV a passé le test des quarante secondes auprès d'une personne extérieure",
+     "Le message d'accroche tient en trois paragraphes et quinze lignes",
+     "Le premier paragraphe énonce un fait pertinent, pas une motivation",
+     "L'objection principale est nommée et traitée par un fait",
+     "Le troisième paragraphe s'appuie sur un élément précis de l'offre",
+     "Aucune formule de politesse ampoulée ni de mention des valeurs de l'entreprise",
+     "L'allocation d'effort correspond au canal de recrutement identifié au module 2",
+     "La recherche est formulée en une phrase mémorisable et transmise au réseau",
+     "Les personnes rencontrées en exploration ont été informées du passage en recherche active",
+     "Un suivi des contacts est tenu, avec dates et échéances de relance",
+     "Le titre du profil en ligne indique la cible et non l'ancien métier",
+     "Deux indicateurs hebdomadaires sont suivis, adaptés au canal",
+     "La réponse de deux minutes sur le parcours a été dite à voix haute plusieurs fois",
+     "Trois fiches de réalisation sont sélectionnées avant chaque entretien",
+     "La réponse à « qu'est-ce qui vous manque » est écrite : un manque réel, secondaire, traité",
+     "Quatre questions à poser sont préparées, portant sur le contenu du travail",
+     "La fourchette de rémunération est connue avant l'entretien",
+     "Aucune proposition n'est acceptée dans la conversation où elle est faite",
+     "Les demandes de négociation sont formulées en une fois, avec leur raison",
+     "Les critères rédhibitoires du module 1 sont relus avant toute signature",
+   ]},
+
+ "glossaire": [
+   ("CV ciblé", "CV construit pour une offre précise : titre, bandeau, compétences démontrées, puis parcours condensé. À distinguer du CV chronologique, inadapté à un changement de métier."),
+   ("Bandeau", "Quatre à cinq lignes en tête de CV énonçant ce que l'on sait faire et ce que l'on cherche. Partie décisive, souvent remplie d'adjectifs à tort."),
+   ("Message d'accroche", "Trois paragraphes remplaçant la lettre de motivation : un fait pertinent, l'objection traitée, la raison de ce poste précis."),
+   ("Objection", "Raison évidente pour laquelle une candidature pourrait être écartée. La nommer soi-même retire au lecteur le travail de conclure."),
+   ("Liens faibles", "Relations professionnelles distantes ou anciennes. Produisent davantage d'opportunités que les liens forts, qui connaissent les mêmes personnes que vous."),
+   ("Candidature spontanée ciblée", "Candidature adressée à une personne nommée, dans une organisation dont on a identifié une raison précise. Taux de réponse supérieur aux réponses à annonce."),
+   ("Test des quarante secondes", "Faire lire son CV à une personne extérieure et lui demander ce qu'on sait faire. Si elle hésite, le titre ou le bandeau sont à reprendre."),
+   ("Réponse de deux minutes", "Présentation de parcours construite pour le poste visé, partant de ce qui est pertinent et non de la chronologie. Le seul élément d'entretien à répéter à voix haute."),
+   ("Fiche de réalisation", "Description en quatre points d'une situation professionnelle réelle. Matériau de l'inventaire du module 1, et réponse préparée aux questions de mise en situation."),
+   ("Négociation groupée", "Formulation en une seule fois de l'ensemble des demandes, avec leur raison et un engagement à signer si elles aboutissent."),
+   ("Critère rédhibitoire", "Condition écrite à froid au module 1, en dessous de laquelle un poste n'est pas acceptable. À relire avant de signer, pas après."),
+ ],
+
+ "retenir": [
+   "Un CV est un argumentaire construit pour une offre, pas un document biographique.",
+   "Le CV chronologique intégral est le pire format pour un changement de métier : il met en avant ce qui compte le moins.",
+   "Quatre blocs : titre du poste visé, bandeau de quatre lignes, compétences démontrées, parcours condensé en dernier.",
+   "Le bandeau énonce des faits chiffrés et une direction, jamais des adjectifs.",
+   "Reprenez le vocabulaire exact de l'offre : c'est celui que le lecteur cherche et que filtrent souvent les outils de présélection.",
+   "Dix CV adaptés produisent davantage que cent envois identiques, et demandent moins de temps total.",
+   "Le volume est une stratégie valable seulement quand le profil correspond déjà : en repositionnement, seule l'adaptation fonctionne.",
+   "Nommez vous-même l'objection principale et traitez-la par un fait : le lecteur la formulera de toute façon.",
+   "La motivation est invérifiable et universelle : elle explique pourquoi ce poste, elle ne remplace jamais la compétence.",
+   "Sur le canal annonce, la réactivité compte : les premiers dossiers reçus sont lus avec plus d'attention.",
+   "Sur le canal réseau, l'indicateur n'est pas le nombre de candidatures mais le nombre de personnes qui savent précisément ce que vous cherchez.",
+   "« Je cherche du travail » ne s'active pas ; une recherche formulée précisément se retient et remonte.",
+   "Ne demandez pas « as-tu quelque chose ? » mais « connais-tu quelqu'un à qui je pourrais parler ? ».",
+   "Les liens faibles produisent plus d'opportunités que les liens forts : vos proches connaissent les mêmes personnes que vous.",
+   "Une action progresse si elle met votre candidature devant un être humain ou vous apporte une information nouvelle. Le reste est de l'occupation.",
+   "Préparez la réponse de deux minutes sur votre parcours : elle ouvre l'entretien et donne le cadre de tout ce qui suit.",
+   "Nommer un manque réel et secondaire inquiète moins qu'un manque que l'interlocuteur devine et que vous n'évoquez pas.",
+   "« Avez-vous des questions ? » est la question la plus révélatrice de l'entretien : préparez-en quatre, sur le contenu du travail.",
+   "La longueur de l'explication crée le problème que le fait ne crée pas : un licenciement s'explique en une phrase.",
+   "Ne répondez jamais à une proposition dans la conversation où elle est faite : quarante-huit heures sont attendues et ne compromettent rien.",
+   "Le salaire n'est pas la seule variable : date, formation, intitulé, rythme coûtent souvent moins et valent parfois davantage.",
+   "Formulez vos demandes en une fois, avec leur raison, et dites que vous signez si elles aboutissent.",
+   "Relisez vos critères rédhibitoires avant de signer : ils ont été écrits à froid, le soulagement est un mauvais conseiller.",
+   "Une recherche de repositionnement est plus longue qu'une recherche à poste équivalent : le savoir évite de prendre la durée pour un échec.",
+ ],
+
+ "exercices": [
+  {"titre": "Réécrire un CV pour une offre", "niveau": "Débutant",
+   "enonce": [
+     "Prenez une offre réelle correspondant à votre cible et reconstruisez votre CV selon la méthode : relevé des cinq exigences, titre, bandeau, trois à cinq compétences démontrées, parcours condensé.",
+     "Puis répondez aux quatre contrôles : votre titre reprend-il l'intitulé de l'offre ? Votre bandeau contient-il au moins deux chiffres et aucun adjectif ? Chacune de vos compétences est-elle formulée avec un résultat ? Et une personne extérieure, après quarante secondes de lecture, sait-elle dire ce que vous savez faire ?",
+   ],
+   "corrige": """
+<p>L'exercice porte sur votre document. Voici comment lire vos réponses aux quatre contrôles, et ce que chaque défaut indique.</p>
+<p><strong>Contrôle 1 — le titre reprend-il l'intitulé de l'offre ?</strong></p>
+<p><em>Si vous avez gardé votre ancien intitulé :</em> c'est le défaut le plus coûteux, et il est immédiat. Un lecteur qui voit « Responsable commercial » en tête d'une candidature à un poste de formateur a déjà classé le dossier avant d'atteindre la deuxième ligne.</p>
+<p><em>L'objection habituelle</em> — « mais je n'ai jamais occupé ce poste, ce serait mentir » — repose sur un malentendu. Le titre d'un CV n'est pas une déclaration de statut passé ; c'est l'indication de ce que vous visez. Si la formulation vous gêne, ajoutez une précision : « Formateur interne — issu de huit ans de terrain commercial ». Elle est exacte et elle oriente correctement la lecture.</p>
+<p><em>Si vous avez écrit un titre générique</em> du type « Professionnel expérimenté en recherche de nouveaux défis » : c'est pire que l'ancien intitulé, parce que cela ne dit rien du tout. Un titre doit nommer un poste.</p>
+<p><strong>Contrôle 2 — deux chiffres et aucun adjectif dans le bandeau ?</strong></p>
+<p><em>Si vous n'avez aucun chiffre :</em> reprenez vos fiches de réalisation du module 1 et cherchez les volumes — combien de personnes, combien de clients, quel montant, sur quelle durée, avec quel résultat. Il y a presque toujours un chiffre disponible, et c'est ce qui fait la différence entre une affirmation et un fait.</p>
+<p><em>Si vous avez des adjectifs</em> — dynamique, rigoureux, passionné, motivé : supprimez-les tous et vérifiez ce qu'il reste. S'il ne reste rien, le bandeau est à réécrire entièrement à partir des faits. Un adjectif est toujours le signe d'un fait manquant.</p>
+<p><em>Cas particulier fréquent :</em> le bandeau qui parle exclusivement de ce que vous voulez faire — « je souhaite m'orienter vers… » — sans dire ce que vous savez faire. Le lecteur se moque de ce que vous souhaitez ; il cherche ce que vous apportez. La direction se mentionne en dernière ligne, après les faits.</p>
+<p><strong>Contrôle 3 — chaque compétence porte-t-elle un résultat ?</strong></p>
+<p><em>Si certaines n'en portent pas :</em> vérifiez si le résultat existe et n'a pas été relevé, ou s'il n'existe pas. Dans le premier cas, cherchez-le, y compris en demandant à un ancien collègue. Dans le second, la compétence peut rester, sans chiffre, mais elle doit alors être placée après celles qui en portent.</p>
+<p><em>Une nuance utile :</em> un résultat n'est pas nécessairement un chiffre de performance. « Session reconduite trois années de suite à la demande des équipes » est un résultat. « Support repris par les quatre autres régions » est un résultat. Cherchez les traces d'adoption et de reconduction quand les chiffres de performance manquent.</p>
+<p><strong>Contrôle 4 — le test des quarante secondes.</strong></p>
+<p>C'est le seul contrôle qui compte réellement, parce qu'il reproduit les conditions de lecture. Faites-le avec quelqu'un qui ne connaît ni votre métier ni votre projet, et chronométrez.</p>
+<p><em>Si la personne hésite ou décrit votre ancien métier :</em> le problème est presque toujours dans les deux premiers centimètres du document. Titre et bandeau portent l'essentiel du travail ; le reste est lu par ceux que ces deux éléments ont convaincus de continuer.</p>
+<p><em>Si la personne restitue correctement mais met plus de quarante secondes :</em> le document est trop dense. Supprimez le parcours ancien, réduisez les descriptions de postes, et vérifiez qu'aucune compétence n'occupe plus de deux lignes.</p>
+<p><em>Si la personne restitue exactement le message visé :</em> le CV est prêt, et vous pouvez le décliner en quinze minutes pour les offres suivantes.</p>
+<p><strong>Un dernier contrôle que l'exercice ne demande pas et qui vaut la peine.</strong> Relisez votre CV en vous demandant, pour chaque ligne : « si le lecteur ne lisait que celle-ci, apprendrait-il quelque chose d'utile ? ». Les lignes qui échouent au test — descriptions de fonctions, tâches génériques, mentions de logiciels courants — peuvent partir sans perte. Un CV d'une page dense vaut mieux que deux pages dont la moitié n'apporte rien.</p>
+"""},
+
+  {"titre": "Préparer les cinq questions d'un entretien réel", "niveau": "Intermédiaire",
+   "enonce": [
+     "Prenez une offre réelle correspondant à votre cible et préparez l'entretien complet : relevé des trois attentes principales, réponse de deux minutes écrite puis dite à voix haute, trois fiches de réalisation sélectionnées, réponse à « qu'est-ce qui vous manque », quatre questions à poser, et formulation de la fourchette de rémunération.",
+     "Puis faites-vous poser les cinq questions par quelqu'un, sans préparation supplémentaire, et notez celles où vous avez été moins à l'aise.",
+   ],
+   "corrige": """
+<p>L'exercice porte sur votre situation. Voici comment lire ce qui s'est passé pendant la simulation, question par question.</p>
+<p><strong>Si la difficulté a porté sur la réponse de parcours.</strong></p>
+<p>C'est la difficulté la plus fréquente, et elle prend deux formes.</p>
+<p><em>La réponse a duré plus de trois minutes :</em> vous êtes reparti dans la chronologie. Réécrivez en commençant par la phrase « ce qui me semble le plus utile de vous dire, c'est que… » suivie du fait le plus pertinent pour ce poste. Cette formule d'entrée force à sélectionner, et elle signale à l'interlocuteur que vous avez réfléchi à ce qui l'intéresse.</p>
+<p><em>La réponse a été récitée :</em> vous l'avez apprise par cœur plutôt que répétée. La différence est audible et elle inquiète. La méthode qui évite cela : mémorisez trois points de passage — le fait principal, la raison du changement, le travail d'exploration — et laissez la formulation varier. Dire à voix haute cinq fois en variant les mots vaut mieux que relire dix fois le texte écrit.</p>
+<p><strong>Si la difficulté a porté sur « pourquoi changer de métier ? ».</strong></p>
+<p><em>Si votre réponse a comporté une critique de votre ancien employeur ou de votre ancien métier</em> — même mesurée, même fondée — réécrivez-la entièrement. La critique inquiète toujours, quelle que soit sa justesse : l'interlocuteur se demande ce que vous direz de lui dans deux ans.</p>
+<p><em>Si votre réponse était uniquement positive mais vague</em> — « je voulais évoluer », « je cherchais du sens » — il manque le contenu. Ajoutez le travail d'exploration du module 2 : « j'ai rencontré une quinzaine de professionnels du métier avant de me décider » est la phrase qui démontre le sérieux du projet, et très peu de candidats peuvent la dire.</p>
+<p><strong>Si la difficulté a porté sur « qu'est-ce qui vous manque ? ».</strong></p>
+<p>C'est la question la plus inconfortable et celle qui se prépare le mieux.</p>
+<p><em>Si vous avez répondu qu'il ne vous manquait rien :</em> mauvais signal, systématiquement. Personne ne coche toutes les cases d'une offre, et l'affirmer suggère soit une mauvaise lecture de l'offre, soit un manque de lucidité.</p>
+<p><em>Si vous avez nommé un manque central :</em> vous avez donné une raison de vous écarter. Le manque nommé doit être réel — pour être crédible — et secondaire — pour ne pas être bloquant. Et il doit être accompagné de ce que vous faites concrètement pour le traiter, avec un fait daté si possible.</p>
+<p><em>La structure qui fonctionne, en trois temps :</em> le manque, ce que vous faites, et le délai. « Je n'ai pas d'expérience des outils de formation à distance. J'ai commencé à me former dessus le mois dernier et j'ai conçu un module de test. Je pense être opérationnel en quelques semaines. »</p>
+<p><strong>Si la difficulté a porté sur la situation difficile.</strong></p>
+<p><em>Si vous avez improvisé :</em> vous n'aviez pas sélectionné vos trois fiches, ou vous ne les aviez pas relues. C'est le seul élément d'entretien qui se prépare intégralement, et l'écart entre une réponse préparée et une réponse improvisée est considérable — c'est aussi la question sur laquelle se départagent le plus souvent deux candidats équivalents.</p>
+<p><em>Si vous avez choisi une difficulté sans enjeu</em> — un problème technique résolu, une échéance tenue de justesse — la réponse ne dit rien de vous. Les situations qui parlent sont celles qui comportaient un désaccord, une erreur, une décision incertaine. Choisissez-en une où vous n'avez pas eu entièrement raison : la réponse est plus difficile à donner et infiniment plus convaincante.</p>
+<p><em>La structure :</em> situation, ce que j'ai fait, résultat, ce que j'en ai tiré. La dernière partie est celle qu'on oublie et c'est celle que l'interlocuteur attend.</p>
+<p><strong>Si la difficulté a porté sur la rémunération.</strong></p>
+<p><em>Si vous avez été mal à l'aise ou évasif :</em> c'est que la fourchette n'a pas été établie au module 2. La gêne vient de l'incertitude, pas du sujet. Avec une fourchette connue, la réponse devient factuelle.</p>
+<p><em>Si vous avez annoncé un chiffre unique :</em> vous avez fermé la négociation avant qu'elle ne commence. Annoncez une fourchette et rattachez-la au contenu du poste : « sur ce type de poste, ce que j'ai observé se situe entre X et Y ; je me situe dans cette fourchette selon le périmètre exact. »</p>
+<p><em>Si l'on vous demande votre rémunération actuelle :</em> vous n'êtes pas tenu de la donner, et elle n'est pas pertinente lors d'un changement de métier — elle rémunérait un autre poste. « Mon poste précédent n'était pas comparable, je préfère raisonner sur la fourchette de ce poste-ci » est une réponse recevable et courante.</p>
+<p><strong>Si la difficulté a porté sur les questions à poser.</strong></p>
+<p><em>Si vous n'en aviez pas :</em> c'est le signal le plus négatif de tout l'entretien, plus que n'importe quelle réponse maladroite. Il suggère un intérêt superficiel.</p>
+<p><em>Si vos questions portaient sur les avantages, les congés ou le télétravail :</em> ces questions sont légitimes et leur place est au second entretien ou au moment de la proposition, pas au premier échange.</p>
+<p><em>Les quatre questions qui fonctionnent presque toujours :</em> qu'est-ce qui fait qu'une personne réussit à ce poste chez vous ? Qu'attendez-vous dans les trois premiers mois ? Pourquoi ce poste est-il ouvert aujourd'hui ? Et, si c'est une création : comment le besoin s'est-il exprimé ?</p>
+<p>Ces quatre questions produisent de l'information réellement utile pour décider, et elles font bonne impression. La première, en particulier, vous donne souvent l'argument à replacer en trente secondes avant de partir.</p>
+<p><strong>Le contrôle final.</strong> Refaites la simulation une semaine plus tard, avec quelqu'un d'autre. Si les mêmes questions posent encore difficulté, c'est qu'elles touchent à quelque chose de non résolu dans le projet — le plus souvent la raison du changement ou l'écart de compétence. Le problème n'est alors pas la préparation de l'entretien, il est en amont, et il vaut mieux le traiter que le contourner.</p>
+"""},
+
+  {"titre": "Conduire les trois premiers mois de recherche active", "niveau": "Avancé",
+   "enonce": [
+     "Vous entrez en recherche active sur votre cible principale, avec une piste secondaire à 30 %. Construisez votre dispositif sur trois mois : rythme hebdomadaire, indicateurs suivis, répartition de l'effort selon votre canal, et critère de réexamen.",
+     "Traitez explicitement deux situations : celle où rien n'aboutit au bout de deux mois, et celle où une proposition arrive sur la piste secondaire alors que la principale est en cours.",
+   ],
+   "corrige": """
+<p><strong>Le principe directeur : une recherche se conduit comme un travail, avec un rythme, des indicateurs et des bornes.</strong> Une disponibilité permanente et non structurée est à la fois moins efficace et beaucoup plus éprouvante qu'un rythme défini — c'est contre-intuitif et c'est constant.</p>
+<p><strong>1. Le rythme hebdomadaire.</strong></p>
+<p>Quatre demi-journées de travail actif suffisent largement, et il vaut mieux quatre demi-journées tenues que sept journées floues.</p>
+<p><em>Lundi matin — veille et candidatures.</em> Les offres parues, les candidatures adaptées, les envois. En début de semaine, parce que la réactivité compte sur le canal annonce.</p>
+<p><em>Mardi après-midi — réseau.</em> Contacts, relances, conversations. Cette plage est la première à disparaître quand la semaine se remplit, et c'est celle qui produit le plus sur un canal réseau : protégez-la.</p>
+<p><em>Jeudi matin — préparation et suivi.</em> Entretiens à préparer, suivi des contacts à jour, relances à programmer.</p>
+<p><em>Vendredi matin — bilan et ajustement.</em> Relevé des deux indicateurs, une demi-heure. Ce qui a avancé, ce qui n'a pas avancé, ce qui est prévu la semaine suivante.</p>
+<p><em>Le reste du temps n'est pas de la recherche.</em> C'est une décision et il faut la tenir : la disponibilité permanente ne produit pas davantage de résultats et elle épuise la ressource qui compte le plus sur une période longue.</p>
+<p><strong>2. Les indicateurs, deux et pas davantage.</strong></p>
+<p>Choisis selon le canal identifié au module 2.</p>
+<p><em>Canal annonce :</em> candidatures adaptées envoyées par semaine — visez trois à cinq, pas vingt — et taux de réponse. Un taux inférieur à 10 % après quinze candidatures signale un problème de ciblage ou de document, pas de marché.</p>
+<p><em>Canal réseau :</em> conversations tenues par semaine — visez deux — et nombre cumulé de personnes informées précisément de votre recherche. Ce second chiffre est le meilleur prédicteur d'un aboutissement sur ce canal.</p>
+<p><em>Ce qu'il ne faut pas suivre :</em> le nombre d'offres consultées, le temps passé, le nombre de profils regardés. Ces chiffres mesurent l'occupation et donnent le sentiment d'avancer sans rien prédire.</p>
+<p><strong>3. La répartition entre piste principale et secondaire.</strong></p>
+<p>La règle des 70/30 se traduit concrètement : la piste secondaire reçoit une demi-journée sur quatre, généralement le mardi après-midi en alternance.</p>
+<p><em>L'erreur à éviter :</em> laisser la piste secondaire s'éteindre parce que la principale occupe tout. Elle a une fonction précise — elle vous évite d'être dépendant d'un seul marché, et elle vous met en position de comparer si une proposition arrive. Une piste secondaire abandonnée ne remplit ni l'une ni l'autre.</p>
+<p><em>Signe qu'elle s'éteint :</em> aucune action dessus depuis trois semaines. Reprogrammez-la immédiatement.</p>
+<p><strong>4. Le critère de réexamen, écrit maintenant.</strong></p>
+<p>Formulez-le à froid, avant de commencer, et datez-le. Par exemple : « au 15 du troisième mois, si la piste principale n'a produit aucun entretien malgré au moins vingt candidatures adaptées et quinze conversations, je bascule à 50/50 et je réexamine la qualification de l'écart. »</p>
+<p>Trois éléments dans cette formulation : une date, un seuil d'activité — pour ne pas conclure d'un effort insuffisant — et une action précise. Un critère sans seuil d'activité conduit à abandonner une piste qu'on n'a pas réellement travaillée.</p>
+<p><strong>5. La situation où rien n'aboutit au bout de deux mois.</strong></p>
+<p>C'est la situation ordinaire, et il faut le savoir avant de la vivre : deux mois sans résultat sur un repositionnement n'est pas une anomalie.</p>
+<p>La conduite consiste à diagnostiquer plutôt qu'à intensifier. Trois questions, dans cet ordre.</p>
+<p><em>Combien de candidatures ont réellement été envoyées, et étaient-elles adaptées ?</em> Si la réponse est « six, et trois d'entre elles avec le même CV », il n'y a rien à conclure. Le seuil d'activité n'est pas atteint.</p>
+<p><em>Où s'arrête le processus ?</em> C'est le diagnostic essentiel, et il est très différent selon la réponse. Aucune réponse aux candidatures signale un problème de document ou de ciblage. Des entretiens obtenus mais pas de suite signale un problème de préparation d'entretien ou d'adéquation réelle. Des seconds entretiens sans proposition signale une concurrence sur des profils plus classiques, et il faut alors travailler la différenciation.</p>
+<p><em>Que disent les rares retours obtenus ?</em> Un refus motivé vaut de l'or. Si aucun n'a été obtenu, demandez-en : « auriez-vous un retour à me donner qui m'aiderait pour la suite ? » — envoyé après un refus, ce message obtient une réponse dans un cas sur trois, et cette réponse vaut plus que dix candidatures supplémentaires.</p>
+<p><em>Ce qu'il ne faut pas faire :</em> augmenter le volume sans avoir diagnostiqué. Envoyer soixante candidatures au lieu de vingt avec le même document produira soixante silences au lieu de vingt, et coûtera beaucoup à votre confiance.</p>
+<p><em>Ce qu'il faut faire en plus :</em> reprendre contact avec deux personnes du module 2 et leur demander un regard sur votre candidature. Dix minutes, et elles verront ce que vous ne voyez plus.</p>
+<p><strong>6. La proposition sur la piste secondaire alors que la principale est en cours.</strong></p>
+<p>Situation fréquente et inconfortable, et elle se traite en trois temps.</p>
+<p><em>Premier temps — gagner du temps, sans mentir.</em> « Je suis très intéressé. Je suis engagé dans un autre processus qui doit aboutir sous deux semaines, et je souhaiterais pouvoir vous répondre à ce moment-là. » Cette phrase est honnête, elle est fréquente, et elle est bien mieux reçue qu'un silence ou qu'une réponse évasive. Un employeur qui refuse tout délai signale d'ailleurs quelque chose sur sa façon de fonctionner.</p>
+<p><em>Deuxième temps — accélérer l'autre processus, en le disant.</em> Contactez l'entreprise de la piste principale : « j'ai reçu une proposition sur laquelle je dois me positionner sous deux semaines. Je suis très intéressé par votre poste et je souhaitais vous en informer, au cas où cela puisse accélérer votre décision. » Factuel, sans chantage, et cela fonctionne souvent — c'est aussi le moment où l'on découvre le degré d'intérêt réel de l'employeur.</p>
+<p><em>Troisième temps — décider avec les bons critères.</em> Si la piste principale n'aboutit pas dans le délai, la question n'est pas « est-ce que j'attends encore ? » mais : ce poste secondaire respecte-t-il mes critères rédhibitoires, et qu'est-ce qu'il me permettra de faire dans trois ans ?</p>
+<p>Un poste de piste secondaire qui respecte les critères et ouvre des possibilités est un bon choix, même s'il n'était pas le premier. Un poste qui viole un critère rédhibitoire ne devient pas acceptable parce qu'il arrive au bon moment — c'est exactement la situation où le soulagement fait prendre une mauvaise décision, et c'est pour ce moment précis que les critères ont été écrits à froid au module 1.</p>
+<p><strong>Une dernière chose sur la durée.</strong> Trois mois de recherche active sur un repositionnement est un délai court, pas un délai long. Six à neuf mois est fréquent, et cela ne dit rien de la valeur du projet ni de la personne. Prévoir cette durée dès le départ — dans le rythme, dans les finances, dans ce qu'on annonce à son entourage — évite de vivre comme un échec ce qui est le déroulement normal.</p>
+<p>Et si la période devient lourde à porter, en parler tôt à quelqu'un — un conseiller, un groupe de personnes dans la même démarche, un professionnel si la difficulté déborde le cadre du travail — est utile et se fait mieux au deuxième mois qu'au huitième.</p>
+"""},
+ ],
+
+ "ressources": [
+   "<strong>Les offres de votre cible, lues chaque semaine</strong> — non pour candidater à toutes, mais parce que le vocabulaire, les exigences et les intitulés évoluent. Quinze minutes hebdomadaires suffisent à rester ajusté.",
+   "<strong>Un réseau professionnel en ligne</strong> — pour être trouvable autant que pour chercher. Le titre du profil est le principal critère des recherches effectuées par les recruteurs : il doit nommer la cible, pas l'ancien métier.",
+   "<strong>Le conseil en évolution professionnelle</strong> — gratuit, et utile à ce stade pour un regard extérieur sur les documents et sur la stratégie de canal, ainsi que pour un appui si la période se prolonge.",
+   "<strong>Les modules 1 et 2 de cette formation</strong> — chaque élément décisif d'une candidature vient de l'un des deux : les fiches de réalisation pour l'entretien, le vocabulaire et le canal pour la stratégie, l'écart qualifié pour la négociation. Aucun ne s'improvise au moment où il sert.",
+ ],
+}
+
+QUIZ["bilan-competences/module-3"] = {
+ "module_id": "formation-bilan-competences-module-3",
+ "version": "2.0", "last_verified": "2026-09-04",
+ "questions": [
+  {"id":"q1","question":"Quel format de CV convient à un changement de métier ?",
+   "choices":[{"key":"a","text":"Titre du poste visé, bandeau de faits chiffrés, compétences démontrées, puis parcours condensé"},
+              {"key":"b","text":"Le CV chronologique intégral, qui rassure sur la continuité du parcours"},
+              {"key":"c","text":"Un CV par compétences sans aucune mention des postes occupés"}],
+   "correct_answer":"a","feedback":"Le chronologique met en avant ce qui compte le moins et enfouit les compétences transférables au milieu de descriptions de fonctions."},
+  {"id":"q2","question":"Que faire de l'objection évidente contre votre candidature ?",
+   "choices":[{"key":"a","text":"L'éviter, pour ne pas attirer l'attention dessus"},
+              {"key":"b","text":"La nommer soi-même et la traiter par un fait"},
+              {"key":"c","text":"La compenser par une expression forte de motivation"}],
+   "correct_answer":"b","feedback":"Le lecteur la formulera de toute façon. La traiter vous-même lui retire le travail de conclure à votre place, et vous vaut un crédit considérable."},
+  {"id":"q3","question":"Sur un canal de recrutement dominé par le réseau, quel indicateur suivre ?",
+   "choices":[{"key":"a","text":"Le nombre de personnes qui savent précisément ce que vous cherchez"},
+              {"key":"b","text":"Le nombre de candidatures envoyées par semaine"},
+              {"key":"c","text":"Le nombre d'offres consultées quotidiennement"}],
+   "correct_answer":"a","feedback":"« Je cherche du travail » ne s'active pas. Une recherche formulée précisément se retient, et votre nom remonte quand quelqu'un entend parler d'une ouverture."},
+  {"id":"q4","question":"Comment répondre à « qu'est-ce qui vous manque pour ce poste ? »",
+   "choices":[{"key":"a","text":"En affirmant que rien ne manque, pour ne pas donner de raison de vous écarter"},
+              {"key":"b","text":"En nommant un manque réel mais secondaire, et en disant ce que vous faites pour le traiter"},
+              {"key":"c","text":"En retournant la question sur les attentes réelles du poste"}],
+   "correct_answer":"b","feedback":"Nier tout manque passe pour un défaut de lucidité. Un manque nommé et traité inquiète moins qu'un manque que l'interlocuteur devine et que vous n'évoquez pas."},
+  {"id":"q5","question":"Une proposition vous est faite en fin d'entretien. Que répondez-vous ?",
+   "choices":[{"key":"a","text":"Vous acceptez immédiatement pour ne pas laisser passer l'occasion"},
+              {"key":"b","text":"Vous engagez la négociation salariale dans la conversation"},
+              {"key":"c","text":"Vous vous montrez très intéressé et confirmez sous quarante-huit heures"}],
+   "correct_answer":"c","feedback":"C'est une réponse attendue qui ne compromet rien, et elle donne le temps de relire, de comparer et de préparer une demande groupée."},
+  {"id":"q6","question":"Comment expliquer un licenciement ou une période sans emploi ?",
+   "choices":[{"key":"a","text":"En détaillant le contexte pour montrer que ce n'était pas de votre fait"},
+              {"key":"b","text":"En l'omettant du CV et en l'abordant seulement si la question est posée"},
+              {"key":"c","text":"En une phrase factuelle, sans y revenir"}],
+   "correct_answer":"c","feedback":"La longueur de l'explication crée le problème que le fait lui-même ne crée pas. Une phrase, un fait, et on passe à la suite."},
+ ]}
+
+for k, m in M.items():
+    w, full = build(k, m)
+    print(f"{k:34s} cours: {w} mots | page: {full} mots")
+for k, q in QUIZ.items():
+    p = os.path.join("/tmp/out_v2", k, "quiz.json")
+    os.makedirs(os.path.dirname(p), exist_ok=True)
+    json.dump(q, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+    open(p, "a", encoding="utf-8").write("\n")
+    print(f"{k}: quiz {len(q['questions'])} questions")
