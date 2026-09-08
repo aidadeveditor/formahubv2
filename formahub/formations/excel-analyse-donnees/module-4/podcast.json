@@ -1,0 +1,233 @@
+{
+ "module_id": "formation-excel-analyse-donnees-module-4",
+ "formation": "Excel et analyse de données appliquée",
+ "titre": "Du tableau au tableau de bord : représenter, contrôler, partager",
+ "version": "1.0",
+ "duree_estimee": "8 min",
+ "mots": 1254,
+ "resume": "Un chiffre juste que personne ne lit et un chiffre faux que personne ne détecte échouent de la même façon.",
+ "hosts": {
+  "a": {
+   "nom": "Camille",
+   "role": "animatrice"
+  },
+  "b": {
+   "nom": "Karim",
+   "role": "analyste de données"
+  }
+ },
+ "lignes": [
+  {
+   "v": "a",
+   "t": "Dernier module. Le rapport est automatisé : huit minutes le premier lundi du mois, quatre tableaux croisés justes, des contrôles qui s'évaluent seuls. Techniquement, c'est fait."
+  },
+  {
+   "v": "b",
+   "t": "Et deux choses disent que ça ne l'est pas. La première : en comité, personne n'ouvre le fichier. On vous demande de « dire l'essentiel », vous le dites de mémoire — donc quatre tableaux et une journée de construction ont produit un commentaire oral de deux minutes."
+  },
+  {
+   "v": "a",
+   "t": "Et la seconde ?"
+  },
+  {
+   "v": "b",
+   "t": "Plus sérieuse. Le mois dernier, un chiffre présenté s'est révélé faux : une région dont l'export avait été rejoué deux fois. Le contrôle existait, dans l'onglet Contrôles, en cellule B7. Personne ne l'avait regardé, vous compris, parce qu'il était huit heures moins le quart et que le fichier s'était toujours bien comporté."
+  },
+  {
+   "v": "a",
+   "t": "Les deux problèmes n'en font qu'un, dis-tu."
+  },
+  {
+   "v": "b",
+   "t": "Un chiffre juste que personne ne lit et un chiffre faux que personne ne détecte échouent exactement de la même façon. Il s'agit de rendre le résultat lisible et l'anomalie visible."
+  },
+  {
+   "v": "a",
+   "t": "Commençons par les graphiques. Comment on choisit ?"
+  },
+  {
+   "v": "b",
+   "t": "À partir de la question, jamais de l'esthétique. Une évolution dans le temps : une courbe. Une comparaison entre catégories : des barres horizontales triées. Une relation entre deux grandeurs : un nuage de points. Il n'y a pas trente cas."
+  },
+  {
+   "v": "a",
+   "t": "Et le titre ?"
+  },
+  {
+   "v": "b",
+   "t": "Il énonce la conclusion. « La marge recule sur le Sud-Ouest depuis mars », pas « Évolution de la marge par région ». Une étiquette descriptive laisse au lecteur un travail qu'il ne fera pas."
+  },
+  {
+   "v": "a",
+   "t": "Tu identifies six constructions qui trompent. Les principales ?"
+  },
+  {
+   "v": "b",
+   "t": "L'axe tronqué sur des barres : le lecteur y compare des longueurs, donc une barre doit partir de zéro. Le double axe, qui suggère une corrélation dont l'intensité dépend entièrement d'un choix d'échelle arbitraire — deux graphiques empilés disent la même chose honnêtement."
+  },
+  {
+   "v": "a",
+   "t": "Et sur les chiffres eux-mêmes ?"
+  },
+  {
+   "v": "b",
+   "t": "Une moyenne sans médiane, et un pourcentage sans effectif. Deux chiffres exacts et deux informations incomplètes. « Quarante pour cent de hausse » sur une base de cinq commandes ne veut rien dire, et il faut l'écrire."
+  },
+  {
+   "v": "a",
+   "t": "Tu as une formule là-dessus."
+  },
+  {
+   "v": "b",
+   "t": "Un graphique peut être entièrement exact et conduire à une conclusion fausse. Seule une habitude le détecte : demander systématiquement l'effectif, le périmètre et la dispersion. Trois questions, à chaque chiffre."
+  },
+  {
+   "v": "a",
+   "t": "Passons au tableau de bord. Par quoi on commence ?"
+  },
+  {
+   "v": "b",
+   "t": "Pas par les données disponibles. Par les décisions à prendre. Et dans l'étude de cas, ça commence par une conversation de vingt minutes avec le directeur commercial."
+  },
+  {
+   "v": "a",
+   "t": "Quelles questions ?"
+  },
+  {
+   "v": "b",
+   "t": "Deux. « Le mois dernier, après avoir eu ces chiffres, qu'avez-vous décidé ? » Réponse : rien de précis. Puis la vraie : « qu'auriez-vous aimé savoir et que vous n'aviez pas ? » Réponse : « où on perd, et si c'est en train de s'aggraver ou pas »."
+  },
+  {
+   "v": "a",
+   "t": "Et cette phrase suffit ?"
+  },
+  {
+   "v": "b",
+   "t": "C'est le cahier des charges complet. Elle contient une localisation — où — et une dynamique — ça s'aggrave ou pas. Les quatre tableaux croisés existants donnaient des niveaux, pas des variations : ils ne pouvaient structurellement pas répondre."
+  },
+  {
+   "v": "a",
+   "t": "Et l'arbitrage qui en découle ?"
+  },
+  {
+   "v": "b",
+   "t": "Il apparaît au brouillon papier, et c'est pour ça qu'on fait un brouillon papier. « Où on perd » demande une contribution à la variation, pas un pourcentage d'évolution. Une région qui baisse de trente pour cent mais pèse trois pour cent du chiffre d'affaires n'est pas le sujet ; une région qui baisse de six pour cent en pesant trente-cinq pour cent, si."
+  },
+  {
+   "v": "a",
+   "t": "Et on ne trouve pas ça en manipulant des champs."
+  },
+  {
+   "v": "b",
+   "t": "Jamais. C'est exactement le genre d'arbitrage qu'on ne fait pas quand on commence par construire. Vingt minutes de conversation et un brouillon à la main valent trois versions du fichier."
+  },
+  {
+   "v": "a",
+   "t": "Quelle structure pour la page ?"
+  },
+  {
+   "v": "b",
+   "t": "Trois bandes. En haut, quelques chiffres clés, chacun avec sa comparaison. Au centre, deux graphiques dont les titres sont des conclusions. En bas, un tableau de détail filtrable. Une page, une audience, une fréquence."
+  },
+  {
+   "v": "a",
+   "t": "Pourquoi le tableau de détail ?"
+  },
+  {
+   "v": "b",
+   "t": "Un chiffre sans accès aux enregistrements qui le composent ne permet aucune action. Quand le directeur voit que le Sud-Ouest décroche, la question suivante est « quels clients ? ». S'il ne peut pas descendre, il vous appelle, et le tableau de bord n'a servi à rien."
+  },
+  {
+   "v": "a",
+   "t": "Et quand on demande d'ajouter un bloc ?"
+  },
+  {
+   "v": "b",
+   "t": "Le nombre de blocs est fixe. Toute addition exige une suppression, et c'est au demandeur de choisir laquelle. C'est la seule règle qui empêche un tableau de bord de grossir jusqu'à l'illisible — parce que chaque demande est légitime prise isolément."
+  },
+  {
+   "v": "a",
+   "t": "Venons-en aux contrôles, et à l'incident du mois dernier."
+  },
+  {
+   "v": "b",
+   "t": "Le principe est simple à énoncer : un contrôle qui demande d'être consulté ne protège de rien. Il doit s'imposer à quelqu'un de pressé, à huit heures moins le quart."
+  },
+  {
+   "v": "a",
+   "t": "Concrètement ?"
+  },
+  {
+   "v": "b",
+   "t": "Un contrôle en échec bloque l'affichage. Le tableau de bord affiche un bandeau rouge à la place des chiffres, et il faut aller lever l'anomalie pour voir quoi que ce soit. Ce n'est pas de la sévérité gratuite : c'est la seule chose qui fonctionne."
+  },
+  {
+   "v": "a",
+   "t": "Comment on choisit les contrôles ?"
+  },
+  {
+   "v": "b",
+   "t": "Ils se déduisent des incidents passés, jamais d'une anticipation exhaustive. L'export rejoué deux fois a eu lieu : on ajoute un contrôle de doublon par fichier source. On ne cherche pas à imaginer tout ce qui pourrait arriver, on couvre ce qui est arrivé."
+  },
+  {
+   "v": "a",
+   "t": "Le contrôle le plus puissant ?"
+  },
+  {
+   "v": "b",
+   "t": "Recalculer chaque chiffre affiché par un second chemin indépendant. Si le total du tableau croisé et une somme directe divergent, quelque chose a bougé. Ça coûte une formule et ça attrape presque tout."
+  },
+  {
+   "v": "a",
+   "t": "Et avant de diffuser ?"
+  },
+  {
+   "v": "b",
+   "t": "Quatre questions. Est-ce vraisemblable ? Sur quelle population ? Qu'est-ce qui a changé depuis le mois dernier ? Et quelle question va-t-on me poser ? La dernière est la plus utile : elle vous fait préparer la réponse plutôt que la subir."
+  },
+  {
+   "v": "a",
+   "t": "Sur la diffusion elle-même ?"
+  },
+  {
+   "v": "b",
+   "t": "Diffusez le résultat en PDF daté, pas le moteur. Un fichier diffusé cesse de vous appartenir : il est modifié, renommé, renvoyé, et un jour quelqu'un présente une version de trois mois en croyant qu'elle est à jour."
+  },
+  {
+   "v": "a",
+   "t": "Dernière question : quand Excel n'est plus le bon outil ?"
+  },
+  {
+   "v": "b",
+   "t": "Cinq signaux. Le volume qui dépasse ce que le fichier supporte. Plusieurs personnes qui doivent écrire en même temps. Un besoin d'historisation — savoir ce que le chiffre disait il y a six mois. Une fréquence quotidienne. Et une criticité réglementaire, où il faut une piste d'audit."
+  },
+  {
+   "v": "a",
+   "t": "Et en dehors de ces cas ?"
+  },
+  {
+   "v": "b",
+   "t": "L'avantage décisif d'Excel reste qu'il est lisible et vérifiable par tout le monde. Migrer trop tôt vers un outil plus puissant, c'est échanger cette transparence contre une boîte noire que trois personnes savent ouvrir."
+  },
+  {
+   "v": "a",
+   "t": "Si on ne devait retenir qu'une chose de toute la formation ?"
+  },
+  {
+   "v": "b",
+   "t": "Les erreurs qui comptent sont silencieuses. La compétence centrale de l'analyse n'est pas la maîtrise des fonctions, c'est l'habitude du contrôle."
+  },
+  {
+   "v": "a",
+   "t": "Ce qu'on fait demain ?"
+  },
+  {
+   "v": "b",
+   "t": "Prenez votre dernier rapport et demandez à celui qui le reçoit ce qu'il a décidé après l'avoir lu. Si la réponse est « rien de précis », vous savez par où commencer — et ce n'est pas par une nouvelle courbe."
+  },
+  {
+   "v": "a",
+   "t": "Quatre modules, du fichier brut au tableau de bord. Merci Karim, et bravo à celles et ceux qui sont allés au bout."
+  }
+ ]
+}

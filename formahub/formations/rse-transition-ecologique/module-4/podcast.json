@@ -1,0 +1,233 @@
+{
+ "module_id": "formation-rse-transition-ecologique-module-4",
+ "formation": "RSE et transition écologique en entreprise",
+ "titre": "Reporting, communication et greenwashing",
+ "version": "1.0",
+ "duree_estimee": "9 min",
+ "mots": 1406,
+ "resume": "Trois formulations sur quatre exposent à une sanction, dont une qui repose sur un chiffre exact. Comment refuser sans bloquer, et rendre compte honnêtement.",
+ "hosts": {
+  "a": {
+   "nom": "Camille",
+   "role": "animatrice"
+  },
+  "b": {
+   "nom": "Inès",
+   "role": "consultante RSE"
+  }
+ },
+ "lignes": [
+  {
+   "v": "a",
+   "t": "Dernier module. Le plan a produit : environ deux cent quatre-vingt-dix tonnes évitées et cent dix-huit mille euros d'économies nettes sur douze mois. Le comité de direction veut le faire savoir."
+  },
+  {
+   "v": "b",
+   "t": "Et le marketing revient avec quatre formulations. « Une entreprise engagée pour le climat. » « Nos livraisons sont neutres en carbone. » « Moins vingt pour cent d'émissions depuis 2024. » « Une gamme éco-responsable. » Trois de ces quatre vous exposent à une sanction, et la quatrième est contestable."
+  },
+  {
+   "v": "a",
+   "t": "Laquelle est la plus délicate ?"
+  },
+  {
+   "v": "b",
+   "t": "La troisième, parce qu'elle repose sur un chiffre réel. Les émissions ont bien baissé de vingt pour cent — mais l'essentiel de cette baisse vient d'un changement de méthode de calcul sur les achats, pas d'une réduction. Le marketing ne le sait pas. Vous, si."
+  },
+  {
+   "v": "a",
+   "t": "Commençons par la distinction de fond du module."
+  },
+  {
+   "v": "b",
+   "t": "Le reporting rend compte devant un lecteur qui évalue. La communication valorise devant un lecteur qu'on veut convaincre. Ce sont deux exercices différents, et les confondre produit la plupart des accidents. La règle qui les relie : tout ce qui est communiqué doit être retrouvable, au même périmètre, dans un document de reporting que vous accepteriez de montrer à un contradicteur."
+  },
+  {
+   "v": "a",
+   "t": "Qui valide, dans l'entreprise ?"
+  },
+  {
+   "v": "b",
+   "t": "La fonction RSE valide toute communication environnementale avant diffusion. Elle seule sait ce que les chiffres recouvrent. Ce n'est pas une question de pouvoir, c'est une question de qui connaît le périmètre."
+  },
+  {
+   "v": "a",
+   "t": "Parlons du cadre juridique, qui s'est beaucoup resserré."
+  },
+  {
+   "v": "b",
+   "t": "Deux choses à retenir. Le droit de la consommation s'applique sans aucun seuil de taille dès qu'une entreprise communique — il n'y a pas de PME protégée ici. Et la directive européenne sur les allégations, dite EmpCo, s'applique au 27 septembre 2026 dans tous les États membres, sans seuil, et vise directement les formules génériques."
+  },
+  {
+   "v": "a",
+   "t": "Et le principe qui sous-tend tout ça ?"
+  },
+  {
+   "v": "b",
+   "t": "La preuve doit avoir la même profondeur que l'allégation. Si vous dites « engagés pour le climat », vous devez prouver un engagement global. Si vous dites « moins trente pour cent d'émissions de fabrication sur cette gamme, périmètre matières et transport », vous devez prouver exactement ça — ce qui est beaucoup plus facile."
+  },
+  {
+   "v": "a",
+   "t": "Donc être précis protège."
+  },
+  {
+   "v": "b",
+   "t": "Plus vous êtes précis, plus vous êtes en sécurité, et plus vous êtes convaincant. C'est assez rare pour être signalé : le droit pousse ici exactement dans le même sens qu'une bonne communication."
+  },
+  {
+   "v": "a",
+   "t": "Revenons au cas du chiffre exact qui dit quelque chose de faux."
+  },
+  {
+   "v": "b",
+   "t": "C'est le point le plus subtil du module. Le droit s'intéresse à ce que l'affirmation fait comprendre au lecteur, pas à son exactitude arithmétique. « Moins vingt pour cent depuis 2024 » est arithmétiquement vrai et fait comprendre une réduction qui n'a pas eu lieu. Un changement de méthode de calcul n'est jamais une réduction d'émissions."
+  },
+  {
+   "v": "a",
+   "t": "Reprenons les quatre formulations, une par une, avec leur version défendable."
+  },
+  {
+   "v": "b",
+   "t": "« Une entreprise engagée pour le climat » : allégation générique, périmètre implicite l'entreprise entière, preuve disponible un plan de cinq actions et deux cent quatre-vingt-dix tonnes. Version défendable : « nous nous sommes engagés à réduire nos émissions de dix-huit pour cent d'ici 2030, plan et résultats publiés »."
+  },
+  {
+   "v": "a",
+   "t": "La neutralité des livraisons ?"
+  },
+  {
+   "v": "b",
+   "t": "Doublement exposée : mention de neutralité reposant sur une compensation, sans bilan, trajectoire et projets publiés au sens du décret de 2022. Version défendable : « nous avons réduit de douze pour cent les émissions de nos livraisons depuis 2024, et nous finançons un projet de reforestation à hauteur de quatre-vingts tonnes ». Les deux éléments séparés, aucun n'annulant l'autre."
+  },
+  {
+   "v": "a",
+   "t": "Le moins vingt pour cent ?"
+  },
+  {
+   "v": "b",
+   "t": "« Deux cent quatre-vingt-dix tonnes de CO2 évitées en 2026 grâce à quatre actions, soit six pour cent de nos émissions. » C'est plus modeste, c'est vrai, et c'est incontestable."
+  },
+  {
+   "v": "a",
+   "t": "Et la gamme éco-responsable ?"
+  },
+  {
+   "v": "b",
+   "t": "Allégation générique sur un périmètre produit. Version défendable, sous réserve de vérifier les fiches fournisseur : « une gamme dont les émissions de fabrication sont inférieures de trente pour cent à notre gamme standard, sur le périmètre matières et transport »."
+  },
+  {
+   "v": "a",
+   "t": "Il y a d'autres formulations qui exposent ?"
+  },
+  {
+   "v": "b",
+   "t": "Trois autres à connaître. Un label auto-décerné, ou décerné par une structure que l'on finance, tombe sous l'interdiction des labels non certifiés. Une comparaison sans point de comparaison explicite n'est pas défendable. Et présenter le respect d'une obligation légale comme un engagement est explicitement interdit — le tri des déchets n'est pas une initiative."
+  },
+  {
+   "v": "a",
+   "t": "Un réflexe d'archivage ?"
+  },
+  {
+   "v": "b",
+   "t": "Constituez un dossier de preuves et gardez-le. Un contrôle peut porter sur une communication d'il y a deux ans, et les personnes qui l'ont produite ne sont plus forcément là."
+  },
+  {
+   "v": "a",
+   "t": "Venons-en à l'étude de cas : comment on refuse trois formulations sur quatre sans bloquer le communiqué."
+  },
+  {
+   "v": "b",
+   "t": "Jour 1 : ne pas répondre par un refus dans la journée. On reprend chaque formulation avec les cinq questions de validation et on prépare la version défendable de chacune. Une heure de travail. On arrive ensuite à la conversation avec des propositions plutôt qu'avec des objections."
+  },
+  {
+   "v": "a",
+   "t": "Et la conversation elle-même ?"
+  },
+  {
+   "v": "b",
+   "t": "Jour 2, seul à seul avec le marketing. Pas en réunion, pas par courriel. L'enjeu n'est pas de gagner un arbitrage, c'est d'installer un réflexe durable — et cela ne se fait pas devant témoins."
+  },
+  {
+   "v": "a",
+   "t": "L'ordre de la conversation compte, tu dis."
+  },
+  {
+   "v": "b",
+   "t": "Énormément. D'abord ce qui est possible : « on a un excellent message, deux cent quatre-vingt-dix tonnes et cent dix-huit mille euros, et personne ne peut le contester ». Ensuite le cadre, sans dramatiser : il y a un texte européen qui s'applique fin septembre, sans seuil de taille, et il vise exactement les formules génériques. Ce n'est pas propre à votre entreprise."
+  },
+  {
+   "v": "a",
+   "t": "Et ce qu'il ne faut surtout pas faire ?"
+  },
+  {
+   "v": "b",
+   "t": "Ne dites jamais « greenwashing » à un collègue. Le mot accuse, il ferme la discussion, et il est presque toujours inexact — la personne en face ne cherche pas à tromper, elle ne sait pas ce que le chiffre recouvre."
+  },
+  {
+   "v": "a",
+   "t": "Et un refus sec ?"
+  },
+  {
+   "v": "b",
+   "t": "Un refus sans version de remplacement crée un adversaire. Une reformulation crée un processus. La deuxième fois, le marketing viendra vous voir avant d'écrire — et c'est ça, le vrai résultat de la conversation, pas le communiqué."
+  },
+  {
+   "v": "a",
+   "t": "Passons au rapport. Que publier quand on n'y est pas obligé ?"
+  },
+  {
+   "v": "b",
+   "t": "Peu, mais solide. Chaque affirmation porte un chiffre, une date et un périmètre. Sans les trois, elle n'apporte aucune information. Et une règle qui surprend : publiez au moins un objectif manqué et un poste non couvert, chiffré."
+  },
+  {
+   "v": "a",
+   "t": "Pourquoi publier ses faiblesses ?"
+  },
+  {
+   "v": "b",
+   "t": "Parce qu'un rapport entièrement positif décrédibilise tout le reste. Un lecteur averti sait qu'aucune démarche ne réussit sur toute la ligne. L'aveu chiffré est ce qui rend le reste crédible."
+  },
+  {
+   "v": "a",
+   "t": "Et si on rate un objectif annoncé ?"
+  },
+  {
+   "v": "b",
+   "t": "Ça s'écrit. Se taire expose, et retirer discrètement un objectif du site se remarque — quelqu'un a toujours gardé la version précédente. On écrit l'écart, sa cause, et ce qu'on change."
+  },
+  {
+   "v": "a",
+   "t": "Un principe pour éviter que le rapport devienne un exercice autonome ?"
+  },
+  {
+   "v": "b",
+   "t": "Le rapport ne contient que ce qui sert déjà en interne. Aucun indicateur n'est créé pour être publié. Le jour où vous produisez des chiffres que personne n'utilise dans l'entreprise, le rapport est devenu une fin en soi et il mourra avec la personne qui le porte."
+  },
+  {
+   "v": "a",
+   "t": "Justement : ce qui fait tenir une démarche au-delà d'une personne."
+  },
+  {
+   "v": "b",
+   "t": "L'intérêt bien compris de ceux qui l'exécutent, pas leur adhésion à ses finalités. C'est la phrase la plus importante du module. Une action portée par un directeur commercial parce qu'elle réduit ses invendus tiendra ; une action portée par conviction personnelle partira avec la personne."
+  },
+  {
+   "v": "a",
+   "t": "Donc on n'attend pas l'adhésion."
+  },
+  {
+   "v": "b",
+   "t": "Attendre l'adhésion pour agir, c'est ne jamais commencer. On agit, les résultats arrivent, et l'adhésion vient après — dans cet ordre-là."
+  },
+  {
+   "v": "a",
+   "t": "Ce qu'on fait demain ?"
+  },
+  {
+   "v": "b",
+   "t": "Prenez la dernière communication environnementale de votre entreprise et posez-vous une question : si un journaliste me demandait la preuve de cette phrase, dans quel document je la trouve et à quel périmètre ? Si vous ne savez pas répondre en deux minutes, la phrase est à reformuler."
+  },
+  {
+   "v": "a",
+   "t": "Quatre modules, du cadre au communiqué. Merci Inès, et bravo à celles et ceux qui sont allés au bout."
+  }
+ ]
+}

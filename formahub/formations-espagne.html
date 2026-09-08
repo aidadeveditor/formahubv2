@@ -7,6 +7,9 @@
   <meta name="color-scheme" content="light dark">
   <title>Formahub &mdash; Formations Espagne</title>
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <style>
     .orga { color: var(--text-muted); font-size: 0.85rem; }
     .row-note { display: block; margin-top: 6px; color: var(--text-muted);
@@ -42,6 +45,7 @@
         <span class="badge badge-progress">30 avec compte à créer</span>
         <span class="badge badge-progress">33 via Espai LABORA</span>
         <span class="badge badge-warning">7 soumis à convocatoria</span>
+        <span class="badge badge-progress" id="ins-summary"></span>
       </div>
     </div>
 
@@ -50,6 +54,7 @@
       <p>Ici, le coût ne trie rien : tout est à 0 &euro;. Ce qui trie, c&#x27;est la porte d&#x27;entrée, et il y en a trois.</p>
       <p><strong>Accès libre.</strong> Ouvert à tous, immédiatement, avec une simple pièce d&#x27;identité : ni convocatoria, ni statut, ni date. C&#x27;est le seul bloc qui peut commencer aujourd&#x27;hui.</p>
       <p><strong>Espai LABORA.</strong> Réservé aux personnes inscrites comme demandeuses d&#x27;emploi auprès de la Generalitat Valenciana, avec priorité donnée aux desempleados. Avant toute préinscription : corriger ses données dans Punt LABORA (autoentrevista, puis &laquo;&nbsp;guardar y finalizar&nbsp;&raquo;) &mdash; les erreurs de coordonnées sont la première cause d&#x27;exclusion citée par l&#x27;organisme.</p>
+      <p><strong>Inscription.</strong> La dernière colonne suit où vous en êtes sur chaque dispositif&nbsp;: &laquo;&nbsp;Pas encore&nbsp;&raquo;, &laquo;&nbsp;Inscrite&nbsp;&raquo; &mdash; la date du jour se remplit alors toute seule et reste modifiable &mdash; puis &laquo;&nbsp;Terminée&nbsp;&raquo;. Utile ici plus qu&#x27;ailleurs&nbsp;: une préinscription LABORA se fait des mois avant l&#x27;ouverture du délai, et rien ne le rappelle. Le suivi est enregistré dans ce navigateur.</p>
       <p><strong>Convocatoria.</strong> Appels nationaux SEPE / Fundae, ouverts par vagues et par public. La mention du public compte plus que l&#x27;intitulé : une bonne part du catalogue est réservée aux <em>trabajadores y autónomos</em> et se ferme avec le statut de demandeuse d&#x27;emploi.</p>
     </div>
 
@@ -83,6 +88,16 @@
       </div>
     </div>
 
+    <div class="filter-group">
+      <span class="filter-group-label">Inscription</span>
+      <div class="filter-bar" id="filter-ins">
+        <button class="filter-btn active" data-ins="all">Toutes</button>
+        <button class="filter-btn" data-ins="inscrite">Inscrite</button>
+        <button class="filter-btn" data-ins="terminee">Terminée</button>
+        <button class="filter-btn" data-ins="todo">Pas encore</button>
+      </div>
+    </div>
+
     <p id="result-count"></p>
 
     <div class="table-responsive">
@@ -94,6 +109,7 @@
             <th>Accès</th>
             <th>Modalité</th>
             <th>Lien</th>
+            <th>Inscription</th>
           </tr>
         </thead>
         <tbody>
@@ -103,6 +119,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, à son rythme</td>
             <td><a href="https://www.efundae.es/course/view.php?id=1167" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-sensibilizacion-medioambiental-calculo-de-la-huella-de-"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="compte">
             <td><strong>Cálculo de la huella de carbono de Alcance 3</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -110,6 +127,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, à son rythme</td>
             <td><a href="https://www.efundae.es/course/view.php?id=1168" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-sensibilizacion-medioambiental-calculo-de-la-huella-de--2"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="compte">
             <td><strong>Evaluación de doble materialidad en el contexto de las NEIS</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -117,6 +135,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, à son rythme</td>
             <td><a href="https://www.efundae.es/course/view.php?id=995" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-sensibilizacion-medioambiental-evaluacion-de-doble-mate"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="compte">
             <td><strong>Objetivos de Desarrollo Sostenible y criterios ESG</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -124,6 +143,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, à son rythme</td>
             <td><a href="https://www.efundae.es/course/view.php?id=998" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-sensibilizacion-medioambiental-objetivos-de-desarrollo-"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="compte">
             <td><strong>Taxonomía Europea de actividades sostenibles aplicada a las pymes</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -131,6 +151,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, à son rythme</td>
             <td><a href="https://www.efundae.es/course/view.php?id=1166" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-sensibilizacion-medioambiental-taxonomia-europea-de-act"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="compte">
             <td><strong>Cómo realizar informes de sostenibilidad en las pymes</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -138,6 +159,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, à son rythme</td>
             <td><a href="https://www.efundae.es/course/view.php?id=992" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-sensibilizacion-medioambiental-como-realizar-informes-d"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="compte">
             <td><strong>Informes de sostenibilidad para pymes que cotizan en bolsa</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -145,6 +167,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, à son rythme</td>
             <td><a href="https://www.efundae.es/course/view.php?id=999" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-sensibilizacion-medioambiental-informes-de-sostenibilid"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="compte">
             <td><strong>Comunicación de la sostenibilidad</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -152,6 +175,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, à son rythme</td>
             <td><a href="https://www.efundae.es/course/view.php?id=993" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-sensibilizacion-medioambiental-comunicacion-de-la-soste"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="compte">
             <td><strong>Impacto de la sostenibilidad empresarial</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -159,6 +183,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, à son rythme</td>
             <td><a href="https://www.efundae.es/course/view.php?id=994" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-sensibilizacion-medioambiental-impacto-de-la-sostenibil"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="compte">
             <td><strong>Economía circular</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -166,6 +191,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, à son rythme</td>
             <td><a href="https://www.efundae.es/course/view.php?id=997" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-sensibilizacion-medioambiental-economia-circular"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="compte">
             <td><strong>Las 9R de la Economía Circular</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -173,6 +199,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, à son rythme</td>
             <td><a href="https://www.efundae.es/course/view.php?id=1157" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-sensibilizacion-medioambiental-las-9r-de-la-economia-ci"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="compte">
             <td><strong>Proyectos sostenibles y circulares</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -180,6 +207,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, à son rythme</td>
             <td><a href="https://www.efundae.es/course/view.php?id=1190" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-sensibilizacion-medioambiental-proyectos-sostenibles-y-"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="compte">
             <td><strong>Sostenibilidad, economía circular y otros conceptos clave</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -187,6 +215,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, à son rythme</td>
             <td><a href="https://www.efundae.es/course/view.php?id=1000" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-sensibilizacion-medioambiental-sostenibilidad-economia-"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="compte">
             <td><strong>Análisis del ciclo de vida</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -194,6 +223,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, à son rythme</td>
             <td><a href="https://www.efundae.es/course/view.php?id=1158" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-sensibilizacion-medioambiental-analisis-del-ciclo-de-vi"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="compte">
             <td><strong>Logística inversa</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -201,6 +231,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, à son rythme</td>
             <td><a href="https://www.efundae.es/course/view.php?id=1003" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-sensibilizacion-medioambiental-logistica-inversa"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="compte">
             <td><strong>Gestión de recursos y de residuos en las pymes</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -208,6 +239,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, à son rythme</td>
             <td><a href="https://www.efundae.es/course/view.php?id=1162" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-sensibilizacion-medioambiental-gestion-de-recursos-y-de"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="compte">
             <td><strong>Transición energética</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -215,6 +247,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, à son rythme</td>
             <td><a href="https://www.efundae.es/course/view.php?id=996" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-sensibilizacion-medioambiental-transicion-energetica"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="compte">
             <td><strong>Autoconsumo con energías renovables</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -222,6 +255,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, à son rythme</td>
             <td><a href="https://www.efundae.es/course/view.php?id=1192" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-sensibilizacion-medioambiental-autoconsumo-con-energias"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="compte">
             <td><strong>Electromovilidad</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -229,6 +263,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, à son rythme</td>
             <td><a href="https://www.efundae.es/course/view.php?id=1161" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-sensibilizacion-medioambiental-electromovilidad"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="compte">
             <td><strong>Biodiversidad</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -236,6 +271,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, à son rythme</td>
             <td><a href="https://www.efundae.es/course/view.php?id=1191" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-sensibilizacion-medioambiental-biodiversidad"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="compte">
             <td><strong>Pymes y cambio climático</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -243,6 +279,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, à son rythme</td>
             <td><a href="https://www.efundae.es/course/view.php?id=1163" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-sensibilizacion-medioambiental-pymes-y-cambio-climatico"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="compte">
             <td><strong>Digitalización y tecnologías sostenibles</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -250,6 +287,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, à son rythme</td>
             <td><a href="https://www.efundae.es/course/view.php?id=1160" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-sensibilizacion-medioambiental-digitalizacion-y-tecnolo"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="compte">
             <td><strong>Gestión de proyectos de innovación en sostenibilidad</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -257,6 +295,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, à son rythme</td>
             <td><a href="https://www.efundae.es/course/view.php?id=1159" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-sensibilizacion-medioambiental-gestion-de-proyectos-de-"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="compte">
             <td><strong>Subvenciones y ayudas para sostenibilidad en pymes</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -264,6 +303,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, à son rythme</td>
             <td><a href="https://www.efundae.es/course/view.php?id=1001" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-sensibilizacion-medioambiental-subvenciones-y-ayudas-pa"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="compte">
             <td><strong>Fiscalidad sostenible para pymes</strong><br><span class="orga">eFundae (Fundae) — Sensibilización Medioambiental</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -271,6 +311,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, à son rythme</td>
             <td><a href="https://www.efundae.es/course/view.php?id=1002" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-sensibilizacion-medioambiental-fiscalidad-sostenible-pa"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Numérique &amp; marketing" data-acces="compte">
             <td><strong>Plan de marketing y estrategia digital</strong><br><span class="orga">eFundae (Fundae) — itinéraire de 4 niveaux progressifs</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -278,6 +319,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, ~150 h</td>
             <td><a href="https://www.efundae.es/course/index.php?categoryid=432" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-itineraire-de-4-niveaux-progressifs-plan-de-marketing-y"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Numérique &amp; marketing" data-acces="compte">
             <td><strong>Business Analytics — Odisea Data</strong><br><span class="orga">eFundae (Fundae) — itinéraire de 4 niveaux progressifs</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -285,6 +327,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, ~150 h</td>
             <td><a href="https://www.efundae.es/course/index.php?categoryid=253" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-itineraire-de-4-niveaux-progressifs-business-analytics-"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Numérique &amp; marketing" data-acces="compte">
             <td><strong>Community Manager</strong><br><span class="orga">eFundae (Fundae) — itinéraire de 4 niveaux progressifs</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -292,6 +335,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, ~150 h</td>
             <td><a href="https://www.efundae.es/course/index.php?categoryid=431" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-itineraire-de-4-niveaux-progressifs-community-manager"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Numérique &amp; marketing" data-acces="compte">
             <td><strong>Comercio electrónico</strong><br><span class="orga">eFundae (Fundae) — itinéraire de 4 niveaux progressifs</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -299,6 +343,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, ~150 h</td>
             <td><a href="https://www.efundae.es/course/index.php?categoryid=529" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-itineraire-de-4-niveaux-progressifs-comercio-electronic"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Numérique &amp; marketing" data-acces="compte">
             <td><strong>Programación</strong><br><span class="orga">eFundae (Fundae) — itinéraire de 4 niveaux progressifs</span><br><span class="row-note">Compte plateforme Fundae requis : le lien direct renvoie vers l&#x27;écran de connexion, pas vers le cours. Catalogue orienté trabajadores et autónomos — vérifier l&#x27;accès depuis un statut de demandeuse d&#x27;emploi.</span></td>
@@ -306,6 +351,7 @@
             <td><span class="badge badge-progress">Compte requis</span></td>
             <td class="modalite">En ligne, ~150 h</td>
             <td><a href="https://www.efundae.es/course/index.php?categoryid=232" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-efundae-fundae-itineraire-de-4-niveaux-progressifs-programacion"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Numérique &amp; marketing" data-acces="labora">
             <td><strong>Excel — básico</strong><br><span class="orga">Campus Virtual LABORA Formació — Competencias digitales I</span><br><span class="row-note">Édition affichée : millésime 2025 — offre probablement périmée, vérifier l&#x27;ouverture d&#x27;une édition 2026 avant de compter dessus. Diploma de aprovechamiento.</span></td>
@@ -313,6 +359,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">En ligne, tutoré, jusqu&#x27;à 30 h</td>
             <td><a href="https://labora.gva.es/es/aula-virtual" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-campus-virtual-labora-formacio-competencias-digitales-i-excel-basico"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Numérique &amp; marketing" data-acces="labora">
             <td><strong>Excel — avanzado</strong><br><span class="orga">Campus Virtual LABORA Formació — Competencias digitales I</span><br><span class="row-note">Édition affichée : millésime 2025 — offre probablement périmée, vérifier l&#x27;ouverture d&#x27;une édition 2026 avant de compter dessus. Diploma de aprovechamiento.</span></td>
@@ -320,6 +367,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">En ligne, tutoré, jusqu&#x27;à 30 h</td>
             <td><a href="https://labora.gva.es/es/aula-virtual" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-campus-virtual-labora-formacio-competencias-digitales-i-excel-avanzado"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Transversal" data-acces="labora">
             <td><strong>Microsoft Word — medio</strong><br><span class="orga">Campus Virtual LABORA Formació — Competencias digitales I</span><br><span class="row-note">Édition affichée : millésime 2025 — offre probablement périmée, vérifier l&#x27;ouverture d&#x27;une édition 2026 avant de compter dessus. Diploma de aprovechamiento.</span></td>
@@ -327,6 +375,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">En ligne, tutoré, jusqu&#x27;à 30 h</td>
             <td><a href="https://labora.gva.es/es/aula-virtual" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-campus-virtual-labora-formacio-competencias-digitales-i-microsoft-word"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Transversal" data-acces="labora">
             <td><strong>Microsoft Word — avanzado</strong><br><span class="orga">Campus Virtual LABORA Formació — Competencias digitales I</span><br><span class="row-note">Édition affichée : millésime 2025 — offre probablement périmée, vérifier l&#x27;ouverture d&#x27;une édition 2026 avant de compter dessus. Diploma de aprovechamiento.</span></td>
@@ -334,6 +383,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">En ligne, tutoré, jusqu&#x27;à 30 h</td>
             <td><a href="https://labora.gva.es/es/aula-virtual" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-campus-virtual-labora-formacio-competencias-digitales-i-microsoft-word-2"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Transversal" data-acces="labora">
             <td><strong>PowerPoint — avanzado</strong><br><span class="orga">Campus Virtual LABORA Formació — Competencias digitales I</span><br><span class="row-note">Édition affichée : millésime 2025 — offre probablement périmée, vérifier l&#x27;ouverture d&#x27;une édition 2026 avant de compter dessus. Diploma de aprovechamiento.</span></td>
@@ -341,6 +391,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">En ligne, tutoré, jusqu&#x27;à 30 h</td>
             <td><a href="https://labora.gva.es/es/aula-virtual" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-campus-virtual-labora-formacio-competencias-digitales-i-powerpoint-ava"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Numérique &amp; marketing" data-acces="labora">
             <td><strong>Metodología de gestión de proyectos de software con SCRUM</strong><br><span class="orga">Campus Virtual LABORA Formació — Competencias digitales I — IFCD048PO</span><br><span class="row-note">Édition affichée : millésime 2025 — offre probablement périmée, vérifier l&#x27;ouverture d&#x27;une édition 2026 avant de compter dessus. Diploma de aprovechamiento.</span></td>
@@ -348,6 +399,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">En ligne, tutoré, jusqu&#x27;à 30 h</td>
             <td><a href="https://labora.gva.es/es/aula-virtual" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-campus-virtual-labora-formacio-competencias-digitales-i-ifcd048po-meto"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Numérique &amp; marketing" data-acces="labora">
             <td><strong>Gestión de proyectos con metodologías ágiles y enfoque Lean</strong><br><span class="orga">Campus Virtual LABORA Formació — Competencias digitales I</span><br><span class="row-note">Édition affichée : millésime 2025 — offre probablement périmée, vérifier l&#x27;ouverture d&#x27;une édition 2026 avant de compter dessus. Diploma de aprovechamiento.</span></td>
@@ -355,6 +407,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">En ligne, tutoré, jusqu&#x27;à 30 h</td>
             <td><a href="https://labora.gva.es/es/aula-virtual" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-campus-virtual-labora-formacio-competencias-digitales-i-gestion-de-pro"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Transversal" data-acces="labora">
             <td><strong>Técnicas y habilidades de comunicación</strong><br><span class="orga">Campus Virtual LABORA Formació — Competencias transversales</span><br><span class="row-note">Édition affichée : millésime 2025 — offre probablement périmée, vérifier l&#x27;ouverture d&#x27;une édition 2026 avant de compter dessus. Diploma de aprovechamiento.</span></td>
@@ -362,6 +415,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">En ligne, tutoré, jusqu&#x27;à 30 h</td>
             <td><a href="https://labora.gva.es/es/aula-virtual" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-campus-virtual-labora-formacio-competencias-transversales-tecnicas-y-h"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Transversal" data-acces="labora">
             <td><strong>Liderazgo. Dirección de equipos de trabajo</strong><br><span class="orga">Campus Virtual LABORA Formació — Competencias transversales</span><br><span class="row-note">Édition affichée : millésime 2025 — offre probablement périmée, vérifier l&#x27;ouverture d&#x27;une édition 2026 avant de compter dessus. Diploma de aprovechamiento.</span></td>
@@ -369,6 +423,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">En ligne, tutoré, jusqu&#x27;à 30 h</td>
             <td><a href="https://labora.gva.es/es/aula-virtual" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-campus-virtual-labora-formacio-competencias-transversales-liderazgo-di"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Transversal" data-acces="labora">
             <td><strong>Pensamiento positivo — optimismo y entusiasmo</strong><br><span class="orga">Campus Virtual LABORA Formació — Competencias transversales</span><br><span class="row-note">Édition affichée : millésime 2025 — offre probablement périmée, vérifier l&#x27;ouverture d&#x27;une édition 2026 avant de compter dessus. Diploma de aprovechamiento.</span></td>
@@ -376,6 +431,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">En ligne, tutoré, jusqu&#x27;à 30 h</td>
             <td><a href="https://labora.gva.es/es/aula-virtual" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-campus-virtual-labora-formacio-competencias-transversales-pensamiento-"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Numérique &amp; marketing" data-acces="labora">
             <td><strong>Gestión de marketing y comunicación</strong><br><span class="orga">LABORA — plan 2026, code 22085 · Valencia</span><br><span class="row-note">Relevé du 4 septembre 2026, non revérifié depuis : le moteur puntlabora n&#x27;était pas joignable au contrôle. Saisir le code dans le moteur pour confirmer que la préinscription est encore ouverte.</span></td>
@@ -383,6 +439,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">Présentiel — statut d&#x27;inscription à vérifier</td>
             <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-labora-plan-2026-code-22085-valencia-gestion-de-marketing-y-comunicaci"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Numérique &amp; marketing" data-acces="labora">
             <td><strong>CMS y e-commerce</strong><br><span class="orga">LABORA — plan 2026, code 22117 · Valencia</span><br><span class="row-note">Relevé du 4 septembre 2026, non revérifié depuis : le moteur puntlabora n&#x27;était pas joignable au contrôle. Saisir le code dans le moteur pour confirmer que la préinscription est encore ouverte.</span></td>
@@ -390,6 +447,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">Présentiel — statut d&#x27;inscription à vérifier</td>
             <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-labora-plan-2026-code-22117-valencia-cms-y-e-commerce"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Numérique &amp; marketing" data-acces="labora">
             <td><strong>Procedimientos básicos en la atención al cliente y ecommerce</strong><br><span class="orga">LABORA — plan 2026, code 22179 · Valencia</span><br><span class="row-note">Relevé du 4 septembre 2026, non revérifié depuis : le moteur puntlabora n&#x27;était pas joignable au contrôle. Saisir le code dans le moteur pour confirmer que la préinscription est encore ouverte.</span></td>
@@ -397,6 +455,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">Présentiel — statut d&#x27;inscription à vérifier</td>
             <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-labora-plan-2026-code-22179-valencia-procedimientos-basicos-en-la-aten"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Numérique &amp; marketing" data-acces="labora">
             <td><strong>Procedimientos básicos en el marketing digital y redes sociales</strong><br><span class="orga">LABORA — plan 2026, code 22177 · Valencia</span><br><span class="row-note">Relevé du 4 septembre 2026, non revérifié depuis : le moteur puntlabora n&#x27;était pas joignable au contrôle. Saisir le code dans le moteur pour confirmer que la préinscription est encore ouverte.</span></td>
@@ -404,6 +463,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">Présentiel — statut d&#x27;inscription à vérifier</td>
             <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-labora-plan-2026-code-22177-valencia-procedimientos-basicos-en-el-mark"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Numérique &amp; marketing" data-acces="labora">
             <td><strong>Digitalización y RRSS como estrategia corporativa</strong><br><span class="orga">LABORA — plan 2026, code 22190 · Valencia</span><br><span class="row-note">Relevé du 4 septembre 2026, non revérifié depuis : le moteur puntlabora n&#x27;était pas joignable au contrôle. Saisir le code dans le moteur pour confirmer que la préinscription est encore ouverte.</span></td>
@@ -411,6 +471,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">Présentiel — statut d&#x27;inscription à vérifier</td>
             <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-labora-plan-2026-code-22190-valencia-digitalizacion-y-rrss-como-estrat"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Numérique &amp; marketing" data-acces="labora">
             <td><strong>Entorno y estrategia en la transformación digital</strong><br><span class="orga">LABORA — plan 2026, code 22258 · Valencia</span><br><span class="row-note">Relevé du 4 septembre 2026, non revérifié depuis : le moteur puntlabora n&#x27;était pas joignable au contrôle. Saisir le code dans le moteur pour confirmer que la préinscription est encore ouverte.</span></td>
@@ -418,6 +479,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">Présentiel — statut d&#x27;inscription à vérifier</td>
             <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-labora-plan-2026-code-22258-valencia-entorno-y-estrategia-en-la-transf"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Numérique &amp; marketing" data-acces="labora">
             <td><strong>Inteligencia artificial (IA) aplicada a marketing digital</strong><br><span class="orga">LABORA — plan 2026, code 22162 · Valencia</span><br><span class="row-note">Relevé du 4 septembre 2026, non revérifié depuis : le moteur puntlabora n&#x27;était pas joignable au contrôle. Saisir le code dans le moteur pour confirmer que la préinscription est encore ouverte.</span></td>
@@ -425,6 +487,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">Présentiel — statut d&#x27;inscription à vérifier</td>
             <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-labora-plan-2026-code-22162-valencia-inteligencia-artificial-ia-aplica"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Numérique &amp; marketing" data-acces="labora">
             <td><strong>Inteligencia artificial aplicada a la empresa</strong><br><span class="orga">LABORA — plan 2026, code 22194 · Valencia</span><br><span class="row-note">Relevé du 4 septembre 2026, non revérifié depuis : le moteur puntlabora n&#x27;était pas joignable au contrôle. Saisir le code dans le moteur pour confirmer que la préinscription est encore ouverte.</span></td>
@@ -432,6 +495,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">Présentiel — statut d&#x27;inscription à vérifier</td>
             <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-labora-plan-2026-code-22194-valencia-inteligencia-artificial-aplicada-"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Numérique &amp; marketing" data-acces="labora">
             <td><strong>Especialista en inteligencia artificial</strong><br><span class="orga">LABORA — plan 2026, code 22188 · L&#x27;Horta Nord</span><br><span class="row-note">Relevé du 4 septembre 2026, non revérifié depuis : le moteur puntlabora n&#x27;était pas joignable au contrôle. Saisir le code dans le moteur pour confirmer que la préinscription est encore ouverte.</span></td>
@@ -439,6 +503,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">Présentiel — statut d&#x27;inscription à vérifier</td>
             <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-labora-plan-2026-code-22188-l-horta-nord-especialista-en-inteligencia-"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Transversal" data-acces="labora">
             <td><strong>Habilitación para la docencia en grados A, B y C del sistema de FP</strong><br><span class="orga">LABORA — plan 2026, code 22246 · Valencia</span><br><span class="row-note">Relevé du 4 septembre 2026, non revérifié depuis : le moteur puntlabora n&#x27;était pas joignable au contrôle. Saisir le code dans le moteur pour confirmer que la préinscription est encore ouverte.</span></td>
@@ -446,6 +511,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">Présentiel — statut d&#x27;inscription à vérifier</td>
             <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-labora-plan-2026-code-22246-valencia-habilitacion-para-la-docencia-en-"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Transversal" data-acces="labora">
             <td><strong>Gestión administrativa y financiera del comercio internacional</strong><br><span class="orga">LABORA — plan 2026, code 21912 · L&#x27;Horta Sud</span><br><span class="row-note">Relevé du 4 septembre 2026, non revérifié depuis : le moteur puntlabora n&#x27;était pas joignable au contrôle. Saisir le code dans le moteur pour confirmer que la préinscription est encore ouverte.</span></td>
@@ -453,6 +519,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">Présentiel — statut d&#x27;inscription à vérifier</td>
             <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-labora-plan-2026-code-21912-l-horta-sud-gestion-administrativa-y-finan"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Transversal" data-acces="labora">
             <td><strong>Actividades de gestión del pequeño comercio</strong><br><span class="orga">LABORA — plan 2026, code 22109 · Valencia</span><br><span class="row-note">Relevé du 4 septembre 2026, non revérifié depuis : le moteur puntlabora n&#x27;était pas joignable au contrôle. Saisir le code dans le moteur pour confirmer que la préinscription est encore ouverte.</span></td>
@@ -460,6 +527,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">Présentiel — statut d&#x27;inscription à vérifier</td>
             <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-labora-plan-2026-code-22109-valencia-actividades-de-gestion-del-pequen"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="labora">
             <td><strong>Operaciones básicas en montaje y mantenimiento de instalaciones de energías renovables</strong><br><span class="orga">LABORA — plan 2026, code 21963 · Valencia</span><br><span class="row-note">Relevé du 4 septembre 2026, non revérifié depuis : le moteur puntlabora n&#x27;était pas joignable au contrôle. Saisir le code dans le moteur pour confirmer que la préinscription est encore ouverte.</span></td>
@@ -467,6 +535,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">Présentiel — statut d&#x27;inscription à vérifier</td>
             <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-labora-plan-2026-code-21963-valencia-operaciones-basicas-en-montaje-y-"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="labora">
             <td><strong>Eficiència energètica d&#x27;edificis</strong><br><span class="orga">LABORA — plan 2026, code 22339 · L&#x27;Horta Sud</span><br><span class="row-note">Relevé du 4 septembre 2026, non revérifié depuis : le moteur puntlabora n&#x27;était pas joignable au contrôle. Saisir le code dans le moteur pour confirmer que la préinscription est encore ouverte.</span></td>
@@ -474,6 +543,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">Présentiel — statut d&#x27;inscription à vérifier</td>
             <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-labora-plan-2026-code-22339-l-horta-sud-eficiencia-energetica-d-edific"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Métiers techniques" data-acces="labora">
             <td><strong>Confección y publicación de páginas web</strong><br><span class="orga">LABORA — plan 2026, code 22323 · L&#x27;Horta Nord</span><br><span class="row-note">Relevé du 4 septembre 2026, non revérifié depuis : le moteur puntlabora n&#x27;était pas joignable au contrôle. Saisir le code dans le moteur pour confirmer que la préinscription est encore ouverte.</span></td>
@@ -481,6 +551,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">Présentiel — statut d&#x27;inscription à vérifier</td>
             <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-labora-plan-2026-code-22323-l-horta-nord-confeccion-y-publicacion-de-p"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Métiers techniques" data-acces="labora">
             <td><strong>Programación de sistemas informáticos</strong><br><span class="orga">LABORA — plan 2026, code 22048 · Valencia</span><br><span class="row-note">Relevé du 4 septembre 2026, non revérifié depuis : le moteur puntlabora n&#x27;était pas joignable au contrôle. Saisir le code dans le moteur pour confirmer que la préinscription est encore ouverte.</span></td>
@@ -488,6 +559,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">Présentiel — statut d&#x27;inscription à vérifier</td>
             <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-labora-plan-2026-code-22048-valencia-programacion-de-sistemas-informat"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Métiers techniques" data-acces="labora">
             <td><strong>Seguridad informática</strong><br><span class="orga">LABORA — plan 2026, code 22043 · L&#x27;Horta Sud</span><br><span class="row-note">Relevé du 4 septembre 2026, non revérifié depuis : le moteur puntlabora n&#x27;était pas joignable au contrôle. Saisir le code dans le moteur pour confirmer que la préinscription est encore ouverte.</span></td>
@@ -495,6 +567,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">Présentiel — statut d&#x27;inscription à vérifier</td>
             <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-labora-plan-2026-code-22043-l-horta-sud-seguridad-informatica"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Langues" data-acces="labora">
             <td><strong>Inglés B2</strong><br><span class="orga">LABORA — plan 2026, code 22350 · L&#x27;Horta Sud</span><br><span class="row-note">Relevé du 4 septembre 2026, non revérifié depuis : le moteur puntlabora n&#x27;était pas joignable au contrôle. Saisir le code dans le moteur pour confirmer que la préinscription est encore ouverte.</span></td>
@@ -502,6 +575,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">Présentiel — statut d&#x27;inscription à vérifier</td>
             <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-labora-plan-2026-code-22350-l-horta-sud-ingles-b2"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Langues" data-acces="labora">
             <td><strong>Inglés B2</strong><br><span class="orga">LABORA — plan 2026, code 22326 · L&#x27;Horta Nord</span><br><span class="row-note">Relevé du 4 septembre 2026, non revérifié depuis : le moteur puntlabora n&#x27;était pas joignable au contrôle. Saisir le code dans le moteur pour confirmer que la préinscription est encore ouverte.</span></td>
@@ -509,6 +583,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">Présentiel — statut d&#x27;inscription à vérifier</td>
             <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-labora-plan-2026-code-22326-l-horta-nord-ingles-b2"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Langues" data-acces="labora">
             <td><strong>Inglés B1</strong><br><span class="orga">LABORA — plan 2026, code 22349 · L&#x27;Horta Sud</span><br><span class="row-note">Relevé du 4 septembre 2026, non revérifié depuis : le moteur puntlabora n&#x27;était pas joignable au contrôle. Saisir le code dans le moteur pour confirmer que la préinscription est encore ouverte.</span></td>
@@ -516,6 +591,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">Présentiel — statut d&#x27;inscription à vérifier</td>
             <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-labora-plan-2026-code-22349-l-horta-sud-ingles-b1"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Langues" data-acces="labora">
             <td><strong>Inglés B1</strong><br><span class="orga">LABORA — plan 2026, code 22325 · L&#x27;Horta Nord</span><br><span class="row-note">Relevé du 4 septembre 2026, non revérifié depuis : le moteur puntlabora n&#x27;était pas joignable au contrôle. Saisir le code dans le moteur pour confirmer que la préinscription est encore ouverte.</span></td>
@@ -523,6 +599,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">Présentiel — statut d&#x27;inscription à vérifier</td>
             <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-labora-plan-2026-code-22325-l-horta-nord-ingles-b1"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Langues" data-acces="labora">
             <td><strong>Inglés A2</strong><br><span class="orga">LABORA — plan 2026, code 22353 · L&#x27;Horta Sud</span><br><span class="row-note">Relevé du 4 septembre 2026, non revérifié depuis : le moteur puntlabora n&#x27;était pas joignable au contrôle. Saisir le code dans le moteur pour confirmer que la préinscription est encore ouverte.</span></td>
@@ -530,6 +607,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">Présentiel — statut d&#x27;inscription à vérifier</td>
             <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-labora-plan-2026-code-22353-l-horta-sud-ingles-a2"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Langues" data-acces="labora">
             <td><strong>Francés A1</strong><br><span class="orga">LABORA — plan 2026, code 22351 · L&#x27;Horta Sud</span><br><span class="row-note">Relevé du 4 septembre 2026, non revérifié depuis : le moteur puntlabora n&#x27;était pas joignable au contrôle. Saisir le code dans le moteur pour confirmer que la préinscription est encore ouverte.</span></td>
@@ -537,6 +615,7 @@
             <td><span class="badge badge-progress">Espai LABORA</span></td>
             <td class="modalite">Présentiel — statut d&#x27;inscription à vérifier</td>
             <td><a href="https://puntlabora.gva.es/ofsrvfor/consultar?lang=es" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-labora-plan-2026-code-22351-l-horta-sud-frances-a1"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="convocatoria">
             <td><strong>Sistemas de gestión ambiental</strong><br><span class="orga">Convocatoria estatal (SEPE / Fundae) — Desempleados, trabajadores y autónomos</span><br><span class="row-note">Vérifier deux points sur la fiche : les places sont réparties par communauté autonome et la Comunitat Valenciana n&#x27;est pas toujours servie ; certains cours imposent des visioconférences à horaires fixes et un examen en présentiel hors de Valence.</span></td>
@@ -544,6 +623,7 @@
             <td><span class="badge badge-warning">Convocatoria</span></td>
             <td class="modalite">En ligne, 150 h</td>
             <td><a href="https://www.cursosfemxa.es/sistemas-gestion-ambiental-gratuito-titulos-oficiales-curso" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-convocatoria-estatal-sepe-fundae-desempleados-trabajadores-y-autonomos"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="convocatoria">
             <td><strong>Gestión integral de residuos</strong><br><span class="orga">Convocatoria estatal (SEPE / Fundae) — Trabajadores y autónomos uniquement</span><br><span class="row-note">Fermé tant que le statut est celui de demandeuse d&#x27;emploi. Vérifier deux points sur la fiche : les places sont réparties par communauté autonome et la Comunitat Valenciana n&#x27;est pas toujours servie ; certains cours imposent des visioconférences à horaires fixes et un examen en présentiel hors de Valence.</span></td>
@@ -551,6 +631,7 @@
             <td><span class="badge badge-warning">Convocatoria</span></td>
             <td class="modalite">En ligne, 200 h</td>
             <td><a href="https://www.cursosfemxa.es/gestion-integral-residuos-online-gratuito-estatal-femxa-curso" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-convocatoria-estatal-sepe-fundae-trabajadores-y-autonomos-uniquement-g"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="convocatoria">
             <td><strong>Impacto ambiental y su auditoría</strong><br><span class="orga">Convocatoria estatal (SEPE / Fundae) — Trabajadores y autónomos uniquement</span><br><span class="row-note">Fermé tant que le statut est celui de demandeuse d&#x27;emploi. Vérifier deux points sur la fiche : les places sont réparties par communauté autonome et la Comunitat Valenciana n&#x27;est pas toujours servie ; certains cours imposent des visioconférences à horaires fixes et un examen en présentiel hors de Valence.</span></td>
@@ -558,6 +639,7 @@
             <td><span class="badge badge-warning">Convocatoria</span></td>
             <td class="modalite">En ligne, 30 h</td>
             <td><a href="https://www.cursosfemxa.es/impacto-ambiental-auditoria-gratuito-online-estatal-femxa-curso" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-convocatoria-estatal-sepe-fundae-trabajadores-y-autonomos-uniquement-i"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="convocatoria">
             <td><strong>Conducción económica y ecológica</strong><br><span class="orga">Convocatoria estatal (SEPE / Fundae) — Trabajadores y autónomos uniquement</span><br><span class="row-note">Fermé tant que le statut est celui de demandeuse d&#x27;emploi. Vérifier deux points sur la fiche : les places sont réparties par communauté autonome et la Comunitat Valenciana n&#x27;est pas toujours servie ; certains cours imposent des visioconférences à horaires fixes et un examen en présentiel hors de Valence.</span></td>
@@ -565,6 +647,7 @@
             <td><span class="badge badge-warning">Convocatoria</span></td>
             <td class="modalite">En ligne, 50 h</td>
             <td><a href="https://www.cursosfemxa.es/conduccion-economica-ecologica-gratuito-online-curso" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-convocatoria-estatal-sepe-fundae-trabajadores-y-autonomos-uniquement-c"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Transversal" data-acces="convocatoria">
             <td><strong>Gestión de compras informatizada</strong><br><span class="orga">Convocatoria estatal (SEPE / Fundae) — Trabajadores y autónomos uniquement</span><br><span class="row-note">Fermé tant que le statut est celui de demandeuse d&#x27;emploi. Vérifier deux points sur la fiche : les places sont réparties par communauté autonome et la Comunitat Valenciana n&#x27;est pas toujours servie ; certains cours imposent des visioconférences à horaires fixes et un examen en présentiel hors de Valence.</span></td>
@@ -572,6 +655,7 @@
             <td><span class="badge badge-warning">Convocatoria</span></td>
             <td class="modalite">En ligne, 40 h</td>
             <td><a href="https://www.cursosfemxa.es/gestion-compras-informatizada-gratuito-online-curso" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-convocatoria-estatal-sepe-fundae-trabajadores-y-autonomos-uniquement-g-2"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Transversal" data-acces="convocatoria">
             <td><strong>Personal shopper</strong><br><span class="orga">Convocatoria estatal (SEPE / Fundae) — Desempleados, trabajadores y autónomos</span><br><span class="row-note">Vérifier deux points sur la fiche : les places sont réparties par communauté autonome et la Comunitat Valenciana n&#x27;est pas toujours servie ; certains cours imposent des visioconférences à horaires fixes et un examen en présentiel hors de Valence.</span></td>
@@ -579,6 +663,7 @@
             <td><span class="badge badge-warning">Convocatoria</span></td>
             <td class="modalite">En ligne, 40 h</td>
             <td><a href="https://www.cursosfemxa.es/personal-shopper-gratuito-online-curso" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-convocatoria-estatal-sepe-fundae-desempleados-trabajadores-y-autonomos-2"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Transversal" data-acces="convocatoria">
             <td><strong>Básico de prevención de riesgos laborales</strong><br><span class="orga">Convocatoria estatal (SEPE / Fundae) — Trabajadores y autónomos uniquement</span><br><span class="row-note">Fermé tant que le statut est celui de demandeuse d&#x27;emploi. Vérifier deux points sur la fiche : les places sont réparties par communauté autonome et la Comunitat Valenciana n&#x27;est pas toujours servie ; certains cours imposent des visioconférences à horaires fixes et un examen en présentiel hors de Valence.</span></td>
@@ -586,6 +671,7 @@
             <td><span class="badge badge-warning">Convocatoria</span></td>
             <td class="modalite">En ligne, 30 h</td>
             <td><a href="https://www.cursosfemxa.es/basico-prl-gratuito-online-estatal-femxa-curso" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-convocatoria-estatal-sepe-fundae-trabajadores-y-autonomos-uniquement-b"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Numérique &amp; marketing" data-acces="libre">
             <td><strong>Conecta Empleo</strong><br><span class="orga">Fundación Telefónica — numérique, data, cybersécurité, développement</span></td>
@@ -593,6 +679,7 @@
             <td><span class="badge badge-success">Accès libre</span></td>
             <td class="modalite">En ligne et présentiel, avec certificat</td>
             <td><a href="https://www.fundaciontelefonica.com/empleabilidad/conecta-empleo/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-fundacion-telefonica-numerique-data-cybersecurite-developpement-conect"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Numérique &amp; marketing" data-acces="libre">
             <td><strong>Grow with Google</strong><br><span class="orga">Google — ce qui subsiste de Google Actívate : marketing, e-commerce, cloud, IA</span></td>
@@ -600,6 +687,7 @@
             <td><span class="badge badge-success">Accès libre</span></td>
             <td class="modalite">En ligne, cours d&#x27;initiation</td>
             <td><a href="https://grow.google/intl/es/courses-and-tools/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-google-ce-qui-subsiste-de-google-activate-marketing-e-commerce-cloud-i"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Durabilité &amp; RSE" data-acces="libre">
             <td><strong>Formación Abierta</strong><br><span class="orga">EOI — école publique du ministère de l&#x27;Industrie, MOOC gratuits</span></td>
@@ -607,6 +695,7 @@
             <td><span class="badge badge-success">Accès libre</span></td>
             <td class="modalite">En ligne, accès libre</td>
             <td><a href="https://www.eoi.es/es/formacionabierta" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-eoi-ecole-publique-du-ministere-de-l-industrie-mooc-gratuits-formacion"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Transversal" data-acces="libre">
             <td><strong>Mi Competencia Digital</strong><br><span class="orga">Fundae — test DigComp, environ 20 minutes</span></td>
@@ -614,6 +703,7 @@
             <td><span class="badge badge-success">Accès libre</span></td>
             <td class="modalite">En ligne, auto-évaluation</td>
             <td><a href="https://micompetenciadigital.fundae.es/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-fundae-test-digcomp-environ-20-minutes-mi-competencia-digital"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Transversal" data-acces="libre">
             <td><strong>Buscador de formación subvencionada</strong><br><span class="orga">Fundae — moteur officiel, toutes convocatorias</span></td>
@@ -621,6 +711,7 @@
             <td><span class="badge badge-success">Accès libre</span></td>
             <td class="modalite">Recherche par territoire et modalité</td>
             <td><a href="https://experienciafundae.es/buscador" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter &#8599;</a></td>
+            <td class="ins-cell" data-ins-id="es-fundae-moteur-officiel-toutes-convocatorias-buscador-de-formacion-subv"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
         </tbody>
       </table>
@@ -639,9 +730,11 @@
   </main>
 
   <script src="assets/js/progress.js"></script>
+  <script src="assets/js/sync.js"></script>
+  <script src="assets/js/offline.js"></script>
   <script>
     (function () {
-      var theme = 'all', acces = 'all';
+      var theme = 'all', acces = 'all', ins = 'all';
       var rows = Array.prototype.slice.call(
         document.querySelectorAll('#espagne-table tbody tr'));
       var count = document.getElementById('result-count');
@@ -651,7 +744,8 @@
         rows.forEach(function (row) {
           var okTheme = (theme === 'all') || (row.dataset.category === theme);
           var okAcces = (acces === 'all') || (row.dataset.acces === acces);
-          var visible = okTheme && okAcces;
+          var okIns = (ins === 'all') || ((row.dataset.ins || 'todo') === ins);
+          var visible = okTheme && okAcces && okIns;
           row.style.display = visible ? '' : 'none';
           if (visible) shown++;
         });
@@ -677,6 +771,9 @@
 
       wire('filter-theme', 'filter', function (b) { theme = b.dataset.filter; });
       wire('filter-acces', 'acces', function (b) { acces = b.dataset.acces; });
+      wire('filter-ins', 'ins', function (b) { ins = b.dataset.ins; });
+
+      window.formahubApplyFilters = apply;
       apply();
     })();
   </script>

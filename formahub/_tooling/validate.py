@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Harnais de validation Formahub V5.
+"""Harnais de validation Formahub V7.
 
 Usage : FH_OUT=<dossier des modules> FH_CSS=<chemin style.css> \\
             python3 validate.py <slug-formation> <nb-modules>
@@ -101,7 +101,40 @@ def check(slug, n, total):
         if len(q.get("questions", [])) < 3:
             warns.append(f"quiz seulement {len(q.get('questions', []))} questions")
 
-    # 6. navigation
+    # 6. scripts de la V7 (audio, hors ligne, sauvegarde)
+    for js in ("progress.js", "quiz-engine.js", "sync.js", "offline.js", "audio.js"):
+        if f"assets/js/{js}" not in html:
+            errs.append(f"script manquant: {js}")
+    if html.index("assets/js/audio.js") < html.index("assets/js/progress.js"):
+        errs.append("audio.js doit être chargé APRÈS progress.js (il lit les volets qu'il construit)")
+
+    # 7. podcast du module, s'il existe
+    pp = f"{d}/podcast.json"
+    if not os.path.exists(pp):
+        warns.append("pas de podcast.json (le lecteur affichera « à venir »)")
+    else:
+        pod = json.load(open(pp, encoding="utf-8"))
+        mid_html2 = re.search(r'data-module-id="([^"]+)"', html)
+        mid_html2 = mid_html2.group(1) if mid_html2 else None
+        if pod.get("module_id") != mid_html2:
+            errs.append(f"module_id podcast={pod.get('module_id')} vs html={mid_html2}")
+        lignes = pod.get("lignes", [])
+        if len(lignes) < 12:
+            errs.append(f"podcast: {len(lignes)} répliques seulement")
+        voix = {l.get("v") for l in lignes}
+        if not voix <= {"a", "b"} or len(voix) < 2:
+            errs.append(f"podcast: voix attendues a et b, trouvé {sorted(voix)}")
+        for i, l in enumerate(lignes, 1):
+            t = l.get("t", "")
+            if re.search(r"<[a-zA-Z/]", t):
+                errs.append(f"podcast réplique {i}: HTML dans le texte parlé")
+            if not t.strip():
+                errs.append(f"podcast réplique {i}: vide")
+        pmots = sum(len(re.findall(r"\w+", l.get("t", ""))) for l in lignes)
+        if pmots < 900:
+            warns.append(f"podcast court: {pmots} mots (~{max(1, round(pmots / 155))} min)")
+
+    # 8. navigation
     prev = f"../module-{n-1}/" if n > 1 else None
     nxt = f"../module-{n+1}/" if n < total else None
     for link, label in ((prev, "précédent"), (nxt, "suivant")):

@@ -1,0 +1,201 @@
+{
+ "module_id": "formation-seo-module-3",
+ "formation": "SEO Fondamentaux",
+ "titre": "Optimisation on-page et balisage sémantique",
+ "version": "1.0",
+ "duree_estimee": "9 min",
+ "mots": 1384,
+ "resume": "Une page correctement ciblée mais bloquée en deuxième page : ce qui la débloque, et pourquoi ce n'est presque jamais « retoucher un peu le texte ».",
+ "hosts": {
+  "a": {
+   "nom": "Camille",
+   "role": "animatrice"
+  },
+  "b": {
+   "nom": "Julien",
+   "role": "consultant SEO"
+  }
+ },
+ "lignes": [
+  {
+   "v": "a",
+   "t": "Module trois, et on entre dans la page. Julien, la situation de départ est celle qui rend fou : une page bloquée en douzième position depuis quatre mois, correctement ciblée, indexée, sur un site sans problème technique."
+  },
+  {
+   "v": "b",
+   "t": "C'est la situation la plus fréquente du métier, et c'est là que se joue l'essentiel des gains accessibles. Parce que l'on-page, c'est tout ce que tu maîtrises entièrement : la structure, les balises, le contenu, le maillage. Tu ne dépends ni d'un développeur, ni d'un site tiers."
+  },
+  {
+   "v": "a",
+   "t": "Commençons par la structure. Les titres, les fameux H1, H2, H3."
+  },
+  {
+   "v": "b",
+   "t": "Une seule règle à retenir, et elle règle quatre-vingt-dix pour cent des cas : la balise porte le sens, le CSS porte l'apparence. On ne choisit jamais un niveau de titre parce qu'il a la bonne taille à l'écran. Si le H2 est trop gros à ton goût, tu changes le style, tu ne descends pas en H3."
+  },
+  {
+   "v": "a",
+   "t": "Et il y a un test que tu proposes pour vérifier une structure."
+  },
+  {
+   "v": "b",
+   "t": "Le test du plan lu seul. Tu prends tous tes titres, tu les mets bout à bout, et tu les lis sans le reste du texte. Si ça raconte la page, la structure est bonne. Si ça ne veut rien dire, il faut la reprendre avant d'écrire une ligne de plus."
+  },
+  {
+   "v": "a",
+   "t": "Parlons du Title, la balise qui s'affiche dans les résultats."
+  },
+  {
+   "v": "b",
+   "t": "Cinquante-cinq à soixante caractères, avec l'information essentielle dans les quarante premiers, parce que c'est ce qui reste visible sur mobile. Le mot-clé principal en tête. Et surtout un différenciateur : quelque chose que les autres titres de la page de résultats n'affichent pas."
+  },
+  {
+   "v": "a",
+   "t": "Un différenciateur, c'est-à-dire ?"
+  },
+  {
+   "v": "b",
+   "t": "Un chiffre, une année, un format annoncé. Regarde le top dix avant d'écrire ton titre : si les dix commencent tous par « Comment choisir », tu ne gagnes rien à faire le onzième. Le module raisonne d'ailleurs en pixels plutôt qu'en caractères, parce qu'un titre en majuscules ou plein de M sera tronqué plus tôt."
+  },
+  {
+   "v": "a",
+   "t": "On dit souvent que Google réécrit les titres. Ça ne rend pas l'exercice inutile ?"
+  },
+  {
+   "v": "b",
+   "t": "Non, et c'est un contresens fréquent. Google réécrit surtout quand le titre est mauvais : dupliqué sur des dizaines de pages, purement générique, ou déconnecté du contenu. Un bon titre est conservé la plupart du temps. Et même réécrit, il reste un signal sur le sujet de la page."
+  },
+  {
+   "v": "a",
+   "t": "La meta description, maintenant. Elle sert à quoi si elle ne fait pas classer ?"
+  },
+  {
+   "v": "b",
+   "t": "Elle ne classe pas, elle fait cliquer. C'est le seul espace publicitaire gratuit d'une page de résultats, et beaucoup de gens le laissent vide. Le schéma qui marche tient en trois temps : bénéfice, objection, action. Ce que la personne va y gagner, ce qui pourrait la retenir, et ce qu'elle doit faire."
+  },
+  {
+   "v": "a",
+   "t": "Venons-en au contenu lui-même. Il y a une phrase du module que je veux te faire commenter : « on n'ajoute pas des mots-clés à un texte, on traite des questions »."
+  },
+  {
+   "v": "b",
+   "t": "C'est le renversement le plus important du module. Si tu traites réellement une question, le vocabulaire du domaine arrive tout seul, parce qu'on ne peut pas expliquer un sujet sans employer les mots du sujet. Alors que si tu pars du mot-clé, tu écris un texte qui sonne faux et qui ne répond à rien."
+  },
+  {
+   "v": "a",
+   "t": "Et la longueur ? On me demande toujours combien de mots il faut."
+  },
+  {
+   "v": "b",
+   "t": "Il n'existe aucune longueur cible. Aucune. On ajoute des réponses, jamais des mots. Allonger un texte pour atteindre un nombre imposé est une des erreurs les plus répandues, et le résultat se voit immédiatement : des paragraphes de remplissage que personne ne lit et qui diluent la page."
+  },
+  {
+   "v": "a",
+   "t": "Tu parles aussi de la pyramide inversée."
+  },
+  {
+   "v": "b",
+   "t": "Répondre tout de suite. La personne a posé une question, elle doit trouver la réponse dans les premières lignes, pas après quatre paragraphes d'introduction historique. Ensuite tu développes, tu nuances, tu donnes les cas particuliers. Le suspense est un genre littéraire, ce n'est pas un genre web."
+  },
+  {
+   "v": "a",
+   "t": "Le maillage interne, maintenant. Tu dis que c'est le levier le plus sous-utilisé."
+  },
+  {
+   "v": "b",
+   "t": "Et le seul qui soit gratuit. Un lien interne fait trois choses en même temps : il guide le lecteur, il répartit l'autorité entre tes pages, et il dit au moteur de quoi parle la page d'arrivée, par le texte de l'ancre. Trois effets, zéro coût, et personne ne s'en occupe."
+  },
+  {
+   "v": "a",
+   "t": "Il y a des pièges ?"
+  },
+  {
+   "v": "b",
+   "t": "Deux principalement. Utiliser toujours la même ancre exacte, ce qui produit un schéma artificiel très reconnaissable. Et laisser des pages importantes à quatre ou cinq clics de l'accueil. La profondeur de clic compte : ce qui est loin est exploré moins souvent et jugé moins important."
+  },
+  {
+   "v": "a",
+   "t": "Les images et les données structurées, pour finir sur les fondamentaux."
+  },
+  {
+   "v": "b",
+   "t": "Sur les images, trois réflexes : un poids raisonnable, un format moderne, et un attribut alt écrit pour l'accessibilité d'abord. L'alt décrit l'image à quelqu'un qui ne la voit pas. Ce n'est pas un endroit où empiler des mots-clés — et quand on le remplit correctement, il est de toute façon pertinent."
+  },
+  {
+   "v": "a",
+   "t": "Et les données structurées ?"
+  },
+  {
+   "v": "b",
+   "t": "Elles n'améliorent pas le classement. Elles améliorent l'affichage : les étoiles, le prix, la durée de la recette. Donc elles améliorent le taux de clic. C'est déjà beaucoup, mais il faut être clair sur ce qu'on en attend."
+  },
+  {
+   "v": "a",
+   "t": "L'étude de cas, maintenant. La page de la douzième à la cinquième position."
+  },
+  {
+   "v": "b",
+   "t": "Un guide « comment choisir un logiciel de facturation », bloqué en douzième position depuis quatre mois. Mille neuf cents recherches mensuelles sur la requête, deux mille quatre cents impressions, trente et un clics — un taux de clic de un virgule trois pour cent."
+  },
+  {
+   "v": "a",
+   "t": "Première étape ?"
+  },
+  {
+   "v": "b",
+   "t": "Vérifier l'évidence, comme au module un. Page indexée, intention correcte, aucun problème technique. Le terrain on-page est donc bien le bon terrain. Ça prend dix minutes et ça évite de travailler dans le vide."
+  },
+  {
+   "v": "a",
+   "t": "Ensuite ?"
+  },
+  {
+   "v": "b",
+   "t": "On compare les plans. Les cinq premiers résultats traitent tous trois thèmes absents de la page : la facturation électronique obligatoire, l'intégration avec les outils comptables, et la reprise de données quand on change d'outil. La page n'est pas mal écrite, elle est incomplète. C'est presque toujours ça, en position onze à vingt."
+  },
+  {
+   "v": "a",
+   "t": "Et le bloc des questions connexes ?"
+  },
+  {
+   "v": "b",
+   "t": "Il remonte quatre questions, dont deux ne sont couvertes nulle part dans la page. C'est du renseignement gratuit sur ce que les gens attendent, et c'est affiché sur la page de résultats de n'importe quelle requête."
+  },
+  {
+   "v": "a",
+   "t": "Qu'est-ce qui a été fait, concrètement ?"
+  },
+  {
+   "v": "b",
+   "t": "Trois sections ajoutées, environ sept cents mots, qui traitent réellement les thèmes manquants. Un tableau comparatif de six critères que personne d'autre n'affiche sur cette requête — c'est l'élément différenciant. Le titre réécrit, avec le mot-clé en tête, un chiffre et une année. La meta description rédigée, elle était absente. Cinq liens internes contextuels ajoutés depuis des articles bien positionnés, avec des ancres variées. Et la signature de l'auteur avec sa fonction, plus la date de mise à jour."
+  },
+  {
+   "v": "a",
+   "t": "Résultat ?"
+  },
+  {
+   "v": "b",
+   "t": "À huit semaines : position moyenne cinq virgule deux, taux de clic quatre virgule huit pour cent, cent soixante-dix-huit clics mensuels. Près de six fois le trafic initial. Aucun lien externe acquis, aucun développement."
+  },
+  {
+   "v": "a",
+   "t": "Et tu insistes sur le fait qu'il y a deux mouvements distincts là-dedans."
+  },
+  {
+   "v": "b",
+   "t": "C'est essentiel à comprendre. Le contenu ajouté a fait bouger la position, de douze à cinq. Le titre et la description ont fait bouger le taux de clic, de un virgule trois à quatre virgule huit. Ce sont deux leviers différents, sur deux métriques différentes. Si tu les confonds, tu ne sais jamais ce qui a marché."
+  },
+  {
+   "v": "a",
+   "t": "Ce qu'on fait lundi matin ?"
+  },
+  {
+   "v": "b",
+   "t": "Prends une page qui traîne en deuxième page. Ouvre les cinq premiers résultats de sa requête, note leurs titres de section, et compare avec ton plan. La liste des thèmes que tu n'as pas traités est ta liste de travail, et elle est généralement courte."
+  },
+  {
+   "v": "a",
+   "t": "Au module quatre, on passe au SEO technique et au netlinking. Merci Julien."
+  }
+ ]
+}

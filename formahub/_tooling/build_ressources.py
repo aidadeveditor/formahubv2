@@ -2,6 +2,54 @@
 # -*- coding: utf-8 -*-
 """Génère ressources-externes.html à partir de la liste complète."""
 import html as H
+import re
+import unicodedata
+from pathlib import Path
+
+# --- Colonne « Inscription » -------------------------------------------------
+# Identifiant stable par ligne : le suivi (statut + date) vit dans le
+# localStorage du navigateur, sous la clé formahub-inscriptions, et se
+# retrouve d'une régénération à l'autre tant que l'organisme et l'intitulé
+# ne changent pas.
+
+def ins_slug(*parts):
+    txt = " ".join(p for p in parts if p)
+    txt = unicodedata.normalize("NFKD", txt).encode("ascii", "ignore").decode("ascii")
+    return re.sub(r"[^A-Za-z0-9]+", "-", txt).strip("-").lower()[:70]
+
+
+_INS_SEEN = {}
+
+
+def ins_id(prefix, *parts):
+    base = prefix + "-" + ins_slug(*parts)
+    _INS_SEEN[base] = _INS_SEEN.get(base, 0) + 1
+    n = _INS_SEEN[base]
+    return base if n == 1 else "{}-{}".format(base, n)
+
+
+INS_CELL = (
+    '<td class="ins-cell" data-ins-id="{id}">'
+    '<select class="ins-status" aria-label="Statut d&#39;inscription">'
+    '<option value="todo">Pas encore</option>'
+    '<option value="inscrite">Inscrite</option>'
+    '<option value="terminee">Terminée</option>'
+    '</select>'
+    '<span class="ins-date-label" hidden>Inscrite le</span>'
+    '<input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription">'
+    '</td>')
+
+INS_FILTER = """    <div class="filter-group">
+      <span class="filter-group-label">Inscription</span>
+      <div class="filter-bar" id="filter-ins">
+        <button class="filter-btn active" data-ins="all">Toutes</button>
+        <button class="filter-btn" data-ins="inscrite">Inscrite</button>
+        <button class="filter-btn" data-ins="terminee">Terminée</button>
+        <button class="filter-btn" data-ins="todo">Pas encore</button>
+      </div>
+    </div>
+"""
+
 
 SOLDE = 1353.80
 PARTICIPATION = 150.0  # décret n° 2026-234 du 30 mars 2026 (publié le 1er avril),
@@ -227,6 +275,7 @@ for cat, short, items in CATS:
             lien = '<span class="rac-note">lien non vérifié</span>'
 
         note_html = (f'<br><span class="row-note">⚠️ {H.escape(note)}</span>') if note else ""
+        ins_td = INS_CELL.format(id=ins_id("fr", orga, titre))
 
         rows.append(f"""          <tr data-category="{short}" data-cpf="{cpf}" data-free="{'oui' if gratuit else 'non'}">
             <td><strong>{H.escape(titre)}</strong><br><span class="orga">{H.escape(orga)} — {H.escape(note_o)}</span>{note_html}</td>
@@ -235,6 +284,7 @@ for cat, short, items in CATS:
             <td>{badge}</td>
             <td>{rac}</td>
             <td>{lien}</td>
+            {ins_td}
           </tr>""")
 
 filters = "\n".join(
@@ -281,6 +331,7 @@ PAGE = f"""<!DOCTYPE html>
         <span class="badge badge-progress">Solde CPF de référence : 1 353,80 €</span>
         <span class="badge badge-success">{n_cpf} formations éligibles CPF</span>
         <span class="badge badge-neutral">{n_free} ressources gratuites</span>
+        <span class="badge badge-progress" id="ins-summary"></span>
       </div>
     </div>
 
@@ -289,6 +340,7 @@ PAGE = f"""<!DOCTYPE html>
       <p><strong>Reste à charge = coût de la formation − min(solde CPF ; plafond réglementaire applicable) + participation obligatoire.</strong></p>
       <p>Les plafonds 2026 retenus : <strong>1 500 €</strong> pour une certification du Répertoire spécifique hors CléA, <strong>1 600 €</strong> pour un bilan de compétences, <strong>900 €</strong> pour le permis B. Les titres RNCP, la VAE et CléA ne sont pas plafonnés.</p>
       <p>Quand un coût est annoncé sous forme de fourchette, le reste à charge affiché part du <em>tarif le plus bas</em> — considérez-le comme un plancher, pas comme un devis.</p>
+      <p><strong>La colonne « Inscription »</strong> suit où vous en êtes sur chaque ligne : « Pas encore », « Inscrite » — la date du jour se remplit alors toute seule et reste modifiable — puis « Terminée ». Le suivi est enregistré dans ce navigateur, comme la progression des modules, et se filtre avec les boutons ci-dessous.</p>
     </div>
 
     <div class="pitfall-box">
@@ -316,6 +368,7 @@ PAGE = f"""<!DOCTYPE html>
       </div>
     </div>
 
+{INS_FILTER}
     <p id="result-count"></p>
 
     <div class="table-responsive">
@@ -328,6 +381,7 @@ PAGE = f"""<!DOCTYPE html>
             <th>CPF</th>
             <th>Reste à charge estimé</th>
             <th>Lien</th>
+            <th>Inscription</th>
           </tr>
         </thead>
         <tbody>
@@ -350,7 +404,7 @@ PAGE = f"""<!DOCTYPE html>
   <script src="assets/js/progress.js"></script>
   <script>
     (function () {{
-      var theme = 'all', money = 'all';
+      var theme = 'all', money = 'all', ins = 'all';
       var rows = Array.prototype.slice.call(
         document.querySelectorAll('#ressources-table tbody tr'));
       var count = document.getElementById('result-count');
@@ -362,7 +416,8 @@ PAGE = f"""<!DOCTYPE html>
           var okMoney = (money === 'all')
             || (money === 'cpf' && row.dataset.cpf === 'oui')
             || (money === 'free' && row.dataset.free === 'oui');
-          var visible = okTheme && okMoney;
+          var okIns = (ins === 'all') || ((row.dataset.ins || 'todo') === ins);
+          var visible = okTheme && okMoney && okIns;
           row.style.display = visible ? '' : 'none';
           if (visible) shown++;
         }});
@@ -388,6 +443,9 @@ PAGE = f"""<!DOCTYPE html>
 
       wire('filter-theme', function (b) {{ theme = b.dataset.filter; }});
       wire('filter-money', function (b) {{ money = b.dataset.money; }});
+      wire('filter-ins', function (b) {{ ins = b.dataset.ins; }});
+
+      window.formahubApplyFilters = apply;
       apply();
     }})();
   </script>
@@ -395,5 +453,8 @@ PAGE = f"""<!DOCTYPE html>
 </html>
 """
 
-open("/tmp/ressources-externes.html", "w", encoding="utf-8").write(PAGE)
-print(f"{len(rows)} ressources | {n_cpf} CPF | {n_free} gratuites | {len(PAGE)} octets")
+# La page est écrite à côté des autres, quel que soit le dossier courant.
+OUT = Path(__file__).resolve().parent.parent / "ressources-externes.html"
+OUT.write_text(PAGE, encoding="utf-8")
+print(f"{len(rows)} ressources | {n_cpf} CPF | {n_free} gratuites | "
+      f"{len(PAGE)} octets → {OUT}")

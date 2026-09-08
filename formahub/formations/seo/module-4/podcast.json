@@ -1,0 +1,209 @@
+{
+ "module_id": "formation-seo-module-4",
+ "formation": "SEO Fondamentaux",
+ "titre": "SEO technique et netlinking",
+ "version": "1.0",
+ "duree_estimee": "9 min",
+ "mots": 1425,
+ "resume": "Codes HTTP, redirections, indexation, migrations et profil de liens : les décisions qui font perdre quarante pour cent du trafic en trois semaines.",
+ "hosts": {
+  "a": {
+   "nom": "Camille",
+   "role": "animatrice"
+  },
+  "b": {
+   "nom": "Julien",
+   "role": "consultant SEO"
+  }
+ },
+ "lignes": [
+  {
+   "v": "a",
+   "t": "Module quatre, et on attaque la partie qui fait peur : le SEO technique. Julien, la mise en situation, c'est une refonte réussie qui tourne mal."
+  },
+  {
+   "v": "b",
+   "t": "Trois semaines après la mise en ligne du nouveau site, le trafic organique a chuté de quarante-deux pour cent. Et le site est objectivement meilleur : design moderne, plus rapide, navigation repensée. L'agence dit que tout a été fait dans les règles et que ça va revenir."
+  },
+  {
+   "v": "a",
+   "t": "Ça ne revient pas tout seul, j'imagine."
+  },
+  {
+   "v": "b",
+   "t": "Jamais. Ce scénario est le plus coûteux du référencement et le plus évitable. Il se joue presque toujours sur trois ou quatre décisions techniques prises sans en mesurer la portée."
+  },
+  {
+   "v": "a",
+   "t": "Commençons par les codes de réponse. Trois cent un, trois cent deux : quelle différence ?"
+  },
+  {
+   "v": "b",
+   "t": "Trois cent un veut dire « cette page a déménagé pour de bon ». Trois cent deux veut dire « elle est ailleurs temporairement, je compte revenir ». La conséquence est concrète : le trois cent un transmet l'autorité accumulée par l'ancienne URL, le trois cent deux beaucoup moins, parce que le moteur garde l'ancienne en mémoire en attendant ton retour."
+  },
+  {
+   "v": "a",
+   "t": "Et dans le doute ?"
+  },
+  {
+   "v": "b",
+   "t": "Trois cent un. L'erreur classique, c'est le trois cent deux par défaut du serveur, que personne ne pense à changer parce que la redirection marche visuellement. L'utilisateur arrive au bon endroit, donc tout semble correct — et pendant ce temps l'autorité ne passe pas."
+  },
+  {
+   "v": "a",
+   "t": "Tu parles aussi de chaînes de redirection."
+  },
+  {
+   "v": "b",
+   "t": "Une URL qui redirige vers une deuxième, qui redirige vers une troisième. Ça arrive naturellement après plusieurs refontes successives. Chaque maillon coûte du temps de chargement et dilue le signal. La règle : on aplatit, la première URL doit pointer directement vers la destination finale."
+  },
+  {
+   "v": "a",
+   "t": "Passons à robots point txt. Il y a une confusion très répandue là-dessus."
+  },
+  {
+   "v": "b",
+   "t": "La plus coûteuse du module. Bloquer une page dans robots point txt n'est pas la désindexer. Tu interdis au robot de lire la page — donc il ne lira jamais la directive de retrait qui se trouve dedans. Résultat : la page peut rester dans l'index, parfois pendant des mois, affichée sans description."
+  },
+  {
+   "v": "a",
+   "t": "Alors comment on désindexe réellement ?"
+  },
+  {
+   "v": "b",
+   "t": "Dans l'ordre. Un : tu ouvres l'accès, tu enlèves le blocage. Deux : tu mets une balise noindex, follow sur la page. Trois : tu vérifies dans la Search Console que la page a bien disparu de l'index. Et quatre, seulement à ce moment-là, tu peux bloquer si tu veux économiser du crawl."
+  },
+  {
+   "v": "a",
+   "t": "Et la balise canonique ?"
+  },
+  {
+   "v": "b",
+   "t": "Elle sert à dire « la version de référence de cette page, c'est celle-ci ». Deux règles : elle est autoréférente par défaut, chaque page se désigne elle-même. Et elle ne pointe jamais vers un contenu différent. Sur une pagination, la page deux n'est pas une copie de la page un — mettre une canonique de la deux vers la une fait disparaître tout ce qu'elle contient."
+  },
+  {
+   "v": "a",
+   "t": "Il y a une erreur que tu appelles « la combinaison qui rend une page ingérable »."
+  },
+  {
+   "v": "b",
+   "t": "Cumuler des directives contradictoires. Un noindex plus une canonique vers une autre page plus un blocage robots. Chacune dit quelque chose de différent, le moteur en retient une, et tu ne sais plus laquelle. Une intention, un mécanisme. C'est tout."
+  },
+  {
+   "v": "a",
+   "t": "Les Core Web Vitals, maintenant. On en fait beaucoup de bruit."
+  },
+  {
+   "v": "b",
+   "t": "Trois indicateurs : le temps d'affichage du contenu principal, la réactivité aux interactions, et la stabilité visuelle. Le troisième est celui qu'on sous-estime : une bannière qui apparaît en cours de chargement et décale tout le contenu, c'est très pénalisant, et c'est très courant."
+  },
+  {
+   "v": "a",
+   "t": "Et le score de cent, il faut le viser ?"
+  },
+  {
+   "v": "b",
+   "t": "Presque jamais. Les Web Vitals fonctionnent par seuils : sortir du rouge compte, passer de quatre-vingt-cinq à cent ne se justifie que très rarement au regard du travail demandé. Et surtout, on pilote sur les données de terrain — celles de tes vrais visiteurs, avec leurs vrais téléphones — pas sur le score obtenu depuis ton poste en fibre."
+  },
+  {
+   "v": "a",
+   "t": "On arrive aux migrations. Tu as une méthode en huit étapes dans le module, mais donne-nous le principe."
+  },
+  {
+   "v": "b",
+   "t": "Tout tient à l'inventaire des URLs, fait avant la bascule. Tu exportes la liste complète des URLs existantes, avec leur trafic sur douze mois, et tu construis un tableau de correspondance ancienne URL vers nouvelle URL. Après la bascule, il faut le reconstituer à partir d'archives, et c'est un cauchemar."
+  },
+  {
+   "v": "a",
+   "t": "Et l'erreur de la redirection vers l'accueil ?"
+  },
+  {
+   "v": "b",
+   "t": "Rediriger en masse des pages vers la page d'accueil est traité comme un faux quatre cent quatre. Aucune autorité n'est transférée, et l'utilisateur qui cherchait une fiche précise atterrit sur une page d'accueil qui ne répond pas à sa question. C'est un des réflexes les plus destructeurs qui soient."
+  },
+  {
+   "v": "a",
+   "t": "Reprenons l'étude de cas, alors. La refonte qui coûte quarante-deux pour cent."
+  },
+  {
+   "v": "b",
+   "t": "Jour un, on écarte la panne globale. Le site répond bien, il n'est pas en noindex, le robots point txt est correct. La chute est donc sélective : c'est un problème d'URLs, pas d'accès."
+  },
+  {
+   "v": "a",
+   "t": "Ensuite ?"
+  },
+  {
+   "v": "b",
+   "t": "Le rapport d'indexation. Les pages indexées passent de mille deux cent quarante à huit cent quatre-vingt-dix. Et le rapport « introuvable » compte six cent dix URLs apparues en trois semaines. Le diagnostic se précise : des URLs ont changé sans redirection."
+  },
+  {
+   "v": "a",
+   "t": "Comment on quantifie ce qui a été perdu ?"
+  },
+  {
+   "v": "b",
+   "t": "On croise deux listes : l'export des pages qui généraient du trafic dans les douze mois précédant la refonte, et la liste des erreurs quatre cent quatre. Résultat : cent quatre-vingt-sept anciennes URLs qui recevaient du trafic organique n'ont aucune redirection. Elles représentaient quarante-six pour cent du trafic de la période — ce qui correspond à l'ordre de grandeur de la perte."
+  },
+  {
+   "v": "a",
+   "t": "Et il y avait deux causes secondaires."
+  },
+  {
+   "v": "b",
+   "t": "Sur les URLs effectivement redirigées, quarante pour cent le sont en trois cent deux au lieu de trois cent un, à cause du réglage par défaut du nouveau serveur. Et un tiers des redirections pointent vers la page d'accueil au lieu de l'équivalent réel. Les trois erreurs du module, réunies sur un seul projet."
+  },
+  {
+   "v": "a",
+   "t": "Le plan de correction ?"
+  },
+  {
+   "v": "b",
+   "t": "Reconstituer le tableau de correspondance pour les cent quatre-vingt-sept URLs, à partir de l'archive du site et des titres relevés dans la Search Console. Mettre les trois cent un vers les pages équivalentes, jamais vers l'accueil. Convertir tous les trois cent deux. Aplatir les chaînes créées par ces corrections successives. Régénérer et resoumettre le sitemap, et demander l'indexation des trente pages les plus stratégiques."
+  },
+  {
+   "v": "a",
+   "t": "Résultat ?"
+  },
+  {
+   "v": "b",
+   "t": "Environ quatre-vingts pour cent du trafic perdu récupéré en sept semaines. Les vingt pour cent restants correspondent à des pages dont l'équivalent n'existait plus : le contenu avait été supprimé, pas seulement déplacé. Aucune redirection ne répare ça."
+  },
+  {
+   "v": "a",
+   "t": "Passons au netlinking pour finir. On en revient à ce que tu disais au module un."
+  },
+  {
+   "v": "b",
+   "t": "L'autorité se reçoit. Le module donne six critères pour évaluer un lien : la thématique du site source, son autorité réelle, la position du lien dans la page, le texte de l'ancre, le caractère éditorial ou payant, et la stabilité dans le temps. Un lien en pied de page d'un annuaire ne vaut rien ; un lien dans le corps d'un article d'un média de ton secteur vaut beaucoup."
+  },
+  {
+   "v": "a",
+   "t": "Et il faut déclarer les liens payants ?"
+  },
+  {
+   "v": "b",
+   "t": "Oui, avec les attributs prévus pour ça — sponsorisé pour un lien payé, contenu utilisateur pour un forum ou un commentaire. Ne pas déclarer un lien payant, c'est prendre un risque pour un gain qui, de toute façon, ne dure pas."
+  },
+  {
+   "v": "a",
+   "t": "Qu'est-ce qui fonctionne durablement, alors ?"
+  },
+  {
+   "v": "b",
+   "t": "Produire quelque chose qu'on a envie de citer : une donnée que personne d'autre n'a, un test mené sérieusement, un outil utile. Ensuite seulement, on va le faire savoir. Et j'insiste : le netlinking arrive en phase quatre. Lancer une campagne de liens en phase un, c'est payer pour envoyer des gens sur une page qui les décevra."
+  },
+  {
+   "v": "a",
+   "t": "Ce qu'on fait lundi matin ?"
+  },
+  {
+   "v": "b",
+   "t": "Si une refonte est prévue chez toi dans les mois qui viennent, exporte dès maintenant la liste de tes URLs avec leur trafic sur douze mois, et range ce fichier quelque part de sûr. C'est dix minutes de travail qui peuvent sauver la moitié de ton trafic."
+  },
+  {
+   "v": "a",
+   "t": "Le module cinq clôt la formation avec la mesure de performance et le SEO à l'ère de l'IA. Merci Julien."
+  }
+ ]
+}

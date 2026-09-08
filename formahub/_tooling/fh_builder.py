@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Formahub — générateur de modules de formation complets (gabarit V5).
+"""Formahub — générateur de modules de formation complets (gabarit V7).
 Blocs supportés : mise en situation, sous-sections, méthode pas à pas,
 erreur fréquente, exemple, tableau, étude de cas, checklist,
 exercices gradués avec corrigés, glossaire, à retenir, ressources."""
@@ -20,6 +20,9 @@ PAGE = """<!DOCTYPE html>
   <meta name="color-scheme" content="light dark">
   <title>Formahub — {formation} : {titre}</title>
   <link rel="stylesheet" href="../../../assets/css/style.css">
+  <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../../favicon.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -112,6 +115,9 @@ PAGE = """<!DOCTYPE html>
 
   <script src="../../../assets/js/progress.js"></script>
   <script src="../../../assets/js/quiz-engine.js"></script>
+  <script src="../../../assets/js/sync.js"></script>
+  <script src="../../../assets/js/offline.js"></script>
+  <script src="../../../assets/js/audio.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {{
       loadQuiz('quiz.json', 'quiz-container');

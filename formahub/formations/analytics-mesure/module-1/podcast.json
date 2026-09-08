@@ -1,0 +1,225 @@
+{
+ "module_id": "formation-analytics-mesure-module-1",
+ "formation": "Analytics et mesure de la performance",
+ "titre": "Cadrer la mesure : du besoin de décision au plan de marquage",
+ "version": "1.0",
+ "duree_estimee": "8 min",
+ "mots": 1303,
+ "resume": "Avoir énormément de données et aucune réponse : pourquoi le test de la décision précède tout, et comment descendre d'une question métier jusqu'aux événements.",
+ "hosts": {
+  "a": {
+   "nom": "Camille",
+   "role": "animatrice"
+  },
+  "b": {
+   "nom": "Sofia",
+   "role": "responsable analytics"
+  }
+ },
+ "lignes": [
+  {
+   "v": "a",
+   "t": "Premier module de la formation Analytics. Sofia, la scène d'ouverture est une réunion budgétaire, et une question toute simple."
+  },
+  {
+   "v": "b",
+   "t": "« Nous avons dépensé cent quatre-vingt mille euros en acquisition l'an dernier. Qu'est-ce que cela a rapporté ? ». On ouvre l'outil d'analytics : quatre cent douze mille sessions, en hausse de dix-huit pour cent, un taux de rebond de cinquante-quatre pour cent, deux minutes quarante de durée moyenne, vingt-quatre sources de trafic."
+  },
+  {
+   "v": "a",
+   "t": "Et aucun de ces chiffres ne répond."
+  },
+  {
+   "v": "b",
+   "t": "Aucun. Ce n'est ni un problème d'outil ni un problème de compétence. L'outil enregistre consciencieusement ce qu'on lui a demandé d'enregistrer — c'est-à-dire ce qu'il propose par défaut. Personne n'a jamais écrit quelle décision cette mesure devait servir."
+  },
+  {
+   "v": "a",
+   "t": "Tu dis que c'est la cause première de l'inutilité de la plupart des dispositifs."
+  },
+  {
+   "v": "b",
+   "t": "Et elle est antérieure à toute question technique. Compter n'est pas mesurer. Un outil compte tout seul ; mesurer suppose d'avoir décidé à quoi ça sert."
+  },
+  {
+   "v": "a",
+   "t": "D'où le test de la décision. Explique-le."
+  },
+  {
+   "v": "b",
+   "t": "Pour chaque indicateur affiché, une question : si ce chiffre passait du simple au double, ou de moitié, qu'est-ce que je ferais différemment ? Si la réponse est « rien », l'indicateur est décoratif. On le retire."
+  },
+  {
+   "v": "a",
+   "t": "C'est brutal."
+  },
+  {
+   "v": "b",
+   "t": "C'est le seul filtre qui vaille. Et il y a une seule exception : deux ou trois indicateurs de cadrage, qu'on garde pour situer l'ordre de grandeur. Pas davantage, et ils ne se commentent pas en réunion."
+  },
+  {
+   "v": "a",
+   "t": "Une fois qu'on a gardé les bons, comment on les écrit ?"
+  },
+  {
+   "v": "b",
+   "t": "Un indicateur exploitable tient en une ligne et contient cinq éléments : la mesure, le segment, la période, la référence de comparaison, et le propriétaire. « Le taux de conversion » n'est pas un indicateur. « Coût par demande qualifiée, par canal, sur quatre-vingt-dix jours glissants, comparé au trimestre précédent, propriétaire le responsable acquisition » — ça, c'en est un."
+  },
+  {
+   "v": "a",
+   "t": "Pourquoi le propriétaire ?"
+  },
+  {
+   "v": "b",
+   "t": "Parce qu'un indicateur sans propriétaire n'est commenté par personne, et parce que la plupart des disputes de chiffres sont des disputes de définitions. C'est le document qui fait référence, pas l'outil. Quand deux personnes ne sont pas d'accord, on relit la ligne, pas l'écran."
+  },
+  {
+   "v": "a",
+   "t": "Tu as un avertissement sur les taux."
+  },
+  {
+   "v": "b",
+   "t": "N'affichez jamais un taux sans son numérateur. Un taux monte aussi quand le dénominateur baisse. Un taux de conversion qui progresse pendant que le trafic s'effondre est une mauvaise nouvelle présentée comme une bonne, et ça arrive tout le temps."
+  },
+  {
+   "v": "a",
+   "t": "Il y a une distinction entre indicateurs avancés et de résultat."
+  },
+  {
+   "v": "b",
+   "t": "L'indicateur de résultat, c'est le chiffre d'affaires, la demande signée — il arrive tard. L'indicateur avancé, c'est ce qui le précède : le nombre de devis envoyés, l'atteinte d'une page à valeur. Un dispositif sans indicateur avancé permet de constater, jamais de piloter, parce qu'au moment où le résultat bouge il est trop tard pour agir."
+  },
+  {
+   "v": "a",
+   "t": "Et il y a un piège sur les indicateurs avancés."
+  },
+  {
+   "v": "b",
+   "t": "Un indicateur avancé dont le lien avec le résultat n'a jamais été vérifié est une croyance, pas une mesure. On en hérite souvent : personne ne sait plus pourquoi on suit ce chiffre-là, et il est devenu vrai par habitude."
+  },
+  {
+   "v": "a",
+   "t": "Passons au plan de mesure. Comment on descend de la question aux événements ?"
+  },
+  {
+   "v": "b",
+   "t": "Toujours dans le même sens : question métier, décision, indicateur, données nécessaires, événements à collecter. Jamais l'inverse. Si vous partez des événements disponibles, vous reconstruisez le tableau de bord par défaut de l'outil, et vous avez fait un tour complet pour revenir au point de départ."
+  },
+  {
+   "v": "a",
+   "t": "Combien d'événements ?"
+  },
+  {
+   "v": "b",
+   "t": "Quinze à vingt-cinq. La contrainte de volume n'est pas une coquetterie : c'est ce qui garde le dispositif lisible dans deux ans, quand vous ne serez peut-être plus là. Tout marquer « au cas où » produit une centaine d'événements dont personne ne connaît la définition."
+  },
+  {
+   "v": "a",
+   "t": "Comment on distingue un événement d'une propriété ?"
+  },
+  {
+   "v": "b",
+   "t": "Ce qui varie est une propriété, pas un nom d'événement. Test très simple : si vous vous surprenez à additionner régulièrement plusieurs événements pour obtenir un chiffre, ils auraient dû n'en faire qu'un, avec une propriété qui les distingue."
+  },
+  {
+   "v": "a",
+   "t": "Et il y a une décision irréversible."
+  },
+  {
+   "v": "b",
+   "t": "Une propriété ne s'ajoute jamais rétroactivement. C'est la décision la moins réversible du dispositif : le jour où vous vous apercevez que l'événement ne porte pas la source, vous avez perdu tout l'historique. Cette anticipation vaut plus que n'importe quel raffinement technique."
+  },
+  {
+   "v": "a",
+   "t": "Et si on doit changer une définition ?"
+  },
+  {
+   "v": "b",
+   "t": "On ne redéfinit pas un événement. On en crée un nouveau, et on arrête l'ancien à une date connue, écrite dans un journal des modifications. Sinon vos courbes comparent deux choses différentes sans que rien ne le signale."
+  },
+  {
+   "v": "a",
+   "t": "Venons-en à ce qu'on n'aura jamais : le consentement, les bloqueurs."
+  },
+  {
+   "v": "b",
+   "t": "Une part des visiteurs refuse le suivi, une autre le bloque. Vous ne mesurez donc jamais la totalité. La règle qui en découle : les valeurs absolues sont fausses et le resteront ; les tendances et les comparaisons à collecte inchangée, elles, sont fiables — et elles suffisent à décider."
+  },
+  {
+   "v": "a",
+   "t": "Et le réflexe devant une chute brutale ?"
+  },
+  {
+   "v": "b",
+   "t": "On vérifie l'instrument avant d'interpréter le phénomène. Une chute de trafic de trente pour cent du jour au lendemain est presque toujours une balise cassée, pas un effondrement du marché. Le journal des modifications se consulte avant le tableau de bord."
+  },
+  {
+   "v": "a",
+   "t": "Reprenons l'étude de cas : les cent quatre-vingt mille euros."
+  },
+  {
+   "v": "b",
+   "t": "Étape une, et c'est la plus importante : reformuler la question en décision. On demande au directeur « selon la réponse, que ferez-vous ? ». Réponse : reconduire le budget global mais le redistribuer entre canaux."
+  },
+  {
+   "v": "a",
+   "t": "Et ça change tout."
+  },
+  {
+   "v": "b",
+   "t": "Complètement. La question n'est plus « les cent quatre-vingt mille euros ont-ils été rentables », qui appelle un chiffre unique et invérifiable, mais « quels canaux méritent quelle part ». C'est une comparaison. Et une comparaison est infiniment plus atteignable qu'une valeur absolue — c'est presque toujours le cas, d'ailleurs."
+  },
+  {
+   "v": "a",
+   "t": "Ensuite ?"
+  },
+  {
+   "v": "b",
+   "t": "On écrit l'indicateur, on descend aux événements, et le diagnostic tombe vite : l'événement de demande existe mais ne porte pas la source, et rien ne relie une demande du site à sa fiche dans le CRM. Deux manques, corrigeables, mais aucun rétroactif."
+  },
+  {
+   "v": "a",
+   "t": "Combien de temps pour corriger ?"
+  },
+  {
+   "v": "b",
+   "t": "Deux semaines, dont l'essentiel est la coordination avec l'équipe qui administre le CRM. C'est presque toujours la partie longue, et il vaut mieux la prévoir comme telle que la découvrir."
+  },
+  {
+   "v": "a",
+   "t": "Et la dernière étape ?"
+  },
+  {
+   "v": "b",
+   "t": "Assumer ce qu'on ne saura pas. Environ un tiers des demandes arriveront sans canal identifié, parce que ces visiteurs ont refusé le consentement. La tentation est de les répartir au prorata des autres."
+  },
+  {
+   "v": "a",
+   "t": "Et il ne faut pas."
+  },
+  {
+   "v": "b",
+   "t": "Une ligne « source inconnue » assumée vaut mieux qu'une répartition inventée. La fausse précision se paie au premier recoupement, et elle coûte la confiance dans tout le reste du tableau."
+  },
+  {
+   "v": "a",
+   "t": "Un mot pour finir sur les questions qui ne passent pas le test."
+  },
+  {
+   "v": "b",
+   "t": "Une question qui ne prépare aucune décision est de la curiosité. Mais elle cache souvent une bonne question, et ça vaut la peine de la chercher plutôt que de refermer la conversation. « Combien de visiteurs viennent d'Espagne ? » ne sert à rien ; « faut-il traduire le site ? » est la vraie question derrière."
+  },
+  {
+   "v": "a",
+   "t": "Ce qu'on fait demain ?"
+  },
+  {
+   "v": "b",
+   "t": "Ouvrez votre tableau de bord et passez chaque bloc au test de la décision. Notez ceux qui ne le passent pas. Vous en aurez retiré la moitié, et vous saurez enfin quoi construire à la place."
+  },
+  {
+   "v": "a",
+   "t": "Au module 2, on entre dans ce que les outils comptent réellement. Merci Sofia."
+  }
+ ]
+}

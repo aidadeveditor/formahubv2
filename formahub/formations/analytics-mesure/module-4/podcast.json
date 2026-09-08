@@ -1,0 +1,233 @@
+{
+ "module_id": "formation-analytics-mesure-module-4",
+ "formation": "Analytics et mesure de la performance",
+ "titre": "Restituer et décider : tableaux de bord, reporting et culture de la mesure",
+ "version": "1.0",
+ "duree_estimee": "9 min",
+ "mots": 1335,
+ "resume": "Une analyse juste qui ne change rien coûte exactement autant qu'une analyse fausse : comment restituer pour obtenir une décision.",
+ "hosts": {
+  "a": {
+   "nom": "Camille",
+   "role": "animatrice"
+  },
+  "b": {
+   "nom": "Sofia",
+   "role": "responsable analytics"
+  }
+ },
+ "lignes": [
+  {
+   "v": "a",
+   "t": "Dernier module. Sofia, l'analyse du module précédent était impeccable : la cause trouvée, la correction déployée, le taux revenu à son niveau. Et la réunion se passe mal."
+  },
+  {
+   "v": "b",
+   "t": "Elle s'attarde douze minutes sur une diapositive secondaire où le trafic d'un canal a baissé de quatre pour cent. Quelqu'un conteste un chiffre au motif que « le CRM ne dit pas la même chose ». Et on passe au point suivant sans qu'aucune décision ait été prise — pas même celle de suivre la conversion par appareil, qui était la recommandation."
+  },
+  {
+   "v": "a",
+   "t": "Le problème n'est ni l'analyse ni l'audience."
+  },
+  {
+   "v": "b",
+   "t": "Il est dans la restitution. Trop de chiffres présentés à parité, aucune hiérarchie, aucune décision formulée, et un ordre du jour qui n'a pas été conçu pour décider. Et le constat qui donne son ton au module : une analyse juste qui ne change rien coûte exactement autant qu'une analyse fausse."
+  },
+  {
+   "v": "a",
+   "t": "Commençons par les tableaux de bord. Tu en veux trois, pas un."
+  },
+  {
+   "v": "b",
+   "t": "Un tableau conçu pour tout le monde n'est lu par personne. Trois tableaux courts coûtent moins cher à faire vivre qu'un tableau de vingt blocs : l'opérationnel, lu chaque jour par ceux qui agissent ; le pilotage, lu chaque semaine ; et la direction, lu chaque mois, trois ou quatre chiffres."
+  },
+  {
+   "v": "a",
+   "t": "Une règle de composition ?"
+  },
+  {
+   "v": "b",
+   "t": "Six blocs au maximum. L'indicateur le plus actionnable en haut à gauche, parce que c'est là que va l'œil. Une comparaison sur chaque chiffre — un nombre seul ne dit rien. Et chaque bloc doit être cliquable vers les éléments concernés : un bloc non cliquable est une affiche, pas un outil de décision."
+  },
+  {
+   "v": "a",
+   "t": "Comment on le construit ?"
+  },
+  {
+   "v": "b",
+   "t": "Par soustraction. On observe un mois ce que les gens regardent réellement, et on retire le reste. C'est plus efficace que n'importe quel atelier de conception, parce que ça mesure l'usage au lieu de le supposer."
+  },
+  {
+   "v": "a",
+   "t": "Passons aux représentations. Il y a des choix qui trompent."
+  },
+  {
+   "v": "b",
+   "t": "Le temps se lit en courbe. Les catégories en barres horizontales triées — pas en secteurs, où l'œil compare mal des angles. Les parts d'un tout, rarement en camembert, et jamais au-delà de trois ou quatre parts."
+  },
+  {
+   "v": "a",
+   "t": "L'axe tronqué ?"
+  },
+  {
+   "v": "b",
+   "t": "Trompeur sur des barres, parce que la longueur de la barre est censée être proportionnelle à la valeur. Légitime sur une courbe si la graduation est visible, parce qu'on y lit une variation. La nuance compte."
+  },
+  {
+   "v": "a",
+   "t": "Et le nombre de séries ?"
+  },
+  {
+   "v": "b",
+   "t": "Trois au maximum par graphique. Au-delà, chacun y voit ce qu'il cherchait — et c'est exactement ce qui s'est passé pendant les douze minutes sur le canal à moins quatre pour cent. Règle générale : un graphique qui exige une explication orale est à refaire, parce qu'il circulera sans vous."
+  },
+  {
+   "v": "a",
+   "t": "Venons-en au commentaire d'analyse. Tu proposes quatre temps."
+  },
+  {
+   "v": "b",
+   "t": "Le constat, chiffré et segmenté. La cause, avec son degré de certitude. La décision proposée. Et le coût de l'inaction, chiffré."
+  },
+  {
+   "v": "a",
+   "t": "Pourquoi le degré de certitude ?"
+  },
+  {
+   "v": "b",
+   "t": "Parce qu'écrire « cause établie » ici et « hypothèse à vérifier » là rend crédibles les causes que vous présentez comme établies. Si tout est affirmé sur le même ton, on doute de tout. La gradation est ce qui donne du poids à l'affirmation."
+  },
+  {
+   "v": "a",
+   "t": "Et le coût de l'inaction ?"
+  },
+  {
+   "v": "b",
+   "t": "C'est l'élément le plus efficace d'une restitution. « Quarante demandes par mois tant que ce n'est pas tranché » déplace la conversation d'un débat sur les chiffres vers un arbitrage sur une dépense. C'est ce qui transforme un constat en décision."
+  },
+  {
+   "v": "a",
+   "t": "Un signe qu'un commentaire ne sert à rien ?"
+  },
+  {
+   "v": "b",
+   "t": "« Nous continuons à surveiller ». C'est le signe le plus fiable d'un commentaire purement descriptif : il décrit ce que le lecteur voit déjà et il n'engage rien."
+  },
+  {
+   "v": "a",
+   "t": "Reprenons l'étude de cas : on rejoue la réunion."
+  },
+  {
+   "v": "b",
+   "t": "Même analyse, même auditoire, même durée. Seule la restitution change. Ce qui avait échoué : onze diapositives à parité dont neuf décrivaient des chiffres stables, aucune décision formulée, un chiffre analytics cité sans avoir été rapproché du CRM, et le point le plus important en quatrième position — quand l'attention est déjà consommée."
+  },
+  {
+   "v": "a",
+   "t": "Première correction ?"
+  },
+  {
+   "v": "b",
+   "t": "Réduire à trois constats. Un seul mérite vraiment une décision : la conversion mobile. On y ajoute deux arbitrages réels. Les huit autres diapositives passent en annexe — ce qui suffit à les retirer de la conversation."
+  },
+  {
+   "v": "a",
+   "t": "C'est le point dur, non ? Retirer."
+  },
+  {
+   "v": "b",
+   "t": "Trois constats au maximum, et c'est une discipline difficile. Mais ce que vous n'écartez pas, la réunion l'écartera à votre place, et mal — elle gardera le plus anecdotique, parce que c'est celui sur lequel tout le monde peut avoir un avis."
+  },
+  {
+   "v": "a",
+   "t": "Deuxième correction ?"
+  },
+  {
+   "v": "b",
+   "t": "Écrire chaque constat en quatre temps. Pour le premier : constat chiffré et segmenté ; cause établie avec la date de déploiement ; décision — correctif fait, plus suivi par appareil ; coût de l'inaction — quarante demandes par mois, quatre-vingts déjà perdues. Sept lignes en tout."
+  },
+  {
+   "v": "a",
+   "t": "Et le débat sur la fiabilité ?"
+  },
+  {
+   "v": "b",
+   "t": "On le désamorce avant qu'il s'ouvre, avec une ligne de périmètre dans le document : « chiffres analytics, couverture d'environ soixante-douze pour cent stable depuis janvier ; l'écart avec le CRM est de trente-cinq pour cent, expliqué et suivi mensuellement »."
+  },
+  {
+   "v": "a",
+   "t": "Une phrase."
+  },
+  {
+   "v": "b",
+   "t": "Écrite une fois, elle retire à quiconque la possibilité d'utiliser l'écart comme objection. Et surtout, elle montre que la question a déjà été traitée. C'est le meilleur rapport effet-effort de tout le module."
+  },
+  {
+   "v": "a",
+   "t": "Les graphiques ont été refaits aussi."
+  },
+  {
+   "v": "b",
+   "t": "Les barres empilées de toutes les sources sont remplacées par une courbe à deux séries, mobile et ordinateur, avec un repère vertical daté au 8 avril. Le graphique à deux axes est supprimé au profit d'un tableau de quatre lignes. Aucune information n'est perdue, et la démonstration devient lisible en trois secondes."
+  },
+  {
+   "v": "a",
+   "t": "Et l'ouverture de la séance ?"
+  },
+  {
+   "v": "b",
+   "t": "Document envoyé vingt-quatre heures avant, annoncé comme considéré lu. Et la séance ne s'ouvre pas par le contexte, mais par : « je vous demande d'arbitrer trois choses ; la première coûte quarante demandes par mois tant qu'elle n'est pas tranchée »."
+  },
+  {
+   "v": "a",
+   "t": "Sur la conduite de la revue, tu as des règles."
+  },
+  {
+   "v": "b",
+   "t": "Une revue de performance décide, elle ne s'informe pas. Les chiffres s'envoient avant, la séance les suppose lus. Et un point sans relevé de décision écrit reviendra à l'identique le mois suivant — c'est mécanique, et c'est ce qui donne l'impression que les réunions tournent en rond."
+  },
+  {
+   "v": "a",
+   "t": "Parlons de la durée de vie du dispositif."
+  },
+  {
+   "v": "b",
+   "t": "Sans propriétaire nommé et sans temps identifié dans son agenda, un dispositif dérive en dix-huit mois, quels que soient les moyens investis au départ. Ce n'est pas une question de qualité initiale."
+  },
+  {
+   "v": "a",
+   "t": "Comment on l'entretient ?"
+  },
+  {
+   "v": "b",
+   "t": "Une revue semestrielle qui pose une seule question à chaque indicateur : qui s'apercevrait de sa suppression ? Elle retire couramment un tiers du dispositif. Et cet allègement est ce qui permet au reste de rester juste."
+  },
+  {
+   "v": "a",
+   "t": "Un signe de maturité ?"
+  },
+  {
+   "v": "b",
+   "t": "Qu'une décision visible ait été prise publiquement sur un chiffre du dispositif. Tant que ce n'est jamais arrivé, la mesure est un rituel. Le jour où quelqu'un annonce en comité « on arrête ça, les chiffres le disent », la culture a changé."
+  },
+  {
+   "v": "a",
+   "t": "Une limite d'usage, pour finir ?"
+  },
+  {
+   "v": "b",
+   "t": "Les indicateurs d'activité individuels ne se projettent jamais en réunion. Le suivi individualisé relève des ressources humaines et de la conformité, pas de l'analyste. Et un tableau de bord qui devient un instrument de surveillance perd immédiatement la coopération de ceux qui alimentent la donnée — c'est la loi de Goodhart appliquée aux gens."
+  },
+  {
+   "v": "a",
+   "t": "Ce qu'on fait demain ?"
+  },
+  {
+   "v": "b",
+   "t": "Reprenez votre dernier rapport et comptez les constats. Si vous en avez plus de trois, choisissez-en trois et mettez le reste en annexe. Puis ajoutez à chacun une ligne : ce que ça coûte de ne rien décider."
+  },
+  {
+   "v": "a",
+   "t": "Quatre modules, du plan de mesure au comité de direction. Merci Sofia."
+  }
+ ]
+}

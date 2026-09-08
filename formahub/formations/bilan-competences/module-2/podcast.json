@@ -1,0 +1,225 @@
+{
+ "module_id": "formation-bilan-competences-module-2",
+ "formation": "Bilan de compétences et repositionnement",
+ "titre": "Cibler : explorer un marché et tester ses hypothèses",
+ "version": "1.0",
+ "duree_estimee": "9 min",
+ "mots": 1426,
+ "resume": "Quarante candidatures sans réponse n'apprennent rien. Comment comprendre un marché avant de s'y présenter, par l'entretien exploratoire.",
+ "hosts": {
+  "a": {
+   "nom": "Camille",
+   "role": "animatrice"
+  },
+  "b": {
+   "nom": "Marc",
+   "role": "consultant en évolution professionnelle"
+  }
+ },
+ "lignes": [
+  {
+   "v": "a",
+   "t": "Module 2, et la situation de départ est déprimante : quarante candidatures, deux refus automatiques, trente-huit silences, aucun entretien. La conclusion qui s'impose, c'est que le marché est fermé."
+  },
+  {
+   "v": "b",
+   "t": "Et cette conclusion est presque certainement fausse. Elle repose sur une erreur de méthode, pas sur une réalité du marché. La personne a candidaté avant d'avoir compris. Elle ne sait pas comment ces postes sont réellement pourvus, ni ce que recouvrent leurs intitulés, ni pourquoi son profil est écarté."
+  },
+  {
+   "v": "a",
+   "t": "Le silence ne dit rien."
+  },
+  {
+   "v": "b",
+   "t": "C'est le point de départ du module. Un désaccord de vocabulaire et une incompétence réelle produisent exactement le même silence. Quarante candidatures sans réponse n'apprennent rien du tout — c'est un signal sans contenu. Et pendant qu'on les envoie, on croit travailler."
+  },
+  {
+   "v": "a",
+   "t": "Ta recommandation est radicale : arrêter de candidater."
+  },
+  {
+   "v": "b",
+   "t": "Quatre semaines sans aucune candidature. Ce temps sert à comprendre le marché. C'est l'étape que presque tout le monde saute parce qu'elle ne produit rien de visible, et c'est elle qui détermine l'essentiel de ce qui suit."
+  },
+  {
+   "v": "a",
+   "t": "Commençons par la cible. Qu'est-ce qui distingue une hypothèse d'une cible ?"
+  },
+  {
+   "v": "b",
+   "t": "« La formation » n'est pas une cible, c'est un mot. Une cible comporte quatre éléments : un poste, un type d'organisation, une zone géographique et un niveau. « Formateur interne, en entreprise de plus de deux cents salariés, à moins de quarante minutes de chez moi, sur des fonctions terrain » — ça, c'est testable. On peut aller vérifier si ça existe et comment on y entre."
+  },
+  {
+   "v": "a",
+   "t": "Et le premier obstacle, c'est le vocabulaire."
+  },
+  {
+   "v": "b",
+   "t": "Vous ne connaissez pas les intitulés du secteur que vous visez. C'est mécanique : chaque métier a ses mots. Dans l'étude de cas, la personne cherchait « formation en entreprise ». En observant dix parcours réels, elle a trouvé six intitulés différents pour la même chose, dont un seul était utilisé dans ses recherches."
+  },
+  {
+   "v": "a",
+   "t": "Et le résultat quand elle a relancé la recherche ?"
+  },
+  {
+   "v": "b",
+   "t": "Vingt-trois offres sur quatre semaines glissantes, contre quatre trouvées jusque-là. Le marché n'était pas fermé, il était invisible. Cette découverte a pris trois heures, et elle explique à elle seule une bonne partie des trois semaines précédentes."
+  },
+  {
+   "v": "a",
+   "t": "Tu recommandes d'observer des parcours plutôt que de réfléchir."
+  },
+  {
+   "v": "b",
+   "t": "Dix parcours réels de gens qui occupent le poste visé. Ça donne deux choses : le vocabulaire, et les chemins effectivement empruntés. Deuxième enseignement dans le cas : sur dix formateurs internes observés, huit venaient du métier opérationnel qu'ils formaient, et aucun n'avait de diplôme de formateur. Le profil de la personne n'était donc pas un handicap — c'était le profil standard."
+  },
+  {
+   "v": "a",
+   "t": "Et si personne ne vient d'un profil comparable ?"
+  },
+  {
+   "v": "b",
+   "t": "Ce n'est pas impossible, mais ce sera long, et il faut le savoir avant de s'engager. À l'inverse, si les origines sont variées, le métier est ouvert. Cette seule observation vaut des semaines d'hésitation."
+  },
+  {
+   "v": "a",
+   "t": "On arrive à l'outil central du module : l'entretien exploratoire."
+  },
+  {
+   "v": "b",
+   "t": "C'est l'outil au meilleur rendement de tout le repositionnement, et presque personne ne l'emploie. Trente minutes avec quelqu'un qui fait le métier, pour lui demander des faits. Pas un avis sur votre projet — des faits."
+  },
+  {
+   "v": "a",
+   "t": "Quels faits ?"
+  },
+  {
+   "v": "b",
+   "t": "À quoi ressemble une semaine ordinaire. Qu'est-ce qui est difficile dans ce travail, et que les gens de l'extérieur n'imaginent pas. Comment vous avez été recruté, vous. Qu'est-ce qui fait qu'on tient dans ce poste, et qu'est-ce qui fait qu'on part."
+  },
+  {
+   "v": "a",
+   "t": "Pourquoi surtout pas demander un avis sur son projet ?"
+  },
+  {
+   "v": "b",
+   "t": "Parce que les gens sont polis. Ils vous diront que c'est intéressant, et vous n'aurez rien appris. Un fait, lui, ne cherche pas à vous ménager."
+  },
+  {
+   "v": "a",
+   "t": "Comment on obtient ces rendez-vous ? C'est là que la plupart des gens bloquent."
+  },
+  {
+   "v": "b",
+   "t": "Un message de quatre lignes, pas plus. Qui vous êtes en une phrase. Ce que vous cherchez à comprendre, précisément. La durée annoncée — vingt à trente minutes. Et une phrase qui change tout : « je ne cherche pas de poste chez vous ». Pas de CV joint, surtout."
+  },
+  {
+   "v": "a",
+   "t": "Ça fonctionne à quel taux ?"
+  },
+  {
+   "v": "b",
+   "t": "Entre trente et cinquante pour cent d'acceptation pour une demande claire et non intéressée. Dans l'étude de cas : douze messages, cinq réponses positives, une négative, six sans réponse. Quarante-deux pour cent. Et un détail très parlant — les trois premiers messages, envoyés avant d'avoir intégré le format, étaient plus longs et mentionnaient une recherche d'emploi. Aucun n'a reçu de réponse. Les neuf suivants, au bon format, en ont produit cinq."
+  },
+  {
+   "v": "a",
+   "t": "Donc le format n'est pas un détail de style."
+  },
+  {
+   "v": "b",
+   "t": "Il porte tout. Dès que la personne en face sent une candidature déguisée, elle passe en mode filtrage et la conversation est perdue. D'où la deuxième règle absolue : ne transformez jamais un entretien exploratoire en candidature, même si l'occasion se présente. Vous perdez la conversation et l'accès au réseau derrière."
+  },
+  {
+   "v": "a",
+   "t": "Et la question de fin ?"
+  },
+  {
+   "v": "b",
+   "t": "« Qui d'autre me conseilleriez-vous de rencontrer ? ». C'est ce qui rend la série possible. Dans le cas, quinze entretiens : cinq issus des messages initiaux, dix obtenus par cette question. À partir du sixième, il n'a plus été nécessaire de solliciter des inconnus."
+  },
+  {
+   "v": "a",
+   "t": "Qu'est-ce que ces quinze entretiens ont appris, en premier ?"
+  },
+  {
+   "v": "b",
+   "t": "Le canal réel de recrutement. Sur quinze personnes, onze avaient obtenu leur poste en interne ou par recommandation. Les postes ouverts à l'externe correspondaient à des entreprises en croissance ou en réorganisation. Cette information a réorienté toute la stratégie : l'effort devait porter sur la visibilité et le réseau, pas sur le volume de candidatures."
+  },
+  {
+   "v": "a",
+   "t": "C'est exactement l'inverse de ce qu'elle faisait."
+  },
+  {
+   "v": "b",
+   "t": "Et c'est très courant. Concentrer son effort sur les annonces dans un métier qui recrute par réseau est une erreur d'allocation, pas un manque de travail. La personne travaillait beaucoup, dans la mauvaise direction."
+  },
+  {
+   "v": "a",
+   "t": "Parlons de la lecture des offres. Tu dis qu'une exigence n'est pas éliminatoire."
+  },
+  {
+   "v": "b",
+   "t": "Les offres décrivent un candidat idéal, les recrutements se font sur des candidats réels. Autre signal utile : une offre republiée trois fois signale un poste difficile à pourvoir. C'est précisément là qu'il faut se présenter quand on ne coche pas toutes les cases."
+  },
+  {
+   "v": "a",
+   "t": "Et la rémunération ?"
+  },
+  {
+   "v": "b",
+   "t": "Connaissez la fourchette avant d'être en situation de négocier. C'est une question qu'on peut poser en entretien exploratoire, justement parce qu'on n'est pas candidat."
+  },
+  {
+   "v": "a",
+   "t": "Reste l'écart entre le profil et la cible. Comment on le traite ?"
+  },
+  {
+   "v": "b",
+   "t": "D'abord on le qualifie, et c'est le point où les gens se trompent le plus. Il existe trois écarts. L'écart de vocabulaire : vous savez faire, vous ne le dites pas dans leurs mots. L'écart de preuve : vous savez faire, vous ne pouvez pas le montrer. L'écart de compétence : vous ne savez pas faire. Les trois appellent des réponses opposées."
+  },
+  {
+   "v": "a",
+   "t": "Dans quel ordre ?"
+  },
+  {
+   "v": "b",
+   "t": "Le vocabulaire d'abord, il se traite en une semaine. La preuve ensuite. La formation en dernier, et seulement après vérification auprès de deux professionnels du métier. Une formation dont vous ne pouvez pas nommer le poste visé et l'écart comblé ne comble rien."
+  },
+  {
+   "v": "a",
+   "t": "Comment on comble un écart de preuve rapidement ?"
+  },
+  {
+   "v": "b",
+   "t": "En cherchant la plus petite démonstration possible. Une demi-journée d'intervention vaut mieux qu'un projet de six mois jamais engagé. Dans le cas, une seule intervention réalisée a suffi à transformer la candidature."
+  },
+  {
+   "v": "a",
+   "t": "Et pour finir, l'arbitrage entre les pistes."
+  },
+  {
+   "v": "b",
+   "t": "Deux pistes hiérarchisées, soixante-dix et trente pour cent de l'effort, et le critère de bascule écrit à l'avance. Écrit avant, parce qu'après on le tord. Et le signal d'arrêt de l'exploration : quand trois entretiens consécutifs ne vous apprennent plus rien, elle a produit ce qu'elle pouvait. Décidez."
+  },
+  {
+   "v": "a",
+   "t": "Tu ajoutes un mot sur la durée."
+  },
+  {
+   "v": "b",
+   "t": "L'usure est le premier facteur d'échec d'une recherche longue. Maintenez des activités sans rapport, et comptez les entretiens exploratoires comme des résultats — parce que c'en sont. Attendre la certitude est une façon de ne jamais commencer."
+  },
+  {
+   "v": "a",
+   "t": "Ce qu'on fait demain ?"
+  },
+  {
+   "v": "b",
+   "t": "Ouvrez les profils de dix personnes qui occupent le poste que vous visez, et notez uniquement les intitulés exacts de leurs postes. Trois heures maximum. Relancez ensuite votre recherche d'offres sur ces intitulés-là — c'est souvent la découverte la plus rentable du parcours."
+  },
+  {
+   "v": "a",
+   "t": "Au module 3, on convertit : CV, réseau, entretien. Merci Marc."
+  }
+ ]
+}

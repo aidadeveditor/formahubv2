@@ -1,0 +1,193 @@
+{
+ "module_id": "formation-seo-module-1",
+ "formation": "SEO Fondamentaux",
+ "titre": "Introduction au SEO et les 3 piliers",
+ "version": "1.0",
+ "duree_estimee": "10 min",
+ "mots": 1613,
+ "resume": "Pourquoi un site ne « remonte pas », comment un moteur travaille vraiment, et comment savoir lequel des trois piliers vous bloque avant de dépenser un euro.",
+ "hosts": {
+  "a": {
+   "nom": "Camille",
+   "role": "animatrice"
+  },
+  "b": {
+   "nom": "Julien",
+   "role": "consultant SEO"
+  }
+ },
+ "lignes": [
+  {
+   "v": "a",
+   "t": "Bienvenue dans le podcast Formahub. Aujourd'hui, le premier module de la formation SEO. Julien, je te lis la phrase qui ouvre ce module, parce qu'elle est terriblement banale : « Notre site ne remonte nulle part sur Google. On a pourtant payé une agence quinze mille euros l'an dernier. » Tu l'entends souvent, celle-là ?"
+  },
+  {
+   "v": "b",
+   "t": "Chaque semaine, à peu près mot pour mot. Et elle contient déjà trois pièges. Un délai irréaliste, parce qu'on veut des résultats avant la fin du trimestre. Un budget dépensé sans traçabilité, donc impossible à auditer. Et surtout, aucune définition de ce que « remonter » veut dire. Tant qu'on n'a pas répondu à « remonter sur quoi ? », on ne peut rien faire d'utile."
+  },
+  {
+   "v": "a",
+   "t": "Commençons par là, alors. Qu'est-ce qu'on répond quand le directeur commercial dit « sur logiciel de gestion » ?"
+  },
+  {
+   "v": "b",
+   "t": "On va regarder ensemble le top dix de cette requête. Dans le cas du module, il est occupé par des acteurs qui ont plusieurs milliers de liens entrants et quinze ans d'antériorité. Ce n'est pas une question de motivation, c'est une question d'ordre de grandeur. Donc on reformule avec lui, et on vise ce que tapent vraiment les prospects qualifiés : logiciel de gestion pour PME du bâtiment, par exemple."
+  },
+  {
+   "v": "a",
+   "t": "Tu es en train de dire que la partie la plus utile de la mission, c'est de faire changer d'avis le client sur son objectif."
+  },
+  {
+   "v": "b",
+   "t": "Exactement. Et c'est vrai bien au-delà du SEO. Un objectif inatteignable rend tout le reste du travail invérifiable."
+  },
+  {
+   "v": "a",
+   "t": "Avant d'entrer dans le diagnostic, il y a une chose que le module explique et que je voudrais qu'on clarifie : la différence entre le SEO et le SEA. On les oppose souvent comme deux options concurrentes."
+  },
+  {
+   "v": "b",
+   "t": "La bonne image, c'est louer contre construire. Le SEA, la publicité, c'est de la location : tu paies, tu es visible immédiatement, tu arrêtes de payer, tu disparais le jour même. Le SEO, c'est de la construction : c'est lent, c'est incertain les premiers mois, et ça continue de produire quand tu arrêtes d'investir."
+  },
+  {
+   "v": "a",
+   "t": "Donc il faut choisir ?"
+  },
+  {
+   "v": "b",
+   "t": "Non, il faut séquencer. On ouvre en SEA pour tenir le calendrier commercial, on construit le SEO en parallèle, et on décroît le SEA position par position, à mesure que l'organique prend le relais. Jamais d'un coup. L'erreur classique, c'est de couper la publicité le jour où on lance le SEO, et de se retrouver avec un trou de six mois."
+  },
+  {
+   "v": "a",
+   "t": "Passons au cœur du module : comment fonctionne réellement un moteur. Tu insistes beaucoup sur le fait qu'il y a trois étapes distinctes."
+  },
+  {
+   "v": "b",
+   "t": "Trois étapes, et les confondre produit des diagnostics faux et des budgets gaspillés. Explorer, c'est le robot qui vient lire la page. Indexer, c'est le moteur qui décide de la garder dans sa bibliothèque. Classer, c'est le fait de la sortir en réponse à une requête donnée. Une page peut être explorée sans être indexée. Une page indexée peut n'être classée sur rien."
+  },
+  {
+   "v": "a",
+   "t": "Et c'est là que beaucoup de gens perdent du temps."
+  },
+  {
+   "v": "b",
+   "t": "Ils optimisent une page qui n'est pas indexée. C'est-à-dire qu'ils réécrivent le titre, ils travaillent le maillage, ils ajoutent du contenu, sur une page que le moteur n'a même pas retenue. C'est l'erreur la plus coûteuse en heures de travail, et elle est invisible tant qu'on ne regarde pas le rapport d'indexation."
+  },
+  {
+   "v": "a",
+   "t": "Alors donne-nous l'arbre de diagnostic. Le module dit que c'est la compétence la plus rentable de tout ce chapitre."
+  },
+  {
+   "v": "b",
+   "t": "Quatre questions, dans l'ordre, et on ne passe jamais à la suivante avant d'avoir répondu à la précédente. Un : la page est-elle explorée ? Deux : est-elle indexée ? Trois : est-elle présente sur la requête visée ? Quatre : à quelle position, et avec quel taux de clic ?"
+  },
+  {
+   "v": "a",
+   "t": "Et selon l'endroit où ça bloque, on ne fait pas du tout la même chose."
+  },
+  {
+   "v": "b",
+   "t": "Rien à voir. Si ce n'est pas exploré, c'est un problème d'accès, souvent technique. Si c'est exploré mais pas indexé, c'est généralement un problème de qualité ou de rendu. Si c'est indexé mais absent de la requête, c'est un problème de ciblage. Et si tu es dans le top cinq avec un taux de clic faible, ton problème n'est pas le classement du tout, c'est le titre et la description que les gens voient."
+  },
+  {
+   "v": "a",
+   "t": "Tu as mentionné le rendu. C'est le piège du JavaScript, dont parle le module."
+  },
+  {
+   "v": "b",
+   "t": "Le réflexe à prendre est simple : affiche le code source brut de ta page et cherche une phrase de ton article dedans. Si elle n'y est pas, ton contenu n'existe qu'après exécution du JavaScript. Le moteur finit souvent par le voir, mais plus tard, moins bien, et parfois pas du tout. C'est un retardateur d'indexation qui coûte très cher sur un site à fort volume."
+  },
+  {
+   "v": "a",
+   "t": "Venons-en aux trois piliers. Technique, contenu, popularité. Tu as une formule que j'aime bien sur la technique."
+  },
+  {
+   "v": "b",
+   "t": "La technique, c'est le plancher, pas le plafond. Elle n'a jamais fait monter personne. Elle empêche de monter. Donc on la traite jusqu'à ce qu'elle ne bloque plus, et on passe au contenu. Le perfectionnisme technique est un piège confortable : c'est mesurable, c'est satisfaisant, et ça peut occuper un an sans produire un clic supplémentaire."
+  },
+  {
+   "v": "a",
+   "t": "Le contenu, deuxième pilier."
+  },
+  {
+   "v": "b",
+   "t": "Là, le changement de paradigme est ancien mais mal digéré. On n'écrit plus pour placer un mot-clé un certain nombre de fois. On écrit pour répondre à une intention, mieux que ce qui est déjà en ligne. La question à se poser devant une page, c'est : qu'est-ce que celle-ci apporte que les dix premiers résultats n'apportent pas ?"
+  },
+  {
+   "v": "a",
+   "t": "Et la popularité, le netlinking."
+  },
+  {
+   "v": "b",
+   "t": "L'autorité se reçoit, elle ne s'achète pas — en tout cas pas durablement. Le principe est celui du vote : un lien depuis un site reconnu de ton secteur vaut infiniment plus que trente liens d'annuaires. Et surtout, le netlinking arrive en phase quatre, jamais en phase un. Acheter des liens vers un contenu qui ne mérite pas d'être cité, c'est financer la visibilité d'une page qui décevra."
+  },
+  {
+   "v": "a",
+   "t": "On arrive à l'étude de cas, et j'aime beaucoup son dénouement. Reprends-nous le diagnostic de cette PME, en quinze jours."
+  },
+  {
+   "v": "b",
+   "t": "Jours un et deux : on recadre l'objectif, comme on vient de le dire. Jours trois à cinq : on applique l'arbre. La Search Console annonce trois cent quarante URLs connues, quatre-vingt-neuf indexées seulement. Le statut dominant sur le blog, c'est « explorée, actuellement non indexée ». Et le test du HTML brut confirme que les articles dépendent du JavaScript."
+  },
+  {
+   "v": "a",
+   "t": "Donc deux causes."
+  },
+  {
+   "v": "b",
+   "t": "Un problème de rendu qui retarde l'indexation, et une qualité éditoriale insuffisante : des articles de trois cents mots produits en série. Jours six à neuf, on qualifie les trois piliers. Technique : bloquant, deux cent cinquante et une pages non indexées. Contenu : faible, aucun ciblage documenté. Popularité : correcte, l'agence a obtenu une trentaine de liens honnêtes."
+  },
+  {
+   "v": "a",
+   "t": "Et là, la phrase qui fait mal."
+  },
+  {
+   "v": "b",
+   "t": "Les quinze mille euros ont été investis sur le seul pilier qui n'était pas le problème. Ce n'est pas de la malhonnêteté, la plupart du temps. C'est qu'on a vendu ce qu'on savait faire, sans poser les quatre questions."
+  },
+  {
+   "v": "a",
+   "t": "Et la feuille de route qu'on restitue ?"
+  },
+  {
+   "v": "b",
+   "t": "Quatre phases, dans cet ordre. Corriger le rendu et obtenir l'indexation des pages stratégiques. Construire le ciblage sur des requêtes réellement accessibles. Réécrire en profondeur une quinzaine de pages plutôt que d'en produire cinquante nouvelles. Et seulement ensuite, faire pointer les liens déjà obtenus vers les pages retravaillées."
+  },
+  {
+   "v": "a",
+   "t": "Parlons calendrier, parce que c'est ce qu'on te demandera toujours. Qu'est-ce qu'on promet, et à quelle échéance ?"
+  },
+  {
+   "v": "b",
+   "t": "L'indexation se joue en semaines. Les premiers mouvements de position, entre un et trois mois. Les effets significatifs sur le trafic, entre quatre et six mois. La maturité, au-delà de douze. Annoncer autre chose, c'est condamner un projet sain à être jugé comme un échec au mois deux."
+  },
+  {
+   "v": "a",
+   "t": "Dernier point avant de conclure : tu dis dans le module qu'être premier ne veut plus rien dire."
+  },
+  {
+   "v": "b",
+   "t": "Regarde une page de résultats aujourd'hui. Il y a des annonces en haut, un résumé généré par l'IA, un bloc de questions connexes, parfois une carte, des vidéos. Être premier des résultats naturels peut te placer très bas dans l'écran. Le bon raisonnement, c'est la part de visibilité : quelle surface tu occupes réellement sur l'écran de quelqu'un qui tape ta requête."
+  },
+  {
+   "v": "a",
+   "t": "Si on doit retenir trois choses de ce module ?"
+  },
+  {
+   "v": "b",
+   "t": "Un : on ne fait rien avant d'avoir répondu à « remonter sur quoi ». Deux : les quatre questions de l'arbre de diagnostic, dans l'ordre, sur toute page qui pose problème. Trois : la technique empêche de monter, le contenu fait monter, et l'autorité se reçoit après."
+  },
+  {
+   "v": "a",
+   "t": "Et concrètement, lundi matin ?"
+  },
+  {
+   "v": "b",
+   "t": "Ouvre la Search Console de ton site, va dans le rapport d'indexation, et compare le nombre de pages connues au nombre de pages indexées. Si l'écart est important, tu viens de trouver ton chantier numéro un, et il n'a rien à voir avec l'écriture."
+  },
+  {
+   "v": "a",
+   "t": "Le module deux enchaîne sur la recherche de mots-clés, c'est-à-dire précisément le « remonter sur quoi ». Merci Julien, et bonne écoute pour la suite."
+  }
+ ]
+}

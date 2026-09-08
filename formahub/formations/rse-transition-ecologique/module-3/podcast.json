@@ -1,0 +1,233 @@
+{
+ "module_id": "formation-rse-transition-ecologique-module-3",
+ "formation": "RSE et transition écologique en entreprise",
+ "titre": "Double matérialité et plan d'action : prioriser, chiffrer, embarquer",
+ "version": "1.0",
+ "duree_estimee": "9 min",
+ "mots": 1395,
+ "resume": "Comment passer d'un bilan à un plan qui soit réellement exécuté : un seuil assumé, quatre leviers, le coût de la tonne évitée et un porteur nommé.",
+ "hosts": {
+  "a": {
+   "nom": "Camille",
+   "role": "animatrice"
+  },
+  "b": {
+   "nom": "Inès",
+   "role": "consultante RSE"
+  }
+ },
+ "lignes": [
+  {
+   "v": "a",
+   "t": "Module 3. Le bilan est fait : quatre mille sept cents tonnes, dont soixante-deux pour cent sur les achats. La direction demande un plan pour le comité de janvier, dans dix semaines."
+  },
+  {
+   "v": "b",
+   "t": "Et deux écueils symétriques attendent. Le premier : produire une liste de quarante actions sans hiérarchie, où le remplacement des gobelets figure à côté de la refonte d'une famille d'achats. Ce document sera approuvé sans discussion — parce qu'on n'arbitre pas une liste de quarante lignes — et rien n'en sortira."
+  },
+  {
+   "v": "a",
+   "t": "Et le second ?"
+  },
+  {
+   "v": "b",
+   "t": "Retenir trois actions visibles et faciles, dont l'effet cumulé fera deux pour cent de l'empreinte, et se retrouver dans deux ans à devoir expliquer pourquoi rien n'a bougé."
+  },
+  {
+   "v": "a",
+   "t": "Il y a aussi une difficulté que le bilan n'a pas vue."
+  },
+  {
+   "v": "b",
+   "t": "Le comité social et économique a remonté deux sujets : les conditions de travail des équipes de nuit à l'entrepôt, et l'absence de perspectives pour les postes les moins qualifiés. Ces sujets n'émettent pas une tonne de CO2. Ils comptent pourtant, ils relèvent bien de la RSE, et aucun bilan carbone ne les fera jamais apparaître."
+  },
+  {
+   "v": "a",
+   "t": "C'est l'effet pervers de la qualité du carbone."
+  },
+  {
+   "v": "b",
+   "t": "Ce qui ne se mesure pas en tonnes disparaît du champ de vision. D'où la consigne : établissez la liste d'enjeux avant de regarder les chiffres, sinon le plan sera amputé de sa moitié sociale."
+  },
+  {
+   "v": "a",
+   "t": "D'où la double matérialité. Mais si on n'est pas soumis au reporting, à quoi sert-elle ?"
+  },
+  {
+   "v": "b",
+   "t": "C'est d'abord une méthode pour décider ce sur quoi on travaille. Elle est utile même sans aucune obligation. La règle est simple : un enjeu est matériel s'il l'est en impact ou en financier — l'un ou l'autre suffit. Ce « ou » empêche d'écarter un impact réel au motif qu'il ne coûte rien à l'entreprise."
+  },
+  {
+   "v": "a",
+   "t": "Comment on la conduit sans y passer six mois ?"
+  },
+  {
+   "v": "b",
+   "t": "Six semaines. On reprend les thèmes des standards européens et on les reformule pour l'entreprise — une vingtaine d'enjeux. On consulte. On cote en réunion, deux heures. Et on tranche."
+  },
+  {
+   "v": "a",
+   "t": "La consultation, on est tenté de la sauter."
+  },
+  {
+   "v": "b",
+   "t": "Elle coûte une heure et elle apporte l'information que vous n'avez pas. Dans le cas : neuf entretiens de vingt minutes. Ne la supprimez jamais du calendrier — c'est toujours la première variable d'ajustement, et c'est toujours une erreur."
+  },
+  {
+   "v": "a",
+   "t": "Et la cotation ?"
+  },
+  {
+   "v": "b",
+   "t": "Deux règles qui évitent la matrice qui ne décide rien. Fixez le nombre d'enjeux retenus avant de coter, et laissez la cotation déterminer lesquels — sinon on ajuste le seuil pour garder tout le monde content. Et prenez une échelle à quatre niveaux : une échelle à dix rend les arbitrages impossibles, tout finit à six ou sept."
+  },
+  {
+   "v": "a",
+   "t": "Écarter, c'est un livrable ?"
+  },
+  {
+   "v": "b",
+   "t": "C'est le livrable. Une analyse qui conclut que tout est important n'a rien décidé. Dans le cas : vingt-six enjeux au départ, dix retenus, seize écartés — chacun avec sa phrase de justification, ce qui permet de le rouvrir plus tard sans repartir de zéro."
+  },
+  {
+   "v": "a",
+   "t": "Et les deux sujets du comité social et économique ?"
+  },
+  {
+   "v": "b",
+   "t": "Retenus tous les deux, le travail de nuit avec la cotation d'impact maximale. Il y a eu une objection en séance : « ce n'est pas de la RSE, c'est des ressources humaines ». La réponse donnée : trente personnes, un absentéisme double, un impact direct sur la santé — si cela n'est pas de la responsabilité sociétale, le mot n'a plus de sens."
+  },
+  {
+   "v": "a",
+   "t": "Et l'argument a porté."
+  },
+  {
+   "v": "b",
+   "t": "Il a été accepté, et ce moment a probablement fait plus pour la crédibilité de la fonction que tout le bilan carbone. Parce qu'il montrait que la RSE servait à traiter un problème réel de l'entreprise, pas à produire un rapport."
+  },
+  {
+   "v": "a",
+   "t": "Passons du poste d'émission à l'action."
+  },
+  {
+   "v": "b",
+   "t": "Un poste d'émission n'est pas une action. « Les achats » n'est pas actionnable. On décompose jusqu'au niveau où une action est concevable : quelle famille, quel fournisseur, quel produit. Ensuite seulement on passe les quatre leviers."
+  },
+  {
+   "v": "a",
+   "t": "Quels sont ces quatre leviers ?"
+  },
+  {
+   "v": "b",
+   "t": "Consommer moins, substituer, améliorer l'efficacité, agir sur la chaîne de valeur. Quatre, pas davantage. Et le premier est le plus efficace et le plus négligé, parce qu'il touche à l'organisation et non à la technique. On préfère toujours changer un équipement plutôt que de changer une habitude."
+  },
+  {
+   "v": "a",
+   "t": "Sur la chaîne de valeur, tu as une consigne précise."
+  },
+  {
+   "v": "b",
+   "t": "On ne travaille pas avec trois cents fournisseurs, mais avec cinq. Un courrier envoyé au panel entier ne produit rien — il produit du taux de réponse, pas de la réduction. Cinq fournisseurs qui pèsent, une vraie conversation avec chacun."
+  },
+  {
+   "v": "a",
+   "t": "Vient le chiffrage. Quatre chiffres par action."
+  },
+  {
+   "v": "b",
+   "t": "Tonnes évitées, coût, délai, effet financier. Sans les quatre, c'est une intention, pas une action. Et on les obtient en allant voir les personnes concernées, pas en estimant depuis son bureau."
+  },
+  {
+   "v": "a",
+   "t": "Et si on n'y arrive pas ?"
+  },
+  {
+   "v": "b",
+   "t": "On reclasse en « à instruire ». Dans le cas, cinq pistes sur quatorze. C'est une conclusion honnête, pas un échec — et ça évite de mettre au plan des actions dont personne ne sait ce qu'elles coûtent."
+  },
+  {
+   "v": "a",
+   "t": "Le coût de la tonne évitée, c'est l'outil central ?"
+  },
+  {
+   "v": "b",
+   "t": "Il permet de comparer des actions qui n'ont rien à voir entre elles, et il révèle celles qui rapportent. Dans le cas : neuf actions chiffrées, trois à coût négatif — donc qui font gagner de l'argent — quatre entre quarante et cent vingt euros la tonne, et deux au-delà de quatre cents."
+  },
+  {
+   "v": "a",
+   "t": "Une découverte au passage ?"
+  },
+  {
+   "v": "b",
+   "t": "La réduction des invendus, envisagée au départ comme une action secondaire, s'est révélée la meilleure du plan. Le directeur commercial la poussait depuis deux ans sans succès, pour des raisons purement financières. Le bilan carbone lui a donné un second argument — et c'est l'argument supplémentaire qui a débloqué le sujet, pas le premier."
+  },
+  {
+   "v": "a",
+   "t": "C'est une leçon assez générale, non ?"
+  },
+  {
+   "v": "b",
+   "t": "Très. Une bonne partie de ce qu'un plan RSE fait aboutir, ce sont des projets qui existaient déjà et qui manquaient d'un allié. Chercher ces projets-là avant d'en inventer de nouveaux est le meilleur usage des premières semaines."
+  },
+  {
+   "v": "a",
+   "t": "Un mot sur l'objectif chiffré, celui qu'on annonce."
+  },
+  {
+   "v": "b",
+   "t": "Il découle de la somme des actions, jamais l'inverse. Un objectif annoncé avant le plan se comblera par de la compensation, parce qu'il faudra bien tenir la promesse. Et la règle est : réduire d'abord, contribuer ensuite et à part. Compenser avant d'avoir réduit vous prive de l'argument d'avoir fait le travail."
+  },
+  {
+   "v": "a",
+   "t": "Reste l'exécution. Qu'est-ce qui fait qu'un plan est exécuté ?"
+  },
+  {
+   "v": "b",
+   "t": "Trois choses. Chaque action a un porteur qui n'est pas vous. Le budget est logé chez ce porteur, pas dans un budget RSE séparé — un budget séparé marginalise le sujet et le rend arbitrable en bloc. Et l'indicateur est suivi."
+  },
+  {
+   "v": "a",
+   "t": "Quel type d'indicateur ?"
+  },
+  {
+   "v": "b",
+   "t": "Des indicateurs d'avancement, mesurés chaque mois. Les tonnes évitées se mesurent une fois par an, ce qui est beaucoup trop tard pour corriger quoi que ce soit. On suit l'exécution, pas le résultat."
+  },
+  {
+   "v": "a",
+   "t": "Combien d'actions par an ?"
+  },
+  {
+   "v": "b",
+   "t": "Cinq au maximum. La contrainte n'est pas le budget, c'est l'attention disponible des porteurs. Un plan à quinze actions est un plan à trois actions réelles et douze lignes qui glissent."
+  },
+  {
+   "v": "a",
+   "t": "Un dernier geste, avant le comité ?"
+  },
+  {
+   "v": "b",
+   "t": "Faites valider chaque action par son porteur en bilatéral, avant la séance. C'est le geste qui décide de l'exécution. Une action découverte en comité par celui qui devra la porter est une action perdue, même si elle est votée."
+  },
+  {
+   "v": "a",
+   "t": "Et la sensibilisation, dans tout ça ?"
+  },
+  {
+   "v": "b",
+   "t": "Elle crée un langage commun et elle ne réduit aucune émission. Comptez-la ailleurs que dans le plan de réduction. Confondre sensibilisation et action est la façon la plus courante de produire un plan qui ne fait rien baisser."
+  },
+  {
+   "v": "a",
+   "t": "Ce qu'on fait demain ?"
+  },
+  {
+   "v": "b",
+   "t": "Prenez votre premier poste d'émissions et décomposez-le jusqu'au niveau où vous pouvez nommer une action et une personne. Si vous n'y arrivez pas, vous n'avez pas encore décomposé assez loin — c'est le meilleur test qui soit."
+  },
+  {
+   "v": "a",
+   "t": "Au module 4, on rend compte, et on évite le greenwashing. Merci Inès."
+  }
+ ]
+}

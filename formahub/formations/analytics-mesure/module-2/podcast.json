@@ -1,0 +1,233 @@
+{
+ "module_id": "formation-analytics-mesure-module-2",
+ "formation": "Analytics et mesure de la performance",
+ "titre": "Lire une audience : sessions, sources et attribution",
+ "version": "1.0",
+ "duree_estimee": "8 min",
+ "mots": 1306,
+ "resume": "Trois outils, trois chiffres, aucune décision : comment expliquer un écart plutôt que de chercher à le supprimer.",
+ "hosts": {
+  "a": {
+   "nom": "Camille",
+   "role": "animatrice"
+  },
+  "b": {
+   "nom": "Sofia",
+   "role": "responsable analytics"
+  }
+ },
+ "lignes": [
+  {
+   "v": "a",
+   "t": "Module 2, et une réunion qui s'enlise. Même mois, même campagne, trois chiffres. La régie annonce trois cent quarante conversions, l'analytics cent quatre-vingt-dix, le CRM cent vingt demandes réellement arrivées chez les commerciaux."
+  },
+  {
+   "v": "b",
+   "t": "Et chacun défend l'outil qu'il administre. La réunion se conclut sans décision, sur l'idée qu'il faudrait « fiabiliser les données » — une formule qui ne veut rien dire et qui garantit qu'on se retrouvera au même point le mois suivant."
+  },
+  {
+   "v": "a",
+   "t": "Alors lequel est le bon ?"
+  },
+  {
+   "v": "b",
+   "t": "Les trois sont exacts. Ils comptent trois choses différentes, avec trois définitions et trois fenêtres différentes, et personne dans la salle ne sait lesquelles. C'est la situation la plus courante du métier, et elle ne se résout pas en changeant d'outil."
+  },
+  {
+   "v": "a",
+   "t": "Commençons par la base : qu'est-ce qu'une session ?"
+  },
+  {
+   "v": "b",
+   "t": "Une convention de découpage, rien de plus. Une suite d'interactions séparées par une période d'inactivité. Ce n'est pas une visite au sens humain — quelqu'un qui laisse un onglet ouvert pendant sa pause déjeuner génère deux sessions."
+  },
+  {
+   "v": "a",
+   "t": "Et un utilisateur ?"
+  },
+  {
+   "v": "b",
+   "t": "Un identifiant de navigateur. Pas une personne. La même personne sur son téléphone, son ordinateur professionnel et son ordinateur personnel compte pour trois utilisateurs. Le nombre d'utilisateurs surestime donc toujours le nombre de personnes."
+  },
+  {
+   "v": "a",
+   "t": "Donc on ne dit jamais « personnes »."
+  },
+  {
+   "v": "b",
+   "t": "Jamais. C'est une hygiène de vocabulaire qui évite des conclusions fausses en cascade. Et corollaire pratique : si votre site a une zone connectée, transmettre un identifiant de compte est le chantier au meilleur rendement de tout le dispositif. C'est ce qui recolle les trois navigateurs sur une seule personne."
+  },
+  {
+   "v": "a",
+   "t": "Parlons des indicateurs d'engagement, parce qu'ils sont partout."
+  },
+  {
+   "v": "b",
+   "t": "Et ils sont trompeurs pour la plupart. Le rebond et la session engagée portent le même nom sur deux définitions opposées selon les outils : vérifiez laquelle s'applique chez vous avant toute comparaison."
+  },
+  {
+   "v": "a",
+   "t": "Les pages par session ?"
+  },
+  {
+   "v": "b",
+   "t": "Elles montent quand la navigation est mauvaise. Sur un site de service, une hausse des pages par session signifie souvent que les gens ne trouvent pas ce qu'ils cherchent. C'est une mauvaise nouvelle présentée comme un signe d'intérêt."
+  },
+  {
+   "v": "a",
+   "t": "Et la durée moyenne de session ?"
+  },
+  {
+   "v": "b",
+   "t": "La dernière page d'une session compte zéro seconde dans la plupart des configurations, parce que l'outil mesure l'écart entre deux vues de page. La durée moyenne est donc structurellement sous-estimée. Quelqu'un qui lit votre article pendant dix minutes et repart compte zéro."
+  },
+  {
+   "v": "a",
+   "t": "On remplace par quoi ?"
+  },
+  {
+   "v": "b",
+   "t": "Par des mesures d'intention : l'atteinte d'une page à valeur — tarifs, contact —, la profondeur de lecture, le retour à sept jours, la complétion d'une action. Ce sont des faits, pas des proxys."
+  },
+  {
+   "v": "a",
+   "t": "Et comparer son taux de rebond à une moyenne sectorielle ?"
+  },
+  {
+   "v": "b",
+   "t": "Jamais. Ni l'outil, ni la définition, ni la collecte ne sont les mêmes. Vous comparez deux nombres qui n'ont en commun que leur nom."
+  },
+  {
+   "v": "a",
+   "t": "Un mot sur le trafic direct, qu'on interprète souvent comme de la notoriété."
+  },
+  {
+   "v": "b",
+   "t": "Le direct est le fourre-tout de ce que l'outil n'a pas su rattacher : un lien depuis une application, un document, un courriel, une redirection qui perd l'information. Le lire comme une mesure de notoriété est une des erreurs les plus répandues."
+  },
+  {
+   "v": "a",
+   "t": "Venons-en aux UTM et à la nomenclature."
+  },
+  {
+   "v": "b",
+   "t": "Elle se décide avant la première campagne, parce qu'elle n'est pas rétroactive. Et l'outil distingue les majuscules : « Newsletter » et « newsletter » sont deux sources différentes, ce qui suffit à rendre un rapport inexploitable au bout de six mois."
+  },
+  {
+   "v": "a",
+   "t": "Une erreur fréquente ?"
+  },
+  {
+   "v": "b",
+   "t": "Poser des UTM sur des liens internes. Ils ne servent qu'aux liens entrants. Sur un lien interne, l'UTM ouvre une nouvelle session et détruit la vraie source : la personne était arrivée par une recherche, elle devient « campagne interne ». Vous perdez l'information que vous cherchiez à mesurer."
+  },
+  {
+   "v": "a",
+   "t": "L'attribution, maintenant. À quel canal revient la conversion ?"
+  },
+  {
+   "v": "b",
+   "t": "L'attribution est une convention de partage, pas une vérité. Un même parcours donne quatre conclusions différentes selon le modèle. Et le dernier clic, qui est le modèle par défaut presque partout, surévalue systématiquement les canaux de fin de parcours — la recherche de marque, le courriel de relance."
+  },
+  {
+   "v": "a",
+   "t": "Comment on s'en sort ?"
+  },
+  {
+   "v": "b",
+   "t": "En regardant le rôle d'assistance à côté du modèle. Un canal absent du dernier clic mais présent dans la moitié des parcours est un canal de découverte. Le couper parce qu'il ne convertit pas au dernier clic est une erreur classique, et elle se voit trois mois plus tard sur le volume total."
+  },
+  {
+   "v": "a",
+   "t": "Et si on change de modèle ?"
+  },
+  {
+   "v": "b",
+   "t": "C'est une rupture de collecte. On la date, et on ne compare pas au travers. Sinon vous attribuez à une action ce qui n'est qu'un changement de convention comptable."
+  },
+  {
+   "v": "a",
+   "t": "Reprenons l'étude de cas. Trois cent quarante, cent quatre-vingt-dix, cent vingt."
+  },
+  {
+   "v": "b",
+   "t": "Une demi-journée, sur un périmètre volontairement étroit : une seule campagne, un seul mois, une seule conversion. Étape une, écrire ce que compte chaque outil. La régie : trois cent quarante conversions, fenêtre de trente jours après clic et un jour après impression. L'analytics : cent quatre-vingt-dix sessions, dernier clic non direct, trente jours. Le CRM : cent vingt fiches, dédoublonnées par adresse électronique."
+  },
+  {
+   "v": "a",
+   "t": "Et là ?"
+  },
+  {
+   "v": "b",
+   "t": "La moitié du travail est faite, et personne n'a encore ouvert un tableur. Trois définitions écrites noir sur blanc suffisent déjà à changer la conversation."
+  },
+  {
+   "v": "a",
+   "t": "Premier écart ?"
+  },
+  {
+   "v": "b",
+   "t": "Le post-impression. Sur les trois cent quarante, quatre-vingt-quinze sont post-impression : la personne a vu la publicité sans cliquer, puis est venue par un autre chemin. L'analytics ne peut pas les voir, par construction. Il reste deux cent quarante-cinq conversions après clic, contre cent quatre-vingt-dix mesurées."
+  },
+  {
+   "v": "a",
+   "t": "Deuxième écart ?"
+  },
+  {
+   "v": "b",
+   "t": "Le consentement. Le taux du site est de soixante-douze pour cent, stable depuis janvier. L'analytics ne voit donc qu'environ trois quarts des demandes réelles. Cent quatre-vingt-dix mesurées correspondent à un ordre de grandeur de deux cent soixante demandes, ce qui recouvre les deux cent quarante-cinq de la régie à la précision près de l'exercice."
+  },
+  {
+   "v": "a",
+   "t": "Donc l'écart est expliqué."
+  },
+  {
+   "v": "b",
+   "t": "Entièrement, en deux mouvements. Et le plus intéressant reste à venir : le passage de deux cent quarante-cinq à cent vingt, que personne n'avait examiné."
+  },
+  {
+   "v": "a",
+   "t": "Qu'est-ce qu'on y trouve ?"
+  },
+  {
+   "v": "b",
+   "t": "Trente-huit doublons, cinquante et une demandes rejetées par le formulaire pour adresse invalide ou champ obligatoire mal rempli, et trente-six demandes arrivées en boîte générique sans être saisies dans le CRM, faute de règle sur qui les traite."
+  },
+  {
+   "v": "a",
+   "t": "Ce qui veut dire ?"
+  },
+  {
+   "v": "b",
+   "t": "Que quatre-vingt-sept demandes sur deux cent quarante-cinq se perdent entre le site et le commercial. Plus d'un tiers. Et personne ne le savait, parce que chacun regardait son propre chiffre. Le sujet n'était pas la fiabilité des outils."
+  },
+  {
+   "v": "a",
+   "t": "Et c'est réparable."
+  },
+  {
+   "v": "b",
+   "t": "Les cinquante et un rejets de formulaire sont un problème de conception, réparable en une journée. Les trente-six non saisies sont un problème d'organisation qui se règle par une règle. Le rapprochement n'a pas produit un chiffre juste, il a produit deux décisions."
+  },
+  {
+   "v": "a",
+   "t": "La règle générale, alors ?"
+  },
+  {
+   "v": "b",
+   "t": "Deux outils ne seront jamais égaux. Ne cherchez pas à réconcilier au chiffre près : cherchez un écart stable et expliqué, et surveillez sa stabilité plutôt que sa valeur. Un écart de trente-cinq pour cent stable est une information ; un écart qui bouge est une alerte."
+  },
+  {
+   "v": "a",
+   "t": "Ce qu'on fait demain ?"
+  },
+  {
+   "v": "b",
+   "t": "Prenez deux outils qui affichent le même chiffre chez vous, et écrivez pour chacun ce qu'il compte exactement — définition, fenêtre, dédoublonnage. Vingt minutes, et vous saurez déjà d'où vient l'essentiel de l'écart."
+  },
+  {
+   "v": "a",
+   "t": "Au module 3, on passe de la mesure à l'analyse. Merci Sofia."
+  }
+ ]
+}

@@ -1,0 +1,217 @@
+{
+ "module_id": "formation-excel-analyse-donnees-module-2",
+ "formation": "Excel et analyse de données appliquée",
+ "titre": "Les fonctions qui font réellement le travail",
+ "version": "1.0",
+ "duree_estimee": "8 min",
+ "mots": 1224,
+ "resume": "Mille huit cents erreurs visibles et trois cents lignes fausses sans le moindre signal : pourquoi la non-correspondance est la partie la plus informative d'un rapprochement.",
+ "hosts": {
+  "a": {
+   "nom": "Camille",
+   "role": "animatrice"
+  },
+  "b": {
+   "nom": "Karim",
+   "role": "analyste de données"
+  }
+ },
+ "lignes": [
+  {
+   "v": "a",
+   "t": "Module 2. Le fichier est propre, et on demande la marge par catégorie. Le prix de vente est dans la table de commandes, le prix d'achat dans un référentiel envoyé par les achats."
+  },
+  {
+   "v": "b",
+   "t": "On écrit une recherche pour ramener le prix d'achat à côté de chaque commande. Résultat : mille huit cents lignes sur onze mille neuf cent quatre-vingt-dix affichent une erreur. Le réflexe immédiat, c'est de les masquer avec une fonction de gestion d'erreur pour « nettoyer » l'affichage."
+  },
+  {
+   "v": "a",
+   "t": "Et ce serait la pire décision."
+  },
+  {
+   "v": "b",
+   "t": "Parce que trois choses différentes se cachent derrière ces mille huit cents erreurs. Des références réellement absentes du référentiel. Des références présentes mais écrites différemment. Et une plage de recherche qui s'est décalée à la recopie."
+  },
+  {
+   "v": "a",
+   "t": "Et il y a pire."
+  },
+  {
+   "v": "b",
+   "t": "Parmi les dix mille cent quatre-vingt-dix lignes sans erreur, environ trois cents ont ramené le prix d'achat du mauvais produit. Sans le moindre signal. C'est ça, le vrai sujet du module : les erreurs visibles sont les gentilles."
+  },
+  {
+   "v": "a",
+   "t": "Commençons par les références, que tu appelles la source silencieuse des tableaux faux."
+  },
+  {
+   "v": "b",
+   "t": "Une formule ne contient pas des cellules, elle contient des chemins vers des cellules. Le mode de référence — relatif, absolu, mixte — décide de ce qui se passe quand vous recopiez. Et la touche F4, qui bascule d'un mode à l'autre, est le raccourci au meilleur rendement de tout Excel."
+  },
+  {
+   "v": "a",
+   "t": "Le décalage silencieux, c'est quoi ?"
+  },
+  {
+   "v": "b",
+   "t": "Vous recopiez une formule vers le bas, la plage de recherche descend avec elle, et à la deux centième ligne elle ne couvre plus le début du référentiel. Les résultats restent plausibles. Le contrôle qui l'attrape : vérifier la dernière ligne d'une colonne recopiée, pas seulement la première. Presque personne ne le fait."
+  },
+  {
+   "v": "a",
+   "t": "Et la solution de fond ?"
+  },
+  {
+   "v": "b",
+   "t": "Les références de tableau structuré, celles qui portent des noms de colonnes. Elles ne suppriment pas le risque, elles suppriment le problème : il n'y a plus rien à figer."
+  },
+  {
+   "v": "a",
+   "t": "Passons au rapprochement de deux tables. Quelle fonction ?"
+  },
+  {
+   "v": "b",
+   "t": "RECHERCHEX si votre version le permet, sinon INDEX et EQUIV combinés. RECHERCHEV, jamais — et pour une raison précise : sans son quatrième argument, elle active la recherche approximative et vous renvoie le prix du produit d'à côté, sans aucun signal. C'est très exactement la source des trois cents lignes fausses de la mise en situation."
+  },
+  {
+   "v": "a",
+   "t": "Mais tu dis que la fonction n'est pas le vrai sujet."
+  },
+  {
+   "v": "b",
+   "t": "Le vrai sujet, c'est la non-correspondance. Et avant même de rapprocher, il y a un contrôle à faire : l'unicité de la clé du référentiel."
+  },
+  {
+   "v": "a",
+   "t": "C'est-à-dire ?"
+  },
+  {
+   "v": "b",
+   "t": "Vérifier qu'un code produit n'apparaît qu'une fois dans le référentiel. Dans le cas, il apparaît jusqu'à trois fois : quatorze produits y figurent en double ou en triple, avec des prix d'achat différents correspondant à des dates d'application successives. Sans ce contrôle, la recherche prend la première occurrence, arbitrairement, et personne ne le sait."
+  },
+  {
+   "v": "a",
+   "t": "Comment on tranche ?"
+  },
+  {
+   "v": "b",
+   "t": "Avec les achats, pas tout seul. Décision prise : on retient le prix le plus récent, on garde les autres dans un onglet d'historique, et on note l'arbitrage au journal. Ce n'est pas une décision technique, c'est une décision métier — et c'est pour ça qu'elle s'écrit."
+  },
+  {
+   "v": "a",
+   "t": "Ensuite, on mesure."
+  },
+  {
+   "v": "b",
+   "t": "Mille huit cents lignes non rapprochées, soit quinze pour cent des lignes et onze virgule trois pour cent du chiffre d'affaires. Et l'écart entre ces deux pourcentages est déjà une information."
+  },
+  {
+   "v": "a",
+   "t": "Qu'est-ce qu'il dit ?"
+  },
+  {
+   "v": "b",
+   "t": "Que les lignes non rapprochées portent des montants inférieurs à la moyenne. Ça oriente vers des produits d'entrée de gamme plutôt que vers un incident aléatoire. Deux chiffres, et l'hypothèse est déjà bien avancée."
+  },
+  {
+   "v": "a",
+   "t": "Puis on classe."
+  },
+  {
+   "v": "b",
+   "t": "On extrait les références distinctes non trouvées — deux cent quatorze codes — et on les lit. Trois familles apparaissent en quelques minutes : des espaces en fin de code, des zéros initiaux perdus par le format, et des produits réellement déréférencés."
+  },
+  {
+   "v": "a",
+   "t": "Comment on confirme chaque hypothèse ?"
+  },
+  {
+   "v": "b",
+   "t": "Toujours de la même façon : on applique la transformation candidate et on compte combien de correspondances elle rétablit. Supprimer les espaces récupère quatre-vingt-neuf codes. Remettre les zéros initiaux en récupère quatre-vingt-dix-huit. Les vingt-sept restants ne répondent à aucune transformation : ce sont les vrais déréférencés."
+  },
+  {
+   "v": "a",
+   "t": "C'est une démarche presque expérimentale."
+  },
+  {
+   "v": "b",
+   "t": "C'est ça qui rend le résultat solide. Et une règle générale en sort : un taux de non-correspondance au-delà de deux pour cent signale un problème de format ou de périmètre, pas des cas isolés. En dessous, on traite au cas par cas ; au-dessus, on cherche une cause commune."
+  },
+  {
+   "v": "a",
+   "t": "Un point de méthode sur la normalisation des clés."
+  },
+  {
+   "v": "b",
+   "t": "Elle se fait dans une colonne dédiée, jamais à l'intérieur de la formule de recherche. Parce qu'une colonne se vérifie ligne à ligne, alors qu'une transformation cachée dans une formule est invisible et se propage silencieusement."
+  },
+  {
+   "v": "a",
+   "t": "Venons-en à la gestion d'erreur, puisqu'on a commencé par là."
+  },
+  {
+   "v": "b",
+   "t": "SIERREUR ne doit jamais transformer une donnée manquante en zéro ou en vide. Zéro n'est pas l'absence de valeur : zéro entre dans les sommes et tire les moyennes vers le bas. Une donnée manquante doit rester visible, et être comptée."
+  },
+  {
+   "v": "a",
+   "t": "Et donc ?"
+  },
+  {
+   "v": "b",
+   "t": "Affichez le taux de couverture à côté de tout total calculé sur des données incomplètes. « Marge moyenne de vingt-deux pour cent, calculée sur quatre-vingt-cinq pour cent du chiffre d'affaires » est une phrase honnête. « Marge de vingt-deux pour cent » toute seule ne l'est pas."
+  },
+  {
+   "v": "a",
+   "t": "Parlons des calculs conditionnels."
+  },
+  {
+   "v": "b",
+   "t": "Deux pièges. Le premier : un compte conditionnel qui renvoie zéro sur des valeurs pourtant visibles a presque toujours pour cause un espace de fin ou une différence de type. Le second concerne les dates : la borne haute d'une période s'écrit en strictement inférieur au jour suivant, sinon les lignes horodatées du dernier jour disparaissent silencieusement."
+  },
+  {
+   "v": "a",
+   "t": "Les dates, encore."
+  },
+  {
+   "v": "b",
+   "t": "C'est la première fabrique de résultats faux. Et pour regrouper par mois, créez une vraie date au premier du mois plutôt qu'un libellé texte — sinon le tri met août avant avril, par ordre alphabétique, et le graphique est absurde."
+  },
+  {
+   "v": "a",
+   "t": "Un mot sur les formules de décision."
+  },
+  {
+   "v": "b",
+   "t": "Une cascade de plus de trois conditions imbriquées se remplace par une table de correspondance. La règle devient visible, modifiable par quelqu'un d'autre, et discutable en réunion. Une formule de deux cents caractères, non."
+  },
+  {
+   "v": "a",
+   "t": "Et les seuils ?"
+  },
+  {
+   "v": "b",
+   "t": "Aucun seuil en dur dans une formule. Un seuil vit dans une cellule nommée. Sinon aucune analyse de sensibilité n'est possible, et le jour où la direction demande « et si on montait le seuil à quinze pour cent ? », vous repartez pour une heure."
+  },
+  {
+   "v": "a",
+   "t": "Un principe général pour finir ?"
+  },
+  {
+   "v": "b",
+   "t": "Créer une colonne intermédiaire vaut presque toujours mieux qu'une formule ingénieuse. La colonne se vérifie ligne à ligne, la formule ingénieuse se vérifie en la refaisant. Et personne ne la refait."
+  },
+  {
+   "v": "a",
+   "t": "Ce qu'on fait demain ?"
+  },
+  {
+   "v": "b",
+   "t": "Sur votre dernier rapprochement de tables, comptez les non-correspondances et calculez leur part du chiffre d'affaires. Si les deux pourcentages diffèrent nettement, vous tenez déjà une piste sur la nature du problème."
+  },
+  {
+   "v": "a",
+   "t": "Au module 3, on arrête de refaire le travail chaque mois. Merci Karim."
+  }
+ ]
+}

@@ -1,0 +1,241 @@
+{
+ "module_id": "formation-excel-analyse-donnees-module-3",
+ "formation": "Excel et analyse de données appliquée",
+ "titre": "Tableaux croisés dynamiques et Power Query",
+ "version": "1.0",
+ "duree_estimee": "8 min",
+ "mots": 1199,
+ "resume": "Un mois de travail par an passé à recopier des colonnes : comment consolider douze fichiers une fois et rejouer en un clic.",
+ "hosts": {
+  "a": {
+   "nom": "Camille",
+   "role": "animatrice"
+  },
+  "b": {
+   "nom": "Karim",
+   "role": "analyste de données"
+  }
+ },
+ "lignes": [
+  {
+   "v": "a",
+   "t": "Module 3. Le rapport mensuel prend trois heures, et ce mois-ci la demande change : consolidé sur les douze régions."
+  },
+  {
+   "v": "b",
+   "t": "Douze fichiers arrivent. Même structure — sauf que trois ont les colonnes dans un ordre différent, deux ont une colonne supplémentaire, et un a été exporté en montant TTC alors que les autres sont en hors taxes."
+  },
+  {
+   "v": "a",
+   "t": "Et le calcul du coût ?"
+  },
+  {
+   "v": "b",
+   "t": "Trois heures fois douze mois, plus une journée de consolidation par mois : un peu plus d'un mois de travail par an consacré à recopier des colonnes. C'est ce chiffre qui justifie le module, pas l'élégance de l'outil."
+  },
+  {
+   "v": "a",
+   "t": "Commençons par le tableau croisé dynamique. Qu'est-ce qu'il fait exactement ?"
+  },
+  {
+   "v": "b",
+   "t": "Il agrège une valeur selon des catégories. Sa force réelle n'est pas de calculer — une formule calcule aussi — c'est de permettre de changer la question sans rien réécrire. Vous glissez un champ, la question devient autre."
+  },
+  {
+   "v": "a",
+   "t": "Et il exige quelque chose."
+  },
+  {
+   "v": "b",
+   "t": "Des données rangées, celles du module 1. Un tableau croisé sur un fichier mal structuré produit des résultats faux avec un air de sérieux, ce qui est la pire combinaison."
+  },
+  {
+   "v": "a",
+   "t": "Un conseil de construction ?"
+  },
+  {
+   "v": "b",
+   "t": "Écrivez la question en français avant d'insérer le tableau. C'est elle qui détermine ce qui va en lignes, en colonnes et en valeurs. Et une règle de lisibilité : beaucoup de modalités en lignes, peu en colonnes. Un tableau à quarante colonnes ne se lit pas."
+  },
+  {
+   "v": "a",
+   "t": "Un contrôle systématique ?"
+  },
+  {
+   "v": "b",
+   "t": "Comparer le grand total du tableau croisé à une somme directe de la source. C'est le contrôle qui détecte tous les problèmes de périmètre — une plage figée qui ignore les nouvelles lignes, un filtre oublié, une modalité exclue."
+  },
+  {
+   "v": "a",
+   "t": "Justement, la plage figée."
+  },
+  {
+   "v": "b",
+   "t": "Un tableau croisé construit sur une plage fixe ignore silencieusement les lignes ajoutées le mois suivant. Sur un tableau structuré, il s'étend tout seul. C'est la raison la plus concrète du réflexe Contrôle-L du module 1."
+  },
+  {
+   "v": "a",
+   "t": "Quelles fonctionnalités du tableau croisé trompent ?"
+  },
+  {
+   "v": "b",
+   "t": "Trois. D'abord, un tableau qui affiche un nombre au lieu d'une somme vous signale que la colonne contient du texte — c'est un diagnostic gratuit, encore faut-il le lire comme tel."
+  },
+  {
+   "v": "a",
+   "t": "Ensuite ?"
+  },
+  {
+   "v": "b",
+   "t": "Le champ calculé. Il agrège d'abord, puis applique la formule. Agréger puis diviser est correct ; agréger puis multiplier ne l'est presque jamais. C'est ce qui produit des taux de marge à trois cent quarante pour cent qu'on retrouve dans un rapport. Les produits se calculent en colonne de source, pas dans le tableau croisé."
+  },
+  {
+   "v": "a",
+   "t": "Et la troisième ?"
+  },
+  {
+   "v": "b",
+   "t": "Le cache des modalités. Une valeur supprimée de la source survit dans les filtres du tableau croisé, parfois pendant des mois. Videz le cache avant de diffuser, sinon vos filtres proposent des régions qui n'existent plus."
+  },
+  {
+   "v": "a",
+   "t": "Un détail sur les dates ?"
+  },
+  {
+   "v": "b",
+   "t": "Regroupez par Mois et Années ensemble, jamais par Mois seul — sinon janvier 2025 et janvier 2026 sont additionnés, et le total est juste au sens arithmétique et faux au sens de la question."
+  },
+  {
+   "v": "a",
+   "t": "Passons à Power Query. Comment tu le présentes en une phrase ?"
+  },
+  {
+   "v": "b",
+   "t": "Préparer une fois, rejouer indéfiniment. Vous enregistrez la suite des transformations, et le mois suivant vous cliquez sur Actualiser. Le critère de décision est simple : une opération récurrente relève de Power Query, quelle que soit sa simplicité."
+  },
+  {
+   "v": "a",
+   "t": "Reprenons l'étude de cas : douze fichiers."
+  },
+  {
+   "v": "b",
+   "t": "Étape un, et c'est celle qu'on saute : inspecter avant de consolider. Ouvrir les douze fichiers et relever pour chacun le nombre de lignes, les en-têtes, la présence de lignes de total, le format des dates. Une demi-heure, et elle évite trois jours de débogage."
+  },
+  {
+   "v": "a",
+   "t": "Le constat ?"
+  },
+  {
+   "v": "b",
+   "t": "Neuf fichiers identiques, deux avec une colonne « Commentaire » en plus, et un — la région Est — en montant TTC avec des dates au format américain. Ce dernier est la vraie difficulté, et il vaut mieux le savoir maintenant que de le découvrir dans un chiffre aberrant."
+  },
+  {
+   "v": "a",
+   "t": "Et là tu fais quelque chose d'inattendu."
+  },
+  {
+   "v": "b",
+   "t": "Un appel téléphonique. Avant de coder quoi que ce soit : est-ce que la région Est peut exporter en hors taxes comme les autres ? Réponse : oui, c'était un paramètre de leur outil, corrigé pour le mois prochain. Cinq minutes."
+  },
+  {
+   "v": "a",
+   "t": "Contre quoi ?"
+  },
+  {
+   "v": "b",
+   "t": "Contre une correction permanente dans la requête, qui serait devenue fausse dès le mois suivant — une fois leur export corrigé — sans que personne ne s'en souvienne. C'est le genre de bombe à retardement qu'on pose de bonne foi."
+  },
+  {
+   "v": "a",
+   "t": "Et pour le mois en cours ?"
+  },
+  {
+   "v": "b",
+   "t": "On traite ce fichier à part, et on le documente. Un correctif temporaire assumé et daté vaut infiniment mieux qu'un correctif permanent oublié."
+  },
+  {
+   "v": "a",
+   "t": "Comment on organise les sources ?"
+  },
+  {
+   "v": "b",
+   "t": "Un dossier par période, contenant exclusivement les douze fichiers, nommés avec la région et la période. Rien d'autre dans le dossier. Le nommage rend la colonne de fichier source directement exploitable, et le tri chronologiquement correct."
+  },
+  {
+   "v": "a",
+   "t": "La requête, ensuite."
+  },
+  {
+   "v": "b",
+   "t": "On combine, et le premier geste est de supprimer l'étape « Type modifié » que Power Query ajoute automatiquement. Elle fige les types sur ce qu'il a vu au moment de la création, et elle casse à la première donnée qui sort du cadre. On retype explicitement en fin de requête."
+  },
+  {
+   "v": "a",
+   "t": "Les autres étapes ?"
+  },
+  {
+   "v": "b",
+   "t": "Retirer les lignes de titre, promouvoir les en-têtes, filtrer les lignes de total, extraire la région depuis le nom de fichier, et conserver les colonnes utiles. Un détail qui compte : préférez « Supprimer les autres colonnes » à « Supprimer les colonnes ». La première résiste à un ajout de colonne à la source, la seconde échoue."
+  },
+  {
+   "v": "a",
+   "t": "Et le nommage des étapes ?"
+  },
+  {
+   "v": "b",
+   "t": "Renommez-les en français. Une requête bien nommée est sa propre documentation — et dans six mois, c'est vous le lecteur étranger."
+  },
+  {
+   "v": "a",
+   "t": "Un contrôle après consolidation ?"
+  },
+  {
+   "v": "b",
+   "t": "Un regroupement par fichier source : nombre de lignes, somme, moyenne. C'est ce qui attrape le fichier importé deux fois ou celui qui manque. Et conservez toujours la colonne de fichier source : c'est elle qui permet de retrouver d'où vient une ligne suspecte."
+  },
+  {
+   "v": "a",
+   "t": "Résultat ?"
+  },
+  {
+   "v": "b",
+   "t": "Trois heures devenues huit minutes. Et une journée de consolidation mensuelle supprimée."
+  },
+  {
+   "v": "a",
+   "t": "Il y a un enthousiasme dont tu mets en garde."
+  },
+  {
+   "v": "b",
+   "t": "Tout basculer dans Power Query. Laissez les règles métier en formules visibles, dans la feuille, où quelqu'un peut les lire et les contester. Réservez Power Query à la forme des données. Une règle de marge enfouie dans une étape de requête est invisible pour tout le monde, y compris pour vous."
+  },
+  {
+   "v": "a",
+   "t": "Et un fichier automatisé, c'est sans risque ?"
+  },
+  {
+   "v": "b",
+   "t": "Au contraire, et c'est le point le plus important du module. Un fichier automatisé continue de produire des résultats quand quelque chose a changé. Il ne se plaint pas. D'où l'onglet Contrôles, qui remplace l'alerte que l'outil ne donnera jamais."
+  },
+  {
+   "v": "a",
+   "t": "Une phrase à retenir ?"
+  },
+  {
+   "v": "b",
+   "t": "Automatiser libère le temps nécessaire à la vérification — encore faut-il l'employer à cela. Sinon on a juste rendu l'erreur plus rapide."
+  },
+  {
+   "v": "a",
+   "t": "Ce qu'on fait demain ?"
+  },
+  {
+   "v": "b",
+   "t": "Chronométrez votre rapport récurrent, et listez les manipulations que vous refaites à l'identique chaque mois. Celles-là, et uniquement celles-là, relèvent de Power Query."
+  },
+  {
+   "v": "a",
+   "t": "Au module 4, on passe au tableau de bord. Merci Karim."
+  }
+ ]
+}

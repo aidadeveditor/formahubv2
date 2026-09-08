@@ -1,13 +1,13 @@
 /* ============================================================
-   Formahub — progression, thème et interactions (V6)
+   Formahub — progression, thème et interactions (V7)
    Vanilla JS, sans dépendance. Chargé sur toutes les pages ;
    chaque bloc s'auto-désactive si la page ne le concerne pas.
    ============================================================ */
 
 const STORAGE_KEY = 'formahub-progress';
-const USER_ID_KEY = 'formahub-user-id';
 const LAST_SEEN_KEY = 'formahub-last-module';
 const CHECKLIST_KEY = 'formahub-checklists';
+const INSCRIPTIONS_KEY = 'formahub-inscriptions';
 
 /* ---------- Utilitaires de stockage ---------- */
 
@@ -26,16 +26,6 @@ function safeSet(key, value) {
   } catch (e) {
     /* stockage indisponible (navigation privée) : on continue sans persistance */
   }
-}
-
-function getUserId() {
-  let id = null;
-  try { id = localStorage.getItem(USER_ID_KEY); } catch (e) { /* ignore */ }
-  if (!id) {
-    id = (typeof crypto !== 'undefined' && crypto.randomUUID) ? crypto.randomUUID() : 'user-' + Date.now();
-    safeSet(USER_ID_KEY, id);
-  }
-  return id;
 }
 
 function getProgress() {
@@ -653,6 +643,101 @@ function initChecklists() {
   });
 }
 
+/* ---------- Suivi des inscriptions aux formations externes ---------- */
+/* Alimente la colonne « Inscription » de ressources-externes.html et de
+   formations-espagne.html. Chaque ligne porte un identifiant stable
+   (data-ins-id) et trois états : à faire, inscrite, terminée — avec la
+   date d'inscription. Stocké dans le navigateur, comme les checklists. */
+
+const INS_STATES = ['todo', 'inscrite', 'terminee'];
+
+function getInscriptions() {
+  const data = safeGet(INSCRIPTIONS_KEY, {}) || {};
+  return (typeof data === 'object' && !Array.isArray(data)) ? data : {};
+}
+
+function todayISO() {
+  const d = new Date();
+  return new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+}
+
+function formatDateFR(iso) {
+  if (!iso) return '';
+  const p = iso.split('-');
+  return p.length === 3 ? p[2] + '/' + p[1] + '/' + p[0] : iso;
+}
+
+function initInscriptions() {
+  const cells = Array.prototype.slice.call(document.querySelectorAll('td.ins-cell'));
+  if (!cells.length) return;
+  const store = getInscriptions();
+  const summary = document.getElementById('ins-summary');
+
+  function refreshSummary() {
+    if (!summary) return;
+    let ins = 0, fin = 0;
+    cells.forEach(cell => {
+      const st = (store[cell.dataset.insId] || {}).statut;
+      if (st === 'inscrite') ins++;
+      else if (st === 'terminee') fin++;
+    });
+    summary.textContent = ins + (ins > 1 ? ' inscriptions en cours' : ' inscription en cours')
+      + ' · ' + fin + (fin > 1 ? ' terminées' : ' terminée');
+  }
+
+  cells.forEach(cell => {
+    const id = cell.dataset.insId;
+    const row = cell.closest('tr');
+    const select = cell.querySelector('.ins-status');
+    const dateInput = cell.querySelector('.ins-date');
+    const dateLabel = cell.querySelector('.ins-date-label');
+    if (!id || !select || !dateInput) return;
+
+    const entry = store[id] || {};
+    select.value = INS_STATES.indexOf(entry.statut) > 0 ? entry.statut : 'todo';
+    if (entry.date) dateInput.value = entry.date;
+
+    function paint() {
+      const current = select.value;
+      const active = current !== 'todo';
+      dateInput.hidden = !active;
+      if (dateLabel) dateLabel.hidden = !active;
+      cell.classList.toggle('is-inscrite', current === 'inscrite');
+      cell.classList.toggle('is-terminee', current === 'terminee');
+      if (row) {
+        row.dataset.ins = current;
+        row.classList.toggle('row-inscrite', active);
+      }
+    }
+
+    function save() {
+      if (select.value === 'todo') delete store[id];
+      else store[id] = { statut: select.value, date: dateInput.value || '' };
+      safeSet(INSCRIPTIONS_KEY, store);
+      refreshSummary();
+      if (typeof window.formahubApplyFilters === 'function') window.formahubApplyFilters();
+    }
+
+    select.addEventListener('change', () => {
+      if (select.value !== 'todo' && !dateInput.value) dateInput.value = todayISO();
+      paint();
+      save();
+      if (select.value === 'inscrite') {
+        showToast('📝 Inscription notée au ' + formatDateFR(dateInput.value) + '.');
+      } else if (select.value === 'terminee') {
+        showToast('🎓 Formation marquée terminée.');
+      } else {
+        showToast('↩️ Ligne remise à « pas encore inscrite ».');
+      }
+    });
+
+    dateInput.addEventListener('change', save);
+    paint();
+  });
+
+  refreshSummary();
+}
+
 /* ---------- Retour en haut, en-tête collant, toasts ---------- */
 
 function initToTop() {
@@ -694,27 +779,13 @@ function showToast(message) {
   toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 3200);
 }
 
-/* ---------- Synchronisation cloud (Worker Cloudflare) ---------- */
+/* ---------- Synchronisation cloud ---------- */
+/* Depuis la V7, elle est entièrement portée par sync.js : la progression
+   part sous un identifiant dérivé du code secret et chiffrée avec lui.
+   Ici on se contente de signaler qu'il y a du nouveau à sauvegarder. */
 
-let syncTimeout = null;
 function queueSync() {
-  clearTimeout(syncTimeout);
-  syncTimeout = setTimeout(syncProgressToCloud, 2000);
-}
-
-async function syncProgressToCloud() {
-  if (!navigator.onLine) return;
-  try {
-    const userId = getUserId();
-    await fetch(`/api/progress/${userId}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(getProgress())
-    });
-    safeSet('last-sync', new Date().toISOString());
-  } catch (e) {
-    console.warn('Sync cloud différée (hors ligne ou sans Worker).');
-  }
+  if (typeof window.formahubQueueBackup === 'function') window.formahubQueueBackup();
 }
 
 /* ---------- Amorçage ---------- */
@@ -727,6 +798,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initModuleLayout();
   initReadProgress();
   initChecklists();
+  initInscriptions();
   initToTop();
 
   const completeBtn = document.getElementById('btn-mark-complete');
@@ -738,4 +810,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (typeof window.formahubApplyFilters === 'function') window.formahubApplyFilters();
 });
 
-window.addEventListener('online', syncProgressToCloud);
+/* ---------- Points d'entrée partagés avec audio.js, offline.js et sync.js ---------- */
+
+window.formahubToast = showToast;
+window.updateUIProgress = updateUIProgress;
+window.markRead = markRead;
+

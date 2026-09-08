@@ -1,0 +1,225 @@
+{
+ "module_id": "formation-rse-transition-ecologique-module-1",
+ "formation": "RSE et transition écologique en entreprise",
+ "titre": "Le cadre : ce que recouvre la RSE et ce que la réglementation impose",
+ "version": "1.0",
+ "duree_estimee": "10 min",
+ "mots": 1475,
+ "resume": "Après la révision Omnibus, « suis-je soumis ? » est devenue la mauvaise question. La bonne : qui me demande quoi, sur quel fondement, et que suis-je obligé de fournir.",
+ "hosts": {
+  "a": {
+   "nom": "Camille",
+   "role": "animatrice"
+  },
+  "b": {
+   "nom": "Inès",
+   "role": "consultante RSE"
+  }
+ },
+ "lignes": [
+  {
+   "v": "a",
+   "t": "Premier module de la formation RSE. Inès, la mise en situation empile trois demandes le même mois."
+  },
+  {
+   "v": "b",
+   "t": "Une entreprise de trois cent quatre-vingts salariés, cent vingt millions de chiffre d'affaires. Son plus gros client, un groupe coté, envoie un questionnaire ESG de cent quatre-vingts questions à retourner sous trois semaines, en précisant que le référencement en dépend. La banque demande des éléments extra-financiers pour une ligne de crédit. Et le service commercial annonce avoir perdu un appel d'offres public parce que le dossier ne comportait pas de bilan d'émissions."
+  },
+  {
+   "v": "a",
+   "t": "Et la première question du directeur général."
+  },
+  {
+   "v": "b",
+   "t": "« On n'est pas soumis à la CSRD, si ? ». La réponse est non — depuis la révision de mars 2026, les seuils sont à mille salariés et quatre cent cinquante millions d'euros de chiffre d'affaires. L'entreprise en est loin. Et cette réponse ne règle strictement rien."
+  },
+  {
+   "v": "a",
+   "t": "C'est le point de départ de tout le parcours, si je comprends bien."
+  },
+  {
+   "v": "b",
+   "t": "La question « suis-je soumis ? » est devenue secondaire. La question qui compte, c'est : qui me demande quoi, sur quel fondement, et que suis-je obligé de fournir. Les trois demandes du mois ne viennent pas de la CSRD, elles viennent d'un client, d'une banque et d'un acheteur public."
+  },
+  {
+   "v": "a",
+   "t": "Commençons par le vocabulaire, parce qu'on entend trois mots pour ce qui semble être la même chose."
+  },
+  {
+   "v": "b",
+   "t": "Trois mots, trois usages. La RSE est un mot de management : la responsabilité d'une entreprise vis-à-vis de ses impacts. L'ESG est un mot d'investisseur : une grille pour évaluer un risque financier. La transition écologique est un mot de politique publique. Employez le bon devant le bon interlocuteur — devant votre banque, on parle ESG."
+  },
+  {
+   "v": "a",
+   "t": "Et la double matérialité, dont on entend beaucoup parler ?"
+  },
+  {
+   "v": "b",
+   "t": "Deux regards. La matérialité d'impact : ce que l'entreprise fait subir au monde. La matérialité financière : ce que le monde fait subir à l'entreprise. Les deux ne conduisent pas aux mêmes priorités, et une démarche solide fait les deux et les confronte. On y revient en détail au module 3."
+  },
+  {
+   "v": "a",
+   "t": "Venons-en au cadre européen après mars 2026."
+  },
+  {
+   "v": "b",
+   "t": "La CSRD ne vise plus que les entreprises de plus de mille salariés et de plus de quatre cent cinquante millions de chiffre d'affaires, les deux critères ensemble, à partir de l'exercice 2027. Le périmètre s'est considérablement resserré."
+  },
+  {
+   "v": "a",
+   "t": "Donc les PME sont tranquilles ?"
+  },
+  {
+   "v": "b",
+   "t": "Non, et c'est exactement le contresens à éviter. Elles ne sont pas soumises au reporting, mais elles reçoivent les questionnaires des grandes entreprises qui, elles, le sont. La pression passe par la chaîne de valeur, pas par le texte."
+  },
+  {
+   "v": "a",
+   "t": "Et il existe une protection contre ça."
+  },
+  {
+   "v": "b",
+   "t": "C'est le point le plus utile de toute la réglementation pour une PME, et presque personne ne le connaît : une entreprise soumise ne peut pas exiger d'un partenaire de moins de mille salariés davantage que le périmètre VSME, le standard volontaire prévu pour les petites structures. Et elle doit mentionner ce droit de refus. C'est un plafond opposable."
+  },
+  {
+   "v": "a",
+   "t": "Ce qui change la conversation avec le client."
+  },
+  {
+   "v": "b",
+   "t": "Totalement. Et la conséquence pratique est très importante : un socle de données VSME construit une fois répond à la quasi-totalité des sollicitations. C'est la réponse structurelle aux demandes multiples — vous ne répondez plus questionnaire par questionnaire."
+  },
+  {
+   "v": "a",
+   "t": "Tu insistes beaucoup sur la date des sources."
+  },
+  {
+   "v": "b",
+   "t": "Toute source antérieure à mars 2026 sur le périmètre CSRD est obsolète. C'est une matière où les articles vieillissent en quelques mois. Datez ce que vous affirmez, et vérifiez sur une source officielle — pas sur un billet de blog."
+  },
+  {
+   "v": "a",
+   "t": "Le resserrement européen a-t-il supprimé les obligations françaises ?"
+  },
+  {
+   "v": "b",
+   "t": "Aucunement, et c'est l'angle mort classique. Les seuils français sont bien plus bas et les sanctions effectives. Le bilan d'émissions réglementaire s'impose au-delà de cinq cents salariés, tous les quatre ans, avec un plan de transition depuis 2023, sous peine de cinquante mille euros d'amende et d'exclusion des marchés publics."
+  },
+  {
+   "v": "a",
+   "t": "Ce qui explique l'appel d'offres perdu."
+  },
+  {
+   "v": "b",
+   "t": "En partie. Et il y a une exposition encore plus large, sans aucun seuil : le droit de la consommation. Il s'applique dès qu'on communique, quelle que soit la taille. C'est celle qu'on ignore le plus souvent, et c'est celle qui a mordu dans l'étude de cas."
+  },
+  {
+   "v": "a",
+   "t": "Raconte."
+  },
+  {
+   "v": "b",
+   "t": "Semaine 1, une demi-journée pour établir la carte des obligations. Conclusions attendues : non soumise à la CSRD, non soumise au bilan réglementaire à trois cent quatre-vingts salariés, soumise à l'index égalité, déjà traité. Et une conclusion inattendue : le site internet annonce des « livraisons neutres en carbone »."
+  },
+  {
+   "v": "a",
+   "t": "Et cette mention pose problème."
+  },
+  {
+   "v": "b",
+   "t": "Elle tombe sous le décret de 2022, qui exige la publication d'un bilan d'émissions, d'une trajectoire de réduction et du détail des projets de compensation. Aucun des trois n'existe. L'entreprise est en infraction, l'exposition est immédiate, et personne n'avait identifié le sujet."
+  },
+  {
+   "v": "a",
+   "t": "Qu'est-ce qui a été fait ?"
+  },
+  {
+   "v": "b",
+   "t": "La mention a été retirée du site le jour même, remplacée par une formulation factuelle sur les actions engagées. Coût : zéro. C'est le premier livrable de la fonction RSE, et il a supprimé le risque le plus concret du dossier en quelques heures. Comme démonstration d'utilité auprès d'une direction, c'est difficile à battre."
+  },
+  {
+   "v": "a",
+   "t": "Et le questionnaire de cent quatre-vingts questions ?"
+  },
+  {
+   "v": "b",
+   "t": "Lecture complète et classement en trois piles. Quarante questions relèvent du périmètre VSME et sont documentables rapidement. Soixante demandent des données que l'entreprise possède mais n'a jamais consolidées — consommations par site, répartition des achats, accidentologie. Quatre-vingts demandent des politiques formalisées ou des données de chaîne de valeur qui n'existent pas."
+  },
+  {
+   "v": "a",
+   "t": "Et la réponse au client ?"
+  },
+  {
+   "v": "b",
+   "t": "Un appel au responsable achats, pas un courriel. Message tenu : nous répondons intégralement sur le périmètre VSME, qui est le standard prévu pour les entreprises de notre taille, et nous ajoutons les consommations par site ; au-delà, la réglementation prévoit un droit de refus en dessous de mille salariés ; dites-nous lesquelles de ces questions sont réellement décisives et nous verrons ce que nous pouvons construire d'ici douze mois."
+  },
+  {
+   "v": "a",
+   "t": "Réaction du client ?"
+  },
+  {
+   "v": "b",
+   "t": "Douze questions sont déterminantes. Les autres relèvent d'un formulaire standard appliqué à tous les fournisseurs sans distinction de taille. Le périmètre passe de cent quatre-vingts à environ cent dix questions, dont douze qui comptent vraiment. C'est ce que produit un appel de vingt minutes appuyé sur un texte."
+  },
+  {
+   "v": "a",
+   "t": "Un mot sur les référentiels volontaires — ISO 26000, EcoVadis, les autres."
+  },
+  {
+   "v": "b",
+   "t": "Deux précisions qui évitent des dépenses inutiles. On ne peut pas être certifié ISO 26000 : c'est une ligne directrice, pas une norme certifiable, et l'entendre annoncé comme une certification est un bon révélateur. Et EcoVadis mesure la maturité d'un système de gestion, pas une performance environnementale physique. On peut avoir une très bonne note et des émissions en hausse."
+  },
+  {
+   "v": "a",
+   "t": "Comment on choisit, alors ?"
+  },
+  {
+   "v": "b",
+   "t": "À partir du demandeur, jamais l'inverse. Si vos clients demandent EcoVadis, vous faites EcoVadis. Sinon vous achetez une réponse à une question que personne ne pose. Et surtout, n'empilez pas les référentiels : chacun consomme du temps de production de preuves."
+  },
+  {
+   "v": "a",
+   "t": "Ce qui amène ton avertissement sur la RSE de conformité."
+  },
+  {
+   "v": "b",
+   "t": "Elle consomme toute la ressource en production de preuves, et il ne reste plus rien pour agir. Tenez un ratio explicite entre le temps passé à répondre et le temps passé à faire. Si vous ne le tenez pas, il glisse vers cent pour cent de réponse, sans que personne ne l'ait décidé."
+  },
+  {
+   "v": "a",
+   "t": "Dernier point du module : où placer la fonction."
+  },
+  {
+   "v": "b",
+   "t": "Le rattachement hiérarchique décide de tout. Seule la direction générale ou financière donne accès aux arbitrages d'investissement. Rattachée à la communication, la fonction produit des plaquettes ; rattachée aux ressources humaines, elle produit des actions internes. Aucune des deux ne pèse sur un budget d'équipement."
+  },
+  {
+   "v": "a",
+   "t": "Et sur la posture ?"
+  },
+  {
+   "v": "b",
+   "t": "La légitimité vient des chiffres, pas des convictions. Une position défendue par valeur est classée comme une opinion, et une opinion s'arbitre contre une autre opinion. Un chiffre, non."
+  },
+  {
+   "v": "a",
+   "t": "Par quoi on commence, alors ?"
+  },
+  {
+   "v": "b",
+   "t": "Surtout pas par la stratégie. L'ordre est : mesurer, prioriser sur les chiffres, agir, puis formaliser. Et choisir un premier livrable qui produise un résultat visible en six mois et qui serve à quelqu'un d'autre que vous."
+  },
+  {
+   "v": "a",
+   "t": "Ce qu'on fait demain ?"
+  },
+  {
+   "v": "b",
+   "t": "Ouvrez le site internet de votre entreprise et relevez toutes les affirmations environnementales qui s'y trouvent — neutralité, éco-responsable, engagé pour le climat. Pour chacune, demandez-vous si vous pourriez produire la preuve. C'est une heure de travail, et c'est souvent là que se trouve le risque le plus immédiat."
+  },
+  {
+   "v": "a",
+   "t": "Au module 2, on mesure. Merci Inès."
+  }
+ ]
+}

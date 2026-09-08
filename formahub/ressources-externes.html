@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formahub — Ressources externes &amp; formations suggérées</title>
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <style>
     .orga { color: var(--text-muted); font-size: 0.85rem; }
     .rac-note { color: var(--text-muted); font-size: 0.78rem; }
@@ -38,6 +41,7 @@
         <span class="badge badge-progress">Solde CPF de référence : 1 353,80 €</span>
         <span class="badge badge-success">23 formations éligibles CPF</span>
         <span class="badge badge-neutral">14 ressources gratuites</span>
+        <span class="badge badge-progress" id="ins-summary"></span>
       </div>
     </div>
 
@@ -46,6 +50,7 @@
       <p><strong>Reste à charge = coût de la formation − min(solde CPF ; plafond réglementaire applicable) + participation obligatoire.</strong></p>
       <p>Les plafonds 2026 retenus : <strong>1 500 €</strong> pour une certification du Répertoire spécifique hors CléA, <strong>1 600 €</strong> pour un bilan de compétences, <strong>900 €</strong> pour le permis B. Les titres RNCP, la VAE et CléA ne sont pas plafonnés.</p>
       <p>Quand un coût est annoncé sous forme de fourchette, le reste à charge affiché part du <em>tarif le plus bas</em> — considérez-le comme un plancher, pas comme un devis.</p>
+      <p><strong>La colonne « Inscription »</strong> suit où vous en êtes sur chaque ligne : « Pas encore », « Inscrite » — la date du jour se remplit alors toute seule et reste modifiable — puis « Terminée ». Le suivi est enregistré dans ce navigateur, comme la progression des modules, et se filtre avec les boutons ci-dessous.</p>
     </div>
 
     <div class="pitfall-box">
@@ -81,6 +86,16 @@
       </div>
     </div>
 
+    <div class="filter-group">
+      <span class="filter-group-label">Inscription</span>
+      <div class="filter-bar" id="filter-ins">
+        <button class="filter-btn active" data-ins="all">Toutes</button>
+        <button class="filter-btn" data-ins="inscrite">Inscrite</button>
+        <button class="filter-btn" data-ins="terminee">Terminée</button>
+        <button class="filter-btn" data-ins="todo">Pas encore</button>
+      </div>
+    </div>
+
     <p id="result-count"></p>
 
     <div class="table-responsive">
@@ -93,6 +108,7 @@
             <th>CPF</th>
             <th>Reste à charge estimé</th>
             <th>Lien</th>
+            <th>Inscription</th>
           </tr>
         </thead>
         <tbody>
@@ -103,6 +119,7 @@
             <td><span class="badge badge-neutral">Non éligible</span></td>
             <td><strong>0 €</strong></td>
             <td><a href="https://developers.google.com/search?hl=fr" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-google-google-search-central"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="SEO" data-cpf="non" data-free="oui">
             <td><strong>Parcours SEO</strong><br><span class="orga">OpenClassrooms — Parcours structuré, environ 10 h</span></td>
@@ -111,6 +128,7 @@
             <td><span class="badge badge-neutral">Non éligible</span></td>
             <td><strong>0 €</strong></td>
             <td><a href="https://openclassrooms.com/fr/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-openclassrooms-parcours-seo"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="SEO" data-cpf="non" data-free="oui">
             <td><strong>Semrush Academy</strong><br><span class="orga">Semrush — Modules courts, tous niveaux</span></td>
@@ -119,6 +137,7 @@
             <td><span class="badge badge-neutral">Non éligible</span></td>
             <td><strong>0 €</strong></td>
             <td><a href="https://www.semrush.com/academy/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-semrush-semrush-academy"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="SEO" data-cpf="variable" data-free="non">
             <td><strong>Accompagnement SEO individuel</strong><br><span class="orga">LiveMentor — Mentorat individuel, 3 mois — 1 650 €</span><br><span class="row-note">⚠️ Le RS6710 affiché par l&#x27;organisme a expiré le 19/07/2026 ; il est remplacé par le RS7589, intitulé « Entreprendre et développer sa clientèle grâce au marketing digital » — pas une certification SEO. Faire confirmer le code réellement mobilisable avant inscription.</span></td>
@@ -127,6 +146,7 @@
             <td><span class="badge badge-warning">Sous conditions</span></td>
             <td><strong>296 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
             <td><a href="https://www.livementor.com/formation/seo/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-livementor-accompagnement-seo-individuel"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="SEO" data-cpf="oui" data-free="non">
             <td><strong>Formation SEO certifiante</strong><br><span class="orga">Skills4All — RS — vidéos, exercices et projet final, 30 h</span></td>
@@ -135,6 +155,7 @@
             <td><span class="badge badge-success">Éligible CPF</span></td>
             <td><strong>environ 646 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
             <td><a href="https://www.skills4all.com/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-skills4all-formation-seo-certifiante"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="SEO" data-cpf="oui" data-free="non">
             <td><strong>Formation SEO éligible CPF</strong><br><span class="orga">La WAB — RS7500 — e-learning et visio hebdomadaire, 8 semaines</span></td>
@@ -143,6 +164,7 @@
             <td><span class="badge badge-success">Éligible CPF</span></td>
             <td><strong>environ 131 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
             <td><a href="https://www.la-wab.fr/formation-seo-eligible-cpf-reconnu-par-l-etat" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-la-wab-formation-seo-eligible-cpf"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="SEO" data-cpf="oui" data-free="non">
             <td><strong>Formation SEO</strong><br><span class="orga">Wemodo (ex-Webmyday) — RS — modules et coaching de groupe</span><br><span class="row-note">⚠️ L&#x27;organisme a été renommé : Webmyday est devenu Wemodo. Tarif relevé sur la page : 1 640 € pour la formule certifiante, 42 h sur 3 mois, certification RS7500.</span></td>
@@ -151,6 +173,7 @@
             <td><span class="badge badge-success">Éligible CPF</span></td>
             <td><strong>286 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
             <td><a href="https://wemodo.com/formations/web/formation-seo" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-wemodo-ex-webmyday-formation-seo"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="SEO" data-cpf="oui" data-free="non">
             <td><strong>Formation SEO</strong><br><span class="orga">The Business Legion — Formation et communauté Discord</span><br><span class="row-note">⚠️ Site injoignable lors du contrôle de septembre 2026 (erreur serveur). À revérifier avant toute démarche.</span></td>
@@ -159,6 +182,7 @@
             <td><span class="badge badge-success">Éligible CPF</span></td>
             <td><strong>environ 646 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
             <td><a href="https://the-business-legion.com/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-the-business-legion-formation-seo"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="SEO" data-cpf="oui" data-free="non">
             <td><strong>Formation SEO</strong><br><span class="orga">Mantra (ex-GrowthMakers) — Orientée futurs responsables SEO</span><br><span class="row-note">⚠️ Renommage GrowthMakers → Mantra confirmé (2023). Aucun tarif public sur le site : le prix de 1 990 € parfois cité n&#x27;a pas pu être vérifié, demander un devis.</span></td>
@@ -167,6 +191,7 @@
             <td><span class="badge badge-success">Éligible CPF</span></td>
             <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
             <td><a href="https://www.mantra.work/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-mantra-ex-growthmakers-formation-seo"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="SEO" data-cpf="non" data-free="non">
             <td><strong>Cours SEO (Guersan)</strong><br><span class="orga">Udemy — 9 h 30 de contenu — option petit budget</span></td>
@@ -175,6 +200,7 @@
             <td><span class="badge badge-neutral">Non éligible</span></td>
             <td><strong>≈ 22,99 €</strong><br><span class="rac-note">non finançable</span></td>
             <td><a href="https://www.udemy.com/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-udemy-cours-seo-guersan"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Content Marketing" data-cpf="non" data-free="oui">
             <td><strong>Content Marketing Certification</strong><br><span class="orga">HubSpot Academy — 8 h, certificat gratuit</span></td>
@@ -183,6 +209,7 @@
             <td><span class="badge badge-neutral">Non éligible</span></td>
             <td><strong>0 €</strong></td>
             <td><a href="https://academy.hubspot.fr/courses/content-marketing" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-hubspot-academy-content-marketing-certification"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Content Marketing" data-cpf="non" data-free="oui">
             <td><strong>Content Strategy Course</strong><br><span class="orga">HubSpot Academy — Cours complémentaire</span></td>
@@ -191,6 +218,7 @@
             <td><span class="badge badge-neutral">Non éligible</span></td>
             <td><strong>0 €</strong></td>
             <td><a href="https://academy.hubspot.com/courses/content-strategy" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-hubspot-academy-content-strategy-course"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Content Marketing" data-cpf="non" data-free="oui">
             <td><strong>Formation marketing digital</strong><br><span class="orga">HubSpot Academy — Vue d&#x27;ensemble marketing</span></td>
@@ -199,6 +227,7 @@
             <td><span class="badge badge-neutral">Non éligible</span></td>
             <td><strong>0 €</strong></td>
             <td><a href="https://academy.hubspot.fr/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-hubspot-academy-formation-marketing-digital"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="IA Générative" data-cpf="oui" data-free="non">
             <td><strong>Formation IA générative</strong><br><span class="orga">SavoirIA — RS6776 — 16 h, présentiel ou distanciel</span></td>
@@ -207,6 +236,7 @@
             <td><span class="badge badge-success">Éligible CPF</span></td>
             <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
             <td><a href="https://www.savoiria.fr/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-savoiria-formation-ia-generative"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="IA Générative" data-cpf="oui" data-free="non">
             <td><strong>Formation IA générative</strong><br><span class="orga">Jedha — Certification IA générative, 42 h</span></td>
@@ -215,6 +245,7 @@
             <td><span class="badge badge-success">Éligible CPF</span></td>
             <td><strong>146 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
             <td><a href="https://www.jedha.co/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-jedha-formation-ia-generative"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="IA Générative" data-cpf="variable" data-free="non">
             <td><strong>Prompt Engineer</strong><br><span class="orga">Jedha — Certification à confirmer auprès de l&#x27;organisme</span><br><span class="row-note">⚠️ Le code RS7234 ne correspond pas à cette formation : il est enregistré au nom de LION pour « Intégrer l&#x27;utilisation des outils numériques et de l&#x27;IA dans la gestion de projet ». Demander à Jedha le code exact mobilisable au CPF.</span></td>
@@ -223,6 +254,7 @@
             <td><span class="badge badge-warning">Sous conditions</span></td>
             <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
             <td><a href="https://www.jedha.co/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-jedha-prompt-engineer"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="IA Générative" data-cpf="variable" data-free="non">
             <td><strong>Parcours IA — Fondamental et Approfondi</strong><br><span class="orga">Skillevos — Formats de 3 h à 1 journée</span><br><span class="row-note">⚠️ L&#x27;organisme indique lui-même être « en cours d&#x27;agrément EDOF » pour l&#x27;éligibilité CPF : à ce stade le financement passe par l&#x27;OPCO, pas par le CPF individuel.</span></td>
@@ -231,6 +263,7 @@
             <td><span class="badge badge-warning">Sous conditions</span></td>
             <td><strong>0 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
             <td><a href="https://www.skillevos.fr/formation-ia-entreprise/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-skillevos-parcours-ia-fondamental-et-approfondi"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="IA Générative" data-cpf="oui" data-free="non">
             <td><strong>Formation IA</strong><br><span class="orga">26 Academy — RNCP / RS — 100 % en ligne, tuteur dédié</span></td>
@@ -239,6 +272,7 @@
             <td><span class="badge badge-success">Éligible CPF</span></td>
             <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
             <td><a href="https://26academy.com/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-26-academy-formation-ia"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="IA Générative" data-cpf="oui" data-free="non">
             <td><strong>Formation IA</strong><br><span class="orga">Phoenix Performance — RS6776 — 16 h en synchrone</span><br><span class="row-note">⚠️ Tarif construit pour tomber juste : 1 500 € de CPF + 150 € de participation obligatoire.</span></td>
@@ -247,6 +281,7 @@
             <td><span class="badge badge-success">Éligible CPF</span></td>
             <td><strong>296 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
             <td><a href="https://www.phoenix-performance.pro/formation-ia" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-phoenix-performance-formation-ia"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="IA Générative" data-cpf="non" data-free="oui">
             <td><strong>Introduction to Generative AI</strong><br><span class="orga">Google Cloud Skills Boost — Fondamentaux de l&#x27;IA générative</span></td>
@@ -255,6 +290,7 @@
             <td><span class="badge badge-neutral">Non éligible</span></td>
             <td><strong>0 €</strong></td>
             <td><a href="https://www.cloudskillsboost.google/paths/118" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-google-cloud-skills-boost-introduction-to-generative-ai"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="IA Générative" data-cpf="non" data-free="oui">
             <td><strong>Notions fondamentales — IA générative</strong><br><span class="orga">Microsoft Learn — Parcours guidé</span></td>
@@ -263,6 +299,7 @@
             <td><span class="badge badge-neutral">Non éligible</span></td>
             <td><strong>0 €</strong></td>
             <td><a href="https://learn.microsoft.com/fr-fr/training/paths/introduction-generative-ai/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-microsoft-learn-notions-fondamentales-ia-generative"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Gestion de projet" data-cpf="non" data-free="non">
             <td><strong>Google Project Management Certificate</strong><br><span class="orga">Coursera — Idéal pour débuter</span></td>
@@ -271,6 +308,7 @@
             <td><span class="badge badge-neutral">Non éligible</span></td>
             <td><strong>150 à 300 €</strong><br><span class="rac-note">non finançable</span></td>
             <td><a href="https://www.coursera.org/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-coursera-google-project-management-certificate"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Gestion de projet" data-cpf="oui" data-free="non">
             <td><strong>PRINCE2 Foundation</strong><br><span class="orga">Skills4All / Oo2 / Cegos — RS — référence internationale</span></td>
@@ -279,6 +317,7 @@
             <td><span class="badge badge-success">Éligible CPF</span></td>
             <td><strong>à partir de 96 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
             <td><a href="https://www.skills4all.com/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-skills4all-oo2-cegos-prince2-foundation"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Gestion de projet" data-cpf="oui" data-free="non">
             <td><strong>Préparation PMP</strong><br><span class="orga">Cegos / Orsys / Demos — Certification PMP</span></td>
@@ -287,6 +326,7 @@
             <td><span class="badge badge-success">Éligible CPF</span></td>
             <td><strong>à partir de 646 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
             <td><a href="https://www.cegos.fr/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-cegos-orsys-demos-preparation-pmp"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Gestion de projet" data-cpf="variable" data-free="non">
             <td><strong>Gestion de projet agile</strong><br><span class="orga">26 Academy — Codes à faire confirmer par l&#x27;organisme</span><br><span class="row-note">⚠️ Le RS5487 « Gérer un projet en mobilisant les méthodes agiles » (Simplon.co) est inactif depuis le 08/07/2026. Le RNCP37091 est actif mais correspond au titre « Manager d&#x27;unité opérationnelle » de niveau 7 (Montpellier BS), pas à une formation agile courte.</span></td>
@@ -295,6 +335,7 @@
             <td><span class="badge badge-warning">Sous conditions</span></td>
             <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
             <td><a href="https://26academy.com/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-26-academy-gestion-de-projet-agile"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Gestion de projet" data-cpf="non" data-free="non">
             <td><strong>CompTIA Project+</strong><br><span class="orga">CompTIA — Pour coordinateurs IT</span></td>
@@ -303,6 +344,7 @@
             <td><span class="badge badge-neutral">Non éligible</span></td>
             <td><strong>≈ 350 €</strong><br><span class="rac-note">non finançable</span></td>
             <td><a href="https://www.comptia.org/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-comptia-comptia-project"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Gestion de projet" data-cpf="oui" data-free="non">
             <td><strong>ITIL 4 Foundation</strong><br><span class="orga">Cegos / Orsys — Gestion des services IT</span></td>
@@ -311,6 +353,7 @@
             <td><span class="badge badge-success">Éligible CPF</span></td>
             <td><strong>0 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
             <td><a href="https://www.orsys.fr/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-cegos-orsys-itil-4-foundation"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Management" data-cpf="oui" data-free="non">
             <td><strong>Manager des équipes et piloter l&#x27;efficacité collective</strong><br><span class="orga">26 Academy — RS6626 — certificateur SCYFCO, actif jusqu&#x27;au 31/05/2027</span></td>
@@ -319,6 +362,7 @@
             <td><span class="badge badge-success">Éligible CPF</span></td>
             <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
             <td><a href="https://26academy.com/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-26-academy-manager-des-equipes-et-piloter-l-efficacite-collective"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Management" data-cpf="oui" data-free="non">
             <td><strong>Manager des équipes et piloter l&#x27;efficacité collective</strong><br><span class="orga">Walter Learning — RS6626 — 34 h, certificateur SCYFCO</span></td>
@@ -327,6 +371,7 @@
             <td><span class="badge badge-success">Éligible CPF</span></td>
             <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
             <td><a href="https://walter-learning.com/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-walter-learning-manager-des-equipes-et-piloter-l-efficacite-collective"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Management" data-cpf="oui" data-free="non">
             <td><strong>Certification RS6626</strong><br><span class="orga">Organismes référencés MaFormation — Comparateur multi-organismes</span></td>
@@ -335,6 +380,7 @@
             <td><span class="badge badge-success">Éligible CPF</span></td>
             <td><strong>à partir de 756 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
             <td><a href="https://www.maformation.fr/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-organismes-references-maformation-certification-rs6626"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Management" data-cpf="oui" data-free="non">
             <td><strong>Certificat de Compétences en Entreprise (CCE)</strong><br><span class="orga">CCI Formation — Certification CCE</span><br><span class="row-note">⚠️ Le portail national des CCI ; les tarifs et sessions dépendent de la CCI territoriale.</span></td>
@@ -343,6 +389,7 @@
             <td><span class="badge badge-success">Éligible CPF</span></td>
             <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
             <td><a href="https://www.cci.fr/ressources/formation" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-cci-formation-certificat-de-competences-en-entreprise-cce"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="CRM" data-cpf="non" data-free="oui">
             <td><strong>Trailhead — parcours officiel Salesforce</strong><br><span class="orga">Salesforce — Badges et superbadges officiels, sans certification CPF</span></td>
@@ -351,6 +398,7 @@
             <td><span class="badge badge-neutral">Non éligible</span></td>
             <td><strong>0 €</strong></td>
             <td><a href="https://trailhead.salesforce.com/fr" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-salesforce-trailhead-parcours-officiel-salesforce"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Langues" data-cpf="variable" data-free="non">
             <td><strong>DELE espagnol (A1 à C2)</strong><br><span class="orga">Instituto Cervantes — Officialise un niveau d&#x27;espagnol déjà acquis</span><br><span class="row-note">⚠️ Ne pas confondre les deux prix : l&#x27;inscription à l&#x27;examen DELE coûte quelques centaines d&#x27;euros au plus ; les 500 à 3 000 € parfois cités correspondent à une formation de préparation vendue par un organisme tiers. Vérifier le tarif exact du niveau visé sur la page tarifs, et l&#x27;éligibilité CPF du passage de l&#x27;examen seul.</span></td>
@@ -359,6 +407,7 @@
             <td><span class="badge badge-warning">Sous conditions</span></td>
             <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
             <td><a href="https://paris.cervantes.es/fr/diplomes_espagnol/tarifs_inscription_dele.htm" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-instituto-cervantes-dele-espagnol-a1-a-c2"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Langues" data-cpf="oui" data-free="non">
             <td><strong>TOEIC / DELE / Goethe / CILS</strong><br><span class="orga">OpenLang — RS — organisme certifié Qualiopi</span></td>
@@ -367,6 +416,7 @@
             <td><span class="badge badge-success">Éligible CPF</span></td>
             <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
             <td><a href="https://openlang.fr/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-openlang-toeic-dele-goethe-cils"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Langues" data-cpf="oui" data-free="non">
             <td><strong>LILATE / CLOE</strong><br><span class="orga">Cercle des Langues — RS — guide et organismes partenaires</span></td>
@@ -375,6 +425,7 @@
             <td><span class="badge badge-success">Éligible CPF</span></td>
             <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
             <td><a href="https://www.cercledeslangues.com/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-cercle-des-langues-lilate-cloe"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Langues" data-cpf="oui" data-free="non">
             <td><strong>TOEIC / DELE / Goethe / DELF</strong><br><span class="orga">Linguaphone — Certifié Qualiopi</span></td>
@@ -383,6 +434,7 @@
             <td><span class="badge badge-success">Éligible CPF</span></td>
             <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
             <td><a href="https://www.linguaphone.fr/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-linguaphone-toeic-dele-goethe-delf"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Langues" data-cpf="oui" data-free="non">
             <td><strong>TCF / TOEIC / Linguaskill</strong><br><span class="orga">ILE International — Sessions individuelles ou collectives</span></td>
@@ -391,6 +443,7 @@
             <td><span class="badge badge-success">Éligible CPF</span></td>
             <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
             <td><a href="https://ile-international.com/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-ile-international-tcf-toeic-linguaskill"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="RSE" data-cpf="oui" data-free="non">
             <td><strong>Responsable RSE</strong><br><span class="orga">Nova Formation — E-learning avec formateur — durée à confirmer</span><br><span class="row-note">⚠️ Homonyme : ne pas confondre avec le Nova Formation du secteur funéraire. La page annonce une « Formation RSE opérationnelle » de 204 h, pas 43 h, et n&#x27;affiche aucun tarif : les 2 850 € précédemment indiqués n&#x27;ont pas pu être vérifiés.</span></td>
@@ -399,6 +452,7 @@
             <td><span class="badge badge-success">Éligible CPF</span></td>
             <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
             <td><a href="https://www.novaformation.com/formation-rse/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-nova-formation-responsable-rse"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="RSE" data-cpf="oui" data-free="non">
             <td><strong>Responsable RSE</strong><br><span class="orga">E&amp;H Academy — RS7389 — 56 h sur 8 jours, sans prérequis</span><br><span class="row-note">⚠️ RS7389 « Définir et déployer une stratégie de durabilité en entreprise », certificateur Des Enjeux et Des Hommes, enregistré le 27/11/2025 et actif jusqu&#x27;au 27/11/2028. Aucune session n&#x27;était ouverte lors du contrôle de septembre 2026.</span></td>
@@ -407,6 +461,7 @@
             <td><span class="badge badge-success">Éligible CPF</span></td>
             <td><strong>2 646 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
             <td><a href="https://eh-academy.com/fr/formations/responsable-rse/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-e-h-academy-responsable-rse"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="RSE" data-cpf="variable" data-free="non">
             <td><strong>Transition écologique &amp; RSE</strong><br><span class="orga">L&#x27;Air des Pichoulis — RSE, bilan carbone méthode ADEME</span><br><span class="row-note">⚠️ Organisme Qualiopi confirmé (NDA 32 59 09711 59). L&#x27;éligibilité CPF est affirmée par l&#x27;organisme lui-même sans code RS ou RNCP publié : à faire confirmer.</span></td>
@@ -415,6 +470,7 @@
             <td><span class="badge badge-warning">Sous conditions</span></td>
             <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
             <td><a href="https://www.lairdespichoulis.fr/formations/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-l-air-des-pichoulis-transition-ecologique-rse"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="RSE" data-cpf="oui" data-free="non">
             <td><strong>Stratège de la Transformation Durable</strong><br><span class="orga">École Polytechnique (Exed) — RNCP41077BC05 — 68 h</span><br><span class="row-note">⚠️ Hors budget au regard du solde CPF actuel : un financement complémentaire serait nécessaire.</span></td>
@@ -423,6 +479,7 @@
             <td><span class="badge badge-success">Éligible CPF</span></td>
             <td><strong>13 046 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
             <td><a href="https://exed.polytechnique.edu/formations/durabilite/stratege-transformation-durable" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-ecole-polytechnique-exed-stratege-de-la-transformation-durable"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Transversal" data-cpf="variable" data-free="oui">
             <td><strong>Parcours diplômants et cours libres</strong><br><span class="orga">OpenClassrooms — SEO, gestion de projet, marketing, management</span><br><span class="row-note">⚠️ CPF uniquement pour les parcours RNCP — jamais pour le mode libre.</span></td>
@@ -431,6 +488,7 @@
             <td><span class="badge badge-warning">Sous conditions</span></td>
             <td><strong>0 €</strong></td>
             <td><a href="https://openclassrooms.com/fr/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-openclassrooms-parcours-diplomants-et-cours-libres"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Transversal" data-cpf="non" data-free="oui">
             <td><strong>Cours en mode audit</strong><br><span class="orga">Coursera — IA générative, gestion de projet, management</span></td>
@@ -439,6 +497,7 @@
             <td><span class="badge badge-neutral">Non éligible</span></td>
             <td><strong>0 €</strong></td>
             <td><a href="https://www.coursera.org/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-coursera-cours-en-mode-audit"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Transversal" data-cpf="non" data-free="oui">
             <td><strong>MOOC universitaires</strong><br><span class="orga">Fun-Mooc — Tous domaines, portage ministériel</span></td>
@@ -447,6 +506,7 @@
             <td><span class="badge badge-neutral">Non éligible</span></td>
             <td><strong>0 €</strong></td>
             <td><a href="https://www.fun-mooc.fr/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-fun-mooc-mooc-universitaires"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Transversal" data-cpf="non" data-free="non">
             <td><strong>Catalogue vidéo</strong><br><span class="orga">LinkedIn Learning — Management, marketing, CRM, compétences transverses</span></td>
@@ -455,6 +515,7 @@
             <td><span class="badge badge-neutral">Non éligible</span></td>
             <td><strong>1 mois offert, puis ≈ 30 €/mois</strong><br><span class="rac-note">non finançable</span></td>
             <td><a href="https://www.linkedin.com/learning/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-linkedin-learning-catalogue-video"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Transversal" data-cpf="non" data-free="oui">
             <td><strong>Ateliers Numériques</strong><br><span class="orga">Google — Marketing digital et SEO</span></td>
@@ -463,6 +524,7 @@
             <td><span class="badge badge-neutral">Non éligible</span></td>
             <td><strong>0 €</strong></td>
             <td><a href="https://grow.google/intl/fr_fr/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-google-ateliers-numeriques"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Transversal" data-cpf="non" data-free="oui">
             <td><strong>Bases transversales</strong><br><span class="orga">Khan Academy — Fondamentaux, tous niveaux</span></td>
@@ -471,6 +533,7 @@
             <td><span class="badge badge-neutral">Non éligible</span></td>
             <td><strong>0 €</strong></td>
             <td><a href="https://fr.khanacademy.org/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-khan-academy-bases-transversales"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
           <tr data-category="Transversal" data-cpf="variable" data-free="non">
             <td><strong>Aide Individuelle à la Formation (AIF)</strong><br><span class="orga">France Travail — Abondement possible en complément du CPF, selon profil</span><br><span class="row-note">⚠️ Accessible aux demandeurs d&#x27;emploi ; se cumule avec le CPF.</span></td>
@@ -479,6 +542,7 @@
             <td><span class="badge badge-warning">Sous conditions</span></td>
             <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
             <td><a href="https://www.francetravail.fr/candidat/en-formation/mes-aides-financieres/laide-individuelle-a-la-formatio.html" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+            <td class="ins-cell" data-ins-id="fr-france-travail-aide-individuelle-a-la-formation-aif"><select class="ins-status" aria-label="Statut d&#39;inscription"><option value="todo">Pas encore</option><option value="inscrite">Inscrite</option><option value="terminee">Terminée</option></select><span class="ins-date-label" hidden>Inscrite le</span><input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription"></td>
           </tr>
         </tbody>
       </table>
@@ -496,9 +560,11 @@
   </main>
 
   <script src="assets/js/progress.js"></script>
+  <script src="assets/js/sync.js"></script>
+  <script src="assets/js/offline.js"></script>
   <script>
     (function () {
-      var theme = 'all', money = 'all';
+      var theme = 'all', money = 'all', ins = 'all';
       var rows = Array.prototype.slice.call(
         document.querySelectorAll('#ressources-table tbody tr'));
       var count = document.getElementById('result-count');
@@ -510,7 +576,8 @@
           var okMoney = (money === 'all')
             || (money === 'cpf' && row.dataset.cpf === 'oui')
             || (money === 'free' && row.dataset.free === 'oui');
-          var visible = okTheme && okMoney;
+          var okIns = (ins === 'all') || ((row.dataset.ins || 'todo') === ins);
+          var visible = okTheme && okMoney && okIns;
           row.style.display = visible ? '' : 'none';
           if (visible) shown++;
         });
@@ -536,6 +603,9 @@
 
       wire('filter-theme', function (b) { theme = b.dataset.filter; });
       wire('filter-money', function (b) { money = b.dataset.money; });
+      wire('filter-ins', function (b) { ins = b.dataset.ins; });
+
+      window.formahubApplyFilters = apply;
       apply();
     })();
   </script>

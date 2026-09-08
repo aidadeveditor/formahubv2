@@ -1,0 +1,225 @@
+{
+ "module_id": "formation-analytics-mesure-module-3",
+ "formation": "Analytics et mesure de la performance",
+ "titre": "De la mesure à l'analyse : entonnoirs, cohortes et tests",
+ "version": "1.0",
+ "duree_estimee": "8 min",
+ "mots": 1315,
+ "resume": "Une refonte à quarante mille euros écartée en vingt minutes d'entonnoir, et les quatre façons les plus courantes de conclure trop vite.",
+ "hosts": {
+  "a": {
+   "nom": "Camille",
+   "role": "animatrice"
+  },
+  "b": {
+   "nom": "Sofia",
+   "role": "responsable analytics"
+  }
+ },
+ "lignes": [
+  {
+   "v": "a",
+   "t": "Module 3. Le taux de conversion du site est passé de trois virgule un à deux virgule six pour cent en deux mois. Environ quarante demandes commerciales perdues par mois. Et la réunion de crise a déjà trouvé la solution."
+  },
+  {
+   "v": "b",
+   "t": "La page d'accueil serait « datée », il faudrait la refondre. Un devis circule, quarante mille euros et trois mois de travail. Personne dans la salle n'a de raison de penser que la page d'accueil est en cause — c'est simplement la seule hypothèse formulée."
+  },
+  {
+   "v": "a",
+   "t": "Et une hypothèse unique finit toujours par être adoptée."
+  },
+  {
+   "v": "b",
+   "t": "C'est le mécanisme. La baisse est réelle, elle ne vient pas de la page d'accueil, et il faut deux heures d'analyse pour le montrer. Deux heures contre quarante mille euros."
+  },
+  {
+   "v": "a",
+   "t": "Quels sont les outils ?"
+  },
+  {
+   "v": "b",
+   "t": "Quatre. L'entonnoir, qui localise la marche qui casse. La segmentation, qui dit sur qui. Les cohortes, qui distinguent un effet durable d'un accident. Et le test contrôlé, seul moyen de savoir si une correction fonctionne."
+  },
+  {
+   "v": "a",
+   "t": "Commençons par l'entonnoir. Comment on le lit ?"
+  },
+  {
+   "v": "b",
+   "t": "En mouvement, pas en niveau. La règle est là. La marche à traiter n'est pas la plus basse — souvent la plus basse est normalement basse — c'est celle qui s'écarte de son histoire. D'où le corollaire : un entonnoir observé une seule fois ne sert presque à rien."
+  },
+  {
+   "v": "a",
+   "t": "Et il y a une subtilité de construction."
+  },
+  {
+   "v": "b",
+   "t": "Fermé ou ouvert. Un entonnoir fermé n'accepte que les parcours qui passent par toutes les marches dans l'ordre ; un entonnoir ouvert accepte les entrées en cours de route. Les deux sont légitimes et ils ne se comparent pas. Écrivez la forme et la fenêtre sur le rapport, sinon on comparera deux choses différentes."
+  },
+  {
+   "v": "a",
+   "t": "Passons à la segmentation. Tu dis que la moyenne est un mensonge confortable."
+  },
+  {
+   "v": "b",
+   "t": "Devant une variation globale, le premier réflexe doit être de vérifier si les poids des segments ont bougé. Parce que chaque segment peut progresser pendant que le total baisse — il suffit que la part du segment le moins performant ait augmenté. C'est un effet de composition, pas une dégradation, et ça se traite complètement différemment."
+  },
+  {
+   "v": "a",
+   "t": "Il y a un risque à trop segmenter."
+  },
+  {
+   "v": "b",
+   "t": "En découpant assez, on trouve toujours quelque chose qui n'existe pas. Deux garde-fous. Fixez un volume plancher par segment et refusez de commenter en dessous — ce refus est une compétence, pas une timidité. Et formulez l'hypothèse avant de découper."
+  },
+  {
+   "v": "a",
+   "t": "Et avant d'agir sur un segment ?"
+  },
+  {
+   "v": "b",
+   "t": "Il doit tenir sur une seconde période indépendante. Un segment intéressant sur un seul mois est une coïncidence jusqu'à preuve du contraire."
+  },
+  {
+   "v": "a",
+   "t": "Les cohortes, maintenant. À quoi elles servent ?"
+  },
+  {
+   "v": "b",
+   "t": "À mesurer ce qui dure. Les totaux cachent très efficacement une rétention qui s'effondre : une acquisition en hausse compense la fuite et la courbe globale reste plate. Vous ne le voyez qu'en regardant chaque génération d'utilisateurs séparément."
+  },
+  {
+   "v": "a",
+   "t": "Une règle de lecture ?"
+  },
+  {
+   "v": "b",
+   "t": "Ne comparez que des cohortes de même âge, et excluez les cohortes trop jeunes des graphiques. Une cohorte de deux semaines paraît toujours excellente parce qu'elle n'a pas encore eu le temps de partir."
+  },
+  {
+   "v": "a",
+   "t": "On arrive aux quatre façons de conclure trop vite."
+  },
+  {
+   "v": "b",
+   "t": "La corrélation prise pour une causalité. La saisonnalité oubliée. La variable cachée — deux choses varient ensemble parce qu'une troisième les fait bouger. Et la régression vers la moyenne : après un mois exceptionnellement mauvais, le mois suivant sera meilleur quoi que vous fassiez, et vous attribuerez ce retour à la normale à votre action."
+  },
+  {
+   "v": "a",
+   "t": "Comment on se protège ?"
+  },
+  {
+   "v": "b",
+   "t": "Une seule question, posée systématiquement : quelle observation me ferait changer d'avis ? Si vous ne pouvez pas y répondre, votre hypothèse est irréfutable, et une hypothèse irréfutable n'est pas une analyse."
+  },
+  {
+   "v": "a",
+   "t": "Tu as aussi un mot sur les graphiques."
+  },
+  {
+   "v": "b",
+   "t": "Le graphique à deux axes verticaux fait apparaître des relations qui n'existent pas. En choisissant bien les échelles, on fait coïncider n'importe quelles deux courbes. C'est la représentation la plus trompeuse du métier, et elle est partout."
+  },
+  {
+   "v": "a",
+   "t": "Reprenons l'étude de cas. Deux heures pour retirer un devis de quarante mille euros."
+  },
+  {
+   "v": "b",
+   "t": "Étape une, le réflexe du module 1 : vérifier l'instrument avant le phénomène. Journal des modifications — une mise à jour du formulaire déployée le 8 avril. Recoupement avec le nombre de fiches créées dans le CRM : la baisse est réelle, ce n'est pas un artefact de collecte. On peut analyser."
+  },
+  {
+   "v": "a",
+   "t": "L'entonnoir ?"
+  },
+  {
+   "v": "b",
+   "t": "Quatre marches : page produit vue, page contact atteinte, formulaire commencé, formulaire envoyé. Les trois premières sont stables à un point près. La quatrième passe de soixante et onze à cinquante-deux pour cent."
+  },
+  {
+   "v": "a",
+   "t": "Donc la perte est entièrement entre le début et l'envoi du formulaire."
+  },
+  {
+   "v": "b",
+   "t": "Et la page d'accueil n'apparaît même pas dans l'entonnoir : elle ne peut pas être en cause. Cette seule observation retire le devis de la table, et elle a pris vingt minutes."
+  },
+  {
+   "v": "a",
+   "t": "La segmentation, ensuite."
+  },
+  {
+   "v": "b",
+   "t": "On segmente la seule marche qui bouge, et uniquement celle-là. Par appareil : ordinateur stable à soixante-quatorze pour cent, mobile effondré de soixante-huit à trente-neuf. Par navigateur au sein du mobile : un navigateur concentre la quasi-totalité de la chute. Par source : aucun effet — ce qui est cohérent avec une cause technique et pas avec un problème d'audience."
+  },
+  {
+   "v": "a",
+   "t": "Et le mécanisme ?"
+  },
+  {
+   "v": "b",
+   "t": "La mise à jour du 8 avril a ajouté un champ de sélection dont l'affichage est défectueux sur ce navigateur mobile : la liste s'ouvre hors de l'écran. L'utilisateur ne peut pas la renseigner, le champ est obligatoire, l'envoi est refusé sans message d'erreur visible. Le formulaire n'est pas long, il est impossible à terminer."
+  },
+  {
+   "v": "a",
+   "t": "Il reste une vérification."
+  },
+  {
+   "v": "b",
+   "t": "La coïncidence de date. La chute commence-t-elle bien le 8 avril ? Oui, décrochage net à cette date sur le segment concerné, et rien avant. Sans cette vérification, on aurait une corrélation entre un déploiement et une baisse, sans certitude de lien. La coïncidence sur un segment précis, et sur lui seul, rend l'explication difficile à contester."
+  },
+  {
+   "v": "a",
+   "t": "Et ensuite on teste la correction ?"
+  },
+  {
+   "v": "b",
+   "t": "Non, et c'est une décision réfléchie. On corrige et on ne teste pas. Un test compare deux options quand on ignore laquelle est meilleure. Ici, il s'agit de réparer un défaut : personne ne défend l'idée qu'un formulaire impossible à envoyer soit une bonne option."
+  },
+  {
+   "v": "a",
+   "t": "Ce qui nous amène au test A/B. Quand il est utile, et comment."
+  },
+  {
+   "v": "b",
+   "t": "Un test se dimensionne avant d'être lancé : effet minimal détectable, volume nécessaire, durée. Un ordre de grandeur à retenir — détecter un effet deux fois plus petit demande environ quatre fois plus de visiteurs. C'est ce qui rend beaucoup de tests impossibles sur les petits sites, et il vaut mieux le savoir avant."
+  },
+  {
+   "v": "a",
+   "t": "La durée ?"
+  },
+  {
+   "v": "b",
+   "t": "Au moins deux semaines entières, même si le volume est atteint en trois jours. Sinon vous testez un mardi contre un dimanche."
+  },
+  {
+   "v": "a",
+   "t": "Et l'arrêt anticipé ?"
+  },
+  {
+   "v": "b",
+   "t": "Arrêter un test dès qu'il devient significatif peut porter la probabilité de conclure à tort à près d'un cas sur trois. C'est l'erreur la plus répandue, et la plus coûteuse, parce qu'elle produit des convictions fausses qu'on réutilise ensuite pendant des années."
+  },
+  {
+   "v": "a",
+   "t": "Quand ne faut-il pas tester ?"
+  },
+  {
+   "v": "b",
+   "t": "Trois cas. Une correction de défaut, comme dans le cas. Une décision de principe — on ne teste pas si on respecte une obligation légale. Et un effet lointain, qui mettrait six mois à se manifester : le test n'aura jamais la puissance nécessaire."
+  },
+  {
+   "v": "a",
+   "t": "Ce qu'on fait demain ?"
+  },
+  {
+   "v": "b",
+   "t": "Construisez l'entonnoir de votre parcours principal, quatre marches maximum, et regardez-le sur six mois plutôt que sur le mois en cours. La marche qui a bougé vous saute aux yeux, et c'est la seule qui mérite qu'on la segmente."
+  },
+  {
+   "v": "a",
+   "t": "Au module 4, on restitue. Merci Sofia."
+  }
+ ]
+}

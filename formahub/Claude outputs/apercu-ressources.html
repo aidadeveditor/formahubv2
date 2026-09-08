@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formahub — Ressources externes &amp; formations suggérées</title>
+  <style>
+:root {
+  --bg: #f7f8fa;
+  --surface: #ffffff;
+  --text: #1f2933;
+  --text-muted: #6b7280;
+  --border: #e2e8f0;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-light: #eff6ff;
+  --success: #059669;
+  --success-light: #ecfdf5;
+  --warning: #d97706;
+  --warning-light: #fffbeb;
+  --danger: #dc2626;
+  --danger-light: #fef2f2;
+  --radius: 12px;
+  --radius-sm: 6px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-hover: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -2px rgba(0,0,0,0.04);
+  --transition-fast: 0.15s ease;
+}
+
+[data-theme="dark"] {
+  --bg: #111827;
+  --surface: #1f2937;
+  --text: #f3f4f6;
+  --text-muted: #9ca3af;
+  --border: #374151;
+  --accent: #60a5fa;
+  --accent-hover: #3b82f6;
+  --accent-light: rgba(96, 165, 250, 0.1);
+  --success: #34d399;
+  --success-light: rgba(52, 211, 153, 0.1);
+  --warning: #fbbf24;
+  --warning-light: rgba(251, 191, 36, 0.1);
+  --danger: #f87171;
+  --danger-light: rgba(248, 113, 113, 0.1);
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.site-header .brand-icon {
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-link {
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+.nav-link:hover, .nav-link.active {
+  color: var(--text);
+  background: var(--accent-light);
+  text-decoration: none;
+}
+
+.theme-toggle {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  padding: 6px 14px;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all var(--transition-fast);
+}
+.theme-toggle:hover {
+  background: var(--accent-light);
+  border-color: var(--accent);
+}
+
+.main-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px 64px 20px;
+}
+
+.hero-banner {
+  margin-bottom: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+.hero-banner h1 { margin: 0 0 10px 0; font-size: 1.8rem; }
+.hero-banner p { margin: 0; color: var(--text-muted); font-size: 1.05rem; }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+.badge-success { background: var(--success); color: #fff; }
+.badge-progress { background: var(--accent); color: #fff; }
+.badge-warning { background: var(--warning); color: #111; }
+.badge-neutral { background: var(--surface); color: var(--text-muted); border: 1px solid var(--border); }
+
+.catalogue-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+.card h2, .card h3 { margin: 0 0 8px 0; font-size: 1.25rem; }
+.card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 16px; flex-grow: 1; }
+
+.progress-container {
+  margin: 16px 0;
+}
+.progress-bar {
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--border);
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 9999px;
+  transition: width 0.4s ease;
+}
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent-hover); text-decoration: none; color: #fff; }
+.btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
+.btn-outline:hover { background: var(--accent-light); border-color: var(--accent); text-decoration: none; }
+.btn-success { background: var(--success); color: #fff; }
+.btn-success:hover { opacity: 0.9; text-decoration: none; color: #fff; }
+
+/* Module Page layout */
+.module-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+.module-header {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+.module-header .breadcrumb {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.module-content {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  margin-bottom: 24px;
+}
+.module-content h1 { font-size: 1.8rem; margin-top: 0; }
+.module-content h2 { font-size: 1.35rem; margin-top: 28px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+.module-content h3 { font-size: 1.1rem; margin-top: 20px; }
+.module-content ul { padding-left: 20px; }
+.module-content li { margin-bottom: 8px; }
+
+.objectives-box {
+  background: var(--accent-light);
+  border-left: 4px solid var(--accent);
+  padding: 16px 20px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-bottom: 24px;
+}
+.objectives-box h3 { margin: 0 0 8px 0; color: var(--accent); }
+
+.exercise-box {
+  background: var(--warning-light);
+  border-left: 4px solid var(--warning);
+  padding: 20px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-top: 32px;
+}
+.exercise-box h3 { margin: 0 0 10px 0; color: var(--warning); }
+
+/* Quiz Styling */
+.quiz-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  margin-bottom: 32px;
+}
+.quiz-question {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  margin-bottom: 18px;
+  background: var(--bg);
+}
+.quiz-question legend {
+  font-weight: 700;
+  padding: 0 8px;
+  font-size: 1.05rem;
+}
+.quiz-choice {
+  display: block;
+  padding: 10px 14px;
+  margin: 8px 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.quiz-choice:hover {
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+.quiz-choice input { margin-right: 10px; }
+.quiz-question.correct { border-color: var(--success); background: var(--success-light); }
+.quiz-question.incorrect { border-color: var(--danger); background: var(--danger-light); }
+.quiz-feedback {
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  font-size: 0.95rem;
+  background: var(--surface);
+}
+
+/* External Resources Table */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.filter-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+}
+.filter-btn:hover, .filter-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.table-responsive {
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+th, td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+th {
+  background: var(--bg);
+  font-weight: 700;
+  color: var(--text-muted);
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--accent-light); }
+
+.module-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+/* ============================================================
+   Blocs pédagogiques des modules (ajout V4.1)
+   Toutes les couleurs utilisent les variables du thème :
+   le mode sombre est donc géré automatiquement.
+   ============================================================ */
+
+/* Métadonnées de module (durée, progression, niveau) */
+.module-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.module-content h4 { font-size: 1rem; margin: 0 0 6px 0; }
+.module-content p { margin: 0 0 14px 0; }
+.module-content code {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 0.9em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  word-break: break-word;
+}
+.module-content .table-responsive { margin: 18px 0; box-shadow: none; }
+
+/* Exemple concret */
+.example-box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  padding: 16px 20px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin: 20px 0 24px 0;
+}
+.example-box h4 { color: var(--accent); }
+.example-box p:last-child { margin-bottom: 0; }
+
+/* Glossaire */
+.glossary-box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 20px 24px;
+  margin-top: 32px;
+}
+.glossary-box h3 { margin: 0 0 14px 0; }
+.glossary-box dl { margin: 0; }
+.glossary-box dt { font-weight: 700; margin-top: 12px; }
+.glossary-box dt:first-child { margin-top: 0; }
+.glossary-box dd { margin: 3px 0 0 0; color: var(--text-muted); }
+
+/* À retenir */
+.takeaway-box {
+  background: var(--success-light);
+  border-left: 4px solid var(--success);
+  padding: 18px 22px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-top: 32px;
+}
+.takeaway-box h3 { margin: 0 0 10px 0; color: var(--success); }
+.takeaway-box ul { margin: 0; }
+.takeaway-box li:last-child { margin-bottom: 0; }
+
+/* Corrigé repliable */
+.solution-box {
+  margin-top: 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+.solution-box > summary {
+  cursor: pointer;
+  padding: 12px 16px;
+  font-weight: 600;
+  color: var(--accent);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: var(--radius-sm);
+}
+.solution-box > summary::-webkit-details-marker { display: none; }
+.solution-box > summary::before {
+  content: "▶";
+  display: inline-block;
+  font-size: 0.7rem;
+  transition: transform var(--transition-fast);
+}
+.solution-box[open] > summary::before { transform: rotate(90deg); }
+.solution-box > summary:hover { background: var(--accent-light); }
+.solution-box > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.solution-content { padding: 4px 18px 18px 18px; }
+.solution-content > :first-child { margin-top: 0; }
+.solution-content > :last-child { margin-bottom: 0; }
+
+/* ============================================================
+   Gabarit formation complète (V5)
+   ============================================================ */
+
+/* Mise en situation */
+.intro-box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--text-muted);
+  padding: 18px 22px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-bottom: 24px;
+}
+.intro-box h3 { margin: 0 0 10px 0; color: var(--text-muted); }
+.intro-box p:last-child { margin-bottom: 0; }
+
+/* Méthode pas à pas */
+.method-box {
+  background: var(--accent-light);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 18px 22px;
+  margin: 20px 0 24px 0;
+}
+.method-box h4 { color: var(--accent); margin-bottom: 10px; }
+.method-box ol { margin: 0; padding-left: 22px; }
+.method-box ol li { margin-bottom: 10px; }
+.method-box ol li:last-child { margin-bottom: 0; }
+
+/* Erreur fréquente */
+.pitfall-box {
+  background: var(--danger-light);
+  border-left: 4px solid var(--danger);
+  padding: 16px 20px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin: 20px 0 24px 0;
+}
+.pitfall-box h4 { color: var(--danger); }
+.pitfall-box p:last-child { margin-bottom: 0; }
+
+/* Étude de cas */
+.case-box {
+  background: var(--surface);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 24px 26px;
+  margin-top: 32px;
+}
+.case-box h3 { margin: 0 0 14px 0; color: var(--accent); }
+.case-box > p:last-child { margin-bottom: 0; }
+
+/* Checklist opérationnelle */
+.checklist-box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 20px 24px;
+  margin-top: 32px;
+}
+.checklist-box h3 { margin: 0 0 12px 0; }
+ul.checklist { list-style: none; padding-left: 0; margin: 0; }
+ul.checklist li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 10px;
+}
+ul.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+}
+ul.checklist li:last-child { margin-bottom: 0; }
+
+/* Titre de la série d'exercices */
+.exercises-title {
+  margin-top: 40px;
+  border-bottom: 2px solid var(--accent) !important;
+}
+
+/* Pour aller plus loin */
+.resources-box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 20px 24px;
+  margin-top: 32px;
+}
+.resources-box h3 { margin: 0 0 12px 0; }
+.resources-box ul { margin: 0; }
+.resources-box li:last-child { margin-bottom: 0; }
+
+@media (max-width: 640px) {
+  .module-content { padding: 20px 18px; }
+  .case-box, .checklist-box, .resources-box, .glossary-box { padding: 18px 16px; }
+  .method-box, .intro-box, .pitfall-box, .example-box { padding: 14px 16px; }
+}
+
+</style>
+  <style>
+    .orga { color: var(--text-muted); font-size: 0.85rem; }
+    .rac-note { color: var(--text-muted); font-size: 0.78rem; }
+    .row-note { display: block; margin-top: 6px; color: var(--text-muted);
+                 font-size: 0.78rem; line-height: 1.45; }
+    .filter-group { margin-bottom: 10px; }
+    .filter-group-label { display: block; font-size: 0.78rem; text-transform: uppercase;
+                           letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 6px; }
+    #result-count { color: var(--text-muted); font-size: 0.9rem; margin: 4px 0 18px; }
+    #ressources-table td:first-child { min-width: 240px; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="brand">
+      <div class="brand-icon">F</div>
+      <span>Formahub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">Mes formations</a>
+      <a href="ressources-externes.html" class="nav-link active">Ressources externes</a>
+      <button class="theme-toggle" type="button">🌙 Mode Sombre</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <div class="hero-banner">
+      <h1>Ressources externes &amp; formations suggérées</h1>
+      <p>49 ressources pour prolonger les six parcours Formahub : documentations officielles gratuites, cours en accès libre et formations certifiantes éligibles au CPF.</p>
+      <div style="margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap;">
+        <span class="badge badge-progress">Solde CPF de référence : 1 353,80 €</span>
+        <span class="badge badge-success">30 formations éligibles CPF</span>
+        <span class="badge badge-neutral">14 ressources gratuites</span>
+      </div>
+    </div>
+
+    <div class="intro-box">
+      <h3>📌 Comment lire la colonne « reste à charge »</h3>
+      <p><strong>Reste à charge = coût de la formation − min(solde CPF ; plafond réglementaire applicable) + participation obligatoire.</strong></p>
+      <p>Les plafonds 2026 retenus : <strong>1 500 €</strong> pour une certification du Répertoire spécifique hors CléA, <strong>1 600 €</strong> pour un bilan de compétences, <strong>900 €</strong> pour le permis B. Les titres RNCP, la VAE et CléA ne sont pas plafonnés.</p>
+      <p>Quand un coût est annoncé sous forme de fourchette, le reste à charge affiché part du <em>tarif le plus bas</em> — considérez-le comme un plancher, pas comme un devis.</p>
+    </div>
+
+    <div class="pitfall-box">
+      <h4>⚠️ Deux points à vérifier avant de vous engager</h4>
+      <p><strong>Le montant de la participation obligatoire.</strong> Les sources consultées l'annoncent entre <strong>103,20 €</strong> et <strong>150 €</strong>. Elle n'est donc pas intégrée aux montants du tableau, qui indiquent seulement « + participation obligatoire ». Le montant exact s'affiche au moment de l'inscription sur moncompteformation.gouv.fr.</p>
+      <p><strong>Le solde CPF réellement disponible.</strong> Les cinq dernières années travaillées en Espagne n'alimentent pas le CPF français : le solde de référence utilisé ici est à confirmer sur <a href="https://www.moncompteformation.gouv.fr/" target="_blank" rel="noopener">moncompteformation.gouv.fr</a> avant tout arbitrage. Tous les calculs de cette page en dépendent.</p>
+      <p>Enfin, le CPF ne finance que les formations menant à une certification RNCP ou RS. Une attestation de suivi, même délivrée par un organisme sérieux, n'ouvre aucun droit.</p>
+    </div>
+
+    <div class="filter-group">
+      <span class="filter-group-label">Thématique</span>
+      <div class="filter-bar" id="filter-theme">
+        <button class="filter-btn active" data-filter="all">Toutes</button>
+      <button class="filter-btn" data-filter="SEO">SEO</button>
+      <button class="filter-btn" data-filter="Content Marketing">Content Marketing</button>
+      <button class="filter-btn" data-filter="IA Générative">IA Générative</button>
+      <button class="filter-btn" data-filter="Gestion de projet">Gestion de projet</button>
+      <button class="filter-btn" data-filter="Management">Management</button>
+      <button class="filter-btn" data-filter="CRM">CRM</button>
+      <button class="filter-btn" data-filter="Langues">Langues</button>
+      <button class="filter-btn" data-filter="RSE">RSE</button>
+      <button class="filter-btn" data-filter="Transversal">Transversal</button>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <span class="filter-group-label">Financement</span>
+      <div class="filter-bar" id="filter-money">
+        <button class="filter-btn active" data-money="all">Tous</button>
+        <button class="filter-btn" data-money="cpf">Éligible CPF</button>
+        <button class="filter-btn" data-money="free">Gratuit</button>
+      </div>
+    </div>
+
+    <p id="result-count"></p>
+
+    <div class="table-responsive">
+      <table id="ressources-table">
+        <thead>
+          <tr>
+            <th>Intitulé &amp; organisme</th>
+            <th>Thématique</th>
+            <th>Coût annoncé</th>
+            <th>CPF</th>
+            <th>Reste à charge estimé</th>
+            <th>Lien</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-category="SEO" data-cpf="non" data-free="oui">
+            <td><strong>Google Search Central</strong><br><span class="orga">Google — Documentation officielle, mise à jour continue</span></td>
+            <td><span class="badge badge-neutral">SEO Fondamentaux</span></td>
+            <td>Gratuit</td>
+            <td><span class="badge badge-neutral">Non éligible</span></td>
+            <td><strong>0 €</strong></td>
+            <td><a href="https://developers.google.com/search?hl=fr" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="SEO" data-cpf="non" data-free="oui">
+            <td><strong>Parcours SEO</strong><br><span class="orga">OpenClassrooms — Parcours structuré, environ 10 h</span></td>
+            <td><span class="badge badge-neutral">SEO Fondamentaux</span></td>
+            <td>Gratuit (mode libre)</td>
+            <td><span class="badge badge-neutral">Non éligible</span></td>
+            <td><strong>0 €</strong></td>
+            <td><a href="https://openclassrooms.com/fr/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="SEO" data-cpf="non" data-free="oui">
+            <td><strong>Semrush Academy</strong><br><span class="orga">Semrush — Modules courts, tous niveaux</span></td>
+            <td><span class="badge badge-neutral">SEO Fondamentaux</span></td>
+            <td>Gratuit</td>
+            <td><span class="badge badge-neutral">Non éligible</span></td>
+            <td><strong>0 €</strong></td>
+            <td><a href="https://www.semrush.com/academy/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="SEO" data-cpf="oui" data-free="non">
+            <td><strong>Accompagnement SEO individuel</strong><br><span class="orga">LiveMentor — RS6710 — mentorat individuel</span></td>
+            <td><span class="badge badge-neutral">SEO Fondamentaux</span></td>
+            <td>1 650 à 1 980 €</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><strong>à partir de 296 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
+            <td><a href="https://www.livementor.com/formation/seo/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="SEO" data-cpf="oui" data-free="non">
+            <td><strong>Formation SEO certifiante</strong><br><span class="orga">Skills4All — RS — vidéos, exercices et projet final, 30 h</span></td>
+            <td><span class="badge badge-neutral">SEO Fondamentaux</span></td>
+            <td>≈ 2 000 €</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><strong>environ 646 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
+            <td><a href="https://www.skills4all.com/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="SEO" data-cpf="oui" data-free="non">
+            <td><strong>Formation SEO éligible CPF</strong><br><span class="orga">La WAB — RS7500 — e-learning et visio hebdomadaire, 8 semaines</span></td>
+            <td><span class="badge badge-neutral">SEO Fondamentaux</span></td>
+            <td>≈ 1 485 €</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><strong>environ 131 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
+            <td><a href="https://www.la-wab.fr/formation-seo-eligible-cpf-reconnu-par-l-etat" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="SEO" data-cpf="oui" data-free="non">
+            <td><strong>Formation SEO</strong><br><span class="orga">Wemodo (ex-Webmyday) — RS — modules et coaching de groupe</span><br><span class="row-note">⚠️ L&#x27;organisme a été renommé : Webmyday est devenu Wemodo.</span></td>
+            <td><span class="badge badge-neutral">SEO Fondamentaux</span></td>
+            <td>1 740 à 2 088 €</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><strong>à partir de 386 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
+            <td><a href="https://wemodo.com/formations/web/formation-seo" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="SEO" data-cpf="oui" data-free="non">
+            <td><strong>Formation SEO</strong><br><span class="orga">The Business Legion — Formation et communauté Discord</span></td>
+            <td><span class="badge badge-neutral">SEO Fondamentaux</span></td>
+            <td>≈ 2 000 €</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><strong>environ 646 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
+            <td><a href="https://the-business-legion.com/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="SEO" data-cpf="oui" data-free="non">
+            <td><strong>Formation SEO</strong><br><span class="orga">Mantra (ex-GrowthMakers) — Orientée futurs responsables SEO</span></td>
+            <td><span class="badge badge-neutral">SEO Fondamentaux</span></td>
+            <td>≈ 1 990 €</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><strong>environ 636 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
+            <td><a href="https://www.mantra.work/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="SEO" data-cpf="non" data-free="non">
+            <td><strong>Cours SEO (Guersan)</strong><br><span class="orga">Udemy — 9 h 30 de contenu — option petit budget</span></td>
+            <td><span class="badge badge-neutral">SEO Fondamentaux</span></td>
+            <td>≈ 22,99 €</td>
+            <td><span class="badge badge-neutral">Non éligible</span></td>
+            <td><strong>≈ 22,99 €</strong><br><span class="rac-note">non finançable</span></td>
+            <td><a href="https://www.udemy.com/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="Content Marketing" data-cpf="non" data-free="oui">
+            <td><strong>Content Marketing Certification</strong><br><span class="orga">HubSpot Academy — 8 h, certificat gratuit</span></td>
+            <td><span class="badge badge-neutral">Content Marketing</span></td>
+            <td>Gratuit</td>
+            <td><span class="badge badge-neutral">Non éligible</span></td>
+            <td><strong>0 €</strong></td>
+            <td><a href="https://academy.hubspot.fr/courses/content-marketing" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="Content Marketing" data-cpf="non" data-free="oui">
+            <td><strong>Content Strategy Course</strong><br><span class="orga">HubSpot Academy — Cours complémentaire</span></td>
+            <td><span class="badge badge-neutral">Content Marketing</span></td>
+            <td>Gratuit</td>
+            <td><span class="badge badge-neutral">Non éligible</span></td>
+            <td><strong>0 €</strong></td>
+            <td><a href="https://academy.hubspot.com/courses/content-strategy" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="Content Marketing" data-cpf="non" data-free="oui">
+            <td><strong>Formation marketing digital</strong><br><span class="orga">HubSpot Academy — Vue d&#x27;ensemble marketing</span></td>
+            <td><span class="badge badge-neutral">Content Marketing</span></td>
+            <td>Gratuit</td>
+            <td><span class="badge badge-neutral">Non éligible</span></td>
+            <td><strong>0 €</strong></td>
+            <td><a href="https://academy.hubspot.fr/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="IA Générative" data-cpf="oui" data-free="non">
+            <td><strong>Formation IA générative</strong><br><span class="orga">SavoirIA — RS6776 — 16 h, présentiel ou distanciel</span></td>
+            <td><span class="badge badge-neutral">IA Générative</span></td>
+            <td>Variable</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
+            <td><a href="https://www.savoiria.fr/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="IA Générative" data-cpf="oui" data-free="non">
+            <td><strong>Formation IA générative</strong><br><span class="orga">Jedha — Certification IA générative, 42 h</span></td>
+            <td><span class="badge badge-neutral">IA Générative</span></td>
+            <td>1 500 €</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><strong>146 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
+            <td><a href="https://www.jedha.co/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="IA Générative" data-cpf="oui" data-free="non">
+            <td><strong>Prompt Engineer</strong><br><span class="orga">Jedha — RS7234 — certification « Generative AI »</span></td>
+            <td><span class="badge badge-neutral">IA Générative</span></td>
+            <td>Variable</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
+            <td><a href="https://www.jedha.co/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="IA Générative" data-cpf="oui" data-free="non">
+            <td><strong>Parcours IA — Fondamental et Approfondi</strong><br><span class="orga">Skillevos — RS6776</span></td>
+            <td><span class="badge badge-neutral">IA Générative</span></td>
+            <td>Variable</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
+            <td><a href="https://www.skillevos.fr/formation-ia-entreprise/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="IA Générative" data-cpf="oui" data-free="non">
+            <td><strong>Formation IA générative</strong><br><span class="orga">Perma France — 18 h — annoncée sans reste à charge</span><br><span class="row-note">⚠️ Organisme non retrouvé lors de la vérification des liens — à confirmer avant toute inscription.</span></td>
+            <td><span class="badge badge-neutral">IA Générative</span></td>
+            <td>≈ 1 490 €</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><strong>environ 136 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
+            <td><span class="rac-note">lien non vérifié</span></td>
+          </tr>
+          <tr data-category="IA Générative" data-cpf="oui" data-free="non">
+            <td><strong>Formation IA</strong><br><span class="orga">26 Academy — RNCP / RS — 100 % en ligne, tuteur dédié</span></td>
+            <td><span class="badge badge-neutral">IA Générative</span></td>
+            <td>Variable</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
+            <td><a href="https://26academy.com/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="IA Générative" data-cpf="oui" data-free="non">
+            <td><strong>Formation IA</strong><br><span class="orga">Phoenix Performance — 16 h — prise en charge annoncée jusqu&#x27;à 1 500 €</span></td>
+            <td><span class="badge badge-neutral">IA Générative</span></td>
+            <td>Variable</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
+            <td><a href="https://www.phoenix-performance.pro/formation-ia" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="IA Générative" data-cpf="non" data-free="oui">
+            <td><strong>Introduction to Generative AI</strong><br><span class="orga">Google Cloud Skills Boost — Fondamentaux de l&#x27;IA générative</span></td>
+            <td><span class="badge badge-neutral">IA Générative</span></td>
+            <td>Gratuit</td>
+            <td><span class="badge badge-neutral">Non éligible</span></td>
+            <td><strong>0 €</strong></td>
+            <td><a href="https://www.cloudskillsboost.google/paths/118" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="IA Générative" data-cpf="non" data-free="oui">
+            <td><strong>Notions fondamentales — IA générative</strong><br><span class="orga">Microsoft Learn — Parcours guidé</span></td>
+            <td><span class="badge badge-neutral">IA Générative</span></td>
+            <td>Gratuit</td>
+            <td><span class="badge badge-neutral">Non éligible</span></td>
+            <td><strong>0 €</strong></td>
+            <td><a href="https://learn.microsoft.com/fr-fr/training/paths/introduction-generative-ai/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="Gestion de projet" data-cpf="non" data-free="non">
+            <td><strong>Google Project Management Certificate</strong><br><span class="orga">Coursera — Idéal pour débuter</span></td>
+            <td><span class="badge badge-neutral">Gestion de projet</span></td>
+            <td>150 à 300 €</td>
+            <td><span class="badge badge-neutral">Non éligible</span></td>
+            <td><strong>150 à 300 €</strong><br><span class="rac-note">non finançable</span></td>
+            <td><a href="https://www.coursera.org/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="Gestion de projet" data-cpf="oui" data-free="non">
+            <td><strong>PRINCE2 Foundation</strong><br><span class="orga">Skills4All / Oo2 / Cegos — RS — référence internationale</span></td>
+            <td><span class="badge badge-neutral">Gestion de projet</span></td>
+            <td>1 450 à 2 500 €</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><strong>à partir de 96 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
+            <td><a href="https://www.skills4all.com/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="Gestion de projet" data-cpf="oui" data-free="non">
+            <td><strong>Préparation PMP</strong><br><span class="orga">Cegos / Orsys / Demos — Certification PMP</span></td>
+            <td><span class="badge badge-neutral">Gestion de projet</span></td>
+            <td>2 000 à 3 500 €</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><strong>à partir de 646 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
+            <td><a href="https://www.cegos.fr/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="Gestion de projet" data-cpf="oui" data-free="non">
+            <td><strong>Gestion de projet agile</strong><br><span class="orga">26 Academy — RS5487 / RNCP37091 — Scrum, transformation digitale</span></td>
+            <td><span class="badge badge-neutral">Gestion de projet</span></td>
+            <td>Variable</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
+            <td><a href="https://26academy.com/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="Gestion de projet" data-cpf="non" data-free="non">
+            <td><strong>CompTIA Project+</strong><br><span class="orga">CompTIA — Pour coordinateurs IT</span></td>
+            <td><span class="badge badge-neutral">Gestion de projet</span></td>
+            <td>≈ 350 €</td>
+            <td><span class="badge badge-neutral">Non éligible</span></td>
+            <td><strong>≈ 350 €</strong><br><span class="rac-note">non finançable</span></td>
+            <td><a href="https://www.comptia.org/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="Gestion de projet" data-cpf="oui" data-free="non">
+            <td><strong>ITIL 4 Foundation</strong><br><span class="orga">Cegos / Orsys — Gestion des services IT</span></td>
+            <td><span class="badge badge-neutral">Gestion de projet</span></td>
+            <td>1 200 à 1 800 €</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><strong>0 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
+            <td><a href="https://www.orsys.fr/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="Management" data-cpf="oui" data-free="non">
+            <td><strong>Manager des équipes de proximité</strong><br><span class="orga">26 Academy — RS6626</span></td>
+            <td><span class="badge badge-neutral">Management d&#x27;équipe</span></td>
+            <td>Variable</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
+            <td><a href="https://26academy.com/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="Management" data-cpf="oui" data-free="non">
+            <td><strong>Management d&#x27;équipe</strong><br><span class="orga">Walter Learning — RS6626 — 34 h</span></td>
+            <td><span class="badge badge-neutral">Management d&#x27;équipe</span></td>
+            <td>Variable</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
+            <td><a href="https://walter-learning.com/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="Management" data-cpf="oui" data-free="non">
+            <td><strong>Certification RS6626</strong><br><span class="orga">Organismes référencés MaFormation — Comparateur multi-organismes</span></td>
+            <td><span class="badge badge-neutral">Management d&#x27;équipe</span></td>
+            <td>2 110 à 2 850 €</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><strong>à partir de 756 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
+            <td><a href="https://www.maformation.fr/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="Management" data-cpf="oui" data-free="non">
+            <td><strong>Certificat de Compétences en Entreprise (CCE)</strong><br><span class="orga">CCI Formation — Certification CCE</span><br><span class="row-note">⚠️ Le portail national des CCI ; les tarifs et sessions dépendent de la CCI territoriale.</span></td>
+            <td><span class="badge badge-neutral">Management d&#x27;équipe</span></td>
+            <td>Variable</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
+            <td><a href="https://www.cci.fr/ressources/formation" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="CRM" data-cpf="non" data-free="oui">
+            <td><strong>Trailhead — parcours officiel Salesforce</strong><br><span class="orga">Salesforce — Badges et superbadges officiels, sans certification CPF</span></td>
+            <td><span class="badge badge-neutral">CRM Salesforce</span></td>
+            <td>Gratuit</td>
+            <td><span class="badge badge-neutral">Non éligible</span></td>
+            <td><strong>0 €</strong></td>
+            <td><a href="https://trailhead.salesforce.com/fr" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="Langues" data-cpf="oui" data-free="non">
+            <td><strong>DELE espagnol (A1 à C2)</strong><br><span class="orga">Instituto Cervantes — Officialise un niveau d&#x27;espagnol déjà acquis</span></td>
+            <td><span class="badge badge-neutral">Langues</span></td>
+            <td>500 à 3 000 € selon le niveau</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><strong>0 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
+            <td><a href="https://paris.cervantes.es/fr/examens_espagnol/info_examens_espagnol.htm" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="Langues" data-cpf="oui" data-free="non">
+            <td><strong>TOEIC / DELE / Goethe / CILS</strong><br><span class="orga">OpenLang — RS — organisme certifié Qualiopi</span></td>
+            <td><span class="badge badge-neutral">Langues</span></td>
+            <td>Variable</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
+            <td><a href="https://openlang.fr/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="Langues" data-cpf="oui" data-free="non">
+            <td><strong>LILATE / CLOE</strong><br><span class="orga">Cercle des Langues — RS — guide et organismes partenaires</span></td>
+            <td><span class="badge badge-neutral">Langues</span></td>
+            <td>Variable</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
+            <td><a href="https://www.cercledeslangues.com/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="Langues" data-cpf="oui" data-free="non">
+            <td><strong>TOEIC / DELE / Goethe / DELF</strong><br><span class="orga">Linguaphone — Certifié Qualiopi</span></td>
+            <td><span class="badge badge-neutral">Langues</span></td>
+            <td>Variable</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
+            <td><a href="https://www.linguaphone.fr/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="Langues" data-cpf="oui" data-free="non">
+            <td><strong>TCF / TOEIC / Linguaskill</strong><br><span class="orga">ILE International — Sessions individuelles ou collectives</span></td>
+            <td><span class="badge badge-neutral">Langues</span></td>
+            <td>Variable</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
+            <td><a href="https://ile-international.com/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="RSE" data-cpf="oui" data-free="non">
+            <td><strong>Responsable RSE</strong><br><span class="orga">Nova Formation — 43 h — e-learning avec formateur</span><br><span class="row-note">⚠️ Homonyme : ne pas confondre avec le Nova Formation du secteur funéraire.</span></td>
+            <td><span class="badge badge-neutral">Transition écologique &amp; RSE</span></td>
+            <td>2 850 €</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><strong>1 496 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
+            <td><a href="https://www.novaformation.com/formation-rse/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="RSE" data-cpf="oui" data-free="non">
+            <td><strong>Responsable RSE</strong><br><span class="orga">E&amp;H Academy — RS7389 — sans prérequis, éligible depuis janvier 2026</span></td>
+            <td><span class="badge badge-neutral">Transition écologique &amp; RSE</span></td>
+            <td>Variable</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
+            <td><a href="https://eh-academy.com/fr/formations/responsable-rse/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="RSE" data-cpf="oui" data-free="non">
+            <td><strong>Transition écologique &amp; RSE</strong><br><span class="orga">L&#x27;Air des Pichoulis — Diagnostic, plan d&#x27;action, bilan carbone</span></td>
+            <td><span class="badge badge-neutral">Transition écologique &amp; RSE</span></td>
+            <td>Variable</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
+            <td><a href="https://www.lairdespichoulis.fr/formations/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="RSE" data-cpf="oui" data-free="non">
+            <td><strong>Stratège de la Transformation Durable</strong><br><span class="orga">École Polytechnique (Exed) — RNCP41077BC05 — 68 h</span><br><span class="row-note">⚠️ Hors budget au regard du solde CPF actuel : un financement complémentaire serait nécessaire.</span></td>
+            <td><span class="badge badge-neutral">Transition écologique &amp; RSE</span></td>
+            <td>14 400 € TTC</td>
+            <td><span class="badge badge-success">Éligible CPF</span></td>
+            <td><strong>13 046 €</strong><br><span class="rac-note">+ participation obligatoire</span></td>
+            <td><a href="https://exed.polytechnique.edu/formations/durabilite/stratege-transformation-durable" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="Transversal" data-cpf="variable" data-free="oui">
+            <td><strong>Parcours diplômants et cours libres</strong><br><span class="orga">OpenClassrooms — SEO, gestion de projet, marketing, management</span><br><span class="row-note">⚠️ CPF uniquement pour les parcours RNCP — jamais pour le mode libre.</span></td>
+            <td><span class="badge badge-neutral">Plateformes transversales</span></td>
+            <td>Gratuit en mode libre ; ≈ 3 600 € pour un parcours RNCP</td>
+            <td><span class="badge badge-warning">Sous conditions</span></td>
+            <td><strong>0 €</strong></td>
+            <td><a href="https://openclassrooms.com/fr/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="Transversal" data-cpf="non" data-free="oui">
+            <td><strong>Cours en mode audit</strong><br><span class="orga">Coursera — IA générative, gestion de projet, management</span></td>
+            <td><span class="badge badge-neutral">Plateformes transversales</span></td>
+            <td>Gratuit sans certificat</td>
+            <td><span class="badge badge-neutral">Non éligible</span></td>
+            <td><strong>0 €</strong></td>
+            <td><a href="https://www.coursera.org/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="Transversal" data-cpf="non" data-free="oui">
+            <td><strong>MOOC universitaires</strong><br><span class="orga">Fun-Mooc — Tous domaines, portage ministériel</span></td>
+            <td><span class="badge badge-neutral">Plateformes transversales</span></td>
+            <td>Gratuit</td>
+            <td><span class="badge badge-neutral">Non éligible</span></td>
+            <td><strong>0 €</strong></td>
+            <td><a href="https://www.fun-mooc.fr/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="Transversal" data-cpf="non" data-free="non">
+            <td><strong>Catalogue vidéo</strong><br><span class="orga">LinkedIn Learning — Management, marketing, CRM, compétences transverses</span></td>
+            <td><span class="badge badge-neutral">Plateformes transversales</span></td>
+            <td>1 mois offert, puis ≈ 30 €/mois</td>
+            <td><span class="badge badge-neutral">Non éligible</span></td>
+            <td><strong>1 mois offert, puis ≈ 30 €/mois</strong><br><span class="rac-note">non finançable</span></td>
+            <td><a href="https://www.linkedin.com/learning/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="Transversal" data-cpf="non" data-free="oui">
+            <td><strong>Ateliers Numériques</strong><br><span class="orga">Google — Marketing digital et SEO</span></td>
+            <td><span class="badge badge-neutral">Plateformes transversales</span></td>
+            <td>Gratuit</td>
+            <td><span class="badge badge-neutral">Non éligible</span></td>
+            <td><strong>0 €</strong></td>
+            <td><a href="https://grow.google/intl/fr_fr/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="Transversal" data-cpf="non" data-free="oui">
+            <td><strong>Bases transversales</strong><br><span class="orga">Khan Academy — Fondamentaux, tous niveaux</span></td>
+            <td><span class="badge badge-neutral">Plateformes transversales</span></td>
+            <td>Gratuit</td>
+            <td><span class="badge badge-neutral">Non éligible</span></td>
+            <td><strong>0 €</strong></td>
+            <td><a href="https://fr.khanacademy.org/" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+          <tr data-category="Transversal" data-cpf="variable" data-free="non">
+            <td><strong>Aide Individuelle à la Formation (AIF)</strong><br><span class="orga">France Travail — Abondement possible en complément du CPF, selon profil</span><br><span class="row-note">⚠️ Accessible aux demandeurs d&#x27;emploi ; se cumule avec le CPF.</span></td>
+            <td><span class="badge badge-neutral">Plateformes transversales</span></td>
+            <td>Prise en charge selon profil</td>
+            <td><span class="badge badge-warning">Sous conditions</span></td>
+            <td><span class="rac-note">à chiffrer auprès de l'organisme</span></td>
+            <td><a href="https://www.francetravail.fr/candidat/en-formation/mes-aides-financieres/laide-individuelle-a-la-formatio.html" target="_blank" rel="noopener" class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;white-space:nowrap;">Consulter ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="takeaway-box">
+      <h3>✅ Méthode de mise à jour</h3>
+      <ul>
+        <li>Revalider cette liste tous les trois mois : les tarifs et l'éligibilité CPF évoluent vite.</li>
+        <li>Retirer un lien mort plutôt que de le laisser en ligne — une ressource introuvable coûte plus de temps qu'elle n'en fait gagner.</li>
+        <li>Vérifier le code RNCP ou RS sur <a href="https://www.francecompetences.fr/recherche_certificationprofessionnelle/" target="_blank" rel="noopener">France Compétences</a> avant de retenir une formation : c'est la seule source qui fasse foi sur l'éligibilité.</li>
+        <li>Comparer au moins deux organismes pour une même certification — les écarts de prix sur un même code RS dépassent souvent 50 %.</li>
+      </ul>
+    </div>
+  </main>
+
+  
+  <script>
+    (function () {
+      var theme = 'all', money = 'all';
+      var rows = Array.prototype.slice.call(
+        document.querySelectorAll('#ressources-table tbody tr'));
+      var count = document.getElementById('result-count');
+
+      function apply() {
+        var shown = 0;
+        rows.forEach(function (row) {
+          var okTheme = (theme === 'all') || (row.dataset.category === theme);
+          var okMoney = (money === 'all')
+            || (money === 'cpf' && row.dataset.cpf === 'oui')
+            || (money === 'free' && row.dataset.free === 'oui');
+          var visible = okTheme && okMoney;
+          row.style.display = visible ? '' : 'none';
+          if (visible) shown++;
+        });
+        count.textContent = shown === 0
+          ? 'Aucune ressource ne correspond à ces filtres.'
+          : shown + (shown > 1 ? ' ressources affichées' : ' ressource affichée')
+            + ' sur ' + rows.length + '.';
+      }
+
+      function wire(barId, handler) {
+        var bar = document.getElementById(barId);
+        bar.addEventListener('click', function (e) {
+          var btn = e.target.closest('.filter-btn');
+          if (!btn) return;
+          bar.querySelectorAll('.filter-btn').forEach(function (b) {
+            b.classList.remove('active');
+          });
+          btn.classList.add('active');
+          handler(btn);
+          apply();
+        });
+      }
+
+      wire('filter-theme', function (b) { theme = b.dataset.filter; });
+      wire('filter-money', function (b) { money = b.dataset.money; });
+      apply();
+    })();
+  </script>
+</body>
+</html>

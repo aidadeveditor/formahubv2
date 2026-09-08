@@ -1,0 +1,209 @@
+{
+ "module_id": "formation-seo-module-5",
+ "formation": "SEO Fondamentaux",
+ "titre": "Mesure de performance et SEO à l'ère de l'IA",
+ "version": "1.0",
+ "duree_estimee": "9 min",
+ "mots": 1389,
+ "resume": "Rendre compte honnêtement d'un canal dont les effets sont décalés, et produire ce qu'un résumé automatique ne peut pas remplacer.",
+ "hosts": {
+  "a": {
+   "nom": "Camille",
+   "role": "animatrice"
+  },
+  "b": {
+   "nom": "Julien",
+   "role": "consultant SEO"
+  }
+ },
+ "lignes": [
+  {
+   "v": "a",
+   "t": "Dernier module de la formation SEO, et il commence par une question de comité de direction : « concrètement, qu'est-ce que le SEO nous a rapporté ce trimestre ? »"
+  },
+  {
+   "v": "b",
+   "t": "Avec un détail qui rend la question piégeuse. Le trafic organique a progressé de vingt-deux pour cent, mais la moitié de cette hausse vient de requêtes de marque, à cause d'une campagne de notoriété. Donc ça ne vient pas du travail SEO."
+  },
+  {
+   "v": "a",
+   "t": "Et là tu as deux mauvaises réponses possibles."
+  },
+  {
+   "v": "b",
+   "t": "Dire plus vingt-deux pour cent serait exact et malhonnête. Dire « je ne peux pas répondre » serait honnête et inutile. Tout le module est dans cet écart : un reporting qui informe plutôt qu'un reporting qui rassure."
+  },
+  {
+   "v": "a",
+   "t": "Commençons par les métriques. La Search Console en donne quatre."
+  },
+  {
+   "v": "b",
+   "t": "Impressions, clics, taux de clic, position moyenne. Et la règle absolue, c'est qu'aucune ne signifie quoi que ce soit isolément. On les lit croisées, toujours."
+  },
+  {
+   "v": "a",
+   "t": "Donne un exemple."
+  },
+  {
+   "v": "b",
+   "t": "Les impressions montent, les clics stagnent. Vu seul, ça semble mauvais. Croisé, ça veut souvent dire que tu apparais sur de nouvelles requêtes, mais en position basse, ou avec un titre qui ne donne pas envie. Ce n'est pas un échec, c'est une indication de ce qu'il faut travailler ensuite."
+  },
+  {
+   "v": "a",
+   "t": "Et le piège de la position moyenne ?"
+  },
+  {
+   "v": "b",
+   "t": "C'est une moyenne, donc elle masque les extrêmes. Une position moyenne qui se dégrade pendant que les clics montent, c'est très souvent bon signe : tu captes de nouvelles requêtes, sur lesquelles tu es forcément mal placé au début, et elles tirent la moyenne vers le bas. Donc on analyse requête par requête, jamais au niveau du site."
+  },
+  {
+   "v": "a",
+   "t": "Tu insistes beaucoup sur la segmentation marque et hors marque."
+  },
+  {
+   "v": "b",
+   "t": "C'est le seul périmètre qui mesure réellement ton travail. Quelqu'un qui tape le nom de ton entreprise serait venu de toute façon. Le SEO se juge sur les requêtes où la personne ne te connaissait pas. Tu filtres les requêtes contenant ton nom de marque, et tu regardes le reste."
+  },
+  {
+   "v": "a",
+   "t": "Il y a d'autres segmentations utiles ?"
+  },
+  {
+   "v": "b",
+   "t": "Par appareil, parce que les positions et les taux de clic n'ont rien à voir entre mobile et ordinateur. Par page, pour repérer ce qui porte le trafic. Et par pays si tu es sur plusieurs marchés. Une donnée agrégée ne dit rien ; une donnée segmentée dit quoi faire."
+  },
+  {
+   "v": "a",
+   "t": "Justement, comment on identifie ce qui vaut l'effort du trimestre suivant ?"
+  },
+  {
+   "v": "b",
+   "t": "Le module donne trois configurations rentables. La première : beaucoup d'impressions, un taux de clic anormalement bas, alors que la position est correcte. Là, le problème est le titre et la description, pas le contenu. C'est une demi-journée de travail pour un gain immédiat."
+  },
+  {
+   "v": "a",
+   "t": "La deuxième ?"
+  },
+  {
+   "v": "b",
+   "t": "Les requêtes en position cinq à quinze. Ce sont celles où quelques améliorations font franchir un seuil visible. En dessous de la position cinquante, en revanche, le travail on-page seul ne suffira pas — et savoir où ne pas investir fait partie du métier."
+  },
+  {
+   "v": "a",
+   "t": "Et la troisième, que tu dis la plus négligée ?"
+  },
+  {
+   "v": "b",
+   "t": "Les requêtes que tu captes déjà sans les avoir jamais ciblées. Tu apparais en position vingt sur une requête à laquelle aucune de tes pages n'était destinée. Ça veut dire que le besoin existe, que Google te juge vaguement pertinent, et que personne chez toi n'a écrit la page qui répondrait vraiment. C'est le meilleur rendement du trimestre, et c'est gratuit à trouver."
+  },
+  {
+   "v": "a",
+   "t": "Parlons du reporting. Comment on le structure ?"
+  },
+  {
+   "v": "b",
+   "t": "En cinq blocs. Ce qui a été fait. Ce que ça a produit, sur des indicateurs adaptés à l'horizon. Ce qui se construit et ne se voit pas encore. Ce qui n'a pas marché. Et ce qu'on fait le mois prochain. Le bloc « ce qui n'a pas marché » est celui qui donne sa crédibilité à tous les autres."
+  },
+  {
+   "v": "a",
+   "t": "Adapter l'indicateur à l'horizon, c'est important pour toi."
+  },
+  {
+   "v": "b",
+   "t": "C'est ce qui condamne le plus de projets sains. Au mois deux, l'indicateur pertinent est l'indexation et les premières positions gagnées, pas le chiffre d'affaires. Si tu promets du chiffre d'affaires au mois deux, tu seras jugé sur cette promesse, et tu échoueras alors que le travail était bon."
+  },
+  {
+   "v": "a",
+   "t": "Tu recommandes aussi d'énoncer soi-même les limites d'attribution."
+  },
+  {
+   "v": "b",
+   "t": "Toujours. L'attribution au dernier clic sous-estime les contenus de découverte : quelqu'un lit un article, revient un mois plus tard en tapant le nom de la marque, et convertit. Tout est crédité à la marque. Donc ton chiffre est un plancher, pas une mesure exacte. Le dire toi-même te crédibilise ; le laisser découvrir par quelqu'un d'autre te décrédibilise."
+  },
+  {
+   "v": "a",
+   "t": "Reprenons l'étude de cas, avec la réponse au comité."
+  },
+  {
+   "v": "b",
+   "t": "Étape une : on isole. Vingt-deux pour cent au total, neuf pour cent hors marque. C'est le neuf qu'on présente, en expliquant pourquoi il est plus bas que le chiffre que la direction a déjà vu dans l'outil d'analytics. Il faut l'anticiper, sinon ça passe pour une reculade."
+  },
+  {
+   "v": "a",
+   "t": "Étape deux ?"
+  },
+  {
+   "v": "b",
+   "t": "On rattache au métier. Sur le trimestre, l'organique hors marque a généré quarante-sept demandes de devis contre trente et une au trimestre précédent. Avec un taux de transformation connu et un panier moyen connu, on peut énoncer un ordre de grandeur de chiffre d'affaires — présenté comme un ordre de grandeur, jamais comme un chiffre comptable."
+  },
+  {
+   "v": "a",
+   "t": "Étape trois, ce qui se construit."
+  },
+  {
+   "v": "b",
+   "t": "Trente-quatre requêtes sont passées de la troisième à la deuxième page. Elles ne produisent pas encore de clics, mais elles constituent le stock du trimestre suivant. C'est exactement l'indicateur d'horizon intermédiaire dont on parlait, et c'est ce qui rend un reporting SEO lisible pour une direction."
+  },
+  {
+   "v": "a",
+   "t": "Et ce qui n'a pas marché ?"
+  },
+  {
+   "v": "b",
+   "t": "Six articles produits sur des sujets définitionnels, quarante visites cumulées. Ils sont directement exposés aux résumés générés par l'IA. La conséquence est assumée devant la direction : la production du trimestre suivant est réorientée vers un baromètre sectoriel adossé aux données de l'entreprise."
+  },
+  {
+   "v": "a",
+   "t": "Ce qui nous amène au dernier sujet, celui qui change le métier en ce moment. Les résumés IA et le zéro clic."
+  },
+  {
+   "v": "b",
+   "t": "Le principe est simple à énoncer. Si un résumé automatique peut répondre à la place de ta page, le trafic ne viendra pas, quelle que soit ta position. Une définition, une conversion d'unité, une date : tout ça se répond dans l'encadré, et l'utilisateur ne clique jamais."
+  },
+  {
+   "v": "a",
+   "t": "Donc qui est touché, et qui ne l'est pas ?"
+  },
+  {
+   "v": "b",
+   "t": "Le contenu générique et définitionnel est massivement touché. Ce qui l'est beaucoup moins : ce qui demande une décision, une comparaison fine, un accompagnement, un outil, ou une donnée qu'on ne trouve pas ailleurs. Et tout ce qui suppose de faire confiance à quelqu'un plutôt qu'à un texte."
+  },
+  {
+   "v": "a",
+   "t": "D'où la notion de gain d'information."
+  },
+  {
+   "v": "b",
+   "t": "C'est la seule défense durable. Le module identifie quatre sources : des données propres que tu es seul à avoir, des tests que tu as réellement menés, une expérience vécue qu'on ne peut pas inventer, et une synthèse d'expert qui tranche là où les autres restent prudents."
+  },
+  {
+   "v": "a",
+   "t": "Tu as un exemple de ce contraste ?"
+  },
+  {
+   "v": "b",
+   "t": "Deux articles sur le même sujet. Le premier explique ce qu'est le sujet : il est parfaitement remplaçable par un résumé. Le second donne les résultats d'un test mené sur ses propres clients, avec les chiffres et ce qui n'a pas marché : un résumé peut le citer, il ne peut pas le remplacer. Et souvent, il l'attribue."
+  },
+  {
+   "v": "a",
+   "t": "Une erreur à éviter absolument, pour finir ?"
+  },
+  {
+   "v": "b",
+   "t": "Continuer à produire du volume générique en espérant que la quantité compense. Ça ne compensera pas. C'est le seul segment de contenu dont la valeur baisse mécaniquement en ce moment."
+  },
+  {
+   "v": "a",
+   "t": "Ce qu'on fait lundi matin ?"
+  },
+  {
+   "v": "b",
+   "t": "Ouvre la Search Console, filtre pour exclure les requêtes contenant ta marque, trie par impressions décroissantes, et regarde les vingt premières lignes dont le taux de clic est inférieur à deux pour cent. Tu viens de te fabriquer ta liste de travail du mois, et elle est chiffrée."
+  },
+  {
+   "v": "a",
+   "t": "Et voilà, la formation SEO est bouclée. Cinq modules, du diagnostic à la mesure. Merci Julien, et bravo à celles et ceux qui sont allés au bout."
+  }
+ ]
+}

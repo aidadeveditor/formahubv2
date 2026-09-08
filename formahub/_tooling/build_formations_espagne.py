@@ -3,7 +3,8 @@
 """Génère formations-espagne.html — dispositifs de formation gratuits
 accessibles depuis Valence (Comunitat Valenciana).
 
-Usage : python3 build_formations_espagne.py > ../formations-espagne.html
+Usage : python3 build_formations_espagne.py
+        (écrit ../formations-espagne.html ; --stdout pour l'afficher à la place)
 
 Pendant de build_ressources.py, mais sur l'autre système : ici le CPF
 n'existe pas, tout est à 0 €, et la colonne qui discrimine est la
@@ -16,6 +17,53 @@ trois mois comme la page Ressources externes.
 # compte       : gratuit et permanent, mais création d'un compte plateforme obligatoire
 # labora       : réservé aux inscrits Espai LABORA, priorité aux desempleados
 # convocatoria : dépend d'un appel national ouvert et du statut (voir public)
+
+import re
+import unicodedata
+
+# --- Colonne « Inscription » -------------------------------------------------
+# Identifiant stable par ligne : le suivi (statut + date) vit dans le
+# localStorage du navigateur, sous la clé formahub-inscriptions, et se
+# retrouve d'une régénération à l'autre tant que l'organisme et l'intitulé
+# ne changent pas.
+
+def ins_slug(*parts):
+    txt = " ".join(p for p in parts if p)
+    txt = unicodedata.normalize("NFKD", txt).encode("ascii", "ignore").decode("ascii")
+    return re.sub(r"[^A-Za-z0-9]+", "-", txt).strip("-").lower()[:70]
+
+
+_INS_SEEN = {}
+
+
+def ins_id(prefix, *parts):
+    base = prefix + "-" + ins_slug(*parts)
+    _INS_SEEN[base] = _INS_SEEN.get(base, 0) + 1
+    n = _INS_SEEN[base]
+    return base if n == 1 else "{}-{}".format(base, n)
+
+
+INS_CELL = (
+    '<td class="ins-cell" data-ins-id="{id}">'
+    '<select class="ins-status" aria-label="Statut d&#39;inscription">'
+    '<option value="todo">Pas encore</option>'
+    '<option value="inscrite">Inscrite</option>'
+    '<option value="terminee">Terminée</option>'
+    '</select>'
+    '<span class="ins-date-label" hidden>Inscrite le</span>'
+    '<input type="date" class="ins-date" hidden aria-label="Date d&#39;inscription">'
+    '</td>')
+
+INS_FILTER = """    <div class="filter-group">
+      <span class="filter-group-label">Inscription</span>
+      <div class="filter-bar" id="filter-ins">
+        <button class="filter-btn active" data-ins="all">Toutes</button>
+        <button class="filter-btn" data-ins="inscrite">Inscrite</button>
+        <button class="filter-btn" data-ins="terminee">Terminée</button>
+        <button class="filter-btn" data-ins="todo">Pas encore</button>
+      </div>
+    </div>
+"""
 
 EFUNDAE = "https://www.efundae.es/course/view.php?id={}"
 PUNT = "https://puntlabora.gva.es/ofsrvfor/consultar?lang=es"
@@ -235,15 +283,18 @@ def render():
             '            <td><a href="{lien}" target="_blank" rel="noopener" '
             'class="btn btn-outline" style="padding:4px 10px;font-size:0.85rem;'
             'white-space:nowrap;">Consulter &#8599;</a></td>\n'
+            '            {ins_td}\n'
             '          </tr>'.format(
                 cat=r["theme"], acces=r["acces"], titre=esc(r["titre"]),
                 orga=esc(r["orga"]), note=note, cls=cls, label=label,
-                modalite=esc(r["modalite"]), lien=r["lien"]))
+                modalite=esc(r["modalite"]), lien=r["lien"],
+                ins_td=INS_CELL.format(id=ins_id("es", r["orga"], r["titre"]))))
 
     return TEMPLATE.format(
         total=len(ROWS), n_libre=n_libre, n_compte=n_compte,
         n_labora=n_labora, n_conv=n_conv,
-        theme_btns=theme_btns, rows="\n".join(rows_html))
+        theme_btns=theme_btns, rows="\n".join(rows_html),
+        INS_FILTER=INS_FILTER)
 
 
 TEMPLATE = """<!DOCTYPE html>
@@ -290,6 +341,7 @@ TEMPLATE = """<!DOCTYPE html>
         <span class="badge badge-progress">{n_compte} avec compte à créer</span>
         <span class="badge badge-progress">{n_labora} via Espai LABORA</span>
         <span class="badge badge-warning">{n_conv} soumis à convocatoria</span>
+        <span class="badge badge-progress" id="ins-summary"></span>
       </div>
     </div>
 
@@ -298,6 +350,7 @@ TEMPLATE = """<!DOCTYPE html>
       <p>Ici, le coût ne trie rien : tout est à 0 &euro;. Ce qui trie, c&#x27;est la porte d&#x27;entrée, et il y en a trois.</p>
       <p><strong>Accès libre.</strong> Ouvert à tous, immédiatement, avec une simple pièce d&#x27;identité : ni convocatoria, ni statut, ni date. C&#x27;est le seul bloc qui peut commencer aujourd&#x27;hui.</p>
       <p><strong>Espai LABORA.</strong> Réservé aux personnes inscrites comme demandeuses d&#x27;emploi auprès de la Generalitat Valenciana, avec priorité donnée aux desempleados. Avant toute préinscription : corriger ses données dans Punt LABORA (autoentrevista, puis &laquo;&nbsp;guardar y finalizar&nbsp;&raquo;) &mdash; les erreurs de coordonnées sont la première cause d&#x27;exclusion citée par l&#x27;organisme.</p>
+      <p><strong>Inscription.</strong> La dernière colonne suit où vous en êtes sur chaque dispositif&nbsp;: &laquo;&nbsp;Pas encore&nbsp;&raquo;, &laquo;&nbsp;Inscrite&nbsp;&raquo; &mdash; la date du jour se remplit alors toute seule et reste modifiable &mdash; puis &laquo;&nbsp;Terminée&nbsp;&raquo;. Utile ici plus qu&#x27;ailleurs&nbsp;: une préinscription LABORA se fait des mois avant l&#x27;ouverture du délai, et rien ne le rappelle. Le suivi est enregistré dans ce navigateur.</p>
       <p><strong>Convocatoria.</strong> Appels nationaux SEPE / Fundae, ouverts par vagues et par public. La mention du public compte plus que l&#x27;intitulé : une bonne part du catalogue est réservée aux <em>trabajadores y autónomos</em> et se ferme avec le statut de demandeuse d&#x27;emploi.</p>
     </div>
 
@@ -327,6 +380,7 @@ TEMPLATE = """<!DOCTYPE html>
       </div>
     </div>
 
+{INS_FILTER}
     <p id="result-count"></p>
 
     <div class="table-responsive">
@@ -338,6 +392,7 @@ TEMPLATE = """<!DOCTYPE html>
             <th>Accès</th>
             <th>Modalité</th>
             <th>Lien</th>
+            <th>Inscription</th>
           </tr>
         </thead>
         <tbody>
@@ -361,7 +416,7 @@ TEMPLATE = """<!DOCTYPE html>
   <script src="assets/js/progress.js"></script>
   <script>
     (function () {{
-      var theme = 'all', acces = 'all';
+      var theme = 'all', acces = 'all', ins = 'all';
       var rows = Array.prototype.slice.call(
         document.querySelectorAll('#espagne-table tbody tr'));
       var count = document.getElementById('result-count');
@@ -371,7 +426,8 @@ TEMPLATE = """<!DOCTYPE html>
         rows.forEach(function (row) {{
           var okTheme = (theme === 'all') || (row.dataset.category === theme);
           var okAcces = (acces === 'all') || (row.dataset.acces === acces);
-          var visible = okTheme && okAcces;
+          var okIns = (ins === 'all') || ((row.dataset.ins || 'todo') === ins);
+          var visible = okTheme && okAcces && okIns;
           row.style.display = visible ? '' : 'none';
           if (visible) shown++;
         }});
@@ -397,6 +453,9 @@ TEMPLATE = """<!DOCTYPE html>
 
       wire('filter-theme', 'filter', function (b) {{ theme = b.dataset.filter; }});
       wire('filter-acces', 'acces', function (b) {{ acces = b.dataset.acces; }});
+      wire('filter-ins', 'ins', function (b) {{ ins = b.dataset.ins; }});
+
+      window.formahubApplyFilters = apply;
       apply();
     }})();
   </script>
@@ -406,4 +465,12 @@ TEMPLATE = """<!DOCTYPE html>
 
 if __name__ == "__main__":
     import sys
-    sys.stdout.write(render())
+    from pathlib import Path
+    page = render()
+    if "--stdout" in sys.argv:
+        sys.stdout.write(page)
+    else:
+        # La page est écrite à côté des autres, quel que soit le dossier courant.
+        out = Path(__file__).resolve().parent.parent / "formations-espagne.html"
+        out.write_text(page, encoding="utf-8")
+        print("{} dispositifs | {} octets → {}".format(len(ROWS), len(page), out))

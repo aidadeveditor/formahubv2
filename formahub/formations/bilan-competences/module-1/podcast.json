@@ -1,0 +1,209 @@
+{
+ "module_id": "formation-bilan-competences-module-1",
+ "formation": "Bilan de compétences et repositionnement",
+ "titre": "Faire l'inventaire : extraire ses compétences transférables",
+ "version": "1.0",
+ "duree_estimee": "10 min",
+ "mots": 1557,
+ "resume": "Pourquoi huit ans de métier produisent une expertise dense et l'incapacité à la nommer, et comment en sortir en partant de réalisations datées plutôt que de souvenirs.",
+ "hosts": {
+  "a": {
+   "nom": "Camille",
+   "role": "animatrice"
+  },
+  "b": {
+   "nom": "Marc",
+   "role": "consultant en évolution professionnelle"
+  }
+ },
+ "lignes": [
+  {
+   "v": "a",
+   "t": "Premier module de la formation Bilan de compétences. Marc, la situation de départ est très concrète : huit ans dans la même entreprise, un contrat qui se termine dans six mois, et un CV qui commence par « responsable de l'animation commerciale d'un portefeuille de quarante partenaires »."
+  },
+  {
+   "v": "b",
+   "t": "C'est exact, et c'est incompréhensible pour quiconque ne connaît pas le secteur. Trois recruteurs ont posé la même question — « concrètement, vous faisiez quoi ? » — et la personne s'est entendue répondre en décrivant son entreprise plutôt que son travail."
+  },
+  {
+   "v": "a",
+   "t": "Derrière ça, tu dis qu'il y a une difficulté plus profonde."
+  },
+  {
+   "v": "b",
+   "t": "Elle ne sait pas elle-même quelles compétences elle possède au-delà de son secteur. Huit ans d'un métier produisent deux choses en même temps : une expertise dense, et l'incapacité à la nommer. Parce que ce qu'on fait tous les jours cesse d'apparaître comme une compétence. Ça devient « normal », donc invisible."
+  },
+  {
+   "v": "a",
+   "t": "Commençons par le vocabulaire, alors. Qu'est-ce qu'une compétence, exactement ?"
+  },
+  {
+   "v": "b",
+   "t": "Ce n'est ni une tâche, ni un savoir, ni un trait de caractère. « Gérer les plannings », c'est une tâche. « Connaître le droit du travail », c'est un savoir. « Rigoureux », c'est un trait de caractère, et c'est invérifiable. Une compétence, c'est ce que vous savez faire, avec un résultat observable."
+  },
+  {
+   "v": "a",
+   "t": "Comment on la formule, du coup ?"
+  },
+  {
+   "v": "b",
+   "t": "Un verbe d'action, un objet, un contexte, un résultat. Pas « bon relationnel », mais « obtenir l'accord de partenaires indépendants sans lien hiérarchique, sur un réseau de quarante points de vente ». C'est plus long, c'est vérifiable, et surtout ça se discute en entretien."
+  },
+  {
+   "v": "a",
+   "t": "Il y a une erreur que tu appelles « confondre modestie et imprécision »."
+  },
+  {
+   "v": "b",
+   "t": "Beaucoup de gens croient qu'être précis, c'est se vanter. C'est l'inverse. La règle qui règle le problème : ne portez aucun jugement sur vous-même, décrivez des faits et laissez le lecteur juger. « Excellente pédagogue » est prétentieux et invérifiable. « Cent soixante personnes formées l'an dernier, sur des sessions auxquelles elles n'étaient pas obligées de venir » est factuel — et beaucoup plus convaincant."
+  },
+  {
+   "v": "a",
+   "t": "Passons à la méthode. Tu insistes pour qu'on parte des réalisations, pas des compétences."
+  },
+  {
+   "v": "b",
+   "t": "C'est le point le plus important du module. Si vous vous demandez « quelles sont mes compétences ? », vous répondez ce que vous croyez déjà savoir de vous, et vous tournez en rond. Si vous listez quinze à vingt-cinq réalisations datées et que vous en extrayez ensuite les capacités, vous découvrez des choses. L'ordre compte."
+  },
+  {
+   "v": "a",
+   "t": "Vingt-cinq réalisations, c'est beaucoup."
+  },
+  {
+   "v": "b",
+   "t": "C'est le volume qui fait apparaître les récurrences. Une compétence qui revient dans cinq réalisations, sur cinq contextes différents, est solide. Une qui n'apparaît qu'une fois est peut-être un concours de circonstances. C'est la répétition qui sert de preuve, et elle n'apparaît pas en dessous de quinze."
+  },
+  {
+   "v": "a",
+   "t": "Et il y a une contrainte de rédaction que tu qualifies d'inconfortable."
+  },
+  {
+   "v": "b",
+   "t": "Employer « je », jamais « nous ». C'est désagréable, ça sonne égocentrique, et c'est exactement ce qui distingue votre contribution de celle de l'équipe. Dans l'étude de cas, six fiches sur vingt ont dû être réécrites pour cette raison. Deux d'entre elles ont révélé que la contribution personnelle était mince — elles ont été retirées. Les quatre autres ont fait apparaître une contribution précise que le récit collectif masquait."
+  },
+  {
+   "v": "a",
+   "t": "Il y a une question qui revient souvent dans ce module et qui a l'air très efficace."
+  },
+  {
+   "v": "b",
+   "t": "« Quand tu dis que vous avez décidé de changer d'approche, qui a proposé ce changement, et qu'as-tu dû faire pour qu'il soit accepté ? ». Posée cinq ou six fois par la personne qui aidait, elle a produit l'essentiel de l'inventaire final. C'est pour ça que je recommande de faire l'exercice à deux : seul, on ne se pose jamais cette question."
+  },
+  {
+   "v": "a",
+   "t": "Autre travers : ne retenir que les grands succès."
+  },
+  {
+   "v": "b",
+   "t": "Le quotidien porte l'essentiel de vos compétences réelles. Et j'ajoute une chose que presque personne ne prépare : les échecs rattrapés sont le meilleur matériau d'entretien qui existe. Un projet qui a dérapé et que vous avez remis d'aplomb en dit infiniment plus sur ce que vous savez faire qu'un succès linéaire."
+  },
+  {
+   "v": "a",
+   "t": "Une fois qu'on a l'inventaire, comment on le trie ?"
+  },
+  {
+   "v": "b",
+   "t": "Trois familles. Les compétences techniques : faciles à nommer, et les moins transférables — elles sont attachées à un outil ou à un secteur. Les compétences transverses : plus difficiles à nommer, et les plus transférables. Et les compétences comportementales, entre les deux. Le paradoxe du repositionnement, c'est que ce qui est le plus facile à écrire est le moins utile pour changer de métier."
+  },
+  {
+   "v": "a",
+   "t": "Tu ajoutes une nuance importante sur la transférabilité."
+  },
+  {
+   "v": "b",
+   "t": "Une compétence transférable qu'aucun employeur ne sait reconnaître dans votre formulation ne vous sert à rien. La transférabilité n'est pas une propriété de la compétence, c'est une propriété de la façon dont vous la dites. C'est tout le travail du module 2."
+  },
+  {
+   "v": "a",
+   "t": "Parlons des compétences invisibles, c'est une notion que j'aime beaucoup."
+  },
+  {
+   "v": "b",
+   "t": "Il faut aller les chercher délibérément, avec quatre questions. Qu'est-ce que je fais tous les jours sans y penser ? Qu'est-ce que les collègues viennent me demander spontanément ? Qu'est-ce que j'ai appris par nécessité, parce qu'il n'y avait personne d'autre ? Et qu'est-ce qui vient d'ailleurs que du travail ?"
+  },
+  {
+   "v": "a",
+   "t": "La deuxième est frappante."
+  },
+  {
+   "v": "b",
+   "t": "Les sollicitations spontanées de collègues sont l'information la plus fiable qui existe sur vos compétences, et elle est gratuite. Quand trois personnes viennent vous voir pour la même chose, c'est qu'elles ont identifié une capacité que vous ne voyez plus."
+  },
+  {
+   "v": "a",
+   "t": "Venons-en à l'étude de cas. Cinq semaines, deux heures par semaine."
+  },
+  {
+   "v": "b",
+   "t": "Semaine 1, la liste brute, sans filtrer : trente-huit lignes. Et deux surprises immédiates. Un remplacement de six mois sur un poste de coordination logistique, jamais mentionné parce que c'était « juste un remplacement ». Et l'organisation bénévole d'un événement annuel de trois cents personnes depuis quatre ans, écartée parce que « pas professionnelle »."
+  },
+  {
+   "v": "a",
+   "t": "Aucune des deux au CV."
+  },
+  {
+   "v": "b",
+   "t": "Et ce sont pourtant celles qui portent les compétences de gestion de projet les plus démontrables du parcours. C'est pour ça que la consigne est de ne rien filtrer pendant l'inventaire : le tri vient après, et il ne se fait pas sur l'étiquette « professionnel » ou « bénévole »."
+  },
+  {
+   "v": "a",
+   "t": "Semaine 4, l'extraction."
+  },
+  {
+   "v": "b",
+   "t": "Cinquante-deux mentions de capacités relevées sur les vingt fiches, regroupées en quatorze compétences distinctes. Six apparaissent dans cinq réalisations ou plus, sur des contextes différents : analyser des données pour poser un diagnostic ; conduire un entretien d'exploration ; concevoir et animer une formation pour un public non captif ; obtenir un résultat sans lien hiérarchique ; documenter une demande pour obtenir un arbitrage ; construire un outil de suivi utilisé par d'autres."
+  },
+  {
+   "v": "a",
+   "t": "Et le chiffre qui résume tout ?"
+  },
+  {
+   "v": "b",
+   "t": "Quatre de ces six ne figuraient dans aucune version antérieure du CV. Pas parce qu'elles étaient cachées — parce qu'elles étaient trop quotidiennes pour être remarquées."
+  },
+  {
+   "v": "a",
+   "t": "Un mot sur le dispositif lui-même, le bilan de compétences officiel. Qu'est-ce qu'il apporte ?"
+  },
+  {
+   "v": "b",
+   "t": "Il structure une réflexion et il impose un calendrier, ce qui est déjà beaucoup. Mais il ne donne pas de réponse, et aucun dispositif ne le fait. Attendre qu'il décide à votre place est le meilleur moyen d'en sortir déçu. Deux points pratiques : le document de synthèse vous appartient, il ne peut être communiqué à personne sans votre accord écrit, y compris à un employeur qui l'aurait financé. Et les conditions de financement ont changé plusieurs fois en deux ans — vérifiez-les sur une source officielle, pas sur un article."
+  },
+  {
+   "v": "a",
+   "t": "Il y a d'autres dispositifs."
+  },
+  {
+   "v": "b",
+   "t": "Quatre besoins, quatre réponses. S'orienter, c'est le bilan. Être conseillé, c'est le conseil en évolution professionnelle. Certifier ce qu'on sait déjà faire, c'est la validation des acquis. Combler un écart identifié, c'est une formation. Identifiez le besoin avant de choisir l'outil — et surtout, la formation vient après le ciblage. En engager une pour trouver sa voie est la façon la plus coûteuse de retarder la décision."
+  },
+  {
+   "v": "a",
+   "t": "Dernier point : l'inventaire ne dit pas tout."
+  },
+  {
+   "v": "b",
+   "t": "Ce que vous savez faire et ce que vous voulez faire ne se superposent pas. Une compétence forte peut être associée à un rejet net, et c'est une raison parfaitement légitime. Il faut donc poser à côté de l'inventaire une deuxième liste : ce que je ne veux plus, en distinguant le rédhibitoire de l'acceptable. Sans cette distinction, on écarte des pistes entières pour un critère secondaire."
+  },
+  {
+   "v": "a",
+   "t": "On arrive à quoi, à la fin du module ?"
+  },
+  {
+   "v": "b",
+   "t": "À trois ou quatre hypothèses de cible. Pas à un métier. Une seule piste est une fermeture prématurée, douze est une absence de tri. Trois ou quatre, c'est ce que le module 2 va pouvoir tester."
+  },
+  {
+   "v": "a",
+   "t": "Ce qu'on fait demain ?"
+  },
+  {
+   "v": "b",
+   "t": "Prenez une feuille et notez dix réalisations des trois dernières années, sans filtrer, y compris ce qui n'est pas professionnel. Puis reprenez la première et réécrivez-la avec « je ». Vous verrez tout de suite si la phrase tient."
+  },
+  {
+   "v": "a",
+   "t": "Au module 2, on sort de soi pour aller regarder le marché. Merci Marc."
+  }
+ ]
+}

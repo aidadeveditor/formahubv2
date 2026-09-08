@@ -7,6 +7,9 @@
   <meta name="color-scheme" content="light dark">
   <title>Formahub — Mes formations</title>
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
 <body>
   <a class="skip-link" href="#catalogue">Aller au catalogue</a>
@@ -27,7 +30,7 @@
   <main class="main-container">
     <div class="hero-banner">
       <h1>Plateforme d'auto-formation Formahub</h1>
-      <p>10 parcours professionnels complets, 40 modules approfondis &mdash; cours détaillé, exemples, étude de cas résolue, exercices corrigés et quiz d'auto-évaluation. Environ <strong>37 h 45</strong> de formation, progression sauvegardée automatiquement.</p>
+      <p>10 parcours professionnels complets, 40 modules approfondis &mdash; cours détaillé, exemples, étude de cas résolue, exercices corrigés et quiz d'auto-évaluation. Environ <strong>37 h 45</strong> de formation, progression sauvegardée automatiquement, écoute audio de chaque module et consultation hors ligne.</p>
     </div>
 
     <section class="dashboard" aria-label="Ma progression globale">
@@ -62,6 +65,20 @@
       </div>
       <a href="#" class="btn btn-primary btn-sm resume-link">Continuer →</a>
     </div>
+
+    <section class="tools-grid" aria-label="Sauvegarde et disponibilité hors ligne">
+      <article class="tool-card" id="backup-panel">
+        <h2><span aria-hidden="true">🔒</span> Sauvegarde automatique</h2>
+        <p class="tool-lead">Un code secret, et votre progression vous suit d'un appareil à l'autre.</p>
+        <div class="tool-body"></div>
+      </article>
+
+      <article class="tool-card" id="offline-panel">
+        <h2><span aria-hidden="true">📥</span> Consultation hors ligne</h2>
+        <p class="tool-lead">Emportez les 40 modules dans le train, l'avion ou la salle d'attente.</p>
+        <div class="tool-body"></div>
+      </article>
+    </section>
 
     <div class="toolbar">
       <div class="search-field">
@@ -338,5 +355,7 @@
   </main>
 
   <script src="assets/js/progress.js"></script>
+  <script src="assets/js/sync.js"></script>
+  <script src="assets/js/offline.js"></script>
 </body>
 </html>

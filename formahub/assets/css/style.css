@@ -1478,3 +1478,449 @@ tbody tr:hover td { background: var(--accent-light); }
   *, *::before, *::after { transition: none !important; animation: none !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+
+/* ============================================================
+   Colonne « Inscription » des tableaux de ressources externes
+   ============================================================ */
+
+.ins-cell { min-width: 134px; }
+
+.ins-status {
+  font: inherit;
+  font-size: 0.82rem;
+  padding: 5px 8px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.ins-status:hover { border-color: var(--accent); }
+.ins-status:focus-visible,
+.ins-date:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.ins-cell.is-inscrite .ins-status {
+  background: var(--info-light);
+  border-color: var(--info);
+  color: var(--info);
+  font-weight: 600;
+}
+
+.ins-cell.is-terminee .ins-status {
+  background: var(--success-light);
+  border-color: var(--success);
+  color: var(--success);
+  font-weight: 600;
+}
+
+.ins-date-label {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.ins-date {
+  display: block;
+  margin-top: 3px;
+  font: inherit;
+  font-size: 0.8rem;
+  padding: 4px 6px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-xs);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.ins-cell [hidden] { display: none !important; }
+
+tr.row-inscrite > td { background: var(--accent-light); }
+
+[data-theme="dark"] .ins-date::-webkit-calendar-picker-indicator { filter: invert(0.85); }
+
+@media (max-width: 720px) {
+  .ins-cell { min-width: 116px; }
+  .ins-status, .ins-date { font-size: 0.78rem; }
+}
+
+/* ============================================================
+   V7 — écoute audio, podcasts, mode hors ligne et sauvegarde
+   Aucune règle existante n'est modifiée : tout passe par les
+   variables de :root, donc le mode sombre suit sans travail.
+   ============================================================ */
+
+/* ---------- Barre d'écoute du module ---------- */
+
+.audio-bar {
+  margin: 0 0 18px;
+  padding: 14px 18px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.audio-bar::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--accent-soft);
+  transition: background var(--transition-fast);
+}
+
+.audio-bar.is-playing::before { background: var(--accent); }
+
+.audio-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.audio-spacer { flex: 1 1 12px; }
+
+.audio-status {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.audio-field {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.audio-field > span {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.audio-field select {
+  font: inherit;
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  max-width: 190px;
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-xs);
+}
+
+.audio-voice-field select { max-width: 210px; }
+
+.audio-progress {
+  margin-top: 12px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--bg-soft);
+  overflow: hidden;
+}
+
+.audio-progress > span {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  transition: width 0.4s linear;
+}
+
+.audio-unsupported {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+/* Le passage en cours de lecture */
+.is-speaking {
+  background: var(--accent-light);
+  box-shadow: 0 0 0 6px var(--accent-light);
+  border-radius: var(--radius-xs);
+  transition: background var(--transition-fast);
+}
+
+/* ---------- Podcast du module ---------- */
+
+.podcast-box {
+  margin: 0 0 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.podcast-box > summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 18px;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.podcast-box > summary::-webkit-details-marker { display: none; }
+.podcast-box > summary:hover { background: var(--bg-soft); }
+
+.podcast-mark { font-size: 1.05rem; }
+
+.podcast-title { flex: 1; }
+
+.podcast-meta {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.podcast-box.is-empty > summary { opacity: 0.75; }
+
+.podcast-body {
+  padding: 4px 18px 18px;
+  border-top: 1px solid var(--border);
+}
+
+.podcast-empty {
+  margin: 14px 0 0;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.podcast-player { margin: 14px 0 6px; }
+
+.podcast-resume {
+  margin: 10px 0 16px;
+  padding: 12px 14px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  background: var(--bg-soft);
+  border-radius: var(--radius-sm);
+}
+
+.podcast-script {
+  max-height: 460px;
+  overflow-y: auto;
+  margin-top: 14px;
+  padding: 4px 6px 0 0;
+  border-top: 1px solid var(--border);
+}
+
+.podcast-line {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 12px;
+  margin: 0 0 12px;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.podcast-line:hover { background: var(--bg-soft); }
+
+.podcast-who {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding-top: 3px;
+}
+
+.podcast-line.pod-a .podcast-who { color: var(--accent); }
+.podcast-line.pod-b .podcast-who { color: var(--success); }
+
+.podcast-text { line-height: 1.65; }
+
+.podcast-line.is-speaking {
+  background: var(--accent-light);
+  box-shadow: none;
+}
+
+/* ---------- Panneaux « outils » de l'accueil ---------- */
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 18px;
+  margin: 0 0 30px;
+}
+
+.tool-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px 22px 22px;
+}
+
+.tool-card h2 {
+  margin: 0 0 4px;
+  font-size: 1.02rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tool-lead {
+  margin: 0 0 14px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.tool-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--border-strong);
+  flex: none;
+}
+
+.dot-ok { background: var(--success); }
+.dot-ko { background: var(--danger); }
+.dot-run {
+  background: var(--accent);
+  animation: dot-pulse 1.1s ease-in-out infinite;
+}
+
+@keyframes dot-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.tool-progress {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--bg-soft);
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.tool-progress > span {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.tool-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.tool-note {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+/* ---------- Champ du code secret ---------- */
+
+.backup-field {
+  display: block;
+  margin: 6px 0 5px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.backup-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.backup-input {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+}
+
+.backup-input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.backup-choice {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+/* ---------- Bandeau hors connexion ---------- */
+
+.offline-banner {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: min(92vw, 460px);
+  padding: 10px 16px;
+  font-size: 0.85rem;
+  color: var(--text);
+  background: var(--warning-light);
+  border: 1px solid var(--warning);
+  border-radius: 999px;
+  box-shadow: var(--shadow-soft);
+}
+
+.offline-banner[hidden] { display: none !important; }
+
+.offline-banner-text { line-height: 1.4; }
+
+/* ---------- Petits écrans ---------- */
+
+@media (max-width: 720px) {
+  .audio-bar { padding: 12px 14px; }
+  .audio-status { flex-basis: 100%; white-space: normal; }
+  .audio-field select { max-width: 140px; }
+  .podcast-line { grid-template-columns: 1fr; gap: 2px; }
+  .podcast-script { max-height: 360px; }
+  .tool-card { padding: 16px 16px 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot-run { animation: none; }
+  .audio-progress > span, .tool-progress > span { transition: none; }
+}

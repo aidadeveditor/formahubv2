@@ -1,0 +1,233 @@
+{
+ "module_id": "formation-rse-transition-ecologique-module-2",
+ "formation": "RSE et transition écologique en entreprise",
+ "titre": "Mesurer : le bilan d'émissions et les trois scopes",
+ "version": "1.0",
+ "duree_estimee": "9 min",
+ "mots": 1436,
+ "resume": "La difficulté d'un bilan carbone n'est pas le calcul : c'est la collecte, le périmètre et l'incertitude — et un facteur trois qu'il faut savoir trancher.",
+ "hosts": {
+  "a": {
+   "nom": "Camille",
+   "role": "animatrice"
+  },
+  "b": {
+   "nom": "Inès",
+   "role": "consultante RSE"
+  }
+ },
+ "lignes": [
+  {
+   "v": "a",
+   "t": "Module 2. La décision est prise, l'entreprise fait son bilan d'émissions en interne, après un devis de cabinet à vingt-cinq mille euros jugé élevé pour une première itération. Et la première semaine ne se passe pas comme prévu."
+  },
+  {
+   "v": "b",
+   "t": "On croit toujours que la difficulté sera le calcul. Elle est ailleurs. Personne ne sait qui détient les relevés d'électricité des trois sites : la comptabilité a les factures, en euros, pas en kilowattheures. Les services généraux ont changé de fournisseur en cours d'année et ne retrouvent pas le premier semestre. Les achats ont un état par fournisseur, en montants, sans aucune quantité."
+  },
+  {
+   "v": "a",
+   "t": "Et le premier résultat ?"
+  },
+  {
+   "v": "b",
+   "t": "Il varie d'un facteur trois selon qu'on calcule les achats à partir des montants ou à partir des quantités physiques. Ces trois difficultés — la collecte, le périmètre, l'incertitude — sont l'essentiel du travail réel. Le calcul lui-même, c'est une multiplication."
+  },
+  {
+   "v": "a",
+   "t": "Justement, reprenons la base. Une tonne équivalent CO2, un facteur d'émission."
+  },
+  {
+   "v": "b",
+   "t": "Une donnée d'activité multipliée par un facteur d'émission. Mille litres de gazole, un facteur exprimé en kilos de CO2 par litre, et vous avez vos tonnes. Le facteur vient d'une base publique, la Base Empreinte en France."
+  },
+  {
+   "v": "a",
+   "t": "Et le piège ?"
+  },
+  {
+   "v": "b",
+   "t": "Précisez toujours la base, sa version, et le type de facteur. Sans cela, votre bilan n'est comparable à rien — pas même à lui-même l'année suivante. Et surtout, ne mélangez jamais des facteurs de périmètres différents dans un même bilan : chaque ligne serait juste, et le total dénué de sens."
+  },
+  {
+   "v": "a",
+   "t": "Les trois scopes, maintenant."
+  },
+  {
+   "v": "b",
+   "t": "Le scope 1, c'est ce que vous brûlez : vos chaudières, vos véhicules. Le scope 2, c'est l'énergie que vous achetez, essentiellement l'électricité. Le scope 3, c'est tout le reste : les achats, le transport, les déplacements, l'usage des produits vendus, la fin de vie."
+  },
+  {
+   "v": "a",
+   "t": "Et c'est le scope 3 le sujet."
+  },
+  {
+   "v": "b",
+   "t": "Il représente couramment de soixante-dix à plus de quatre-vingt-quinze pour cent du total. Un bilan limité aux scopes 1 et 2 mesure moins de quinze pour cent de l'empreinte. Ce n'est pas un bilan partiel, c'est un bilan qui regarde à côté."
+  },
+  {
+   "v": "a",
+   "t": "Certains le trouvent facultatif parce qu'il est difficile."
+  },
+  {
+   "v": "b",
+   "t": "C'est l'erreur centrale du module. Un ordre de grandeur incertain sur quatre-vingt-cinq pour cent de l'empreinte vaut infiniment mieux qu'une mesure précise sur quinze pour cent. On préfère souvent la précision parce qu'elle est confortable, mais elle ne dit rien."
+  },
+  {
+   "v": "a",
+   "t": "Et l'intérêt d'un bilan, ce n'est pas son total."
+  },
+  {
+   "v": "b",
+   "t": "C'est la hiérarchie qu'il révèle. Et cette hiérarchie est presque toujours contre-intuitive. On arrive en pensant que c'est le transport ou l'électricité, et on trouve les achats. Le total, lui, ne sert à rien tout seul."
+  },
+  {
+   "v": "a",
+   "t": "Parlons du périmètre. Tu dis qu'il s'écrit avant."
+  },
+  {
+   "v": "b",
+   "t": "Une note d'une page : les entités incluses, les postes inclus, les postes exclus avec leur motif, la base de facteurs, l'année de référence. Écrite avant de calculer, sinon le périmètre finit par être celui des données qu'on a réussi à trouver."
+  },
+  {
+   "v": "a",
+   "t": "Il y a un point technique sur l'année de référence."
+  },
+  {
+   "v": "b",
+   "t": "Prévoyez dès le départ la règle de recalcul. Sans elle, une cession d'activité fera apparaître une baisse d'émissions qui n'en est pas une. Et de manière générale : un changement de méthode n'est jamais une réduction. Si vous changez de méthode, présentez les deux effets séparément."
+  },
+  {
+   "v": "a",
+   "t": "La collecte, maintenant. Tu annonces soixante-dix pour cent du temps."
+  },
+  {
+   "v": "b",
+   "t": "Sur un premier bilan, oui. Donc elle se prépare comme un projet, avec un interlocuteur nommé par donnée et une date. Et on commence par les postes lourds, pas par ceux dont la donnée est facile — sinon on passe trois semaines sur deux pour cent de l'empreinte."
+  },
+  {
+   "v": "a",
+   "t": "Ton conseil le plus concret sur la collecte ?"
+  },
+  {
+   "v": "b",
+   "t": "Demandez les consommations en kilowattheures, pas en euros. C'est la première cause de blocage, et elle se règle en formulant la demande correctement dès le premier message."
+  },
+  {
+   "v": "a",
+   "t": "Et la méthode d'ensemble ?"
+  },
+  {
+   "v": "b",
+   "t": "Deux passes. La première couvre cent pour cent du périmètre, grossièrement, avec des ratios là où il le faut. La seconde raffine les trois ou quatre postes qui font quatre-vingts pour cent du total. Attendre la donnée parfaite avant de publier est la façon la plus sûre de ne jamais publier."
+  },
+  {
+   "v": "a",
+   "t": "On arrive à l'étude de cas, le fameux facteur trois."
+  },
+  {
+   "v": "b",
+   "t": "Sur les achats, le calcul par ratios monétaires donne deux mille neuf cents tonnes ; le calcul physique, extrapolé, environ neuf cents. La tentation immédiate est de retenir le chiffre qui arrange — le plus flatteur, ou le plus prudent selon le tempérament. Les deux réflexes sont mauvais."
+  },
+  {
+   "v": "a",
+   "t": "Parce que ?"
+  },
+  {
+   "v": "b",
+   "t": "Un écart de ce type est une information. Il faut l'expliquer avant de conclure. Et le geste décisif, c'est de le localiser plutôt que de le constater : on décompose famille par famille au lieu de regarder le total."
+  },
+  {
+   "v": "a",
+   "t": "Ça donne quoi ?"
+  },
+  {
+   "v": "b",
+   "t": "Sur six familles d'achats, quatre donnent des résultats cohérents à vingt pour cent près entre les deux méthodes. L'écart provient presque intégralement de deux familles : la sous-traitance et le matériel informatique. Un écart global est ininterprétable ; un écart concentré sur deux postes se diagnostique."
+  },
+  {
+   "v": "a",
+   "t": "Et le diagnostic ?"
+  },
+  {
+   "v": "b",
+   "t": "La sous-traitance, c'est quatre virgule deux millions d'euros d'achats. Le ratio monétaire du secteur des services donne environ mille cent tonnes. Or l'essentiel de ces prestations est de la main-d'œuvre facturée à un taux journalier élevé : le montant est important, le contenu matériel est faible. Le ratio surestime massivement."
+  },
+  {
+   "v": "a",
+   "t": "Et l'informatique ?"
+  },
+  {
+   "v": "b",
+   "t": "Trois cent quatre-vingts mille euros. Le ratio monétaire donne environ quatre-vingt-dix tonnes ; le calcul physique — deux cent dix ordinateurs portables, quarante écrans, des serveurs — en donne environ deux cent quarante. Ici le ratio sous-estime, parce que la fabrication d'un équipement électronique est très émettrice rapportée à son prix."
+  },
+  {
+   "v": "a",
+   "t": "Deux biais de sens contraire."
+  },
+  {
+   "v": "b",
+   "t": "Qui se compensent partiellement, ce qui rendait l'écart global encore plus trompeur. Le total masquait les deux. C'est pour ça qu'on ne raisonne jamais sur un total."
+  },
+  {
+   "v": "a",
+   "t": "Et la règle de décision, finalement ?"
+  },
+  {
+   "v": "b",
+   "t": "En une phrase : on retient la donnée physique partout où elle existe et où le facteur est adapté, et on conserve le ratio monétaire ailleurs, en le signalant. C'est une règle qu'on peut écrire, défendre et reproduire l'année suivante — ce qui est exactement ce qu'on demande à une méthode."
+  },
+  {
+   "v": "a",
+   "t": "Parlons de l'incertitude, parce que beaucoup de gens la cachent."
+  },
+  {
+   "v": "b",
+   "t": "Un bilan est une estimation, pas une comptabilité. Ce qui est attendu, c'est la traçabilité, pas l'exactitude. Et afficher son incertitude rend un bilan plus crédible : une fausse précision — quatre mille sept cent douze virgule trois tonnes — signale au contraire que la méthode n'a pas été comprise."
+  },
+  {
+   "v": "a",
+   "t": "Comment on la présente utilement ?"
+  },
+  {
+   "v": "b",
+   "t": "On teste la robustesse des conclusions aux bornes hautes et basses. Si la conclusion « les achats sont le premier poste » tient dans les deux cas, c'est ça qu'on présente — pas le chiffre central. La conclusion est solide même si le nombre ne l'est pas."
+  },
+  {
+   "v": "a",
+   "t": "Tu recommandes aussi de publier deux chiffres."
+  },
+  {
+   "v": "b",
+   "t": "L'absolu et l'intensité, par exemple les tonnes par million d'euros de chiffre d'affaires. L'absolu mesure ce que l'atmosphère reçoit ; l'intensité mesure l'effort accompli. Une entreprise en croissance peut améliorer son intensité et augmenter son absolu — les deux sont vrais et il faut les dire tous les deux."
+  },
+  {
+   "v": "a",
+   "t": "Un garde-fou pratique ?"
+  },
+  {
+   "v": "b",
+   "t": "Ayez des ordres de grandeur en tête. L'erreur la plus fréquente d'un premier bilan est un facteur mille sur une unité — des kilos pris pour des tonnes. Un résultat qui ne ressemble à rien de connu est presque toujours une erreur d'unité, pas une découverte."
+  },
+  {
+   "v": "a",
+   "t": "Et sur la restitution ?"
+  },
+  {
+   "v": "b",
+   "t": "Un bilan n'est pas une performance, c'est un diagnostic. Consacrez trois quarts de la restitution à ce qu'on en fait. Présenter le total comme un résultat oriente immédiatement la discussion vers « est-ce que c'est beaucoup ? », qui est une question sans réponse utile."
+  },
+  {
+   "v": "a",
+   "t": "Ce qu'on fait demain ?"
+  },
+  {
+   "v": "b",
+   "t": "Demandez à votre comptabilité l'état des achats de l'année dernière par famille, en montants. Une heure, et vous saurez déjà où se situe probablement votre premier poste d'émissions — avant même d'avoir calculé quoi que ce soit."
+  },
+  {
+   "v": "a",
+   "t": "Au module 3, on priorise et on chiffre. Merci Inès."
+  }
+ ]
+}

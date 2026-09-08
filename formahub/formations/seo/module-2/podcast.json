@@ -1,0 +1,209 @@
+{
+ "module_id": "formation-seo-module-2",
+ "formation": "SEO Fondamentaux",
+ "titre": "Recherche de mots-clés stratégiques",
+ "version": "1.0",
+ "duree_estimee": "9 min",
+ "mots": 1433,
+ "resume": "Comment décider ce qu'on écrit — et surtout ce qu'on refuse d'écrire — en partant de l'intention de recherche plutôt que d'un nombre d'articles.",
+ "hosts": {
+  "a": {
+   "nom": "Camille",
+   "role": "animatrice"
+  },
+  "b": {
+   "nom": "Julien",
+   "role": "consultant SEO"
+  }
+ },
+ "lignes": [
+  {
+   "v": "a",
+   "t": "Deuxième module de la formation SEO, et cette fois on parle de ciblage. Julien, la mise en situation est encore une phrase qu'on entend partout : « Il nous faut vingt articles de blog ce trimestre, on a besoin de visibilité. »"
+  },
+  {
+   "v": "b",
+   "t": "Le budget est validé, le rédacteur attend le brief, et tout pousse à commencer à écrire. C'est exactement comme ça qu'on produit vingt articles qui ne généreront jamais de trafic. Parce que personne n'a vérifié si quelqu'un cherche ces sujets, sous quelle forme, et si le site a la moindre chance de se positionner dessus."
+  },
+  {
+   "v": "a",
+   "t": "Alors commençons par le début : qu'est-ce qu'un mot-clé, au fond ?"
+  },
+  {
+   "v": "b",
+   "t": "La trace écrite d'un besoin. Ce n'est pas une chaîne de caractères à placer dans un texte, c'est quelqu'un qui a un problème et qui l'a formulé en cinq mots. Tout le module découle de là : avant le volume, avant la difficulté, on qualifie l'intention."
+  },
+  {
+   "v": "a",
+   "t": "Les quatre intentions, rappelle-les nous."
+  },
+  {
+   "v": "b",
+   "t": "Informationnelle : la personne veut comprendre. Navigationnelle : elle cherche un site précis. Commerciale : elle compare avant d'acheter. Transactionnelle : elle est prête à passer à l'acte. Et la même thématique peut donner quatre pages différentes, une par intention."
+  },
+  {
+   "v": "a",
+   "t": "Comment on qualifie l'intention sans se tromper ?"
+  },
+  {
+   "v": "b",
+   "t": "On ne devine pas, on observe. Tape la requête, regarde le top dix, et demande-toi quel format domine. Si ce sont dix guides longs, l'intention est informationnelle. Si ce sont dix pages produit, elle est transactionnelle. Le top dix est la réponse observable de Google à la question « qu'est-ce que les gens attendent ici ». Trois minutes suffisent."
+  },
+  {
+   "v": "a",
+   "t": "Et si je ne suis pas d'accord avec ce que je vois ?"
+  },
+  {
+   "v": "b",
+   "t": "C'est le combat le plus coûteux du SEO, et on ne le gagne pas. Si le top dix est composé de comparatifs et que tu publies une page de vente, tu peux avoir le meilleur contenu du marché, tu ne rentreras pas. L'intention détermine le format, jamais l'inverse."
+  },
+  {
+   "v": "a",
+   "t": "Passons à la constitution de la liste. Il faut des outils payants ?"
+  },
+  {
+   "v": "b",
+   "t": "Pas pour commencer, et c'est important à dire parce que ça bloque beaucoup de gens. La source la plus sous-exploitée est gratuite : c'est ta propre Search Console. Elle te dit sur quelles requêtes tu apparais déjà, y compris celles que tu n'avais jamais ciblées. Ensuite viennent l'autocomplétion, les questions connexes, les recherches associées en bas de page, le vocabulaire de tes clients dans les mails et les tickets support, et les sites concurrents."
+  },
+  {
+   "v": "a",
+   "t": "Et les volumes affichés par les outils, on en fait quoi ?"
+  },
+  {
+   "v": "b",
+   "t": "On s'en sert pour hiérarchiser, jamais pour prévoir un trafic. Ce sont des estimations arrondies, souvent regroupées entre variantes proches. Annoncer « cette requête fait mille recherches par mois, donc on aura tant de visites », c'est une promesse qu'on ne peut pas tenir."
+  },
+  {
+   "v": "a",
+   "t": "Vient l'arbitrage. Volume, difficulté, valeur métier. Comment on tranche ?"
+  },
+  {
+   "v": "b",
+   "t": "On score chaque candidate sur quatre critères : la valeur métier, l'accessibilité, le volume et l'effort. Et en cas d'égalité, c'est la valeur métier qui tranche. Une requête à cent recherches mensuelles qui amène des prospects qualifiés vaut mieux qu'une requête à cinq mille qui amène des étudiants en recherche de définition."
+  },
+  {
+   "v": "a",
+   "t": "Tu peux donner le calcul qui renverse l'intuition ?"
+  },
+  {
+   "v": "b",
+   "t": "Prends une requête générique à cinq mille recherches, sur laquelle tu peux espérer la quinzième position : ça fait quelques clics par mois, et des clics peu qualifiés. Prends maintenant dix requêtes de longue traîne à cent cinquante recherches, sur lesquelles tu peux viser le top trois : tu captes une part bien plus importante de chacune, et les visiteurs correspondent à ton offre. Le total de trafic est supérieur, et la qualité n'a rien à voir."
+  },
+  {
+   "v": "a",
+   "t": "C'est le principe de la longue traîne."
+  },
+  {
+   "v": "b",
+   "t": "Et pour un site jeune, il n'y a pas d'autre point d'entrée réaliste. Le trafic se construit par cumul de petites requêtes gagnées, pas par une victoire frontale sur le terme générique que le patron connaît. D'ailleurs c'est une erreur classique du module : viser la requête que le patron connaît."
+  },
+  {
+   "v": "a",
+   "t": "Une fois qu'on a la liste, on fait le mapping sémantique. Qu'est-ce que c'est exactement ?"
+  },
+  {
+   "v": "b",
+   "t": "Un document, souvent un simple tableau, qui associe chaque intention à une URL et une seule. La règle structurante tient en cinq mots : une URL, une intention. Le mapping est ce qui rend cette règle tenable quand plusieurs personnes écrivent."
+  },
+  {
+   "v": "a",
+   "t": "Qu'est-ce qu'on met dedans ?"
+  },
+  {
+   "v": "b",
+   "t": "Pour chaque ligne : la requête principale, l'intention qualifiée, le format de page attendu, l'URL cible, le statut — existante, à réécrire, à créer — et la personne responsable. Cinq colonnes, pas quinze. Un mapping que personne ne tient à jour ne sert à rien."
+  },
+  {
+   "v": "a",
+   "t": "Et si on n'a pas ce document ?"
+  },
+  {
+   "v": "b",
+   "t": "On produit des doublons. C'est le sujet suivant du module : la cannibalisation. Deux pages du même site qui visent la même intention. Elles se disputent la même place, elles se partagent les liens internes, et généralement aucune des deux n'atteint le top cinq alors qu'une seule page bien faite y serait."
+  },
+  {
+   "v": "a",
+   "t": "Comment on la détecte ?"
+  },
+  {
+   "v": "b",
+   "t": "Dans la Search Console, tu filtres sur une requête et tu regardes quelles pages remontent. Si tu vois deux URLs alterner au fil des semaines sur la même requête, tu tiens ta cannibalisation."
+  },
+  {
+   "v": "a",
+   "t": "Et on la traite comment ?"
+  },
+  {
+   "v": "b",
+   "t": "Trois traitements possibles, et il faut choisir le bon. Si les deux pages sont redondantes, on fusionne : on garde la meilleure, on y reverse ce que l'autre avait d'utile, et on redirige en trois cent un. Si les intentions divergent en réalité, on différencie : on réécrit chacune pour qu'elle assume clairement son angle. Et la désindexation n'arrive qu'en dernier recours."
+  },
+  {
+   "v": "a",
+   "t": "L'erreur, ce serait quoi ?"
+  },
+  {
+   "v": "b",
+   "t": "Créer un troisième article sur le même sujet en espérant que celui-là marchera. On ajoute un concurrent interne de plus. Avant de créer une page, la question à se poser est toujours : est-ce qu'une page existante ne vise pas déjà cette intention ?"
+  },
+  {
+   "v": "a",
+   "t": "Passons à l'étude de cas, qui est assez spectaculaire. Soixante articles qui ne rapportent rien."
+  },
+  {
+   "v": "b",
+   "t": "Un site qui a publié soixante articles en deux ans, avec un trafic organique stagnant à quatre cents visites mensuelles, et une demande de vingt articles de plus. Première étape : mesurer avant de produire. L'export Search Console sur douze mois montre que sur soixante articles, onze génèrent quatre-vingt-douze pour cent du trafic."
+  },
+  {
+   "v": "a",
+   "t": "Onze sur soixante."
+  },
+  {
+   "v": "b",
+   "t": "Et trente-quatre articles n'ont jamais dépassé cinq clics sur l'année, quinze ne sont même pas indexés. Le problème n'est manifestement pas le volume de production."
+  },
+  {
+   "v": "a",
+   "t": "Et quand on regarde pourquoi ces trente-quatre ne marchent pas ?"
+  },
+  {
+   "v": "b",
+   "t": "Trois causes, par ordre de fréquence. Dix-huit traitent des sujets sans aucun volume de recherche : des sujets choisis en réunion, jamais vérifiés. Neuf sont en cannibalisation deux à deux, sur des angles quasi identiques. Et sept visent des requêtes verrouillées par des acteurs nationaux, qui n'ont jamais dépassé la sixième page."
+  },
+  {
+   "v": "a",
+   "t": "Donc la contre-proposition à la directrice marketing."
+  },
+  {
+   "v": "b",
+   "t": "Pas vingt articles. Consolider les neuf cas de cannibalisation en quatre pages. Réécrire en profondeur les onze articles qui performent, pour les faire passer du top quinze au top cinq. Et ne produire que six nouveaux contenus, tous issus du mapping, sur des requêtes scorées. Budget identique, moins de livrables, impact très supérieur."
+  },
+  {
+   "v": "a",
+   "t": "Et les dix-huit articles sans volume, on les supprime ?"
+  },
+  {
+   "v": "b",
+   "t": "Surtout pas à la légère. Ceux qui reçoivent des liens externes sont redirigés vers le contenu pertinent le plus proche. Les autres, on les laisse en l'état, sans investissement supplémentaire. L'inaction ciblée est souvent le meilleur arbitrage — supprimer massivement des pages crée plus de problèmes que ça n'en résout."
+  },
+  {
+   "v": "a",
+   "t": "La leçon du cas ?"
+  },
+  {
+   "v": "b",
+   "t": "La question « combien d'articles ? » est presque toujours la mauvaise question. Celle qui compte, c'est : quelles intentions ne sont pas couvertes, et lesquelles le sont deux fois ? Un audit d'une journée a redirigé un budget trimestriel entier vers ce qui allait réellement produire."
+  },
+  {
+   "v": "a",
+   "t": "Ce qu'on fait lundi matin, alors ?"
+  },
+  {
+   "v": "b",
+   "t": "Ouvre la Search Console sur douze mois, trie tes pages par clics décroissants, et regarde combien de pages font quatre-vingts pour cent de ton trafic. Ce simple tri te dit déjà si ton chantier est de produire, de réécrire ou de fusionner."
+  },
+  {
+   "v": "a",
+   "t": "Le module trois entre dans la page elle-même : structure, balises, maillage. Merci Julien."
+  }
+ ]
+}

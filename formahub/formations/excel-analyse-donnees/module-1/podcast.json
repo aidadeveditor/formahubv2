@@ -1,0 +1,225 @@
+{
+ "module_id": "formation-excel-analyse-donnees-module-1",
+ "formation": "Excel et analyse de données appliquée",
+ "titre": "Structurer une donnée exploitable",
+ "version": "1.0",
+ "duree_estimee": "8 min",
+ "mots": 1304,
+ "resume": "Douze mille quatre cents lignes, huit défauts et une réponse pour lundi : pourquoi la préparation est quatre-vingts pour cent du travail, et l'écart de dix pour cent qu'elle révèle.",
+ "hosts": {
+  "a": {
+   "nom": "Camille",
+   "role": "animatrice"
+  },
+  "b": {
+   "nom": "Karim",
+   "role": "analyste de données"
+  }
+ },
+ "lignes": [
+  {
+   "v": "a",
+   "t": "Premier module de la formation Excel. Karim, la scène est un vendredi quatorze heures et une demande pour lundi matin."
+  },
+  {
+   "v": "b",
+   "t": "Quelle catégorie de produits a le plus reculé sur le trimestre, et dans quelles régions. La réponse existe : elle est dans un fichier de douze mille quatre cents lignes que le service commercial vient d'envoyer. On l'ouvre, et là."
+  },
+  {
+   "v": "a",
+   "t": "Raconte."
+  },
+  {
+   "v": "b",
+   "t": "La première ligne est un titre étalé sur huit colonnes fusionnées. Les en-têtes sont en ligne quatre. La colonne Région contient « Sud-Ouest », « sud ouest » en minuscules, « S.O. » en initiales, et trois cent quarante cellules vides. Les montants sont alignés à gauche, ce qui veut dire qu'Excel les considère comme du texte. Des lignes « Total mensuel » sont intercalées tous les trente enregistrements. Et une colonne empile client, contact et téléphone séparés par des barres obliques."
+  },
+  {
+   "v": "a",
+   "t": "Deux options, dis-tu."
+  },
+  {
+   "v": "b",
+   "t": "La première, très tentante : commencer à filtrer et à faire des sommes tout de suite. Vous obtiendrez un chiffre lundi matin, et il sera faux. La seconde : consacrer deux heures à rendre le fichier analysable, et vingt minutes à répondre à la question."
+  },
+  {
+   "v": "a",
+   "t": "C'est la proportion que tu défends dans tout le module."
+  },
+  {
+   "v": "b",
+   "t": "Quatre-vingts pour cent de préparation, vingt pour cent d'analyse. Et j'ajoute une chose : celui qui vous répond en vingt minutes n'a pas été rapide, il a sauté la préparation. C'est utile à savoir quand on se compare à un collègue."
+  },
+  {
+   "v": "a",
+   "t": "Commençons par la distinction de fond du module."
+  },
+  {
+   "v": "b",
+   "t": "Un tableau lisible et un tableau exploitable sont deux objets différents. Le tableau lisible a des titres fusionnés, des sous-totaux, de la couleur — il est fait pour l'œil humain. Le tableau exploitable obéit à trois phrases : une ligne est une observation, une colonne est une variable, une cellule est une valeur."
+  },
+  {
+   "v": "a",
+   "t": "Et on ne peut pas avoir les deux ?"
+  },
+  {
+   "v": "b",
+   "t": "Pas dans le même onglet, et c'est l'erreur la plus tenace. La solution est de séparer trois onglets : les données brutes intactes, les données nettoyées, et la présentation construite par formules. Chacun fait bien une seule chose."
+  },
+  {
+   "v": "a",
+   "t": "Tu identifies cinq défauts qui rendent un fichier inanalysable."
+  },
+  {
+   "v": "b",
+   "t": "Les cellules fusionnées. Les valeurs multiples dans une même colonne. Les lignes de synthèse intercalées. Le mauvais typage — des nombres stockés en texte, des dates en texte. Et les en-têtes qui ne sont pas en première ligne. Ces cinq-là, et on a couvert l'immense majorité des cas."
+  },
+  {
+   "v": "a",
+   "t": "Tu recommandes un diagnostic d'ouverture. En combien de temps ?"
+  },
+  {
+   "v": "b",
+   "t": "Moins de deux minutes, six gestes. Contrôle-Fin, pour voir jusqu'où le fichier croit s'étendre. Regarder si le bouton Fusionner est actif. Vérifier l'alignement des colonnes numériques. Chercher le mot « Total ». Ouvrir le filtre sur chaque colonne de catégorie pour compter les modalités. Et regarder le minimum et le maximum des dates."
+  },
+  {
+   "v": "a",
+   "t": "Et à quoi ça sert, concrètement ?"
+  },
+  {
+   "v": "b",
+   "t": "À annoncer un délai honnête avant de s'engager, pas après. Dans l'étude de cas, la phrase dite à la direction est « réponse lundi matin, pas vendredi soir ». C'est le premier livrable, et il vaut mieux qu'un chiffre faux dans l'heure."
+  },
+  {
+   "v": "a",
+   "t": "Tu as une phrase forte sur les erreurs."
+  },
+  {
+   "v": "b",
+   "t": "Les erreurs graves sont celles qui restent plausibles. Un chiffre qui double, ça se voit et quelqu'un le signale. Un écart de six pour cent uniformément réparti ne se voit jamais, il circule, et on décide dessus pendant deux ans."
+  },
+  {
+   "v": "a",
+   "t": "Reprenons l'étude de cas, minutée."
+  },
+  {
+   "v": "b",
+   "t": "Minutes zéro à cinq, le diagnostic. Contrôle-Fin renvoie très au-delà des données réelles : le fichier traîne des colonnes et des lignes fantômes. Quatre colonnes numériques alignées à gauche. Quatre cent dix occurrences du mot « Total ». Onze modalités dans la colonne Région pour six régions réelles. Les cinq défauts sont là."
+  },
+  {
+   "v": "a",
+   "t": "Ensuite la structure."
+  },
+  {
+   "v": "b",
+   "t": "On supprime les trois premières lignes pour ramener les en-têtes en ligne un. Et surtout, on supprime les colonnes et lignes fantômes — on les supprime, on ne les efface pas. L'effacement laisse la structure en place et continue de fausser la détection de plage."
+  },
+  {
+   "v": "a",
+   "t": "Puis les lignes de total."
+  },
+  {
+   "v": "b",
+   "t": "Filtre sur « Total mensuel », suppression des quatre cent dix lignes, et contrôle du compte : douze mille quatre cents moins quatre cent dix égale onze mille neuf cent quatre-vingt-dix. Le compte tombe juste, donc aucune ligne utile n'a été emportée. Ce contrôle prend cinq secondes et il évite de découvrir la perte trois semaines plus tard."
+  },
+  {
+   "v": "a",
+   "t": "Et le moment le plus instructif ?"
+  },
+  {
+   "v": "b",
+   "t": "Le typage. On convertit les quatre colonnes numériques avec le bon séparateur décimal. La somme des montants passe de trois millions neuf cent cinquante mille à quatre millions quatre cent deux mille euros."
+  },
+  {
+   "v": "a",
+   "t": "Quatre cent cinquante-deux mille euros d'écart."
+  },
+  {
+   "v": "b",
+   "t": "Qui correspondent aux mille trois cent quatre-vingts cellules stockées en texte, qui comptaient pour zéro. Sans cette conversion, l'analyse aurait sous-estimé le chiffre d'affaires de dix pour cent, uniformément réparti, donc invisible. C'est exactement le type d'erreur dont je parlais."
+  },
+  {
+   "v": "a",
+   "t": "Un montant aligné à gauche, donc."
+  },
+  {
+   "v": "b",
+   "t": "C'est du texte, et il compte pour zéro dans toute somme. C'est le réflexe le plus rentable de la formation : regarder l'alignement avant de sommer."
+  },
+  {
+   "v": "a",
+   "t": "Et les catégories ?"
+  },
+  {
+   "v": "b",
+   "t": "Onze modalités de région ramenées à six, plus une septième pour les vides — après vérification du pays de livraison, ce sont des exports. Le principe général : un vide a presque toujours un sens, comprenez-le avant de le remplir ou de l'écarter. Le remplir par zéro ou par la valeur du dessus sans vérifier est une façon rapide de fabriquer des données fausses."
+  },
+  {
+   "v": "a",
+   "t": "Sur la façon de corriger, tu as une règle."
+  },
+  {
+   "v": "b",
+   "t": "Toute correction manuelle est perdue. Au-delà de dix répétitions, il faut une règle, pas un geste. Une table de correspondance qui traduit les onze écritures en six régions se rejoue le mois prochain ; deux cents corrections à la main, non."
+  },
+  {
+   "v": "a",
+   "t": "Et l'ordre des opérations compte ?"
+  },
+  {
+   "v": "b",
+   "t": "Il n'est pas arbitraire. Défusionner, supprimer les synthèses, normaliser les espaces, corriger les variantes, convertir les types, séparer les colonnes multiples, dédoublonner. Dans un autre ordre, chaque étape défait la précédente."
+  },
+  {
+   "v": "a",
+   "t": "Un mot sur le dédoublonnage."
+  },
+  {
+   "v": "b",
+   "t": "Ne cliquez jamais sur « Supprimer les doublons » avant d'avoir compté et qualifié ce qui est en double. Deux lignes identiques peuvent être une double saisie, ou deux commandes réelles du même client le même jour. L'outil ne fait pas la différence, vous si."
+  },
+  {
+   "v": "a",
+   "t": "Et le réflexe de mise en forme qui compte ?"
+  },
+  {
+   "v": "b",
+   "t": "Contrôle-L après le nettoyage, systématiquement, pour convertir la plage en tableau structuré, avec un nom explicite. Les plages s'étendent alors toutes seules quand des lignes arrivent, et les formules se relisent parce qu'elles portent des noms de colonnes au lieu de coordonnées."
+  },
+  {
+   "v": "a",
+   "t": "Dernier point : la reproductibilité."
+  },
+  {
+   "v": "b",
+   "t": "Le journal de transformation. Six lignes, cinq minutes : ce qu'on a fait, dans quel ordre, avec quel arbitrage. Il rend l'analyse reproductible le mois prochain, défendable si on la conteste, et transmissible si vous n'êtes pas là."
+  },
+  {
+   "v": "a",
+   "t": "Et les chiffres de contrôle ?"
+  },
+  {
+   "v": "b",
+   "t": "Quatre, relevés avant et après : le nombre de lignes, la somme principale, le nombre de modalités distinctes, et la plage de dates. Ce sont eux qui vous disent qu'un nettoyage a mal tourné — sinon vous ne le sauriez jamais."
+  },
+  {
+   "v": "a",
+   "t": "Et le nettoyage se fait sur une copie."
+  },
+  {
+   "v": "b",
+   "t": "Toujours. Sans source intacte, plus rien n'est vérifiable, et le jour où quelqu'un conteste un chiffre vous n'avez aucun moyen de remonter."
+  },
+  {
+   "v": "a",
+   "t": "Ce qu'on fait demain ?"
+  },
+  {
+   "v": "b",
+   "t": "Prenez le fichier que vous utilisez le plus souvent et faites-lui le diagnostic en six gestes. Deux minutes. Regardez en particulier l'alignement de vos colonnes de montants — c'est là que se cachent les dix pour cent."
+  },
+  {
+   "v": "a",
+   "t": "Au module 2, les fonctions. Merci Karim."
+  }
+ ]
+}
