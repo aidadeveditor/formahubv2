@@ -1,5 +1,5 @@
 /* ============================================================
-   Formahub — service worker (V7)
+   Formahub — service worker (V8)
    Rend la plateforme consultable sans connexion.
 
    Stratégies :
@@ -12,6 +12,10 @@
    consomme le forfait de personne sans son accord.
    ============================================================ */
 
+// Changer VERSION à chaque mise en ligne : le navigateur voit un nouveau
+// service worker, qui recharge la coquille (dont audio.js) sans effacer
+// les modules déjà téléchargés pour le hors-ligne.
+const VERSION = '2026-09-23-worker-sync';
 const CACHE = 'formahub-offline-v1';
 const CORE = [
   './',

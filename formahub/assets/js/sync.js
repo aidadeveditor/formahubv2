@@ -1,11 +1,11 @@
 /* ============================================================
-   Formahub — sauvegarde automatique par code secret (V7)
+   Formahub — sauvegarde automatique par code secret (V8)
 
    Un code choisi par l'utilisatrice remplace l'identifiant aléatoire
    d'origine. Il ne quitte jamais le navigateur : on en dérive
      • une adresse de stockage  = SHA-256("formahub-id:" + code) ;
      • une clé de chiffrement   = PBKDF2(code) → AES-GCM 256 bits.
-   Le serveur (Cloudflare KV) ne reçoit donc qu'un bloc chiffré :
+   Le Worker formahub-sync (Cloudflare KV) ne reçoit donc qu'un bloc chiffré :
    sans le code, la progression est illisible, y compris pour lui.
 
    Sont sauvegardés : progression des modules, cases cochées,
@@ -20,6 +20,18 @@
   var ROOT = (function () {
     if (SELF && SELF.src) return SELF.src.replace(/assets\/js\/sync\.js.*$/, '');
     return new URL('.', location.href).toString();
+  })();
+
+  /* Adresse du Worker « formahub-sync » (même règle que audio.js) :
+     déduite toute seule sur *.workers.dev, à renseigner seulement
+     pour un domaine perso. En local : fonction functions/api/progress. */
+  var SYNC_WORKER = '';
+
+  var API = (function () {
+    if (SYNC_WORKER) return SYNC_WORKER.replace(/\/+$/, '') + '/progress/';
+    var m = location.hostname.match(/^[^.]+\.([^.]+\.workers\.dev)$/);
+    if (m) return 'https://formahub-sync.' + m[1] + '/progress/';
+    return ROOT + 'api/progress/';
   })();
 
   var CONF_KEY = 'formahub-backup';
@@ -176,7 +188,7 @@
     var payload = { v: 1, updatedAt: new Date().toISOString(), data: bundle() };
     return encryptPayload(payload)
       .then(function (body) {
-        return fetch(ROOT + 'api/progress/' + conf.id, {
+        return fetch(API + conf.id, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: body
@@ -197,7 +209,7 @@
 
   function pull() {
     if (!conf.id) return Promise.resolve(null);
-    return fetch(ROOT + 'api/progress/' + conf.id, { cache: 'no-store' })
+    return fetch(API + conf.id, { cache: 'no-store' })
       .then(function (r) { return r.ok ? r.text() : '{}'; })
       .then(function (text) {
         if (!text || text === '{}' || text === '') return null;

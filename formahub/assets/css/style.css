@@ -1623,6 +1623,35 @@ tr.row-inscrite > td { background: var(--accent-light); }
 
 .audio-voice-field select { max-width: 210px; }
 
+/* V8 — réglages voix / ton / vitesse (Azure Speech ou voix du navigateur) */
+.audio-settings {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+  row-gap: 8px;
+}
+
+.audio-voice-field select { max-width: 260px; }
+
+.audio-engine {
+  margin-left: auto;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 999px;
+  color: var(--text-muted);
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+}
+
+.audio-engine.is-azure {
+  color: var(--accent);
+  background: var(--accent-light);
+  border-color: var(--accent-soft);
+}
+
 .audio-progress {
   margin-top: 12px;
   height: 4px;
@@ -1703,6 +1732,12 @@ tr.row-inscrite > td { background: var(--accent-light); }
 }
 
 .podcast-player { margin: 14px 0 6px; }
+
+.pod-audio {
+  width: 100%;
+  height: 40px;
+  border-radius: var(--radius-sm);
+}
 
 .podcast-resume {
   margin: 10px 0 16px;
@@ -1915,6 +1950,8 @@ tr.row-inscrite > td { background: var(--accent-light); }
   .audio-bar { padding: 12px 14px; }
   .audio-status { flex-basis: 100%; white-space: normal; }
   .audio-field select { max-width: 140px; }
+  .audio-voice-field select { max-width: 200px; }
+  .audio-engine { margin-left: 0; }
   .podcast-line { grid-template-columns: 1fr; gap: 2px; }
   .podcast-script { max-height: 360px; }
   .tool-card { padding: 16px 16px 18px; }
