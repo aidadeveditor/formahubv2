@@ -48,6 +48,14 @@
   /* ---------- Échange avec le service worker ---------- */
 
   function ask(message, onMessage) {
+    // On attend que le service worker soit réellement actif (première visite comprise)
+    return navigator.serviceWorker.ready.then(function (reg) {
+      registration = reg;
+      return send(message, onMessage);
+    });
+  }
+
+  function send(message, onMessage) {
     return new Promise(function (resolve, reject) {
       var target = (registration && (registration.active || registration.waiting)) ||
         navigator.serviceWorker.controller;
@@ -119,32 +127,59 @@
     var btn = body.querySelector('#offline-download');
     var clear = body.querySelector('#offline-clear');
     var note = body.querySelector('#offline-note');
-    var catalogue = { count: 0, bytes: 0 };
+    var catalogue = { count: 0, bytes: 0, urls: [] };
+    var coverage = null;      // { have, total, missing } lu dans le cache réel
 
-    // Volume réel annoncé avant le téléchargement, lu dans le manifeste
-    fetch(ROOT + 'offline-manifest.json', { cache: 'no-cache' })
-      .then(function (r) { return r.json(); })
-      .then(function (m) {
-        catalogue.count = (m && m.count) || 0;
-        catalogue.bytes = (m && m.approx_bytes) || 0;
+    function loadManifest() {
+      return fetch(ROOT + 'offline-manifest.json', { cache: 'no-cache' })
+        .then(function (r) { return r.json(); })
+        .then(function (m) {
+          catalogue.count = (m && m.count) || 0;
+          catalogue.bytes = (m && m.approx_bytes) || 0;
+          catalogue.urls = (m && m.urls) || [];
+          return catalogue;
+        });
+    }
+
+    /* Vérifie, fichier par fichier, ce qui est vraiment disponible hors ligne */
+    function checkCoverage() {
+      if (!catalogue.urls.length) return Promise.resolve(null);
+      return ask({ type: 'STATUS', urls: catalogue.urls }).then(function (msg) {
+        coverage = msg;
         refresh();
-      })
-      .catch(function () { /* le bouton reste utilisable */ });
+        return msg;
+      }).catch(function () { return null; });
+    }
 
     function refresh() {
       var s = readState();
-      if (s.done) {
+      var complete = coverage && coverage.total && coverage.have >= coverage.total;
+      var partial = coverage && coverage.total && coverage.have > 0 && !complete;
+
+      if (complete) {
         status.innerHTML = '<span class="dot dot-ok"></span> Disponible hors ligne — ' +
-          s.done + ' fichiers' + (s.bytes ? ' · ' + humanBytes(s.bytes) : '');
-        note.textContent = 'Dernier téléchargement le ' + humanDate(s.date) +
-          '. Relancez-le après chaque mise en ligne pour récupérer les nouveautés.';
+          coverage.have + ' / ' + coverage.total + ' fichiers' +
+          (coverage.bytes ? ' · ' + humanBytes(coverage.bytes) : '');
+        note.textContent = (s.date ? 'Dernier téléchargement le ' + humanDate(s.date) + '. ' : '') +
+          'La copie se remet à jour d\'elle-même à chaque nouvelle version du site.';
         btn.textContent = '↻ Mettre à jour la copie hors ligne';
+        clear.hidden = false;
+      } else if (partial || s.done) {
+        var have = coverage ? coverage.have : 0;
+        var total = coverage ? coverage.total : catalogue.count;
+        status.innerHTML = '<span class="dot dot-ko"></span> Copie incomplète — ' +
+          have + ' / ' + total + ' fichiers disponibles hors ligne';
+        note.textContent = 'Des modules manquent sur cet appareil' +
+          (coverage && coverage.missing && coverage.missing.length
+            ? ' (par exemple ' + coverage.missing.slice(0, 3).join(', ') + ')' : '') +
+          '. Relancez le téléchargement, connexion active.';
+        btn.textContent = '⬇ Compléter la copie hors ligne';
         clear.hidden = false;
       } else {
         status.innerHTML = '<span class="dot"></span> Pas encore téléchargé';
         note.textContent = catalogue.count
           ? 'Un seul clic enregistre les ' + catalogue.count + ' fichiers de la plateforme — ' +
-            'modules, quiz et podcasts — dans ce navigateur. Comptez quelques secondes et ' +
+            'les 40 modules, leurs quiz et leurs podcasts — dans ce navigateur. Comptez quelques secondes et ' +
             humanBytes(catalogue.bytes) + '.'
           : 'Un seul clic enregistre toute la plateforme dans ce navigateur : ' +
             'modules, quiz et podcasts.';
@@ -154,6 +189,7 @@
     }
 
     refresh();
+    loadManifest().then(refresh).then(checkCoverage).catch(function () { /* le bouton reste utilisable */ });
 
     btn.addEventListener('click', function () {
       btn.disabled = true;
@@ -162,11 +198,9 @@
       fill.style.width = '2%';
       status.innerHTML = '<span class="dot dot-run"></span> Téléchargement en cours…';
 
-      fetch(ROOT + 'offline-manifest.json', { cache: 'no-cache' })
-        .then(function (r) { return r.json(); })
-        .then(function (manifest) {
-          var urls = (manifest && manifest.urls) || [];
-          return ask({ type: 'PRECACHE', urls: urls }, function (msg) {
+      loadManifest()
+        .then(function () {
+          return ask({ type: 'PRECACHE', urls: catalogue.urls }, function (msg) {
             if (msg.type === 'PRECACHE_PROGRESS') {
               var pct = Math.round((msg.done / msg.total) * 100);
               fill.style.width = Math.max(2, pct) + '%';
@@ -176,23 +210,16 @@
           });
         })
         .then(function (msg) {
-          writeState({
-            done: msg.done - (msg.failed || 0),
-            total: msg.total,
-            failed: msg.failed || 0,
-            bytes: msg.bytes || null,
-            date: new Date().toISOString()
-          });
+          writeState({ done: msg.done - (msg.failed || 0), total: msg.total, date: new Date().toISOString() });
           fill.style.width = '100%';
           setTimeout(function () { progress.hidden = true; fill.style.width = '0%'; }, 900);
-          refresh();
-          if (msg.failed) {
-            note.textContent += ' ' + msg.failed + ' fichier(s) n\'ont pas pu être enregistrés — ' +
-              'relancez le téléchargement pour compléter.';
-          }
-          if (typeof window.formahubToast === 'function') {
-            window.formahubToast('📦 Formahub est disponible hors ligne.');
-          }
+          return checkCoverage().then(function (cov) {
+            var ok = cov && cov.have >= cov.total;
+            if (typeof window.formahubToast === 'function') {
+              window.formahubToast(ok ? '📦 Les 40 modules sont disponibles hors ligne.'
+                : '⚠️ Copie hors ligne incomplète — relancez le téléchargement.');
+            }
+          });
         })
         .catch(function () {
           progress.hidden = true;
@@ -207,6 +234,7 @@
       ask({ type: 'CLEAR' })
         .then(function () {
           writeState({});
+          coverage = null;
           refresh();
           if (typeof window.formahubToast === 'function') {
             window.formahubToast('🧹 Copie hors ligne supprimée.');
@@ -215,17 +243,6 @@
         .catch(function () { /* rien à supprimer */ })
         .then(function () { clear.disabled = false; });
     });
-
-    // Statut réel du cache, si le service worker répond
-    navigator.serviceWorker.ready.then(function () {
-      return ask({ type: 'STATUS' });
-    }).then(function (msg) {
-      var s = readState();
-      if (msg && msg.count > 12 && !s.done) {
-        writeState({ done: msg.count, total: msg.count, bytes: msg.bytes, date: s.date || new Date().toISOString() });
-        refresh();
-      }
-    }).catch(function () { /* ignore */ });
   }
 
   /* ---------- Amorçage ---------- */

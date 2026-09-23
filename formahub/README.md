@@ -13,6 +13,7 @@ Plateforme d'auto-formation professionnelle 100 % statique (HTML5, CSS3, JS vani
 - **Consultation hors ligne** : un service worker (`sw.js`) et un bouton « Rendre disponible hors ligne » téléchargent toute la plateforme dans le navigateur.
 - **Onglet Ressources externes** : tableau filtrable, calcul du reste à charge et solde CPF.
 - **Onglet Formations Espagne** : dispositifs espagnols, présentés par condition d'accès.
+- **Onglet Paramètres** (`parametres.html`) : thème, sauvegarde par code secret, consultation hors ligne et voix par défaut (modules + podcasts) regroupés au même endroit — ces mêmes réglages restaient auparavant éclatés entre l'accueil et chaque module.
 - **Mode sombre / clair** accessible (WCAG AA), piloté par `data-theme` et les variables CSS de `:root`.
 
 ## 📐 Structure d'un module
@@ -35,9 +36,10 @@ Chaque module suit le même gabarit pédagogique :
 ## 🗂️ Arborescence
 
 ```
-index.html                     catalogue + panneaux sauvegarde et hors ligne
+index.html                     catalogue de formations
 ressources-externes.html
 formations-espagne.html
+parametres.html                thème, sauvegarde, hors ligne, voix par défaut — tout regroupé
 sw.js                          service worker (cache hors ligne)
 offline-manifest.json          liste des ressources à télécharger (généré)
 assets/css/style.css           design tokens + thème clair/sombre
@@ -50,7 +52,6 @@ formations/<slug>/module-N/
     index.html                 le module
     quiz.json                  module_id, version, 6 questions
     podcast.json               dialogue à deux voix (facultatif)
-    podcast-audio.mp3          export audio réel du podcast, ex. NotebookLM (facultatif)
 functions/api/progress/[id].js sauvegarde en local (wrangler pages dev) — en ligne, c'est le Worker formahub-sync
 functions/api/tts.js           synthèse Azure en local (wrangler pages dev) — en ligne, c'est le Worker formahub-sync
 ../workers/formahub-sync.js    Worker Cloudflare : clé Azure + sauvegarde chiffrée (KV) (hors de formahub/, jamais déployé comme fichier)
@@ -138,38 +139,6 @@ Le script d'une formation déclare ses dialogues dans un dictionnaire et appelle
 pas de HTML dans le texte parlé) et calcule la durée. Compter 1 300 à 1 600 mots par
 épisode, soit 9 à 10 minutes.
 
-### Podcast en audio réel (NotebookLM ou autre)
-
-La voix de synthèse du navigateur reste le mode par défaut, mais un vrai fichier
-audio posé à côté de `podcast.json` prend automatiquement le relais : `audio.js`
-cherche `podcast-audio.mp3`, puis `.m4a`, puis `.wav` dans le dossier du module, et
-affiche un lecteur natif avec la transcription en dessous dès que l'un des trois existe.
-Rien à activer : c'est juste la présence du fichier qui change le rendu.
-
-Pour produire ce fichier avec Google NotebookLM :
-
-```bash
-# 1. Exporter une formation (ou un seul module) en PDF, prêt à déposer dans NotebookLM
-python3 _tooling/build_pdf_notebooklm.py seo               # tous les modules de la formation
-python3 _tooling/build_pdf_notebooklm.py seo/module-3       # un seul module
-```
-
-Les PDF sont écrits dans `../notebooklm-exports/<slug>/` — donc **en dehors de**
-`formahub/`, pour ne jamais être déployés sur Cloudflare Pages. Chaque PDF reprend le
-cours complet du module (mise en situation, sections, exemples, étude de cas,
-checklist, glossaire, à retenir, exercices avec corrigés développés) ainsi que les
-6 questions du quiz et leurs réponses commentées — de quoi laisser NotebookLM générer
-un « Audio Overview » fidèle au contenu réel.
-
-2. Déposer le PDF comme source dans un notebook NotebookLM, générer l'audio, le
-   télécharger, puis le placer dans `formations/<slug>/module-N/podcast-audio.mp3`
-   (renommer si NotebookLM propose un autre format — `.m4a` et `.wav` sont acceptés
-   tels quels).
-
-Le fichier audio n'est pas ajouté au mode hors ligne en un clic (`build_offline.py`)
-ni au manifeste de cache : ce sont des fichiers potentiellement lourds à multiplier
-par 40 modules, à inclure à la main si besoin plus tard.
-
 ## 📥 Mode hors ligne
 
 Après chaque ajout de module ou de podcast, régénérer la liste des ressources :
@@ -180,6 +149,15 @@ python3 _tooling/build_offline.py
 
 Le service worker demande une origine sécurisée : il fonctionne sur le site déployé et sur
 `localhost`, jamais sur un fichier ouvert directement depuis le disque.
+
+**Redirections Cloudflare** — Cloudflare sert `…/module-1/index.html` sous `…/module-1/`
+et `page.html` sous `page`. Jusqu'à la V8, le cache gardait ces réponses « redirigées »,
+que le navigateur refuse pour une navigation hors ligne : les modules semblaient
+téléchargés mais ne s'ouvraient pas sans réseau. Depuis la V9, `sw.js` nettoie chaque
+réponse, la range sous toutes ses adresses équivalentes et cherche ces variantes ;
+le panneau « Consultation hors ligne » vérifie la présence réelle de chaque fichier du
+manifeste et signale une copie incomplète. Une copie complète déjà demandée se refait
+toute seule quand une nouvelle version du service worker s'active.
 
 ## 🔒 Sauvegarde par code secret
 
@@ -205,6 +183,13 @@ ligne. La sauvegarde et la voix Azure passent donc par le Worker `formahub-sync`
 (binding KV `PROGRESS_KV` + secret `AZURE_KEY`, voir *Audio*). Sans ce binding, la
 progression reste purement locale au navigateur — la plateforme fonctionne
 normalement, mais la progression ne suit pas d'un appareil à l'autre.
+
+**Après une mise à jour de `workers/formahub-sync.js`, redéployer le Worker** (Edit
+code → coller le fichier → Deploy) : `wrangler pages deploy` ne publie que le site,
+jamais ce Worker séparé. Vérifier ensuite que `https://formahub-sync.<compte>.workers.dev/`
+répond bien `"azure":true` **et** `"kv":true` — ce dernier suppose le binding KV
+`PROGRESS_KV` ajouté dans les Settings du Worker (étape 3 plus haut), sans quoi la
+sauvegarde par code secret répond normalement mais n'enregistre rien.
 
 ## ✅ Contrôle qualité
 

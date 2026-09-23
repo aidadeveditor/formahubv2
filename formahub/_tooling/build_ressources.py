@@ -319,6 +319,7 @@ PAGE = f"""<!DOCTYPE html>
     <nav class="nav-links">
       <a href="index.html" class="nav-link">Mes formations</a>
       <a href="ressources-externes.html" class="nav-link active">Ressources externes</a>
+      <a href="parametres.html" class="nav-link">Paramètres</a>
       <button class="theme-toggle" type="button">🌙 Mode Sombre</button>
     </nav>
   </header>

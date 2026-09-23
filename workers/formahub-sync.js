@@ -10,7 +10,12 @@
         Nom : formahub-sync   (exactement ce nom : l'appli le déduit)
         puis Deploy
    2. Edit code → colle ce fichier en entier → Deploy
-   3. Settings → Variables and Secrets → Add
+   3. Settings → Bindings → Add → KV namespace
+        Nom de la variable : PROGRESS_KV
+        Namespace : celui de Formahub (id dans wrangler.jsonc)
+      → sans ce binding, la sauvegarde par code secret répond mais
+        n'enregistre rien (elle tourne « en mémoire du appel »).
+   4. Settings → Variables and Secrets → Add
         AZURE_KEY     = ta clé Azure Speech        ← type « Secret »
       Facultatif :
         AZURE_REGION  = francecentral (déjà la valeur par défaut)
@@ -22,6 +27,9 @@
    GET  /tts  → { enabled, voices: [...] }  voix utilisables en français
    POST /tts  → audio/mpeg
         corps JSON : { text, voice, style?, degree?, pitch?, rate? }
+   GET    /progress/<id>  → le dernier bloc chiffré enregistré, ou {}
+   POST   /progress/<id>  → remplace le bloc (corps = JSON opaque)
+   DELETE /progress/<id>  → efface la sauvegarde de ce code secret
 
    Seules les pages Formahub peuvent l'appeler (contrôle d'origine) :
    les adresses *.workers.dev du même compte, localhost, et
@@ -38,6 +46,8 @@ const AUDIO_TTL = 30 * 24 * 3600;
 const VOICE_RE = /^[a-z]{2,3}-[A-Z]{2}-[A-Za-z0-9]+(?::[A-Za-z0-9]+)?$/;
 const STYLE_RE = /^[a-z][a-z-]{1,39}$/i;
 const PERCENT_RE = /^[+-]?\d{1,2}%$/;
+const PROGRESS_ID_RE = /^[a-f0-9]{8,64}$/;
+const PROGRESS_MAX_BYTES = 512 * 1024;   // largement au-dessus d'une progression complète
 
 function configured(env) {
   return !!env.AZURE_KEY;
@@ -270,6 +280,43 @@ async function synthesize(request, env, ctx, cors) {
   return new Response(audio, { headers: { ...base, ...cors, 'X-Formahub-Cache': 'MISS' } });
 }
 
+/* ---------- /progress/<id> : sauvegarde chiffrée par code secret (KV) ----------
+   L'identifiant est un condensé SHA-256 du code secret, calculé dans le
+   navigateur : le code lui-même n'arrive jamais ici. Le corps est un bloc
+   AES-GCM que ce Worker se contente de ranger et de rendre — il ne peut
+   pas le lire. */
+
+function kvConfigured(env) {
+  return !!env.PROGRESS_KV;
+}
+
+async function getProgress(id, env, cors) {
+  if (!PROGRESS_ID_RE.test(id)) return json({ error: 'identifiant invalide' }, 400, cors);
+  if (!kvConfigured(env)) return json('{}', 200, cors);
+  const data = await env.PROGRESS_KV.get(`progress:${id}`);
+  return json(data || '{}', 200, cors);
+}
+
+async function putProgress(id, request, env, cors) {
+  if (!PROGRESS_ID_RE.test(id)) return json({ error: 'identifiant invalide' }, 400, cors);
+  const body = await request.text();
+  if (body.length > PROGRESS_MAX_BYTES) return json({ error: 'sauvegarde trop volumineuse' }, 413, cors);
+  try {
+    JSON.parse(body);
+  } catch (e) {
+    return json({ error: 'corps illisible' }, 400, cors);
+  }
+  if (!kvConfigured(env)) return json({ error: 'KV non configuré (binding PROGRESS_KV absent)' }, 503, cors);
+  await env.PROGRESS_KV.put(`progress:${id}`, body);
+  return json({ ok: true, bytes: body.length }, 200, cors);
+}
+
+async function deleteProgress(id, env, cors) {
+  if (!PROGRESS_ID_RE.test(id)) return json({ error: 'identifiant invalide' }, 400, cors);
+  if (kvConfigured(env)) await env.PROGRESS_KV.delete(`progress:${id}`);
+  return json({ ok: true }, 200, cors);
+}
+
 /* ---------- Routeur ---------- */
 
 export default {
@@ -284,7 +331,10 @@ export default {
     }
 
     if (path === '/') {
-      return json({ ok: true, service: 'formahub-sync', azure: configured(env), region: region(env), routes: ['/tts'] }, 200, cors);
+      return json({
+        ok: true, service: 'formahub-sync', azure: configured(env), kv: kvConfigured(env),
+        region: region(env), routes: ['/tts', '/progress/:id']
+      }, 200, cors);
     }
 
     if (path === '/tts') {
@@ -292,6 +342,16 @@ export default {
       if (request.method === 'GET') return listVoices(env, cors);
       if (request.method === 'POST') return synthesize(request, env, ctx, cors);
       return json({ error: 'méthode non autorisée' }, 405, cors, { Allow: 'GET, POST, OPTIONS' });
+    }
+
+    const progressMatch = path.match(/^\/progress\/([^/]+)$/);
+    if (progressMatch) {
+      if (!origin) return json({ error: 'origine refusée' }, 403);
+      const id = progressMatch[1];
+      if (request.method === 'GET') return getProgress(id, env, cors);
+      if (request.method === 'POST') return putProgress(id, request, env, cors);
+      if (request.method === 'DELETE') return deleteProgress(id, env, cors);
+      return json({ error: 'méthode non autorisée' }, 405, cors, { Allow: 'GET, POST, DELETE, OPTIONS' });
     }
 
     return json({ error: 'route inconnue' }, 404, cors);

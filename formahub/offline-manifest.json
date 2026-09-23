@@ -1,7 +1,7 @@
 {
- "version": "2026-09-08",
- "count": 114,
- "approx_bytes": 2925075,
+ "version": "2026-09-23",
+ "count": 115,
+ "approx_bytes": 2928721,
  "urls": [
   "./",
   "apple-touch-icon.png",
@@ -9,6 +9,7 @@
   "favicon.svg",
   "formations-espagne.html",
   "index.html",
+  "parametres.html",
   "ressources-externes.html",
   "assets/css/style.css",
   "assets/js/audio.js",

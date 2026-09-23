@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Formahub — paramètres : thème, sauvegarde par code secret, consultation hors ligne et voix de lecture par défaut.">
+  <meta name="color-scheme" content="light dark">
+  <title>Formahub — Paramètres</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+<body>
+  <a class="skip-link" href="#parametres-content">Aller aux paramètres</a>
+
+  <header class="site-header">
+    <a href="index.html" class="brand">
+      <div class="brand-icon">F</div>
+      <span>Formahub</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">Mes formations</a>
+      <a href="ressources-externes.html" class="nav-link">Ressources externes</a>
+      <a href="formations-espagne.html" class="nav-link">Formations Espagne</a>
+      <a href="parametres.html" class="nav-link active">Paramètres</a>
+      <button class="theme-toggle" type="button">🌙 Mode sombre</button>
+    </nav>
+  </header>
+
+  <main class="main-container" id="parametres-content">
+    <div class="hero-banner">
+      <h1>Paramètres</h1>
+      <p>Thème, sauvegarde automatique, consultation hors ligne et voix de lecture par défaut &mdash; regroupés ici plutôt qu'éparpillés entre l'accueil et chaque module.</p>
+    </div>
+
+    <section class="settings-grid" aria-label="Apparence, sauvegarde et disponibilité hors ligne">
+      <article class="tool-card">
+        <h2><span aria-hidden="true">🎨</span> Apparence</h2>
+        <p class="tool-lead">Le thème s'applique à toute la plateforme et reste mémorisé sur cet appareil.</p>
+        <div class="tool-body">
+          <button class="btn btn-outline btn-sm theme-toggle" type="button">🌙 Mode sombre</button>
+        </div>
+      </article>
+
+      <article class="tool-card" id="backup-panel">
+        <h2><span aria-hidden="true">🔒</span> Sauvegarde automatique</h2>
+        <p class="tool-lead">Un code secret, et votre progression vous suit d'un appareil à l'autre. Le code ne quitte jamais votre navigateur et n'est jamais envoyé au serveur : ressaisissez-le sur chaque nouvel appareil pour y retrouver votre progression — personne, pas même nous, ne peut vous le retrouver si vous le perdez.</p>
+        <div class="tool-body"></div>
+      </article>
+
+      <article class="tool-card" id="offline-panel">
+        <h2><span aria-hidden="true">📥</span> Consultation hors ligne</h2>
+        <p class="tool-lead">Emportez les 40 modules dans le train, l'avion ou la salle d'attente. Les 40 modules, leurs quiz et leurs podcasts sont inclus. Hors ligne, les extraits de voix Azure déjà écoutés restent disponibles ; les autres sont lus par la voix du navigateur.</p>
+        <div class="tool-body"></div>
+      </article>
+
+      <article class="tool-card tool-card-wide" id="audio-settings-panel">
+        <h2><span aria-hidden="true">🔊</span> Voix de lecture par défaut</h2>
+        <p class="tool-lead">S'appliquent à l'écoute des modules et des podcasts, sans avoir à ouvrir un module.</p>
+        <div class="tool-body"></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="assets/js/progress.js"></script>
+  <script src="assets/js/sync.js"></script>
+  <script src="assets/js/offline.js"></script>
+  <script src="assets/js/audio.js"></script>
+</body>
+</html>

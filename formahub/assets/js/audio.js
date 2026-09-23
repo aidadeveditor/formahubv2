@@ -1178,19 +1178,6 @@
      6. Le lecteur de podcast
      ============================================================ */
 
-  /* Un vrai fichier audio (export NotebookLM, ou tout autre enregistrement)
-     posé à côté de podcast.json prend le pas sur la voix de synthèse.
-     On essaie ces noms dans l'ordre ; le premier qui existe est utilisé. */
-  var PODCAST_AUDIO_CANDIDATES = ['podcast-audio.mp3', 'podcast-audio.m4a', 'podcast-audio.wav'];
-
-  function probeAudioFile(list, i) {
-    i = i || 0;
-    if (i >= list.length) return Promise.resolve(null);
-    return fetch(list[i], { method: 'HEAD', cache: 'no-cache' })
-      .then(function (r) { return (r && r.ok) ? list[i] : probeAudioFile(list, i + 1); })
-      .catch(function () { return probeAudioFile(list, i + 1); });
-  }
-
   function podcastVoiceKeys() {
     var a = validVoiceKey(prefs.podVoiceA) ? prefs.podVoiceA : null;
     var b = validVoiceKey(prefs.podVoiceB) ? prefs.podVoiceB : null;
@@ -1228,11 +1215,7 @@
         if (!r.ok) throw new Error('absent');
         return r.json();
       })
-      .then(function (data) {
-        probeAudioFile(PODCAST_AUDIO_CANDIDATES).then(function (audioUrl) {
-          render(data, audioUrl);
-        });
-      })
+      .then(function (data) { render(data); })
       .catch(function () {
         meta.textContent = 'à venir';
         box.classList.add('is-empty');
@@ -1240,8 +1223,7 @@
           'Le lecteur apparaîtra ici dès que <code>podcast.json</code> sera présent dans le dossier du module.</p>';
       });
 
-    /* Construit systématiquement le script (texte des répliques) : il sert
-       de transcription dans les deux cas, fichier audio réel ou synthèse. */
+    /* Script du podcast (texte des répliques), surligné pendant l'écoute. */
     function buildScript(data, nomA, nomB) {
       var lignes = (data && data.lignes) || [];
       var script = document.createElement('div');
@@ -1269,46 +1251,7 @@
       return script;
     }
 
-    /* Fichier audio réel (ex. export NotebookLM) : lecteur natif du
-       navigateur + vitesse jusqu'à 2× + transcription en dessous. */
-    function renderRealAudio(data, audioUrl, nomA, nomB) {
-      var wrap = document.createElement('div');
-      wrap.className = 'podcast-player podcast-player-real';
-      var audioEl = document.createElement('audio');
-      audioEl.className = 'pod-audio';
-      audioEl.controls = true;
-      audioEl.preload = 'none';
-      audioEl.src = audioUrl;
-      audioEl.preservesPitch = true;
-      wrap.appendChild(audioEl);
-
-      var row = document.createElement('div');
-      row.className = 'audio-row';
-      row.innerHTML = '<span class="audio-spacer"></span><label class="audio-field"><span>Vitesse</span>' +
-        '<select class="pod-rate" aria-label="Vitesse du podcast">' + rateOptions() + '</select></label>';
-      wrap.appendChild(row);
-      var rate = row.querySelector('.pod-rate');
-      rate.value = String(nearestRate(prefs.podcastRate || 1));
-      function applyRate() { audioEl.playbackRate = parseFloat(rate.value) || 1; }
-      applyRate();
-      audioEl.addEventListener('loadedmetadata', applyRate);
-      rate.addEventListener('change', function () {
-        prefs.podcastRate = parseFloat(rate.value) || 1;
-        savePrefs();
-        applyRate();
-      });
-
-      audioEl.addEventListener('play', function () {
-        if (otherPlayer && otherPlayer.isActive && otherPlayer.isActive()) otherPlayer.stop();
-        engineStop();
-      });
-
-      body.innerHTML = '';
-      body.appendChild(wrap);
-      body.appendChild(buildScript(data, nomA, nomB));
-    }
-
-    function render(data, audioUrl) {
+    function render(data) {
       var lignes = (data && data.lignes) || [];
       if (!lignes.length) { meta.textContent = 'à venir'; return; }
 
@@ -1316,12 +1259,7 @@
       var nomA = (hosts.a && hosts.a.nom) || 'Animatrice';
       var nomB = (hosts.b && hosts.b.nom) || 'Expert';
       meta.textContent = (data.duree_estimee || '') + (data.duree_estimee ? ' · ' : '') +
-        nomA + ' & ' + nomB + (audioUrl ? ' · 🎙️ audio réel' : (Azure.enabled ? ' · voix Azure' : ''));
-
-      if (audioUrl) {
-        renderRealAudio(data, audioUrl, nomA, nomB);
-        return;
-      }
+        nomA + ' & ' + nomB + (Azure.enabled ? ' · voix Azure' : '');
 
       var script = buildScript(data, nomA, nomB);
 
@@ -1525,25 +1463,127 @@
   }
 
   /* ============================================================
-     7. Amorçage
+     7. Page Paramètres : voix par défaut, sans ouvrir un module
+     ============================================================ */
+
+  function initAudioSettingsPanel() {
+    var panel = document.getElementById('audio-settings-panel');
+    if (!panel) return;
+    var body = panel.querySelector('.tool-body') || panel;
+
+    if (!anyVoice()) {
+      body.innerHTML = '<p class="tool-note">Aucune voix disponible pour l\'instant' +
+        (Azure.error ? ' — Azure : ' + Azure.error : ' (hors ligne, ou aucune voix installée sur cet appareil)') +
+        '.</p>';
+      return;
+    }
+
+    body.innerHTML =
+      '<p class="tool-note">Ces réglages servent de défaut à tous les modules ; chacun garde la main ' +
+      'pour changer de voix ponctuellement pendant l\'écoute.</p>' +
+      '<h3 class="settings-subtitle">Lecture d\'un module</h3>' +
+      '<div class="audio-row audio-settings">' +
+      '  <label class="audio-field audio-voice-field"><span>Voix</span>' +
+      '    <select class="set-voice" aria-label="Voix par défaut des modules"></select></label>' +
+      '  <label class="audio-field"><span>Ton</span>' +
+      '    <select class="set-tone" aria-label="Ton par défaut"></select></label>' +
+      '  <label class="audio-field"><span>Vitesse</span>' +
+      '    <select class="set-rate" aria-label="Vitesse par défaut">' + rateOptions() + '</select></label>' +
+      '</div>' +
+      '<h3 class="settings-subtitle">Podcasts — deux intervenants</h3>' +
+      '<div class="audio-row audio-settings">' +
+      '  <label class="audio-field audio-voice-field"><span>Voix — animatrice</span>' +
+      '    <select class="set-pod-a" aria-label="Voix par défaut de l\'animatrice"></select></label>' +
+      '  <label class="audio-field audio-voice-field"><span>Voix — expert</span>' +
+      '    <select class="set-pod-b" aria-label="Voix par défaut de l\'expert"></select></label>' +
+      '</div>' +
+      '<div class="audio-row audio-settings">' +
+      '  <label class="audio-field"><span>Ton du podcast</span>' +
+      '    <select class="set-pod-tone" aria-label="Ton par défaut du podcast"></select></label>' +
+      '  <label class="audio-field"><span>Vitesse du podcast</span>' +
+      '    <select class="set-pod-rate" aria-label="Vitesse par défaut du podcast">' + rateOptions() + '</select></label>' +
+      '</div>';
+
+    var ui = {
+      voice: body.querySelector('.set-voice'),
+      tone: body.querySelector('.set-tone'),
+      rate: body.querySelector('.set-rate'),
+      podA: body.querySelector('.set-pod-a'),
+      podB: body.querySelector('.set-pod-b'),
+      podTone: body.querySelector('.set-pod-tone'),
+      podRate: body.querySelector('.set-pod-rate')
+    };
+
+    if (!prefs.voiceKey && prefs.voice) prefs.voiceKey = 'web:' + prefs.voice;
+    var voiceKey = validVoiceKey(prefs.voiceKey) ? prefs.voiceKey : defaultVoiceKey('Female');
+    fillVoiceSelect(ui.voice, voiceKey);
+    fillToneSelect(ui.tone, ui.voice.value, prefs.tone);
+    ui.rate.value = String(nearestRate(prefs.rate || 1));
+
+    var podKeys = podcastVoiceKeys();
+    fillVoiceSelect(ui.podA, podKeys.a);
+    fillVoiceSelect(ui.podB, podKeys.b);
+    fillToneSelect(ui.podTone, ui.podA.value, prefs.podTone);
+    ui.podRate.value = String(nearestRate(prefs.podcastRate || 1));
+
+    ui.voice.addEventListener('change', function () {
+      prefs.voiceKey = ui.voice.value;
+      fillToneSelect(ui.tone, ui.voice.value, ui.tone.value);
+      prefs.tone = ui.tone.value;
+      savePrefs();
+    });
+    ui.tone.addEventListener('change', function () { prefs.tone = ui.tone.value; savePrefs(); });
+    ui.rate.addEventListener('change', function () { prefs.rate = parseFloat(ui.rate.value) || 1; savePrefs(); });
+
+    function refreshPodTone() {
+      var va = isAzureKey(ui.podA.value) ? azureVoice(keyName(ui.podA.value)) : null;
+      var vb = isAzureKey(ui.podB.value) ? azureVoice(keyName(ui.podB.value)) : null;
+      var union = (va && va.styles && va.styles.length) ? ui.podA.value :
+        (vb && vb.styles && vb.styles.length) ? ui.podB.value : ui.podA.value;
+      fillToneSelect(ui.podTone, union, ui.podTone.value || prefs.podTone);
+    }
+    ui.podA.addEventListener('change', function () {
+      prefs.podVoiceA = ui.podA.value;
+      refreshPodTone();
+      prefs.podTone = ui.podTone.value;
+      savePrefs();
+    });
+    ui.podB.addEventListener('change', function () {
+      prefs.podVoiceB = ui.podB.value;
+      refreshPodTone();
+      prefs.podTone = ui.podTone.value;
+      savePrefs();
+    });
+    ui.podTone.addEventListener('change', function () { prefs.podTone = ui.podTone.value; savePrefs(); });
+    ui.podRate.addEventListener('change', function () { prefs.podcastRate = parseFloat(ui.podRate.value) || 1; savePrefs(); });
+  }
+
+  /* ============================================================
+     8. Amorçage
      ============================================================ */
 
   function boot() {
-    if (!document.querySelector('.module-content')) return;
+    var hasModule = !!document.querySelector('.module-content');
+    var hasSettings = !!document.getElementById('audio-settings-panel');
+    if (!hasModule && !hasSettings) return;
+
     var pending = 2;
     function ready() {
       pending -= 1;
       if (pending) return;
-      var player = initModulePlayer();
-      initPodcastPlayer(player);
-      // Le lecteur de module coupe le podcast, et inversement
-      var bar = document.querySelector('.audio-bar .audio-play');
-      if (bar) {
-        bar.addEventListener('click', function () {
-          var podStop = document.querySelector('.pod-stop');
-          if (podStop && !podStop.hidden) podStop.click();
-        }, true);
+      if (hasModule) {
+        var player = initModulePlayer();
+        initPodcastPlayer(player);
+        // Le lecteur de module coupe le podcast, et inversement
+        var bar = document.querySelector('.audio-bar .audio-play');
+        if (bar) {
+          bar.addEventListener('click', function () {
+            var podStop = document.querySelector('.pod-stop');
+            if (podStop && !podStop.hidden) podStop.click();
+          }, true);
+        }
       }
+      if (hasSettings) initAudioSettingsPanel();
     }
     whenVoicesReady(ready);
     azureInit().then(ready);
