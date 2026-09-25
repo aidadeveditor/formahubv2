@@ -329,7 +329,6 @@ TEMPLATE = """<!DOCTYPE html>
       <a href="ressources-externes.html" class="nav-link">Ressources externes</a>
       <a href="formations-espagne.html" class="nav-link active">Formations Espagne</a>
       <a href="parametres.html" class="nav-link">Paramètres</a>
-      <button class="theme-toggle" type="button">&#127769; Mode sombre</button>
     </nav>
   </header>
 
@@ -415,6 +414,8 @@ TEMPLATE = """<!DOCTYPE html>
   </main>
 
   <script src="assets/js/progress.js"></script>
+  <script src="assets/js/sync.js"></script>
+  <script src="assets/js/offline.js"></script>
   <script>
     (function () {{
       var theme = 'all', acces = 'all', ins = 'all';

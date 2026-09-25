@@ -320,7 +320,6 @@ PAGE = f"""<!DOCTYPE html>
       <a href="index.html" class="nav-link">Mes formations</a>
       <a href="ressources-externes.html" class="nav-link active">Ressources externes</a>
       <a href="parametres.html" class="nav-link">Paramètres</a>
-      <button class="theme-toggle" type="button">🌙 Mode Sombre</button>
     </nav>
   </header>
 
@@ -403,6 +402,8 @@ PAGE = f"""<!DOCTYPE html>
   </main>
 
   <script src="assets/js/progress.js"></script>
+  <script src="assets/js/sync.js"></script>
+  <script src="assets/js/offline.js"></script>
   <script>
     (function () {{
       var theme = 'all', money = 'all', ins = 'all';

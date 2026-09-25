@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Formahub — paramètres : thème, sauvegarde par code secret, consultation hors ligne et voix de lecture par défaut.">
+  <meta name="description" content="Formahub — paramètres : thème, sauvegarde par code secret, voix de lecture et audios hors ligne.">
   <meta name="color-scheme" content="light dark">
   <title>Formahub — Paramètres</title>
   <link rel="stylesheet" href="assets/css/style.css">
@@ -24,14 +24,13 @@
       <a href="ressources-externes.html" class="nav-link">Ressources externes</a>
       <a href="formations-espagne.html" class="nav-link">Formations Espagne</a>
       <a href="parametres.html" class="nav-link active">Paramètres</a>
-      <button class="theme-toggle" type="button">🌙 Mode sombre</button>
     </nav>
   </header>
 
   <main class="main-container" id="parametres-content">
     <div class="hero-banner">
       <h1>Paramètres</h1>
-      <p>Thème, sauvegarde automatique, consultation hors ligne et voix de lecture par défaut &mdash; regroupés ici plutôt qu'éparpillés entre l'accueil et chaque module.</p>
+      <p>Thème, sauvegarde par code secret, voix de lecture et audios hors ligne &mdash; tous les réglages de la plateforme sont ici, et seulement ici.</p>
     </div>
 
     <section class="settings-grid" aria-label="Apparence, sauvegarde et disponibilité hors ligne">
@@ -49,16 +48,19 @@
         <div class="tool-body"></div>
       </article>
 
-      <article class="tool-card" id="offline-panel">
-        <h2><span aria-hidden="true">📥</span> Consultation hors ligne</h2>
-        <p class="tool-lead">Emportez les 40 modules dans le train, l'avion ou la salle d'attente. Les 40 modules, leurs quiz et leurs podcasts sont inclus. Hors ligne, les extraits de voix Azure déjà écoutés restent disponibles ; les autres sont lus par la voix du navigateur.</p>
+      <article class="tool-card tool-card-wide" id="audio-settings-panel">
+        <h2><span aria-hidden="true">🔊</span> Voix de lecture</h2>
+        <p class="tool-lead">Voix, ton et vitesse utilisés par « Écouter le module » et par les podcasts, sur toutes les pages.</p>
         <div class="tool-body"></div>
       </article>
 
-      <article class="tool-card tool-card-wide" id="audio-settings-panel">
-        <h2><span aria-hidden="true">🔊</span> Voix de lecture par défaut</h2>
-        <p class="tool-lead">S'appliquent à l'écoute des modules et des podcasts, sans avoir à ouvrir un module.</p>
-        <div class="tool-body"></div>
+      <article class="tool-card tool-card-wide" id="offline-panel">
+        <h2><span aria-hidden="true">📥</span> Hors ligne</h2>
+        <p class="tool-lead">Le texte des 40 modules, leurs quiz et les scripts des podcasts s'enregistrent tout seuls sur cet appareil dès la première visite : rien à faire. Seuls les audios se téléchargent, à la demande, formation par formation.</p>
+        <h3 class="settings-subtitle">Texte des formations</h3>
+        <div class="tool-status" id="offline-text-status"><span class="dot dot-run"></span> Vérification…</div>
+        <h3 class="settings-subtitle">Audios à emporter</h3>
+        <div id="audio-offline"><p class="tool-note">Chargement des voix…</p></div>
       </article>
     </section>
   </main>

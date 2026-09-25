@@ -92,6 +92,8 @@
 
   function savePrefs() {
     writeStore(PREF_KEY, prefs);
+    // La page Paramètres recalcule les audios à télécharger pour ces voix
+    try { window.dispatchEvent(new CustomEvent('formahub-audio-prefs')); } catch (e) { /* ignore */ }
     // La sauvegarde par code secret, si elle est active, reprend la main
     if (typeof window.formahubQueueBackup === 'function') window.formahubQueueBackup();
   }
@@ -111,7 +113,13 @@
      1. Azure Speech — état, voix, cache local des extraits
      ============================================================ */
 
-  var Azure = { enabled: false, voices: [], error: null };
+  /* enabled : le relais répond. cachedOnly : hors ligne, mais la liste
+     des voix est connue (mémorisée) — les extraits téléchargés restent
+     alors jouables avec la voix Azure choisie. */
+  var Azure = { enabled: false, cachedOnly: false, voices: [], error: null };
+  var VOICES_KEY = 'formahub-azure-voices';
+
+  function azureUsable() { return Azure.enabled || Azure.cachedOnly; }
 
   function azureInit() {
     if (location.protocol === 'file:') return Promise.resolve(Azure);
@@ -124,9 +132,20 @@
         Azure.voices = (d && d.voices) || [];
         Azure.error = (d && d.error) || null;
         if (Azure.error && window.console) console.warn('[Formahub audio] Azure :', Azure.error);
+        if (Azure.enabled) writeStore(VOICES_KEY, Azure.voices);
         return Azure;
       })
       .catch(function () { return Azure; })
+      .then(function (a) {
+        if (!Azure.enabled) {
+          var known = readStore(VOICES_KEY, null);
+          if (known && known.length) {
+            Azure.voices = known;
+            Azure.cachedOnly = true;
+          }
+        }
+        return a;
+      })
       .then(function (a) { clearTimeout(timer); return a; });
   }
 
@@ -149,6 +168,7 @@
   /* Cache local : chaque extrait déjà écouté reste dans le navigateur,
      il se réécoute sans réseau ni caractère Azure consommé. */
   var TTS_CACHE = 'fhtts-v1';          // nom hors du préfixe « formahub- » purgé par sw.js
+  var TTS_DL_CACHE = 'fhtts-dl-v1';    // audios téléchargés depuis Paramètres : jamais purgés
   var TTS_CACHE_MAX = 500;
   var putsSincePrune = 0;
 
@@ -167,10 +187,27 @@
 
   function cacheGet(key) {
     if (!('caches' in window)) return Promise.resolve(null);
-    return caches.open(TTS_CACHE)
+    return caches.open(TTS_DL_CACHE)
       .then(function (c) { return c.match(key); })
+      .then(function (r) {
+        return r || caches.open(TTS_CACHE).then(function (c) { return c.match(key); });
+      })
       .then(function (r) { return r ? r.blob() : null; })
       .catch(function () { return null; });
+  }
+
+  function dlHas(key) {
+    if (!('caches' in window)) return Promise.resolve(false);
+    return caches.open(TTS_DL_CACHE)
+      .then(function (c) { return c.match(key); })
+      .then(function (r) { return !!r; })
+      .catch(function () { return false; });
+  }
+
+  function dlPut(key, blob) {
+    return caches.open(TTS_DL_CACHE).then(function (c) {
+      return c.put(key, new Response(blob, { headers: { 'Content-Type': 'audio/mpeg' } }));
+    });
   }
 
   function cachePut(key, blob) {
@@ -204,13 +241,20 @@
     return body;
   }
 
-  function fetchClip(item, attempt) {
+  function clipKey(item) {
+    return ROOT + '__tts-cache/' + hashString(JSON.stringify(azureBody(item)));
+  }
+
+  /* keep = true : téléchargement pour l'écoute hors ligne (cache non purgé) */
+  function fetchClip(item, attempt, keep) {
     attempt = attempt || 0;
-    var body = azureBody(item);
-    var payload = JSON.stringify(body);
-    var key = ROOT + '__tts-cache/' + hashString(payload);
+    var payload = JSON.stringify(azureBody(item));
+    var key = clipKey(item);
     return cacheGet(key).then(function (blob) {
-      if (blob) return blob;
+      if (blob) {
+        if (keep) return dlPut(key, blob).then(function () { return blob; });
+        return blob;
+      }
       return fetch(TTS_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -219,7 +263,7 @@
         if (r.status === 429 && attempt < 4) {
           var after = parseInt(r.headers.get('Retry-After'), 10);
           return wait((after > 0 ? after : 2 * (attempt + 1)) * 1000)
-            .then(function () { return fetchClip(item, attempt + 1); });
+            .then(function () { return fetchClip(item, attempt + 1, keep); });
         }
         if (!r.ok) {
           return r.json().catch(function () { return {}; }).then(function (d) {
@@ -227,6 +271,7 @@
           });
         }
         return r.blob().then(function (b) {
+          if (keep) return dlPut(key, b).then(function () { return b; });
           cachePut(key, b);
           return b;
         });
@@ -298,7 +343,7 @@
   }
 
   function webAvailable() { return SUPPORTED && Engine.voices.length > 0; }
-  function anyVoice() { return Azure.enabled || webAvailable(); }
+  function anyVoice() { return azureUsable() || webAvailable(); }
 
   /* Clés de voix : « az:<ShortName> » ou « web:<nom système> » */
   function isAzureKey(k) { return typeof k === 'string' && k.indexOf('az:') === 0; }
@@ -306,12 +351,12 @@
 
   function validVoiceKey(k) {
     if (!k) return false;
-    if (isAzureKey(k)) return Azure.enabled && !!azureVoice(keyName(k));
+    if (isAzureKey(k)) return azureUsable() && !!azureVoice(keyName(k));
     return webAvailable() && !!voiceByName(keyName(k));
   }
 
   function defaultVoiceKey(gender) {
-    if (Azure.enabled) {
+    if (azureUsable()) {
       var n = defaultAzureVoice(gender);
       if (n) return 'az:' + n;
     }
@@ -709,7 +754,7 @@
 
   function fillVoiceSelect(select, selectedKey) {
     select.innerHTML = '';
-    if (Azure.enabled) {
+    if (azureUsable()) {
       var g = document.createElement('optgroup');
       g.label = 'Azure — voix neuronales';
       Azure.voices.forEach(function (v) {
@@ -728,7 +773,7 @@
     }
     if (webAvailable()) {
       var w = document.createElement('optgroup');
-      w.label = 'Voix du navigateur' + (Azure.enabled ? ' (hors ligne)' : '');
+      w.label = 'Voix du navigateur' + (azureUsable() ? ' (hors ligne)' : '');
       frenchVoices().forEach(function (v) {
         var o = document.createElement('option');
         o.value = 'web:' + v.name;
@@ -805,8 +850,8 @@
   }
 
   /* Construit la liste des pistes : une par volet du module. */
-  function buildTracks() {
-    var content = document.querySelector('.module-content');
+  function buildTracks(content) {
+    content = content || document.querySelector('.module-content');
     if (!content) return [];
 
     var tracks = [];
@@ -904,6 +949,13 @@
     return (btn && btn.dataset.moduleId) || location.pathname;
   }
 
+  /* Lien vers les réglages : voix, ton et vitesse ne se choisissent
+     que sur la page Paramètres. */
+  function settingsLink() {
+    return '<a class="audio-settings-link" href="' + ROOT + 'parametres.html#audio-settings-panel" ' +
+      'title="Voix, ton et vitesse se règlent dans Paramètres">⚙ Voix et vitesse</a>';
+  }
+
   function buildControls(bar, opts) {
     bar.innerHTML =
       '<div class="audio-row">' +
@@ -912,7 +964,15 @@
       '  <button type="button" class="btn btn-ghost btn-sm audio-next" title="Section suivante" aria-label="Section suivante" hidden>⏭</button>' +
       '  <button type="button" class="btn btn-ghost btn-sm audio-stop" title="Arrêter" aria-label="Arrêter la lecture" hidden>⏹</button>' +
       '  <span class="audio-status" role="status" aria-live="polite"></span>' +
+      '  <span class="audio-engine" aria-hidden="true"></span>' +
+      '  ' + settingsLink() +
       '</div>' +
+      '<div class="audio-progress" aria-hidden="true"><span></span></div>';
+
+    // Les réglages restent en mémoire (préférences de Paramètres),
+    // sans être affichés sur la page du module.
+    var hidden = document.createElement('div');
+    hidden.innerHTML =
       '<div class="audio-row audio-settings">' +
       '  <label class="audio-field audio-voice-field"><span>Voix</span>' +
       '    <select class="audio-voice" aria-label="Voix de lecture"></select></label>' +
@@ -920,9 +980,7 @@
       '    <select class="audio-tone" aria-label="Ton de la voix"></select></label>' +
       '  <label class="audio-field"><span>Vitesse</span>' +
       '    <select class="audio-rate" aria-label="Vitesse de lecture">' + rateOptions() + '</select></label>' +
-      '  <span class="audio-engine" aria-hidden="true"></span>' +
-      '</div>' +
-      '<div class="audio-progress" aria-hidden="true"><span></span></div>';
+      '</div>';
 
     var ui = {
       play: bar.querySelector('.audio-play'),
@@ -930,9 +988,9 @@
       next: bar.querySelector('.audio-next'),
       stop: bar.querySelector('.audio-stop'),
       status: bar.querySelector('.audio-status'),
-      rate: bar.querySelector('.audio-rate'),
-      voice: bar.querySelector('.audio-voice'),
-      tone: bar.querySelector('.audio-tone'),
+      rate: hidden.querySelector('.audio-rate'),
+      voice: hidden.querySelector('.audio-voice'),
+      tone: hidden.querySelector('.audio-tone'),
       engine: bar.querySelector('.audio-engine'),
       progress: bar.querySelector('.audio-progress span')
     };
@@ -1183,7 +1241,7 @@
     var b = validVoiceKey(prefs.podVoiceB) ? prefs.podVoiceB : null;
     if (!a) a = defaultVoiceKey('Female');
     if (!b) {
-      if (Azure.enabled) b = defaultVoiceKey('Male');
+      if (azureUsable()) b = defaultVoiceKey('Male');
       else {
         var fr = frenchVoices();
         var other = fr.filter(function (v) { return 'web:' + v.name !== a; })[0];
@@ -1191,6 +1249,37 @@
       }
     }
     return { a: a, b: b };
+  }
+
+  /* File de lecture d'un podcast — partagée avec le téléchargement hors ligne,
+     pour que les extraits téléchargés soient exactement ceux qu'on écoute. */
+  function podcastQueue(lignes, ka, kb, toneKey, rate) {
+    var same = ka === kb && !isAzureKey(ka);
+    var q = [];
+    lignes.forEach(function (l, i) {
+      var isB = l.v === 'b';
+      var key = isB ? kb : ka;
+      // Une seule voix système pour deux personnes : on les distingue par la hauteur
+      var pitch = same ? (isB ? 0.85 : 1.12) : 1;
+      var limit = isAzureKey(key) ? AZ_CHUNK : 210;
+      chunkText(isAzureKey(key) ? speakable(l.t) : l.t, limit).forEach(function (c) {
+        q.push(makeItem(c, key, toneKey, rate, { line: i }, pitch));
+      });
+    });
+    return q;
+  }
+
+  /* Le ton du podcast : celui de l'intervenant dont la voix sait le faire */
+  function podcastTone(ka, kb, toneKey) {
+    var va = isAzureKey(ka) ? azureVoice(keyName(ka)) : null;
+    var vb = isAzureKey(kb) ? azureVoice(keyName(kb)) : null;
+    var ref = (va && va.styles && va.styles.length) ? ka :
+      (vb && vb.styles && vb.styles.length) ? kb : ka;
+    // Même enchaînement que le lecteur : d'abord la voix A, puis la voix de référence
+    var probe = document.createElement('select');
+    fillToneSelect(probe, ka, toneKey);
+    fillToneSelect(probe, ref, probe.value || toneKey);
+    return probe.value;
   }
 
   function initPodcastPlayer(otherPlayer) {
@@ -1277,15 +1366,20 @@
         '  <button type="button" class="btn btn-primary btn-sm pod-play">▶ Écouter le podcast</button>' +
         '  <button type="button" class="btn btn-ghost btn-sm pod-stop" hidden aria-label="Arrêter le podcast">⏹</button>' +
         '  <span class="audio-status pod-status" role="status" aria-live="polite"></span>' +
+        '  ' + settingsLink() +
         '</div>' +
+        '<div class="audio-progress" aria-hidden="true"><span></span></div>';
+
+      // Réglages en mémoire seulement : ils se changent dans Paramètres
+      var hidden = document.createElement('div');
+      hidden.innerHTML =
         '<div class="audio-row audio-settings">' +
         '  <label class="audio-field audio-voice-field"><span></span><select class="pod-voice-a"></select></label>' +
         '  <label class="audio-field audio-voice-field"><span></span><select class="pod-voice-b"></select></label>' +
         '  <label class="audio-field"><span>Ton</span><select class="pod-tone" aria-label="Ton du podcast"></select></label>' +
         '  <label class="audio-field"><span>Vitesse</span>' +
         '    <select class="pod-rate" aria-label="Vitesse du podcast">' + rateOptions() + '</select></label>' +
-        '</div>' +
-        '<div class="audio-progress" aria-hidden="true"><span></span></div>';
+        '</div>';
 
       body.innerHTML = '';
       body.appendChild(wrap);
@@ -1295,13 +1389,13 @@
         play: wrap.querySelector('.pod-play'),
         stop: wrap.querySelector('.pod-stop'),
         status: wrap.querySelector('.pod-status'),
-        rate: wrap.querySelector('.pod-rate'),
-        voiceA: wrap.querySelector('.pod-voice-a'),
-        voiceB: wrap.querySelector('.pod-voice-b'),
-        tone: wrap.querySelector('.pod-tone'),
+        rate: hidden.querySelector('.pod-rate'),
+        voiceA: hidden.querySelector('.pod-voice-a'),
+        voiceB: hidden.querySelector('.pod-voice-b'),
+        tone: hidden.querySelector('.pod-tone'),
         progress: wrap.querySelector('.audio-progress span')
       };
-      var labels = wrap.querySelectorAll('.audio-voice-field > span');
+      var labels = hidden.querySelectorAll('.audio-voice-field > span');
       labels[0].textContent = nomA;
       labels[1].textContent = nomB;
       ui.voiceA.setAttribute('aria-label', 'Voix de ' + nomA);
@@ -1342,21 +1436,8 @@
       refreshTones();
 
       function buildQueue() {
-        var rate = parseFloat(ui.rate.value) || 1;
-        var ka = ui.voiceA.value, kb = ui.voiceB.value;
-        var same = ka === kb && !isAzureKey(ka);
-        var q = [];
-        lignes.forEach(function (l, i) {
-          var isB = l.v === 'b';
-          var key = isB ? kb : ka;
-          // Une seule voix système pour deux personnes : on les distingue par la hauteur
-          var pitch = same ? (isB ? 0.85 : 1.12) : 1;
-          var limit = isAzureKey(key) ? AZ_CHUNK : 210;
-          chunkText(isAzureKey(key) ? speakable(l.t) : l.t, limit).forEach(function (c) {
-            q.push(makeItem(c, key, ui.tone.value, rate, { line: i }, pitch));
-          });
-        });
-        return q;
+        return podcastQueue(lignes, ui.voiceA.value, ui.voiceB.value, ui.tone.value,
+          parseFloat(ui.rate.value) || 1);
       }
 
       function indexOfLine(q, line) {
@@ -1479,8 +1560,9 @@
     }
 
     body.innerHTML =
-      '<p class="tool-note">Ces réglages servent de défaut à tous les modules ; chacun garde la main ' +
-      'pour changer de voix ponctuellement pendant l\'écoute.</p>' +
+      '<p class="tool-note">Ces réglages s\'appliquent à tous les modules et à tous les podcasts. ' +
+      'Les audios téléchargés pour le hors ligne sont enregistrés avec ces voix et ce ton ; la vitesse, elle, ' +
+      'peut changer à tout moment sans rien retélécharger.</p>' +
       '<h3 class="settings-subtitle">Lecture d\'un module</h3>' +
       '<div class="audio-row audio-settings">' +
       '  <label class="audio-field audio-voice-field"><span>Voix</span>' +
@@ -1559,13 +1641,504 @@
   }
 
   /* ============================================================
+     7 bis. Page Paramètres : audios à emporter hors ligne
+     Le texte est déjà hors ligne (offline.js). Ici, on télécharge les
+     extraits Azure d'une formation — cours lus et/ou podcasts — avec
+     exactement les voix réglées ci-dessus, pour qu'ils soient retrouvés
+     à l'écoute. Tout se passe dans la page (pas dans le service worker) :
+     c'est ce qui rend le téléchargement fiable sur mobile.
+     ============================================================ */
+
+  var BYTES_PER_CHAR = 430;      // MP3 48 kbit/s ≈ 6 Ko/s, ≈ 14 caractères lus par seconde
+  var AZURE_FREE_CHARS = 500000; // palier gratuit Azure Speech (voix neuronales), par mois
+
+  function humanMo(bytes) {
+    var mo = bytes / (1024 * 1024);
+    if (mo < 1) return '< 1 Mo';
+    return (mo < 10 ? mo.toFixed(1).replace('.', ',') : Math.round(mo)) + ' Mo';
+  }
+
+  function humanChars(n) {
+    if (n >= 1000000) return (n / 1000000).toFixed(1).replace('.', ',') + ' M';
+    if (n >= 1000) return Math.round(n / 1000) + ' k';
+    return String(n);
+  }
+
+  function resolvedVoice(key, gender) {
+    var probe = document.createElement('select');
+    fillVoiceSelect(probe, validVoiceKey(key) ? key : defaultVoiceKey(gender));
+    return probe.value;
+  }
+
+  /* Voix réellement utilisées par les lecteurs, d'après les préférences */
+  function currentVoices() {
+    if (!prefs.voiceKey && prefs.voice) prefs.voiceKey = 'web:' + prefs.voice;
+    var mv = resolvedVoice(prefs.voiceKey, 'Female');
+    var mt = document.createElement('select');
+    fillToneSelect(mt, mv, prefs.tone);
+    var pk = podcastVoiceKeys();
+    var pa = resolvedVoice(pk.a, 'Female');
+    var pb = resolvedVoice(pk.b, 'Male');
+    return {
+      module: mv, moduleTone: mt.value,
+      podA: pa, podB: pb, podTone: podcastTone(pa, pb, prefs.podTone)
+    };
+  }
+
+  function voiceLabel(key) {
+    if (isAzureKey(key)) {
+      var v = azureVoice(keyName(key));
+      return v ? v.label : keyName(key);
+    }
+    return keyName(key).replace(/^Microsoft\s+/, '').replace(/\s*-\s*French.*$/i, '') + ' (navigateur)';
+  }
+
+  function fetchText(url) {
+    return fetch(url, { cache: 'no-cache' }).then(function (r) {
+      if (!r.ok) throw new Error('absent');
+      return r.text();
+    });
+  }
+
+  /* Extraits Azure du cours d'un module, tels que le lecteur les demandera */
+  function moduleItems(url, v) {
+    return fetchText(url).then(function (html) {
+      var doc = new DOMParser().parseFromString(html, 'text/html');
+      var content = doc.querySelector('.module-content');
+      if (!content) return [];
+      // Même découpage en volets que progress.js sur la page du module
+      if (content.querySelectorAll('h2').length >= 2 && typeof window.buildFolds === 'function') {
+        window.buildFolds(content);
+      }
+      return trackQueue(buildTracks(content), v.module, v.moduleTone, 1)
+        .filter(function (it) { return it.engine === 'azure'; });
+    });
+  }
+
+  function podcastItems(url, v) {
+    return fetch(url, { cache: 'no-cache' })
+      .then(function (r) { if (!r.ok) throw new Error('absent'); return r.json(); })
+      .then(function (data) {
+        return podcastQueue((data && data.lignes) || [], v.podA, v.podB, v.podTone, 1)
+          .filter(function (it) { return it.engine === 'azure'; });
+      });
+  }
+
+  var offlinePanelWatch = false;
+
+  function initAudioOfflinePanel() {
+    var root = document.getElementById('audio-offline');
+    if (!root) return;
+    if (root.classList.contains('is-busy')) return;   // pas pendant un téléchargement
+
+    // Voix ou ton changés plus haut : la liste est recalculée pour ces voix
+    if (!offlinePanelWatch) {
+      offlinePanelWatch = true;
+      var timer = null;
+      window.addEventListener('formahub-audio-prefs', function () {
+        clearTimeout(timer);
+        timer = setTimeout(initAudioOfflinePanel, 400);
+      });
+    }
+
+    if (!('caches' in window) || !('DOMParser' in window)) {
+      root.innerHTML = '<p class="tool-note">Ce navigateur ne permet pas d\'enregistrer les audios.</p>';
+      return;
+    }
+
+    var formations = [];           // { slug, nom, modules: [url], podcasts: [url], plan: {course, pod} }
+    var busy = false;
+    var cancelled = false;
+    var wakeLock = null;
+
+    root.innerHTML =
+      '<p class="tool-note dl-voices"></p>' +
+      '<div class="tool-status dl-status" role="status" aria-live="polite"></div>' +
+      '<div class="tool-progress dl-progress" hidden><span></span></div>' +
+      '<div class="tool-actions">' +
+      '  <button type="button" class="btn btn-primary btn-sm dl-all-pods" disabled>🎧 Tous les podcasts</button>' +
+      '  <button type="button" class="btn btn-outline btn-sm dl-cancel" hidden>Arrêter</button>' +
+      '  <button type="button" class="btn btn-ghost btn-sm dl-clear">Supprimer les audios</button>' +
+      '</div>' +
+      '<ul class="dl-list"></ul>' +
+      '<p class="tool-note dl-help"></p>';
+
+    var el = {
+      voices: root.querySelector('.dl-voices'),
+      status: root.querySelector('.dl-status'),
+      progress: root.querySelector('.dl-progress'),
+      fill: root.querySelector('.dl-progress > span'),
+      allPods: root.querySelector('.dl-all-pods'),
+      cancel: root.querySelector('.dl-cancel'),
+      clear: root.querySelector('.dl-clear'),
+      list: root.querySelector('.dl-list'),
+      help: root.querySelector('.dl-help')
+    };
+
+    var v = currentVoices();
+    var anyAzure = isAzureKey(v.module) || isAzureKey(v.podA) || isAzureKey(v.podB);
+
+    el.voices.innerHTML = 'Voix enregistrées : cours — <strong>' + voiceLabel(v.module) + '</strong> · podcasts — <strong>' +
+      voiceLabel(v.podA) + '</strong> &amp; <strong>' + voiceLabel(v.podB) + '</strong>. ' +
+      'Changer de voix ou de ton plus haut demandera de retélécharger ; la vitesse, non.';
+
+    el.help.innerHTML = 'Gardez cette page ouverte (écran allumé) pendant le téléchargement. Les voix du navigateur, elles, ' +
+      'fonctionnent hors ligne sans rien télécharger. Palier gratuit Azure : ' + humanChars(AZURE_FREE_CHARS) +
+      ' caractères par mois — la plateforme entière en compte bien plus, d\'où le choix formation par formation.';
+
+    if (!Azure.enabled) {
+      el.status.innerHTML = '<span class="dot dot-ko"></span> Les voix Azure ne répondent pas' +
+        (Azure.error ? ' (' + Azure.error + ')' : ' (hors connexion ?)') +
+        ' : téléchargement impossible pour l\'instant.' +
+        (Azure.cachedOnly ? ' Les audios déjà téléchargés restent jouables.' : '');
+      el.allPods.hidden = true;
+    } else if (!anyAzure) {
+      el.status.innerHTML = '<span class="dot dot-ok"></span> Vos voix sont des voix du navigateur : ' +
+        'elles fonctionnent déjà hors ligne, rien à télécharger.';
+      el.allPods.hidden = true;
+    } else {
+      el.status.innerHTML = '<span class="dot dot-run"></span> Calcul de la taille des audios…';
+    }
+
+    /* ---------- Liste des formations (depuis le catalogue de l'accueil) ---------- */
+
+    Promise.all([
+      fetchText(ROOT + 'index.html'),
+      fetch(ROOT + 'offline-manifest.json', { cache: 'no-cache' }).then(function (r) { return r.json(); })
+    ]).then(function (res) {
+      var doc = new DOMParser().parseFromString(res[0], 'text/html');
+      var urls = (res[1] && res[1].urls) || [];
+      Array.prototype.forEach.call(doc.querySelectorAll('[data-formation-slug]'), function (card) {
+        var slug = card.getAttribute('data-formation-slug');
+        var h = card.querySelector('h2, h3');
+        var prefix = 'formations/' + slug + '/';
+        var mods = urls.filter(function (u) { return u.indexOf(prefix) === 0 && /\/module-\d+\/index\.html$/.test(u); });
+        var pods = urls.filter(function (u) { return u.indexOf(prefix) === 0 && /\/podcast\.json$/.test(u); });
+        var num = function (u) { return parseInt((u.match(/module-(\d+)/) || [0, 0])[1], 10); };
+        mods.sort(function (a, b) { return num(a) - num(b); });
+        pods.sort(function (a, b) { return num(a) - num(b); });
+        formations.push({
+          slug: slug,
+          nom: h ? h.textContent.trim() : slug,
+          modules: mods.map(function (u) { return ROOT + u; }),
+          podcasts: pods.map(function (u) { return ROOT + u; }),
+          plan: { course: null, pod: null }
+        });
+      });
+      renderList();
+      if (Azure.enabled && anyAzure) return planAll();
+    }).catch(function () {
+      el.status.innerHTML = '<span class="dot dot-ko"></span> Liste des formations indisponible (hors connexion ?).';
+    });
+
+    function renderList() {
+      el.list.innerHTML = '';
+      formations.forEach(function (f) {
+        var li = document.createElement('li');
+        li.className = 'dl-row';
+        li.innerHTML =
+          '<div class="dl-name"><strong></strong><span class="dl-sub"></span></div>' +
+          '<div class="dl-btns">' +
+          '  <button type="button" class="btn btn-outline btn-sm dl-course" disabled>🔊 Cours lus</button>' +
+          '  <button type="button" class="btn btn-outline btn-sm dl-pod" disabled>🎧 Podcasts</button>' +
+          '</div>';
+        li.querySelector('strong').textContent = f.nom;
+        li.querySelector('.dl-sub').textContent = f.modules.length + ' modules' +
+          (f.podcasts.length ? ' · ' + f.podcasts.length + ' podcasts' : ' · pas de podcast');
+        f.row = li;
+        f.btnCourse = li.querySelector('.dl-course');
+        f.btnPod = li.querySelector('.dl-pod');
+        if (!f.podcasts.length) f.btnPod.hidden = true;
+        f.btnCourse.addEventListener('click', function () { run([{ f: f, kind: 'course' }]); });
+        f.btnPod.addEventListener('click', function () { run([{ f: f, kind: 'pod' }]); });
+        el.list.appendChild(li);
+      });
+    }
+
+    /* ---------- Taille et état de chaque lot ---------- */
+
+    function planFor(f, kind) {
+      if (f.plan[kind]) return Promise.resolve(f.plan[kind]);
+      var urls = kind === 'course' ? f.modules : f.podcasts;
+      var build = kind === 'course' ? moduleItems : podcastItems;
+      var items = [];
+      var chain = Promise.resolve();
+      urls.forEach(function (u) {
+        chain = chain.then(function () {
+          return build(u, v).then(function (list) { items = items.concat(list); }).catch(function () { /* module illisible */ });
+        });
+      });
+      return chain.then(function () {
+        // Un même extrait (titre répété…) ne se télécharge qu'une fois
+        var seen = {};
+        var unique = [];
+        items.forEach(function (it) {
+          var k = clipKey(it);
+          if (seen[k]) return;
+          seen[k] = 1;
+          it.key = k;
+          unique.push(it);
+        });
+        var chars = unique.reduce(function (n, it) { return n + it.text.length; }, 0);
+        return Promise.all(unique.map(function (it) { return dlHas(it.key); })).then(function (flags) {
+          var have = flags.filter(Boolean).length;
+          f.plan[kind] = { items: unique, chars: chars, have: have };
+          return f.plan[kind];
+        });
+      });
+    }
+
+    function paintButton(f, kind) {
+      var p = f.plan[kind];
+      var btn = kind === 'course' ? f.btnCourse : f.btnPod;
+      var label = kind === 'course' ? '🔊 Cours lus' : '🎧 Podcasts';
+      if (!p) return;
+      var voiceOk = kind === 'course' ? isAzureKey(v.module) : (isAzureKey(v.podA) || isAzureKey(v.podB));
+      if (!voiceOk || !p.items.length) {
+        btn.textContent = label + ' · voix du navigateur';
+        btn.disabled = true;
+        btn.title = 'Voix du navigateur : fonctionne hors ligne sans téléchargement';
+        return;
+      }
+      var left = p.items.length - p.have;
+      if (!left) {
+        btn.textContent = label + ' ✓ hors ligne';
+        btn.disabled = true;
+        btn.classList.add('is-done');
+        btn.title = humanMo(p.chars * BYTES_PER_CHAR) + ' enregistrés sur cet appareil';
+        return;
+      }
+      var leftChars = p.chars * left / p.items.length;
+      btn.classList.remove('is-done');
+      btn.textContent = label + ' · ' + humanMo(leftChars * BYTES_PER_CHAR) + (p.have ? ' restants' : '');
+      btn.title = '≈ ' + humanChars(Math.round(leftChars)) + ' caractères Azure — ' + p.have + '/' + p.items.length + ' extraits déjà enregistrés';
+      btn.disabled = busy;
+    }
+
+    function planAll() {
+      var chain = Promise.resolve();
+      formations.forEach(function (f) {
+        chain = chain.then(function () {
+          return planFor(f, 'course').then(function () { paintButton(f, 'course'); })
+            .then(function () { return f.podcasts.length ? planFor(f, 'pod') : null; })
+            .then(function () { if (f.podcasts.length) paintButton(f, 'pod'); });
+        });
+      });
+      return chain.then(function () { paintSummary(); });
+    }
+
+    function paintSummary() {
+      if (busy) return;
+      var podLeft = 0, podChars = 0, done = 0, total = 0;
+      formations.forEach(function (f) {
+        ['course', 'pod'].forEach(function (k) {
+          var p = f.plan[k];
+          if (!p || !p.items.length) return;
+          total += p.items.length;
+          done += p.have;
+          if (k === 'pod') {
+            podLeft += p.items.length - p.have;
+            podChars += p.chars * (p.items.length - p.have) / p.items.length;
+          }
+        });
+      });
+      el.allPods.disabled = !podLeft;
+      el.allPods.textContent = podLeft
+        ? '🎧 Tous les podcasts · ' + humanMo(podChars * BYTES_PER_CHAR)
+        : '🎧 Tous les podcasts ✓';
+      el.status.innerHTML = done
+        ? '<span class="dot dot-ok"></span> ' + done + ' extraits audio enregistrés sur cet appareil.'
+        : '<span class="dot"></span> Aucun audio téléchargé pour l\'instant — choisissez une formation.';
+    }
+
+    el.allPods.addEventListener('click', function () {
+      run(formations.filter(function (f) { return f.podcasts.length; })
+        .map(function (f) { return { f: f, kind: 'pod' }; }));
+    });
+
+    /* ---------- Téléchargement ---------- */
+
+    function lockScreen() {
+      try {
+        if (navigator.wakeLock && navigator.wakeLock.request) {
+          navigator.wakeLock.request('screen').then(function (l) { wakeLock = l; }).catch(function () { /* ignore */ });
+        }
+      } catch (e) { /* ignore */ }
+    }
+
+    function unlockScreen() {
+      try { if (wakeLock) wakeLock.release(); } catch (e) { /* ignore */ }
+      wakeLock = null;
+    }
+
+    // L'écran s'est rallumé pendant un téléchargement : on reprend le verrou
+    document.addEventListener('visibilitychange', function () {
+      if (busy && document.visibilityState === 'visible') { wakeLock = null; lockScreen(); }
+    });
+
+    function setBusy(on) {
+      busy = on;
+      root.classList.toggle('is-busy', on);
+      el.cancel.hidden = !on;
+      el.clear.disabled = on;
+      el.allPods.disabled = on;
+      el.progress.hidden = !on;
+      formations.forEach(function (f) {
+        if (on) {
+          f.btnCourse.disabled = true;
+          f.btnPod.disabled = true;
+        } else {
+          paintButton(f, 'course');
+          paintButton(f, 'pod');
+        }
+      });
+    }
+
+    function getOne(it, tries) {
+      tries = tries || 0;
+      return fetchClip(it, 0, true).catch(function (err) {
+        var msg = (err && err.message) || '';
+        if (cancelled) throw err;
+        // Quota par minute : on patiente puis on reprend
+        if (/quota|429|trop de requ/i.test(msg) && tries < 6) {
+          el.status.innerHTML = '<span class="dot dot-run"></span> Azure demande une pause (quota par minute) — reprise dans 30 s…';
+          return wait(30000).then(function () { return getOne(it, tries + 1); });
+        }
+        if (!navigator.onLine) throw new Error('connexion perdue');
+        if (tries < 2) return wait(3000).then(function () { return getOne(it, tries + 1); });
+        throw err;
+      });
+    }
+
+    function run(jobs) {
+      if (busy || !jobs.length) return;
+      cancelled = false;
+      setBusy(true);
+      lockScreen();
+      if (window.formahubOffline && window.formahubOffline.persist) window.formahubOffline.persist();
+      el.fill.style.width = '2%';
+      el.status.innerHTML = '<span class="dot dot-run"></span> Préparation…';
+
+      var queue = [];
+      var failed = 0;
+      var lastError = '';
+
+      var prep = Promise.resolve();
+      jobs.forEach(function (j) {
+        prep = prep.then(function () {
+          return planFor(j.f, j.kind).then(function (p) {
+            p.items.forEach(function (it) { queue.push({ it: it, job: j }); });
+          });
+        });
+      });
+
+      prep.then(function () {
+        var total = queue.length;
+        var done = 0;
+        var i = 0;
+
+        function paint() {
+          el.fill.style.width = Math.max(2, Math.round(done / Math.max(1, total) * 100)) + '%';
+          el.status.innerHTML = '<span class="dot dot-run"></span> ' + done + ' / ' + total + ' extraits' +
+            (failed ? ' · ' + failed + ' en échec' : '') + ' — gardez la page ouverte';
+        }
+        paint();
+
+        function worker() {
+          if (cancelled || i >= queue.length) return Promise.resolve();
+          var q = queue[i++];
+          return dlHas(q.it.key).then(function (has) {
+            if (has) return null;
+            return getOne(q.it).then(function () { q.job.f.plan[q.job.kind].have += 1; });
+          }).catch(function (err) {
+            failed += 1;
+            lastError = (err && err.message) || 'erreur';
+            if (lastError === 'connexion perdue') cancelled = true;
+          }).then(function () {
+            done += 1;
+            paint();
+            if (done % 10 === 0) jobs.forEach(function (j) { paintButton(j.f, j.kind); });
+            return worker();
+          });
+        }
+        // Deux requêtes à la fois : le palier gratuit d'Azure limite le débit
+        return Promise.all([worker(), worker()]).then(function () {
+          return { total: total, done: done };
+        });
+      }).then(function (r) {
+        unlockScreen();
+        setBusy(false);
+        // Recompte exact de ce qui est enregistré
+        jobs.forEach(function (j) { j.f.plan[j.kind] = null; });
+        var chain = Promise.resolve();
+        jobs.forEach(function (j) {
+          chain = chain.then(function () { return planFor(j.f, j.kind).then(function () { paintButton(j.f, j.kind); }); });
+        });
+        return chain.then(function () {
+          paintSummary();
+          var msg;
+          if (cancelled && lastError === 'connexion perdue') msg = '⚠️ Connexion perdue — relancez pour reprendre là où ça s\'est arrêté.';
+          else if (cancelled) msg = '⏸ Téléchargement arrêté — ce qui est déjà enregistré est conservé.';
+          else if (failed) msg = '⚠️ ' + failed + ' extraits en échec (' + lastError + ') — relancez pour les compléter.';
+          else msg = '📦 Audios enregistrés : écoute possible hors ligne.';
+          if (cancelled || failed) el.status.innerHTML = '<span class="dot dot-ko"></span> ' + msg.replace(/^\S+\s/, '');
+          if (typeof window.formahubToast === 'function') window.formahubToast(msg);
+        });
+      }).catch(function (err) {
+        unlockScreen();
+        setBusy(false);
+        el.status.innerHTML = '<span class="dot dot-ko"></span> Téléchargement interrompu (' +
+          ((err && err.message) || 'erreur') + ').';
+      });
+    }
+
+    el.cancel.addEventListener('click', function () {
+      cancelled = true;
+      el.cancel.disabled = true;
+      setTimeout(function () { el.cancel.disabled = false; }, 1500);
+    });
+
+    /* Suppression en deux temps (pas de boîte de dialogue du navigateur) */
+    var clearArmed = null;
+    el.clear.addEventListener('click', function () {
+      if (!clearArmed) {
+        el.clear.textContent = 'Confirmer la suppression';
+        el.clear.classList.add('is-armed');
+        clearArmed = setTimeout(function () {
+          clearArmed = null;
+          el.clear.textContent = 'Supprimer les audios';
+          el.clear.classList.remove('is-armed');
+        }, 4000);
+        return;
+      }
+      clearTimeout(clearArmed);
+      clearArmed = null;
+      el.clear.textContent = 'Supprimer les audios';
+      el.clear.classList.remove('is-armed');
+      Promise.all([caches.delete(TTS_DL_CACHE), caches.delete(TTS_CACHE)]).then(function () {
+        formations.forEach(function (f) {
+          ['course', 'pod'].forEach(function (k) {
+            if (f.plan[k]) f.plan[k].have = 0;
+            var btn = k === 'course' ? f.btnCourse : f.btnPod;
+            btn.classList.remove('is-done');
+            paintButton(f, k);
+          });
+        });
+        paintSummary();
+        if (typeof window.formahubToast === 'function') window.formahubToast('🧹 Audios supprimés de cet appareil.');
+      });
+    });
+  }
+
+  /* ============================================================
      8. Amorçage
      ============================================================ */
 
   function boot() {
     var hasModule = !!document.querySelector('.module-content');
     var hasSettings = !!document.getElementById('audio-settings-panel');
-    if (!hasModule && !hasSettings) return;
+    var hasOffline = !!document.getElementById('audio-offline');
+    if (!hasModule && !hasSettings && !hasOffline) return;
 
     var pending = 2;
     function ready() {
@@ -1584,6 +2157,7 @@
         }
       }
       if (hasSettings) initAudioSettingsPanel();
+      if (hasOffline) initAudioOfflinePanel();
     }
     whenVoicesReady(ready);
     azureInit().then(ready);

@@ -15,11 +15,18 @@
    n'était pas celle que la page demande ensuite. Désormais chaque
    réponse est nettoyée avant d'être rangée, enregistrée sous toutes
    ses adresses équivalentes, et la recherche essaie ces variantes.
+
+   V10 — le texte est hors ligne d'office : l'installation range la
+   coquille, l'activation range tout le manifeste (40 modules, quiz,
+   podcasts écrits) sans attendre de clic, et offline.js complète depuis
+   la page ce qui manquerait (un mobile peut suspendre le service worker
+   avant la fin). Les audios Azure vivent dans leurs propres caches
+   (« fhtts-… »), gérés par audio.js.
    ============================================================ */
 
 // Changer VERSION à chaque mise en ligne. Si la copie hors ligne avait
 // été téléchargée, elle est remise à jour toute seule à l'activation.
-const VERSION = '2026-09-23-hors-ligne-v9';
+const VERSION = '2026-09-26-hors-ligne-v10';
 const CACHE = 'formahub-offline-v1';
 const CORE = [
   './',
@@ -38,10 +45,6 @@ const CORE = [
   'apple-touch-icon.png',
   'offline-manifest.json'
 ];
-// Marqueur posé quand la copie complète a été demandée sur cet appareil
-const FULL_MARK = '__formahub-copie-complete';
-// Versions ≤ V8 (sans marqueur) : une copie complète comptait plus de 100 entrées
-const LEGACY_FULL_MIN = 100;
 const MATCH = { ignoreSearch: true, ignoreVary: true };
 
 const scopeUrl = () => new URL(self.registration.scope);
@@ -123,18 +126,12 @@ self.addEventListener('activate', event => {
     await Promise.all(names.map(n => (n.startsWith('formahub-') && n !== CACHE) ? caches.delete(n) : null));
     await self.clients.claim();
 
-    // Une copie complète existait (versions précédentes, avec des réponses
-    // redirigées inutilisables) : on la refait avec la version courante.
-    const cache = await caches.open(CACHE);
-    const keys = await cache.keys();
-    const wanted = (await cache.match(abs(FULL_MARK))) || keys.length >= LEGACY_FULL_MIN;
-    if (wanted) {
-      try {
-        const res = await fetch(abs('offline-manifest.json'), { cache: 'reload' });
-        const manifest = await res.json();
-        await precache((manifest && manifest.urls) || [], () => {});
-      } catch (e) { /* hors ligne à l'activation : la copie existante reste */ }
-    }
+    // Le texte complet est rangé d'office, et rafraîchi à chaque version
+    try {
+      const res = await fetch(abs('offline-manifest.json'), { cache: 'reload' });
+      const manifest = await res.json();
+      await precache((manifest && manifest.urls) || [], () => {});
+    } catch (e) { /* hors ligne à l'activation : la copie existante reste */ }
   })());
 });
 
@@ -173,8 +170,8 @@ async function networkFirst(request) {
       '<title>Formahub — hors ligne</title>' +
       '<body style="font-family:system-ui;max-width:38rem;margin:15vh auto;padding:0 1.5rem;line-height:1.6">' +
       '<h1>Page non disponible hors ligne</h1>' +
-      '<p>Cette page n\'a pas encore été enregistrée sur cet appareil. Reconnectez-vous, ' +
-      'puis lancez « Rendre disponible hors ligne » dans l\'onglet Paramètres.</p>' +
+      '<p>Cette page n\'a pas encore été enregistrée sur cet appareil. Reconnectez-vous ' +
+      'et ouvrez n\'importe quelle page de Formahub : tout le texte s\'enregistre alors automatiquement.</p>' +
       '<p><a href="' + abs('index.html') + '">Retour à l\'accueil</a></p></body></html>',
       { status: 503, headers: { 'Content-Type': 'text/html; charset=utf-8' } }
     );
@@ -260,8 +257,6 @@ async function precache(urls, reply) {
     }));
     reply({ type: 'PRECACHE_PROGRESS', done: done, total: list.length, failed: failed });
   }
-
-  await cache.put(abs(FULL_MARK), new Response(new Date().toISOString()));
 
   let bytes = null;
   try {

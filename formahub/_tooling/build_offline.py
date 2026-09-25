@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 """Formahub — génère offline-manifest.json.
 
-Le service worker lit ce fichier quand l'utilisatrice clique sur
-« Rendre disponible hors ligne » : il contient la liste exhaustive
-des adresses à enregistrer dans le cache du navigateur.
+Le service worker (à son activation) et offline.js (à chaque visite)
+lisent ce fichier : il contient la liste exhaustive des adresses de
+TEXTE enregistrées d'office dans le cache du navigateur. Les audios,
+eux, se téléchargent à la demande depuis Paramètres (audio.js).
 
 Usage :
     python3 _tooling/build_offline.py [racine_du_site]

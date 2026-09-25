@@ -1,7 +1,21 @@
 /* ============================================================
-   Formahub — mode hors ligne (V7)
-   Enregistre le service worker, propose le téléchargement complet
-   de la plateforme en un clic, et signale la perte de connexion.
+   Formahub — mode hors ligne (V10)
+
+   • Enregistre le service worker et affiche le bandeau « hors ligne ».
+   • Le TEXTE est hors ligne d'office : dès la première visite de
+     n'importe quelle page, le script range dans le cache toutes les
+     adresses de offline-manifest.json (40 modules, quiz, scripts de
+     podcast, pages, styles). Aucun bouton : il complète ce qui manque
+     à chaque visite, en silence.
+   • Les AUDIOS se téléchargent à la demande depuis la page
+     Paramètres (voir audio.js).
+
+   V10 — pourquoi le téléchargement échouait sur mobile :
+   il était confié au service worker par message. Sur iOS et Android,
+   le navigateur suspend un service worker au bout de quelques dizaines
+   de secondes, et la page attendait une réponse qui ne venait jamais.
+   Le travail se fait maintenant dans la page elle-même (API Cache),
+   qui reste active tant qu'elle est ouverte.
    ============================================================ */
 
 (function () {
@@ -15,63 +29,143 @@
     return new URL('.', location.href).toString();
   })();
 
-  var STATE_KEY = 'formahub-offline-state';
-  var registration = null;
+  var CACHE = 'formahub-offline-v1';      // même nom que dans sw.js
+  var MATCH = { ignoreSearch: true, ignoreVary: true };
+  var SECURE = location.protocol === 'https:' ||
+    location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  var CAN_CACHE = SECURE && ('caches' in window);
 
-  function readState() {
-    try {
-      var raw = localStorage.getItem(STATE_KEY);
-      return raw ? JSON.parse(raw) : {};
-    } catch (e) { return {}; }
+  /* État partagé avec la page Paramètres */
+  var Text = { total: 0, have: 0, running: false, done: false, error: null, listeners: [] };
+
+  function emit() {
+    Text.listeners.forEach(function (fn) { try { fn(Text); } catch (e) { /* ignore */ } });
   }
 
-  function writeState(s) {
-    try { localStorage.setItem(STATE_KEY, JSON.stringify(s)); } catch (e) { /* ignore */ }
+  /* ---------- Adresses équivalentes d'une même page (cf. sw.js) ---------- */
+
+  function variants(url) {
+    var u = new URL(url);
+    u.search = '';
+    u.hash = '';
+    var out = [u.toString()];
+    var p = u.pathname;
+    function add(path) {
+      var v = new URL(u.toString());
+      v.pathname = path;
+      if (out.indexOf(v.toString()) === -1) out.push(v.toString());
+    }
+    if (/\/index\.html$/.test(p)) {
+      add(p.slice(0, -'index.html'.length));
+      add(p.slice(0, -'/index.html'.length) || '/');
+    } else if (/\/$/.test(p)) {
+      add(p + 'index.html');
+      if (p.length > 1) add(p.slice(0, -1));
+    } else if (/\.html$/.test(p)) {
+      add(p.slice(0, -'.html'.length));
+    } else if (!/\.[a-z0-9]+$/i.test(p)) {
+      add(p + '.html');
+      add(p + '/');
+      add(p + '/index.html');
+    }
+    return out;
   }
 
-  function humanBytes(n) {
-    if (!n && n !== 0) return '';
-    if (n < 1024) return n + ' o';
-    if (n < 1024 * 1024) return Math.round(n / 1024) + ' Ko';
-    return (n / (1024 * 1024)).toFixed(1).replace('.', ',') + ' Mo';
+  function lookup(cache, url) {
+    var list = variants(url);
+    var i = 0;
+    function next() {
+      if (i >= list.length) return Promise.resolve(null);
+      return cache.match(list[i++], MATCH).then(function (hit) { return hit || next(); });
+    }
+    return next();
   }
 
-  function humanDate(iso) {
-    if (!iso) return '';
-    try {
-      return new Date(iso).toLocaleDateString('fr-FR', {
-        day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit'
+  /* Une réponse « redirigée » ne peut pas servir une navigation :
+     on en range une copie propre, sous toutes ses adresses. */
+  function store(cache, url, res) {
+    var finalUrl = res.url;
+    return res.blob().then(function (body) {
+      var keys = variants(url);
+      if (finalUrl) variants(finalUrl).forEach(function (k) { if (keys.indexOf(k) === -1) keys.push(k); });
+      return Promise.all(keys.map(function (k) {
+        return cache.put(k, new Response(body, { status: res.status, statusText: res.statusText, headers: res.headers }));
+      }));
+    });
+  }
+
+  function abs(path) { return new URL(path, ROOT).toString(); }
+
+  /* ---------- Texte hors ligne automatique ---------- */
+
+  function loadManifest() {
+    return fetch(abs('offline-manifest.json'), { cache: 'no-cache' })
+      .then(function (r) { if (!r.ok) throw new Error('manifeste ' + r.status); return r.json(); })
+      .then(function (m) { return (m && m.urls) || []; });
+  }
+
+  function ensureText() {
+    if (!CAN_CACHE || Text.running) return Promise.resolve(Text);
+    Text.running = true;
+    Text.error = null;
+    emit();
+
+    var cache;
+    return Promise.all([caches.open(CACHE), loadManifest()])
+      .then(function (r) {
+        cache = r[0];
+        var urls = r[1];
+        Text.total = urls.length;
+        // Ce qui manque encore sur cet appareil
+        return Promise.all(urls.map(function (u) {
+          return lookup(cache, abs(u)).then(function (hit) { return hit ? null : u; });
+        })).then(function (missing) {
+          missing = missing.filter(Boolean);
+          Text.have = urls.length - missing.length;
+          emit();
+          return fill(cache, missing);
+        });
+      })
+      .catch(function (e) { Text.error = (e && e.message) || 'hors connexion'; })
+      .then(function () {
+        Text.running = false;
+        Text.done = !Text.error && Text.total > 0 && Text.have >= Text.total;
+        emit();
+        return Text;
       });
-    } catch (e) { return iso.slice(0, 10); }
   }
 
-  /* ---------- Échange avec le service worker ---------- */
-
-  function ask(message, onMessage) {
-    // On attend que le service worker soit réellement actif (première visite comprise)
-    return navigator.serviceWorker.ready.then(function (reg) {
-      registration = reg;
-      return send(message, onMessage);
-    });
+  function fill(cache, missing) {
+    if (!missing.length || !navigator.onLine) return Promise.resolve();
+    var i = 0;
+    var BATCH = 4;
+    function worker() {
+      if (i >= missing.length) return Promise.resolve();
+      var u = missing[i++];
+      return fetch(abs(u), { cache: 'reload' })
+        .then(function (res) {
+          if (res && res.ok) return store(cache, abs(u), res).then(function () { Text.have += 1; emit(); });
+        })
+        .catch(function () { /* réessayé à la prochaine visite */ })
+        .then(worker);
+    }
+    var workers = [];
+    for (var k = 0; k < BATCH; k++) workers.push(worker());
+    return Promise.all(workers);
   }
 
-  function send(message, onMessage) {
-    return new Promise(function (resolve, reject) {
-      var target = (registration && (registration.active || registration.waiting)) ||
-        navigator.serviceWorker.controller;
-      if (!target) { reject(new Error('service worker inactif')); return; }
-      var channel = new MessageChannel();
-      channel.port1.onmessage = function (e) {
-        var data = e.data || {};
-        if (onMessage) onMessage(data);
-        if (data.type === 'PRECACHE_DONE' || data.type === 'STATUS' || data.type === 'CLEARED') {
-          resolve(data);
-        }
-      };
-      target.postMessage(message, [channel.port2]);
-      setTimeout(function () { reject(new Error('délai dépassé')); }, 15 * 60 * 1000);
-    });
-  }
+  // Petites aides partagées avec audio.js
+  window.formahubOffline = {
+    text: Text,
+    onChange: function (fn) { Text.listeners.push(fn); fn(Text); },
+    ensureText: ensureText,
+    persist: function () {
+      try {
+        if (navigator.storage && navigator.storage.persist) return navigator.storage.persist();
+      } catch (e) { /* ignore */ }
+      return Promise.resolve(false);
+    }
+  };
 
   /* ---------- Bandeau « hors ligne » sur toutes les pages ---------- */
 
@@ -88,160 +182,37 @@
       banner.hidden = navigator.onLine;
       document.documentElement.classList.toggle('is-offline', !navigator.onLine);
     }
-    window.addEventListener('online', paint);
+    window.addEventListener('online', function () { paint(); ensureText(); });
     window.addEventListener('offline', paint);
     paint();
   }
 
-  /* ---------- Panneau de l'accueil ---------- */
+  /* ---------- État du texte sur la page Paramètres ---------- */
 
-  function initPanel() {
-    var panel = document.getElementById('offline-panel');
-    if (!panel) return;
-    var body = panel.querySelector('.tool-body') || panel;
-
-    if (!('serviceWorker' in navigator)) {
-      body.innerHTML = '<p class="tool-note">Ce navigateur ne gère pas le mode hors ligne. ' +
-        'La plateforme reste consultable normalement en ligne.</p>';
+  function initTextStatus() {
+    var el = document.getElementById('offline-text-status');
+    if (!el) return;
+    if (!('serviceWorker' in navigator) || !('caches' in window)) {
+      el.innerHTML = '<span class="dot dot-ko"></span> Ce navigateur ne gère pas la consultation hors ligne.';
       return;
     }
-    if (location.protocol !== 'https:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
-      body.innerHTML = '<p class="tool-note">Le mode hors ligne demande une adresse sécurisée. ' +
-        'Il s\'activera automatiquement sur le site déployé (<code>https://</code>) ; ' +
-        'il ne fonctionne pas sur un fichier ouvert directement depuis le disque.</p>';
+    if (!SECURE) {
+      el.innerHTML = '<span class="dot"></span> Actif uniquement sur le site en ligne (https://), pas sur un fichier ouvert depuis le disque.';
       return;
     }
-
-    body.innerHTML =
-      '<div class="tool-status" id="offline-status">Vérification…</div>' +
-      '<div class="tool-progress" id="offline-progress" hidden><span></span></div>' +
-      '<div class="tool-actions">' +
-      '  <button type="button" class="btn btn-primary btn-sm" id="offline-download">⬇ Rendre disponible hors ligne</button>' +
-      '  <button type="button" class="btn btn-ghost btn-sm" id="offline-clear">Vider le cache</button>' +
-      '</div>' +
-      '<p class="tool-note" id="offline-note"></p>';
-
-    var status = body.querySelector('#offline-status');
-    var progress = body.querySelector('#offline-progress');
-    var fill = progress.firstElementChild;
-    var btn = body.querySelector('#offline-download');
-    var clear = body.querySelector('#offline-clear');
-    var note = body.querySelector('#offline-note');
-    var catalogue = { count: 0, bytes: 0, urls: [] };
-    var coverage = null;      // { have, total, missing } lu dans le cache réel
-
-    function loadManifest() {
-      return fetch(ROOT + 'offline-manifest.json', { cache: 'no-cache' })
-        .then(function (r) { return r.json(); })
-        .then(function (m) {
-          catalogue.count = (m && m.count) || 0;
-          catalogue.bytes = (m && m.approx_bytes) || 0;
-          catalogue.urls = (m && m.urls) || [];
-          return catalogue;
-        });
-    }
-
-    /* Vérifie, fichier par fichier, ce qui est vraiment disponible hors ligne */
-    function checkCoverage() {
-      if (!catalogue.urls.length) return Promise.resolve(null);
-      return ask({ type: 'STATUS', urls: catalogue.urls }).then(function (msg) {
-        coverage = msg;
-        refresh();
-        return msg;
-      }).catch(function () { return null; });
-    }
-
-    function refresh() {
-      var s = readState();
-      var complete = coverage && coverage.total && coverage.have >= coverage.total;
-      var partial = coverage && coverage.total && coverage.have > 0 && !complete;
-
-      if (complete) {
-        status.innerHTML = '<span class="dot dot-ok"></span> Disponible hors ligne — ' +
-          coverage.have + ' / ' + coverage.total + ' fichiers' +
-          (coverage.bytes ? ' · ' + humanBytes(coverage.bytes) : '');
-        note.textContent = (s.date ? 'Dernier téléchargement le ' + humanDate(s.date) + '. ' : '') +
-          'La copie se remet à jour d\'elle-même à chaque nouvelle version du site.';
-        btn.textContent = '↻ Mettre à jour la copie hors ligne';
-        clear.hidden = false;
-      } else if (partial || s.done) {
-        var have = coverage ? coverage.have : 0;
-        var total = coverage ? coverage.total : catalogue.count;
-        status.innerHTML = '<span class="dot dot-ko"></span> Copie incomplète — ' +
-          have + ' / ' + total + ' fichiers disponibles hors ligne';
-        note.textContent = 'Des modules manquent sur cet appareil' +
-          (coverage && coverage.missing && coverage.missing.length
-            ? ' (par exemple ' + coverage.missing.slice(0, 3).join(', ') + ')' : '') +
-          '. Relancez le téléchargement, connexion active.';
-        btn.textContent = '⬇ Compléter la copie hors ligne';
-        clear.hidden = false;
-      } else {
-        status.innerHTML = '<span class="dot"></span> Pas encore téléchargé';
-        note.textContent = catalogue.count
-          ? 'Un seul clic enregistre les ' + catalogue.count + ' fichiers de la plateforme — ' +
-            'les 40 modules, leurs quiz et leurs podcasts — dans ce navigateur. Comptez quelques secondes et ' +
-            humanBytes(catalogue.bytes) + '.'
-          : 'Un seul clic enregistre toute la plateforme dans ce navigateur : ' +
-            'modules, quiz et podcasts.';
-        btn.textContent = '⬇ Rendre disponible hors ligne';
-        clear.hidden = true;
+    window.formahubOffline.onChange(function (t) {
+      if (t.done) {
+        el.innerHTML = '<span class="dot dot-ok"></span> Disponible hors ligne — les 40 modules, quiz et scripts de podcast (' +
+          t.have + '/' + t.total + ' fichiers).';
+      } else if (t.running) {
+        el.innerHTML = '<span class="dot dot-run"></span> Enregistrement automatique… ' +
+          (t.total ? t.have + '/' + t.total + ' fichiers' : '');
+      } else if (t.total) {
+        el.innerHTML = '<span class="dot dot-ko"></span> ' + t.have + '/' + t.total +
+          ' fichiers enregistrés — le reste se complétera à la prochaine connexion.';
+      } else if (t.error) {
+        el.innerHTML = '<span class="dot dot-ko"></span> Vérification impossible (' + t.error + ').';
       }
-    }
-
-    refresh();
-    loadManifest().then(refresh).then(checkCoverage).catch(function () { /* le bouton reste utilisable */ });
-
-    btn.addEventListener('click', function () {
-      btn.disabled = true;
-      clear.disabled = true;
-      progress.hidden = false;
-      fill.style.width = '2%';
-      status.innerHTML = '<span class="dot dot-run"></span> Téléchargement en cours…';
-
-      loadManifest()
-        .then(function () {
-          return ask({ type: 'PRECACHE', urls: catalogue.urls }, function (msg) {
-            if (msg.type === 'PRECACHE_PROGRESS') {
-              var pct = Math.round((msg.done / msg.total) * 100);
-              fill.style.width = Math.max(2, pct) + '%';
-              status.innerHTML = '<span class="dot dot-run"></span> ' +
-                msg.done + ' / ' + msg.total + ' fichiers enregistrés';
-            }
-          });
-        })
-        .then(function (msg) {
-          writeState({ done: msg.done - (msg.failed || 0), total: msg.total, date: new Date().toISOString() });
-          fill.style.width = '100%';
-          setTimeout(function () { progress.hidden = true; fill.style.width = '0%'; }, 900);
-          return checkCoverage().then(function (cov) {
-            var ok = cov && cov.have >= cov.total;
-            if (typeof window.formahubToast === 'function') {
-              window.formahubToast(ok ? '📦 Les 40 modules sont disponibles hors ligne.'
-                : '⚠️ Copie hors ligne incomplète — relancez le téléchargement.');
-            }
-          });
-        })
-        .catch(function () {
-          progress.hidden = true;
-          status.innerHTML = '<span class="dot dot-ko"></span> Téléchargement interrompu';
-          note.textContent = 'Vérifiez la connexion et réessayez. Rien n\'a été perdu.';
-        })
-        .then(function () { btn.disabled = false; clear.disabled = false; });
-    });
-
-    clear.addEventListener('click', function () {
-      clear.disabled = true;
-      ask({ type: 'CLEAR' })
-        .then(function () {
-          writeState({});
-          coverage = null;
-          refresh();
-          if (typeof window.formahubToast === 'function') {
-            window.formahubToast('🧹 Copie hors ligne supprimée.');
-          }
-        })
-        .catch(function () { /* rien à supprimer */ })
-        .then(function () { clear.disabled = false; });
     });
   }
 
@@ -249,13 +220,13 @@
 
   function boot() {
     initBanner();
-    initPanel();
+    initTextStatus();
+    // On laisse la page s'afficher avant de travailler en arrière-plan
+    setTimeout(ensureText, document.getElementById('offline-text-status') ? 0 : 1500);
   }
 
-  if ('serviceWorker' in navigator &&
-      (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+  if ('serviceWorker' in navigator && SECURE) {
     navigator.serviceWorker.register(ROOT + 'sw.js', { scope: ROOT })
-      .then(function (reg) { registration = reg; })
       .catch(function () { /* le site fonctionne sans */ });
   }
 

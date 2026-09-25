@@ -10,10 +10,10 @@ Plateforme d'auto-formation professionnelle 100 % statique (HTML5, CSS3, JS vani
 - **Suivi de progression** en `localStorage`, avec sauvegarde chiffrée par **code secret** vers Cloudflare Workers KV, via le Worker `formahub-sync`.
 - **Écoute audio de chaque module** (`assets/js/audio.js`) : voix neuronales **Microsoft Azure Speech** (via le Worker `formahub-sync`, code dans `../workers/formahub-sync.js`), avec repli automatique sur la voix du navigateur ; choix de la voix, du ton et de la vitesse (0,75× à 2×). Le cours est lu section par section, les volets s'ouvrent au fur et à mesure et le passage en cours est surligné.
 - **Podcast par module** : un dialogue à deux voix d'environ 9 minutes, décrit dans `podcast.json` à côté du module.
-- **Consultation hors ligne** : un service worker (`sw.js`) et un bouton « Rendre disponible hors ligne » téléchargent toute la plateforme dans le navigateur.
+- **Consultation hors ligne** : le texte des 40 modules (quiz et scripts de podcast compris) s'enregistre tout seul dans le navigateur dès la première visite ; seuls les **audios** se téléchargent, à la demande, formation par formation, depuis Paramètres.
 - **Onglet Ressources externes** : tableau filtrable, calcul du reste à charge et solde CPF.
 - **Onglet Formations Espagne** : dispositifs espagnols, présentés par condition d'accès.
-- **Onglet Paramètres** (`parametres.html`) : thème, sauvegarde par code secret, consultation hors ligne et voix par défaut (modules + podcasts) regroupés au même endroit — ces mêmes réglages restaient auparavant éclatés entre l'accueil et chaque module.
+- **Onglet Paramètres** (`parametres.html`) : **seul endroit** où se trouvent les réglages — thème, sauvegarde par code secret, voix / ton / vitesse (modules + podcasts) et audios hors ligne. L'accueil, les tableaux et les modules n'en affichent plus aucun ; les lecteurs audio gardent seulement un lien « ⚙ Voix et vitesse ».
 - **Mode sombre / clair** accessible (WCAG AA), piloté par `data-theme` et les variables CSS de `:root`.
 
 ## 📐 Structure d'un module
@@ -39,14 +39,14 @@ Chaque module suit le même gabarit pédagogique :
 index.html                     catalogue de formations
 ressources-externes.html
 formations-espagne.html
-parametres.html                thème, sauvegarde, hors ligne, voix par défaut — tout regroupé
+parametres.html                seul endroit des réglages : thème, code secret, voix, audios hors ligne
 sw.js                          service worker (cache hors ligne)
 offline-manifest.json          liste des ressources à télécharger (généré)
 assets/css/style.css           design tokens + thème clair/sombre
 assets/js/progress.js          localStorage, thème, mise en page des modules
 assets/js/quiz-engine.js       chargement et correction des quiz
 assets/js/sync.js              code secret, chiffrement, sauvegarde auto
-assets/js/offline.js           service worker, téléchargement, bandeau hors ligne
+assets/js/offline.js           service worker, texte hors ligne automatique, bandeau hors ligne
 assets/js/audio.js             lecture vocale du module et lecteur de podcast
 formations/<slug>/module-N/
     index.html                 le module
@@ -96,9 +96,9 @@ déployé tel quel. En local, `functions/api/tts.js` sert de relais :
 `npx wrangler pages dev . --binding AZURE_SPEECH_KEY=… --binding AZURE_SPEECH_REGION=francecentral`.
 
 À chaque mise en ligne, changer `VERSION` en haut de `sw.js` pour que les navigateurs
-rechargent la coquille (dont `audio.js`) — les modules téléchargés hors ligne sont conservés.
+rechargent la coquille (dont `audio.js`) — le texte hors ligne se remet à jour et les audios téléchargés sont conservés.
 
-Réglages proposés dans chaque barre d'écoute (mémorisés et synchronisés par code secret) :
+Réglages de lecture, dans **Paramètres → Voix de lecture** uniquement (mémorisés et synchronisés par code secret) :
 
 | Réglage | Contenu |
 |---|---|
@@ -155,9 +155,25 @@ et `page.html` sous `page`. Jusqu'à la V8, le cache gardait ces réponses « re
 que le navigateur refuse pour une navigation hors ligne : les modules semblaient
 téléchargés mais ne s'ouvraient pas sans réseau. Depuis la V9, `sw.js` nettoie chaque
 réponse, la range sous toutes ses adresses équivalentes et cherche ces variantes ;
-le panneau « Consultation hors ligne » vérifie la présence réelle de chaque fichier du
-manifeste et signale une copie incomplète. Une copie complète déjà demandée se refait
-toute seule quand une nouvelle version du service worker s'active.
+Paramètres affiche la présence réelle de chaque fichier du manifeste.
+
+**Texte automatique (V10)** — plus de bouton : `sw.js` range tout le manifeste à son
+activation, et `offline.js` vérifie à chaque visite (depuis la page, API Cache) ce qui
+manque et le complète. Jusqu'à la V9, le téléchargement était confié au service worker
+par message ; sur mobile, le navigateur le suspendait en cours de route et la page
+attendait une réponse qui ne venait jamais — d'où l'échec sur téléphone.
+
+**Audios à emporter** — Paramètres → Hors ligne liste les formations avec, pour chacune,
+« Cours lus » et « Podcasts », leur taille estimée et ce qui est déjà enregistré. Le
+téléchargement se fait dans la page (écran maintenu allumé quand le navigateur le permet),
+deux requêtes à la fois, avec pause automatique quand Azure renvoie un quota par minute.
+Les extraits vont dans le cache `fhtts-dl-v1`, jamais purgé, avec exactement les voix et le
+ton réglés dans Paramètres (même découpage que les lecteurs) : changer de voix ou de ton
+demande de retélécharger, changer la vitesse non. Hors connexion, la liste des voix Azure
+mémorisée permet de rejouer ces extraits ; un extrait absent bascule sur la voix du navigateur.
+Ordre de grandeur : ≈ 1,7 M caractères et ≈ 700 Mo pour tous les cours lus, ≈ 160 k
+caractères et ≈ 65 Mo pour les 20 podcasts — au-delà du palier gratuit Azure
+(500 k caractères / mois), d'où le choix formation par formation.
 
 ## 🔒 Sauvegarde par code secret
 

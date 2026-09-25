@@ -1960,6 +1960,55 @@ tr.row-inscrite > td { background: var(--accent-light); }
 
 .tool-card-wide .audio-settings { flex-wrap: wrap; }
 
+/* V10 — lien des lecteurs vers les réglages (voix, ton, vitesse vivent dans Paramètres) */
+.audio-settings-link {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 3px 4px;
+  border-radius: var(--radius-xs);
+}
+.audio-engine + .audio-settings-link { margin-left: 2px; }
+.pod-status + .audio-settings-link { margin-left: auto; }
+.audio-settings-link:hover { text-decoration: underline; }
+.audio-settings-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+/* V10 — audios à emporter, formation par formation */
+.dl-list {
+  list-style: none;
+  margin: 6px 0 12px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+.dl-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 14px;
+  padding: 10px 14px;
+  background: var(--surface);
+}
+.dl-row + .dl-row { border-top: 1px solid var(--border); }
+.dl-name { display: flex; flex-direction: column; min-width: 0; flex: 1 1 200px; }
+.dl-name strong { font-size: 0.9rem; }
+.dl-sub { font-size: 0.75rem; color: var(--text-muted); }
+.dl-btns { display: flex; flex-wrap: wrap; gap: 6px; }
+.dl-btns .btn.is-done {
+  color: var(--success);
+  border-color: var(--success);
+  background: var(--success-light);
+  opacity: 1;
+}
+.dl-voices { margin-bottom: 12px; }
+.dl-help { margin-top: 4px; }
+.btn:disabled { opacity: 0.55; cursor: default; pointer-events: none; }
+.btn.is-armed { color: var(--danger); border-color: var(--danger); background: var(--danger-light); }
+
 /* ---------- Petits écrans ---------- */
 
 @media (max-width: 720px) {
@@ -1971,6 +2020,9 @@ tr.row-inscrite > td { background: var(--accent-light); }
   .podcast-line { grid-template-columns: 1fr; gap: 2px; }
   .podcast-script { max-height: 360px; }
   .tool-card { padding: 16px 16px 18px; }
+  .dl-row { padding: 10px 12px; }
+  .dl-btns { width: 100%; }
+  .dl-btns .btn { flex: 1 1 auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {

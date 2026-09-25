@@ -36,7 +36,6 @@ PAGE = """<!DOCTYPE html>
       <a href="../../../ressources-externes.html" class="nav-link">Ressources externes</a>
       <a href="../../../formations-espagne.html" class="nav-link">Formations Espagne</a>
       <a href="../../../parametres.html" class="nav-link">Paramètres</a>
-      <button class="theme-toggle" type="button">🌙 Mode sombre</button>
     </nav>
   </header>
 
